@@ -72,6 +72,7 @@ properties:
       - ovf
       - qcow2
       - vhd
+      - 'null'
   keepResults:
     type: integer
     format: int64
