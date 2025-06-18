@@ -1,22 +1,25 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  regionCode: 
-    type: string
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  status: 
+  description:
+    type:
+      - string
+      - 'null'
+  regionCode:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  status:
     type: string
   visibility:
     type: string
-  active: 
+  active:
     type: boolean

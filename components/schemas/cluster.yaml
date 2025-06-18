@@ -1,322 +1,352 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  uuid: 
+  uuid:
     type: string
-  name: 
+  name:
     type: string
-  code: 
+  code:
+    type:
+      - string
+      - 'null'
+  category:
+    type:
+      - string
+      - 'null'
+  visibility:
     type: string
-    nullable: true
-  category: 
-    type: string
-    nullable: true
-  visibility: 
-    type: string
-  description: 
-    type: string
-    nullable: true
-  location: 
-    type: string
-    nullable: true
-  enabled: 
+  description:
+    type:
+      - string
+      - 'null'
+  location:
+    type:
+      - string
+      - 'null'
+  enabled:
     type: boolean
-  serviceUrl: 
-    type: string
-    nullable: true
-  serviceHost: 
-    type: string
-    nullable: true
-  servicePath: 
-    type: string
-    nullable: true
-  serviceHostname: 
-    type: string
-    nullable: true
-  servicePort: 
+  serviceUrl:
+    type:
+      - string
+      - 'null'
+  serviceHost:
+    type:
+      - string
+      - 'null'
+  servicePath:
+    type:
+      - string
+      - 'null'
+  serviceHostname:
+    type:
+      - string
+      - 'null'
+  servicePort:
     type: integer
     format: int64
-  serviceUsername: 
-    type: string
-    nullable: true
-  servicePassword: 
-    type: string
-    nullable: true
-  servicePasswordHash: 
-    type: string
-    nullable: true
-  serviceToken: 
-    type: string
-    nullable: true
-  serviceTokenHash: 
-    type: string
-    nullable: true
-  serviceAccess: 
-    type: string
-    nullable: true
-  serviceAccessHash: 
-    type: string
-    nullable: true
-  serviceCert: 
-    type: string
-    nullable: true
-  serviceCertHash: 
-    type: string
-    nullable: true
-  serviceVersion: 
-    type: string
-    nullable: true
-  searchDomains: 
-    type: string
-    nullable: true
-  enableInternalDns: 
+  serviceUsername:
+    type:
+      - string
+      - 'null'
+  servicePassword:
+    type:
+      - string
+      - 'null'
+  servicePasswordHash:
+    type:
+      - string
+      - 'null'
+  serviceToken:
+    type:
+      - string
+      - 'null'
+  serviceTokenHash:
+    type:
+      - string
+      - 'null'
+  serviceAccess:
+    type:
+      - string
+      - 'null'
+  serviceAccessHash:
+    type:
+      - string
+      - 'null'
+  serviceCert:
+    type:
+      - string
+      - 'null'
+  serviceCertHash:
+    type:
+      - string
+      - 'null'
+  serviceVersion:
+    type:
+      - string
+      - 'null'
+  searchDomains:
+    type:
+      - string
+      - 'null'
+  enableInternalDns:
     type: boolean
-  internalId: 
+  internalId:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  datacenterId:
+    type:
+      - string
+      - 'null'
+  status:
     type: string
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  datacenterId: 
-    type: string
-    nullable: true
-  status: 
-    type: string
-  statusDate: 
-    type: string
+  statusDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  statusMessage: 
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  inventoryLevel:
     type: string
-    nullable: true
-  inventoryLevel: 
-    type: string
-  lastSync: 
-    type: string
+  lastSync:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  nextRunDate: 
-    type: string
+  nextRunDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastSyncDuration: 
-    type: integer
+  lastSyncDuration:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
   managed:
     type: boolean
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
   autoRecoverPowerState:
     type: boolean
     description: Automatically Power on VMs
     default: false
   useAgent:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Use the Agent to relay communications for the Kubernetes API instead of direct.
-    nullable: true
   provisionComplete:
     type: boolean
     description: Changes from false to true once provisioning is finished.
-  serviceEntry: 
-    type: string
-    nullable: true
-  createdBy: 
+  serviceEntry:
+    type:
+      - string
+      - 'null'
+  createdBy:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-  userGroup: 
-    type: string
-    nullable: true
-  layout: 
+  userGroup:
+    type:
+      - string
+      - 'null'
+  layout:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      provisionTypeCode: 
+      provisionTypeCode:
         type: string
-  owner: 
+  owner:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  servers: 
+  servers:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        typeSet: 
+        typeSet:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            code: 
+            code:
               type: string
-            name: 
+            name:
               type: string
-        computeServerType: 
+        computeServerType:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            code: 
+            code:
               type: string
-            nodeType: 
+            nodeType:
               type: string
-  accounts: 
+  accounts:
     type: array
-    items: 
+    items:
       type: object
-  integrations: 
+  integrations:
     type: array
-    items: 
+    items:
       type: object
-  site: 
+  site:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  type: 
+  type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  zone: 
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      zoneType: 
+      zoneType:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-  workerStats: 
+  workerStats:
     type: object
-    properties: 
-      usedStorage: 
+    properties:
+      usedStorage:
         type: integer
         format: int64
-      maxStorage: 
+      maxStorage:
         type: integer
         format: int64
-      usedMemory: 
+      usedMemory:
         type: integer
         format: int64
-      maxMemory: 
+      maxMemory:
         type: integer
         format: int64
-      usedCpu: 
+      usedCpu:
         type: integer
         format: int64
-      cpuUsage: 
+      cpuUsage:
         type: number
-      cpuUsagePeak: 
+      cpuUsagePeak:
         type: number
-      cpuUsageAvg: 
+      cpuUsageAvg:
         type: number
-  containersCount: 
+  containersCount:
     type: integer
     format: int64
-  deploymentsCount: 
+  deploymentsCount:
     type: integer
     format: int64
-  podsCount: 
+  podsCount:
     type: integer
     format: int64
-  jobsCount: 
+  jobsCount:
     type: integer
     format: int64
-  volumesCount: 
+  volumesCount:
     type: integer
     format: int64
-  namespacesCount: 
+  namespacesCount:
     type: integer
     format: int64
-  workersCount: 
+  workersCount:
     type: integer
     format: int64
-  servicesCount: 
+  servicesCount:
     type: integer
     format: int64
-  permissions: 
+  permissions:
     type: object
-    properties: 
-      resourcePool: 
+    properties:
+      resourcePool:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-          name: 
+          name:
             type: string
-          visibility: 
+          visibility:
             type: string
-      resourcePermissions: 
+      resourcePermissions:
         type: object
-        properties: 
-          defaultStore: 
+        properties:
+          defaultStore:
             type: boolean
-          allPlans: 
+          allPlans:
             type: boolean
-          defaultTarget: 
+          defaultTarget:
             type: boolean
-          canManage: 
+          canManage:
             type: boolean
-          all: 
+          all:
             type: boolean
-          account: 
+          account:
             type: object
-            properties: 
-              id: 
+            properties:
+              id:
                 type: integer
                 format: int64
-          sites: 
+          sites:
             type: array
-            items: 
+            items:
               type: object
-          plans: 
+          plans:
             type: array
-            items: 
+            items:
               type: object
-  config: 
+  config:
     type: object
-

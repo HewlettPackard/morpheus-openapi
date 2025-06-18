@@ -1,195 +1,217 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  uuid: 
+  uuid:
     type: string
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  instance: 
-    type: string
-    nullable: true
-  containerType: 
+  instance:
+    type:
+      - string
+      - 'null'
+  containerType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      category: 
+      category:
+        type:
+          - string
+          - 'null'
+      name:
         type: string
-        nullable: true
-      name: 
-        type: string
-  containerTypeSet: 
+  containerTypeSet:
     type: object
-    properties: 
-      id: 
-        type: string
-        nullable: true
-      code: 
-        type: string
-        nullable: true
-      category: 
-        type: string
-        nullable: true
-  server: 
+    properties:
+      id:
+        type:
+          - string
+          - 'null'
+      code:
+        type:
+          - string
+          - 'null'
+      category:
+        type:
+          - string
+          - 'null'
+  server:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  cloud: 
+  cloud:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  name: 
+  name:
     type: string
-  ip: 
+  ip:
     type: string
-  internalIp: 
+  internalIp:
     type: string
-  internalHostname: 
+  internalHostname:
     type: string
-  externalHostname: 
+  externalHostname:
     type: string
-  externalDomain: 
+  externalDomain:
     type: string
-  externalFqdn: 
+  externalFqdn:
     type: string
-  ports: 
+  ports:
     type: array
-    items: 
+    items:
       type: object
-  plan: 
+  plan:
     type: object
-    properties: 
-      id: 
-        type: string
-        nullable: true
-      code: 
-        type: string
-        nullable: true
-      name: 
-        type: string
-        nullable: true
-  dateCreated: 
+    properties:
+      id:
+        type:
+          - string
+          - 'null'
+      code:
+        type:
+          - string
+          - 'null'
+      name:
+        type:
+          - string
+          - 'null'
+  dateCreated:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  lastUpdated:
     type: string
     format: date-time
-    nullable: true
-  lastUpdated: 
-    type: string
-    format: date-time
-  statsEnabled: 
+  statsEnabled:
     type: boolean
-  status: 
+  status:
     type: string
-  userStatus: 
+  userStatus:
     type: string
-  environmentPrefix: 
-    type: string
-    nullable: true
-  configGroup: 
-    type: string
-    nullable: true
-  configId: 
-    type: string
-    nullable: true
-  configRole: 
-    type: string
-    nullable: true
-  stats: 
+  environmentPrefix:
+    type:
+      - string
+      - 'null'
+  configGroup:
+    type:
+      - string
+      - 'null'
+  configId:
+    type:
+      - string
+      - 'null'
+  configRole:
+    type:
+      - string
+      - 'null'
+  stats:
     type: object
-    properties: 
-      ts: 
+    properties:
+      ts:
         type: string
         format: date-time
-      running: 
+      running:
         type: boolean
-      userCpuUsage: 
+      userCpuUsage:
         type: number
-      systemCpuUsage: 
+      systemCpuUsage:
         type: number
-      usedMemory: 
+      usedMemory:
         type: integer
         format: int64
-      maxMemory: 
+      maxMemory:
         type: integer
         format: int64
-      cacheMemory: 
+      cacheMemory:
         type: integer
         format: int64
-      maxStorage: 
+      maxStorage:
         type: integer
         format: int64
-      usedStorage: 
+      usedStorage:
         type: integer
         format: int64
-      readIOPS: 
+      readIOPS:
         type: integer
         format: int64
-      writeIOPS: 
+      writeIOPS:
         type: integer
         format: int64
-      totalIOPS: 
+      totalIOPS:
         type: integer
         format: int64
-      netTxUsage: 
+      netTxUsage:
         type: integer
         format: int64
-      netRxUsage: 
+      netRxUsage:
         type: integer
         format: int64
-  runtimeInfo: 
+  runtimeInfo:
     type: object
-  containerVersion: 
-    type: string
-    nullable: true
-  repositoryImage: 
-    type: string
-    nullable: true
-  planCategory: 
-    type: string
-    nullable: true
-  hostname: 
-    type: string
-    nullable: true
-  domainName: 
-    type: string
-    nullable: true
-  volumeCreated: 
+  containerVersion:
+    type:
+      - string
+      - 'null'
+  repositoryImage:
+    type:
+      - string
+      - 'null'
+  planCategory:
+    type:
+      - string
+      - 'null'
+  hostname:
+    type:
+      - string
+      - 'null'
+  domainName:
+    type:
+      - string
+      - 'null'
+  volumeCreated:
     type: boolean
-  containerCreated: 
+  containerCreated:
     type: boolean
-  maxStorage: 
-    type: string
-    nullable: true
-  maxMemory: 
-    type: string
-    nullable: true
-  maxCores: 
-    type: string
-    nullable: true
-  maxCpu: 
-    type: string
-    nullable: true
+  maxStorage:
+    type:
+      - string
+      - 'null'
+  maxMemory:
+    type:
+      - string
+      - 'null'
+  maxCores:
+    type:
+      - string
+      - 'null'
+  maxCpu:
+    type:
+      - string
+      - 'null'
   hourlyPrice:
     type: number
-  availableActions: 
+  availableActions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
+      properties:
         code:
           type: string
-        name: 
+        name:
           type: string

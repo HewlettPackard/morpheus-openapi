@@ -1,39 +1,40 @@
 type: object
-required: 
+required:
   - name
   - type
   - helm
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: A name for the blueprint
-  image: 
+  image:
     type: string
     description: Path to display image. Defaults to an internal Morpheus image.
-  type: 
+  type:
     type: string
     description: Blueprint Type
     enum:
       - helm
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  helm: 
+  helm:
     type: object
     required:
       - configType
-    properties: 
-      configType: 
+    properties:
+      configType:
         type: string
         description: Configuration Type
-        enum: 
+        enum:
           - git
       git:
         type: object
-        required: 
+        required:
           - repoId
           - path
           - integrationId

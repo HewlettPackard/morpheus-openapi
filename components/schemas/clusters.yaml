@@ -1,235 +1,254 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
+  code:
+    type:
+      - string
+      - 'null'
+  category:
+    type:
+      - string
+      - 'null'
+  visibility:
     type: string
-    nullable: true
-  category: 
-    type: string
-    nullable: true
-  visibility: 
-    type: string
-  description: 
-    type: string
-    nullable: true
-  location: 
-    type: string
-    nullable: true
-  enabled: 
+  description:
+    type:
+      - string
+      - 'null'
+  location:
+    type:
+      - string
+      - 'null'
+  enabled:
     type: boolean
-  serviceUrl: 
-    type: string
-    nullable: true
-  serviceHost: 
-    type: string
-    nullable: true
-  servicePath: 
-    type: string
-    nullable: true
-  serviceHostname: 
-    type: string
-    nullable: true
-  servicePort: 
+  serviceUrl:
+    type:
+      - string
+      - 'null'
+  serviceHost:
+    type:
+      - string
+      - 'null'
+  servicePath:
+    type:
+      - string
+      - 'null'
+  serviceHostname:
+    type:
+      - string
+      - 'null'
+  servicePort:
     type: integer
     format: int64
-  serviceUsername: 
+  serviceUsername:
+    type:
+      - string
+      - 'null'
+  servicePassword:
+    type:
+      - string
+      - 'null'
+  servicePasswordHash:
+    type:
+      - string
+      - 'null'
+  serviceToken:
     type: string
-    nullable: true
-  servicePassword: 
+  serviceTokenHash:
     type: string
-    nullable: true
-  servicePasswordHash: 
+  serviceAccess:
     type: string
-    nullable: true
-  serviceToken: 
+  serviceAccessHash:
     type: string
-  serviceTokenHash: 
+  serviceCert:
+    type:
+      - string
+      - 'null'
+  serviceCertHash:
+    type:
+      - string
+      - 'null'
+  serviceVersion:
     type: string
-  serviceAccess: 
-    type: string
-  serviceAccessHash: 
-    type: string
-  serviceCert: 
-    type: string
-    nullable: true
-  serviceCertHash: 
-    type: string
-    nullable: true
-  serviceVersion: 
-    type: string
-  searchDomains: 
-    type: string
-    nullable: true
-  enableInternalDns: 
+  searchDomains:
+    type:
+      - string
+      - 'null'
+  enableInternalDns:
     type: boolean
-  internalId: 
+  internalId:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  datacenterId:
+    type:
+      - string
+      - 'null'
+  status:
     type: string
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  datacenterId: 
-    type: string
-    nullable: true
-  status: 
-    type: string
-  statusDate: 
-    type: string
-    format: date-time
-  statusMessage: 
-    type: string
-  inventoryLevel: 
-    type: string
-  lastSync: 
+  statusDate:
     type: string
     format: date-time
-  nextRunDate: 
+  statusMessage:
+    type: string
+  inventoryLevel:
+    type: string
+  lastSync:
     type: string
     format: date-time
-  lastSyncDuration: 
+  nextRunDate:
+    type: string
+    format: date-time
+  lastSyncDuration:
     type: integer
     format: int64
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
   managed:
     type: boolean
   labels:
     type: array
-    items: 
+    items:
       type: string
   autoRecoverPowerState:
     type: boolean
-  serviceEntry: 
-    type: string
-    nullable: true
-  createdBy: 
+  serviceEntry:
+    type:
+      - string
+      - 'null'
+  createdBy:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-  userGroup: 
-    type: string
-    nullable: true
-  layout: 
+  userGroup:
+    type:
+      - string
+      - 'null'
+  layout:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      provisionTypeCode: 
+      provisionTypeCode:
         type: string
-  owner: 
+  owner:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  servers: 
-    type: array
-    items: 
-      type: object
-      properties: 
-        id: 
-          type: integer
-          format: int64
-        name: 
-          type: string
-        typeSet: 
-          type: object
-          properties: 
-            id: 
-              type: integer
-              format: int64
-            code: 
-              type: string
-            name: 
-              type: string
-        computeServerType: 
-          type: object
-          properties: 
-            id: 
-              type: integer
-              format: int64
-            code: 
-              type: string
-            nodeType: 
-              type: string
-  accounts: 
+  servers:
     type: array
     items:
       type: object
-  integrations: 
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        typeSet:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+            name:
+              type: string
+        computeServerType:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+            nodeType:
+              type: string
+  accounts:
     type: array
-    items: 
+    items:
       type: object
-  site: 
+  integrations:
+    type: array
+    items:
+      type: object
+  site:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  type: 
+  type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  zone: 
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      zoneType: 
+      zoneType:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-  workerStats: 
+  workerStats:
     type: object
-    properties: 
-      usedStorage: 
+    properties:
+      usedStorage:
         type: integer
         format: int64
-      maxStorage: 
+      maxStorage:
         type: integer
         format: int64
-      usedMemory: 
+      usedMemory:
         type: integer
         format: int64
-      maxMemory: 
+      maxMemory:
         type: integer
         format: int64
-      usedCpu: 
+      usedCpu:
         type: integer
         format: int64
-      cpuUsage: 
+      cpuUsage:
         type: number
-      cpuUsagePeak: 
+      cpuUsagePeak:
         type: number
-      cpuUsageAvg: 
+      cpuUsageAvg:
         type: number
-  config: 
+  config:
     type: object

@@ -8,10 +8,11 @@ properties:
     description: Unique name scoped to your account for the check
     example: My Check
   description:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Optional description field
     example: This is my awesome check
-    nullable: true
   checkType:
     type: object
     description: Check type you want to create
@@ -53,7 +54,7 @@ properties:
       dbHost:
         type: string
         description: Hostname or IP address of the PostgreSQL database
-        example: "db.example.org"
+        example: db.example.org
       dbPort:
         type: number
         description: PostgreSQL Port (defaults to 5432)
@@ -89,8 +90,8 @@ properties:
         description: Turn `on` to enable checks through a proxy host
         default: "off"
     oneOf:
-    - $ref: checkSsh.yaml
+      - $ref: checkSsh.yaml
     discriminator:
       propertyName: tunnelOn
       mapping:
-        off: checkSsh.yaml
+        "off": checkSsh.yaml

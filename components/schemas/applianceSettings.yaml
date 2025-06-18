@@ -1,95 +1,116 @@
 type: object
-properties: 
-  uuid: 
+properties:
+  uuid:
     type: string
-  applianceId: 
+  applianceId:
     type: string
-  applianceUrl: 
+  applianceUrl:
     type: string
-  internalApplianceUrl: 
+  internalApplianceUrl:
     type: string
-  corsAllowed: 
+  corsAllowed:
     type: string
-  registrationEnabled: 
+  registrationEnabled:
     type: boolean
-  defaultRoleId: 
+  defaultRoleId:
     type: string
-  defaultUserRoleId: 
-    type: string
-    nullable: true
-  dockerPrivilegedMode: 
+  defaultUserRoleId:
+    type:
+      - string
+      - 'null'
+  dockerPrivilegedMode:
     type: boolean
-  expirePwdDays: 
-    type: string
-    nullable: true
-  disableAfterAttempts: 
-    type: string
-    nullable: true
-  disableAfterDaysInactive: 
-    type: string
-    nullable: true
-  warnUserDaysBefore: 
-    type: string
-    nullable: true
-  smtpMailFrom: 
-    type: string
-    nullable: true
-  smtpServer: 
-    type: string
-    nullable: true
-  smtpPort: 
-    type: string
-    nullable: true
-  smtpSSL: 
+  expirePwdDays:
+    type:
+      - string
+      - 'null'
+  disableAfterAttempts:
+    type:
+      - string
+      - 'null'
+  disableAfterDaysInactive:
+    type:
+      - string
+      - 'null'
+  warnUserDaysBefore:
+    type:
+      - string
+      - 'null'
+  smtpMailFrom:
+    type:
+      - string
+      - 'null'
+  smtpServer:
+    type:
+      - string
+      - 'null'
+  smtpPort:
+    type:
+      - string
+      - 'null'
+  smtpSSL:
     type: boolean
-  smtpTLS: 
+  smtpTLS:
     type: boolean
-  smtpUser: 
-    type: string
-    nullable: true
-  smtpPassword: 
-    type: string
-    nullable: true
-  smtpPasswordHash: 
-    type: string
-    nullable: true
-  proxyHost: 
-    type: string
-    nullable: true
-  proxyPort: 
-    type: string
-    nullable: true
-  proxyUser: 
-    type: string
-    nullable: true
-  proxyPassword: 
-    type: string
-    nullable: true
-  proxyPasswordHash: 
-    type: string
-    nullable: true
-  proxyDomain: 
-    type: string
-    nullable: true
-  proxyWorkstation: 
-    type: string
-    nullable: true
-  currencyProvider: 
-    type: string
-    nullable: true
-  currencyKey: 
-    type: string
-    nullable: true
-  enabledZoneTypes: 
-    type: array
-    nullable: true
-    items: 
+  smtpUser:
+    type:
+      - string
+      - 'null'
+  smtpPassword:
+    type:
+      - string
+      - 'null'
+  smtpPasswordHash:
+    type:
+      - string
+      - 'null'
+  proxyHost:
+    type:
+      - string
+      - 'null'
+  proxyPort:
+    type:
+      - string
+      - 'null'
+  proxyUser:
+    type:
+      - string
+      - 'null'
+  proxyPassword:
+    type:
+      - string
+      - 'null'
+  proxyPasswordHash:
+    type:
+      - string
+      - 'null'
+  proxyDomain:
+    type:
+      - string
+      - 'null'
+  proxyWorkstation:
+    type:
+      - string
+      - 'null'
+  currencyProvider:
+    type:
+      - string
+      - 'null'
+  currencyKey:
+    type:
+      - string
+      - 'null'
+  enabledZoneTypes:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
   statsRetainmentPeriod:
     type: integer

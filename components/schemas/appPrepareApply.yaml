@@ -1,34 +1,35 @@
 type: object
 properties:
-  data: 
+  data:
     type: object
-    properties: 
-      image: 
+    properties:
+      image:
         type: string
-      name: 
+      name:
         type: string
       autoValidate:
         type: boolean
-      terraform: 
+      terraform:
         type: object
-        properties: 
-          refreshMode: 
+        properties:
+          refreshMode:
             type: string
-          backendType: 
+          backendType:
             type: string
           timeoutMode:
             type: string
-          configType: 
+          configType:
             type: string
-      type: 
+      type:
         type: string
       config:
         type: object
       blueprintName:
         type: string
       description:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       templateId:
         type: integer
         format: int64
@@ -37,8 +38,8 @@ properties:
         format: int64
       group:
         type: object
-        properties: 
-          name: 
+        properties:
+          name:
             type: string
           id:
             type: integer

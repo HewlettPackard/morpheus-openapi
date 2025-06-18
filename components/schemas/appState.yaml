@@ -1,98 +1,101 @@
 type: object
 properties:
-  workloads: 
-    type: array
-    items: 
-      type: object
-      properties: 
-        refType: 
-          type: string
-        refId: 
-          type: integer
-          format: int64
-        refName: 
-          type: string
-        subRefName: 
-          type: string
-          nullable: true
-        stateDate: 
-          type: string
-          format: date-time
-        status: 
-          type: string
-        iacDrift: 
-          type: boolean
-  iacDrift: 
-    type: boolean
-  planResources: 
+  workloads:
     type: array
     items:
       type: object
-  specs: 
-    type: array
-    items: 
-      type: object
-      properties: 
-        id: 
+      properties:
+        refType:
+          type: string
+        refId:
           type: integer
           format: int64
-        name: 
+        refName:
           type: string
-        template: 
+        subRefName:
+          type:
+            - string
+            - 'null'
+        stateDate:
+          type: string
+          format: date-time
+        status:
+          type: string
+        iacDrift:
+          type: boolean
+  iacDrift:
+    type: boolean
+  planResources:
+    type: array
+    items:
+      type: object
+  specs:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        template:
           type: object
           properties:
             name:
               type: string
             type:
               type: string
-        isolated: 
+        isolated:
           type: boolean
-  stateData: 
+  stateData:
     type: string
-  planData: 
+  planData:
     type: string
-  input: 
+  input:
     type: object
-    properties: 
-      variables: 
+    properties:
+      variables:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            name: 
+          properties:
+            name:
               type: string
-            value: 
-              type: string
-              nullable: true
-            sensitive: 
+            value:
+              type:
+                - string
+                - 'null'
+            sensitive:
               type: boolean
-            type: 
+            type:
               type: string
-      providers: 
+      providers:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            name: 
+          properties:
+            name:
               type: string
-      data: 
+      data:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            key: 
+          properties:
+            key:
               type: string
-            name: 
+            name:
               oneOf:
                 - type: string
-                - type: object
-                  nullable: true
-            type: 
+                - type:
+                    - object
+                    - 'null'
+            type:
               type: string
-  output: 
+  output:
     type: object
-    properties: 
-      outputs: 
+    properties:
+      outputs:
         type: array
         items:
           type: object

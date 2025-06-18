@@ -1,102 +1,113 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  processId: 
+  processId:
     type: integer
     format: int64
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  uniqueId: 
+  uniqueId:
     type: string
-  processType: 
+  processType:
     type: object
-    properties: 
-      code: 
+    properties:
+      code:
         type: string
-      name: 
+      name:
         type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  refType:
     type: string
-    nullable: true
-  refType: 
-    type: string
-  refId: 
+  refId:
     type: integer
     format: int64
-  subType: 
-    type: string
-    nullable: true
-  subId: 
-    type: string
-    nullable: true
-  zoneId: 
-    type: string
-    nullable: true
-  integrationId: 
-    type: string
-    nullable: true
-  instanceId: 
-    type: string
-    nullable: true
-  containerId: 
-    type: string
-    nullable: true
-  serverId: 
+  subType:
+    type:
+      - string
+      - 'null'
+  subId:
+    type:
+      - string
+      - 'null'
+  zoneId:
+    type:
+      - string
+      - 'null'
+  integrationId:
+    type:
+      - string
+      - 'null'
+  instanceId:
+    type:
+      - string
+      - 'null'
+  containerId:
+    type:
+      - string
+      - 'null'
+  serverId:
     type: integer
     format: int64
-  containerName: 
+  containerName:
+    type:
+      - string
+      - 'null'
+  displayName:
     type: string
-    nullable: true
-  displayName: 
+  status:
     type: string
-  status: 
-    type: string
-  reason: 
-    type: string
-    nullable: true
-  percent: 
+  reason:
+    type:
+      - string
+      - 'null'
+  percent:
     type: integer
     format: int64
-  statusEta: 
+  statusEta:
     type: integer
     format: int64
-  message: 
+  message:
     type: string
-  output: 
-    type: string
-    nullable: true
-  error: 
-    type: string
-    nullable: true
-  startDate: 
+  output:
+    type:
+      - string
+      - 'null'
+  error:
+    type:
+      - string
+      - 'null'
+  startDate:
     type: string
     format: date-time
-  endDate: 
+  endDate:
     type: string
     format: date-time
-  duration: 
+  duration:
     type: integer
     format: int64
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  createdBy: 
+  createdBy:
     type: object
-    properties: 
-      username: 
+    properties:
+      username:
         type: string
-      displayName: 
+      displayName:
         type: string
-  updatedBy: 
+  updatedBy:
     type: object
-    properties: 
-      username: 
+    properties:
+      username:
         type: string
-      displayName: 
+      displayName:
         type: string

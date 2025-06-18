@@ -1,23 +1,24 @@
 type: object
-required: 
+required:
   - name
   - type
   - tiers
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: A name for the blueprint
-  type: 
+  type:
     type: string
     description: Blueprint Type
     enum:
       - morpheus
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
   tiers:
     type: object
-    description: Tier definitions - Create in UI to view a baseline for object
+    description: "Tier definitions - Create in UI to view a baseline for object"

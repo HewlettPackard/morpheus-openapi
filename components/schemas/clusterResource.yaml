@@ -1,22 +1,25 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
   title:
     type: string
-  name: 
+  name:
     type: string
-  status: 
+  status:
     type: string
-  metadata: 
+  metadata:
     type: object
   spec:
-    type: object
-    nullable: true
-  config: 
-    type: object
-    nullable: true
-  rawSec: 
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
+  config:
+    type:
+      - object
+      - 'null'
+  rawSec:
+    type:
+      - object
+      - 'null'

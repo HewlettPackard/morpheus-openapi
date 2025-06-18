@@ -1,379 +1,419 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  uuid: 
+  uuid:
     type: string
-  externalId: 
+  externalId:
     type: string
-  internalId: 
+  internalId:
+    type:
+      - string
+      - 'null'
+  externalUniqueId:
+    type:
+      - string
+      - 'null'
+  name:
     type: string
-    nullable: true
-  externalUniqueId: 
+  externalName:
     type: string
-    nullable: true
-  name: 
+  hostname:
     type: string
-  externalName: 
-    type: string
-  hostname: 
-    type: string
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  owner: 
+  owner:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-  zone: 
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  plan: 
+  plan:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  computeServerType: 
+  computeServerType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-      managed: 
+      managed:
         type: boolean
-      externalDelete: 
+      externalDelete:
         type: boolean
-  visibility: 
+  visibility:
     type: string
-  description: 
+  description:
     type: string
-  zoneId: 
+  zoneId:
     type: integer
     format: int64
-  siteId: 
+  siteId:
     type: integer
     format: int64
-  resourcePoolId: 
+  resourcePoolId:
     type: integer
     format: int64
-  folderId: 
+  folderId:
+    type:
+      - string
+      - 'null'
+  sshHost:
     type: string
-    nullable: true
-  sshHost: 
-    type: string
-  sshPort: 
+  sshPort:
     type: integer
     format: int64
-  externalIp: 
+  externalIp:
     type: string
-  internalIp: 
+  internalIp:
     type: string
-  volumeId: 
+  volumeId:
+    type:
+      - string
+      - 'null'
+  platform:
     type: string
-    nullable: true
-  platform: 
+  platformVersion:
     type: string
-  platformVersion: 
+  sshUsername:
     type: string
-  sshUsername: 
+  sshPassword:
     type: string
-  sshPassword: 
+  sshPasswordHash:
     type: string
-  sshPasswordHash: 
+  osDevice:
     type: string
-  osDevice: 
+  osType:
     type: string
-  osType: 
+  dataDevice:
     type: string
-  dataDevice: 
-    type: string
-  lvmEnabled: 
+  lvmEnabled:
     type: boolean
-  apiKey: 
+  apiKey:
     type: string
-  softwareRaid: 
+  softwareRaid:
     type: boolean
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  stats: 
+  stats:
     type: object
-    properties: 
-      usedStorage: 
+    properties:
+      usedStorage:
         type: integer
         format: int64
-      reservedStorage: 
+      reservedStorage:
         type: integer
         format: int64
-      maxStorage: 
+      maxStorage:
         type: integer
         format: int64
-      usedMemory: 
+      usedMemory:
         type: integer
         format: int64
-      reservedMemory: 
+      reservedMemory:
         type: integer
         format: int64
-      maxMemory: 
+      maxMemory:
         type: integer
         format: int64
-      cpuUsage: 
+      cpuUsage:
         type: number
-  status: 
+  status:
     type: string
-  statusMessage: 
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  errorMessage:
+    type:
+      - string
+      - 'null'
+  statusDate:
+    type:
+      - string
+      - 'null'
+  statusPercent:
+    type:
+      - string
+      - 'null'
+  statusEta:
+    type:
+      - string
+      - 'null'
+  powerState:
     type: string
-    nullable: true
-  errorMessage: 
-    type: string
-    nullable: true
-  statusDate: 
-    type: string
-    nullable: true
-  statusPercent: 
-    type: string
-    nullable: true
-  statusEta: 
-    type: string
-    nullable: true
-  powerState: 
-    type: string
-  agentInstalled: 
+  agentInstalled:
     type: boolean
-  lastAgentUpdate: 
+  lastAgentUpdate:
     type: string
     format: date-time
-  agentVersion: 
+  agentVersion:
     type: string
-  maxCores: 
+  maxCores:
     type: integer
     format: int64
-  coresPerSocket: 
-    type: string
-    nullable: true
-  maxMemory: 
+  coresPerSocket:
+    type:
+      - string
+      - 'null'
+  maxMemory:
     type: integer
     format: int64
-  maxStorage: 
+  maxStorage:
     type: integer
     format: int64
-  maxCpu: 
+  maxCpu:
     type: integer
     format: int64
-  hourlyPrice: 
+  hourlyPrice:
     type: number
-  sourceImage: 
+  sourceImage:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  serverOs: 
-    type: string
-    nullable: true
-  volumes: 
+  serverOs:
+    type:
+      - string
+      - 'null'
+  volumes:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        controllerId: 
-          type: string
-          nullable: true
-        controllerMountPoint: 
-          type: string
-          nullable: true
-        resizeable: 
+        controllerId:
+          type:
+            - string
+            - 'null'
+        controllerMountPoint:
+          type:
+            - string
+            - 'null'
+        resizeable:
           type: boolean
-        planResizable: 
+        planResizable:
           type: boolean
-        rootVolume: 
+        rootVolume:
           type: boolean
-        unitNumber: 
-          type: string
-          nullable: true
-        typeId: 
+        unitNumber:
+          type:
+            - string
+            - 'null'
+        typeId:
           type: integer
           format: int64
-        configurableIOPS: 
+        configurableIOPS:
           type: boolean
-        datastoreId: 
-          type: string
-          nullable: true
-        maxStorage: 
+        datastoreId:
+          type:
+            - string
+            - 'null'
+        maxStorage:
           type: integer
           format: int64
-        displayOrder: 
+        displayOrder:
           type: integer
           format: int64
-        maxIOPS: 
+        maxIOPS:
+          type:
+            - string
+            - 'null'
+        uuid:
           type: string
-          nullable: true
-        uuid: 
-          type: string
-  controllers: 
+  controllers:
     type: array
-    items: 
+    items:
       type: object
-  interfaces: 
+  interfaces:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        refType: 
+        refType:
+          type:
+            - string
+            - 'null'
+        refId:
+          type:
+            - string
+            - 'null'
+        name:
           type: string
-          nullable: true
-        refId: 
+        internalId:
+          type:
+            - string
+            - 'null'
+        externalId:
+          type:
+            - string
+            - 'null'
+        uniqueId:
+          type:
+            - string
+            - 'null'
+        publicIpAddress:
           type: string
-          nullable: true
-        name: 
+        publicIpv6Address:
+          type:
+            - string
+            - 'null'
+        ipAddress:
           type: string
-        internalId: 
-          type: string
-          nullable: true
-        externalId: 
-          type: string
-          nullable: true
-        uniqueId: 
-          type: string
-          nullable: true
-        publicIpAddress: 
-          type: string
-        publicIpv6Address: 
-          type: string
-          nullable: true
-        ipAddress: 
-          type: string
-        ipv6Address: 
-          type: string
-          nullable: true
-        ipSubnet: 
-          type: string
-          nullable: true
-        ipv6Subnet: 
-          type: string
-          nullable: true
-        description: 
-          type: string
-          nullable: true
-        dhcp: 
+        ipv6Address:
+          type:
+            - string
+            - 'null'
+        ipSubnet:
+          type:
+            - string
+            - 'null'
+        ipv6Subnet:
+          type:
+            - string
+            - 'null'
+        description:
+          type:
+            - string
+            - 'null'
+        dhcp:
           type: boolean
-        active: 
+        active:
           type: boolean
-        poolAssigned: 
+        poolAssigned:
           type: boolean
-        primaryInterface: 
+        primaryInterface:
           type: boolean
-        network: 
+        network:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            name: 
+            name:
               type: string
-        subnet: 
-          type: string
-          nullable: true
-        networkGroup: 
-          type: string
-          nullable: true
-        networkPosition: 
-          type: string
-          nullable: true
-        networkPool: 
-          type: string
-          nullable: true
-        networkDomain: 
-          type: string
-          nullable: true
-        type: 
-          type: string
-          nullable: true
-        ipMode: 
-          type: string
-          nullable: true
-        macAddress: 
-          type: string
-          nullable: true
-  labels: 
+        subnet:
+          type:
+            - string
+            - 'null'
+        networkGroup:
+          type:
+            - string
+            - 'null'
+        networkPosition:
+          type:
+            - string
+            - 'null'
+        networkPool:
+          type:
+            - string
+            - 'null'
+        networkDomain:
+          type:
+            - string
+            - 'null'
+        type:
+          type:
+            - string
+            - 'null'
+        ipMode:
+          type:
+            - string
+            - 'null'
+        macAddress:
+          type:
+            - string
+            - 'null'
+  labels:
     type: array
-    items: 
+    items:
       type: string
-  tags: 
+  tags:
     type: array
-    items: 
+    items:
       type: object
       properties:
         name:
           type: string
         value:
           type: string
-  enabled: 
+  enabled:
     type: boolean
-  tagCompliant: 
-    type: string
-    nullable: true
-  containers: 
+  tagCompliant:
+    type:
+      - string
+      - 'null'
+  containers:
     type: array
-    items: 
+    items:
       type: integer
       format: int64
-  guestConsolePreferred: 
+  guestConsolePreferred:
     type: boolean
-  guestConsoleType: 
-    type: string
-    nullable: true
-  guestConsoleUsername: 
-    type: string
-    nullable: true
-  guestConsolePassword: 
-    type: string
-    nullable: true
-  guestConsolePasswordHash: 
-    type: string
-    nullable: true
-  guestConsolePort: 
-    type: string
-    nullable: true
+  guestConsoleType:
+    type:
+      - string
+      - 'null'
+  guestConsoleUsername:
+    type:
+      - string
+      - 'null'
+  guestConsolePassword:
+    type:
+      - string
+      - 'null'
+  guestConsolePasswordHash:
+    type:
+      - string
+      - 'null'
+  guestConsolePort:
+    type:
+      - string
+      - 'null'

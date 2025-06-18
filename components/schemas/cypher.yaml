@@ -2,23 +2,25 @@ type: object
 properties:
   id:
     type: integer
-  itemKey: 
+  itemKey:
     type: string
-  leaseTimeout: 
+  leaseTimeout:
     type: integer
     format: int64
-  expireDate: 
+  expireDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  dateCreated:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  lastUpdated:
     type: string
     format: date-time
-    nullable: true
-  dateCreated: 
-    type: string
-    format: date-time
-    nullable: true
-  lastUpdated: 
-    type: string
-    format: date-time
-  lastAccessed: 
+  lastAccessed:
     type: string
     format: date-time
   createdBy:

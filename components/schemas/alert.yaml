@@ -1,57 +1,60 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  allApps: 
+  allApps:
     type: boolean
-  allChecks: 
+  allChecks:
     type: boolean
-  allGroups: 
+  allGroups:
     type: boolean
-  active: 
+  active:
     type: boolean
-  minSeverity: 
+  minSeverity:
     type: string
-  minDuration: 
+  minDuration:
     type: integer
     format: int64
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  checks: 
-    type: array
-    nullable: true
-    items: 
+  checks:
+    type:
+      - array
+      - 'null'
+    items:
       type: integer
-  checkGroups: 
-    type: array
-    nullable: true
-    items: 
+  checkGroups:
+    type:
+      - array
+      - 'null'
+    items:
       type: integer
-  apps: 
-    type: array
-    nullable: true
-    items: 
+  apps:
+    type:
+      - array
+      - 'null'
+    items:
       type: integer
-  contacts: 
+  contacts:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        method: 
+        method:
           type: string
-        notify: 
+        notify:
           type: boolean
-        close: 
+        close:
           type: boolean

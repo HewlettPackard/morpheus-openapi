@@ -1,40 +1,51 @@
 type: object
 properties:
-  serviceUrl: 
-    type: string
-    nullable: true
-  serviceHost: 
-    type: string
-    nullable: true
-  servicePath: 
-    type: string
-    nullable: true
-  serviceHostname: 
-    type: string
-    nullable: true
-  servicePort: 
+  serviceUrl:
+    type:
+      - string
+      - 'null'
+  serviceHost:
+    type:
+      - string
+      - 'null'
+  servicePath:
+    type:
+      - string
+      - 'null'
+  serviceHostname:
+    type:
+      - string
+      - 'null'
+  servicePort:
     type: integer
     format: int64
-  serviceUsername: 
-    type: string
-    nullable: true
-  servicePassword: 
-    type: string
-    nullable: true
-  servicePasswordHash: 
-    type: string
-    nullable: true
-  serviceToken: 
-    type: string
+  serviceUsername:
+    type:
+      - string
+      - 'null'
+  servicePassword:
+    type:
+      - string
+      - 'null'
+  servicePasswordHash:
+    type:
+      - string
+      - 'null'
+  serviceToken:
+    type:
+      - string
+      - 'null'
     description: API Token
-    nullable: true
-  serviceAccess: 
-    type: string
+  serviceAccess:
+    type:
+      - string
+      - 'null'
     description: Kube Config
-    nullable: true
-  serviceCert: 
-    type: string
-    nullable: true
-  serviceVersion: 
-    type: string
-    nullable: true
+  serviceCert:
+    type:
+      - string
+      - 'null'
+  serviceVersion:
+    type:
+      - string
+      - 'null'

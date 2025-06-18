@@ -1,291 +1,311 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  internalId: 
+  internalId:
     type: string
-  serverCount: 
+  serverCount:
     type: integer
     format: int64
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  code: 
+  code:
     type: string
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  hasAutoScale: 
+  hasAutoScale:
     type: boolean
-  memoryRequirement: 
+  memoryRequirement:
     type: integer
     format: int64
-  clusterVersion: 
+  clusterVersion:
     type: string
-  computeVersion: 
+  computeVersion:
     type: string
-  hasSettings: 
+  hasSettings:
     type: boolean
-  sortOrder: 
+  sortOrder:
     type: integer
     format: int64
-  hasConfig: 
+  hasConfig:
     type: boolean
-  name: 
+  name:
     type: string
-  creatable: 
+  creatable:
     type: boolean
-  enabled: 
+  enabled:
     type: boolean
-  description: 
+  description:
     type: string
-  groupType: 
+  groupType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
   labels:
     type: array
-    items: 
+    items:
       type: string
-  environmentVariables: 
+  environmentVariables:
     type: array
-    items: 
+    items:
       type: object
-  optionTypes: 
+  optionTypes:
     type: array
-    items: 
+    items:
       $ref: optionType.yaml
-  actions: 
+  actions:
     type: array
-    items: 
+    items:
       type: object
-  computeServers: 
+  computeServers:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        priorityOrder: 
+        priorityOrder:
           type: integer
           format: int64
-        nodeCount: 
+        nodeCount:
           type: integer
           format: int64
-        nodeType: 
+        nodeType:
           type: string
-        minNodeCount: 
+        minNodeCount:
           type: integer
           format: int64
-        maxNodeCount: 
-          type: string
-          nullable: true
-        dynamicCount: 
+        maxNodeCount:
+          type:
+            - string
+            - 'null'
+        dynamicCount:
           type: boolean
-        installContainerRuntime: 
+        installContainerRuntime:
           type: boolean
-        installStorageRuntime: 
+        installStorageRuntime:
           type: boolean
-        name: 
+        name:
           type: string
-        code: 
+        code:
           type: string
-        category: 
+        category:
           type: string
-        config: 
-          type: string
-          nullable: true
-        containerType: 
+        config:
+          type:
+            - string
+            - 'null'
+        containerType:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            account: 
-              type: string
-              nullable: true
-            name: 
+            account:
+              type:
+                - string
+                - 'null'
+            name:
               type: string
             labels:
-              type: array
-              nullable: true
+              type:
+                - array
+                - 'null'
               items:
                 type: string
-            shortName: 
+            shortName:
               type: string
-            code: 
+            code:
               type: string
-            containerVersion: 
+            containerVersion:
               type: string
-            provisionType: 
+            provisionType:
               type: object
-              properties: 
-                id: 
+              properties:
+                id:
                   type: integer
                   format: int64
-                name: 
+                name:
                   type: string
-                code: 
+                code:
                   type: string
-            virtualImage: 
+            virtualImage:
+              type:
+                - string
+                - 'null'
+            category:
               type: string
-              nullable: true
-            category: 
-              type: string
-            config: 
+            config:
               type: object
-            containerPorts: 
+            containerPorts:
               type: array
-              items: 
+              items:
                 type: object
-            containerScripts: 
+            containerScripts:
               type: array
-              items: 
+              items:
                 type: object
-            containerTemplates: 
+            containerTemplates:
               type: array
-              items: 
+              items:
                 type: object
-            environmentVariables: 
+            environmentVariables:
               type: array
-              items: 
+              items:
                 type: object
-        computeServerType: 
+        computeServerType:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            code: 
+            code:
               type: string
-            name: 
+            name:
               type: string
-            managed: 
+            managed:
               type: boolean
-            externalDelete: 
+            externalDelete:
               type: boolean
-        provisionService: 
-          type: string
-          nullable: true
-        planCategory: 
-          type: string
-          nullable: true
-        namePrefix: 
-          type: string
-          nullable: true
-        nameSuffix: 
-          type: string
-          nullable: true
-        forceNameIndex: 
+        provisionService:
+          type:
+            - string
+            - 'null'
+        planCategory:
+          type:
+            - string
+            - 'null'
+        namePrefix:
+          type:
+            - string
+            - 'null'
+        nameSuffix:
+          type:
+            - string
+            - 'null'
+        forceNameIndex:
           type: boolean
-        loadBalance: 
+        loadBalance:
           type: boolean
-  installContainerRuntime: 
+  installContainerRuntime:
     type: boolean
-  provisionType: 
+  provisionType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      code: 
+      code:
         type: string
-  specTemplates: 
+  specTemplates:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        account: 
-          type: string
-          nullable: true
-        name: 
+        account:
+          type:
+            - string
+            - 'null'
+        name:
           type: string
         labels:
-          type: array
-          nullable: true
+          type:
+            - array
+            - 'null'
           items:
             type: string
-        code: 
+        code:
           type: string
-        type: 
+        type:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            name: 
+            name:
               type: string
-            code: 
+            code:
               type: string
-        externalId: 
-          type: string
-          nullable: true
-        externalType: 
-          type: string
-          nullable: true
-        deploymentId: 
-          type: string
-          nullable: true
-        status: 
-          type: string
-          nullable: true
-        file: 
+        externalId:
+          type:
+            - string
+            - 'null'
+        externalType:
+          type:
+            - string
+            - 'null'
+        deploymentId:
+          type:
+            - string
+            - 'null'
+        status:
+          type:
+            - string
+            - 'null'
+        file:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            sourceType: 
+            sourceType:
               type: string
-            contentRef: 
+            contentRef:
+              type:
+                - string
+                - 'null'
+            contentPath:
+              type:
+                - string
+                - 'null'
+            repository:
+              type:
+                - string
+                - 'null'
+            content:
               type: string
-              nullable: true
-            contentPath: 
-              type: string
-              nullable: true
-            repository: 
-              type: string
-              nullable: true
-            content: 
-              type: string
-        config: 
+        config:
           type: object
-        createdBy: 
-          type: string
-          nullable: true
-        updatedBy: 
-          type: string
-          nullable: true
-        dateCreated: 
+        createdBy:
+          type:
+            - string
+            - 'null'
+        updatedBy:
+          type:
+            - string
+            - 'null'
+        dateCreated:
           type: string
           format: date-time
-        lastUpdated: 
+        lastUpdated:
           type: string
           format: date-time
-  taskSets: 
+  taskSets:
     type: array
-    items: 
+    items:
       type: object
-  type: 
+  type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string

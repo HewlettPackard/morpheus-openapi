@@ -1,39 +1,40 @@
 type: object
-required: 
+required:
   - name
   - type
   - arm
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: A name for the blueprint
-  image: 
+  image:
     type: string
     description: Path to display image. Defaults to an internal Morpheus image.
-  type: 
+  type:
     type: string
     description: Blueprint Type
     enum:
       - arm
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  arm: 
+  arm:
     type: object
     required:
       - configType
-    properties: 
-      configType: 
+    properties:
+      configType:
         type: string
         description: Configuration Type
-        enum: 
+        enum:
           - json
           - yaml
           - git
-      json: 
+      json:
         type: string
         description: ARM Template in JSON
       yaml:
@@ -41,7 +42,7 @@ properties:
         description: ARM Template in YAML
       git:
         type: object
-        required: 
+        required:
           - repoId
           - path
           - integrationId
@@ -67,13 +68,13 @@ properties:
         enum:
           - linux
           - windows
-      installAgent: 
+      installAgent:
         oneOf:
           - type: boolean
             default: false
           - type: string
         description: Install Morpheus Agent
-      cloudInitEnabled: 
+      cloudInitEnabled:
         oneOf:
           - type: boolean
             default: false

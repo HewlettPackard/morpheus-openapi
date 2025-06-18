@@ -2,27 +2,28 @@ type: array
 items:
   type: object
   properties:
-    id: 
+    id:
       type: integer
       format: int64
-    name: 
+    name:
       type: string
-    description: 
+    description:
+      type:
+        - string
+        - 'null'
+    type:
       type: string
-      nullable: true
-    type: 
+    context:
       type: string
-    context: 
-      type: string
-    featured: 
+    featured:
       type: boolean
-    allowQuantity: 
+    allowQuantity:
       type: boolean
-    imagePath: 
+    imagePath:
       type: string
-    darkImagePath: 
+    darkImagePath:
       type: string
-    formType: 
+    formType:
       type: string
       enum:
         - optionTypes
