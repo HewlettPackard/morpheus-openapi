@@ -328,25 +328,25 @@ properties:
               type:
                 type: string
               _fullPage:
-                type:
-                  - string
-                  - 'null'
-                enum:
-                  - "on"
-                  - "off"
-                  - ""
+                oneOf:
+                  - type: string
+                    enum:
+                      - "on"
+                      - "off"
+                      - ""
+                  - type: 'null'
           motd.message:
             type: string
           motd.type:
             type: string
           motd._fullPage:
-            type:
-              - string
-              - 'null'
-            enum:
-              - "on"
-              - "off"
-              - ""
+            oneOf:
+              - type: string
+                enum:
+                  - "on"
+                  - "off"
+                  - ""
+              - type: 'null'
           motd.date:
             type: string
             format: date-time
