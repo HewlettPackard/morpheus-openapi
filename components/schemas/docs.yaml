@@ -1,16 +1,17 @@
 type: object
-properties: 
-  links: 
+properties:
+  links:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        name: 
+      properties:
+        name:
           type: string
-        url: 
+        url:
           type: string
-        description: 
-          type: string
-          nullable: true
-        type: 
+        description:
+          type:
+            - string
+            - 'null'
+        type:
           type: string
