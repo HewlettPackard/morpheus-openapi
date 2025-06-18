@@ -1,192 +1,215 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  accountId: 
+  description:
+    type:
+      - string
+      - 'null'
+  accountId:
     type: integer
     format: int64
-  groupSource: 
+  groupSource:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  enabled:
+    type:
+      - string
+      - 'null'
+  syncSource:
     type: string
-    nullable: true
-  externalId: 
+  visibility:
     type: string
-    nullable: true
-  enabled: 
-    type: string
-    nullable: true
-  syncSource: 
-    type: string
-  visibility: 
-    type: string
-  active: 
+  active:
     type: boolean
-  zone: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  zone:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  locations: 
+  locations:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        description: 
+        description:
+          type:
+            - string
+            - 'null'
+        externalId:
           type: string
-          nullable: true
-        externalId: 
-          type: string
-        iacId: 
-          type: string
-          nullable: true
-        zone: 
-          type: object
-          nullable: true
-          properties: 
-            id: 
+        iacId:
+          type:
+            - string
+            - 'null'
+        zone:
+          type:
+            - object
+            - 'null'
+          properties:
+            id:
               type: integer
               format: int64
-            name: 
+            name:
               type: string
-        zonePool: 
-          type: object
-          nullable: true
-          properties: 
-            id: 
+        zonePool:
+          type:
+            - object
+            - 'null'
+          properties:
+            id:
               type: integer
               format: int64
-            name: 
+            name:
               type: string
-        status: 
+        status:
           type: string
-        priority: 
-          type: string
-          nullable: true
-        groupLayer: 
-          type: string
-          nullable: true
-  rules: 
+        priority:
+          type:
+            - string
+            - 'null'
+        groupLayer:
+          type:
+            - string
+            - 'null'
+  rules:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
+          type:
+            - string
+            - 'null'
+        ruleType:
           type: string
-          nullable: true
-        ruleType: 
-          type: string
-        customRule: 
+        customRule:
           type: boolean
-        instanceTypeId: 
+        instanceTypeId:
+          type:
+            - string
+            - 'null'
+        direction:
           type: string
-          nullable: true
-        direction: 
+        policy:
           type: string
-        policy: 
+        sourceType:
           type: string
-        sourceType: 
+        source:
+          type:
+            - string
+            - 'null'
+        sourceGroup:
+          type:
+            - string
+            - 'null'
+        sourceTier:
+          type:
+            - string
+            - 'null'
+        portRange:
+          type:
+            - string
+            - 'null'
+        protocol:
           type: string
-        source: 
+        destinationType:
           type: string
-          nullable: true
-        sourceGroup: 
+        destination:
+          type:
+            - string
+            - 'null'
+        destinationGroup:
+          type:
+            - string
+            - 'null'
+        destinationTier:
+          type:
+            - string
+            - 'null'
+        externalId:
           type: string
-          nullable: true
-        sourceTier: 
-          type: string
-          nullable: true
-        portRange: 
-          type: string
-          nullable: true
-        protocol: 
-          type: string
-        destinationType: 
-          type: string
-        destination: 
-          type: string
-          nullable: true
-        destinationGroup: 
-          type: string
-          nullable: true
-        destinationTier: 
-          type: string
-          nullable: true
-        externalId: 
-          type: string
-        enabled: 
-          type: string
-          nullable: true
-  tenants: 
+        enabled:
+          type:
+            - string
+            - 'null'
+  tenants:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        canManage: 
+        canManage:
           type: boolean
-  resourcePermission: 
+  resourcePermission:
     type: object
-    properties: 
-      defaultStore: 
+    properties:
+      defaultStore:
         type: boolean
-      allPlans: 
+      allPlans:
         type: boolean
-      defaultTarget: 
+      defaultTarget:
         type: boolean
-      canManage: 
+      canManage:
         type: boolean
-      all: 
+      all:
         type: boolean
-      account: 
+      account:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-      sites: 
-        type: array
-        nullable: true
-        items: 
+      sites:
+        type:
+          - array
+          - 'null'
+        items:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            name: 
+            name:
               type: string
-            default: 
+            default:
               type: boolean
-      plans: 
-        type: array
-        nullable: true
-        items: 
+      plans:
+        type:
+          - array
+          - 'null'
+        items:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            name: 
+            name:
               type: string
-            default: 
+            default:
               type: boolean

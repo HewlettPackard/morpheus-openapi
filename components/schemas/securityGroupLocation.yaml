@@ -1,39 +1,43 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  externalId:
     type: string
-    nullable: true
-  externalId: 
-    type: string
-  iacId: 
-    type: string
-    nullable: true
-  zone: 
+  iacId:
+    type:
+      - string
+      - 'null'
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  zonePool: 
+  zonePool:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  status: 
+  status:
     type: string
-  priority: 
-    type: string
-    nullable: true
-  groupLayer: 
-    type: string
-    nullable: true
+  priority:
+    type:
+      - string
+      - 'null'
+  groupLayer:
+    type:
+      - string
+      - 'null'

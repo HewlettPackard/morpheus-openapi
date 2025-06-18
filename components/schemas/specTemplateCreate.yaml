@@ -7,10 +7,11 @@ properties:
   name:
     type: string
     description: Spec template name
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
   type:
@@ -58,15 +59,15 @@ properties:
         required:
           - IAM
           - CAPABILITY_NAMED_IAM
-          - CAPABILITY_AUTO_EXPAND	
+          - CAPABILITY_AUTO_EXPAND
         properties:
           IAM:
             oneOf:
               - type: string
                 description: CAPABILITY_IAM
                 enum:
-                  - on
-                  - off
+                  - "on"
+                  - "off"
               - type: boolean
                 description: CAPABILITY_IAM
           CAPABILITY_NAMED_IAM:
@@ -74,8 +75,8 @@ properties:
               - type: string
                 description: CAPABILITY_NAMED_IAM
                 enum:
-                  - on
-                  - off
+                  - "on"
+                  - "off"
               - type: boolean
                 description: CAPABILITY_NAMED_IAM
           CAPABILITY_AUTO_EXPAND:
@@ -83,8 +84,7 @@ properties:
               - type: string
                 description: CAPABILITY_AUTO_EXPAND
                 enum:
-                  - on
-                  - off
+                  - "on"
+                  - "off"
               - type: boolean
                 description: CAPABILITY_AUTO_EXPAND
-                

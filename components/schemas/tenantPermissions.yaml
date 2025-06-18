@@ -1,32 +1,34 @@
 type: object
-properties: 
-  all: 
+properties:
+  all:
     type: boolean
-  sites: 
-    type: array
-    nullable: true
-    items: 
+  sites:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        default: 
+        default:
           type: boolean
-  allPlans: 
+  allPlans:
     type: boolean
-  plans: 
-    type: array
-    nullable: true
-    items: 
+  plans:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        default: 
+        default:
           type: boolean

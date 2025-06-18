@@ -1,34 +1,35 @@
 type: object
 required:
   - name
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: Script name
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  category: 
+  category:
     type: string
     description: Script category
-  scriptVersion: 
+  scriptVersion:
     type: string
     description: Version of the script
     default: "1"
-  scriptPhase: 
+  scriptPhase:
     type: string
     description: Phase for the script, provision, start, etc.
-  scriptType: 
+  scriptType:
     type: string
     description: Type for the script
     default: bash
     enum:
       - bash
       - powershell
-  script: 
+  script:
     type: string
     description: Script content, that is, the code itself.
   runAsUser:

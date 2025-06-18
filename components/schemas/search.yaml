@@ -1,35 +1,38 @@
 type: object
-properties: 
-  hits: 
+properties:
+  hits:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: string
           description: ID
-        uuid: 
+        uuid:
           type: string
           description: UUID
-        name: 
+        name:
           type: string
           description: Name
-        description: 
+        description:
+          type:
+            - string
+            - 'null'
+        type:
           type: string
-          nullable: true
-        type: 
-          type: string
-        dateCreated: 
-          type: string
+        dateCreated:
+          type:
+            - string
+            - 'null'
           format: date-time
-          nullable: true
-        score: 
-          type: number
-          nullable: true
-  query: 
+        score:
+          type:
+            - number
+            - 'null'
+  query:
     type: string
-  took: 
+  took:
     type: integer
     format: int64
-  meta: 
+  meta:
     $ref: MetaObject.yaml

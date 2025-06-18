@@ -1,41 +1,47 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int32
-  name: 
+  name:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  status:
     type: string
-    nullable: true
-  externalId: 
+  state:
+    type:
+      - string
+      - 'null'
+  snapshotType:
     type: string
-    nullable: true
-  status: 
-    type: string
-  state: 
-    type: string
-    nullable: true
-  snapshotType: 
-    type: string
-  snapshotCreated: 
-    type: string
+  snapshotCreated:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  zone: 
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int32
-      name: 
+      name:
         type: string
-  datastore: 
-    type: string
-    nullable: true
-  parentSnapshot: 
-    type: string
-    nullable: true
+  datastore:
+    type:
+      - string
+      - 'null'
+  parentSnapshot:
+    type:
+      - string
+      - 'null'
   snapshotFiles:
     type: array
     items:
@@ -55,16 +61,17 @@ properties:
         exportPath:
           type: string
         volume:
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
           properties:
             id:
               type: integer
               format: int32
         diskIndex:
           type: integer
-  currentlyActive: 
+  currentlyActive:
     type: boolean
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
