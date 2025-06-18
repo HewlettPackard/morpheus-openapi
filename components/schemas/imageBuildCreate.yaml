@@ -65,14 +65,13 @@ properties:
     description: Build Output Name
   conversionFormats:
     description: Conversion Formats
-    type: 
-      - string
-      - 'null'
-    enum:
-      - ovf
-      - qcow2
-      - vhd
-      - 'null'
+    oneOf:
+      type: string
+      enum:
+        - ovf
+        - qcow2
+        - vhd
+      type: 'null'
   keepResults:
     type: integer
     format: int64
