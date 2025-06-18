@@ -5,7 +5,7 @@ get:
   tags:
     - Tenants
   parameters:
-  - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
   responses:
     '200':
       description: Tenant Object
@@ -31,7 +31,7 @@ put:
   tags:
     - Tenants
   parameters:
-  - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
   requestBody:
     content:
       application/json:
@@ -47,24 +47,22 @@ put:
                   type: string
                   description: Name
                 description:
-                  type: string
-                  nullable: true
+                  type:
+                    - string
+                    - 'null'
                   description: Description
                 role:
                   type: object
-                  description: >-
-                    Tenant Base Role. This restricts the access available to
-                    this tenant's roles and users.
+                  description: Tenant Base Role. This restricts the access available to this tenant's roles and users.
                   properties:
                     id:
                       type: integer
                       format: int64
                 subdomain:
-                  type: string
-                  nullable: true
-                  description: >-
-                    The subdomain. This will be part of the login URL and
-                    username for sub tenant users.
+                  type:
+                    - string
+                    - 'null'
+                  description: The subdomain. This will be part of the login URL and username for sub tenant users.
                 currency:
                   $ref: ../components/schemas/CurrencyCode.yaml
   responses:
@@ -121,9 +119,7 @@ delete:
             $ref: ../components/schemas/Error.yaml
           example:
             success: false
-            msg: >-
-              Unable to delete an account without removing resources when
-              managed instances exist.
+            msg: Unable to delete an account without removing resources when managed instances exist.
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

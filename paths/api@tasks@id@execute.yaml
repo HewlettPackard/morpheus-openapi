@@ -62,26 +62,27 @@ post:
           schema:
             allOf:
               - type: object
-                properties: 
+                properties:
                   job:
                     type: object
-                    properties: 
+                    properties:
                       id:
                         type: integer
                         format: int64
                   jobExecution:
                     type: object
-                    properties: 
+                    properties:
                       id:
                         type: integer
                         format: int64
                       processId:
-                        type: string
-                        nullable: true
+                        type:
+                          - string
+                          - 'null'
               - $ref: ../components/schemas/200-success.yaml
           examples:
             Successful Execution Response:
-              value: 
+              value:
                 $ref: ../components/examples/jobExecuteSuccess.json
     '4XX':
       $ref: ../components/responses/4xx.yaml

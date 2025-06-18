@@ -19,17 +19,17 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                budgets:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/budgets.yaml
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  budgets:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/budgets.yaml
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Budgets Response:
               value:
-                $ref: ../components/examples/budgets.json 
+                $ref: ../components/examples/budgets.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
@@ -54,7 +54,7 @@ post:
               required:
                 - name
               properties:
-                name: 
+                name:
                   type: string
                 description:
                   type: string
@@ -119,14 +119,15 @@ post:
                 enabled:
                   type: boolean
                   default: true
-                forecastType: 
-                  type: object
+                forecastType:
+                  type:
+                    - object
+                    - 'null'
                   description: Forecast Model
-                  nullable: true
                   required:
                     - id
-                  properties: 
-                    id: 
+                  properties:
+                    id:
                       type: integer
                       format: int64
                       description: The ID of the Forecast Model type. See GET /api/options/forecastTypes
@@ -137,11 +138,11 @@ post:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                budget:
-                  $ref: ../components/schemas/budgets.yaml
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  budget:
+                    $ref: ../components/schemas/budgets.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Budget Response:
               value:

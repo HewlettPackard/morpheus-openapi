@@ -18,13 +18,13 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                blueprints:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/blueprint.yaml
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  blueprints:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/blueprint.yaml
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Blueprints Response:
               value:
@@ -40,9 +40,9 @@ post:
   tags:
     - Blueprints
   requestBody:
-    content: 
-      application/json: 
-        schema: 
+    content:
+      application/json:
+        schema:
           oneOf:
             - $ref: ../components/schemas/blueprintARMCreate.yaml
             - $ref: ../components/schemas/blueprintCFTCreate.yaml
@@ -50,24 +50,24 @@ post:
             - $ref: ../components/schemas/blueprintKubernetesCreate.yaml
             - $ref: ../components/schemas/blueprintMorpheusCreate.yaml
             - $ref: ../components/schemas/blueprintTerraformCreate.yaml
-        examples: 
-          Blueprint Creation Payload - ARM:
-            value: 
+        examples:
+          "Blueprint Creation Payload - ARM":
+            value:
               $ref: ../components/examples/blueprintARMCreate.json
-          Blueprint Creation Payload - CloudFormation:
-            value: 
+          "Blueprint Creation Payload - CloudFormation":
+            value:
               $ref: ../components/examples/blueprintCFTCreate.json
-          Blueprint Creation Payload - Helm:
-            value: 
+          "Blueprint Creation Payload - Helm":
+            value:
               $ref: ../components/examples/blueprintHelmCreate.json
-          Blueprint Creation Payload - Kubernetes:
-            value: 
+          "Blueprint Creation Payload - Kubernetes":
+            value:
               $ref: ../components/examples/blueprintKubernetesCreate.json
-          Blueprint Creation Payload - Morpheus:
-            value: 
+          "Blueprint Creation Payload - Morpheus":
+            value:
               $ref: ../components/examples/blueprintMorpheusCreate.json
-          Blueprint Creation Payload - Terraform:
-            value: 
+          "Blueprint Creation Payload - Terraform":
+            value:
               $ref: ../components/examples/blueprintTerraformCreate.json
   responses:
     '200':
@@ -76,43 +76,46 @@ post:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                blueprint:
-                  $ref: ../components/schemas/blueprintCreateSuccess.yaml
-            - type: object
-              properties:
-                msg:
-                  type: string
-                  nullable: true
-                errors:
-                  type: string
-                  nullable: true
-                errorCode:
-                  type: string
-                  nullable: true
-                inProgress:
-                  type: boolean
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  blueprint:
+                    $ref: ../components/schemas/blueprintCreateSuccess.yaml
+              - type: object
+                properties:
+                  msg:
+                    type:
+                      - string
+                      - 'null'
+                  errors:
+                    type:
+                      - string
+                      - 'null'
+                  errorCode:
+                    type:
+                      - string
+                      - 'null'
+                  inProgress:
+                    type: boolean
+              - $ref: ../components/schemas/200-success.yaml
           examples:
-            Successful Blueprint Creation Response - ARM:
+            "Successful Blueprint Creation Response - ARM":
               value:
                 $ref: ../components/examples/blueprintARMCreateSuccess.json
-            Successful Blueprint Creation Response - CFT:
+            "Successful Blueprint Creation Response - CFT":
               value:
                 $ref: ../components/examples/blueprintCFTCreateSuccess.json
-            Successful Blueprint Creation Response - Helm:
+            "Successful Blueprint Creation Response - Helm":
               value:
                 $ref: ../components/examples/blueprintHelmCreateSuccess.json
-            Successful Blueprint Creation Response - Kubernetes:
+            "Successful Blueprint Creation Response - Kubernetes":
               value:
                 $ref: ../components/examples/blueprintKubernetesCreateSuccess.json
-            Successful Blueprint Creation Response - Morpheus:
+            "Successful Blueprint Creation Response - Morpheus":
               value:
                 $ref: ../components/examples/blueprintMorpheusCreateSuccess.json
-            Successful Blueprint Creation Response - Terraform:
+            "Successful Blueprint Creation Response - Terraform":
               value:
-                $ref: ../components/examples/blueprintTerraformCreateSuccess.json  
+                $ref: ../components/examples/blueprintTerraformCreateSuccess.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

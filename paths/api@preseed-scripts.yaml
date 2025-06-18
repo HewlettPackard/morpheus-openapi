@@ -2,7 +2,7 @@ get:
   summary: Preseed Scripts
   description: |
     Preseed Scripts are used in the Image Builder service. See Image Builds.
-
+    
     This endpoint retrieves all preseed scripts associated with the account.
   operationId: listPreseedScripts
   tags:
@@ -17,16 +17,16 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                preseedScripts:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/preseedScript.yaml
-                preseedScriptCount:
-                  type: integer
-                  format: int64
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  preseedScripts:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/preseedScript.yaml
+                  preseedScriptCount:
+                    type: integer
+                    format: int64
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Preseed Scripts Response:
               value:
@@ -35,15 +35,15 @@ get:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
-post: 
+post:
   summary: Create a Preseed Script
   description: Create a Preseed Script
   operationId: addPreseedScript
-  tags: 
-    -  Image Builds
-  requestBody: 
-    content: 
-      application/json: 
+  tags:
+    - Image Builds
+  requestBody:
+    content:
+      application/json:
         schema:
           type: object
           properties:
@@ -65,8 +65,9 @@ post:
                   preseedScript:
                     $ref: ../components/schemas/preseedScript.yaml
                   errorCode:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
               - $ref: ../components/schemas/200-success-expanded.yaml
           examples:
             Preseed Script Response:

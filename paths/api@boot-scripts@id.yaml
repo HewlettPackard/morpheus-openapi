@@ -28,13 +28,13 @@ put:
   summary: Update a Boot Script
   description: Update a Boot Script
   operationId: updateBootScript
-  tags: 
-    -  Image Builds
+  tags:
+    - Image Builds
   parameters:
     - $ref: ../components/parameters/id-path.yaml
-  requestBody: 
-    content: 
-      application/json: 
+  requestBody:
+    content:
+      application/json:
         schema:
           type: object
           properties:
@@ -56,10 +56,11 @@ put:
                   bootScript:
                     $ref: ../components/schemas/bootScript.yaml
               - type: object
-                properties: 
+                properties:
                   errorCode:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   inProgress:
                     type: boolean
               - $ref: ../components/schemas/200-success-expanded.yaml
@@ -89,7 +90,7 @@ delete:
           examples:
             Response:
               value:
-                $ref: ../components/examples/success.json 
+                $ref: ../components/examples/success.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
