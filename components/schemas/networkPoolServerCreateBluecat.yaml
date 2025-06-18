@@ -53,14 +53,14 @@ properties:
     type: object
     properties:
       inventoryExisting:
-        type:
-          - string
-          - 'null'
         description: Inventory Existing
-        default: "off"
-        enum:
-          - "on"
-          - "off"
+        oneOf:
+          - type: string
+            default: "off"
+            enum:
+              - "on"
+              - "off"
+          - type: 'null'
   credential:
     type: object
     description: "Map containing Credential ID or the default `{\"type\": \"local\"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential."
