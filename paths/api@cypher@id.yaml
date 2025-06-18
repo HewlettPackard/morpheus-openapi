@@ -18,11 +18,6 @@ get:
     - cypherAuth-XCToken: []
     - cypherAuth-XVToken: []
     - cypherAuth-XMLease: []
-  security:
-    - {}
-    - {}
-    - {}
-    - {}
   responses:
     '200':
       description: Successful Request
