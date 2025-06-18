@@ -1,88 +1,97 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  cloud: 
+  cloud:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  code: 
+  code:
     type: string
-  internalId: 
+  internalId:
+    type:
+      - string
+      - 'null'
+  externalId:
     type: string
-    nullable: true
-  externalId: 
+  externalDiskId:
     type: string
-  externalDiskId: 
+  remotePath:
+    type:
+      - string
+      - 'null'
+  imagePath:
+    type:
+      - string
+      - 'null'
+  imageName:
     type: string
-  remotePath: 
+  imageRegion:
     type: string
-    nullable: true
-  imagePath: 
+  imageFolder:
+    type:
+      - string
+      - 'null'
+  refType:
     type: string
-    nullable: true
-  imageName: 
-    type: string
-  imageRegion: 
-    type: string
-  imageFolder: 
-    type: string
-    nullable: true
-  refType: 
-    type: string
-  refId: 
+  refId:
     type: integer
     format: int64
-  nodeRefType: 
-    type: string
-    nullable: true
-  nodeRefId: 
-    type: string
-    nullable: true
-  subRefType: 
-    type: string
-    nullable: true
-  subRefId: 
-    type: string
-    nullable: true
-  isPublic: 
+  nodeRefType:
+    type:
+      - string
+      - 'null'
+  nodeRefId:
+    type:
+      - string
+      - 'null'
+  subRefType:
+    type:
+      - string
+      - 'null'
+  subRefId:
+    type:
+      - string
+      - 'null'
+  isPublic:
     type: boolean
-  systemImage: 
+  systemImage:
     type: boolean
-  diskIndex: 
+  diskIndex:
     type: integer
     format: int64
-  pricePlan: 
-    type: string
-    nullable: true
-  volumes: 
+  pricePlan:
+    type:
+      - string
+      - 'null'
+  volumes:
     type: array
     items:
       type: object
-  storageControllers: 
+  storageControllers:
     type: array
-    items: 
+    items:
       type: object
-  networkInterfaces: 
+  networkInterfaces:
     type: array
-    items: 
+    items:
       type: object
-  virtualImage: 
+  virtualImage:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-      imageType: 
+      imageType:
         type: string

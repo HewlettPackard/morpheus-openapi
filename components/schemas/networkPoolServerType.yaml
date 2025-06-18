@@ -1,26 +1,29 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  poolService: 
-    type: string
-    nullable: true
-  selectable: 
+  poolService:
+    type:
+      - string
+      - 'null'
+  selectable:
     type: boolean
-  code: 
+  code:
     type: string
-  integrationCode: 
+  integrationCode:
+    type:
+      - string
+      - 'null'
+  name:
     type: string
-    nullable: true
-  name: 
-    type: string
-  enabled: 
+  enabled:
     type: boolean
-  description: 
-    type: string
-    nullable: true
-  optionTypes: 
+  description:
+    type:
+      - string
+      - 'null'
+  optionTypes:
     type: array
-    items: 
+    items:
       $ref: optionType.yaml

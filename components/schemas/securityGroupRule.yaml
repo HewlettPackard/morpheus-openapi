@@ -1,82 +1,95 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
+    type:
+      - string
+      - 'null'
+  ruleType:
     type: string
-    nullable: true
-  ruleType: 
-    type: string
-  customRule: 
+  customRule:
     type: boolean
-  instanceTypeId: 
+  instanceTypeId:
+    type:
+      - string
+      - 'null'
+  direction:
     type: string
-    nullable: true
-  direction: 
+  policy:
     type: string
-  policy: 
+  sourceType:
     type: string
-  sourceType: 
-    type: string
-  source: 
-    type: string
-    nullable: true
-  sourceGroup: 
-    type: object
-    nullable: true
+  source:
+    type:
+      - string
+      - 'null'
+  sourceGroup:
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  sourceTier: 
-    type: object
-    nullable: true
+  sourceTier:
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  portRange: 
+  portRange:
+    type:
+      - string
+      - 'null'
+  sourcePortRange:
+    type:
+      - string
+      - 'null'
+  destinationPortRange:
+    type:
+      - string
+      - 'null'
+  protocol:
     type: string
-    nullable: true
-  sourcePortRange: 
+  destinationType:
     type: string
-    nullable: true
-  destinationPortRange: 
-    type: string
-    nullable: true
-  protocol: 
-    type: string
-  destinationType: 
-    type: string
-  destination: 
-    type: string
-    nullable: true
-  destinationGroup: 
-    type: object
-    nullable: true
+  destination:
+    type:
+      - string
+      - 'null'
+  destinationGroup:
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  destinationTier: 
-    type: object
-    nullable: true
+  destinationTier:
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  externalId: 
-    type: string
-    nullable: true
-  enabled: 
-    type: string
-    nullable: true
+  externalId:
+    type:
+      - string
+      - 'null'
+  enabled:
+    type:
+      - string
+      - 'null'

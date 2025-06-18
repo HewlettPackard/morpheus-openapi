@@ -6,33 +6,34 @@ properties:
   templateId:
     type: integer
     format: int64
-  blueprintId: 
-    oneOf: 
+  blueprintId:
+    oneOf:
       - type: integer
         description: Blueprint ID
         format: int64
       - type: string
         description: String for `existing` selection
-        enum: 
+        enum:
           - existing
     description: The ID of the Blueprint. Use "existing" to create a blank app.
-  name: 
+  name:
     type: string
     description: A unique name for the app
-  description: 
+  description:
     type: string
     description: Description
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  group: 
+  group:
     type: object
     description: A Map containing the id of the Group
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
   defaultCloud:

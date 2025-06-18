@@ -13,16 +13,18 @@ properties:
     type: string
     description: Network firewall rule name
   description:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Network firewall rule description
-    nullable: true
   enabled:
     type: boolean
     description: Use this to set enabled state
   priority:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Network firewall rule priority
-    nullable: true
   direction:
     type: string
   sources:

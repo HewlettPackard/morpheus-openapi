@@ -1,16 +1,17 @@
 type: object
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: Cluster Package name
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
     description: Cluster Package description
-    nullable: true
-  code: 
+  code:
     type: string
     description: Cluster Package code
-  packageVersion: 
+  packageVersion:
     type: string
     description: Version of the cluster package
   packageType:
@@ -19,19 +20,19 @@ properties:
   type:
     type: string
     description: type
-  enabled: 
+  enabled:
     type: boolean
     description: Can be used to enable / disable the cluster package.
     default: true
-  iconPath: 
+  iconPath:
     type: string
     description: Icon Path, relative location of an icon image, eg. /assets/containers-png/nginx.png.
-  specTemplates: 
+  specTemplates:
     type: array
     description: Array of resource spec templates
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64

@@ -1,78 +1,82 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  enabled: 
+  enabled:
     type: boolean
-  type: 
+  type:
     type: string
     enum:
-    - chef
-  integrationType: 
+      - chef
+  integrationType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  url: 
+  url:
     type: string
-  isPlugin: 
+  isPlugin:
     type: boolean
-  config: 
+  config:
     type: object
-    properties: 
-      databags: 
+    properties:
+      databags:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            path: 
+          properties:
+            path:
               type: string
-            key: 
+            key:
               type: string
-      endpoint: 
+      endpoint:
         type: string
-      org: 
+      org:
         type: string
-      chefUser: 
+      chefUser:
         type: string
-      userKey: 
+      userKey:
         type: string
-      orgKey: 
+      orgKey:
         type: string
-      version: 
+      version:
         type: string
-      chefUseFqdn: 
+      chefUseFqdn:
         type: boolean
-      windowsVersion: 
+      windowsVersion:
         type: string
-      windowsInstallUrl: 
+      windowsInstallUrl:
         type: string
-      userKeyHash: 
+      userKeyHash:
         type: string
-      orgKeyHash: 
+      orgKeyHash:
         type: string
-  status: 
+  status:
     type: string
-  statusDate: 
-    type: string
+  statusDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  statusMessage: 
-    type: string
-    nullable: true
-  lastSync: 
-    type: string
-    nullable: true
-  lastSyncDuration: 
-    type: string
-    nullable: true
-  credential: 
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  lastSync:
+    type:
+      - string
+      - 'null'
+  lastSyncDuration:
+    type:
+      - string
+      - 'null'
+  credential:
     $ref: creds.yaml

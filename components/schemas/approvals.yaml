@@ -1,51 +1,55 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  internalId: 
+  internalId:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  externalName:
+    type:
+      - string
+      - 'null'
+  requestType:
     type: string
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  externalName: 
-    type: string
-    nullable: true
-  requestType: 
-    type: string
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  approver: 
+  approver:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  accountIntegration: 
+  accountIntegration:
+    type:
+      - string
+      - 'null'
+  status:
     type: string
-    nullable: true
-  status: 
-    type: string
-  errorMessage: 
-    type: string
-    nullable: true
-  dateCreated: 
+  errorMessage:
+    type:
+      - string
+      - 'null'
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  requestBy: 
+  requestBy:
     type: string
-  

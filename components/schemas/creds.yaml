@@ -1,16 +1,19 @@
 type: object
-properties: 
-  id: 
-    type: integer
+properties:
+  id:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  name: 
+  name:
+    type:
+      - string
+      - 'null'
+  type:
     type: string
-    nullable: true
-  type: 
-    type: string
-  types: 
-    type: array
-    nullable: true
-    items: 
+  types:
+    type:
+      - array
+      - 'null'
+    items:
       type: string

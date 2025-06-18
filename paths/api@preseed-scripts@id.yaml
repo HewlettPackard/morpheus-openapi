@@ -28,13 +28,13 @@ put:
   summary: Update a Preseed Script
   description: Update a Preseed Script
   operationId: updatePreseedScript
-  tags: 
-    -  Image Builds
+  tags:
+    - Image Builds
   parameters:
     - $ref: ../components/parameters/id-path.yaml
-  requestBody: 
-    content: 
-      application/json: 
+  requestBody:
+    content:
+      application/json:
         schema:
           type: object
           properties:
@@ -56,8 +56,9 @@ put:
                   preseedScript:
                     $ref: ../components/schemas/preseedScript.yaml
                   errorCode:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
               - $ref: ../components/schemas/200-success-expanded.yaml
           examples:
             Preseed Script Response:
@@ -85,7 +86,7 @@ delete:
           examples:
             Response:
               value:
-                $ref: ../components/examples/success.json 
+                $ref: ../components/examples/success.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

@@ -1,9 +1,9 @@
-get: 
+get:
   summary: Get All Oauth Clients
   description: This endpoint retrieves a paginated list of oauth clients.
   operationId: listClients
-  tags: 
-    -  Clients
+  tags:
+    - Clients
   parameters:
     - $ref: ../components/parameters/max.yaml
     - $ref: ../components/parameters/offset.yaml
@@ -31,13 +31,13 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                clients:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/client.yaml
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  clients:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/client.yaml
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Clients Response:
               value:
@@ -48,8 +48,7 @@ get:
       $ref: ../components/responses/5xx.yaml
 post:
   summary: Create an Oauth Client
-  description: >-
-    Create a new Oauth Client.
+  description: Create a new Oauth Client.
   operationId: addClient
   tags:
     - Clients
@@ -78,19 +77,21 @@ post:
                   description: Client Secret
                   example: thisIsaClientSecretKeyPhrase
                 accessTokenValiditySeconds:
-                  type: integer
-                  nullable: true
+                  type:
+                    - integer
+                    - 'null'
                   description: Length of time accessToken is valid in seconds.
                   example: 43200
                 refreshTokenValiditySeconds:
-                  type: integer
-                  nullable: true
+                  type:
+                    - integer
+                    - 'null'
                   description: Length of time refreshToken is valid in seconds.
                   example: 43200
                 redirectUris:
                   type: array
                   description: List of Redirect URIs for use with the OpenID Authorization Code Flow
-                  items: 
+                  items:
                     type: string
   responses:
     '200':
@@ -99,11 +100,11 @@ post:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                client:
-                  $ref: ../components/schemas/client.yaml
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  client:
+                    $ref: ../components/schemas/client.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Client Response:
               value:
@@ -112,4 +113,3 @@ post:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
-

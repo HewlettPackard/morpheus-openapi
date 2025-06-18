@@ -1,30 +1,32 @@
 type: object
-required: 
+required:
   - name
   - computeVersion
   - groupType
   - provisionType
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: Cluster layout name
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
     description: Cluster layout description
-    nullable: true
-  labels: 
-    type: array
-    nullable: true
+  labels:
+    type:
+      - array
+      - 'null'
     items:
       type: string
-  computeVersion: 
+  computeVersion:
     type: string
     description: Version of the cluster layout
-  creatable: 
+  creatable:
     type: boolean
     description: Can be used to enable / disable the creatability of the cluster layout.
     default: true
-  hasAutoScale: 
+  hasAutoScale:
     type: boolean
     description: Can be used to enable / disable the horizontal scaling.
     default: false
@@ -32,76 +34,76 @@ properties:
     type: boolean
     description: Install Docker (container runtime).
     default: false
-  memoryRequirement: 
+  memoryRequirement:
     type: integer
     format: int64
     description: Memory requirement in bytes
-  groupType: 
+  groupType:
     type: object
     required:
       - id
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Cluster type ID
-  provisionType: 
+  provisionType:
     type: object
     required:
       - id
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Provision type ID
-  optionTypes: 
+  optionTypes:
     type: array
     description: Array of cluster layout option types
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-  taskSets: 
+  taskSets:
     type: array
     description: Array of cluster layout task sets
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-  environmentVariables: 
+  environmentVariables:
     type: array
     description: Array of cluster layout env variables
-    items: 
+    items:
       type: object
       required:
         - name
-      properties: 
-        name: 
+      properties:
+        name:
           type: string
           description: Environment variable name
-        value: 
+        value:
           type: string
           description: Sets fixed value for variable
-        masked: 
+        masked:
           type: boolean
           description: Can be used to enable / disable masking of variable
           default: false
-        export: 
+        export:
           type: boolean
           description: Can be used to enable / disable export of variable
           default: false
-  masters: 
+  masters:
     type: array
     description: Array of cluster layout master nodes
-    items: 
+    items:
       type: object
       required:
         - containerType
-      properties: 
+      properties:
         nodeCount:
           type: integer
           format: int64
@@ -111,18 +113,18 @@ properties:
           type: object
           required:
             - id
-          properties: 
+          properties:
             id:
               type: integer
               format: int64
-  workers: 
+  workers:
     type: array
     description: Array of cluster layout worker nodes
-    items: 
+    items:
       type: object
       required:
         - containerType
-      properties: 
+      properties:
         nodeCount:
           type: integer
           format: int64
@@ -132,7 +134,7 @@ properties:
           type: object
           required:
             - id
-          properties: 
+          properties:
             id:
               type: integer
               format: int64

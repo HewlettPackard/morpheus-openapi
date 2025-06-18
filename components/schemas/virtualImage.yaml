@@ -1,171 +1,189 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
+  description:
+    type:
+      - string
+      - 'null'
   labels:
     type: array
-    items: 
+    items:
       type: string
-  ownerId: 
+  ownerId:
     type: integer
     format: int64
-  tenant: 
+  tenant:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  imageType: 
+  imageType:
     type: string
-  userUploaded: 
+  userUploaded:
     type: boolean
-  userDefined: 
+  userDefined:
     type: boolean
-  systemImage: 
+  systemImage:
     type: boolean
-  isCloudInit: 
+  isCloudInit:
     type: boolean
-  sshUsername: 
-    type: string
-    nullable: true
-  sshPassword: 
-    type: string
-    nullable: true
-  sshPasswordHash: 
-    type: string
-    nullable: true
-  sshKey: 
-    type: string
-    nullable: true
-  osType: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  sshUsername:
+    type:
+      - string
+      - 'null'
+  sshPassword:
+    type:
+      - string
+      - 'null'
+  sshPasswordHash:
+    type:
+      - string
+      - 'null'
+  sshKey:
+    type:
+      - string
+      - 'null'
+  osType:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-      description: 
+      description:
+        type:
+          - string
+          - 'null'
+      vendor:
         type: string
-        nullable: true
-      vendor: 
+      category:
         type: string
-      category: 
+      osFamily:
         type: string
-      osFamily: 
+      osVersion:
         type: string
-      osVersion: 
-        type: string
-      bitCount: 
+      bitCount:
         type: integer
         format: int64
-      platform: 
+      platform:
         type: string
-  minRam: 
-    type: integer
+  minRam:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  minRamGB: 
-    type: integer
+  minRamGB:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  minDisk: 
-    type: string
-    nullable: true
-  minDiskGB: 
-    type: string
-    nullable: true
-  rawSize: 
-    type: integer
+  minDisk:
+    type:
+      - string
+      - 'null'
+  minDiskGB:
+    type:
+      - string
+      - 'null'
+  rawSize:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  rawSizeGB: 
-    type: number
-    nullable: true
-  trialVersion: 
+  rawSizeGB:
+    type:
+      - number
+      - 'null'
+  trialVersion:
     type: boolean
-  virtioSupported: 
+  virtioSupported:
     type: boolean
-  uefi: 
+  uefi:
+    type:
+      - string
+      - 'null'
+  isAutoJoinDomain:
+    type: boolean
+  vmToolsInstalled:
+    type: boolean
+  installAgent:
+    type: boolean
+  isForceCustomization:
+    type: boolean
+  isSysprep:
+    type: boolean
+  fipsEnabled:
+    type: boolean
+  userData:
+    type:
+      - string
+      - 'null'
+  consoleKeymap:
+    type:
+      - string
+      - 'null'
+  storageProvider:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  visibility:
     type: string
-    nullable: true
-  isAutoJoinDomain: 
-    type: boolean
-  vmToolsInstalled: 
-    type: boolean
-  installAgent: 
-    type: boolean
-  isForceCustomization: 
-    type: boolean
-  isSysprep: 
-    type: boolean
-  fipsEnabled: 
-    type: boolean
-  userData: 
-    type: string
-    nullable: true
-  consoleKeymap: 
-    type: string
-    nullable: true
-  storageProvider: 
-    type: string
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  visibility: 
-    type: string
-  accounts: 
+  accounts:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-  config: 
+  config:
     type: object
-    properties: 
-      memorySizeType: 
+    properties:
+      memorySizeType:
         type: string
-  volumes: 
+  volumes:
     type: array
     items:
       type: object
-  storageControllers: 
+  storageControllers:
     type: array
     items:
       type: object
-  networkInterfaces: 
+  networkInterfaces:
     type: array
     items:
       type: object
-  tags: 
+  tags:
     type: array
     items:
       type: object
-  locations: 
+  locations:
     type: array
     items:
       type: object
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  status: 
+  status:
     type: string

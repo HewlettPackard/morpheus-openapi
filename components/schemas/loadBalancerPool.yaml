@@ -24,13 +24,15 @@ loadBalancer:
 name:
   type: string
 category:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 visibility:
   type: string
 description:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 internalId:
   type: string
 externalId:
@@ -38,40 +40,50 @@ externalId:
 enabled:
   type: boolean
 vipSticky:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipBalance:
   type: string
 allowNat:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 allowSnat:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipClientIpMode:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipServerIpMode:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 minActive:
   type: integer
   format: int64
 minInService:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 minUpMonitor:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 minUpAction:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 maxQueueDepth:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 maxQueueTime:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 numberActive:
   type: integer
   format: int64
@@ -94,17 +106,21 @@ errorPenalty:
   type: integer
   format: int64
 downAction:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 rampTime:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 port:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 portType:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 status:
   type: string
 nodes:
@@ -134,8 +150,9 @@ members:
 config:
   type: object
 createdBy:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 dateCreated:
   type: string
   format: date-time

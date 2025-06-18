@@ -1,182 +1,208 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
     description: Network Server ID
-  name: 
+  name:
     type: string
     description: Name
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
     description: Description
-    nullable: true
-  type: 
+  type:
     type: object
     description: Network Server Type
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      code: 
+      code:
         type: string
-  integration: 
-    type: object
+  integration:
+    type:
+      - object
+      - 'null'
     description: Integration
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
       type:
         type: string
         description: Integration Type Code
       integrationType:
-        type: object
+        type:
+          - object
+          - 'null'
         description: Integration Type
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-          code: 
+          code:
             type: string
-          name: 
+          name:
             type: string
-        nullable: true
-    nullable: true
-  account: 
-    type: object
+  account:
+    type:
+      - object
+      - 'null'
     description: Owner Tenant
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-    nullable: true
   visibility:
     type: string
-  internalId: 
-    type: string
+  internalId:
+    type:
+      - string
+      - 'null'
     description: Internal ID
-    nullable: true
-  externalId: 
-    type: string
+  externalId:
+    type:
+      - string
+      - 'null'
     description: External ID
-    nullable: true
-  serviceUrl: 
-    type: string
+  serviceUrl:
+    type:
+      - string
+      - 'null'
     description: Service URL
-    nullable: true
-    example: "https://example-infoblox-fqdn/wapi/v2.9"
-  serviceHost: 
-    type: string
+    example: https://example-infoblox-fqdn/wapi/v2.9
+  serviceHost:
+    type:
+      - string
+      - 'null'
     description: Service Host
-    nullable: true
-  servicePort: 
-    type: integer
+  servicePort:
+    type:
+      - integer
+      - 'null'
     description: Service Port
-    nullable: true
     example: 22
-  serviceMode: 
-    type: string
+  serviceMode:
+    type:
+      - string
+      - 'null'
     description: Service Mode
-    nullable: true
-  servicePath: 
-    type: string
+  servicePath:
+    type:
+      - string
+      - 'null'
     description: Service Path
-    nullable: true
-  serviceUsername: 
-    type: string
+  serviceUsername:
+    type:
+      - string
+      - 'null'
     description: Service Username
-    nullable: true
-  servicePassword: 
-    type: string
+  servicePassword:
+    type:
+      - string
+      - 'null'
     description: Service Password
-    nullable: true
-  servicePasswordHash: 
-    type: string
-    nullable: true
-  serviceToken: 
-    type: string
+  servicePasswordHash:
+    type:
+      - string
+      - 'null'
+  serviceToken:
+    type:
+      - string
+      - 'null'
     description: Service Token
-    nullable: true
-  serviceTokenHash: 
-    type: string
-    nullable: true
+  serviceTokenHash:
+    type:
+      - string
+      - 'null'
   apiPort:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
   adminPort:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
-  status: 
+  status:
     type: string
     description: Status
     example: ok
-  statusMessage: 
-    type: string
+  statusMessage:
+    type:
+      - string
+      - 'null'
     description: Status Message
-    nullable: true
-  statusDate: 
-    type: string
+  statusDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastSync: 
-    type: string
+  lastSync:
+    type:
+      - string
+      - 'null'
     format: date-time
     description: Last Sync Date
-    nullable: true
-  nextRunDate: 
-    type: string
+  nextRunDate:
+    type:
+      - string
+      - 'null'
     format: date-time
     description: Next Run Date
-    nullable: true
-  lastSyncDuration: 
-    type: integer
+  lastSyncDuration:
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Last Sync Duration in milliseconds
-    nullable: true
-  config: 
+  config:
     type: object
-    description: Config object varies with network server type. 
-  networkFilter: 
-    type: string
+    description: Config object varies with network server type.
+  networkFilter:
+    type:
+      - string
+      - 'null'
     description: Network Filter
-    nullable: true
-  tenantMatch: 
-    type: string
+  tenantMatch:
+    type:
+      - string
+      - 'null'
     description: Tenant Match
-    nullable: true
-  zoneId: 
-    type: integer
+  zoneId:
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Cloud ID
-    nullable: true
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  enabled: 
+  enabled:
     type: boolean
-  visible: 
+  visible:
     type: boolean
-  credential: 
+  credential:
     $ref: creds.yaml
-  tenants: 
+  tenants:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string

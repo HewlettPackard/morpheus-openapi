@@ -1,81 +1,86 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  username: 
+  username:
     type: string
-  displayName: 
+  displayName:
     type: string
-  email: 
+  email:
     type: string
-  firstName: 
+  firstName:
     type: string
-  lastName: 
+  lastName:
     type: string
-  enabled: 
+  enabled:
     type: boolean
-  receiveNotifications: 
+  receiveNotifications:
     type: boolean
-  isUsing2FA: 
+  isUsing2FA:
     type: boolean
-  accountExpired: 
+  accountExpired:
     type: boolean
-  accountLocked: 
+  accountLocked:
     type: boolean
-  passwordExpired: 
+  passwordExpired:
     type: boolean
-  loginCount: 
+  loginCount:
     type: integer
     format: int64
-  loginAttempts: 
+  loginAttempts:
     type: integer
     format: int64
-  lastLoginDate: 
+  lastLoginDate:
     type: string
     format: date-time
-  roles: 
+  roles:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
         name:
           type: string
-        authority: 
+        authority:
           type: string
-        description: 
+        description:
           type: string
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  linuxUsername: 
-    type: string
-    nullable: true
-  linuxPassword: 
-    type: string
-    nullable: true
-  linuxKeyPairId: 
-    type: integer
+  linuxUsername:
+    type:
+      - string
+      - 'null'
+  linuxPassword:
+    type:
+      - string
+      - 'null'
+  linuxKeyPairId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  windowsUsername: 
-    type: string
-    nullable: true
-  windowsPassword: 
-    type: string
-    nullable: true
-  defaultPersona: 
+  windowsUsername:
+    type:
+      - string
+      - 'null'
+  windowsPassword:
+    type:
+      - string
+      - 'null'
+  defaultPersona:
     type: object
     properties:
       id:
@@ -83,37 +88,38 @@ properties:
         format: int64
       code:
         type: string
-      name: 
+      name:
         type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
   access:
-    type: object
-    nullable: true
-    properties: 
+    type:
+      - object
+      - 'null'
+    properties:
       features:
         type: array
-        items: 
+        items:
           type: object
       zones:
         type: array
-        items: 
+        items:
           type: object
       sites:
         type: array
-        items: 
+        items:
           type: object
       instanceTypes:
         type: array
-        items: 
+        items:
           type: object
       appTemplates:
         type: array
-        items: 
+        items:
           type: object
       catalogItemTypes:
         type: array

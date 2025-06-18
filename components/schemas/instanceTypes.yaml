@@ -1,11 +1,12 @@
 type: object
-properties: 
+properties:
   id:
     type: integer
     format: int64
   account:
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
@@ -15,18 +16,21 @@ properties:
   name:
     type: string
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
   code:
     type: string
   description:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   provisionTypeCode:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   category:
     type: string
   active:
@@ -52,13 +56,16 @@ properties:
         name:
           type: string
         provisionTypeCode:
-          type: string
-          nullable: true
-  imagePath: 
-    type: string
-    nullable: true
+          type:
+            - string
+            - 'null'
+  imagePath:
+    type:
+      - string
+      - 'null'
     description: Logo image URL
-  darkImagePath: 
-    type: string
-    nullable: true
+  darkImagePath:
+    type:
+      - string
+      - 'null'
     description: Dark logo image URL

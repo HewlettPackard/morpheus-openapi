@@ -1,117 +1,135 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
-    type: string
-    nullable: true
-  taskType: 
+  code:
+    type:
+      - string
+      - 'null'
+  taskType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-        enum: 
+        enum:
           - vro
-      name: 
+      name:
         type: string
   labels:
     type: array
-    items: 
+    items:
       type: string
   visibility:
     type: string
-  taskOptions: 
+  taskOptions:
     type: object
     additionalProperties: false
-    properties: 
-      sshKey: 
-        type: string
-        nullable: true
-      localScriptGitRef: 
-        type: string
-        nullable: true
-      port: 
-        type: string
-        nullable: true
-      vroBody: 
-        type: string
-        nullable: true
-      password: 
-        type: string
-        nullable: true
-      passwordHash: 
-        type: string
-        nullable: true
-      host: 
-        type: string
-        nullable: true
-      localScriptGitId: 
-        type: string
-        nullable: true
-      username: 
-        type: string
-        nullable: true
-  file: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
-        type: integer
+    properties:
+      sshKey:
+        type:
+          - string
+          - 'null'
+      localScriptGitRef:
+        type:
+          - string
+          - 'null'
+      port:
+        type:
+          - string
+          - 'null'
+      vroBody:
+        type:
+          - string
+          - 'null'
+      password:
+        type:
+          - string
+          - 'null'
+      passwordHash:
+        type:
+          - string
+          - 'null'
+      host:
+        type:
+          - string
+          - 'null'
+      localScriptGitId:
+        type:
+          - string
+          - 'null'
+      username:
+        type:
+          - string
+          - 'null'
+  file:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        type:
+          - integer
+          - 'null'
         format: int64
-        nullable: true
-      sourceType: 
-        type: string
-        nullable: true
-      contentRef: 
-        type: string
-        nullable: true
-      contentPath: 
-        type: string
-        nullable: true
-      repository: 
-        type: object
-        nullable: true
+      sourceType:
+        type:
+          - string
+          - 'null'
+      contentRef:
+        type:
+          - string
+          - 'null'
+      contentPath:
+        type:
+          - string
+          - 'null'
+      repository:
+        type:
+          - object
+          - 'null'
         properties:
           id:
             type: integer
             format: int64
           name:
             type: string
-      content: 
-        type: string
-        nullable: true
-  resultType: 
+      content:
+        type:
+          - string
+          - 'null'
+  resultType:
+    type:
+      - string
+      - 'null'
+  executeTarget:
     type: string
-    nullable: true
-  executeTarget: 
-    type: string
-  retryable: 
+  retryable:
     type: boolean
-  retryCount: 
+  retryCount:
     type: integer
     format: int64
-  retryDelaySeconds: 
+  retryDelaySeconds:
     type: integer
     format: int64
-  allowCustomConfig: 
+  allowCustomConfig:
     type: boolean
-  credential: 
+  credential:
     type: object
-    properties: 
-      type: 
+    properties:
+      type:
         type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

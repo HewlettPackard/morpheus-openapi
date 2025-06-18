@@ -1,41 +1,45 @@
 type: object
 required:
   - workflow
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: Catalog Item Type name
-  code: 
-    type: string
+  code:
+    type:
+      - string
+      - 'null'
     description: Useful shortcode for provisioning naming schemes and export reference.
-    nullable: true
   category:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Catalog Item Type category
-    nullable: true
-  description: 
+  description:
     type: string
     description: Catalog Item Type description
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  type: 
+  type:
     type: string
     description: Type, `instance`, `blueprint` or `workflow`. This determines whether an Instance or App will be provisioned. Instance types require a config and blueprint requires a blueprint and appSpec, while workflow types requires a workflow and context.
     enum:
       - workflow
-  visibility: 
+  visibility:
     type: string
-    description: Visibility - Set to public to allow all tenants
+    description: "Visibility - Set to public to allow all tenants"
     default: private
-  layoutCode: 
-    type: string
+  layoutCode:
+    type:
+      - string
+      - 'null'
     description: Identifier primarily used for Plugin Catalog Item Types
-    nullable: true
-  iconPath: 
+  iconPath:
     type: string
     description: Icon Path, relative location of an icon image, eg. /assets/containers-png/nginx.png.
   enabled:
@@ -46,17 +50,17 @@ properties:
     type: boolean
     description: Can be used to feature the catalog item type.
     default: false
-  allowQuantity: 
+  allowQuantity:
     description: Can users order more than one of this item at a time.
     type: boolean
     default: false
-  workflow: 
+  workflow:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  context: 
+  context:
     type: string
     description: Context for running the workflow, determines if a target resource must be selected.
     enum:
@@ -66,7 +70,7 @@ properties:
   workflowConfig:
     type: string
     description: Configuration object that contains settings for the workflow.
-  formType: 
+  formType:
     type: string
     default: optionTypes
     description: Form Type determines if the configuration options come from a Form (form) or a list of Inputs (optionTypes).
@@ -74,18 +78,19 @@ properties:
       - optionTypes
       - form
   form:
-    type: object
+    type:
+      - object
+      - 'null'
     description: Object containing the form id. Only applies to formType 'form'.
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Form ID
-    nullable: true
-  optionTypes: 
+  optionTypes:
     type: array
     description: Array of option type IDs. Only applies to formType 'optionTypes'.
-    items: 
+    items:
       type: integer
       format: int64
   content:

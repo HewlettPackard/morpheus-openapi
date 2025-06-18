@@ -1,21 +1,24 @@
 type: object
 properties:
-  roles: 
+  roles:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        authority: 
+        authority:
           type: string
-        description: 
-          type: string
-          nullable: true
-        roleType: 
-          type: string
-          nullable: true
-        owner: 
-          type: object
-          nullable: true
+        description:
+          type:
+            - string
+            - 'null'
+        roleType:
+          type:
+            - string
+            - 'null'
+        owner:
+          type:
+            - object
+            - 'null'

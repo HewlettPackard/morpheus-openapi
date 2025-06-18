@@ -1,24 +1,27 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  launchPrefix:
     type: string
-    nullable: true
-  launchPrefix: 
-    type: string
-  iconPath: 
-    type: string
-    nullable: true
-  logo: 
-    type: string
-    nullable: true
-  dateCreated: 
+  iconPath:
+    type:
+      - string
+      - 'null'
+  logo:
+    type:
+      - string
+      - 'null'
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

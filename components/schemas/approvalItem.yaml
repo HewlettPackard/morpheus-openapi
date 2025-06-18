@@ -1,60 +1,66 @@
 type: object
-properties: 
-  approvalItem: 
+properties:
+  approvalItem:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      externalId: 
+      externalId:
+        type:
+          - string
+          - 'null'
+      externalName:
+        type:
+          - string
+          - 'null'
+      internalId:
+        type:
+          - string
+          - 'null'
+      approvedBy:
         type: string
-        nullable: true
-      externalName: 
+      deniedBy:
+        type:
+          - string
+          - 'null'
+      status:
         type: string
-        nullable: true
-      internalId: 
-        type: string
-        nullable: true
-      approvedBy: 
-        type: string
-      deniedBy: 
-        type: string
-        nullable: true
-      status: 
-        type: string
-      errorMessage: 
-        type: string
-        nullable: true
-      dateCreated: 
-        type: string
-        format: date-time
-      lastUpdated: 
-        type: string
-        format: date-time
-      dateApproved: 
-        type: string
-        format: date-time
-      dateDenied: 
+      errorMessage:
+        type:
+          - string
+          - 'null'
+      dateCreated:
         type: string
         format: date-time
-        nullable: true
-      approval: 
+      lastUpdated:
+        type: string
+        format: date-time
+      dateApproved:
+        type: string
+        format: date-time
+      dateDenied:
+        type:
+          - string
+          - 'null'
+        format: date-time
+      approval:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-      reference: 
+      reference:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-          type: 
+          type:
             type: string
-          name: 
+          name:
             type: string
-          displayName: 
+          displayName:
             type: string

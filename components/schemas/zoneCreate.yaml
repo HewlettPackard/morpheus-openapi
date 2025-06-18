@@ -15,16 +15,17 @@ properties:
     type: string
     description: Optional code for use with policies
     example: mycloud
-  labels: 
+  labels:
     type: array
     description: Array of label strings, can be used for filtering.
     items:
       type: string
   location:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Optional location for your cloud
     example: US East
-    nullable: true
   visibility:
     type: string
     description: private or public
@@ -46,7 +47,7 @@ properties:
         properties:
           code:
             type: string
-            example: "vmware"
+            example: vmware
   groupId:
     type: integer
     format: int64

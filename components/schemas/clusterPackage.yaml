@@ -1,17 +1,19 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
   description:
-    type: string 
-    nullable: true
+    type:
+      - string
+      - 'null'
   account:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
   code:
     type: string
   repeatInstall:
@@ -24,24 +26,27 @@ properties:
     type: string
   enabled:
     type: boolean
-  iconPath: 
-    type: string
-    nullable: true
-  imagePath: 
-    type: string
-    nullable: true
-  darkImagePath: 
-    type: string
-    nullable: true
-  specTemplates: 
+  iconPath:
+    type:
+      - string
+      - 'null'
+  imagePath:
+    type:
+      - string
+      - 'null'
+  darkImagePath:
+    type:
+      - string
+      - 'null'
+  specTemplates:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        code: 
+        code:
           type: string

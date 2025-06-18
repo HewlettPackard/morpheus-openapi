@@ -1,33 +1,33 @@
-id: 
+id:
   type: integer
   format: int64
   description: ID
-keyId: 
+keyId:
   type: string
   description: Key ID (only the first 8 characters are required to identify license to uninstall)
 hash:
   type: string
   description: Hash of the license content which can be used as a fingerprint identifier
-productTier: 
+productTier:
   type: string
   description: Product Tier
-startDate: 
+startDate:
   type: string
   format: date-time
   description: The start date of the applied license.
-endDate: 
+endDate:
   type: string
   format: date-time
   description: The expiration date of the applied license.
-maxInstances: 
+maxInstances:
   type: integer
   format: int64
   description: Workload Limit. 0 is used for unlimited.
-maxMemory: 
+maxMemory:
   type: integer
   format: int64
   description: Memory Limit. 0 is used for unlimited.
-maxStorage: 
+maxStorage:
   type: integer
   format: int64
   description: Storage Limit. 0 is used for unlimited.
@@ -38,95 +38,109 @@ limitType:
     - standard
     - workload
 maxManagedServers:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: Managed Servers Limit. 0 is enforced and null is used for unlimited.
-maxDiscoveredServers: 
-  type: integer
+maxDiscoveredServers:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: Discovered Servers Limit. 0 is enforced and null is used for unlimited.
-maxHosts: 
-  type: integer
+maxHosts:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: Host Limit. 0 is enforced and null is used for unlimited.
-maxMvm: 
-  type: integer
+maxMvm:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: HPE VM Host Limit. 0 is enforced and null is used for unlimited.
-maxMvmSockets: 
-  type: integer
+maxMvmSockets:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: HPE VM Host Limit. 0 is enforced and null is used for unlimited.
-maxIac: 
-  type: integer
+maxIac:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: IAC Deployments Limit. 0 is enforced and null is used for unlimited.
-maxXaas: 
-  type: integer
+maxXaas:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: Xaas Instances Limit. 0 is enforced and null is used for unlimited.
-maxExecutions: 
-  type: integer
+maxExecutions:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: Execution Limit. 0 is enforced and null is used for unlimited.
-maxDistributedWorkers: 
-  type: integer
+maxDistributedWorkers:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: Distributed Workers Limit. 0 is enforced and null is used for unlimited.
-maxDiscoveredObjects: 
-  type: integer
+maxDiscoveredObjects:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
   description: Discovered Objects Limit. Not yet enforced.
-hardLimit: 
+hardLimit:
   type: boolean
   description: Hard Limit
-freeTrial: 
+freeTrial:
   type: boolean
   description: Free Trial (Community License)
-multiTenant: 
+multiTenant:
   type: boolean
   description: Multi-Tenant Enabled
-whitelabel: 
+whitelabel:
   type: boolean
   description: White Label Enabled
-reportStatus: 
+reportStatus:
   type: boolean
   description: Stats Reporting. This is true when the appliance registers and sends usage stats to the hub.
-supportLevel: 
+supportLevel:
   type: string
   description: Support Level
-accountName: 
+accountName:
   type: string
   description: Account Name
-config: 
-  type: object
-  nullable: true
+config:
+  type:
+    - object
+    - 'null'
   description: License Configuration Object
-amazonProductCodes: 
-  type: string
-  nullable: true
-features: 
+amazonProductCodes:
+  type:
+    - string
+    - 'null'
+features:
   $ref: licenseFeatures.yaml
-zoneTypes: 
-  type: string
-  nullable: true
-lastUpdated: 
+zoneTypes:
+  type:
+    - string
+    - 'null'
+lastUpdated:
   type: string
   format: date-time
-dateCreated: 
+dateCreated:
   type: string
   format: date-time
 recalculationDate:
-  type: string
+  type:
+    - string
+    - 'null'
   format: date-time
-  nullable: true

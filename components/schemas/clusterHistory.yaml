@@ -1,216 +1,242 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  uniqueId: 
+  uniqueId:
     type: string
-  processType: 
+  processType:
     type: object
-    properties: 
-      code: 
+    properties:
+      code:
         type: string
-      name: 
+      name:
         type: string
-  displayName: 
+  displayName:
     type: string
-  description: 
-    type: string
-    nullable: true
-  subType: 
-    type: string
-    nullable: true
-  subId: 
-    type: string
-    nullable: true
-  zoneId: 
-    type: integer
+  description:
+    type:
+      - string
+      - 'null'
+  subType:
+    type:
+      - string
+      - 'null'
+  subId:
+    type:
+      - string
+      - 'null'
+  zoneId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  integrationId: 
-    type: integer
+  integrationId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
   appId:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  instanceId: 
-    type: integer
+  instanceId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  containerId: 
-    type: integer
+  containerId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  serverId: 
-    type: integer
+  serverId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  containerName: 
+  containerName:
+    type:
+      - string
+      - 'null'
+  status:
     type: string
-    nullable: true
-  status: 
-    type: string
-  reason: 
-    type: string
-    nullable: true
-  percent: 
+  reason:
+    type:
+      - string
+      - 'null'
+  percent:
     type: number
-  statusEta: 
+  statusEta:
     type: integer
     format: int64
-  message: 
-    type: string
-    nullable: true
-  output: 
-    type: string
-    nullable: true
-  error: 
-    type: string
-    nullable: true
-  startDate: 
+  message:
+    type:
+      - string
+      - 'null'
+  output:
+    type:
+      - string
+      - 'null'
+  error:
+    type:
+      - string
+      - 'null'
+  startDate:
     type: string
     format: date-time
-  endDate: 
+  endDate:
     type: string
     format: date-time
-  duration: 
+  duration:
     type: integer
     format: int64
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  createdBy: 
+  createdBy:
     type: object
-    properties: 
-      username: 
+    properties:
+      username:
         type: string
-      displayName: 
+      displayName:
         type: string
-  updatedBy: 
+  updatedBy:
     type: object
-    properties: 
-      username: 
+    properties:
+      username:
         type: string
-      displayName: 
+      displayName:
         type: string
-  events: 
+  events:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        processId: 
+        processId:
           type: integer
           format: int64
-        accountId: 
+        accountId:
           type: integer
           format: int64
-        uniqueId: 
+        uniqueId:
           type: string
-        processType: 
+        processType:
           type: object
-          properties: 
-            code: 
+          properties:
+            code:
               type: string
-            name: 
+            name:
               type: string
-        description: 
+        description:
+          type:
+            - string
+            - 'null'
+        refType:
           type: string
-          nullable: true
-        refType: 
-          type: string
-        refId: 
+        refId:
           type: integer
           format: int64
-        subType: 
+        subType:
+          type:
+            - string
+            - 'null'
+        subId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+        zoneId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+        integrationId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+        instanceId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+        containerId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+        serverId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+        containerName:
+          type:
+            - string
+            - 'null'
+        displayName:
           type: string
-          nullable: true
-        subId: 
+        status:
+          type: string
+        reason:
+          type:
+            - string
+            - 'null'
+        percent:
           type: integer
           format: int64
-          nullable: true
-        zoneId: 
+        statusEta:
           type: integer
           format: int64
-          nullable: true
-        integrationId: 
-          type: integer
-          format: int64
-          nullable: true
-        instanceId: 
-          type: integer
-          format: int64
-          nullable: true
-        containerId: 
-          type: integer
-          format: int64
-          nullable: true
-        serverId: 
-          type: integer
-          format: int64
-          nullable: true
-        containerName: 
-          type: string
-          nullable: true
-        displayName: 
-          type: string
-        status: 
-          type: string
-        reason: 
-          type: string
-          nullable: true
-        percent: 
-          type: integer
-          format: int64
-        statusEta: 
-          type: integer
-          format: int64
-        message: 
-          type: string
-          nullable: true
-        output: 
-          type: string
-          nullable: true
-        error: 
-          type: string
-          nullable: true
-        startDate: 
+        message:
+          type:
+            - string
+            - 'null'
+        output:
+          type:
+            - string
+            - 'null'
+        error:
+          type:
+            - string
+            - 'null'
+        startDate:
           type: string
           format: date-time
-        endDate: 
+        endDate:
           type: string
           format: date-time
-        duration: 
+        duration:
           type: integer
           format: int64
-        dateCreated: 
+        dateCreated:
           type: string
           format: date-time
-        lastUpdated: 
+        lastUpdated:
           type: string
           format: date-time
-        createdBy: 
+        createdBy:
           type: object
-          properties: 
-            username: 
+          properties:
+            username:
               type: string
-            displayName: 
+            displayName:
               type: string
-        updatedBy: 
+        updatedBy:
           type: object
-          properties: 
-            username: 
+          properties:
+            username:
               type: string
-            displayName: 
+            displayName:
               type: string
-      

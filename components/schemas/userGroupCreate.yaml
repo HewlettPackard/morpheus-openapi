@@ -3,19 +3,21 @@ properties:
   name:
     type: string
   description:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   sudoUser:
     type: boolean
   serverGroup:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   users:
     type: array
     description: A list of IDs of users that are in the user group
     items:
-        type: integer
-        format: int64
+      type: integer
+      format: int64
     example:
       - 100
       - 101

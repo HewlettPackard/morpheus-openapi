@@ -21,9 +21,10 @@ get:
                     description: Array of security group objects
                     type: array
                     items:
-                      type: object
-                      nullable: true
-                      properties: 
+                      type:
+                        - object
+                        - 'null'
+                      properties:
                         id:
                           type: integer
                           format: int64
@@ -47,42 +48,43 @@ get:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
-post: 
+post:
   summary: Set Security Groups for an Instance
   description: Set Security Groups for an Instance
   operationId: setInstanceSecurityGroups
-  tags: 
-    -  Instances
+  tags:
+    - Instances
   parameters:
     - $ref: ../components/parameters/id-path.yaml
-  requestBody: 
-    content: 
-      application/json: 
-        schema: 
+  requestBody:
+    content:
+      application/json:
+        schema:
           type: object
-          properties: 
+          properties:
             securityGroupIds:
               type: array
               description: List of all security groups ids which should be applied. If no security groups should apply, pass '[]'
               items:
                 type: integer
                 format: int64
-  responses: 
-    '200': 
+  responses:
+    '200':
       description: Successful Response
-      content: 
-        application/json: 
+      content:
+        application/json:
           schema:
             allOf:
               - type: object
                 properties:
                   securityGroups:
                     description: Array of security group objects
-                    type: array
-                    nullable: true
+                    type:
+                      - array
+                      - 'null'
                     items:
                       type: object
-                      properties: 
+                      properties:
                         id:
                           type: integer
                           format: int64

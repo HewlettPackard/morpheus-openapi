@@ -14,16 +14,16 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                imageBuilds:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/imageBuilds.yaml
-                imageBuildCount:
-                  type: integer
-                  format: int64
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  imageBuilds:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/imageBuilds.yaml
+                  imageBuildCount:
+                    type: integer
+                    format: int64
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Image Builds Response:
               value:
@@ -32,15 +32,15 @@ get:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
-post: 
+post:
   summary: Create an Image Build
   description: Create an Image Build
   operationId: addImageBuild
-  tags: 
-    -  Image Builds
-  requestBody: 
-    content: 
-      application/json: 
+  tags:
+    - Image Builds
+  requestBody:
+    content:
+      application/json:
         schema:
           type: object
           properties:
@@ -53,18 +53,19 @@ post:
   responses:
     '200':
       description: Successful Response
-      content: 
-        application/json: 
+      content:
+        application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                imageBuild:
-                  $ref: ../components/schemas/imageBuild.yaml
-                errorCode:
-                  type: string
-                  nullable: true
-            - $ref: ../components/schemas/200-success-expanded.yaml
+              - type: object
+                properties:
+                  imageBuild:
+                    $ref: ../components/schemas/imageBuild.yaml
+                  errorCode:
+                    type:
+                      - string
+                      - 'null'
+              - $ref: ../components/schemas/200-success-expanded.yaml
           examples:
             Image Build Response:
               value:

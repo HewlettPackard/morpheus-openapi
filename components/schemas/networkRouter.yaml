@@ -9,8 +9,9 @@ networkRouter:
     name:
       type: string
     description:
-      type: string
-      nullable: true
+      type:
+        - string
+        - 'null'
     category:
       type: string
     dateCreated:
@@ -26,8 +27,9 @@ networkRouter:
     enabled:
       type: boolean
     externalIp:
-      type: string
-      nullable: true
+      type:
+        - string
+        - 'null'
     externalId:
       type: string
     providerId:
@@ -150,14 +152,17 @@ networkRouter:
         name:
           type: string
     instance:
-      type: string
-      nullable: true
+      type:
+        - string
+        - 'null'
     externalNetwork:
-      type: string
-      nullable: true
+      type:
+        - string
+        - 'null'
     site:
-      type: string
-      nullable: true
+      type:
+        - string
+        - 'null'
     interfaces:
       type: array
       items:
@@ -168,14 +173,17 @@ networkRouter:
         enabled:
           type: boolean
         version:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         defaultPolicy:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         global:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         ruleGroups:
           type: array
           items:
@@ -187,19 +195,23 @@ networkRouter:
               name:
                 type: string
               description:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
               externalId:
                 type: string
               iacId:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
               zone:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
               zonePool:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
               status:
                 type: string
               priority:
@@ -218,8 +230,9 @@ networkRouter:
                     name:
                       type: string
                     code:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     enabled:
                       type: boolean
                     groupName:
@@ -247,28 +260,35 @@ networkRouter:
                       items:
                         type: string
                     protocol:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     application:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     applicationType:
                       type: string
                     portRange:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     sourcePortRange:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     destinationPortRange:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     sourceGroup:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     sourceTier:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     applications:
                       type: array
                       items:

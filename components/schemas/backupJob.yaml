@@ -1,99 +1,106 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
     description: Backup ID
-  name: 
+  name:
     type: string
     description: Name
-  schedule: 
-    type: object
-    properties: 
-      id: 
+  schedule:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Schedule ID
-      name: 
+      name:
         type: string
         description: Schedule Name
-      cron: 
+      cron:
         type: string
         description: Schedule Cron Expression
-    nullable: true
-  retentionCount: 
-    type: integer
+  retentionCount:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
   externalId:
-    type: string
-    nullable: true
-  backupProvider: 
-    type: object
-    properties: 
-      id: 
+    type:
+      - string
+      - 'null'
+  backupProvider:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Backup Provider ID
-      name: 
+      name:
         type: string
         description: Backup Provider Name
-    nullable: true
-  backupRespository: 
-    type: object
-    properties: 
-      id: 
+  backupRespository:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Backup Respository ID
-      name: 
+      name:
         type: string
         description: Backup Respository Name
-    nullable: true
-  cronExpression: 
-    type: string
-    nullable: true
+  cronExpression:
+    type:
+      - string
+      - 'null'
     description: Cron Expression
-  nextFire: 
-    type: string
+  nextFire:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
     description: Next Fire is the datetime the job will next occur on according to its schedule
   source:
     type: string
   visibility:
     type: string
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Tenant ID
-      name: 
+      name:
         type: string
         description: Tenant Name
   enabled:
     type: boolean
     description: Enabled
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
     description: Date Created
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
     description: Last Updated
-  backups: 
+  backups:
     type: array
     description: Backups associated with this job
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
           description: Backup ID
-        name: 
+        name:
           type: string
           description: Backup Name

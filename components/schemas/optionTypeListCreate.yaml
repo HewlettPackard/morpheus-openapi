@@ -2,20 +2,22 @@ type: object
 required:
   - name
 properties:
-  name: 
+  name:
     type: string
     description: Name
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
     description: Description
-    nullable: true
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  type: 
+  type:
     type: string
     description: Option List Type eg. `rest`, `api`, `ldap` or `manual`.
     default: rest
@@ -24,82 +26,88 @@ properties:
       - api
       - ldap
       - manual
-  sourceUrl: 
+  sourceUrl:
     type: string
     description: Source URL, the http(s) URL to request data from. Required when type is rest.
-  visibility: 
+  visibility:
     type: string
     description: Visibility
     default: private
     enum:
       - private
       - public
-  sourceMethod: 
+  sourceMethod:
     type: string
     description: Source Method, the HTTP method.
     default: GET
     enum:
       - GET
       - POST
-  apiType: 
-    type: string
+  apiType:
+    type:
+      - string
+      - 'null'
     description: Api Type, The code of the api option list to use, eg. clouds, environments, groups, instances, instance-wiki, networks, servicePlans, resourcePools, securityGroups, servers, server-wiki. Required when type is api.
-    nullable: true
-  ignoreSSLErrors: 
+  ignoreSSLErrors:
     type: boolean
     description: Ignore SSL Errors.
     default: false
-  realTime: 
+  realTime:
     type: boolean
     description: Real Time.
     default: false
-  credential: 
+  credential:
     type: object
-    description: 'Map containing Credential ID or the default `{"type": "local"}` which means use the values set in the local option list serviceUsername and servicePassword instead of associating a credential.'
-    properties: 
-      type: 
+    description: "Map containing Credential ID or the default `{\"type\": \"local\"}` which means use the values set in the local option list serviceUsername and servicePassword instead of associating a credential."
+    properties:
+      type:
         type: string
       id:
         type: integer
         format: int64
-  serviceUsername: 
-    type: string
+  serviceUsername:
+    type:
+      - string
+      - 'null'
     description: Username for authenticating with Basic Auth when type is rest or ldap username.
-    nullable: true
-  servicePassword: 
-    type: string
+  servicePassword:
+    type:
+      - string
+      - 'null'
     description: Password for authenticating with Basic Auth when type is rest or ldap password.
-    nullable: true
-  initialDataset: 
-    type: string
+  initialDataset:
+    type:
+      - string
+      - 'null'
     description: Initial Dataset. Create an initial JSON or CSV dataset to be used as the collection for this option list. It should be a list containing objects with properties 'name', and 'value'. Required when type is manual.
-    nullable: true
-  translationScript: 
-    type: string
+  translationScript:
+    type:
+      - string
+      - 'null'
     description: Translation Script. Create a js script to translate the result data object into an Array containing objects with properties 'name' and 'value'. The input data is provided as data and the result should be put on the global variable results.
-    nullable: true
-  requestScript: 
-    type: string
+  requestScript:
+    type:
+      - string
+      - 'null'
     description: Request Script. Create a js script to prepare the request. Return a data object as the body for a post, and return an array containing properties 'name' and 'value' for a get. The input data is provided as data and the result should be put on the global variable results.
-    nullable: true
-  config: 
+  config:
     type: object
     description: Array of source headers to use when requesting data
-    properties: 
-      sourceHeaders: 
+    properties:
+      sourceHeaders:
         type: array
-        items: 
+        items:
           type: object
           required:
             - name
-          properties: 
-            name: 
+          properties:
+            name:
               type: string
               description: Header name
-            value: 
+            value:
               type: string
               description: Header value
-            masked: 
+            masked:
               type: boolean
               description: Can be used to enable / disable masking of value
               default: false

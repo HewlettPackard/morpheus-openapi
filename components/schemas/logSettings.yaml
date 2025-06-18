@@ -1,19 +1,21 @@
 type: object
-properties: 
-  enabled: 
+properties:
+  enabled:
     type: boolean
-  retentionDays: 
+  retentionDays:
     type: string
-  syslogRules: 
-    type: array
-    nullable: true
+  syslogRules:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-    example: 
-      - name: "foo"
+    example:
+      - name: foo
         rule: "*.* @@localhost:4567"
-  integrations: 
-    type: array
-    nullable: true
+  integrations:
+    type:
+      - array
+      - 'null'
     items:
       type: object

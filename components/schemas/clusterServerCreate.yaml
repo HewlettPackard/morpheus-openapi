@@ -1,100 +1,103 @@
 type: object
-required: 
+required:
   - config
   - name
   - plan
-properties: 
-  config: 
+properties:
+  config:
     type: object
     description: |
       Key for specific host type configuration
-
+      
       The config parameter is for configuration options that are specific to each Provision Type. The Provision Types api can be used to see which options are available.
-    properties: 
+    properties:
       defaultRepoAccount:
-        type: integer
+        type:
+          - integer
+          - 'null'
         description: Default Git Account to be used when pulling images.  Default behavior is to be anonymous, which does have limits on allowed image pulls from public Docker Repos.
-        nullable: true 
   serverType:
     type: object
     description: Server type to create.  See `/api/server-types` for available server types for the cloud.
     properties:
       id:
         type: integer
-  name: 
+  name:
     type: string
     description: Name to be used for host(s) created in the cluster
-  plan: 
+  plan:
     type: object
     properties:
       id:
         type: integer
         format: int64
         description: The id for the memory and storage option pre-configured within Morpheus.
-      code: 
+      code:
         type: string
         description: The code for the memory and storage option pre-configured within Morpheus.
-  servicePlanOptions: 
+  servicePlanOptions:
     $ref: servicePlanOptions.yaml
-  volumes: 
+  volumes:
     type: array
     description: The (optional) volumes parameter is for LV configuration, can create additional LVs at provision It should be passed as an array of Objects
-    items: 
+    items:
       type: object
-      required: 
+      required:
         - name
         - datastoreId
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
           description: The id for the LV configuration being created
           default: -1
-        rootVolume: 
+        rootVolume:
           type: boolean
           description: If set to false then a non-root LV will be created
           default: true
-        name: 
+        name:
           type: string
           description: Name/type of the LV being created
           default: root
-        size: 
+        size:
           type: integer
           format: int64
           description: |
             Size of the LV to be created in GBs
-
+            
             Default is from the service plan
-        sizeId: 
-          type: string
-          nullable: true
+        sizeId:
+          type:
+            - string
+            - 'null'
           description: Can be used to select pre-existing LV choices from Morpheus
-        storageType: 
+        storageType:
           type: integer
           format: int64
           description: Identifier for LV type
-        datastoreId: 
-          type: string
-          nullable: true
+        datastoreId:
+          type:
+            - string
+            - 'null'
           description: The ID of the specific datastore. Auto selection can be specified as auto or `autoCluster` (for clusters).
-  networkInterfaces: 
+  networkInterfaces:
     type: array
     description: |
       The networkInterfaces parameter is for network configuration.
-
+      
       The Options API /api/options/zoneNetworkOptions can be used to see which options are available.
-
+      
       It should be passed as an array of Objects with the following attributes
-    items: 
+    items:
       type: object
-      required: 
+      required:
         - network
-      properties: 
-        network: 
+      properties:
+        network:
           type: object
           required:
             - id
-          properties: 
+          properties:
             id:
               oneOf:
                 - type: string
@@ -108,60 +111,62 @@ properties:
         ipAddress:
           type: string
           description: The ip address. Not applicable when using DHCP or IP Pools.
-  securityGroups: 
+  securityGroups:
     type: array
     description: Key for security group configuration.
-    items: 
+    items:
       type: string
       description: ID of the security group to assign the host to.
-  visibility: 
+  visibility:
     type: string
     description: Visibility for server host
     default: private
-  userGroup: 
+  userGroup:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: User Group ID for server host
-  networkDomain: 
-    type: string
+  networkDomain:
+    type:
+      - string
+      - 'null'
     description: Network domain
-    nullable: true
-  hostname: 
-    type: string
+  hostname:
+    type:
+      - string
+      - 'null'
     description: Hostname for server host
-    nullable: true
-  nodeCount: 
+  nodeCount:
     type: integer
     format: int64
     description: Number of workers or hosts
-  tags: 
+  tags:
     type: array
     description: Metadata tags, Array of objects having a name and value.
-    items: 
+    items:
       type: object
-      properties: 
-        name: 
+      properties:
+        name:
           type: string
-        value: 
+        value:
           type: string
-  labels: 
+  labels:
     type: array
     description: Array of strings (keywords). This will set labels on the server and also on the cluster as well by default.
-    items: 
+    items:
       type: string
   sshHosts:
     type: array
     description: Array of Host IPs and Names. This is used in conjunction with sshUsername and sshPassword/sshKeyPair to add existing hosts such as with HPE VM clusters.
-    items: 
+    items:
       type: object
-      properties: 
-        ip: 
+      properties:
+        ip:
           type: string
           description: Host IP
-        name: 
+        name:
           type: string
           description: Host Name
   sshUsername:
@@ -169,16 +174,18 @@ properties:
     description: SSH Username
     example: myuser
   sshPassword:
-    type: string
+    type:
+      - string
+      - 'null'
     description: SSH Password
     example: mypassword
-    nullable: true
   sshKeyPair:
-    type: object
+    type:
+      - object
+      - 'null'
     description: SSH Key.  See `/api/options/privateKeyPairs` for available private key pairs.
     properties:
       id:
         type: integer
         format: int64
         description: Key Pair ID
-    nullable: true

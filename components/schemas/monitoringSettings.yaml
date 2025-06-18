@@ -1,37 +1,40 @@
 type: object
-properties: 
-  autoManageChecks: 
+properties:
+  autoManageChecks:
     type: boolean
     description: Auto Create Checks
-  availabilityTimeFrame: 
-    type: integer
+  availabilityTimeFrame:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Availability Time Frame. The number of days availability should be calculated for. Changes will not take effect until your checks have passed their check interval.
-    nullable: true
     example: 30
-  availabilityPrecision: 
-    type: integer
+  availabilityPrecision:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Availability Precision. The number of decimal places availability should be displayed in. Can be anywhere between 0 and 5.
-    nullable: true
     example: 3
-  defaultCheckInterval: 
-    type: integer
+  defaultCheckInterval:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Default Check Interval. The number of minutes to use as the default interval to use when creating new checks.
-    nullable: true
     example: 5
-  serviceNow: 
+  serviceNow:
     type: object
     description: Service Now Settings
-    properties: 
-      enabled: 
+    properties:
+      enabled:
         type: boolean
         description: Enabled
-      integration: 
+      integration:
         type: object
         description: Service Now Integration Object
-        properties: 
+        properties:
           id:
             type: integer
             format: int64
@@ -39,45 +42,50 @@ properties:
           name:
             type: string
             description: Service Now Integration Name
-      newIncidentAction: 
-        type: string
+      newIncidentAction:
+        type:
+          - string
+          - 'null'
         description: New Incident Action
-        nullable: true
         example: create
         enum:
           - create
           - none
-      closeIncidentAction: 
-        type: string
+      closeIncidentAction:
+        type:
+          - string
+          - 'null'
         description: Close Incident Action
-        nullable: true
         example: close
         enum:
           - close
           - activity
           - none
-      infoMapping: 
-        type: string
+      infoMapping:
+        type:
+          - string
+          - 'null'
         description: Info Mapping
-        nullable: true
         example: low
         enum:
           - low
           - medium
           - high
-      warningMapping: 
-        type: string
+      warningMapping:
+        type:
+          - string
+          - 'null'
         description: Warning Mapping
-        nullable: true
         example: medium
         enum:
           - low
           - medium
           - high
-      criticalMapping: 
-        type: string
+      criticalMapping:
+        type:
+          - string
+          - 'null'
         description: Critical Mapping
-        nullable: true
         example: high
         enum:
           - low

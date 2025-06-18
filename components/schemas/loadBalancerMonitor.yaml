@@ -1,118 +1,130 @@
-id: 
+id:
   type: integer
   format: int64
-loadBalancer: 
+loadBalancer:
   type: object
-  properties: 
-    id: 
+  properties:
+    id:
       type: integer
       format: int64
-    type: 
+    type:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        code: 
+        code:
           type: string
-        name: 
+        name:
           type: string
-    name: 
+    name:
       type: string
-    ip: 
+    ip:
       type: string
-name: 
+name:
   type: string
-code: 
+code:
+  type:
+    - string
+    - 'null'
+category:
+  type:
+    - string
+    - 'null'
+visibility:
   type: string
-  nullable: true
-category: 
+description:
   type: string
-  nullable: true
-visibility: 
+monitorType:
   type: string
-description: 
-  type: string
-monitorType: 
-  type: string
-monitorInterval: 
+monitorInterval:
   type: integer
   format: int64
-monitorTimeout: 
+monitorTimeout:
   type: integer
   format: int64
-sendData: 
+sendData:
+  type:
+    - string
+    - 'null'
+sendVersion:
   type: string
-  nullable: true
-sendVersion: 
+sendType:
   type: string
-sendType: 
+receiveData:
+  type:
+    - string
+    - 'null'
+receiveCode:
   type: string
-receiveData: 
+disabledData:
+  type:
+    - string
+    - 'null'
+monitorUsername:
+  type:
+    - string
+    - 'null'
+monitorPassword:
+  type:
+    - string
+    - 'null'
+monitorDestination:
   type: string
-  nullable: true
-receiveCode: 
-  type: string
-disabledData: 
-  type: string
-  nullable: true
-monitorUsername: 
-  type: string
-  nullable: true
-monitorPassword: 
-  type: string
-  nullable: true
-monitorDestination: 
-  type: string
-monitorReverse: 
+monitorReverse:
   type: boolean
-monitorTransparent: 
+monitorTransparent:
   type: boolean
-monitorAdaptive: 
+monitorAdaptive:
   type: boolean
-aliasAddress: 
-  type: string
-  nullable: true
-aliasPort: 
+aliasAddress:
+  type:
+    - string
+    - 'null'
+aliasPort:
   type: integer
   format: int64
-internalId: 
+internalId:
   type: string
-externalId: 
+externalId:
   type: string
-monitorSource: 
+monitorSource:
   type: string
-status: 
+status:
   type: string
-statusMessage: 
-  type: string
-  nullable: true
-statusDate: 
-  type: string
+statusMessage:
+  type:
+    - string
+    - 'null'
+statusDate:
+  type:
+    - string
+    - 'null'
   format: date-time
-  nullable: true
-enabled: 
+enabled:
   type: boolean
-maxRetry: 
+maxRetry:
   type: integer
   format: int64
-fallCount: 
+fallCount:
   type: integer
   format: int64
-riseCount: 
+riseCount:
   type: integer
   format: int64
-dataLength: 
-  type: string
-  nullable: true
-config: 
+dataLength:
+  type:
+    - string
+    - 'null'
+config:
   type: object
-createdBy: 
-  type: string
-  nullable: true
-dateCreated: 
+createdBy:
+  type:
+    - string
+    - 'null'
+dateCreated:
   type: string
   format: date-time
-lastUpdated: 
+lastUpdated:
   type: string
   format: date-time

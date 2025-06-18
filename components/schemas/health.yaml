@@ -1,1363 +1,1378 @@
 type: object
-properties: 
-  success: 
+properties:
+  success:
     type: boolean
-  statusMessage: 
+  statusMessage:
     type: string
-  applianceUrl: 
+  applianceUrl:
     type: string
-  buildVersion: 
+  buildVersion:
     type: string
-  uuid: 
+  uuid:
     type: string
-  setupNeeded: 
+  setupNeeded:
     type: boolean
-  date: 
+  date:
     type: string
     format: date-time
-  cpu: 
+  cpu:
     type: object
-    properties: 
-      success: 
+    properties:
+      success:
         type: boolean
-      cpuLoad: 
+      cpuLoad:
         type: integer
         format: int64
-      cpuTotalLoad: 
+      cpuTotalLoad:
         type: integer
         format: int64
-      processorCount: 
+      processorCount:
         type: integer
         format: int64
-      processTime: 
+      processTime:
         type: integer
         format: int64
-      systemLoad: 
+      systemLoad:
         type: number
-      status: 
+      status:
         type: string
-  memory: 
+  memory:
     type: object
-    properties: 
-      success: 
+    properties:
+      success:
         type: boolean
-      maxMemory: 
+      maxMemory:
         type: integer
         format: int64
-      totalMemory: 
+      totalMemory:
         type: integer
         format: int64
-      freeMemory: 
+      freeMemory:
         type: integer
         format: int64
-      usedMemory: 
+      usedMemory:
         type: integer
         format: int64
-      systemMemory: 
+      systemMemory:
         type: integer
         format: int64
-      committedMemory: 
+      committedMemory:
         type: integer
         format: int64
-      systemFreeMemory: 
+      systemFreeMemory:
         type: integer
         format: int64
-      systemSwap: 
+      systemSwap:
         type: integer
         format: int64
-      systemFreeSwap: 
+      systemFreeSwap:
         type: integer
         format: int64
-      swapPercent: 
+      swapPercent:
         type: integer
         format: int64
-      memoryPercent: 
+      memoryPercent:
         type: number
-      systemMemoryPercent: 
+      systemMemoryPercent:
         type: number
-      status: 
+      status:
         type: string
-  threads: 
+  threads:
     type: object
-    properties: 
-      success: 
+    properties:
+      success:
         type: boolean
-      threadList: 
-        type: array
-        nullable: true
-        items: 
-          type: object
-      busyThreads: 
-        type: array
-        items: 
-          type: object
-          properties: 
-            threadId: 
-              type: integer
-              format: int64
-            name: 
-              type: string
-            cpuTime: 
-              type: integer
-              format: int64
-            blockedTime: 
-              type: integer
-              format: int64
-            lockName: 
-              type: string
-              nullable: true
-            lockOwnerId: 
-              type: integer
-              format: int64
-            lockOwnerName: 
-              type: string
-              nullable: true
-            state: 
-              type: string
-            waitedCount: 
-              type: integer
-              format: int64
-            waitedTime: 
-              type: integer
-              format: int64
-            isInNative: 
-              type: boolean
-            isSuspended: 
-              type: boolean
-            lockedMonitors: 
-              type: array
-              nullable: true
-              items: 
-                type: object
-            lockedSynchronizers: 
-              type: array
-              nullable: true
-              items: 
-                type: object
-            lockInfo: 
-              type: string
-              nullable: true
-            currentLines: 
-              type: string
-            cpuPercent: 
-              type: number
-      blockedThreads: 
-        type: array
-        nullable: true
-        items: 
-          type: object
-      runningThreads: 
-        type: array
-        nullable: true
-        items: 
-          type: object
-      totalCpuTime: 
-        type: integer
-        format: int64
-      totalThreads: 
-        type: integer
-        format: int64
-      runningWebThreads: 
-        type: integer
-        format: int64
-      status: 
-        type: string
-  database: 
-    type: object
-    properties: 
-      success: 
-        type: boolean
-      connectionList: 
-        type: array
-        nullable: true
+      threadList:
+        type:
+          - array
+          - 'null'
         items:
           type: object
-      busyConnections: 
+      busyThreads:
         type: array
-        items: 
-          type: string
-          nullable: true
-      maxConnections: 
-        type: integer
-        format: int64
-      maxUsedConnections: 
-        type: integer
-        format: int64
-      usedConnections: 
-        type: integer
-        format: int64
-      abortedConnections: 
-        type: integer
-        format: int64
-      innodbStatus: 
-        type: string
-        nullable: true
-      stats: 
-        type: object
-        properties: 
-          Aborted_clients: 
-            type: string
-          Aborted_connects: 
-            type: string
-          Binlog_snapshot_file: 
-            type: string
-          Binlog_snapshot_position: 
-            type: string
-          Binlog_cache_disk_use: 
-            type: string
-          Binlog_cache_use: 
-            type: string
-          Binlog_snapshot_gtid_executed: 
-            type: string
-          Binlog_stmt_cache_disk_use: 
-            type: string
-          Binlog_stmt_cache_use: 
-            type: string
-          Bytes_received: 
-            type: string
-          Bytes_sent: 
-            type: string
-          Com_admin_commands: 
-            type: string
-          Com_assign_to_keycache: 
-            type: string
-          Com_alter_db: 
-            type: string
-          Com_alter_db_upgrade: 
-            type: string
-          Com_alter_event: 
-            type: string
-          Com_alter_function: 
-            type: string
-          Com_alter_instance: 
-            type: string
-          Com_alter_procedure: 
-            type: string
-          Com_alter_server: 
-            type: string
-          Com_alter_table: 
-            type: string
-          Com_alter_tablespace: 
-            type: string
-          Com_alter_user: 
-            type: string
-          Com_analyze: 
-            type: string
-          Com_begin: 
-            type: string
-          Com_binlog: 
-            type: string
-          Com_call_procedure: 
-            type: string
-          Com_change_db: 
-            type: string
-          Com_change_master: 
-            type: string
-          Com_change_repl_filter: 
-            type: string
-          Com_check: 
-            type: string
-          Com_checksum: 
-            type: string
-          Com_commit: 
-            type: string
-          Com_create_compression_dictionary: 
-            type: string
-          Com_create_db: 
-            type: string
-          Com_create_event: 
-            type: string
-          Com_create_function: 
-            type: string
-          Com_create_index: 
-            type: string
-          Com_create_procedure: 
-            type: string
-          Com_create_server: 
-            type: string
-          Com_create_table: 
-            type: string
-          Com_create_trigger: 
-            type: string
-          Com_create_udf: 
-            type: string
-          Com_create_user: 
-            type: string
-          Com_create_view: 
-            type: string
-          Com_dealloc_sql: 
-            type: string
-          Com_delete: 
-            type: string
-          Com_delete_multi: 
-            type: string
-          Com_do: 
-            type: string
-          Com_drop_compression_dictionary: 
-            type: string
-          Com_drop_db: 
-            type: string
-          Com_drop_event: 
-            type: string
-          Com_drop_function: 
-            type: string
-          Com_drop_index: 
-            type: string
-          Com_drop_procedure: 
-            type: string
-          Com_drop_server: 
-            type: string
-          Com_drop_table: 
-            type: string
-          Com_drop_trigger: 
-            type: string
-          Com_drop_user: 
-            type: string
-          Com_drop_view: 
-            type: string
-          Com_empty_query: 
-            type: string
-          Com_execute_sql: 
-            type: string
-          Com_explain_other: 
-            type: string
-          Com_flush: 
-            type: string
-          Com_get_diagnostics: 
-            type: string
-          Com_grant: 
-            type: string
-          Com_ha_close: 
-            type: string
-          Com_ha_open: 
-            type: string
-          Com_ha_read: 
-            type: string
-          Com_help: 
-            type: string
-          Com_insert: 
-            type: string
-          Com_insert_select: 
-            type: string
-          Com_install_plugin: 
-            type: string
-          Com_kill: 
-            type: string
-          Com_load: 
-            type: string
-          Com_lock_tables: 
-            type: string
-          Com_lock_tables_for_backup: 
-            type: string
-          Com_lock_binlog_for_backup: 
-            type: string
-          Com_optimize: 
-            type: string
-          Com_preload_keys: 
-            type: string
-          Com_prepare_sql: 
-            type: string
-          Com_purge: 
-            type: string
-          Com_purge_before_date: 
-            type: string
-          Com_release_savepoint: 
-            type: string
-          Com_rename_table: 
-            type: string
-          Com_rename_user: 
-            type: string
-          Com_repair: 
-            type: string
-          Com_replace: 
-            type: string
-          Com_replace_select: 
-            type: string
-          Com_reset: 
-            type: string
-          Com_resignal: 
-            type: string
-          Com_revoke: 
-            type: string
-          Com_revoke_all: 
-            type: string
-          Com_rollback: 
-            type: string
-          Com_rollback_to_savepoint: 
-            type: string
-          Com_savepoint: 
-            type: string
-          Com_select: 
-            type: string
-          Com_set_option: 
-            type: string
-          Com_signal: 
-            type: string
-          Com_show_binlog_events: 
-            type: string
-          Com_show_binlogs: 
-            type: string
-          Com_show_charsets: 
-            type: string
-          Com_show_client_statistics: 
-            type: string
-          Com_show_collations: 
-            type: string
-          Com_show_create_db: 
-            type: string
-          Com_show_create_event: 
-            type: string
-          Com_show_create_func: 
-            type: string
-          Com_show_create_proc: 
-            type: string
-          Com_show_create_table: 
-            type: string
-          Com_show_create_trigger: 
-            type: string
-          Com_show_databases: 
-            type: string
-          Com_show_engine_logs: 
-            type: string
-          Com_show_engine_mutex: 
-            type: string
-          Com_show_engine_status: 
-            type: string
-          Com_show_events: 
-            type: string
-          Com_show_errors: 
-            type: string
-          Com_show_fields: 
-            type: string
-          Com_show_function_code: 
-            type: string
-          Com_show_function_status: 
-            type: string
-          Com_show_grants: 
-            type: string
-          Com_show_index_statistics: 
-            type: string
-          Com_show_keys: 
-            type: string
-          Com_show_master_status: 
-            type: string
-          Com_show_open_tables: 
-            type: string
-          Com_show_plugins: 
-            type: string
-          Com_show_privileges: 
-            type: string
-          Com_show_procedure_code: 
-            type: string
-          Com_show_procedure_status: 
-            type: string
-          Com_show_processlist: 
-            type: string
-          Com_show_profile: 
-            type: string
-          Com_show_profiles: 
-            type: string
-          Com_show_relaylog_events: 
-            type: string
-          Com_show_slave_hosts: 
-            type: string
-          Com_show_slave_status: 
-            type: string
-          Com_show_status: 
-            type: string
-          Com_show_storage_engines: 
-            type: string
-          Com_show_table_statistics: 
-            type: string
-          Com_show_table_status: 
-            type: string
-          Com_show_tables: 
-            type: string
-          Com_show_thread_statistics: 
-            type: string
-          Com_show_triggers: 
-            type: string
-          Com_show_user_statistics: 
-            type: string
-          Com_show_variables: 
-            type: string
-          Com_show_warnings: 
-            type: string
-          Com_show_create_user: 
-            type: string
-          Com_shutdown: 
-            type: string
-          Com_slave_start: 
-            type: string
-          Com_slave_stop: 
-            type: string
-          Com_group_replication_start: 
-            type: string
-          Com_group_replication_stop: 
-            type: string
-          Com_stmt_execute: 
-            type: string
-          Com_stmt_close: 
-            type: string
-          Com_stmt_fetch: 
-            type: string
-          Com_stmt_prepare: 
-            type: string
-          Com_stmt_reset: 
-            type: string
-          Com_stmt_send_long_data: 
-            type: string
-          Com_truncate: 
-            type: string
-          Com_uninstall_plugin: 
-            type: string
-          Com_unlock_binlog: 
-            type: string
-          Com_unlock_tables: 
-            type: string
-          Com_update: 
-            type: string
-          Com_update_multi: 
-            type: string
-          Com_xa_commit: 
-            type: string
-          Com_xa_end: 
-            type: string
-          Com_xa_prepare: 
-            type: string
-          Com_xa_recover: 
-            type: string
-          Com_xa_rollback: 
-            type: string
-          Com_xa_start: 
-            type: string
-          Com_stmt_reprepare: 
-            type: string
-          Compression: 
-            type: string
-          Connection_errors_accept: 
-            type: string
-          Connection_errors_internal: 
-            type: string
-          Connection_errors_max_connections: 
-            type: string
-          Connection_errors_peer_address: 
-            type: string
-          Connection_errors_select: 
-            type: string
-          Connection_errors_tcpwrap: 
-            type: string
-          Connections: 
-            type: string
-          Created_tmp_disk_tables: 
-            type: string
-          Created_tmp_files: 
-            type: string
-          Created_tmp_tables: 
-            type: string
-          Delayed_errors: 
-            type: string
-          Delayed_insert_threads: 
-            type: string
-          Delayed_writes: 
-            type: string
-          Flush_commands: 
-            type: string
-          Handler_commit: 
-            type: string
-          Handler_delete: 
-            type: string
-          Handler_discover: 
-            type: string
-          Handler_external_lock: 
-            type: string
-          Handler_mrr_init: 
-            type: string
-          Handler_prepare: 
-            type: string
-          Handler_read_first: 
-            type: string
-          Handler_read_key: 
-            type: string
-          Handler_read_last: 
-            type: string
-          Handler_read_next: 
-            type: string
-          Handler_read_prev: 
-            type: string
-          Handler_read_rnd: 
-            type: string
-          Handler_read_rnd_next: 
-            type: string
-          Handler_rollback: 
-            type: string
-          Handler_savepoint: 
-            type: string
-          Handler_savepoint_rollback: 
-            type: string
-          Handler_update: 
-            type: string
-          Handler_write: 
-            type: string
-          Innodb_background_log_sync: 
-            type: string
-          Innodb_buffer_pool_dump_status: 
-            type: string
-          Innodb_buffer_pool_load_status: 
-            type: string
-          Innodb_buffer_pool_resize_status: 
-            type: string
-          Innodb_buffer_pool_pages_data: 
-            type: string
-          Innodb_buffer_pool_bytes_data: 
-            type: string
-          Innodb_buffer_pool_pages_dirty: 
-            type: string
-          Innodb_buffer_pool_bytes_dirty: 
-            type: string
-          Innodb_buffer_pool_pages_flushed: 
-            type: string
-          Innodb_buffer_pool_pages_free: 
-            type: string
-          Innodb_buffer_pool_pages_LRU_flushed: 
-            type: string
-          Innodb_buffer_pool_pages_made_not_young: 
-            type: string
-          Innodb_buffer_pool_pages_made_young: 
-            type: string
-          Innodb_buffer_pool_pages_misc: 
-            type: string
-          Innodb_buffer_pool_pages_old: 
-            type: string
-          Innodb_buffer_pool_pages_total: 
-            type: string
-          Innodb_buffer_pool_read_ahead_rnd: 
-            type: string
-          Innodb_buffer_pool_read_ahead: 
-            type: string
-          Innodb_buffer_pool_read_ahead_evicted: 
-            type: string
-          Innodb_buffer_pool_read_requests: 
-            type: string
-          Innodb_buffer_pool_reads: 
-            type: string
-          Innodb_buffer_pool_wait_free: 
-            type: string
-          Innodb_buffer_pool_write_requests: 
-            type: string
-          Innodb_checkpoint_age: 
-            type: string
-          Innodb_checkpoint_max_age: 
-            type: string
-          Innodb_data_fsyncs: 
-            type: string
-          Innodb_data_pending_fsyncs: 
-            type: string
-          Innodb_data_pending_reads: 
-            type: string
-          Innodb_data_pending_writes: 
-            type: string
-          Innodb_data_read: 
-            type: string
-          Innodb_data_reads: 
-            type: string
-          Innodb_data_writes: 
-            type: string
-          Innodb_data_written: 
-            type: string
-          Innodb_dblwr_pages_written: 
-            type: string
-          Innodb_dblwr_writes: 
-            type: string
-          Innodb_ibuf_free_list: 
-            type: string
-          Innodb_ibuf_segment_size: 
-            type: string
-          Innodb_log_waits: 
-            type: string
-          Innodb_log_write_requests: 
-            type: string
-          Innodb_log_writes: 
-            type: string
-          Innodb_lsn_current: 
-            type: string
-          Innodb_lsn_flushed: 
-            type: string
-          Innodb_lsn_last_checkpoint: 
-            type: string
-          Innodb_master_thread_active_loops: 
-            type: string
-          Innodb_master_thread_idle_loops: 
-            type: string
-          Innodb_max_trx_id: 
-            type: string
-          Innodb_mem_adaptive_hash: 
-            type: string
-          Innodb_mem_dictionary: 
-            type: string
-          Innodb_oldest_view_low_limit_trx_id: 
-            type: string
-          Innodb_os_log_fsyncs: 
-            type: string
-          Innodb_os_log_pending_fsyncs: 
-            type: string
-          Innodb_os_log_pending_writes: 
-            type: string
-          Innodb_os_log_written: 
-            type: string
-          Innodb_page_size: 
-            type: string
-          Innodb_pages_created: 
-            type: string
-          Innodb_pages_read: 
-            type: string
-          Innodb_pages0_read: 
-            type: string
-          Innodb_pages_written: 
-            type: string
-          Innodb_purge_trx_id: 
-            type: string
-          Innodb_purge_undo_no: 
-            type: string
-          Innodb_row_lock_current_waits: 
-            type: string
-          Innodb_row_lock_time: 
-            type: string
-          Innodb_row_lock_time_avg: 
-            type: string
-          Innodb_row_lock_time_max: 
-            type: string
-          Innodb_row_lock_waits: 
-            type: string
-          Innodb_rows_deleted: 
-            type: string
-          Innodb_rows_inserted: 
-            type: string
-          Innodb_rows_read: 
-            type: string
-          Innodb_rows_updated: 
-            type: string
-          Innodb_num_open_files: 
-            type: string
-          Innodb_truncated_status_writes: 
-            type: string
-          Innodb_available_undo_logs: 
-            type: string
-          Innodb_secondary_index_triggered_cluster_reads: 
-            type: string
-          Innodb_secondary_index_triggered_cluster_reads_avoided: 
-            type: string
-          Innodb_buffered_aio_submitted: 
-            type: string
-          Innodb_scan_pages_contiguous: 
-            type: string
-          Innodb_scan_pages_disjointed: 
-            type: string
-          Innodb_scan_pages_total_seek_distance: 
-            type: string
-          Innodb_scan_data_size: 
-            type: string
-          Innodb_scan_deleted_recs_size: 
-            type: string
-          Innodb_scrub_background_page_reorganizations: 
-            type: string
-          Innodb_scrub_background_page_splits: 
-            type: string
-          Innodb_scrub_background_page_split_failures_underflow: 
-            type: string
-          Innodb_scrub_background_page_split_failures_out_of_filespace: 
-            type: string
-          Innodb_scrub_background_page_split_failures_missing_index: 
-            type: string
-          Innodb_scrub_background_page_split_failures_unknown: 
-            type: string
-          Innodb_scrub_log: 
-            type: string
-          Innodb_encryption_rotation_pages_read_from_cache: 
-            type: string
-          Innodb_encryption_rotation_pages_read_from_disk: 
-            type: string
-          Innodb_encryption_rotation_pages_modified: 
-            type: string
-          Innodb_encryption_rotation_pages_flushed: 
-            type: string
-          Innodb_encryption_rotation_estimated_iops: 
-            type: string
-          Innodb_encryption_key_rotation_list_length: 
-            type: string
-          Innodb_encryption_n_merge_blocks_encrypted: 
-            type: string
-          Innodb_encryption_n_merge_blocks_decrypted: 
-            type: string
-          Innodb_encryption_n_rowlog_blocks_encrypted: 
-            type: string
-          Innodb_encryption_n_rowlog_blocks_decrypted: 
-            type: string
-          Innodb_num_pages_encrypted: 
-            type: string
-          Innodb_num_pages_decrypted: 
-            type: string
-          Innodb_encryption_redo_key_version: 
-            type: string
-          Key_blocks_not_flushed: 
-            type: string
-          Key_blocks_unused: 
-            type: string
-          Key_blocks_used: 
-            type: string
-          Key_read_requests: 
-            type: string
-          Key_reads: 
-            type: string
-          Key_write_requests: 
-            type: string
-          Key_writes: 
-            type: string
-          Last_query_cost: 
-            type: string
-          Last_query_partial_plans: 
-            type: string
-          Locked_connects: 
-            type: string
-          Max_execution_time_exceeded: 
-            type: string
-          Max_execution_time_set: 
-            type: string
-          Max_execution_time_set_failed: 
-            type: string
-          Max_used_connections: 
-            type: string
-          Max_used_connections_time: 
-            type: string
-          Not_flushed_delayed_rows: 
-            type: string
-          Ongoing_anonymous_transaction_count: 
-            type: string
-          Open_files: 
-            type: string
-          Open_streams: 
-            type: string
-          Open_table_definitions: 
-            type: string
-          Open_tables: 
-            type: string
-          Opened_files: 
-            type: string
-          Opened_table_definitions: 
-            type: string
-          Opened_tables: 
-            type: string
-          Performance_schema_accounts_lost: 
-            type: string
-          Performance_schema_cond_classes_lost: 
-            type: string
-          Performance_schema_cond_instances_lost: 
-            type: string
-          Performance_schema_digest_lost: 
-            type: string
-          Performance_schema_file_classes_lost: 
-            type: string
-          Performance_schema_file_handles_lost: 
-            type: string
-          Performance_schema_file_instances_lost: 
-            type: string
-          Performance_schema_hosts_lost: 
-            type: string
-          Performance_schema_index_stat_lost: 
-            type: string
-          Performance_schema_locker_lost: 
-            type: string
-          Performance_schema_memory_classes_lost: 
-            type: string
-          Performance_schema_metadata_lock_lost: 
-            type: string
-          Performance_schema_mutex_classes_lost: 
-            type: string
-          Performance_schema_mutex_instances_lost: 
-            type: string
-          Performance_schema_nested_statement_lost: 
-            type: string
-          Performance_schema_prepared_statements_lost: 
-            type: string
-          Performance_schema_program_lost: 
-            type: string
-          Performance_schema_rwlock_classes_lost: 
-            type: string
-          Performance_schema_rwlock_instances_lost: 
-            type: string
-          Performance_schema_session_connect_attrs_lost: 
-            type: string
-          Performance_schema_socket_classes_lost: 
-            type: string
-          Performance_schema_socket_instances_lost: 
-            type: string
-          Performance_schema_stage_classes_lost: 
-            type: string
-          Performance_schema_statement_classes_lost: 
-            type: string
-          Performance_schema_table_handles_lost: 
-            type: string
-          Performance_schema_table_instances_lost: 
-            type: string
-          Performance_schema_table_lock_stat_lost: 
-            type: string
-          Performance_schema_thread_classes_lost: 
-            type: string
-          Performance_schema_thread_instances_lost: 
-            type: string
-          Performance_schema_users_lost: 
-            type: string
-          Prepared_stmt_count: 
-            type: string
-          Qcache_free_blocks: 
-            type: string
-          Qcache_free_memory: 
-            type: string
-          Qcache_hits: 
-            type: string
-          Qcache_inserts: 
-            type: string
-          Qcache_lowmem_prunes: 
-            type: string
-          Qcache_not_cached: 
-            type: string
-          Qcache_queries_in_cache: 
-            type: string
-          Qcache_total_blocks: 
-            type: string
-          Queries: 
-            type: string
-          Questions: 
-            type: string
-          Rsa_public_key: 
-            type: string
-          Select_full_join: 
-            type: string
-          Select_full_range_join: 
-            type: string
-          Select_range: 
-            type: string
-          Select_range_check: 
-            type: string
-          Select_scan: 
-            type: string
-          Slave_open_temp_tables: 
-            type: string
-          Slow_launch_threads: 
-            type: string
-          Slow_queries: 
-            type: string
-          Sort_merge_passes: 
-            type: string
-          Sort_range: 
-            type: string
-          Sort_rows: 
-            type: string
-          Sort_scan: 
-            type: string
-          Ssl_accept_renegotiates: 
-            type: string
-          Ssl_accepts: 
-            type: string
-          Ssl_callback_cache_hits: 
-            type: string
-          Ssl_cipher: 
-            type: string
-          Ssl_cipher_list: 
-            type: string
-          Ssl_client_connects: 
-            type: string
-          Ssl_connect_renegotiates: 
-            type: string
-          Ssl_ctx_verify_depth: 
-            type: string
-          Ssl_ctx_verify_mode: 
-            type: string
-          Ssl_default_timeout: 
-            type: string
-          Ssl_finished_accepts: 
-            type: string
-          Ssl_finished_connects: 
-            type: string
-          Ssl_server_not_after: 
-            type: string
-          Ssl_server_not_before: 
-            type: string
-          Ssl_session_cache_hits: 
-            type: string
-          Ssl_session_cache_misses: 
-            type: string
-          Ssl_session_cache_mode: 
-            type: string
-          Ssl_session_cache_overflows: 
-            type: string
-          Ssl_session_cache_size: 
-            type: string
-          Ssl_session_cache_timeouts: 
-            type: string
-          Ssl_sessions_reused: 
-            type: string
-          Ssl_used_session_cache_entries: 
-            type: string
-          Ssl_verify_depth: 
-            type: string
-          Ssl_verify_mode: 
-            type: string
-          Ssl_version: 
-            type: string
-          Table_locks_immediate: 
-            type: string
-          Table_locks_waited: 
-            type: string
-          Table_open_cache_hits: 
-            type: string
-          Table_open_cache_misses: 
-            type: string
-          Table_open_cache_overflows: 
-            type: string
-          Tc_log_max_pages_used: 
-            type: string
-          Tc_log_page_size: 
-            type: string
-          Tc_log_page_waits: 
-            type: string
-          Threadpool_idle_threads: 
-            type: string
-          Threadpool_threads: 
-            type: string
-          Threads_cached: 
-            type: string
-          Threads_connected: 
-            type: string
-          Threads_created: 
-            type: string
-          Threads_running: 
-            type: string
-          Uptime: 
-            type: string
-          Uptime_since_flush_status: 
-            type: string
-          wsrep_local_state_uuid: 
-            type: string
-          wsrep_protocol_version: 
-            type: string
-          wsrep_last_applied: 
-            type: string
-          wsrep_last_committed: 
-            type: string
-          wsrep_replicated: 
-            type: string
-          wsrep_replicated_bytes: 
-            type: string
-          wsrep_repl_keys: 
-            type: string
-          wsrep_repl_keys_bytes: 
-            type: string
-          wsrep_repl_data_bytes: 
-            type: string
-          wsrep_repl_other_bytes: 
-            type: string
-          wsrep_received: 
-            type: string
-          wsrep_received_bytes: 
-            type: string
-          wsrep_local_commits: 
-            type: string
-          wsrep_local_cert_failures: 
-            type: string
-          wsrep_local_replays: 
-            type: string
-          wsrep_local_send_queue: 
-            type: string
-          wsrep_local_send_queue_max: 
-            type: string
-          wsrep_local_send_queue_min: 
-            type: string
-          wsrep_local_send_queue_avg: 
-            type: string
-          wsrep_local_recv_queue: 
-            type: string
-          wsrep_local_recv_queue_max: 
-            type: string
-          wsrep_local_recv_queue_min: 
-            type: string
-          wsrep_local_recv_queue_avg: 
-            type: string
-          wsrep_local_cached_downto: 
-            type: string
-          wsrep_flow_control_paused_ns: 
-            type: string
-          wsrep_flow_control_paused: 
-            type: string
-          wsrep_flow_control_sent: 
-            type: string
-          wsrep_flow_control_recv: 
-            type: string
-          wsrep_flow_control_interval: 
-            type: string
-          wsrep_flow_control_interval_low: 
-            type: string
-          wsrep_flow_control_interval_high: 
-            type: string
-          wsrep_flow_control_status: 
-            type: string
-          wsrep_flow_control_active: 
-            type: string
-          wsrep_flow_control_requested: 
-            type: string
-          wsrep_cert_deps_distance: 
-            type: string
-          wsrep_apply_oooe: 
-            type: string
-          wsrep_apply_oool: 
-            type: string
-          wsrep_apply_window: 
-            type: string
-          wsrep_commit_oooe: 
-            type: string
-          wsrep_commit_oool: 
-            type: string
-          wsrep_commit_window: 
-            type: string
-          wsrep_local_state: 
-            type: string
-          wsrep_local_state_comment: 
-            type: string
-          wsrep_cert_index_size: 
-            type: string
-          wsrep_cert_bucket_count: 
-            type: string
-          wsrep_gcache_pool_size: 
-            type: string
-          wsrep_causal_reads: 
-            type: string
-          wsrep_cert_interval: 
-            type: string
-          wsrep_open_transactions: 
-            type: string
-          wsrep_open_connections: 
-            type: string
-          wsrep_ist_receive_status: 
-            type: string
-          wsrep_ist_receive_seqno_start: 
-            type: string
-          wsrep_ist_receive_seqno_current: 
-            type: string
-          wsrep_ist_receive_seqno_end: 
-            type: string
-          wsrep_incoming_addresses: 
-            type: string
-          wsrep_cluster_weight: 
-            type: string
-          wsrep_desync_count: 
-            type: string
-          wsrep_evs_delayed: 
-            type: string
-          wsrep_evs_evict_list: 
-            type: string
-          wsrep_evs_repl_latency: 
-            type: string
-          wsrep_evs_state: 
-            type: string
-          wsrep_gcomm_uuid: 
-            type: string
-          wsrep_gmcast_segment: 
-            type: string
-          wsrep_cluster_conf_id: 
-            type: string
-          wsrep_cluster_size: 
-            type: string
-          wsrep_cluster_state_uuid: 
-            type: string
-          wsrep_cluster_status: 
-            type: string
-          wsrep_connected: 
-            type: string
-          wsrep_local_bf_aborts: 
-            type: string
-          wsrep_local_index: 
-            type: string
-          wsrep_provider_name: 
-            type: string
-          wsrep_provider_vendor: 
-            type: string
-          wsrep_provider_version: 
-            type: string
-          wsrep_ready: 
-            type: string
-      scans: 
-        type: object
-        properties: 
-          Handler_read_first: 
-            type: string
-          Handler_read_key: 
-            type: string
-          Handler_read_last: 
-            type: string
-          Handler_read_next: 
-            type: string
-          Handler_read_prev: 
-            type: string
-          Handler_read_rnd: 
-            type: string
-          Handler_read_rnd_next: 
-            type: string
-      slowQueries: 
-        type: array
-        items: 
+        items:
           type: object
-          properties: 
-            count: 
+          properties:
+            threadId:
               type: integer
               format: int64
-            time: 
-              type: integer
-              format: int64
-            query: 
+            name:
               type: string
-      innodbStats: 
+            cpuTime:
+              type: integer
+              format: int64
+            blockedTime:
+              type: integer
+              format: int64
+            lockName:
+              type:
+                - string
+                - 'null'
+            lockOwnerId:
+              type: integer
+              format: int64
+            lockOwnerName:
+              type:
+                - string
+                - 'null'
+            state:
+              type: string
+            waitedCount:
+              type: integer
+              format: int64
+            waitedTime:
+              type: integer
+              format: int64
+            isInNative:
+              type: boolean
+            isSuspended:
+              type: boolean
+            lockedMonitors:
+              type:
+                - array
+                - 'null'
+              items:
+                type: object
+            lockedSynchronizers:
+              type:
+                - array
+                - 'null'
+              items:
+                type: object
+            lockInfo:
+              type:
+                - string
+                - 'null'
+            currentLines:
+              type: string
+            cpuPercent:
+              type: number
+      blockedThreads:
+        type:
+          - array
+          - 'null'
+        items:
+          type: object
+      runningThreads:
+        type:
+          - array
+          - 'null'
+        items:
+          type: object
+      totalCpuTime:
+        type: integer
+        format: int64
+      totalThreads:
+        type: integer
+        format: int64
+      runningWebThreads:
+        type: integer
+        format: int64
+      status:
+        type: string
+  database:
+    type: object
+    properties:
+      success:
+        type: boolean
+      connectionList:
+        type:
+          - array
+          - 'null'
+        items:
+          type: object
+      busyConnections:
+        type: array
+        items:
+          type:
+            - string
+            - 'null'
+      maxConnections:
+        type: integer
+        format: int64
+      maxUsedConnections:
+        type: integer
+        format: int64
+      usedConnections:
+        type: integer
+        format: int64
+      abortedConnections:
+        type: integer
+        format: int64
+      innodbStatus:
+        type:
+          - string
+          - 'null'
+      stats:
         type: object
-        properties: 
-          largeMemory: 
+        properties:
+          Aborted_clients:
+            type: string
+          Aborted_connects:
+            type: string
+          Binlog_snapshot_file:
+            type: string
+          Binlog_snapshot_position:
+            type: string
+          Binlog_cache_disk_use:
+            type: string
+          Binlog_cache_use:
+            type: string
+          Binlog_snapshot_gtid_executed:
+            type: string
+          Binlog_stmt_cache_disk_use:
+            type: string
+          Binlog_stmt_cache_use:
+            type: string
+          Bytes_received:
+            type: string
+          Bytes_sent:
+            type: string
+          Com_admin_commands:
+            type: string
+          Com_assign_to_keycache:
+            type: string
+          Com_alter_db:
+            type: string
+          Com_alter_db_upgrade:
+            type: string
+          Com_alter_event:
+            type: string
+          Com_alter_function:
+            type: string
+          Com_alter_instance:
+            type: string
+          Com_alter_procedure:
+            type: string
+          Com_alter_server:
+            type: string
+          Com_alter_table:
+            type: string
+          Com_alter_tablespace:
+            type: string
+          Com_alter_user:
+            type: string
+          Com_analyze:
+            type: string
+          Com_begin:
+            type: string
+          Com_binlog:
+            type: string
+          Com_call_procedure:
+            type: string
+          Com_change_db:
+            type: string
+          Com_change_master:
+            type: string
+          Com_change_repl_filter:
+            type: string
+          Com_check:
+            type: string
+          Com_checksum:
+            type: string
+          Com_commit:
+            type: string
+          Com_create_compression_dictionary:
+            type: string
+          Com_create_db:
+            type: string
+          Com_create_event:
+            type: string
+          Com_create_function:
+            type: string
+          Com_create_index:
+            type: string
+          Com_create_procedure:
+            type: string
+          Com_create_server:
+            type: string
+          Com_create_table:
+            type: string
+          Com_create_trigger:
+            type: string
+          Com_create_udf:
+            type: string
+          Com_create_user:
+            type: string
+          Com_create_view:
+            type: string
+          Com_dealloc_sql:
+            type: string
+          Com_delete:
+            type: string
+          Com_delete_multi:
+            type: string
+          Com_do:
+            type: string
+          Com_drop_compression_dictionary:
+            type: string
+          Com_drop_db:
+            type: string
+          Com_drop_event:
+            type: string
+          Com_drop_function:
+            type: string
+          Com_drop_index:
+            type: string
+          Com_drop_procedure:
+            type: string
+          Com_drop_server:
+            type: string
+          Com_drop_table:
+            type: string
+          Com_drop_trigger:
+            type: string
+          Com_drop_user:
+            type: string
+          Com_drop_view:
+            type: string
+          Com_empty_query:
+            type: string
+          Com_execute_sql:
+            type: string
+          Com_explain_other:
+            type: string
+          Com_flush:
+            type: string
+          Com_get_diagnostics:
+            type: string
+          Com_grant:
+            type: string
+          Com_ha_close:
+            type: string
+          Com_ha_open:
+            type: string
+          Com_ha_read:
+            type: string
+          Com_help:
+            type: string
+          Com_insert:
+            type: string
+          Com_insert_select:
+            type: string
+          Com_install_plugin:
+            type: string
+          Com_kill:
+            type: string
+          Com_load:
+            type: string
+          Com_lock_tables:
+            type: string
+          Com_lock_tables_for_backup:
+            type: string
+          Com_lock_binlog_for_backup:
+            type: string
+          Com_optimize:
+            type: string
+          Com_preload_keys:
+            type: string
+          Com_prepare_sql:
+            type: string
+          Com_purge:
+            type: string
+          Com_purge_before_date:
+            type: string
+          Com_release_savepoint:
+            type: string
+          Com_rename_table:
+            type: string
+          Com_rename_user:
+            type: string
+          Com_repair:
+            type: string
+          Com_replace:
+            type: string
+          Com_replace_select:
+            type: string
+          Com_reset:
+            type: string
+          Com_resignal:
+            type: string
+          Com_revoke:
+            type: string
+          Com_revoke_all:
+            type: string
+          Com_rollback:
+            type: string
+          Com_rollback_to_savepoint:
+            type: string
+          Com_savepoint:
+            type: string
+          Com_select:
+            type: string
+          Com_set_option:
+            type: string
+          Com_signal:
+            type: string
+          Com_show_binlog_events:
+            type: string
+          Com_show_binlogs:
+            type: string
+          Com_show_charsets:
+            type: string
+          Com_show_client_statistics:
+            type: string
+          Com_show_collations:
+            type: string
+          Com_show_create_db:
+            type: string
+          Com_show_create_event:
+            type: string
+          Com_show_create_func:
+            type: string
+          Com_show_create_proc:
+            type: string
+          Com_show_create_table:
+            type: string
+          Com_show_create_trigger:
+            type: string
+          Com_show_databases:
+            type: string
+          Com_show_engine_logs:
+            type: string
+          Com_show_engine_mutex:
+            type: string
+          Com_show_engine_status:
+            type: string
+          Com_show_events:
+            type: string
+          Com_show_errors:
+            type: string
+          Com_show_fields:
+            type: string
+          Com_show_function_code:
+            type: string
+          Com_show_function_status:
+            type: string
+          Com_show_grants:
+            type: string
+          Com_show_index_statistics:
+            type: string
+          Com_show_keys:
+            type: string
+          Com_show_master_status:
+            type: string
+          Com_show_open_tables:
+            type: string
+          Com_show_plugins:
+            type: string
+          Com_show_privileges:
+            type: string
+          Com_show_procedure_code:
+            type: string
+          Com_show_procedure_status:
+            type: string
+          Com_show_processlist:
+            type: string
+          Com_show_profile:
+            type: string
+          Com_show_profiles:
+            type: string
+          Com_show_relaylog_events:
+            type: string
+          Com_show_slave_hosts:
+            type: string
+          Com_show_slave_status:
+            type: string
+          Com_show_status:
+            type: string
+          Com_show_storage_engines:
+            type: string
+          Com_show_table_statistics:
+            type: string
+          Com_show_table_status:
+            type: string
+          Com_show_tables:
+            type: string
+          Com_show_thread_statistics:
+            type: string
+          Com_show_triggers:
+            type: string
+          Com_show_user_statistics:
+            type: string
+          Com_show_variables:
+            type: string
+          Com_show_warnings:
+            type: string
+          Com_show_create_user:
+            type: string
+          Com_shutdown:
+            type: string
+          Com_slave_start:
+            type: string
+          Com_slave_stop:
+            type: string
+          Com_group_replication_start:
+            type: string
+          Com_group_replication_stop:
+            type: string
+          Com_stmt_execute:
+            type: string
+          Com_stmt_close:
+            type: string
+          Com_stmt_fetch:
+            type: string
+          Com_stmt_prepare:
+            type: string
+          Com_stmt_reset:
+            type: string
+          Com_stmt_send_long_data:
+            type: string
+          Com_truncate:
+            type: string
+          Com_uninstall_plugin:
+            type: string
+          Com_unlock_binlog:
+            type: string
+          Com_unlock_tables:
+            type: string
+          Com_update:
+            type: string
+          Com_update_multi:
+            type: string
+          Com_xa_commit:
+            type: string
+          Com_xa_end:
+            type: string
+          Com_xa_prepare:
+            type: string
+          Com_xa_recover:
+            type: string
+          Com_xa_rollback:
+            type: string
+          Com_xa_start:
+            type: string
+          Com_stmt_reprepare:
+            type: string
+          Compression:
+            type: string
+          Connection_errors_accept:
+            type: string
+          Connection_errors_internal:
+            type: string
+          Connection_errors_max_connections:
+            type: string
+          Connection_errors_peer_address:
+            type: string
+          Connection_errors_select:
+            type: string
+          Connection_errors_tcpwrap:
+            type: string
+          Connections:
+            type: string
+          Created_tmp_disk_tables:
+            type: string
+          Created_tmp_files:
+            type: string
+          Created_tmp_tables:
+            type: string
+          Delayed_errors:
+            type: string
+          Delayed_insert_threads:
+            type: string
+          Delayed_writes:
+            type: string
+          Flush_commands:
+            type: string
+          Handler_commit:
+            type: string
+          Handler_delete:
+            type: string
+          Handler_discover:
+            type: string
+          Handler_external_lock:
+            type: string
+          Handler_mrr_init:
+            type: string
+          Handler_prepare:
+            type: string
+          Handler_read_first:
+            type: string
+          Handler_read_key:
+            type: string
+          Handler_read_last:
+            type: string
+          Handler_read_next:
+            type: string
+          Handler_read_prev:
+            type: string
+          Handler_read_rnd:
+            type: string
+          Handler_read_rnd_next:
+            type: string
+          Handler_rollback:
+            type: string
+          Handler_savepoint:
+            type: string
+          Handler_savepoint_rollback:
+            type: string
+          Handler_update:
+            type: string
+          Handler_write:
+            type: string
+          Innodb_background_log_sync:
+            type: string
+          Innodb_buffer_pool_dump_status:
+            type: string
+          Innodb_buffer_pool_load_status:
+            type: string
+          Innodb_buffer_pool_resize_status:
+            type: string
+          Innodb_buffer_pool_pages_data:
+            type: string
+          Innodb_buffer_pool_bytes_data:
+            type: string
+          Innodb_buffer_pool_pages_dirty:
+            type: string
+          Innodb_buffer_pool_bytes_dirty:
+            type: string
+          Innodb_buffer_pool_pages_flushed:
+            type: string
+          Innodb_buffer_pool_pages_free:
+            type: string
+          Innodb_buffer_pool_pages_LRU_flushed:
+            type: string
+          Innodb_buffer_pool_pages_made_not_young:
+            type: string
+          Innodb_buffer_pool_pages_made_young:
+            type: string
+          Innodb_buffer_pool_pages_misc:
+            type: string
+          Innodb_buffer_pool_pages_old:
+            type: string
+          Innodb_buffer_pool_pages_total:
+            type: string
+          Innodb_buffer_pool_read_ahead_rnd:
+            type: string
+          Innodb_buffer_pool_read_ahead:
+            type: string
+          Innodb_buffer_pool_read_ahead_evicted:
+            type: string
+          Innodb_buffer_pool_read_requests:
+            type: string
+          Innodb_buffer_pool_reads:
+            type: string
+          Innodb_buffer_pool_wait_free:
+            type: string
+          Innodb_buffer_pool_write_requests:
+            type: string
+          Innodb_checkpoint_age:
+            type: string
+          Innodb_checkpoint_max_age:
+            type: string
+          Innodb_data_fsyncs:
+            type: string
+          Innodb_data_pending_fsyncs:
+            type: string
+          Innodb_data_pending_reads:
+            type: string
+          Innodb_data_pending_writes:
+            type: string
+          Innodb_data_read:
+            type: string
+          Innodb_data_reads:
+            type: string
+          Innodb_data_writes:
+            type: string
+          Innodb_data_written:
+            type: string
+          Innodb_dblwr_pages_written:
+            type: string
+          Innodb_dblwr_writes:
+            type: string
+          Innodb_ibuf_free_list:
+            type: string
+          Innodb_ibuf_segment_size:
+            type: string
+          Innodb_log_waits:
+            type: string
+          Innodb_log_write_requests:
+            type: string
+          Innodb_log_writes:
+            type: string
+          Innodb_lsn_current:
+            type: string
+          Innodb_lsn_flushed:
+            type: string
+          Innodb_lsn_last_checkpoint:
+            type: string
+          Innodb_master_thread_active_loops:
+            type: string
+          Innodb_master_thread_idle_loops:
+            type: string
+          Innodb_max_trx_id:
+            type: string
+          Innodb_mem_adaptive_hash:
+            type: string
+          Innodb_mem_dictionary:
+            type: string
+          Innodb_oldest_view_low_limit_trx_id:
+            type: string
+          Innodb_os_log_fsyncs:
+            type: string
+          Innodb_os_log_pending_fsyncs:
+            type: string
+          Innodb_os_log_pending_writes:
+            type: string
+          Innodb_os_log_written:
+            type: string
+          Innodb_page_size:
+            type: string
+          Innodb_pages_created:
+            type: string
+          Innodb_pages_read:
+            type: string
+          Innodb_pages0_read:
+            type: string
+          Innodb_pages_written:
+            type: string
+          Innodb_purge_trx_id:
+            type: string
+          Innodb_purge_undo_no:
+            type: string
+          Innodb_row_lock_current_waits:
+            type: string
+          Innodb_row_lock_time:
+            type: string
+          Innodb_row_lock_time_avg:
+            type: string
+          Innodb_row_lock_time_max:
+            type: string
+          Innodb_row_lock_waits:
+            type: string
+          Innodb_rows_deleted:
+            type: string
+          Innodb_rows_inserted:
+            type: string
+          Innodb_rows_read:
+            type: string
+          Innodb_rows_updated:
+            type: string
+          Innodb_num_open_files:
+            type: string
+          Innodb_truncated_status_writes:
+            type: string
+          Innodb_available_undo_logs:
+            type: string
+          Innodb_secondary_index_triggered_cluster_reads:
+            type: string
+          Innodb_secondary_index_triggered_cluster_reads_avoided:
+            type: string
+          Innodb_buffered_aio_submitted:
+            type: string
+          Innodb_scan_pages_contiguous:
+            type: string
+          Innodb_scan_pages_disjointed:
+            type: string
+          Innodb_scan_pages_total_seek_distance:
+            type: string
+          Innodb_scan_data_size:
+            type: string
+          Innodb_scan_deleted_recs_size:
+            type: string
+          Innodb_scrub_background_page_reorganizations:
+            type: string
+          Innodb_scrub_background_page_splits:
+            type: string
+          Innodb_scrub_background_page_split_failures_underflow:
+            type: string
+          Innodb_scrub_background_page_split_failures_out_of_filespace:
+            type: string
+          Innodb_scrub_background_page_split_failures_missing_index:
+            type: string
+          Innodb_scrub_background_page_split_failures_unknown:
+            type: string
+          Innodb_scrub_log:
+            type: string
+          Innodb_encryption_rotation_pages_read_from_cache:
+            type: string
+          Innodb_encryption_rotation_pages_read_from_disk:
+            type: string
+          Innodb_encryption_rotation_pages_modified:
+            type: string
+          Innodb_encryption_rotation_pages_flushed:
+            type: string
+          Innodb_encryption_rotation_estimated_iops:
+            type: string
+          Innodb_encryption_key_rotation_list_length:
+            type: string
+          Innodb_encryption_n_merge_blocks_encrypted:
+            type: string
+          Innodb_encryption_n_merge_blocks_decrypted:
+            type: string
+          Innodb_encryption_n_rowlog_blocks_encrypted:
+            type: string
+          Innodb_encryption_n_rowlog_blocks_decrypted:
+            type: string
+          Innodb_num_pages_encrypted:
+            type: string
+          Innodb_num_pages_decrypted:
+            type: string
+          Innodb_encryption_redo_key_version:
+            type: string
+          Key_blocks_not_flushed:
+            type: string
+          Key_blocks_unused:
+            type: string
+          Key_blocks_used:
+            type: string
+          Key_read_requests:
+            type: string
+          Key_reads:
+            type: string
+          Key_write_requests:
+            type: string
+          Key_writes:
+            type: string
+          Last_query_cost:
+            type: string
+          Last_query_partial_plans:
+            type: string
+          Locked_connects:
+            type: string
+          Max_execution_time_exceeded:
+            type: string
+          Max_execution_time_set:
+            type: string
+          Max_execution_time_set_failed:
+            type: string
+          Max_used_connections:
+            type: string
+          Max_used_connections_time:
+            type: string
+          Not_flushed_delayed_rows:
+            type: string
+          Ongoing_anonymous_transaction_count:
+            type: string
+          Open_files:
+            type: string
+          Open_streams:
+            type: string
+          Open_table_definitions:
+            type: string
+          Open_tables:
+            type: string
+          Opened_files:
+            type: string
+          Opened_table_definitions:
+            type: string
+          Opened_tables:
+            type: string
+          Performance_schema_accounts_lost:
+            type: string
+          Performance_schema_cond_classes_lost:
+            type: string
+          Performance_schema_cond_instances_lost:
+            type: string
+          Performance_schema_digest_lost:
+            type: string
+          Performance_schema_file_classes_lost:
+            type: string
+          Performance_schema_file_handles_lost:
+            type: string
+          Performance_schema_file_instances_lost:
+            type: string
+          Performance_schema_hosts_lost:
+            type: string
+          Performance_schema_index_stat_lost:
+            type: string
+          Performance_schema_locker_lost:
+            type: string
+          Performance_schema_memory_classes_lost:
+            type: string
+          Performance_schema_metadata_lock_lost:
+            type: string
+          Performance_schema_mutex_classes_lost:
+            type: string
+          Performance_schema_mutex_instances_lost:
+            type: string
+          Performance_schema_nested_statement_lost:
+            type: string
+          Performance_schema_prepared_statements_lost:
+            type: string
+          Performance_schema_program_lost:
+            type: string
+          Performance_schema_rwlock_classes_lost:
+            type: string
+          Performance_schema_rwlock_instances_lost:
+            type: string
+          Performance_schema_session_connect_attrs_lost:
+            type: string
+          Performance_schema_socket_classes_lost:
+            type: string
+          Performance_schema_socket_instances_lost:
+            type: string
+          Performance_schema_stage_classes_lost:
+            type: string
+          Performance_schema_statement_classes_lost:
+            type: string
+          Performance_schema_table_handles_lost:
+            type: string
+          Performance_schema_table_instances_lost:
+            type: string
+          Performance_schema_table_lock_stat_lost:
+            type: string
+          Performance_schema_thread_classes_lost:
+            type: string
+          Performance_schema_thread_instances_lost:
+            type: string
+          Performance_schema_users_lost:
+            type: string
+          Prepared_stmt_count:
+            type: string
+          Qcache_free_blocks:
+            type: string
+          Qcache_free_memory:
+            type: string
+          Qcache_hits:
+            type: string
+          Qcache_inserts:
+            type: string
+          Qcache_lowmem_prunes:
+            type: string
+          Qcache_not_cached:
+            type: string
+          Qcache_queries_in_cache:
+            type: string
+          Qcache_total_blocks:
+            type: string
+          Queries:
+            type: string
+          Questions:
+            type: string
+          Rsa_public_key:
+            type: string
+          Select_full_join:
+            type: string
+          Select_full_range_join:
+            type: string
+          Select_range:
+            type: string
+          Select_range_check:
+            type: string
+          Select_scan:
+            type: string
+          Slave_open_temp_tables:
+            type: string
+          Slow_launch_threads:
+            type: string
+          Slow_queries:
+            type: string
+          Sort_merge_passes:
+            type: string
+          Sort_range:
+            type: string
+          Sort_rows:
+            type: string
+          Sort_scan:
+            type: string
+          Ssl_accept_renegotiates:
+            type: string
+          Ssl_accepts:
+            type: string
+          Ssl_callback_cache_hits:
+            type: string
+          Ssl_cipher:
+            type: string
+          Ssl_cipher_list:
+            type: string
+          Ssl_client_connects:
+            type: string
+          Ssl_connect_renegotiates:
+            type: string
+          Ssl_ctx_verify_depth:
+            type: string
+          Ssl_ctx_verify_mode:
+            type: string
+          Ssl_default_timeout:
+            type: string
+          Ssl_finished_accepts:
+            type: string
+          Ssl_finished_connects:
+            type: string
+          Ssl_server_not_after:
+            type: string
+          Ssl_server_not_before:
+            type: string
+          Ssl_session_cache_hits:
+            type: string
+          Ssl_session_cache_misses:
+            type: string
+          Ssl_session_cache_mode:
+            type: string
+          Ssl_session_cache_overflows:
+            type: string
+          Ssl_session_cache_size:
+            type: string
+          Ssl_session_cache_timeouts:
+            type: string
+          Ssl_sessions_reused:
+            type: string
+          Ssl_used_session_cache_entries:
+            type: string
+          Ssl_verify_depth:
+            type: string
+          Ssl_verify_mode:
+            type: string
+          Ssl_version:
+            type: string
+          Table_locks_immediate:
+            type: string
+          Table_locks_waited:
+            type: string
+          Table_open_cache_hits:
+            type: string
+          Table_open_cache_misses:
+            type: string
+          Table_open_cache_overflows:
+            type: string
+          Tc_log_max_pages_used:
+            type: string
+          Tc_log_page_size:
+            type: string
+          Tc_log_page_waits:
+            type: string
+          Threadpool_idle_threads:
+            type: string
+          Threadpool_threads:
+            type: string
+          Threads_cached:
+            type: string
+          Threads_connected:
+            type: string
+          Threads_created:
+            type: string
+          Threads_running:
+            type: string
+          Uptime:
+            type: string
+          Uptime_since_flush_status:
+            type: string
+          wsrep_local_state_uuid:
+            type: string
+          wsrep_protocol_version:
+            type: string
+          wsrep_last_applied:
+            type: string
+          wsrep_last_committed:
+            type: string
+          wsrep_replicated:
+            type: string
+          wsrep_replicated_bytes:
+            type: string
+          wsrep_repl_keys:
+            type: string
+          wsrep_repl_keys_bytes:
+            type: string
+          wsrep_repl_data_bytes:
+            type: string
+          wsrep_repl_other_bytes:
+            type: string
+          wsrep_received:
+            type: string
+          wsrep_received_bytes:
+            type: string
+          wsrep_local_commits:
+            type: string
+          wsrep_local_cert_failures:
+            type: string
+          wsrep_local_replays:
+            type: string
+          wsrep_local_send_queue:
+            type: string
+          wsrep_local_send_queue_max:
+            type: string
+          wsrep_local_send_queue_min:
+            type: string
+          wsrep_local_send_queue_avg:
+            type: string
+          wsrep_local_recv_queue:
+            type: string
+          wsrep_local_recv_queue_max:
+            type: string
+          wsrep_local_recv_queue_min:
+            type: string
+          wsrep_local_recv_queue_avg:
+            type: string
+          wsrep_local_cached_downto:
+            type: string
+          wsrep_flow_control_paused_ns:
+            type: string
+          wsrep_flow_control_paused:
+            type: string
+          wsrep_flow_control_sent:
+            type: string
+          wsrep_flow_control_recv:
+            type: string
+          wsrep_flow_control_interval:
+            type: string
+          wsrep_flow_control_interval_low:
+            type: string
+          wsrep_flow_control_interval_high:
+            type: string
+          wsrep_flow_control_status:
+            type: string
+          wsrep_flow_control_active:
+            type: string
+          wsrep_flow_control_requested:
+            type: string
+          wsrep_cert_deps_distance:
+            type: string
+          wsrep_apply_oooe:
+            type: string
+          wsrep_apply_oool:
+            type: string
+          wsrep_apply_window:
+            type: string
+          wsrep_commit_oooe:
+            type: string
+          wsrep_commit_oool:
+            type: string
+          wsrep_commit_window:
+            type: string
+          wsrep_local_state:
+            type: string
+          wsrep_local_state_comment:
+            type: string
+          wsrep_cert_index_size:
+            type: string
+          wsrep_cert_bucket_count:
+            type: string
+          wsrep_gcache_pool_size:
+            type: string
+          wsrep_causal_reads:
+            type: string
+          wsrep_cert_interval:
+            type: string
+          wsrep_open_transactions:
+            type: string
+          wsrep_open_connections:
+            type: string
+          wsrep_ist_receive_status:
+            type: string
+          wsrep_ist_receive_seqno_start:
+            type: string
+          wsrep_ist_receive_seqno_current:
+            type: string
+          wsrep_ist_receive_seqno_end:
+            type: string
+          wsrep_incoming_addresses:
+            type: string
+          wsrep_cluster_weight:
+            type: string
+          wsrep_desync_count:
+            type: string
+          wsrep_evs_delayed:
+            type: string
+          wsrep_evs_evict_list:
+            type: string
+          wsrep_evs_repl_latency:
+            type: string
+          wsrep_evs_state:
+            type: string
+          wsrep_gcomm_uuid:
+            type: string
+          wsrep_gmcast_segment:
+            type: string
+          wsrep_cluster_conf_id:
+            type: string
+          wsrep_cluster_size:
+            type: string
+          wsrep_cluster_state_uuid:
+            type: string
+          wsrep_cluster_status:
+            type: string
+          wsrep_connected:
+            type: string
+          wsrep_local_bf_aborts:
+            type: string
+          wsrep_local_index:
+            type: string
+          wsrep_provider_name:
+            type: string
+          wsrep_provider_vendor:
+            type: string
+          wsrep_provider_version:
+            type: string
+          wsrep_ready:
+            type: string
+      scans:
+        type: object
+        properties:
+          Handler_read_first:
+            type: string
+          Handler_read_key:
+            type: string
+          Handler_read_last:
+            type: string
+          Handler_read_next:
+            type: string
+          Handler_read_prev:
+            type: string
+          Handler_read_rnd:
+            type: string
+          Handler_read_rnd_next:
+            type: string
+      slowQueries:
+        type: array
+        items:
+          type: object
+          properties:
+            count:
+              type: integer
+              format: int64
+            time:
+              type: integer
+              format: int64
+            query:
+              type: string
+      innodbStats:
+        type: object
+        properties:
+          largeMemory:
             type: integer
             format: int64
-          dictionaryMemory: 
+          dictionaryMemory:
             type: integer
             format: int64
-          bufferPoolSize: 
+          bufferPoolSize:
             type: integer
             format: int64
-          freeBuffers: 
+          freeBuffers:
             type: integer
             format: int64
-          databasePages: 
+          databasePages:
             type: integer
             format: int64
-          oldPages: 
+          oldPages:
             type: integer
             format: int64
-          pendingReads: 
+          pendingReads:
             type: integer
             format: int64
-          insertsPerSecond: 
+          insertsPerSecond:
             type: number
-          updatesPerSecond: 
+          updatesPerSecond:
             type: number
-          deletesPerSecond: 
+          deletesPerSecond:
             type: number
-          readsPerSecond: 
+          readsPerSecond:
             type: number
-          bufferHitRate: 
+          bufferHitRate:
             type: integer
             format: int64
-      scanPercent: 
+      scanPercent:
         type: number
-      status: 
+      status:
         type: string
-  elastic: 
+  elastic:
     type: object
-    properties: 
-      success: 
+    properties:
+      success:
         type: boolean
-      status: 
+      status:
         type: string
-      master: 
+      master:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: string
-          host: 
+          host:
             type: string
-          ip: 
+          ip:
             type: string
-          node: 
+          node:
             type: string
-      nodes: 
+      nodes:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            ip: 
+          properties:
+            ip:
               type: string
-            heapPercent: 
+            heapPercent:
               type: string
-            ramPercent: 
+            ramPercent:
               type: string
-            cpuCount: 
+            cpuCount:
               type: string
-            loadOne: 
+            loadOne:
               type: string
-            loadFive: 
+            loadFive:
               type: string
-            loadFifteen: 
+            loadFifteen:
               type: string
-            role: 
+            role:
               type: string
-            master: 
+            master:
               type: string
-            name: 
+            name:
               type: string
-      stats: 
+      stats:
         type: object
-        properties: 
-          status: 
+        properties:
+          status:
             type: string
-          clusterName: 
+          clusterName:
             type: string
-          nodeTotal: 
+          nodeTotal:
             type: string
-          nodeData: 
+          nodeData:
             type: string
-          shards: 
+          shards:
             type: string
-          primary: 
+          primary:
             type: string
-          relocating: 
+          relocating:
             type: string
-          initializing: 
+          initializing:
             type: string
-          unassigned: 
+          unassigned:
             type: string
-          pendingTasks: 
+          pendingTasks:
             type: string
-          activePercent: 
+          activePercent:
             type: string
-      indices: 
-        type: array
-        nullable: true
-        items: 
+      indices:
+        type:
+          - array
+          - 'null'
+        items:
           type: object
-      badIndices: 
-        type: array
-        nullable: true
-        items: 
+      badIndices:
+        type:
+          - array
+          - 'null'
+        items:
           type: object
-  rabbit: 
+  rabbit:
     type: object
-    properties: 
-      success: 
+    properties:
+      success:
         type: boolean
-      busyQueues: 
-        type: array
-        nullable: true
-        items: 
+      busyQueues:
+        type:
+          - array
+          - 'null'
+        items:
           type: object
-      errorQueues: 
-        type: array
-        nullable: true
-        items: 
+      errorQueues:
+        type:
+          - array
+          - 'null'
+        items:
           type: object
-      status: 
+      status:
         type: string
-      queues: 
+      queues:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            name: 
+          properties:
+            name:
               type: string
-            count: 
+            count:
               type: integer
               format: int64
-            status: 
+            status:
               type: string

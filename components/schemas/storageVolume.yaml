@@ -1,40 +1,46 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
+  description:
+    type:
+      - string
+      - 'null'
   controller:
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  controllerId: 
-    type: integer
+  controllerId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  controllerMountPoint: 
-    type: string
-    nullable: true
-  resizeable: 
+  controllerMountPoint:
+    type:
+      - string
+      - 'null'
+  resizeable:
+    type:
+      - boolean
+      - 'null'
+  rootVolume:
     type: boolean
-    nullable: true
-  rootVolume: 
-    type: boolean
-  unitNumber: 
+  unitNumber:
+    type:
+      - string
+      - 'null'
+  deviceName:
     type: string
-    nullable: true
-  deviceName: 
-    type: string
-  deviceDisplayName: 
+  deviceDisplayName:
     type: string
   volumeName:
     type: string
@@ -53,41 +59,43 @@ properties:
     type: string
   type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  typeId: 
+  typeId:
     type: integer
     format: int64
-  category: 
+  category:
     type: string
-  status: 
+  status:
     type: string
-  statusMessage: 
-    type: string
-    nullable: true
-  configurableIOPS: 
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  configurableIOPS:
     type: boolean
-  maxStorage: 
+  maxStorage:
     type: integer
     format: int64
   usedStorage:
     type: integer
     format: int64
-  displayOrder: 
+  displayOrder:
     type: integer
     format: int64
-  maxIOPS: 
+  maxIOPS:
+    type:
+      - string
+      - 'null'
+  uuid:
     type: string
-    nullable: true
-  uuid: 
-    type: string
-  active: 
+  active:
     type: boolean
   readOnly:
     type: boolean
@@ -95,68 +103,80 @@ properties:
     type: boolean
   poolName:
     type: string
-  zone: 
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  zoneId: 
+  zoneId:
     type: integer
     format: int64
-  datastore: 
+  datastore:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  datastoreId: 
-    type: integer
+  datastoreId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
   datastoreOption:
     type: string
-  storageGroup: 
-    type: string
-    nullable: true
-  namespace: 
-    type: string
-    nullable: true
-  storageServer: 
-    type: string
-    nullable: true
-  source: 
+  storageGroup:
+    type:
+      - string
+      - 'null'
+  namespace:
+    type:
+      - string
+      - 'null'
+  storageServer:
+    type:
+      - string
+      - 'null'
+  source:
     type: string
   uniqueId:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   internalId:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   externalId:
     type: string
   provisionType:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   copyType:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   fiberWwn:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   fileName:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   claimName:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   sharePath:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   sourceId:
     type: string
   sourceImage:
@@ -175,11 +195,11 @@ properties:
         format: int64
       name:
         type: string
-  owner: 
+  owner:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string

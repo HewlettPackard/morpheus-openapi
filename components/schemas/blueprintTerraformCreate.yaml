@@ -1,40 +1,41 @@
 type: object
-required: 
+required:
   - name
   - type
   - terraform
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: A name for the blueprint
-  image: 
+  image:
     type: string
     description: Path to display image. Defaults to an internal Morpheus image.
-  type: 
+  type:
     type: string
     description: Blueprint Type
     enum:
       - terraform
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  terraform: 
+  terraform:
     type: object
     required:
       - configType
-    properties: 
-      configType: 
+    properties:
+      configType:
         type: string
         description: Configuration Type
-        enum: 
+        enum:
           - tf
           - spec
           - git
           - json
-      json: 
+      json:
         type: string
         description: Terraform definition in JSON for `configType` `json`
       tf:
@@ -42,7 +43,7 @@ properties:
         description: Terraform definition for `configType` `tf`
       git:
         type: object
-        required: 
+        required:
           - repoId
           - path
           - integrationId

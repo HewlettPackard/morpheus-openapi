@@ -7,10 +7,11 @@ properties:
     description: Unique name scoped to your account for the check
     example: My Check
   description:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Optional description field
     example: This is my awesome check
-    nullable: true
   checkType:
     type: object
     description: Check type you want to create
@@ -43,4 +44,4 @@ properties:
     allOf:
       - $ref: checkSocketConfig.yaml
       - anyOf:
-        - $ref: checkSshConfig.yaml
+          - $ref: checkSshConfig.yaml

@@ -1,193 +1,198 @@
 type: object
-properties: 
-  role: 
+properties:
+  role:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
       name:
         type: string
         description: a unique name of the role
-      authority: 
+      authority:
         type: string
         description: Alias for name
-      description: 
-        type: string
-        nullable: true
+      description:
+        type:
+          - string
+          - 'null'
       landingUrl:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
         description: An optional override for the default landing page after login for a user.
-      scope: 
+      scope:
         type: string
-      roleType: 
+      roleType:
         type: string
-      multitenant: 
+      multitenant:
         type: boolean
-      multitenantLocked: 
+      multitenantLocked:
         type: boolean
-      parentRoleId: 
-        type: string
-        nullable: true
-      diverged: 
+      parentRoleId:
+        type:
+          - string
+          - 'null'
+      diverged:
         type: boolean
-      ownerId: 
+      ownerId:
         type: integer
         format: int64
-      owner: 
+      owner:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-          name: 
+          name:
             type: string
-      defaultPersona: 
-        type: string
-        nullable: true
-      dateCreated: 
-        type: string
-        format: date-time
-      lastUpdated: 
+      defaultPersona:
+        type:
+          - string
+          - 'null'
+      dateCreated:
         type: string
         format: date-time
-  featurePermissions: 
+      lastUpdated:
+        type: string
+        format: date-time
+  featurePermissions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        code: 
+        code:
           type: string
-        name: 
+        name:
           type: string
-        access: 
+        access:
           type: string
-        subCategory: 
+        subCategory:
           type: string
-  globalSiteAccess: 
+  globalSiteAccess:
     type: string
-  sites: 
+  sites:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        access: 
+        access:
           type: string
-  globalZoneAccess: 
+  globalZoneAccess:
     type: string
-  zones: 
+  zones:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        access: 
+        access:
           type: string
-  globalInstanceTypeAccess: 
+  globalInstanceTypeAccess:
     type: string
-  instanceTypePermissions: 
+  instanceTypePermissions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        code: 
+        code:
           type: string
-        name: 
+        name:
           type: string
-        access: 
+        access:
           type: string
-  globalAppTemplateAccess: 
+  globalAppTemplateAccess:
     type: string
-  appTemplatePermissions: 
+  appTemplatePermissions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        code: 
+        code:
+          type:
+            - string
+            - 'null'
+        name:
           type: string
-          nullable: true
-        name: 
+        access:
           type: string
-        access: 
-          type: string
-  globalCatalogItemTypeAccess: 
+  globalCatalogItemTypeAccess:
     type: string
-  catalogItemTypePermissions: 
+  catalogItemTypePermissions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        access: 
+        access:
           type: string
   globalPersonaAccess:
     type: string
-  personaPermissions: 
+  personaPermissions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        code: 
+        code:
           type: string
-        name: 
+        name:
           type: string
-        access: 
+        access:
           type: string
-  globalVdiPoolAccess: 
+  globalVdiPoolAccess:
     type: string
-  vdiPoolPermissions: 
+  vdiPoolPermissions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        access: 
+        access:
           type: string
-  globalReportTypeAccess: 
+  globalReportTypeAccess:
     type: string
-  reportTypePermissions: 
+  reportTypePermissions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        code: 
+        code:
           type: string
-        name: 
+        name:
           type: string
-        access: 
+        access:
           type: string
   globalTaskAccess:
     type: string
@@ -200,8 +205,9 @@ properties:
           type: integer
           format: int64
         code:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         name:
           type: string
         access:
@@ -217,8 +223,9 @@ properties:
           type: integer
           format: int64
         code:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         name:
           type: string
         access:

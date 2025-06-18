@@ -4,21 +4,23 @@ required:
   - zone
   - site
 properties:
-  name: 
+  name:
     type: string
     description: Name
-  displayName: 
+  displayName:
     type: string
     description: Display Name
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  description: 
-    type: string
-    nullable: true
+  description:
+    type:
+      - string
+      - 'null'
     description: Description
   site:
     type: object
@@ -29,89 +31,95 @@ properties:
         type: integer
         format: int64
         description: Group ID
-  zone: 
+  zone:
     type: object
     required:
       - id
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Cloud ID
-  type: 
+  type:
     type: object
     required:
       - id
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Network Type ID
   ipv4Enabled:
     type: boolean
-  ipv6Enabled: 
+  ipv6Enabled:
     type: boolean
-  cidr: 
+  cidr:
     type: string
     description: CIDR Network
-  gateway: 
+  gateway:
     type: string
     description: Network Gateway
-  dnsPrimary: 
+  dnsPrimary:
     type: string
     description: Primary DNS Server
-  dnsSecondary: 
+  dnsSecondary:
     type: string
     description: Secondary DNS Server
-  gatewayIPv6: 
-    type: string
-    description: IPv6 Network Gateway 
-    nullable: true
-  netmaskIPv6: 
-    type: string
-    nullable: true
-  dnsPrimaryIPv6: 
-    type: string
+  gatewayIPv6:
+    type:
+      - string
+      - 'null'
+    description: IPv6 Network Gateway
+  netmaskIPv6:
+    type:
+      - string
+      - 'null'
+  dnsPrimaryIPv6:
+    type:
+      - string
+      - 'null'
     description: Primary IPv6 DNS Server
-    nullable: true
-  dnsSecondaryIPv6: 
-    type: string
+  dnsSecondaryIPv6:
+    type:
+      - string
+      - 'null'
     description: Secondary IPv6 DNS Server
-    nullable: true
-  cidrIPv6: 
+  cidrIPv6:
     type: string
     description: IPv6 Network CIDR
   vlanId:
     type: integer
     format: int64
-  pool: 
-    type: integer
+  pool:
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Network Pool ID
-    nullable: true
-  poolIPv6: 
-    type: integer
+  poolIPv6:
+    type:
+      - integer
+      - 'null'
     format: int64
     description: IPv6 Network Pool ID
-    nullable: true
-  allowStaticOverride: 
+  allowStaticOverride:
     type: boolean
     description: Allow IP Override
-  assignPublicIp: 
-    type: boolean  
+  assignPublicIp:
+    type: boolean
     description: Assign Public IP
-  active: 
+  active:
     type: boolean
     description: Activate (true) or disable (false) the network
-  dhcpServer: 
+  dhcpServer:
     type: boolean
     description: DHCP Server enabled network
-  dhcpServerIPv6: 
+  dhcpServerIPv6:
     type: boolean
     description: IPv6 DHCP Server enabled network
-  networkDomain: 
+  networkDomain:
     type: object
-    properties: 
+    properties:
       id:
         type: integer
         format: int64
@@ -119,57 +127,54 @@ properties:
   searchDomains:
     type: string
     description: Search Domains
-  # scanNetwork:
-  #   type: boolean
-  #   description: Scan Network
-  #   default: false
-  networkProxy: 
+  networkProxy:
     type: object
-    properties: 
+    properties:
       id:
         type: integer
         format: int64
         description: Network Proxy ID
-  applianceUrlProxyBypass: 
+  applianceUrlProxyBypass:
     type: boolean
     description: Bypass Proxy for Appliance URL
-  noProxy: 
-    type: string
+  noProxy:
+    type:
+      - string
+      - 'null'
     description: Comma-separated list of ip addresses or name servers to exclude proxy traversal for. Typically locally routable servers are excluded.
-    nullable: true
-  visibility: 
+  visibility:
     type: string
     description: Visibility, private or public.
-    default: "private"
-    enum: 
-      - "private"
-      - "public"
-  config: 
+    default: private
+    enum:
+      - private
+      - public
+  config:
     type: object
     description: Configuration object. Settings vary by type.
-    anyOf: 
+    anyOf:
       - $ref: networkTypeAzureConfig.yaml
       - $ref: networkTypeAwsConfig.yaml
       - $ref: networkTypeGcpConfig.yaml
       - $ref: networkTypeGenericConfig.yaml
-  tenants: 
+  tenants:
     type: array
     description: Array of tenant account ids that are allowed access
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
   resourcePermissions:
     type: object
-    properties: 
+    properties:
       all:
         type: boolean
         description: Pass true to allow access all groups
       sites:
         type: array
         description: Array of groups that are allowed access
-        items: 
+        items:
           type: integer
           format: int64

@@ -1,72 +1,85 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
+  code:
     type: string
-  active: 
+  active:
     type: boolean
-  priceType: 
+  priceType:
     type: string
-  priceUnit: 
+  priceUnit:
     type: string
-  additionalPriceUnit: 
+  additionalPriceUnit:
+    type:
+      - string
+      - 'null'
+  price:
+    type:
+      - number
+      - 'null'
+  customPrice:
+    type:
+      - number
+      - 'null'
+  markupType:
+    type:
+      - string
+      - 'null'
+  markup:
+    type:
+      - number
+      - 'null'
+  markupPercent:
+    type:
+      - number
+      - 'null'
+  cost:
+    type:
+      - number
+      - 'null'
+  currency:
     type: string
-    nullable: true
-  price: 
-    type: number
-    nullable: true
-  customPrice: 
-    type: number
-    nullable: true
-  markupType: 
+  incurCharges:
     type: string
-    nullable: true
-  markup: 
-    type: number
-    nullable: true
-  markupPercent: 
-    type: number
-    nullable: true
-  cost: 
-    type: number
-    nullable: true
-  currency: 
-    type: string
-  incurCharges: 
-    type: string
-  platform: 
-    type: string
-    nullable: true
-  software: 
-    type: string
-    nullable: true
-  volumeType: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  platform:
+    type:
+      - string
+      - 'null'
+  software:
+    type:
+      - string
+      - 'null'
+  volumeType:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  datastore: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  datastore:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  crossCloudApply: 
-    type: boolean
-    nullable: true
-  account: 
-    type: string
-    nullable: true
+  crossCloudApply:
+    type:
+      - boolean
+      - 'null'
+  account:
+    type:
+      - string
+      - 'null'

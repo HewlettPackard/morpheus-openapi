@@ -1,77 +1,87 @@
 title: Infoblox Network Pool Server Update
 type: object
 properties:
-  name: 
+  name:
     type: string
     description: Name
   enabled:
     type: boolean
     description: Can be used to enable / disable the network pool server.
     default: true
-  serviceUrl: 
-    type: string
+  serviceUrl:
+    type:
+      - string
+      - 'null'
     description: URL
-    nullable: true
-    example: "https://infoblox-server/wapi/v2.9"
-  serviceUsername: 
-    type: string
+    example: https://infoblox-server/wapi/v2.9
+  serviceUsername:
+    type:
+      - string
+      - 'null'
     description: Username
-    nullable: true
-  servicePassword: 
-    type: string
+  servicePassword:
+    type:
+      - string
+      - 'null'
     description: Password
-    nullable: true
-  serviceThrottleRate: 
-    type: integer
+  serviceThrottleRate:
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Throttle Rate
-    nullable: true
     default: 0
-  ignoreSsl: 
+  ignoreSsl:
     type: boolean
     description: Disable SSL SNI Verification
-  networkFilter: 
-    type: string
+  networkFilter:
+    type:
+      - string
+      - 'null'
     description: Network Filter
-    nullable: true
-  zoneFilter: 
-    type: string
+  zoneFilter:
+    type:
+      - string
+      - 'null'
     description: Zone Filter
-    nullable: true
-  tenantMatch: 
-    type: string
+  tenantMatch:
+    type:
+      - string
+      - 'null'
     description: Tenant Match
-    nullable: true
-  serviceMode: 
-    type: string
+  serviceMode:
+    type:
+      - string
+      - 'null'
     description: IP Mode
-    nullable: true
     example: static
     default: static
     enum:
       - static
       - dhcp
-  config: 
+  config:
     type: object
-    properties: 
-      inventoryExisting: 
-        type: string
+    properties:
+      inventoryExisting:
+        type:
+          - string
+          - 'null'
         description: Inventory Existing
-        nullable: true
-        default: off
+        default: "off"
         enum:
-          - on
-          - off
-      extraAttributes: 
-        type: string
+          - "on"
+          - "off"
+      extraAttributes:
+        type:
+          - string
+          - 'null'
         description: Extra Attributes
-        nullable: true
-        example: '{"Date Assigned":"<%=dateCreated%>","Requestor":"<%=username%>"}'
-  credential: 
+        example: "{\"Date Assigned\":\"<%=dateCreated%>\",\"Requestor\":\"<%=username%>\"}"
+  credential:
     type: object
-    description: 'Map containing Credential ID or the default `{"type": "local"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential.'
-    properties: 
-      type: 
+    description: "Map containing Credential ID or the default `{\"type\": \"local\"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential."
+    properties:
+      type:
         type: string
       id:
         type: integer

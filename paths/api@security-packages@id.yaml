@@ -14,10 +14,10 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                securityPackage:
-                  $ref: ../components/schemas/securityPackage.yaml
+              - type: object
+                properties:
+                  securityPackage:
+                    $ref: ../components/schemas/securityPackage.yaml
           examples:
             Security Package Response:
               value:
@@ -46,27 +46,28 @@ put:
             securityPackage:
               type: object
               properties:
-                name: 
+                name:
                   type: string
                   description: A name for the security package
                   example: Sample Security Package
                 labels:
-                    type: array
-                    description: Array of label strings, can be used for filtering.
-                    nullable: true
-                    items: 
-                      type: string
-                type: 
+                  type:
+                    - array
+                    - 'null'
+                  description: Array of label strings, can be used for filtering.
+                  items:
+                    type: string
+                type:
                   type: string
                   description: Security Package Type Code
                   default: scap-package
-                description: 
+                description:
                   type: string
                   description: A description for the security package
                 url:
                   type: string
                   description: URL to download the security package zip file from
-                  example: "http://10.0.2.2:8080/public-archives/download/SCAP/scap-security-guide-0.1.51.zip"
+                  example: http://10.0.2.2:8080/public-archives/download/SCAP/scap-security-guide-0.1.51.zip
                 enabled:
                   type: boolean
                   description: Can be used to disable the security package
@@ -77,11 +78,11 @@ put:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                securityPackage:
-                  $ref: ../components/schemas/securityPackage.yaml
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  securityPackage:
+                    $ref: ../components/schemas/securityPackage.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Security Package Response:
               value:

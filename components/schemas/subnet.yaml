@@ -1,78 +1,94 @@
 type: object
-properties: 
+properties:
   id:
     type: integer
     format: int64
   code:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   name:
     type: string
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
   active:
     type: boolean
   description:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   externalId:
     type: string
   uniqueId:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   addressPrefix:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   cidr:
     type: string
   gateway:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   netmask:
     type: string
   subnetAddress:
     type: string
   tftpServer:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   bootFile:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   pool:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   dhcpServer:
     type: boolean
   hasFloatingIps:
     type: boolean
   dhcpIp:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   dnsPrimary:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   dnsSecondary:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   dhcpStart:
     type: string
   dhcpEnd:
     type: string
   dhcpRange:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   networkProxy:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   networkDomain:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   searchDomains:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   defaultNetwork:
     type: boolean
   assignPublicIp:

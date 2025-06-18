@@ -1,94 +1,112 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
     description: Backup Result ID
-  backup: 
+  backup:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Backup ID
-      name: 
+      name:
         type: string
         description: Backup Name
-  backupSetId: 
-    type: string
-    nullable: true
-  instanceId: 
-    type: integer
+  backupSetId:
+    type:
+      - string
+      - 'null'
+  instanceId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  containerId: 
-    type: integer
+  containerId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  serverId: 
-    type: integer
+  serverId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  status: 
-    type: string
-    nullable: true
-  errorMessage: 
-    type: string
-    nullable: true
-  startDate: 
-    type: string
+  status:
+    type:
+      - string
+      - 'null'
+  errorMessage:
+    type:
+      - string
+      - 'null'
+  startDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  endDate: 
-    type: string
+  endDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  durationMillis: 
-    type: integer
+  durationMillis:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  sizeInBytes: 
-    type: integer
+  sizeInBytes:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  sizeInMb: 
-    type: integer
+  sizeInMb:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  volumePath: 
-    type: string
-    nullable: true
-  resultArchive: 
-    type: string
-    nullable: true
-  resultPath: 
-    type: string
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  snapshotId: 
-    type: string
-    nullable: true
-  snapshotExternalId: 
-    type: string
-    nullable: true
-  createdBy: 
-    type: object
-    properties: 
-      id: 
+  volumePath:
+    type:
+      - string
+      - 'null'
+  resultArchive:
+    type:
+      - string
+      - 'null'
+  resultPath:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  snapshotId:
+    type:
+      - string
+      - 'null'
+  snapshotExternalId:
+    type:
+      - string
+      - 'null'
+  createdBy:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: User ID
-      username: 
+      username:
         type: string
         description: Username
-    nullable: true
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
     description: Date Created
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
     description: Last Updated

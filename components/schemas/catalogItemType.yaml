@@ -1,102 +1,117 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
-    type: string
+  code:
+    type:
+      - string
+      - 'null'
     description: Useful shortcode for provisioning naming schemes and export reference.
-    nullable: true
   category:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Catalog Item Type category
-    nullable: true
-  description: 
-    type: string
-    nullable: true
+  description:
+    type:
+      - string
+      - 'null'
   labels:
     type: array
-    items: 
+    items:
       type: string
-  type: 
+  type:
     type: string
-  enabled: 
+  enabled:
     type: boolean
-  featured: 
+  featured:
     type: boolean
-  allowQuantity: 
+  allowQuantity:
     description: Can users order more than one of this item at a time.
     type: boolean
-  iconPath: 
+  iconPath:
     type: string
-  imagePath: 
+  imagePath:
     type: string
-  darkImagePath: 
+  darkImagePath:
     type: string
   visibility:
     type: string
   layoutCode:
-    type: string
-    nullable: true
-  blueprint: 
-    type: object
-    nullable: true
+    type:
+      - string
+      - 'null'
+  blueprint:
+    type:
+      - object
+      - 'null'
   appSpec:
-    type: string
-    nullable: true
-  config: 
-    type: object
-    nullable: true
+    type:
+      - string
+      - 'null'
+  config:
+    type:
+      - object
+      - 'null'
   instanceSpec:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   workflow:
-    type: object
-    nullable: true
-    properties: 
+    type:
+      - object
+      - 'null'
+    properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  content: 
-    type: string
-    nullable: true
-  formType: 
-    type: string
+  content:
+    type:
+      - string
+      - 'null'
+  formType:
+    type:
+      - string
+      - 'null'
     enum:
       - optionTypes
       - form
-    nullable: true
   form:
-    type: object
+    type:
+      - object
+      - 'null'
     description: Form object that contains input options and/or field groups
-    nullable: true
   formConfig:
-    type: object
+    type:
+      - object
+      - 'null'
     description: Form config object
-    nullable: true
-  optionTypes: 
-    type: array
+  optionTypes:
+    type:
+      - array
+      - 'null'
     items:
       $ref: optionType.yaml
-    nullable: true
-  createdBy: 
-    type: string
-    nullable: true
-  owner: 
+  createdBy:
+    type:
+      - string
+      - 'null'
+  owner:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

@@ -1,60 +1,63 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  code: 
+  code:
     type: string
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  category: 
-    type: string
-    nullable: true
-  externalType: 
-    type: string
-    nullable: true
-  creatable: 
+  description:
+    type:
+      - string
+      - 'null'
+  category:
+    type:
+      - string
+      - 'null'
+  externalType:
+    type:
+      - string
+      - 'null'
+  creatable:
     type: boolean
-  overlay: 
+  overlay:
     type: boolean
-  nameEditable: 
+  nameEditable:
     type: boolean
-  cidrRequired: 
+  cidrRequired:
     type: boolean
-  cidrEditable: 
+  cidrEditable:
     type: boolean
-  dhcpServerEditable: 
+  dhcpServerEditable:
     type: boolean
-  dnsEditable: 
+  dnsEditable:
     type: boolean
-  gatewayEditable: 
+  gatewayEditable:
     type: boolean
-  vlanIdEditable: 
+  vlanIdEditable:
     type: boolean
-  staticOverrideEditable: 
+  staticOverrideEditable:
     type: boolean
-  networkDomainEditable: 
+  networkDomainEditable:
     type: boolean
-  canAssignPool: 
+  canAssignPool:
     type: boolean
-  deletable: 
+  deletable:
     type: boolean
-  hasNetworkServer: 
+  hasNetworkServer:
     type: boolean
-  hasCidr: 
+  hasCidr:
     type: boolean
-  hasStaticRoutes: 
+  hasStaticRoutes:
     type: boolean
   hasFloatingIps:
     type: boolean
-  optionTypes: 
+  optionTypes:
     type: array
-    items: 
+    items:
       $ref: optionType.yaml
-  routeOptionTypes: 
+  routeOptionTypes:
     type: array
-    items: 
+    items:
       $ref: routeOptionType.yaml

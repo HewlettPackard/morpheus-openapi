@@ -1,8 +1,9 @@
 type: object
 properties:
   noAgent:
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
     description: Skipping Agent installation will result in a lack of logging and guest operating system statistics. Automation scripts may also be adversely affected.
     default: false
   isEC2:
@@ -18,7 +19,7 @@ properties:
   publicIpType:
     type: string
     description: Public IP
-    example: "elasticIp"
+    example: elasticIp
   instanceProfile:
     type: string
     description: IAM Profile

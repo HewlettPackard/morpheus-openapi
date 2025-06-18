@@ -1,55 +1,60 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  subdomain:
     type: string
-    nullable: true
-  subdomain: 
+  currency:
     type: string
-  currency: 
+  externalId:
+    type:
+      - string
+      - 'null'
+  customerNumber:
+    type:
+      - string
+      - 'null'
+  accountNumber:
+    type:
+      - string
+      - 'null'
+  accountName:
     type: string
-  externalId: 
-    type: string
-    nullable: true
-  customerNumber: 
-    type: string
-    nullable: true
-  accountNumber: 
-    type: string
-    nullable: true
-  accountName: 
-    type: string
-  active: 
+  active:
     type: boolean
-  master: 
+  master:
     type: boolean
-  role: 
+  role:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      authority: 
+      authority:
         type: string
-      description: 
-        type: string
-        nullable: true
-  stats: 
+      description:
+        type:
+          - string
+          - 'null'
+  stats:
     type: object
-    properties: 
-      instanceCount: 
+    properties:
+      instanceCount:
         type: integer
         format: int64
-      userCount: 
+      userCount:
         type: integer
         format: int64
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

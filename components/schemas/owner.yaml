@@ -1,8 +1,9 @@
-type: object
-nullable: true
-properties: 
-  id: 
+type:
+  - object
+  - 'null'
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string

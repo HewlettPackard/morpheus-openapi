@@ -1,61 +1,69 @@
 type: object
-required: 
+required:
   - name
   - code
   - platform
   - bitCount
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: OsType name
-  code: 
+  code:
     type: string
     description: OsType code
-  platform: 
+  platform:
     type: string
     description: OsType platform, must be "linux", ""
   bitCount:
     type: integer
     description: BitCount of OsType e.g. 32/64
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
     description: Cluster layout description
-    nullable: true
-  category: 
-    type: string
+  category:
+    type:
+      - string
+      - 'null'
     description: OsType category
-    nullable: true
   vendor:
-    type: string
+    type:
+      - string
+      - 'null'
     description: OsType vendor
-    nullable: true
   osName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: OsName osName
-    nullable: true
   osVersion:
-    type: string
+    type:
+      - string
+      - 'null'
     description: OsType osVersion
-    nullable: true
   osCodename:
-    type: string
+    type:
+      - string
+      - 'null'
     description: OsType osCodename
-    nullable: true
   osFamily:
-    type: string
+    type:
+      - string
+      - 'null'
     description: OsType osFamily
-    nullable: true
   cloudInitVersion:
-    type: string
+    type:
+      - string
+      - 'null'
     description: OsType cloudInitVersion
-    nullable: true
   installAgent:
-    type: boolean
+    type:
+      - boolean
+      - 'null'
     description: install the morph agent
-    nullable: true
   visibility:
-    type: string
+    type:
+      - string
+      - 'null'
     description: "'public' or 'private'"
-    nullable: true
-  
-

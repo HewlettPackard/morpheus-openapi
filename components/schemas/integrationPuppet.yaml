@@ -1,55 +1,59 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  enabled: 
+  enabled:
     type: boolean
-  type: 
+  type:
     type: string
     enum:
-    - puppet
-  integrationType: 
+      - puppet
+  integrationType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  isPlugin: 
+  isPlugin:
     type: boolean
-  config: 
+  config:
     type: object
-    properties: 
-      puppetMaster: 
+    properties:
+      puppetMaster:
         type: string
-      puppetFireNow: 
+      puppetFireNow:
         type: string
-      puppetSshUser: 
+      puppetSshUser:
         type: string
-      puppetSshPassword: 
+      puppetSshPassword:
         type: string
-      puppetSshPasswordHash: 
+      puppetSshPasswordHash:
         type: string
-  status: 
+  status:
     type: string
-  statusDate: 
-    type: string
+  statusDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  statusMessage: 
-    type: string
-    nullable: true
-  lastSync: 
-    type: string
-    nullable: true
-  lastSyncDuration: 
-    type: string
-    nullable: true
-  credential: 
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  lastSync:
+    type:
+      - string
+      - 'null'
+  lastSyncDuration:
+    type:
+      - string
+      - 'null'
+  credential:
     $ref: creds.yaml

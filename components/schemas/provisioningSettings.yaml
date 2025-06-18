@@ -1,52 +1,54 @@
 type: object
 properties:
-  allowZoneSelection: 
+  allowZoneSelection:
     type: boolean
-  allowServerSelection: 
+  allowServerSelection:
     type: boolean
-  requireEnvironments: 
+  requireEnvironments:
     type: boolean
-  showPricing: 
+  showPricing:
     type: boolean
-  hideDatastoreStats: 
+  hideDatastoreStats:
     type: boolean
-  crossTenantNamingPolicies: 
+  crossTenantNamingPolicies:
     type: boolean
-  reuseSequence: 
+  reuseSequence:
     type: boolean
-  cloudInitUsername: 
+  cloudInitUsername:
     type: string
-  cloudInitPassword: 
+  cloudInitPassword:
     type: string
-  cloudInitKeyPair: 
+  cloudInitKeyPair:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  windowsPassword: 
-    type: string
-    nullable: true
-  pxeRootPassword: 
-    type: string
-    nullable: true
-  defaultTemplateType: 
+  windowsPassword:
+    type:
+      - string
+      - 'null'
+  pxeRootPassword:
+    type:
+      - string
+      - 'null'
+  defaultTemplateType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      code: 
+      code:
         type: string
-  deployStorageProvider: 
+  deployStorageProvider:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string

@@ -1,19 +1,21 @@
 type: object
-required: 
+required:
   - osType
   - virtualImage
-properties: 
-  osType: 
+properties:
+  osType:
     type: integer
     description: id of osType
-  virtualImage: 
+  virtualImage:
     type: integer
     description: id of virtualImage
-  provisionType: 
-    type: integer
+  provisionType:
+    type:
+      - integer
+      - 'null'
     description: id of provisionType
-    nullable: true
-  zone: 
-    type: integer
+  zone:
+    type:
+      - integer
+      - 'null'
     description: id of cloud/zone
-    nullable: true

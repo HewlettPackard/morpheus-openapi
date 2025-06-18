@@ -1,72 +1,74 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
-    type: string
-    nullable: true
-  location: 
-    type: string
-    nullable: true
-  accountId: 
+  code:
+    type:
+      - string
+      - 'null'
+  location:
+    type:
+      - string
+      - 'null'
+  accountId:
     type: integer
     format: int64
-  visibility: 
+  visibility:
     type: string
-  active: 
+  active:
     type: boolean
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  zones: 
+  zones:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-  stats: 
+  stats:
     type: object
-    properties: 
-      instanceCounts: 
+    properties:
+      instanceCounts:
         type: object
-        properties: 
-          all: 
+        properties:
+          all:
             type: integer
             format: int64
-      serverCounts: 
+      serverCounts:
         type: object
-        properties: 
-          all: 
+        properties:
+          all:
             type: integer
             format: int64
-          host: 
+          host:
             type: integer
             format: int64
-          hypervisor: 
+          hypervisor:
             type: integer
             format: int64
-          containerHost: 
+          containerHost:
             type: integer
             format: int64
-          vm: 
+          vm:
             type: integer
             format: int64
-          baremetal: 
+          baremetal:
             type: integer
             format: int64
-          unmanaged: 
+          unmanaged:
             type: integer
             format: int64
-  serverCount: 
+  serverCount:
     type: integer
     format: int64

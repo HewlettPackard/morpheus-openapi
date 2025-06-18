@@ -2,14 +2,14 @@ put:
   summary: Change Server Cloud
   description: This api call is reserved for migrating servers from one cloud to another. This could be due to moving clusters or resource pool scoping of a server without losing the data.
   operationId: updateHostCloud
-  tags: 
+  tags:
     - Hosts
-  requestBody: 
-    content: 
-      application/json: 
-        schema: 
+  requestBody:
+    content:
+      application/json:
+        schema:
           type: object
-          properties: 
+          properties:
             $ref: ../components/schemas/hostUpdateCloud.yaml
         examples:
           Host Request:
@@ -25,17 +25,21 @@ put:
               - type: object
                 properties:
                   msg:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   errors:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   errorCode:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   data:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   inProgress:
                     type: boolean
               - $ref: ../components/schemas/200-success.yaml

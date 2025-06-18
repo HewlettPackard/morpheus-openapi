@@ -1,20 +1,21 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
   name:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   items:
     type: array
     items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        type: 
+        type:
           type: object
           properties:
             id:
@@ -24,23 +25,23 @@ properties:
               type: string
             type:
               type: string
-        quantity: 
+        quantity:
           type: integer
           format: int64
-        price: 
+        price:
           type: number
-        currency: 
+        currency:
           type: string
-        unit: 
+        unit:
           type: string
-        valid: 
+        valid:
           type: boolean
-        status: 
+        status:
           type: string
-        dateCreated: 
+        dateCreated:
           type: string
           format: date-time
-        lastUpdated: 
+        lastUpdated:
           type: string
           format: date-time
   stats:

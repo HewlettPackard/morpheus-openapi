@@ -1,33 +1,34 @@
-subnet: 
+subnet:
   type: object
-  properties: 
-    type: 
+  properties:
+    type:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
           description: Subnet Type ID
-    config: 
+    config:
       type: object
       description: Configuration object. Settings vary by type.
-    tenants: 
+    tenants:
       type: array
       description: Array of tenant account ID objects that are allowed access
-      items: 
+      items:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-    visibility: 
+    visibility:
       description: private or public
       type: string
-      default: "private"
-    labels: 
-      type: array
+      default: private
+    labels:
+      type:
+        - array
+        - 'null'
       description: Array of label strings, can be used for filtering.
-      nullable: true
       items:
         type: string
 resourcePermission:
@@ -41,8 +42,8 @@ resourcePermission:
       description: Array of groups ID objects that are allowed access
       items:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
     allPlans:

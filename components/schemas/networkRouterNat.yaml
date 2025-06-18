@@ -1,60 +1,70 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int32
-  name: 
+  name:
     type: string
-  description: 
+  description:
     type: string
-  enabled: 
+  enabled:
     type: boolean
-  sourceNetwork: 
+  sourceNetwork:
     type: string
-  destinationNetwork: 
+  destinationNetwork:
+    type:
+      - string
+      - 'null'
+  translatedNetwork:
     type: string
-    nullable: true
-  translatedNetwork: 
-    type: string
-  sourcePorts: 
-    type: string
-    nullable: true
-  destinationPorts: 
-    type: string
-    nullable: true
-  translatedPorts: 
-    type: string
-    nullable: true
-  priority: 
+  sourcePorts:
+    type:
+      - string
+      - 'null'
+  destinationPorts:
+    type:
+      - string
+      - 'null'
+  translatedPorts:
+    type:
+      - string
+      - 'null'
+  priority:
     type: integer
     format: int32
-  protocol: 
+  protocol:
+    type:
+      - string
+      - 'null'
+  matchIpv6DestinationPrefix:
+    type:
+      - string
+      - 'null'
+  translatedIpv4SourcePrefix:
+    type:
+      - string
+      - 'null'
+  refType:
+    type:
+      - string
+      - 'null'
+  refId:
+    type:
+      - string
+      - 'null'
+  syncSource:
     type: string
-    nullable: true
-  matchIpv6DestinationPrefix: 
+  internalId:
+    type:
+      - string
+      - 'null'
+  externalId:
     type: string
-    nullable: true
-  translatedIpv4SourcePrefix: 
+  providerId:
     type: string
-    nullable: true
-  refType: 
-    type: string
-    nullable: true
-  refId: 
-    type: string
-    nullable: true
-  syncSource: 
-    type: string
-  internalId: 
-    type: string
-    nullable: true
-  externalId: 
-    type: string
-  providerId: 
-    type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

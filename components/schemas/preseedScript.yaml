@@ -1,25 +1,26 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  fileName: 
+  fileName:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  content:
     type: string
-    nullable: true
-  content: 
-    type: string
-  createdBy: 
+  createdBy:
     type: object
-    properties: 
-      username: 
+    properties:
+      username:
         type: string

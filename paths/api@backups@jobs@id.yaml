@@ -45,17 +45,18 @@ put:
             job:
               type: object
               properties:
-                name: 
+                name:
                   type: string
                   description: A name for the backup job
-                code: 
+                code:
                   type: string
                   description: A code for the backup job
-                scheduleId: 
-                  type: integer
+                scheduleId:
+                  type:
+                    - integer
+                    - 'null'
                   format: int64
                   description: Execute Schedule ID to use for the backup job
-                  nullable: true
                 retentionCount:
                   type: integer
                   format: int64
@@ -67,11 +68,11 @@ put:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                job:
-                  $ref: ../components/schemas/backupJob.yaml
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  job:
+                    $ref: ../components/schemas/backupJob.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Backup Job Response:
               value:

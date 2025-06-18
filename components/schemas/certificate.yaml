@@ -1,47 +1,55 @@
-id: 
+id:
   type: integer
   format: int64
-name: 
+name:
   type: string
-description: 
-  type: string
-  nullable: true
-domainName: 
-  type: string
-  nullable: true
-accountId: 
+description:
+  type:
+    - string
+    - 'null'
+domainName:
+  type:
+    - string
+    - 'null'
+accountId:
   type: integer
   format: int64
-integrationId: 
-  type: integer
+integrationId:
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
-enabled: 
+enabled:
   type: boolean
-generated: 
+generated:
   type: boolean
-wildcard: 
+wildcard:
   type: boolean
 selfSigned:
   type: boolean
-type: 
-  type: object
+type:
+  type:
+    - object
+    - 'null'
   properties:
-    id: 
+    id:
       type: integer
       format: int64
-    code: 
+    code:
       type: string
-  nullable: true
-category: 
-  type: string
-  nullable: true
-commonName: 
-  type: string
-  nullable: true
-certType: 
-  type: string
-  nullable: true
-keyFileMD5: 
-  type: string
-  nullable: true
+category:
+  type:
+    - string
+    - 'null'
+commonName:
+  type:
+    - string
+    - 'null'
+certType:
+  type:
+    - string
+    - 'null'
+keyFileMD5:
+  type:
+    - string
+    - 'null'

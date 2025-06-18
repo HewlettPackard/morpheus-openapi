@@ -46,7 +46,7 @@ properties:
   type:
     type: string
     description: The type of instance by code we want to fetch.
-    example: "ubuntu"
+    example: ubuntu
   name:
     type: string
     description: Name of the instance to be created.
@@ -114,9 +114,10 @@ properties:
   servicePlanOptions:
     $ref: servicePlanOptions.yaml
   securityGroups:
-    type: array
+    type:
+      - array
+      - 'null'
     description: Key for security group configuration. It should be passed as an array of objects containing the id of the security group to assign the instance to.
-    nullable: true
     items:
       type: object
       properties:
@@ -159,7 +160,7 @@ properties:
   ports:
     description: |
       The ports parameter is for port configuration.
-
+      
       The layout may have default ports, which are defined in node types, that are always configured. This parameter will be for additional custom ports to be opened.
     type: array
     items:
@@ -175,8 +176,9 @@ properties:
           type: string
         lb:
           description: The load balancer protocol. HTTP, HTTPS, or TCP.
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
   taskSetId:
     description: The Workflow ID to execute.
     type: integer
