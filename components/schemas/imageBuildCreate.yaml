@@ -66,12 +66,12 @@ properties:
   conversionFormats:
     description: Conversion Formats
     oneOf:
-      type: string
-      enum:
-        - ovf
-        - qcow2
-        - vhd
-      type: 'null'
+      - type: string
+        enum:
+          - ovf
+          - qcow2
+          - vhd
+      - type: 'null'
   keepResults:
     type: integer
     format: int64
