@@ -10,11 +10,11 @@ properties:
       description:
         type: string
         description: Optional description field.
-        example: "my updated instance"
+        example: my updated instance
       instanceContext:
         type: string
         description: Environment
-        example: "dev"
+        example: dev
       labels:
         type: array
         description: Array of strings (keywords).
@@ -59,8 +59,9 @@ properties:
             name:
               type: string
             value:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
         example:
           - name: hello
       powerScheduleType:

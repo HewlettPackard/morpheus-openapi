@@ -1,50 +1,58 @@
 type: object
-properties: 
-  cpuAvgCutoffPower: 
-    type: integer
+properties:
+  cpuAvgCutoffPower:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Power Shutdown Average CPU (%). Lower limit for average CPU usage
-    nullable: true
     example: 75
-  cpuMaxCutoffPower: 
-    type: integer
+  cpuMaxCutoffPower:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Power Shutdown Maximum CPU (%). Lower limit for peak CPU usage
-    nullable: true
     example: 500
-  networkCutoffPower: 
-    type: integer
+  networkCutoffPower:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Power Shutdown Network threshold (bytes). Lower limit for average network bandwidth
-    nullable: true
     example: 2000
-  cpuUpAvgStandardCutoffRightSize: 
-    type: integer
+  cpuUpAvgStandardCutoffRightSize:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: CPU Up-size Average CPU (%). Upper limit for CPU usage
-    nullable: true
     example: 50
-  cpuUpMaxStandardCutoffRightSize: 
-    type: integer
+  cpuUpMaxStandardCutoffRightSize:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: CPU Up-size Maximum CPU (%). Upper limit for peak CPU usage
-    nullable: true
     example: 99
-  memoryUpAvgStandardCutoffRightSize: 
-    type: integer
+  memoryUpAvgStandardCutoffRightSize:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Memory Up-size Minimum Free Memory (%). Lower limit for average free memory usage
-    nullable: true
     example: 10
-  memoryDownAvgStandardCutoffRightSize: 
-    type: integer
+  memoryDownAvgStandardCutoffRightSize:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Memory Down-size Maximum Free Memory (%). Upper limit for average free memory
-    nullable: true
     example: 60
-  memoryDownMaxStandardCutoffRightSize: 
-    type: integer
+  memoryDownMaxStandardCutoffRightSize:
+    type:
+      - integer
+      - 'null'
     format: int32
     description: Memory Down-size Maximum Free Memory (%). Upper limit for peak memory usage
-    nullable: true
     example: 30

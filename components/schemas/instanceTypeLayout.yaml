@@ -1,130 +1,146 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  instanceType: 
+  instanceType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      code: 
+      code:
         type: string
-  account: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  account:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  code: 
+  code:
     type: string
-  name: 
+  name:
     type: string
   labels:
-    type: array
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
-    items: 
+    items:
       type: string
-  instanceVersion: 
+  instanceVersion:
     type: string
-  description: 
-    type: string
-    nullable: true
-  creatable: 
+  description:
+    type:
+      - string
+      - 'null'
+  creatable:
     type: boolean
-  memoryRequirement: 
+  memoryRequirement:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  sortOrder:
     type: integer
     format: int64
-    nullable: true
-  sortOrder: 
-    type: integer
-    format: int64
-  supportsConvertToManaged: 
-    type: boolean
-    nullable: true
-  provisionType: 
+  supportsConvertToManaged:
+    type:
+      - boolean
+      - 'null'
+  provisionType:
     $ref: provisionType.yaml
-  taskSets: 
-    type: array
-    nullable: true
+  taskSets:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  containerTypes: 
+  containerTypes:
     type: array
-    items: 
+    items:
       $ref: containerType.yaml
-  mounts: 
-    type: array
-    nullable: true
+  mounts:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  ports: 
-    type: array
-    nullable: true
+  ports:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  optionTypes: 
-    type: array
-    nullable: true
+  optionTypes:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  environmentVariables: 
-    type: array
-    nullable: true
+  environmentVariables:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  priceSets: 
-    type: array
-    nullable: true
+  priceSets:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  specTemplates: 
-    type: array
-    nullable: true
+  specTemplates:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  tfvarSecret: 
-    type: string
-    nullable: true
+  tfvarSecret:
+    type:
+      - string
+      - 'null'
     items:
       type: object
-  permissions: 
+  permissions:
     type: object
-    properties: 
-      resourcePermissions: 
+    properties:
+      resourcePermissions:
         type: object
-        properties: 
-          defaultStore: 
+        properties:
+          defaultStore:
             type: boolean
-          allPlans: 
+          allPlans:
             type: boolean
-          defaultTarget: 
+          defaultTarget:
             type: boolean
-          canManage: 
+          canManage:
             type: boolean
-          all: 
+          all:
             type: boolean
-          account: 
-            type: object
-            nullable: true
-            properties: 
-              id: 
+          account:
+            type:
+              - object
+              - 'null'
+            properties:
+              id:
                 type: integer
                 format: int64
-          sites: 
-            type: array
-            nullable: true
+          sites:
+            type:
+              - array
+              - 'null'
             items:
               type: object
-          plans: 
-            type: array
-            nullable: true
+          plans:
+            type:
+              - array
+              - 'null'
             items:
               type: object

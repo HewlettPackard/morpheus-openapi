@@ -1,68 +1,73 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  autoUp: 
+  autoUp:
     type: boolean
-  autoDown: 
+  autoDown:
     type: boolean
-  minCount: 
+  minCount:
     type: integer
     format: int64
-  maxCount: 
+  maxCount:
     type: integer
     format: int64
-  scaleIncrement: 
+  scaleIncrement:
     type: integer
     format: int64
-  cpuEnabled: 
+  cpuEnabled:
     type: boolean
-  minCpu: 
+  minCpu:
     type: integer
     format: int64
-  maxCpu: 
+  maxCpu:
     type: integer
     format: int64
-  memoryEnabled: 
+  memoryEnabled:
     type: boolean
-  minMemory: 
+  minMemory:
     type: integer
     format: int64
-  maxMemory: 
+  maxMemory:
     type: integer
     format: int64
-  diskEnabled: 
+  diskEnabled:
     type: boolean
-  minDisk: 
+  minDisk:
     type: integer
     format: int64
-  maxDisk: 
+  maxDisk:
     type: integer
     format: int64
-  minNetwork: 
-    type: string
-    nullable: true
-  networkEnabled: 
+  minNetwork:
+    type:
+      - string
+      - 'null'
+  networkEnabled:
     type: boolean
-  iopsEnabled: 
+  iopsEnabled:
     type: boolean
-  minIops: 
-    type: string
-    nullable: true
-  maxIops: 
-    type: string
-    nullable: true
-  comment: 
-    type: string
-    nullable: true
-  zoneId: 
-    type: integer
+  minIops:
+    type:
+      - string
+      - 'null'
+  maxIops:
+    type:
+      - string
+      - 'null'
+  comment:
+    type:
+      - string
+      - 'null'
+  zoneId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

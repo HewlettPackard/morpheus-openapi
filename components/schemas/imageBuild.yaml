@@ -1,243 +1,257 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  type: 
+  type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  site: 
+  site:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  zone: 
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  bootScript: 
+  description:
+    type:
+      - string
+      - 'null'
+  bootScript:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      fileName: 
+      fileName:
         type: string
-  bootCommand: 
-    type: string
-    nullable: true
-  preseedScript: 
+  bootCommand:
+    type:
+      - string
+      - 'null'
+  preseedScript:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      fileName: 
+      fileName:
         type: string
-  scripts: 
+  scripts:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        type: 
+        type:
           type: string
-        phase: 
+        phase:
           type: string
-  sshUsername: 
+  sshUsername:
     type: string
-  sshPassword: 
+  sshPassword:
     type: string
-  storageProvider: 
-    type: string
-    nullable: true
-  buildOutputName: 
-    type: string
-    nullable: true
-  conversionFormats: 
-    type: string
-    nullable: true
-  isCloudInit: 
+  storageProvider:
+    type:
+      - string
+      - 'null'
+  buildOutputName:
+    type:
+      - string
+      - 'null'
+  conversionFormats:
+    type:
+      - string
+      - 'null'
+  isCloudInit:
     type: boolean
-  vmToolsInstalled: 
+  vmToolsInstalled:
     type: boolean
-  keepResults: 
-    type: integer
+  keepResults:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  config: 
+  config:
     type: object
-    properties: 
-      instance: 
+    properties:
+      instance:
         type: object
-        properties: 
-          layout: 
+        properties:
+          layout:
             type: object
-            properties: 
-              code: 
+            properties:
+              code:
                 type: string
-              id: 
+              id:
                 type: integer
                 format: int64
-          type: 
+          type:
             type: string
-          userGroup: 
+          userGroup:
             type: object
-            properties: 
-              id: 
+            properties:
+              id:
                 type: string
-      networkInterfaces: 
-        type: array
-        items: 
-          type: object
-          properties: 
-            primaryInterface: 
-              type: boolean
-            network: 
-              type: object
-              properties: 
-                id: 
-                  type: string
-      volumes: 
-        type: array
-        items: 
-          type: object
-          properties: 
-            id: 
-              type: integer
-              format: int64
-            size: 
-              type: integer
-              format: int64
-            maxIOPS: 
-              type: string
-              nullable: true
-            name: 
-              type: string
-            rootVolume: 
-              type: boolean
-            storageType: 
-              type: integer
-              format: int64
-            datastoreId: 
-              type: string
-      storageControllers: 
+      networkInterfaces:
         type: array
         items:
           type: object
-      zoneId: 
+          properties:
+            primaryInterface:
+              type: boolean
+            network:
+              type: object
+              properties:
+                id:
+                  type: string
+      volumes:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            size:
+              type: integer
+              format: int64
+            maxIOPS:
+              type:
+                - string
+                - 'null'
+            name:
+              type: string
+            rootVolume:
+              type: boolean
+            storageType:
+              type: integer
+              format: int64
+            datastoreId:
+              type: string
+      storageControllers:
+        type: array
+        items:
+          type: object
+      zoneId:
         type: integer
         format: int64
-      config: 
+      config:
         type: object
-        properties: 
-          template: 
+        properties:
+          template:
             type: integer
             format: int64
-          vmwareFolderId: 
+          vmwareFolderId:
             type: string
           resourcePoolId:
             type: integer
             format: int64
-          nestedVirtualization: 
+          nestedVirtualization:
             type: string
-      plan: 
+      plan:
         type: object
-        properties: 
-          code: 
+        properties:
+          code:
             type: string
-          id: 
+          id:
             type: integer
             format: int64
-  lastResult: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  lastResult:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      imageBuild: 
+      imageBuild:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-          name: 
+          name:
             type: string
-      buildNumber: 
+      buildNumber:
         type: integer
         format: int64
-      startDate: 
+      startDate:
         type: string
         format: date-time
-      endDate: 
-        type: string
+      endDate:
+        type:
+          - string
+          - 'null'
         format: date-time
-        nullable: true
-      statusMessage: 
-        type: string
-        nullable: true
-      statusPercent: 
+      statusMessage:
+        type:
+          - string
+          - 'null'
+      statusPercent:
         type: integer
         format: int64
-      statusEta: 
+      statusEta:
+        type:
+          - string
+          - 'null'
+      status:
         type: string
-        nullable: true
-      status: 
-        type: string
-      errorMessage: 
-        type: string
-        nullable: true
-      createdBy: 
+      errorMessage:
+        type:
+          - string
+          - 'null'
+      createdBy:
         type: object
-        properties: 
-          username: 
+        properties:
+          username:
             type: string
-      tempInstance: 
-        type: string
-        nullable: true
-      virtualImages: 
-        type: array
-        nullable: true
-        items: 
+      tempInstance:
+        type:
+          - string
+          - 'null'
+      virtualImages:
+        type:
+          - array
+          - 'null'
+        items:
           type: object
-          properties: 
+          properties:
             id:
               type: integer
               format: int64
             name:
               type: string
-  executionCount: 
+  executionCount:
     type: integer
     format: int64

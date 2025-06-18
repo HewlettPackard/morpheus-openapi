@@ -1,114 +1,138 @@
 type: array
-items: 
+items:
   type: object
-  properties: 
-    id: 
+  properties:
+    id:
       type: integer
       format: int64
-    name: 
+    name:
       type: string
-    description: 
-      type: string
-      nullable: true
-    labels: 
+    description:
+      type:
+        - string
+        - 'null'
+    labels:
       type: array
-      items: 
+      items:
         type: object
-    code: 
+    code:
       type: string
-    fieldName: 
+    fieldName:
       type: string
-    fieldLabel: 
+    fieldLabel:
       type: string
-    fieldCode: 
+    fieldCode:
       type: string
-    fieldContext: 
+    fieldContext:
       type: string
-    fieldGroup: 
+    fieldGroup:
+      type:
+        - string
+        - 'null'
+    fieldClass:
+      type:
+        - string
+        - 'null'
+    fieldAddOn:
+      type:
+        - string
+        - 'null'
+    fieldComponent:
+      type:
+        - string
+        - 'null'
+    fieldInput:
+      type:
+        - string
+        - 'null'
+    placeHolder:
+      type:
+        - string
+        - 'null'
+    verifyPattern:
+      type:
+        - string
+        - 'null'
+    helpBlock:
       type: string
-      nullable: true
-    fieldClass: 
+    helpBlockFieldCode:
+      type:
+        - string
+        - 'null'
+    defaultValue:
+      type:
+        - string
+        - 'null'
+    optionSource:
+      type:
+        - string
+        - 'null'
+    optionSourceType:
+      type:
+        - string
+        - 'null'
+    optionList:
+      type:
+        - string
+        - 'null'
+    type:
       type: string
-      nullable: true
-    fieldAddOn: 
-      type: string
-      nullable: true
-    fieldComponent: 
-      type: string
-      nullable: true
-    fieldInput: 
-      type: string
-      nullable: true
-    placeHolder: 
-      type: string
-      nullable: true
-    verifyPattern: 
-      type: string
-      nullable: true
-    helpBlock: 
-      type: string
-    helpBlockFieldCode: 
-      type: string
-      nullable: true
-    defaultValue: 
-      type: string
-      nullable: true
-    optionSource: 
-      type: string
-      nullable: true
-    optionSourceType: 
-      type: string
-      nullable: true
-    optionList: 
-      type: string
-      nullable: true
-    type: 
-      type: string
-    advanced: 
+    advanced:
       type: boolean
-    required: 
+    required:
       type: boolean
     exportMeta:
+      type:
+        - boolean
+        - 'null'
+    editable:
       type: boolean
-      nullable: true
-    editable: 
+    creatable:
       type: boolean
-    creatable: 
-      type: boolean
-    config: 
+    config:
       type: object
-    displayOrder: 
+    displayOrder:
       type: integer
       format: int64
-    wrapperClass: 
-      type: string
-      nullable: true
-    enabled: 
+    wrapperClass:
+      type:
+        - string
+        - 'null'
+    enabled:
       type: boolean
-    noBlank: 
-      type: boolean
-      nullable: true
-    dependsOnCode: 
-      type: boolean
-      nullable: true
-    visibleOnCode: 
-      type: boolean
-      nullable: true
-    requireOnCode: 
-      type: boolean
-      nullable: true
-    contextualDefault: 
-      type: boolean
-      nullable: true
-    displayValueOnDetails: 
-      type: boolean
-      nullable: true
-    showOnCreate: 
-      type: boolean
-      nullable: true
-    showOnEdit: 
-      type: boolean
-      nullable: true
-    localCredential: 
-      type: boolean
-      nullable: true
+    noBlank:
+      type:
+        - boolean
+        - 'null'
+    dependsOnCode:
+      type:
+        - boolean
+        - 'null'
+    visibleOnCode:
+      type:
+        - boolean
+        - 'null'
+    requireOnCode:
+      type:
+        - boolean
+        - 'null'
+    contextualDefault:
+      type:
+        - boolean
+        - 'null'
+    displayValueOnDetails:
+      type:
+        - boolean
+        - 'null'
+    showOnCreate:
+      type:
+        - boolean
+        - 'null'
+    showOnEdit:
+      type:
+        - boolean
+        - 'null'
+    localCredential:
+      type:
+        - boolean
+        - 'null'

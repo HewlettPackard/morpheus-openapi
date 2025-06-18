@@ -1,93 +1,105 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  name: 
+  name:
     type: string
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
-  code: 
+  code:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  provisionTypeCode:
+    type:
+      - string
+      - 'null'
+  category:
     type: string
-    nullable: true
-  provisionTypeCode: 
-    type: string
-    nullable: true
-  category: 
-    type: string
-  active: 
+  active:
     type: boolean
-  hasProvisioningStep: 
+  hasProvisioningStep:
     type: boolean
-  hasDeployment: 
+  hasDeployment:
     type: boolean
-  hasConfig: 
+  hasConfig:
     type: boolean
-  hasSettings: 
+  hasSettings:
     type: boolean
-  hasAutoScale: 
+  hasAutoScale:
     type: boolean
-  proxyType: 
+  proxyType:
+    type:
+      - string
+      - 'null'
+  proxyPort:
+    type:
+      - string
+      - 'null'
+  proxyProtocol:
+    type:
+      - string
+      - 'null'
+  environmentPrefix:
     type: string
-    nullable: true
-  proxyPort: 
+  backupType:
+    type:
+      - string
+      - 'null'
+  config:
+    type:
+      - object
+      - 'null'
+  visibility:
     type: string
-    nullable: true
-  proxyProtocol: 
-    type: string
-    nullable: true
-  environmentPrefix: 
-    type: string
-  backupType: 
-    type: string
-    nullable: true
-  config: 
-    type: object
-    nullable: true
-  visibility: 
-    type: string
-  featured: 
+  featured:
     type: boolean
-  versions: 
+  versions:
     type: array
-    items: 
+    items:
       type: string
-  instanceTypeLayouts: 
+  instanceTypeLayouts:
     type: array
     items:
       $ref: instanceTypeLayout.yaml
-  optionTypes: 
+  optionTypes:
     type: array
-    items: 
+    items:
       $ref: optionType.yaml
-  environmentVariables: 
-    type: array
-    nullable: true
+  environmentVariables:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  priceSets: 
-    type: array
-    nullable: true
+  priceSets:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  imagePath: 
-    type: string
-    nullable: true
+  imagePath:
+    type:
+      - string
+      - 'null'
     description: Logo image URL
-  darkImagePath: 
-    type: string
-    nullable: true
+  darkImagePath:
+    type:
+      - string
+      - 'null'
     description: Dark logo image URL

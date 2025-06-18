@@ -7,7 +7,7 @@ properties:
   description:
     type: string
     description: Optional description field.
-    example: "my new server"
+    example: my new server
   enabled:
     type: boolean
     description: Flag to determine if a host can be selected for provisioning
@@ -25,26 +25,28 @@ properties:
     description: SSH Username
     example: myuser
   sshPassword:
-    type: string
+    type:
+      - string
+      - 'null'
     description: SSH Password
     example: mypassword
-    nullable: true
   sshKeyPair:
-    type: object
+    type:
+      - object
+      - 'null'
     description: SSH Key.  See `/api/options/privateKeyPairs` for available private key pairs.
     properties:
       id:
         type: integer
         format: int64
         description: Key Pair ID
-    nullable: true
   powerScheduleType:
     description: Power schedule ID.
     type: integer
     format: int64
   labels:
     type: array
-    items: 
+    items:
       type: string
   tags:
     description: Metadata tags, Array of objects having a name and value.
@@ -85,8 +87,9 @@ properties:
         name:
           type: string
         value:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
     example:
       - name: hello
   guestConsoleType:

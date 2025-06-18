@@ -1,73 +1,79 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  app: 
-    type: string
-    nullable: true
-  autoClose: 
+  app:
+    type:
+      - string
+      - 'null'
+  autoClose:
     type: boolean
-  channelId: 
+  channelId:
     type: string
-  checkGroups: 
+  checkGroups:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-  checks: 
+  checks:
     type: array
     items:
       $ref: check.yaml
-  comment: 
+  comment:
+    type:
+      - string
+      - 'null'
+  displayName:
     type: string
-    nullable: true
-  displayName: 
-    type: string
-  duration: 
-    type: string
-    nullable: true
-  endDate: 
+  duration:
+    type:
+      - string
+      - 'null'
+  endDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  inUptime:
+    type: boolean
+  muted:
+    type: boolean
+  lastCheckTime:
     type: string
     format: date-time
-    nullable: true
-  inUptime: 
-    type: boolean
-  muted: 
-    type: boolean
-  lastCheckTime: 
+  lastError:
     type: string
-    format: date-time
-  lastError: 
+  lastMessage:
+    type:
+      - string
+      - 'null'
+  name:
     type: string
-  lastMessage: 
+  resolution:
+    type:
+      - string
+      - 'null'
+  severity:
     type: string
-    nullable: true
-  name: 
-    type: string
-  resolution: 
-    type: string
-    nullable: true
-  severity: 
-    type: string
-  severityId: 
+  severityId:
     type: integer
     format: int64
-  startDate: 
+  startDate:
     type: string
     format: date-time
-  status: 
+  status:
     type: string
-  visibility: 
+  visibility:
     type: string
