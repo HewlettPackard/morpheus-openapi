@@ -59,7 +59,7 @@ post:
                 description: |
                   List of all security groups ids which should be applied.
                   If no security groups should apply, pass `[]`
-              example: "[19,2]"
+              example: [19,2]
   responses:
     '200':
       description: Successful Request
