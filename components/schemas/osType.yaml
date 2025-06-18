@@ -1,101 +1,105 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-    nullable: false
   name:
     type: string
-    nullable: false
     description: |
       The name of the osType.
   description:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
     description: |
       The description of the osType. 
   platform:
     type: string
-    nullable: false
     description: |
       The platform of the osType. 
   category:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
     description: |
       The category of the osType.
   vendor:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
     description: |
       The vendor of the osType.
   osName:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
     description: |
       The osName of the osType.
   osVersion:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
     description: |
       The osVersion of the osType.
   osCodename:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
     description: |
       The osCodename of the osType.
   osFamily:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
     description: |
       The family of the osType.
   bitCount:
     type: integer
     format: int64
-    nullable: false
     description: |
       The bitCount/architecture of the osType.
   cloudInitVersion:
     type: string
-    nullable: false
     description: |
       The version of CloudInit being used.
   installAgent:
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
     description: |
       Whether the morpheus agent is installed.
-  images: 
-    type: array
-    nullable: true
-    items: 
+  images:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-      properties: 
+      properties:
         id:
           type: integer
           format: int64
-          nullable: false
         virtualImageId:
           type: integer
           format: int64
-          nullable: false
         virtualImageName:
           type: string
-          nullable: false
         account:
-          type: integer
+          type:
+            - integer
+            - 'null'
           format: int64
-          nullable: true
-        provisionType: 
-          type: integer
+        provisionType:
+          type:
+            - integer
+            - 'null'
           format: int64
-          nullable: true
-        computeZoneType: 
-          type: integer
+        computeZoneType:
+          type:
+            - integer
+            - 'null'
           format: int64
-          nullable: true
         zone:
-          type: integer
+          type:
+            - integer
+            - 'null'
           format: int64
-          nullable: true
-

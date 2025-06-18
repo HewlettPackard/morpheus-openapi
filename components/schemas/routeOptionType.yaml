@@ -1,99 +1,116 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  code:
     type: string
-    nullable: true
-  code: 
+  fieldName:
     type: string
-  fieldName: 
+  fieldLabel:
     type: string
-  fieldLabel: 
+  fieldCode:
     type: string
-  fieldCode: 
+  fieldContext:
     type: string
-  fieldContext: 
+  fieldGroup:
+    type:
+      - string
+      - 'null'
+  fieldClass:
+    type:
+      - string
+      - 'null'
+  fieldAddOn:
+    type:
+      - string
+      - 'null'
+  fieldComponent:
+    type:
+      - string
+      - 'null'
+  fieldInput:
+    type:
+      - string
+      - 'null'
+  placeHolder:
     type: string
-  fieldGroup: 
+  verifyPattern:
+    type:
+      - string
+      - 'null'
+  helpBlock:
     type: string
-    nullable: true
-  fieldClass: 
+  helpBlockFieldCode:
+    type:
+      - string
+      - 'null'
+  defaultValue:
+    type:
+      - string
+      - 'null'
+  optionSource:
+    type:
+      - string
+      - 'null'
+  optionSourceType:
+    type:
+      - string
+      - 'null'
+  optionList:
+    type:
+      - string
+      - 'null'
+  type:
     type: string
-    nullable: true
-  fieldAddOn: 
-    type: string
-    nullable: true
-  fieldComponent: 
-    type: string
-    nullable: true
-  fieldInput: 
-    type: string
-    nullable: true
-  placeHolder: 
-    type: string
-  verifyPattern: 
-    type: string
-    nullable: true
-  helpBlock: 
-    type: string
-  helpBlockFieldCode: 
-    type: string
-    nullable: true
-  defaultValue: 
-    type: string
-    nullable: true
-  optionSource: 
-    type: string
-    nullable: true
-  optionSourceType: 
-    type: string
-    nullable: true
-  optionList: 
-    type: string
-    nullable: true
-  type: 
-    type: string
-  advanced: 
+  advanced:
     type: boolean
-  required: 
+  required:
     type: boolean
-  exportMeta: 
+  exportMeta:
     type: boolean
-  editable: 
+  editable:
     type: boolean
-  creatable: 
+  creatable:
     type: boolean
-  config: 
-    type: object
-    nullable: true
-  displayOrder: 
+  config:
+    type:
+      - object
+      - 'null'
+  displayOrder:
     type: integer
     format: int64
-  wrapperClass: 
-    type: string
-    nullable: true
-  enabled: 
+  wrapperClass:
+    type:
+      - string
+      - 'null'
+  enabled:
     type: boolean
-  noBlank: 
+  noBlank:
     type: boolean
-  dependsOnCode: 
-    type: string
-    nullable: true
-  visibleOnCode: 
-    type: string
-    nullable: true
-  requireOnCode: 
-    type: string
-    nullable: true
-  contextualDefault: 
+  dependsOnCode:
+    type:
+      - string
+      - 'null'
+  visibleOnCode:
+    type:
+      - string
+      - 'null'
+  requireOnCode:
+    type:
+      - string
+      - 'null'
+  contextualDefault:
     type: boolean
-  displayValueOnDetails: 
+  displayValueOnDetails:
     type: boolean
-  showOnCreate: 
+  showOnCreate:
     type: boolean
-  showOnEdit: 
+  showOnEdit:
     type: boolean

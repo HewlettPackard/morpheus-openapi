@@ -1,98 +1,114 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
+  code:
     type: string
-  active: 
+  active:
     type: boolean
-  priceUnit: 
+  priceUnit:
     type: string
-  type: 
+  type:
     type: string
-  regionCode: 
+  regionCode:
     type: string
-  systemCreated: 
+  systemCreated:
     type: boolean
-  zone: 
-    type: string
-    nullable: true
-  zonePool: 
-    type: string
-    nullable: true
-  account: 
-    type: string
-    nullable: true
-  prices: 
+  zone:
+    type:
+      - string
+      - 'null'
+  zonePool:
+    type:
+      - string
+      - 'null'
+  account:
+    type:
+      - string
+      - 'null'
+  prices:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        code: 
+        code:
           type: string
-        active: 
+        active:
           type: boolean
-        priceType: 
+        priceType:
           type: string
-        priceUnit: 
+        priceUnit:
           type: string
-        additionalPriceUnit: 
-          type: string
-          nullable: true
-        price: 
-          type: number
-          nullable: true
-        customPrice: 
-          type: number
-          nullable: true
-        markupType: 
-          type: string
-          nullable: true
-        markup: 
+        additionalPriceUnit:
+          type:
+            - string
+            - 'null'
+        price:
+          type:
+            - number
+            - 'null'
+        customPrice:
+          type:
+            - number
+            - 'null'
+        markupType:
+          type:
+            - string
+            - 'null'
+        markup:
           type: integer
           format: int64
-        markupPercent: 
-          type: number
-          nullable: true
-        cost: 
-          type: number
-          nullable: true
-        currency: 
+        markupPercent:
+          type:
+            - number
+            - 'null'
+        cost:
+          type:
+            - number
+            - 'null'
+        currency:
+          type:
+            - string
+            - 'null'
+        incurCharges:
           type: string
-          nullable: true
-        incurCharges: 
-          type: string
-        platform: 
-          type: string
-          nullable: true
-        software: 
-          type: string
-          nullable: true
-        volumeType: 
-          type: object
-          nullable: true
-          properties: 
-            id: 
+        platform:
+          type:
+            - string
+            - 'null'
+        software:
+          type:
+            - string
+            - 'null'
+        volumeType:
+          type:
+            - object
+            - 'null'
+          properties:
+            id:
               type: integer
               format: int64
-            code: 
+            code:
               type: string
-            name: 
+            name:
               type: string
-        datastore: 
-          type: string
-          nullable: true
-        crossCloudApply: 
-          type: boolean
-          nullable: true
-        account: 
-          type: string
-          nullable: true
+        datastore:
+          type:
+            - string
+            - 'null'
+        crossCloudApply:
+          type:
+            - boolean
+            - 'null'
+        account:
+          type:
+            - string
+            - 'null'

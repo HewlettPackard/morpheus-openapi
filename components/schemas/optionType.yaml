@@ -1,18 +1,20 @@
 type: object
-properties: 
+properties:
   id:
     type: integer
     format: int64
   name:
     type: string
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
   description:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   code:
     type: string
   fieldName:
@@ -20,49 +22,63 @@ properties:
   fieldLabel:
     type: string
   fieldCode:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   fieldContext:
     type: string
   fieldGroup:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   fieldClass:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   fieldAddOn:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   fieldComponent:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   fieldInput:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   placeHolder:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   verifyPattern:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   helpBlock:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   helpBlockFieldCode:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   defaultValue:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   optionSource:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   optionSourceType:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   optionList:
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
@@ -82,39 +98,49 @@ properties:
   creatable:
     type: boolean
   config:
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
   displayOrder:
     type: integer
     format: int64
   wrapperClass:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   enabled:
     type: boolean
   noBlank:
     type: boolean
   dependsOnCode:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   visibleOnCode:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   requireOnCode:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   contextualDefault:
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
   displayValueOnDetails:
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
   showOnCreate:
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
   showOnEdit:
-    type: boolean
-    nullable: true
-  localCredential: 
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
+  localCredential:
+    type:
+      - boolean
+      - 'null'

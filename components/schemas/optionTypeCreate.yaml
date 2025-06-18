@@ -2,23 +2,25 @@ type: object
 required:
   - name
 properties:
-  name: 
+  name:
     type: string
     description: The name of the option type for handy reference
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
     description: Short description of the option type
-    nullable: true
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
   fieldName:
     type: string
     description: Field Name, the name for user input. This along with fieldContext determines the configuration property name.  The property key for when posting this option type to a JSON POST request
-  type: 
+  type:
     type: string
     description: Type, the type of input. eg. text, checkbox, select, etc.
     default: text
@@ -48,9 +50,8 @@ properties:
     default: false
   optionList:
     type: object
-    properties: 
+    properties:
       id:
         type: integer
         format: int64
         description: ID of Option List. For use with type select, this will set optionSource to the list.
-    

@@ -4,7 +4,7 @@ required:
   - policyType
   - refType
 properties:
-  name: 
+  name:
     type: string
     description: A name for the policy
     example: Sample Policy
@@ -18,39 +18,39 @@ properties:
         type: string
         description: The policy type
         enum:
-        - Approve Delete
-        - Approve Provision
-        - Approve Reconfigure
-        - Backup Creation
-        - Backup Targets
-        - Budget
-        - Cluster Resource Name
-        - Cypher Access
-        - Delayed Delete
-        - Expiration
-        - File Share Storage Quota
-        - Hostname
-        - Instance Name
-        - Max Containers
-        - Max Cores
-        - Max Hosts
-        - Max Load Balancer Pools
-        - Max Memory
-        - Max Pool Members
-        - Max Storage
-        - Max Virtual Servers
-        - Max VMs
-        - Message of the Day
-        - Network Quota
-        - Object Storage Quota
-        - Power Schedule
-        - Router Quota
-        - Shutdown
-        - Storage Server Storage Quota
-        - Tags
-        - User Creation
-        - User Group Creation
-        - Workflow
+          - Approve Delete
+          - Approve Provision
+          - Approve Reconfigure
+          - Backup Creation
+          - Backup Targets
+          - Budget
+          - Cluster Resource Name
+          - Cypher Access
+          - Delayed Delete
+          - Expiration
+          - File Share Storage Quota
+          - Hostname
+          - Instance Name
+          - Max Containers
+          - Max Cores
+          - Max Hosts
+          - Max Load Balancer Pools
+          - Max Memory
+          - Max Pool Members
+          - Max Storage
+          - Max Virtual Servers
+          - Max VMs
+          - Message of the Day
+          - Network Quota
+          - Object Storage Quota
+          - Power Schedule
+          - Router Quota
+          - Shutdown
+          - Storage Server Storage Quota
+          - Tags
+          - User Creation
+          - User Group Creation
+          - Workflow
       config:
         description: A map of config values. The expected values vary by policyType.
         oneOf:
@@ -59,8 +59,8 @@ properties:
               - Approve Delete
               - Approve Provisiong
               - Approve Reconfigure
-            properties: 
-              accountIntegrationId: 
+            properties:
+              accountIntegrationId:
                 type: string
           - type: object
             description: |
@@ -158,7 +158,7 @@ properties:
               hostNamingType:
                 type: string
               hostNamingPattern:
-                type: string 
+                type: string
           - type: object
             description: |
               - Instance Name
@@ -180,7 +180,7 @@ properties:
               - Max Cores
             properties:
               maxCores:
-                type: string 
+                type: string
               excludeContainers:
                 $ref: checkbox.yaml
           - type: object
@@ -188,7 +188,7 @@ properties:
               - Max Hosts
             properties:
               maxHosts:
-                type: string 
+                type: string
           - type: object
             description: |
               - Max Load Balancer Pools
@@ -246,15 +246,17 @@ properties:
                   type:
                     type: string
                   _fullPage:
-                    type: boolean
-                    nullable: true
+                    type:
+                      - boolean
+                      - 'null'
               motd.message:
                 type: string
               motd.type:
                 type: string
               motd._fullPage:
-                type: boolean
-                nullable: true
+                type:
+                  - boolean
+                  - 'null'
               motd.date:
                 type: string
                 format: date-time
@@ -352,7 +354,7 @@ properties:
         type: string
         description: Scope object type
         enum:
-        - ComputeZone
+          - ComputeZone
       refId:
         type: integer
         format: int64

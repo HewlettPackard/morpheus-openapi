@@ -1,6 +1,6 @@
 type: object
 properties:
-  name: 
+  name:
     type: string
     description: A name for the policy
     example: Sample Policy
@@ -17,8 +17,8 @@ properties:
           - Approve Delete
           - Approve Provisiong
           - Approve Reconfigure
-        properties: 
-          accountIntegrationId: 
+        properties:
+          accountIntegrationId:
             type: string
       - type: object
         title: Backup Creation Policy Type Configuration
@@ -134,7 +134,7 @@ properties:
           hostNamingType:
             type: string
           hostNamingPattern:
-            type: string 
+            type: string
       - type: object
         title: Instance Name Policy Type Configuration
         description: |
@@ -164,7 +164,7 @@ properties:
           maxCores:
             type: string
           excludeContainers:
-            type: boolean 
+            type: boolean
       - type: object
         title: Max Hosts Policy Type Configuration
         description: |
@@ -172,7 +172,7 @@ properties:
           - Max Hosts
         properties:
           maxHosts:
-            type: string 
+            type: string
       - type: object
         title: Max Load Balancer Pools Policy Type Configuration
         description: |
@@ -192,14 +192,14 @@ properties:
               - type: string
               - type: integer
                 format: int64
-            description: "Max Memory (GB)"
+            description: Max Memory (GB)
           excludeContainers:
             type: string
             description: Set to on to exclude containers
             enum:
-              - on
-              - off
-            default: off
+              - "on"
+              - "off"
+            default: "off"
       - type: object
         title: Max Pool Members Policy Type Configuration
         description: |
@@ -218,7 +218,7 @@ properties:
           maxStorage:
             type: string
           excludeContainers:
-            type: boolean 
+            type: boolean
       - type: object
         title: Max Virtual Servers Policy Type Configuration
         description: |
@@ -253,15 +253,17 @@ properties:
               type:
                 type: string
               _fullPage:
-                type: boolean
-                nullable: true
+                type:
+                  - boolean
+                  - 'null'
           motd.message:
             type: string
           motd.type:
             type: string
           motd._fullPage:
-            type: boolean
-            nullable: true
+            type:
+              - boolean
+              - 'null'
           motd.date:
             type: string
             format: date-time
@@ -377,12 +379,12 @@ properties:
     type: string
     description: Scope object type
     enum:
-    - ComputeSite
-    - ComputeZone
-    - User
-    - Role
-    - Network
-    - Plan
+      - ComputeSite
+      - ComputeZone
+      - User
+      - Role
+      - Network
+      - Plan
   refId:
     type: integer
     format: int64

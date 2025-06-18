@@ -1,57 +1,62 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
+  code:
     type: string
-  description: 
+  description:
     type: string
-  version: 
+  version:
     type: string
-  enabled: 
+  enabled:
     type: boolean
-  author: 
-    type: string
-    nullable: true
-  websiteUrl: 
-    type: string
-    nullable: true
-  sourceCodeLocationUrl: 
-    type: string
-    nullable: true
-  issueTrackerUrl: 
-    type: string
-    nullable: true
-  valid: 
+  author:
+    type:
+      - string
+      - 'null'
+  websiteUrl:
+    type:
+      - string
+      - 'null'
+  sourceCodeLocationUrl:
+    type:
+      - string
+      - 'null'
+  issueTrackerUrl:
+    type:
+      - string
+      - 'null'
+  valid:
     type: boolean
-  hasValidUpdate: 
+  hasValidUpdate:
     type: boolean
-  status: 
+  status:
     type: string
-  statusMessage: 
-    type: string
-    nullable: true
-  providers: 
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  providers:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        name: 
+      properties:
+        name:
           type: string
-        type: 
+        type:
           type: string
-  config: 
+  config:
     type: object
-  optionTypes: 
+  optionTypes:
     type: array
-    items: 
+    items:
       $ref: optionType.yaml
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

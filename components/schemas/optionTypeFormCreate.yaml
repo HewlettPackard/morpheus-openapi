@@ -1,5 +1,5 @@
 type: object
-properties: 
+properties:
   name:
     type: string
     description: Form name
@@ -7,13 +7,15 @@ properties:
     type: string
     description: Unique form code
   description:
-    type: string
+    type:
+      - string
+      - 'null'
     description: A short description of the form
-    nullable: true
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
   options:
     type: array

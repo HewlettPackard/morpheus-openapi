@@ -1,41 +1,41 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-    nullable: false
   virtualImageId:
     type: integer
     format: int64
-    nullable: false
     description: |
       The id of the virtual image.
   virtualImageName:
     type: string
-    nullable: false
     description: |
       The name of the virtual image. 
   account:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
     description: |
       The account attached to the osTypeImage. 
   provisionType:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
     description: |
       The Provision Type of the osTypeImage.
   computeZoneType:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
     description: |
       The zone type of the osTypeImage.
   zone:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-    description: |
-      The cloud that is attached to osTypeImage.
+    description: The cloud that is attached to osTypeImage.
