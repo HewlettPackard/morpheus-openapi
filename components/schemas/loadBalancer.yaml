@@ -3,7 +3,7 @@ properties:
   id:
     type: integer
     format: int64
-  uuid: 
+  uuid:
     type: string
   name:
     type: string
@@ -40,28 +40,35 @@ properties:
     type: integer
     format: int64
   username:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   ip:
     type: string
   internalIp:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   externalIp:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   apiPort:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   adminPort:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   sslEnabled:
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
   sslCert:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   config:
     type: object
   dateCreated:
@@ -72,10 +79,6 @@ properties:
     format: date-time
   credential:
     $ref: creds.yaml
-  # price: 
-  #   $ref: loadBalancerPrice.yaml
-  # instancePrice: 
-  #   $ref: instancePrice.yaml
   tenants:
     $ref: tenants.yaml
   resourcePermission:

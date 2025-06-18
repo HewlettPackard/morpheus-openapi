@@ -1,140 +1,159 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
-  type: 
+  type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      code: 
+      code:
         type: string
-  workflow: 
-    type: object
-    nullable: true
+  workflow:
+    type:
+      - object
+      - 'null'
     description: Task object for workflow type jobs.
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  task: 
-    type: object
-    nullable: true
+  task:
+    type:
+      - object
+      - 'null'
     description: Task object for task type jobs.
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  securityPackage: 
-    type: object
-    nullable: true
+  securityPackage:
+    type:
+      - object
+      - 'null'
     description: Task object for security scan type jobs.
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  jobSummary: 
-    type: string
-    nullable: true
+  jobSummary:
+    type:
+      - string
+      - 'null'
   scheduleMode:
-    oneOf: 
-      - type: string
-        nullable: true
+    oneOf:
+      - type:
+          - string
+          - 'null'
       - type: integer
         format: int64
-  dateTime: 
-    type: string
-    nullable: true
-  status: 
-    type: string
-    nullable: true
-  namespace: 
-    type: string
-    nullable: true
-  category: 
-    type: string
-    nullable: true
-  description: 
-    type: string
-    nullable: true
-  enabled: 
+  dateTime:
+    type:
+      - string
+      - 'null'
+  status:
+    type:
+      - string
+      - 'null'
+  namespace:
+    type:
+      - string
+      - 'null'
+  category:
+    type:
+      - string
+      - 'null'
+  description:
+    type:
+      - string
+      - 'null'
+  enabled:
     type: boolean
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  lastRun: 
+  lastRun:
     type: string
     format: date-time
-  lastResult: 
-    type: string
-    nullable: true
-  createdBy: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  lastResult:
+    type:
+      - string
+      - 'null'
+  createdBy:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-      displayName: 
+      displayName:
         type: string
-  targetType: 
-    type: string
-    nullable: true
-  targets: 
-    type: array
-    nullable: true
-    items: 
+  targetType:
+    type:
+      - string
+      - 'null'
+  targets:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        targetType: 
+        targetType:
           type: string
-        refId: 
+        refId:
           type: integer
           format: int64
-  scanPath: 
-    type: string
-    nullable: true
+  scanPath:
+    type:
+      - string
+      - 'null'
     description: Scan Checklist. Only applies to type scap-package.
-    example: "/test_CentOS_Linux_7_Benchmark_v3/test_CentOS_Linux_7_Benchmark_v3.1.1-xccdf.xml"
-  securityProfile: 
-    type: string
-    nullable: true
+    example: /test_CentOS_Linux_7_Benchmark_v3/test_CentOS_Linux_7_Benchmark_v3.1.1-xccdf.xml
+  securityProfile:
+    type:
+      - string
+      - 'null'
     description: Security Profile. Only applies to type scap-package.
-    example: "xccdf_org.cisecurity.benchmarks_profile_Level_2_-_Server"
-  customConfig: 
-    type: string
-    nullable: true
-  customOptions: 
-    type: object
-    nullable: true
-    properties: 
-      checkTime: 
+    example: xccdf_org.cisecurity.benchmarks_profile_Level_2_-_Server
+  customConfig:
+    type:
+      - string
+      - 'null'
+  customOptions:
+    type:
+      - object
+      - 'null'
+    properties:
+      checkTime:
         type: integer
         format: int64

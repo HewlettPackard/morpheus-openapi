@@ -34,8 +34,9 @@ properties:
         name:
           type: string
         description:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         code:
           type: string
         fieldName:
@@ -45,32 +46,39 @@ properties:
         fieldContext:
           type: string
         fieldGroup:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         fieldClass:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         fieldAddOn:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         fieldComponent:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         fieldInput:
           type: string
         placeHolder:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         helpBlock:
           type: string
         defaultValue:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         optionSource:
           type: string
         optionList:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         type:
           type: string
         advanced:
@@ -87,8 +95,9 @@ properties:
           type: integer
           format: int64
         wrapperClass:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         enabled:
           type: boolean
         noBlank:

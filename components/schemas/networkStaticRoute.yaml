@@ -4,14 +4,17 @@ id:
 name:
   type: string
 code:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 description:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 priority:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 routeType:
   type: string
 source:
@@ -25,20 +28,25 @@ destinationType:
 defaultRoute:
   type: boolean
 networkMtu:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalInterface:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 internalId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 uniqueId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalType:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 enabled:
   type: boolean
 visible:

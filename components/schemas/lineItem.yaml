@@ -1,102 +1,118 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  invoiceId: 
+  invoiceId:
     type: integer
     format: int64
-  refType: 
+  refType:
     type: string
-  refId: 
+  refId:
     type: integer
     format: int64
-  refName: 
+  refName:
     type: string
-  startDate: 
+  startDate:
     type: string
     format: date-time
-  endDate: 
+  endDate:
     type: string
     format: date-time
-  itemId: 
+  itemId:
+    type:
+      - string
+      - 'null'
+  itemType:
+    type:
+      - string
+      - 'null'
+  itemName:
+    type:
+      - string
+      - 'null'
+  itemDescription:
+    type:
+      - string
+      - 'null'
+  productId:
+    type:
+      - string
+      - 'null'
+  productCode:
+    type:
+      - string
+      - 'null'
+  productName:
+    type:
+      - string
+      - 'null'
+  itemSeller:
+    type:
+      - string
+      - 'null'
+  itemAction:
+    type:
+      - string
+      - 'null'
+  externalId:
     type: string
-    nullable: true
-  itemType: 
+  rateId:
+    type:
+      - string
+      - 'null'
+  rateClass:
+    type:
+      - string
+      - 'null'
+  rateUnit:
     type: string
-    nullable: true
-  itemName: 
+  rateTerm:
+    type:
+      - string
+      - 'null'
+  usageType:
     type: string
-    nullable: true
-  itemDescription: 
+  usageCategory:
     type: string
-    nullable: true
-  productId: 
-    type: string
-    nullable: true
-  productCode: 
-    type: string
-    nullable: true
-  productName: 
-    type: string
-    nullable: true
-  itemSeller: 
-    type: string
-    nullable: true
-  itemAction: 
-    type: string
-    nullable: true
-  externalId: 
-    type: string
-  rateId: 
-    type: string
-    nullable: true
-  rateClass: 
-    type: string
-    nullable: true
-  rateUnit: 
-    type: string
-  rateTerm: 
-    type: string
-    nullable: true
-  usageType: 
-    type: string
-  usageCategory: 
-    type: string
-  usageService: 
-    type: string
-    nullable: true
-  itemUsage: 
+  usageService:
+    type:
+      - string
+      - 'null'
+  itemUsage:
     type: integer
     format: int64
-  itemRate: 
+  itemRate:
     type: number
-  itemCost: 
+  itemCost:
     type: number
-  itemPriceRate: 
+  itemPriceRate:
     type: number
-  itemPrice: 
+  itemPrice:
     type: number
-  itemTax: 
+  itemTax:
     type: integer
     format: int64
-  itemTerm: 
+  itemTerm:
+    type:
+      - string
+      - 'null'
+  taxType:
+    type:
+      - string
+      - 'null'
+  regionCode:
+    type:
+      - string
+      - 'null'
+  currency:
     type: string
-    nullable: true
-  taxType: 
-    type: string
-    nullable: true
-  regionCode: 
-    type: string
-    nullable: true
-  currency: 
-    type: string
-  conversionRate: 
+  conversionRate:
     type: integer
     format: int64
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

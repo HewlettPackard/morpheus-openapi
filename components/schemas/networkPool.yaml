@@ -1,142 +1,168 @@
-id: 
+id:
   type: integer
   format: int64
-type: 
+type:
   type: object
-  properties: 
-    id: 
+  properties:
+    id:
       type: integer
       format: int64
-    name: 
+    name:
       type: string
-    code: 
+    code:
       type: string
-account: 
+account:
   type: object
-  properties: 
-    id: 
+  properties:
+    id:
       type: integer
       format: int64
-    name: 
+    name:
       type: string
-category: 
+category:
+  type:
+    - string
+    - 'null'
+code:
+  type:
+    - string
+    - 'null'
+name:
   type: string
-  nullable: true
-code: 
-  type: string
-  nullable: true
-name: 
-  type: string
-displayName: 
-  type: string
-  nullable: true
-internalId: 
-  type: string
-  nullable: true
-externalId: 
-  type: string
-  nullable: true
-dnsDomain: 
-  type: string
-  nullable: true
-dnsSearchPath: 
-  type: string
-  nullable: true
-hostPrefix: 
-  type: string
-  nullable: true
-httpProxy: 
-  type: string
-  nullable: true
-dnsServers: 
-  type: array
-  items: 
-    type: string
-dnsSuffixList: 
+displayName:
+  type:
+    - string
+    - 'null'
+internalId:
+  type:
+    - string
+    - 'null'
+externalId:
+  type:
+    - string
+    - 'null'
+dnsDomain:
+  type:
+    - string
+    - 'null'
+dnsSearchPath:
+  type:
+    - string
+    - 'null'
+hostPrefix:
+  type:
+    - string
+    - 'null'
+httpProxy:
+  type:
+    - string
+    - 'null'
+dnsServers:
   type: array
   items:
     type: string
-dhcpServer: 
-  type: boolean
-dhcpIp: 
-  type: string
-  nullable: true
-gateway: 
-  type: string
-  nullable: true
-netmask: 
-  type: string
-  nullable: true
-subnetAddress: 
-  type: string
-  nullable: true
-ipCount: 
-  type: integer
-  format: int64
-freeCount: 
-  type: integer
-  format: int64
-poolEnabled: 
-  type: boolean
-tftpServer: 
-  type: string
-  nullable: true
-bootFile: 
-  type: string
-  nullable: true
-refType: 
-  type: string
-  nullable: true
-refId: 
-  type: string
-  nullable: true
-parentType: 
-  type: string
-  nullable: true
-parentId: 
-  type: string
-  nullable: true
-poolGroup: 
-  type: string
-  nullable: true
-ipRanges: 
+dnsSuffixList:
   type: array
-  items: 
+  items:
+    type: string
+dhcpServer:
+  type: boolean
+dhcpIp:
+  type:
+    - string
+    - 'null'
+gateway:
+  type:
+    - string
+    - 'null'
+netmask:
+  type:
+    - string
+    - 'null'
+subnetAddress:
+  type:
+    - string
+    - 'null'
+ipCount:
+  type: integer
+  format: int64
+freeCount:
+  type: integer
+  format: int64
+poolEnabled:
+  type: boolean
+tftpServer:
+  type:
+    - string
+    - 'null'
+bootFile:
+  type:
+    - string
+    - 'null'
+refType:
+  type:
+    - string
+    - 'null'
+refId:
+  type:
+    - string
+    - 'null'
+parentType:
+  type:
+    - string
+    - 'null'
+parentId:
+  type:
+    - string
+    - 'null'
+poolGroup:
+  type:
+    - string
+    - 'null'
+ipRanges:
+  type: array
+  items:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      startAddress: 
-        type: string
-        nullable: true
-      endAddress: 
-        type: string
-        nullable: true
-      internalId: 
-        type: string
-        nullable: true
-      externalId: 
-        type: string
-        nullable: true
-      description: 
-        type: string
-        nullable: true
-      addressCount: 
+      startAddress:
+        type:
+          - string
+          - 'null'
+      endAddress:
+        type:
+          - string
+          - 'null'
+      internalId:
+        type:
+          - string
+          - 'null'
+      externalId:
+        type:
+          - string
+          - 'null'
+      description:
+        type:
+          - string
+          - 'null'
+      addressCount:
         type: integer
         format: int64
-      active: 
+      active:
         type: boolean
-      dateCreated: 
+      dateCreated:
         type: string
         format: date-time
-      lastUpdated: 
+      lastUpdated:
         type: string
         format: date-time
       cidr:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       cidrIPv6:
-        type: string
-        nullable: true
-
+        type:
+          - string
+          - 'null'

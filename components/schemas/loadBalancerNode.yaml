@@ -6,94 +6,113 @@ name:
 visibility:
   type: string
 description:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 ipAddress:
   type: string
 port:
   type: integer
   format: int64
 portType:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 monitorPort:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 weight:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
 nodeState:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 internalId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 enabled:
   type: boolean
 status:
   type: string
 statusMessage:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 statusDate:
-  type: string
+  type:
+    - string
+    - 'null'
   format: date-time
-  nullable: true
 server:
-  type: object
+  type:
+    - object
+    - 'null'
   properties:
     id:
       type: integer
       format: int64
     name:
       type: string
-  nullable: true
 instanceId:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
 containerId:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
 nodeSource:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 monitor:
-  type: object
+  type:
+    - object
+    - 'null'
   properties:
     id:
       type: integer
       format: int64
     name:
       type: string
-  nullable: true
 maxConnections:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
 externalRefType:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalRefId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalRefName:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 createdBy:
-  type: object
+  type:
+    - object
+    - 'null'
   properties:
     id:
       type: integer
       format: int64
     username:
       type: string
-  nullable: true
 dateCreated:
   type: string
   format: date-time

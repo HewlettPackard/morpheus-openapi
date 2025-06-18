@@ -4,8 +4,9 @@ id:
 name:
   type: string
 description:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 priority:
   type: integer
   format: int64

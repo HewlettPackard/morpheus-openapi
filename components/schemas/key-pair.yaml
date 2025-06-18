@@ -1,31 +1,35 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  publicKey: 
-    type: string
-    nullable: true
-  hasPrivateKey: 
+  publicKey:
+    type:
+      - string
+      - 'null'
+  hasPrivateKey:
     type: boolean
   privateKeyHash:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   privateKey:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
     description: Only present in response to generate
-  fingerprint: 
-    type: string
-    nullable: true
-  dateCreated: 
+  fingerprint:
+    type:
+      - string
+      - 'null'
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

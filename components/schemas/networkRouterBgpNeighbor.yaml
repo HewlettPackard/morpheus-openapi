@@ -4,11 +4,13 @@ id:
 ipAddress:
   type: string
 forwardingAddress:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 protocolAddress:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 remoteAs:
   type: string
 weight:
@@ -21,8 +23,9 @@ holdDown:
   type: integer
   format: int64
 password:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 routeFilteringType:
   type: string
 routeFilteringIn:
@@ -49,16 +52,19 @@ providerId:
 syncSource:
   type: string
 internalId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalId:
   type: string
 refType:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 refId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 config:
   type: object
   properties:

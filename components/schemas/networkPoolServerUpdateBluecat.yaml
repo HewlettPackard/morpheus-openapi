@@ -1,55 +1,61 @@
 title: Bluecat Network Pool Server Update
 type: object
 properties:
-  name: 
+  name:
     type: string
     description: Name
   enabled:
     type: boolean
     description: Can be used to enable / disable the network pool server.
     default: true
-  serviceUrl: 
-    type: string
+  serviceUrl:
+    type:
+      - string
+      - 'null'
     description: URL
-    nullable: true
-    example: "https://bluecat-server"
-  serviceUsername: 
-    type: string
+    example: https://bluecat-server
+  serviceUsername:
+    type:
+      - string
+      - 'null'
     description: Username
-    nullable: true
-  servicePassword: 
-    type: string
+  servicePassword:
+    type:
+      - string
+      - 'null'
     description: Password
-    nullable: true
-  serviceThrottleRate: 
-    type: integer
+  serviceThrottleRate:
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Throttle Rate
-    nullable: true
     default: 0
-  ignoreSsl: 
+  ignoreSsl:
     type: boolean
     description: Disable SSL SNI Verification
-  networkFilter: 
-    type: string
+  networkFilter:
+    type:
+      - string
+      - 'null'
     description: Network Filter
-    nullable: true
-  config: 
+  config:
     type: object
-    properties: 
-      inventoryExisting: 
-        type: string
+    properties:
+      inventoryExisting:
+        type:
+          - string
+          - 'null'
         description: Inventory Existing
-        nullable: true
-        default: off
+        default: "off"
         enum:
-          - on
-          - off
-  credential: 
+          - "on"
+          - "off"
+  credential:
     type: object
-    description: 'Map containing Credential ID or the default `{"type": "local"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential.'
-    properties: 
-      type: 
+    description: "Map containing Credential ID or the default `{\"type\": \"local\"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential."
+    properties:
+      type:
         type: string
       id:
         type: integer

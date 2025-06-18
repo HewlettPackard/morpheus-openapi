@@ -8,11 +8,13 @@ properties:
   active:
     type: boolean
   fqdn:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   description:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   visibility:
     type: string
   domainController:
@@ -20,39 +22,50 @@ properties:
   publicZone:
     type: boolean
   domainUsername:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   domainPassword:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   refType:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   refId:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
   refSource:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   internalId:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   ouPath:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   dcServer:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   zoneType:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   dnssec:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   domainSerial:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   account:
     type: object
     properties:

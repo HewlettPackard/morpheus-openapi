@@ -4,19 +4,23 @@ id:
 name:
   type: string
 description:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalId:
   type: string
 iacId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 zone:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 zonePool:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 status:
   type: string
 priority:
@@ -35,8 +39,9 @@ rules:
       name:
         type: string
       code:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       enabled:
         type: boolean
       groupName:
@@ -64,28 +69,35 @@ rules:
         items:
           type: string
       protocol:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       application:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       applicationType:
         type: string
       portRange:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       sourcePortRange:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       destinationPortRange:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       sourceGroup:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       sourceTier:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       applications:
         type: array
         items:
