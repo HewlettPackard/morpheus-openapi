@@ -1,38 +1,39 @@
 type: object
-properties: 
-  activity: 
+properties:
+  activity:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        _id: 
+      properties:
+        _id:
           type: string
-        success: 
+        success:
           type: boolean
-        activityType: 
+        activityType:
           type: string
-        name: 
+        name:
           type: string
-        message: 
+        message:
           type: string
-        objectType: 
+        objectType:
           type: string
-        objectId: 
+        objectId:
           type: integer
           format: int64
-        user: 
-          type: object
-          nullable: true
-          properties: 
-            id: 
+        user:
+          type:
+            - object
+            - 'null'
+          properties:
+            id:
               type: integer
               format: int64
-            username: 
+            username:
               type: string
-        ts: 
+        ts:
           type: string
           format: date-time
-  meta: 
+  meta:
     allOf:
       - $ref: MetaObject.yaml
       - $ref: MetaObjectDates.yaml

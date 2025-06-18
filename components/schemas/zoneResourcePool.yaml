@@ -1,107 +1,114 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  description: 
-    type: string
-    nullable: true
-  zone: 
+  description:
+    type:
+      - string
+      - 'null'
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  parent: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  parent:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  type: 
+  type:
     type: string
-  externalId: 
+  externalId:
     type: string
-  regionCode: 
+  regionCode:
+    type:
+      - string
+      - 'null'
+  iacId:
+    type:
+      - string
+      - 'null'
+  visibility:
     type: string
-    nullable: true
-  iacId: 
-    type: string
-    nullable: true
-  visibility: 
-    type: string
-  readOnly: 
+  readOnly:
     type: boolean
-  defaultPool: 
+  defaultPool:
     type: boolean
-  active: 
+  active:
     type: boolean
-  status: 
+  status:
     type: string
-  inventory: 
+  inventory:
     type: boolean
   config:
     anyOf:
-    - type: object
-      nullable: true
-      description: Type VMware
-      additionalProperties: false
-    - type: object
-      description: Type AWS
-      required:
-        - cidrBlock
-        - tenancy
-      properties:
-        cidrBlock:
-          type: string
-          description: Provide the base CIDR Block to use for this VPC (must be between a /16 and /28 Block)
-          example: "10.0.0.1/16"
-        tenancy:
-          type: string
-          enum:
-            - default
-            - dedicated
-          default: default
-    - type: object
-      description: Type GCP
-      required:
-        - parent
-        - billingAccount
-      properties:
-        projectId:
-          type: string
-          nullable: true
-          description: |
-            Project ID can have lowercase letters, digits, or hyphens.
-            It must start with a lowercase letter and end with a letter or number.
-          example: my-project-123
-        parent:
-          format: int64
-          example: 200
-        billingAccount:
-          type: string
-          example: "billingAccounts/013A63-23432-11124"
-  name: 
+      - type:
+          - object
+          - 'null'
+        description: Type VMware
+        additionalProperties: false
+      - type: object
+        description: Type AWS
+        required:
+          - cidrBlock
+          - tenancy
+        properties:
+          cidrBlock:
+            type: string
+            description: Provide the base CIDR Block to use for this VPC (must be between a /16 and /28 Block)
+            example: 10.0.0.1/16
+          tenancy:
+            type: string
+            enum:
+              - default
+              - dedicated
+            default: default
+      - type: object
+        description: Type GCP
+        required:
+          - parent
+          - billingAccount
+        properties:
+          projectId:
+            type:
+              - string
+              - 'null'
+            description: |
+              Project ID can have lowercase letters, digits, or hyphens.
+              It must start with a lowercase letter and end with a letter or number.
+            example: my-project-123
+          parent:
+            format: int64
+            example: 200
+          billingAccount:
+            type: string
+            example: billingAccounts/013A63-23432-11124
+  name:
     type: string
-  displayName: 
-    type: string
-    nullable: true
-  tenants: 
+  displayName:
+    type:
+      - string
+      - 'null'
+  tenants:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-  resourcePermission: 
+  resourcePermission:
     $ref: resourcePermissions.yaml
   depth:
     type: integer

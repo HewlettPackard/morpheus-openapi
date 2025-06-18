@@ -1,5 +1,6 @@
 type: object
-properties: 
-  page: 
-    type: string
-    nullable: true
+properties:
+  page:
+    type:
+      - string
+      - 'null'

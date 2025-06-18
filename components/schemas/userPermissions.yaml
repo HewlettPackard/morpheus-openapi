@@ -1,25 +1,26 @@
-type: object
-nullable: true
-properties: 
+type:
+  - object
+  - 'null'
+properties:
   features:
     type: array
-    items: 
+    items:
       type: object
   zones:
     type: array
-    items: 
+    items:
       type: object
   sites:
     type: array
-    items: 
+    items:
       type: object
   instanceTypes:
     type: array
-    items: 
+    items:
       type: object
   appTemplates:
     type: array
-    items: 
+    items:
       type: object
   catalogItemTypes:
     type: array

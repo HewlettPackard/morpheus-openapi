@@ -1,100 +1,111 @@
 type: object
-properties: 
-  apiUrl: 
+properties:
+  apiUrl:
     type: string
-  username: 
+  username:
     type: string
-  password: 
+  password:
+    type:
+      - string
+      - 'null'
+  datacenter:
     type: string
-    nullable: true
-  datacenter: 
+  cluster:
     type: string
-  cluster: 
+  resourcePoolId:
     type: string
-  resourcePoolId: 
+  resourcePool:
     type: string
-  resourcePool: 
+  rpcMode:
     type: string
-  rpcMode: 
+  hideHostSelection:
     type: string
-  hideHostSelection: 
+  importExisting:
     type: string
-  importExisting: 
+  enableVnc:
     type: string
-  enableVnc: 
+  enableDiskTypeSelection:
+    type:
+      - string
+      - 'null'
+  enableNetworkTypeSelection:
     type: string
-  enableDiskTypeSelection: 
+  diskStorageType:
+    type:
+      - string
+      - 'null'
+  applianceUrl:
+    type:
+      - string
+      - 'null'
+  datacenterName:
+    type:
+      - string
+      - 'null'
+  networkServer.id:
     type: string
-    nullable: true
-  enableNetworkTypeSelection: 
-    type: string
-  diskStorageType: 
-    type: string
-    nullable: true
-  applianceUrl: 
-    type: string
-    nullable: true
-  datacenterName: 
-    type: string
-    nullable: true
-  networkServer.id: 
-    type: string
-      # oneOf:
-      # - type: string
-      # - type: integer
-      #   format: int64
-  networkServer: 
+  networkServer:
     type: object
-    properties: 
+    properties:
       id:
         type: string
-        # oneOf:
-        # - type: string
-        # - type: integer
-        #   format: int64
-  securityMode: 
+  securityMode:
     type: string
-  certificateProvider: 
-    type: string
-    nullable: true
-  backupMode: 
-    type: string
-    nullable: true
-  replicationMode: 
-    type: string
-    nullable: true
-  dnsIntegrationId: 
-    type: string
-    nullable: true
-  configCmdbId: 
-    type: string
-    nullable: true
-  configManagementId: 
-    type: string
-    nullable: true
-  configCmId: 
-    type: string
-    nullable: true
-  securityServer: 
-    type: string
-    nullable: true
-  serviceRegistryId: 
-    type: string
-    nullable: true
-  kubeUrl: 
-    type: string
-    nullable: true
-  apiVersion: 
-    type: string
-    nullable: true
-  datacenterId: 
-    type: string
-    nullable: true
-  configCmdbDiscovery: 
+  certificateProvider:
+    type:
+      - string
+      - 'null'
+  backupMode:
+    type:
+      - string
+      - 'null'
+  replicationMode:
+    type:
+      - string
+      - 'null'
+  dnsIntegrationId:
+    type:
+      - string
+      - 'null'
+  configCmdbId:
+    type:
+      - string
+      - 'null'
+  configManagementId:
+    type:
+      - string
+      - 'null'
+  configCmId:
+    type:
+      - string
+      - 'null'
+  securityServer:
+    type:
+      - string
+      - 'null'
+  serviceRegistryId:
+    type:
+      - string
+      - 'null'
+  kubeUrl:
+    type:
+      - string
+      - 'null'
+  apiVersion:
+    type:
+      - string
+      - 'null'
+  datacenterId:
+    type:
+      - string
+      - 'null'
+  configCmdbDiscovery:
     type: boolean
-  distributedWorkerId: 
-    type: string
-    nullable: true
-  passwordHash: 
-    type: string
-    nullable: true
+  distributedWorkerId:
+    type:
+      - string
+      - 'null'
+  passwordHash:
+    type:
+      - string
+      - 'null'

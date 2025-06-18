@@ -1,22 +1,25 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  gatewayUrl: 
-    type: string
-    nullable: true
-  apiKey: 
-    type: string
-    nullable: true
-  dateCreated: 
+  description:
+    type:
+      - string
+      - 'null'
+  gatewayUrl:
+    type:
+      - string
+      - 'null'
+  apiKey:
+    type:
+      - string
+      - 'null'
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
