@@ -223,7 +223,7 @@ properties:
           - 'null'
         items:
           type: number
-      createBackup: 
+      createBackup:
         type: boolean
       backup:
         type: object
@@ -346,15 +346,17 @@ properties:
     type: array
     items:
       type: object
-      properties: 
+      properties:
         id:
           oneOf:
-          - type: integer
-            format: int64
-            nullable: true
-          - type: string
-            nullable: true
-        network: 
+            - type:
+                - integer
+                - 'null'
+              format: int64
+            - type:
+                - string
+                - 'null'
+        network:
           type: object
           properties:
             id:
@@ -636,8 +638,9 @@ properties:
     items:
       type: object
   containerDetails:
-    type: array
-    nullable: true
+    type:
+      - array
+      - 'null'
     items:
       additionalProperties: true
       properties:
@@ -698,11 +701,13 @@ properties:
             uuid:
               type: string
             externalId:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
             internalId:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
             hostName:
               type: string
             accountId:
@@ -746,29 +751,36 @@ properties:
               additionalProperties: true
               properties:
                 id:
-                  type: integer
+                  type:
+                    - integer
+                    - 'null'
                   format: int64
-                  nullable: true
                 code:
-                  type: string
-                  nullable: true
+                  type:
+                    - string
+                    - 'null'
                 name:
-                  type: string
-                  nullable: true
+                  type:
+                    - string
+                    - 'null'
                 managed:
-                  type: boolean
-                  nullable: true
+                  type:
+                    - boolean
+                    - 'null'
                 externalDelete:
-                  type: boolean
-                  nullable: true
+                  type:
+                    - boolean
+                    - 'null'
                 format:
-                  type: string
-                  nullable: true
+                  type:
+                    - string
+                    - 'null'
             visibility:
               type: string
             description:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
             zoneId:
               type: integer
               format: int64
@@ -779,46 +791,54 @@ properties:
               type: integer
               format: int64
             sshHost:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
             sshPort:
               type: integer
             externalIp:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
             internalIp:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
             platform:
               type: string
             status:
               type: string
             statusMessage:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
             errorMessage:
-              type: string
-              nullable: true
+              type:
+                - string
+                - 'null'
             statusDate:
               type: string
               format: date-time
             statusPercent:
-              type: integer
-              nullable: true
+              type:
+                - integer
+                - 'null'
             statusEta:
-              type: integer
+              type:
+                - integer
+                - 'null'
               format: int64
-              nullable: true
             powerState:
-              anyOf: 
+              anyOf:
                 - type: boolean
                 - type: string
             agentInstalled:
               type: boolean
             lastAgentUpdate:
-              type: string
+              type:
+                - string
+                - 'null'
               format: date-time
-              nullable: true
             maxCores:
               type: integer
             maxMemory:
@@ -848,8 +868,9 @@ properties:
                 name:
                   type: string
                 description:
-                  type: string
-                  nullable: true
+                  type:
+                    - string
+                    - 'null'
                 vendor:
                   type: string
                 category:
@@ -873,42 +894,49 @@ properties:
                   name:
                     type: string
                   controllerId:
-                    type: integer
+                    type:
+                      - integer
+                      - 'null'
                     format: int64
-                    nullable: true
                   controllerMountPoint:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   resizeable:
                     type: boolean
                   unitNumber:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   typeId:
                     type: integer
                     format: int64
                   configurableIOPS:
                     type: boolean
                   datastoreId:
-                    type: integer
+                    type:
+                      - integer
+                      - 'null'
                     format: int64
-                    nullable: true
                   maxStorage:
                     type: integer
                     format: int64
                   maxIOPS:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   uuid:
                     type: string
                   uniqueId:
                     type: string
                   externalId:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   internalId:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
         cloud:
           additionalProperties: true
           properties:
@@ -942,21 +970,25 @@ properties:
               exportName:
                 type: string
               loadBalanceProtocol:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
               loadBalance:
                 type: boolean
               protocol:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
               link:
                 type: boolean
               externalIp:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
               internalIp:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
         plan:
           additionalProperties: true
           properties:
@@ -967,10 +999,10 @@ properties:
               type: string
             name:
               type: string
-        dateCreated: 
+        dateCreated:
           type: string
           format: date-time
-        lastUpdated: 
+        lastUpdated:
           type: string
           format: date-time
         hostname:
@@ -979,4 +1011,3 @@ properties:
           type: boolean
         containerCreated:
           type: boolean
-      
