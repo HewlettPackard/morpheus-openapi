@@ -222,8 +222,8 @@ properties:
           - array
           - 'null'
         items:
-          type: object
-      createBackup:
+          type: number
+      createBackup: 
         type: boolean
       backup:
         type: object
@@ -346,12 +346,15 @@ properties:
     type: array
     items:
       type: object
-      properties:
+      properties: 
         id:
-          type:
-            - string
-            - 'null'
-        network:
+          oneOf:
+          - type: integer
+            format: int64
+            nullable: true
+          - type: string
+            nullable: true
+        network: 
           type: object
           properties:
             id:
@@ -632,3 +635,347 @@ properties:
       - 'null'
     items:
       type: object
+  containerDetails:
+    type: array
+    nullable: true
+    items:
+      additionalProperties: true
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        name:
+          type: string
+        ip:
+          type: string
+        internalIp:
+          type: string
+        internalHostname:
+          type: string
+        externalHostname:
+          type: string
+        externalDomain:
+          type: string
+        externalFqdn:
+          type: string
+        accountId:
+          type: integer
+          format: int64
+        instance:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+        containerType:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+            name:
+              type: string
+        containerTypeSet:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+        server:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            uuid:
+              type: string
+            externalId:
+              type: string
+              nullable: true
+            internalId:
+              type: string
+              nullable: true
+            hostName:
+              type: string
+            accountId:
+              type: integer
+              format: int64
+            account:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                name:
+                  type: string
+            owner:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                username:
+                  type: string
+            zone:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                name:
+                  type: string
+            plan:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                code:
+                  type: string
+                name:
+                  type: string
+            computeServerType:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                  nullable: true
+                code:
+                  type: string
+                  nullable: true
+                name:
+                  type: string
+                  nullable: true
+                managed:
+                  type: boolean
+                  nullable: true
+                externalDelete:
+                  type: boolean
+                  nullable: true
+                format:
+                  type: string
+                  nullable: true
+            visibility:
+              type: string
+            description:
+              type: string
+              nullable: true
+            zoneId:
+              type: integer
+              format: int64
+            siteId:
+              type: integer
+              format: int64
+            resourcePoolId:
+              type: integer
+              format: int64
+            sshHost:
+              type: string
+              nullable: true
+            sshPort:
+              type: integer
+            externalIp:
+              type: string
+              nullable: true
+            internalIp:
+              type: string
+              nullable: true
+            platform:
+              type: string
+            status:
+              type: string
+            statusMessage:
+              type: string
+              nullable: true
+            errorMessage:
+              type: string
+              nullable: true
+            statusDate:
+              type: string
+              format: date-time
+            statusPercent:
+              type: integer
+              nullable: true
+            statusEta:
+              type: integer
+              format: int64
+              nullable: true
+            powerState:
+              anyOf: 
+                - type: boolean
+                - type: string
+            agentInstalled:
+              type: boolean
+            lastAgentUpdate:
+              type: string
+              format: date-time
+              nullable: true
+            maxCores:
+              type: integer
+            maxMemory:
+              type: integer
+              format: int64
+            maxStorage:
+              type: integer
+              format: int64
+            sourceImage:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                code:
+                  type: string
+                name:
+                  type: string
+            serverOs:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                code:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type: string
+                  nullable: true
+                vendor:
+                  type: string
+                category:
+                  type: string
+                osFamily:
+                  type: string
+                osVersion:
+                  type: string
+                bitCount:
+                  type: integer
+                platform:
+                  type: string
+            volumes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                  name:
+                    type: string
+                  controllerId:
+                    type: integer
+                    format: int64
+                    nullable: true
+                  controllerMountPoint:
+                    type: string
+                    nullable: true
+                  resizeable:
+                    type: boolean
+                  unitNumber:
+                    type: string
+                    nullable: true
+                  typeId:
+                    type: integer
+                    format: int64
+                  configurableIOPS:
+                    type: boolean
+                  datastoreId:
+                    type: integer
+                    format: int64
+                    nullable: true
+                  maxStorage:
+                    type: integer
+                    format: int64
+                  maxIOPS:
+                    type: string
+                    nullable: true
+                  uuid:
+                    type: string
+                  uniqueId:
+                    type: string
+                  externalId:
+                    type: string
+                    nullable: true
+                  internalId:
+                    type: string
+                    nullable: true
+        cloud:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+        ports:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              external:
+                type: integer
+                format: int64
+              internal:
+                type: integer
+                format: int64
+              displayName:
+                type: string
+              primaryPort:
+                type: boolean
+              export:
+                type: boolean
+              visible:
+                type: boolean
+              exportName:
+                type: string
+              loadBalanceProtocol:
+                type: string
+                nullable: true
+              loadBalance:
+                type: boolean
+              protocol:
+                type: string
+              link:
+                type: boolean
+              externalIp:
+                type: string
+                nullable: true
+              internalIp:
+                type: string
+                nullable: true
+        plan:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+            name:
+              type: string
+        dateCreated: 
+          type: string
+          format: date-time
+        lastUpdated: 
+          type: string
+          format: date-time
+        hostname:
+          type: string
+        volumeCreated:
+          type: boolean
+        containerCreated:
+          type: boolean
+      
