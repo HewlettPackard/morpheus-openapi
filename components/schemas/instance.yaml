@@ -948,6 +948,7 @@ properties:
                 type: boolean
               protocol:
                 type: string
+                nullable: true
               link:
                 type: boolean
               externalIp:
