@@ -85,8 +85,6 @@ properties:
     type: boolean
   hasSpecTemplates:
     type: boolean
-  hasSpecTemplates:
-    type: boolean
   hasPreview:
     type: boolean
   zonePoolRequired:
