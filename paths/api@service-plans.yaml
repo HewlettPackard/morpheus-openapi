@@ -193,15 +193,12 @@ post:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                servicePlan:
-                  $ref: ../components/schemas/servicePlan.yaml
+            - $ref: ../components/schemas/200-ID.yaml
             - $ref: ../components/schemas/200-success.yaml
           examples:
             Service Plan Response:
               value:
-                $ref: ../components/examples/servicePlanSuccess.json
+                $ref: ../components/examples/successId.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
