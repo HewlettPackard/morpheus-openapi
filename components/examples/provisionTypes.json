@@ -85,7 +85,6 @@
       "canEnforceTags": false,
       "disableRootDatastore": false,
       "hasSnapshots": false,
-      "hasMemorySnapshots": false,
       "hasSpecTemplates": false,
       "hasPreview": false,
       "zonePoolRequired": false,
