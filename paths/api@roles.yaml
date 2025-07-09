@@ -98,7 +98,7 @@ post:
                 multitenantLocked:
                   type: boolean
                   default: false
-                  description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multienant roles. *Only available to master tenant*
+                  description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant roles. *Only available to master tenant*
                 defaultPersona:
                   oneOf:
                     - type: string
