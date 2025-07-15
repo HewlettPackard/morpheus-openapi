@@ -222,7 +222,8 @@ properties:
           - array
           - 'null'
         items:
-          type: number
+          type: integer
+          format: int64
       createBackup:
         type: boolean
       backup:
