@@ -15,6 +15,16 @@ properties:
     nullable: true
     items: 
       type: string
+  group:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Group ID
+      name:
+        type: string
+        description: Group Name
   zone: 
     type: object
     properties: 
