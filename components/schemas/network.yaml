@@ -16,6 +16,20 @@ properties:
       - 'null'
     items:
       type: string
+  group:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Group ID
+      name:
+        type:
+          - string
+          - 'null'
+        description: Group Name
   zone:
     type: object
     properties:
