@@ -1,46 +1,47 @@
 type: object
 properties:
-  name: 
+  name:
     type: string
     description: Instance type name
-  description: 
+  description:
     type: string
     description: Instance type description
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  code: 
+  code:
     type: string
     description: Instance type code
-  category: 
+  category:
     type: string
     description: Category
-  visibility: 
+  visibility:
     type: string
     description: Visibility
     default: private
     enum:
       - private
       - public
-  featured: 
+  featured:
     type: boolean
     description: Featured
-  hasSettings: 
+  hasSettings:
     type: boolean
     description: Enable Settings
-  hasAutoScale: 
+  hasAutoScale:
     type: boolean
     description: Enable Scaling (Horizontal)
-  hasDeployment: 
+  hasDeployment:
     type: boolean
     description: Supports Deployments
-  environmentPrefix: 
+  environmentPrefix:
     type: string
     description: Environment Prefix, can be used to make exported evars unique.
-  environmentVariables: 
+  environmentVariables:
     type: array
     description: Array of instance type env variables.
     items:
@@ -62,7 +63,7 @@ properties:
           type: boolean
           description: Can be used to enable / disable export of variable
           default: false
-  priceSets: 
+  priceSets:
     type: array
     description: Array of price set objects
     items:
@@ -74,10 +75,9 @@ properties:
           type: integer
           format: int64
           description: Price Set ID
-  optionTypes: 
+  optionTypes:
     type: array
     description: Array of instance type option type IDs
-    items: 
+    items:
       type: integer
       format: int64
-  

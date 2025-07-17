@@ -14,40 +14,42 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                instances:
-                  type: array
-                  nullable: true
-                  items:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        format: int64
-                        example: 123
-                      name:
-                        type: string
-                        example: "test"
-            - type: object
-              properties:
-                servers:
-                  type: array
-                  nullable: true
-                  items:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                        format: int64
-                        example: 123
-                      name:
-                        type: string
-                        example: "test"
-            - type: object
-              properties:
-                schedule:
-                  $ref: ../components/schemas/powerSchedule.yaml
+              - type: object
+                properties:
+                  instances:
+                    type:
+                      - array
+                      - 'null'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                          example: 123
+                        name:
+                          type: string
+                          example: test
+              - type: object
+                properties:
+                  servers:
+                    type:
+                      - array
+                      - 'null'
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                          example: 123
+                        name:
+                          type: string
+                          example: test
+              - type: object
+                properties:
+                  schedule:
+                    $ref: ../components/schemas/powerSchedule.yaml
           examples:
             Power Schedule Response:
               value:
@@ -76,7 +78,7 @@ put:
             schedule:
               type: object
               properties:
-                name: 
+                name:
                   type: string
                   description: A name for the power schedule
                   example: Sample Threshold
@@ -104,7 +106,7 @@ put:
                 mondayOffTime:
                   type: string
                   description: Monday Off time of the day in 24-hour format
-                  default: "24:00"
+                  default: 24:00
                 tuesdayOnTime:
                   type: string
                   description: Tuesday Start time of the day in 24-hour format
@@ -112,7 +114,7 @@ put:
                 tuesdayOffTime:
                   type: string
                   description: Tuesday Off time of the day in 24-hour format
-                  default: "24:00"
+                  default: 24:00
                 wednesdayOnTime:
                   type: string
                   description: Wednesday Start time of the day in 24-hour format
@@ -120,7 +122,7 @@ put:
                 wednesdayOffTime:
                   type: string
                   description: Wednesday Off time of the day in 24-hour format
-                  default: "24:00"
+                  default: 24:00
                 thursdayOnTime:
                   type: string
                   description: Thursday Start time of the day in 24-hour format
@@ -128,7 +130,7 @@ put:
                 thursdayOffTime:
                   type: string
                   description: Thursday Off time of the day in 24-hour format
-                  default: "24:00"
+                  default: 24:00
                 fridayOnTime:
                   type: string
                   description: Friday Start time of the day in 24-hour format
@@ -136,7 +138,7 @@ put:
                 fridayOffTime:
                   type: string
                   description: Friday Off time of the day in 24-hour format
-                  default: "24:00"
+                  default: 24:00
                 saturdayOnTime:
                   type: string
                   description: Saturday Start time of the day in 24-hour format
@@ -144,7 +146,7 @@ put:
                 saturdayOffTime:
                   type: string
                   description: Saturday Off time of the day in 24-hour format
-                  default: "24:00"
+                  default: 24:00
                 sundayOnTime:
                   type: string
                   description: Sunday Start time of the day in 24-hour format
@@ -152,7 +154,7 @@ put:
                 sundayOffTime:
                   type: string
                   description: Sunday Off time of the day in 24-hour format
-                  default: "24:00"
+                  default: 24:00
   responses:
     '200':
       description: Successful Request
@@ -160,12 +162,12 @@ put:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                schedule:
-                  allOf:
-                  - $ref: ../components/schemas/powerSchedule.yaml
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  schedule:
+                    allOf:
+                      - $ref: ../components/schemas/powerSchedule.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Power Schedule Response:
               value:

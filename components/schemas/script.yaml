@@ -1,47 +1,54 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  code: 
+  code:
     type: string
-  account: 
+  account:
+    type:
+      - string
+      - 'null'
+  name:
     type: string
-    nullable: true
-  name: 
-    type: string
-  labels: 
-    type: array
-    nullable: true
+  labels:
+    type:
+      - array
+      - 'null'
     items:
       type: string
-  category: 
-    type: string
-    nullable: true
-  sortOrder: 
+  category:
+    type:
+      - string
+      - 'null'
+  sortOrder:
     type: integer
     format: int64
-  scriptVersion: 
+  scriptVersion:
     type: string
-  scriptPhase: 
+  scriptPhase:
     type: string
-  scriptType: 
+  scriptType:
     type: string
-  script: 
+  script:
     type: string
-  scriptService: 
-    type: string
-    nullable: true
-  scriptMethod: 
-    type: string
-    nullable: true
-  runAsUser: 
-    type: string
-    nullable: true
-  runAsPassword: 
-    type: string
-    nullable: true
-  sudoUser: 
+  scriptService:
+    type:
+      - string
+      - 'null'
+  scriptMethod:
+    type:
+      - string
+      - 'null'
+  runAsUser:
+    type:
+      - string
+      - 'null'
+  runAsPassword:
+    type:
+      - string
+      - 'null'
+  sudoUser:
     type: boolean
-  failOnError: 
+  failOnError:
     type: boolean

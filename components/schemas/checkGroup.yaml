@@ -1,107 +1,118 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  instance: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  instance:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  inUptime: 
+  description:
+    type:
+      - string
+      - 'null'
+  inUptime:
     type: boolean
-  lastCheckStatus: 
-    type: string
-    nullable: true
-  lastWarningDate: 
-    type: string
+  lastCheckStatus:
+    type:
+      - string
+      - 'null'
+  lastWarningDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastErrorDate: 
-    type: string
+  lastErrorDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastSuccessDate: 
-    type: string
+  lastSuccessDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastRunDate: 
-    type: string
+  lastRunDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastError: 
-    type: string
-    nullable: true
-  outageTime: 
+  lastError:
+    type:
+      - string
+      - 'null'
+  outageTime:
     type: integer
     format: int64
-  lastTimer: 
+  lastTimer:
     type: integer
     format: int64
-  health: 
+  health:
     type: integer
     format: int64
-  history: 
-    type: string
-    nullable: true
-  minHappy: 
+  history:
+    type:
+      - string
+      - 'null'
+  minHappy:
     type: integer
     format: int64
-  lastMetric: 
+  lastMetric:
+    type:
+      - string
+      - 'null'
+  severity:
     type: string
-    nullable: true
-  severity: 
-    type: string
-  createIncident: 
+  createIncident:
     type: boolean
-  muted: 
+  muted:
     type: boolean
-  createdBy: 
+  createdBy:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  availability: 
-    type: number
-    nullable: true
-  checkType: 
+  availability:
+    type:
+      - number
+      - 'null'
+  checkType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-      metricName: 
+      metricName:
         type: string
-  checks: 
+  checks:
     type: array
-    items: 
+    items:
       type: integer
       format: int64

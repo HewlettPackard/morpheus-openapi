@@ -1,168 +1,179 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
     description: Backup ID
-  name: 
+  name:
     type: string
     description: Name
-  locationType: 
+  locationType:
     type: string
     description: Source Type (instance, server, storage)
-  instance: 
-    type: object
-    properties: 
-      id: 
+  instance:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Instance ID
-      name: 
+      name:
         type: string
         description: Instance Name
-    nullable: true
-  containerId: 
-    type: integer
+  containerId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  job: 
+  job:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Backup Job ID
-      name: 
+      name:
         type: string
         description: Backup Job Name
-  schedule: 
-    type: object
-    properties: 
-      id: 
+  schedule:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Schedule ID
-      name: 
+      name:
         type: string
         description: Schedule Name
-      cron: 
+      cron:
         type: string
         description: Schedule Cron Expression
-    nullable: true
-  retentionCount: 
-    type: integer
+  retentionCount:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  backupType: 
+  backupType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Backup Type ID
-      code: 
+      code:
         type: string
         description: Backup Type Code
-      name: 
+      name:
         type: string
         description: Backup Type Name
-  storageProvider: 
-    type: object
-    properties: 
-      id: 
+  storageProvider:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Storage Provider ID
-      name: 
+      name:
         type: string
         description: Storage Provider Name
-    nullable: true
-  backupProvider: 
-    type: object
-    properties: 
-      id: 
+  backupProvider:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Backup Provider ID
-      name: 
+      name:
         type: string
         description: Backup Provider Name
-    nullable: true
-  backupRespository: 
-    type: object
-    properties: 
-      id: 
+  backupRespository:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Backup Respository ID
-      name: 
+      name:
         type: string
         description: Backup Respository Name
-    nullable: true
-  cronExpression: 
-    type: string
-    nullable: true
+  cronExpression:
+    type:
+      - string
+      - 'null'
     description: Cron Expression
-  nextFire: 
-    type: string
+  nextFire:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
     description: Next Fire
-  lastStatus: 
-    type: string
-    nullable: true
+  lastStatus:
+    type:
+      - string
+      - 'null'
     description: Last Status
-  lastResult: 
-    type: object
-    properties: 
-      id: 
+  lastResult:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Last Result ID
-      name: 
+      name:
         type: string
         description: Last Result Status
-      dateCreated: 
+      dateCreated:
         type: string
         format: date-time
         description: Last Result Date Created
-    nullable: true
   stats:
     type: object
     description: Backup Result Statistics
-    properties: 
-      totalSize: 
+    properties:
+      totalSize:
         type: integer
         format: int64
         description: Total size of all backups in bytes
-      avgSize: 
+      avgSize:
         type: integer
         format: int64
         description: Average size of each backup in bytes
-      totalCompleted: 
+      totalCompleted:
         type: integer
         format: int64
         description: Total completed count
-      success: 
+      success:
         type: integer
         format: int64
         description: Successful backup count
-      failed: 
+      failed:
         type: integer
         format: int64
         description: Failed backup count
-      successRate: 
+      successRate:
         type: number
         format: double
         description: Success rate 0-1
-      failRate: 
+      failRate:
         type: number
         format: double
         description: Failure rate 0-1
       lastFiveResults:
         type: array
         description: List of the last 5 backup result statuses
-        items: 
+        items:
           type: string
           enum:
             - SUCCEEDED
@@ -172,11 +183,11 @@ properties:
   enabled:
     type: boolean
     description: Enabled
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
     description: Date Created
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
     description: Last Updated

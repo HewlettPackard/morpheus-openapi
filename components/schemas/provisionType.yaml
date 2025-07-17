@@ -1,120 +1,133 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  code:
     type: string
-    nullable: true
-  code: 
+  aclEnabled:
+    type: boolean
+  multiTenant:
+    type: boolean
+  managed:
+    type: boolean
+  hostNetwork:
+    type: boolean
+  customSupported:
+    type: boolean
+  mapPorts:
+    type: boolean
+  exportServer:
+    type: boolean
+  viewSet:
+    type:
+      - string
+      - 'null'
+  serverType:
     type: string
-  aclEnabled: 
-    type: boolean
-  multiTenant: 
-    type: boolean
-  managed: 
-    type: boolean
-  hostNetwork: 
-    type: boolean
-  customSupported: 
-    type: boolean
-  mapPorts: 
-    type: boolean
-  exportServer: 
-    type: boolean
-  viewSet: 
+  hostType:
     type: string
-    nullable: true
-  serverType: 
-    type: string
-  hostType: 
-    type: string
-  addVolumes: 
+  addVolumes:
     type: boolean
-  hasVolumes: 
+  hasVolumes:
     type: boolean
-  hasDatastore: 
+  hasDatastore:
     type: boolean
-  hasNetworks: 
+  hasNetworks:
     type: boolean
-  maxNetworks: 
+  maxNetworks:
     type: integer
     format: int64
-  customizeVolume: 
+  customizeVolume:
     type: boolean
-  rootDiskCustomizable: 
+  rootDiskCustomizable:
     type: boolean
-  rootDiskSizeKnown: 
+  rootDiskSizeKnown:
     type: boolean
-  rootDiskResizable: 
+  rootDiskResizable:
     type: boolean
-  lvmSupported: 
+  lvmSupported:
     type: boolean
-  hostDiskMode: 
+  hostDiskMode:
     type: string
-  minDisk: 
+  minDisk:
     type: integer
     format: int64
-  maxDisk: 
-    type: string
-    nullable: true
-  resizeCopiesVolumes: 
+  maxDisk:
+    type:
+      - string
+      - 'null'
+  resizeCopiesVolumes:
     type: boolean
-  supportsAutoDatastore: 
+  supportsAutoDatastore:
     type: boolean
-  hasZonePools: 
+  hasZonePools:
     type: boolean
-  hasSecurityGroups: 
+  hasSecurityGroups:
     type: boolean
-  hasParameters: 
+  hasParameters:
     type: boolean
-  canEnforceTags: 
+  canEnforceTags:
+    type:
+      - boolean
+      - 'null'
+  disableRootDatastore:
     type: boolean
-    nullable: true
-  disableRootDatastore: 
+  hasSnapshots:
     type: boolean
-  hasSnapshots: 
+  hasMemorySnapshots:
     type: boolean
-  hasSpecTemplates: 
+  hasSpecTemplates:
     type: boolean
-  hasPreview: 
+  hasPreview:
     type: boolean
-  zonePoolRequired: 
+  zonePoolRequired:
     type: boolean
-  planRequiresPool: 
+  planRequiresPool:
     type: boolean
-  hasFolders: 
-    type: boolean
-    nullable: true
-  optionTypes: 
-    type: array
-    nullable: true
+  hasFolders:
+    type:
+      - boolean
+      - 'null'
+  optionTypes:
+    type:
+      - array
+      - 'null'
     items:
       $ref: optionType.yaml
-  customOptionTypes: 
-    type: array
-    nullable: true
+  customOptionTypes:
+    type:
+      - array
+      - 'null'
     items:
       $ref: optionType.yaml
-  networkTypes: 
-    type: array
-    nullable: true
+  networkTypes:
+    type:
+      - array
+      - 'null'
     items:
       $ref: networkType.yaml
-  storageTypes: 
-    type: array
-    nullable: true
+  storageTypes:
+    type:
+      - array
+      - 'null'
     items:
       $ref: storageType.yaml
-  rootStorageTypes: 
-    type: array
-    nullable: true
+  rootStorageTypes:
+    type:
+      - array
+      - 'null'
     items:
       $ref: storageType.yaml
-  controllerTypes: 
-    type: array
-    nullable: true
+  controllerTypes:
+    type:
+      - array
+      - 'null'
     items:
       $ref: controllerType.yaml

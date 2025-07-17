@@ -1,163 +1,190 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
+  code:
     type: string
-  active: 
+  active:
     type: boolean
-  sortOrder: 
+  sortOrder:
     type: integer
     format: int64
-  description: 
+  description:
     type: string
-  maxStorage: 
+  maxStorage:
     type: number
-  maxMemory: 
+  maxMemory:
     type: number
-  maxCpu: 
+  maxCpu:
+    type:
+      - number
+      - 'null'
+  maxCores:
+    type:
+      - number
+      - 'null'
+  maxDisks:
+    type:
+      - number
+      - 'null'
+  coresPerSocket:
     type: number
-    nullable: true
-  maxCores: 
-    type: number
-    nullable: true
-  maxDisks: 
-    type: number
-    nullable: true
-  coresPerSocket: 
-    type: number
-  customCpu: 
+  customCpu:
     type: boolean
-  customCores: 
+  customCores:
     type: boolean
-  customMaxStorage: 
-    type: boolean
-    nullable: true
-  customMaxDataStorage: 
-    type: boolean
-    nullable: true
-  customMaxMemory: 
-    type: boolean
-    nullable: true
-  addVolumes: 
-    type: boolean
-    nullable: true
-  memoryOptionSource: 
-    type: string
-    nullable: true
-  cpuOptionSource: 
-    type: string
-    nullable: true
-  dateCreated: 
+  customMaxStorage:
+    type:
+      - boolean
+      - 'null'
+  customMaxDataStorage:
+    type:
+      - boolean
+      - 'null'
+  customMaxMemory:
+    type:
+      - boolean
+      - 'null'
+  addVolumes:
+    type:
+      - boolean
+      - 'null'
+  memoryOptionSource:
+    type:
+      - string
+      - 'null'
+  cpuOptionSource:
+    type:
+      - string
+      - 'null'
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  regionCode: 
+  regionCode:
+    type:
+      - string
+      - 'null'
+  visibility:
     type: string
-    nullable: true
-  visibility: 
-    type: string
-  editable: 
+  editable:
     type: boolean
-  provisionType: 
+  provisionType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      code: 
+      code:
         type: string
-      rootDiskCustomizable: 
+      rootDiskCustomizable:
         type: boolean
-      addVolumes: 
+      addVolumes:
         type: boolean
-      customizeVolume: 
+      customizeVolume:
         type: boolean
-      hasConfigurableCpuSockets: 
+      hasConfigurableCpuSockets:
         type: boolean
-  tenants: 
+  tenants:
     type: string
-  priceSets: 
-    type: array
-    nullable: true
-    items: 
+  priceSets:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        code: 
+        code:
           type: string
-        priceUnit: 
+        priceUnit:
           type: string
-  config: 
-    type: object
-    nullable: true
-    properties: 
-      storageSizeType: 
-        type: string
-        nullable: true
-      memorySizeType: 
-        type: string
-        nullable: true
-      ranges: 
-        type: object
-        nullable: true
-        properties: 
-          minStorage: 
-            type: string
-            nullable: true
-          maxStorage: 
-            type: string
-            nullable: true
+  config:
+    type:
+      - object
+      - 'null'
+    properties:
+      storageSizeType:
+        type:
+          - string
+          - 'null'
+      memorySizeType:
+        type:
+          - string
+          - 'null'
+      ranges:
+        type:
+          - object
+          - 'null'
+        properties:
+          minStorage:
+            type:
+              - string
+              - 'null'
+          maxStorage:
+            type:
+              - string
+              - 'null'
           minPerDiskSize:
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
           maxPerDiskSize:
-            type: string
-            nullable: true
-          minMemory: 
-            type: number
-            nullable: true
-          maxMemory: 
-            type: number
-            nullable: true
-          minCores: 
-            type: string
-            nullable: true
-          maxCores: 
-            type: string
-            nullable: true
-          minSockets: 
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
+          minMemory:
+            type:
+              - number
+              - 'null'
+          maxMemory:
+            type:
+              - number
+              - 'null'
+          minCores:
+            type:
+              - string
+              - 'null'
+          maxCores:
+            type:
+              - string
+              - 'null'
+          minSockets:
+            type:
+              - string
+              - 'null'
           maxSockets:
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
           minCoresPerSocket:
-            type: string
-            nullable: true
+            type:
+              - string
+              - 'null'
           maxCoresPerSocket:
-            type: string
-            nullable: true
-  zones: 
+            type:
+              - string
+              - 'null'
+  zones:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        code: 
+        code:
           type: string

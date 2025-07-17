@@ -1,124 +1,137 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
     description: Network Pool Server ID
-  type: 
+  type:
     type: object
     description: Network Pool Server Type
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      code: 
+      code:
         type: string
-  name: 
+  name:
     type: string
     description: Name
-  enabled: 
+  enabled:
     type: boolean
-  serviceUrl: 
-    type: string
+  serviceUrl:
+    type:
+      - string
+      - 'null'
     description: Service URL
-    nullable: true
-    example: "https://example-infoblox-fqdn/wapi/v2.9"
-  serviceHost: 
-    type: string
+    example: https://example-infoblox-fqdn/wapi/v2.9
+  serviceHost:
+    type:
+      - string
+      - 'null'
     description: Service Host
-    nullable: true
-  servicePort: 
-    type: integer
+  servicePort:
+    type:
+      - integer
+      - 'null'
     description: Service Port
-    nullable: true
     example: 22
-  serviceMode: 
-    type: string
+  serviceMode:
+    type:
+      - string
+      - 'null'
     description: Service Mode
-    nullable: true
-  serviceUsername: 
-    type: string
+  serviceUsername:
+    type:
+      - string
+      - 'null'
     description: Service Username
-    nullable: true
-  servicePassword: 
-    type: string
+  servicePassword:
+    type:
+      - string
+      - 'null'
     description: Service Password
-    nullable: true
-  servicePasswordHash: 
+  servicePasswordHash:
     type: string
-  serviceThrottleRate: 
-    type: integer
+  serviceThrottleRate:
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Throttle Rate
-    nullable: true
     default: 0
-  ignoreSsl: 
-    type: boolean
+  ignoreSsl:
+    type:
+      - boolean
+      - 'null'
     description: Disable SSL SNI Verification
-    nullable: true
     default: true
-  status: 
+  status:
     type: string
     description: Status
     example: ok
-  statusMessage: 
-    type: string
+  statusMessage:
+    type:
+      - string
+      - 'null'
     description: Status Message
-    nullable: true
-  statusDate: 
-    type: string
+  statusDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  config: 
+  config:
     type: object
-    description: Config object varies with pool server type. 
-  networkFilter: 
-    type: string
+    description: Config object varies with pool server type.
+  networkFilter:
+    type:
+      - string
+      - 'null'
     description: Network Filter
-    nullable: true
-  zoneFilter: 
-    type: string
+  zoneFilter:
+    type:
+      - string
+      - 'null'
     description: Zone Filter
-    nullable: true
-  tenantMatch: 
-    type: string
+  tenantMatch:
+    type:
+      - string
+      - 'null'
     description: Tenant Match
-    nullable: true
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  account: 
+  account:
     type: object
     description: Owner Tenant
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  integration: 
+  integration:
     type: object
     description: Integration
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  pools: 
+  pools:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-  credential: 
+  credential:
     $ref: creds2.yaml

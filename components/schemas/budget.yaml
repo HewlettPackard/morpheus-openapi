@@ -1,143 +1,153 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  account: 
+  description:
+    type:
+      - string
+      - 'null'
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  forecastType: 
-    type: object
+  forecastType:
+    type:
+      - object
+      - 'null'
     description: Forecast Model type
-    nullable: true
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  enabled: 
+  enabled:
     type: boolean
-  refScope: 
+  refScope:
     type: string
-  refType: 
+  refType:
     type: string
-  refId: 
+  refId:
     type: integer
     format: int64
-  refName: 
+  refName:
     type: string
-  period: 
+  period:
     type: string
-  year: 
+  year:
     type: string
-  resourceType: 
+  resourceType:
     type: string
-  timezone: 
+  timezone:
     type: string
-  startDate: 
-    type: string
-    format: date-time
-  endDate: 
+  startDate:
     type: string
     format: date-time
-  interval: 
+  endDate:
     type: string
-  costs: 
+    format: date-time
+  interval:
+    type: string
+  costs:
     type: array
-    items: 
+    items:
       type: integer
       format: int64
-  isFiscal: 
+  isFiscal:
     type: boolean
-  averageCost: 
+  averageCost:
     type: integer
     format: int64
-  totalCost: 
+  totalCost:
     type: integer
     format: int64
-  currency: 
+  currency:
     type: string
-  rollover: 
+  rollover:
     type: boolean
-  warningLimit: 
-    type: string
-    nullable: true
-  overLimit: 
-    type: string
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  internalId: 
-    type: string
-    nullable: true
-  createdById: 
+  warningLimit:
+    type:
+      - string
+      - 'null'
+  overLimit:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  internalId:
+    type:
+      - string
+      - 'null'
+  createdById:
     type: integer
     format: int64
-  createdByName: 
+  createdByName:
     type: string
-  updatedById: 
-    type: string
-    nullable: true
-  updatedByName: 
-    type: string
-    nullable: true
-  dateCreated: 
+  updatedById:
+    type:
+      - string
+      - 'null'
+  updatedByName:
+    type:
+      - string
+      - 'null'
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  stats: 
+  stats:
     type: object
-    properties: 
-      currency: 
+    properties:
+      currency:
         type: string
-      conversionRate: 
+      conversionRate:
         type: integer
         format: int64
-      intervals: 
+      intervals:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            index: 
+          properties:
+            index:
               type: integer
               format: int64
-            month: 
+            month:
               type: string
-            shortName: 
+            shortName:
               type: string
-            chartName: 
+            chartName:
               type: string
-            budget: 
+            budget:
               type: integer
               format: int64
-            cost: 
+            cost:
               type: number
-            startDate: 
+            startDate:
               type: string
               format: date-time
-            endDate: 
+            endDate:
               type: string
               format: date-time
-      current: 
+      current:
         type: object
-        properties: 
-          estimatedCost: 
-            type: string
-            nullable: true
-          lastCost: 
-            type: string
-            nullable: true
+        properties:
+          estimatedCost:
+            type:
+              - string
+              - 'null'
+          lastCost:
+            type:
+              - string
+              - 'null'

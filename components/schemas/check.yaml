@@ -1,41 +1,44 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  active: 
+  active:
     type: boolean
-  apiKey: 
+  apiKey:
     type: string
-  availability: 
+  availability:
     type: number
-  checkAgent: 
-    type: string
-    nullable: true
-  checkInterval: 
-    type: integer
+  checkAgent:
+    type:
+      - string
+      - 'null'
+  checkInterval:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  checkSpec: 
-    type: string
-    nullable: true
-  checkType: 
+  checkSpec:
+    type:
+      - string
+      - 'null'
+  checkType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-      metricName: 
+      metricName:
         type: string
   config:
     anyOf:
@@ -46,96 +49,114 @@ properties:
       - $ref: checkPushConfig.yaml
       - $ref: checkVmConfig.yaml
   container:
-    type: object
-    nullable: true
-    properties: 
-      id: 
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-  createIncident: 
+  createIncident:
     type: boolean
-  muted: 
+  muted:
     type: boolean
-  createdBy: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  createdBy:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  description: 
-    type: string
-    nullable: true
-  endDate: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
+  endDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  health: 
+  health:
     type: integer
     format: int64
-  inUptime: 
+  inUptime:
     type: boolean
-  lastBoxStats: 
-    type: string
-    nullable: true
-  lastCheckStatus: 
-    type: string
-    nullable: true
-  lastError: 
-    type: string
-    nullable: true
-  lastErrorDate: 
-    type: string
+  lastBoxStats:
+    type:
+      - string
+      - 'null'
+  lastCheckStatus:
+    type:
+      - string
+      - 'null'
+  lastError:
+    type:
+      - string
+      - 'null'
+  lastErrorDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastMessage: 
-    type: string
-    nullable: true
-  lastMetric: 
-    type: string
-    nullable: true
-  lastRunDate: 
-    type: string
+  lastMessage:
+    type:
+      - string
+      - 'null'
+  lastMetric:
+    type:
+      - string
+      - 'null'
+  lastRunDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastStats: 
-    type: string
-    nullable: true
-  lastSuccessDate: 
-    type: string
+  lastStats:
+    type:
+      - string
+      - 'null'
+  lastSuccessDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastTimer: 
+  lastTimer:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  lastUpdated:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  lastWarningDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  name:
+    type: string
+  nextRunDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  outageTime:
     type: integer
     format: int64
-    nullable: true
-  lastUpdated: 
+  severity:
     type: string
+  startDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastWarningDate: 
-    type: string
-    format: date-time
-    nullable: true
-  name: 
-    type: string
-  nextRunDate: 
-    type: string
-    format: date-time
-    nullable: true
-  outageTime: 
-    type: integer
-    format: int64
-  severity: 
-    type: string
-  startDate: 
-    type: string
-    format: date-time
-    nullable: true
   deleted:
     type: boolean

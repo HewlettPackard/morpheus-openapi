@@ -1,216 +1,236 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  minIdle: 
+  description:
+    type:
+      - string
+      - 'null'
+  minIdle:
     type: integer
     format: int64
-  maxIdle: 
+  maxIdle:
     type: integer
     format: int64
-  initialPoolSize: 
+  initialPoolSize:
     type: integer
     format: int64
-  maxPoolSize: 
+  maxPoolSize:
     type: integer
     format: int64
-  allocationTimeoutMinutes: 
+  allocationTimeoutMinutes:
     type: integer
     format: int64
-  persistentUser: 
+  persistentUser:
+    type:
+      - boolean
+      - 'null'
+  recyclable:
+    type:
+      - boolean
+      - 'null'
+  enabled:
     type: boolean
-    nullable: true
-  recyclable: 
+  autoCreateLocalUserOnReservation:
     type: boolean
-    nullable: true
-  enabled: 
-    type: boolean
-  autoCreateLocalUserOnReservation: 
-    type: boolean
-  allowHypervisorConsole: 
-    type: boolean
-    nullable: true
-  allowCopy: 
-    type: boolean
-    nullable: true
-  allowPrinter: 
-    type: boolean
-    nullable: true
-  allowFileshare: 
-    type: boolean
-    nullable: true
-  guestConsoleJumpHost: 
-    type: string
-    nullable: true
-  guestConsoleJumpPort: 
-    type: string
-    nullable: true
-  guestConsoleJumpUsername: 
-    type: string
-    nullable: true
-  guestConsoleJumpPassword: 
-    type: string
-    nullable: true
-  guestConsoleJumpKeypair: 
-    type: string
-    nullable: true
-  gateway: 
-    type: object
-    nullable: true
-    properties: 
+  allowHypervisorConsole:
+    type:
+      - boolean
+      - 'null'
+  allowCopy:
+    type:
+      - boolean
+      - 'null'
+  allowPrinter:
+    type:
+      - boolean
+      - 'null'
+  allowFileshare:
+    type:
+      - boolean
+      - 'null'
+  guestConsoleJumpHost:
+    type:
+      - string
+      - 'null'
+  guestConsoleJumpPort:
+    type:
+      - string
+      - 'null'
+  guestConsoleJumpUsername:
+    type:
+      - string
+      - 'null'
+  guestConsoleJumpPassword:
+    type:
+      - string
+      - 'null'
+  guestConsoleJumpKeypair:
+    type:
+      - string
+      - 'null'
+  gateway:
+    type:
+      - object
+      - 'null'
+    properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  iconPath: 
+  iconPath:
     type: string
-  logo: 
+  logo:
     type: string
-  apps: 
+  apps:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-  owner: 
+  owner:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      username: 
+      username:
         type: string
-  config: 
-    type: object
-    nullable: true
-    properties: 
-      group: 
+  config:
+    type:
+      - object
+      - 'null'
+    properties:
+      group:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: string
-          name: 
+          name:
             type: string
-      cloud: 
+      cloud:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-          name: 
+          name:
             type: string
-      type: 
+      type:
         type: string
-      instance: 
+      instance:
         type: object
-        properties: 
-          userGroup: 
+        properties:
+          userGroup:
             type: object
-            properties: 
-              id: 
+            properties:
+              id:
                 type: string
-          networkDomain: 
+          networkDomain:
             type: object
-            properties: 
-              id: 
+            properties:
+              id:
                 type: integer
                 format: int64
-      name: 
+      name:
         type: string
-      environment: 
+      environment:
         type: string
-      config: 
+      config:
         type: object
-        properties: 
-          createUser: 
+        properties:
+          createUser:
             type: boolean
-          isEC2: 
+          isEC2:
             type: boolean
-          isVpcSelectable: 
+          isVpcSelectable:
             type: boolean
-          noAgent: 
+          noAgent:
             type: boolean
-          smbiosAssetTag: 
+          smbiosAssetTag:
+            type:
+              - string
+              - 'null'
+          nestedVirtualization:
+            type:
+              - string
+              - 'null'
+          vmwareFolderId:
             type: string
-            nullable: true
-          nestedVirtualization: 
-            type: string
-            nullable: true
-          vmwareFolderId: 
-            type: string
-          resourcePoolId: 
+          resourcePoolId:
             type: integer
             format: int64
-          poolProviderType: 
-            type: string
-            nullable: true
-      volumes: 
+          poolProviderType:
+            type:
+              - string
+              - 'null'
+      volumes:
         type: array
-        items: 
-          type: object
-          properties: 
-            rootVolume: 
-              type: boolean
-            name: 
-              type: string
-            maxStorage: 
-              type: integer
-              format: int64
-            volumeCustomizable: 
-              type: boolean
-            readonlyName: 
-              type: boolean
-            size: 
-              type: integer
-              format: int64
-            storageType: 
-              type: integer
-              format: int64
-            maxIOPS: 
-              type: string
-              nullable: true
-            datastoreId: 
-              type: string
-            vId: 
-              type: integer
-              format: int64
-      hostName: 
-        type: string
-      layout: 
-        type: object
-        properties: 
-          id: 
-            type: integer
-            format: int64
-          code: 
-            type: string
-      storageControllers: 
-        type: array
-        nullable: true
         items:
           type: object
-          properties: 
+          properties:
+            rootVolume:
+              type: boolean
+            name:
+              type: string
+            maxStorage:
+              type: integer
+              format: int64
+            volumeCustomizable:
+              type: boolean
+            readonlyName:
+              type: boolean
+            size:
+              type: integer
+              format: int64
+            storageType:
+              type: integer
+              format: int64
+            maxIOPS:
+              type:
+                - string
+                - 'null'
+            datastoreId:
+              type: string
+            vId:
+              type: integer
+              format: int64
+      hostName:
+        type: string
+      layout:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          code:
+            type: string
+      storageControllers:
+        type:
+          - array
+          - 'null'
+        items:
+          type: object
+          properties:
             id:
               type: integer
               format: int64
             name:
               type: string
             active:
-              type: boolean
-              nullable: true
+              type:
+                - boolean
+                - 'null'
             typeId:
               type: integer
               format: int64
@@ -223,8 +243,9 @@ properties:
             maxDevices:
               type: number
             removable:
-              type: boolean
-              nullable: true
+              type:
+                - boolean
+                - 'null'
             editable:
               type: boolean
             reservedUnitNumber:
@@ -233,153 +254,159 @@ properties:
               type: string
             displayOrder:
               type: number
-      plan: 
+      plan:
         type: object
-        properties: 
-          id: 
+        properties:
+          id:
             type: integer
             format: int64
-          code: 
+          code:
             type: string
-      version: 
+      version:
         type: string
-      networkInterfaces: 
+      networkInterfaces:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            primaryInterface: 
+          properties:
+            primaryInterface:
               type: boolean
-            network: 
+            network:
               type: object
-              properties: 
-                id: 
+              properties:
+                id:
                   type: string
-                hasPool: 
+                hasPool:
                   type: boolean
-                idName: 
+                idName:
                   type: string
-                pool: 
+                pool:
                   type: object
-                  properties: 
-                    id: 
+                  properties:
+                    id:
                       type: integer
                       format: int64
-                    name: 
+                    name:
                       type: string
-            ipMode: 
+            ipMode:
               type: string
-            showNetworkPoolLabel: 
+            showNetworkPoolLabel:
               type: boolean
-            showNetworkDhcpLabel: 
+            showNetworkDhcpLabel:
               type: boolean
-      executionId: 
+      executionId:
         type: string
-      backup: 
+      backup:
         type: object
-        properties: 
-          createBackup: 
+        properties:
+          createBackup:
             type: boolean
-          jobAction: 
+          jobAction:
             type: string
-          jobRetentionCount: 
+          jobRetentionCount:
             type: string
-          providerBackupType: 
+          providerBackupType:
             type: integer
             format: int64
-      loadBalancer: 
-        type: array
-        nullable: true
-        items: 
+      loadBalancer:
+        type:
+          - array
+          - 'null'
+        items:
           type: object
-      hideLock: 
+      hideLock:
         type: boolean
-      hasNetworks: 
+      hasNetworks:
         type: boolean
-      displayNetworks: 
+      displayNetworks:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            name: 
+          properties:
+            name:
               type: string
-            ipMode: 
+            ipMode:
               type: string
-            pool: 
+            pool:
               type: object
-              properties: 
-                id: 
+              properties:
+                id:
                   type: integer
                   format: int64
-                name: 
+                name:
                   type: string
-            usePool: 
+            usePool:
               type: boolean
-      copies: 
+      copies:
         type: integer
         format: int64
-      showScale: 
+      showScale:
         type: boolean
-      hasPreview: 
+      hasPreview:
         type: boolean
-      volumesDisplay: 
+      volumesDisplay:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            storage: 
+          properties:
+            storage:
               type: string
-            name: 
+            name:
               type: string
-            controller: 
+            controller:
+              type:
+                - string
+                - 'null'
+            datastore:
               type: string
-              nullable: true
-            datastore: 
-              type: string
-            displayOrder: 
-              type: string
-              nullable: true
-            size: 
+            displayOrder:
+              type:
+                - string
+                - 'null'
+            size:
               type: integer
               format: int64
-            mountPoint: 
-              type: string
-              nullable: true
-  group: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+            mountPoint:
+              type:
+                - string
+                - 'null'
+  group:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  cloud: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  cloud:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  usedCount: 
+  usedCount:
     type: integer
     format: int64
-  reservedCount: 
+  reservedCount:
     type: integer
     format: int64
-  preparingCount: 
+  preparingCount:
     type: integer
     format: int64
-  idleCount: 
+  idleCount:
     type: integer
     format: int64
-  status: 
+  status:
     type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

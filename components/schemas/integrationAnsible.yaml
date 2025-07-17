@@ -1,79 +1,84 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  enabled: 
+  enabled:
     type: boolean
-  type: 
+  type:
     type: string
     enum:
-    - ansible
-  integrationType: 
+      - ansible
+  integrationType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  url: 
+  url:
     type: string
-  serviceKey: 
+  serviceKey:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  isPlugin: 
+  isPlugin:
     type: boolean
-  config: 
+  config:
     type: object
-    properties: 
-      inventory: 
+    properties:
+      inventory:
+        type:
+          - string
+          - 'null'
+      defaultBranch:
         type: string
-        nullable: true
-      defaultBranch: 
+      cacheEnabled:
+        type:
+          - string
+          - 'null'
+      ansiblePlaybooks:
         type: string
-      cacheEnabled: 
+      ansibleRoles:
         type: string
-        nullable: true
-      ansiblePlaybooks: 
+      ansibleGroupVars:
         type: string
-      ansibleRoles: 
+      ansibleHostVars:
         type: string
-      ansibleGroupVars: 
-        type: string
-      ansibleHostVars: 
-        type: string
-      ansibleCommandBus: 
+      ansibleCommandBus:
         type: boolean
-      ansibleVerbose: 
+      ansibleVerbose:
         type: boolean
-      ansibleGalaxyEnabled: 
+      ansibleGalaxyEnabled:
         type: boolean
-      ansibleDefaultBranch: 
+      ansibleDefaultBranch:
         type: string
-  status: 
+  status:
     type: string
-  statusDate: 
+  statusDate:
     type: string
     format: date-time
-  statusMessage: 
-    type: string
-    nullable: true
-  lastSync: 
-    type: string
-    nullable: true
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  lastSync:
+    type:
+      - string
+      - 'null'
   lastSyncDuration:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  credential: 
+  credential:
     $ref: creds.yaml

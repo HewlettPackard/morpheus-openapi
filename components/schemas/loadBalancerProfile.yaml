@@ -1,83 +1,93 @@
-id: 
+id:
   type: integer
   format: int64
-loadBalancer: 
+loadBalancer:
   type: object
-  properties: 
-    id: 
+  properties:
+    id:
       type: integer
       format: int64
-    type: 
+    type:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        code: 
+        code:
           type: string
-        name: 
+        name:
           type: string
-    name: 
+    name:
       type: string
-    ip: 
+    ip:
       type: string
-name: 
+name:
   type: string
-category: 
+category:
   type: string
-serviceType: 
+serviceType:
   type: string
-serviceTypeDisplay: 
+serviceTypeDisplay:
   type: string
-visibility: 
+visibility:
   type: string
-description: 
+description:
   type: string
-internalId: 
+internalId:
   type: string
-externalId: 
+externalId:
   type: string
-proxyType: 
-  type: string
-  nullable: true
-redirectRewrite: 
-  type: string
-  nullable: true
-persistenceType: 
-  type: string
-  nullable: true
-sslEnabled: 
-  type: string
-  nullable: true
-sslCert: 
-  type: string
-  nullable: true
-accountCertificate: 
-  type: string
-  nullable: true
-enabled: 
+proxyType:
+  type:
+    - string
+    - 'null'
+redirectRewrite:
+  type:
+    - string
+    - 'null'
+persistenceType:
+  type:
+    - string
+    - 'null'
+sslEnabled:
+  type:
+    - string
+    - 'null'
+sslCert:
+  type:
+    - string
+    - 'null'
+accountCertificate:
+  type:
+    - string
+    - 'null'
+enabled:
   type: boolean
-redirectUrl: 
-  type: string
-  nullable: true
-insertXforwardedFor: 
+redirectUrl:
+  type:
+    - string
+    - 'null'
+insertXforwardedFor:
   type: boolean
-persistenceCookieName: 
-  type: string
-  nullable: true
-persistenceExpiresIn: 
-  type: string
-  nullable: true
-editable: 
+persistenceCookieName:
+  type:
+    - string
+    - 'null'
+persistenceExpiresIn:
+  type:
+    - string
+    - 'null'
+editable:
   type: boolean
-config: 
+config:
   type: object
-createdBy: 
-  type: string
-  nullable: true
-dateCreated: 
+createdBy:
+  type:
+    - string
+    - 'null'
+dateCreated:
   type: string
   format: date-time
-lastUpdated: 
+lastUpdated:
   type: string
   format: date-time

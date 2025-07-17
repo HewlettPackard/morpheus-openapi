@@ -14,20 +14,20 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                success:
-                  type: boolean
-                firewallEnabled:
-                  type: boolean
-                securityGroups:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/zoneSecurityGroup.yaml
+              - type: object
+                properties:
+                  success:
+                    type: boolean
+                  firewallEnabled:
+                    type: boolean
+                  securityGroups:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/zoneSecurityGroup.yaml
           examples:
             Cloud Security Groups Response:
               value:
-                $ref: ../components/examples/zoneSecurityGroups.json 
+                $ref: ../components/examples/zoneSecurityGroups.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
@@ -50,8 +50,9 @@ post:
             - securityGroupIds
           properties:
             securityGroupIds:
-              type: array
-              nullable: true
+              type:
+                - array
+                - 'null'
               items:
                 type: integer
                 format: int64
@@ -66,14 +67,14 @@ post:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                success:
-                  type: boolean
-                securityGroups:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/zoneSecurityGroup.yaml
+              - type: object
+                properties:
+                  success:
+                    type: boolean
+                  securityGroups:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/zoneSecurityGroup.yaml
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

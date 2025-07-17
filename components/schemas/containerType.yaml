@@ -1,66 +1,72 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int32
-  account: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  account:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int32
-      name: 
+      name:
         type: string
-  name: 
+  name:
     type: string
   labels:
     type: array
-    items: 
+    items:
       type: string
-  shortName: 
+  shortName:
     type: string
-  code: 
+  code:
     type: string
-  containerVersion: 
+  containerVersion:
     type: string
-  provisionType: 
+  provisionType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int32
-      name: 
+      name:
         type: string
-      code: 
+      code:
         type: string
-  virtualImage: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  virtualImage:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int32
-      name: 
+      name:
         type: string
-  osType: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  osType:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int32
-      name: 
+      name:
         type: string
-  category: 
-    type: string
-    nullable: true
-  config: 
-    type: object
-    nullable: true
-  containerPorts: 
-    type: array
-    nullable: true
+  category:
+    type:
+      - string
+      - 'null'
+  config:
+    type:
+      - object
+      - 'null'
+  containerPorts:
+    type:
+      - array
+      - 'null'
     items:
       type: object
       properties:
@@ -70,20 +76,24 @@ properties:
           type: integer
           format: int64
         loadBalanceProtocol:
-          type: string
-          nullable: true
-  containerScripts: 
-    type: array
-    nullable: true
+          type:
+            - string
+            - 'null'
+  containerScripts:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  containerTemplates: 
-    type: array
-    nullable: true
+  containerTemplates:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  environmentVariables: 
-    type: array
-    nullable: true
+  environmentVariables:
+    type:
+      - array
+      - 'null'
     items:
       type: object

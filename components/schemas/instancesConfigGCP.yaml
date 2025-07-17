@@ -1,8 +1,10 @@
+title: Google Cloud Instance Configuration
 type: object
 properties:
   noAgent:
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
     description: Skipping Agent installation will result in a lack of logging and guest operating system statistics. Automation scripts may also be adversely affected.
     default: false
   googleZoneId:

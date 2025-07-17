@@ -14,77 +14,77 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                task:
-                  oneOf:
-                  - $ref: ../components/schemas/taskAnsiblePlaybookConfig.yaml
-                  - $ref: ../components/schemas/taskAnsibleTowerConfig.yaml
-                  - $ref: ../components/schemas/taskChefBootstrapConfig.yaml
-                  - $ref: ../components/schemas/taskEmailConfig.yaml
-                  - $ref: ../components/schemas/taskGroovyConfig.yaml
-                  - $ref: ../components/schemas/taskHttpConfig.yaml
-                  - $ref: ../components/schemas/taskJavaConfig.yaml
-                  - $ref: ../components/schemas/taskLibraryScriptConfig.yaml
-                  - $ref: ../components/schemas/taskLibraryTemplateConfig.yaml
-                  - $ref: ../components/schemas/taskNestedWorkflowConfig.yaml
-                  - $ref: ../components/schemas/taskPowershellConfig.yaml
-                  - $ref: ../components/schemas/taskPuppetConfig.yaml
-                  - $ref: ../components/schemas/taskPythonConfig.yaml
-                  - $ref: ../components/schemas/taskRestartConfig.yaml
-                  - $ref: ../components/schemas/taskShellConfig.yaml
-                  - $ref: ../components/schemas/taskVroConfig.yaml
-                  - $ref: ../components/schemas/taskWriteAttributesConfig.yaml
+              - type: object
+                properties:
+                  task:
+                    oneOf:
+                      - $ref: ../components/schemas/taskAnsiblePlaybookConfig.yaml
+                      - $ref: ../components/schemas/taskAnsibleTowerConfig.yaml
+                      - $ref: ../components/schemas/taskChefBootstrapConfig.yaml
+                      - $ref: ../components/schemas/taskEmailConfig.yaml
+                      - $ref: ../components/schemas/taskGroovyConfig.yaml
+                      - $ref: ../components/schemas/taskHttpConfig.yaml
+                      - $ref: ../components/schemas/taskJavaConfig.yaml
+                      - $ref: ../components/schemas/taskLibraryScriptConfig.yaml
+                      - $ref: ../components/schemas/taskLibraryTemplateConfig.yaml
+                      - $ref: ../components/schemas/taskNestedWorkflowConfig.yaml
+                      - $ref: ../components/schemas/taskPowershellConfig.yaml
+                      - $ref: ../components/schemas/taskPuppetConfig.yaml
+                      - $ref: ../components/schemas/taskPythonConfig.yaml
+                      - $ref: ../components/schemas/taskRestartConfig.yaml
+                      - $ref: ../components/schemas/taskShellConfig.yaml
+                      - $ref: ../components/schemas/taskVroConfig.yaml
+                      - $ref: ../components/schemas/taskWriteAttributesConfig.yaml
           examples:
-            Task Response - Get Ansible Playbook:
+            "Task Response - Get Ansible Playbook":
               value:
                 $ref: ../components/examples/taskAnsiblePlaybook.json
-            Task Response - Get Ansible Tower:
+            "Task Response - Get Ansible Tower":
               value:
                 $ref: ../components/examples/taskAnsibleTower.json
-            Task Response - Get Chef Bootstrap:
+            "Task Response - Get Chef Bootstrap":
               value:
                 $ref: ../components/examples/taskChefBootstrap.json
-            Task Response - Get Email:
+            "Task Response - Get Email":
               value:
                 $ref: ../components/examples/taskEmail.json
-            Task Response - Get Groovy:
+            "Task Response - Get Groovy":
               value:
                 $ref: ../components/examples/taskGroovy.json
-            Task Response - Get HTTP:
+            "Task Response - Get HTTP":
               value:
                 $ref: ../components/examples/taskHttp.json
-            Task Response - Get Java:
+            "Task Response - Get Java":
               value:
                 $ref: ../components/examples/taskJava.json
-            Task Response - Get Library Script:
+            "Task Response - Get Library Script":
               value:
                 $ref: ../components/examples/taskLibraryScript.json
-            Task Response - Get Library Template:
+            "Task Response - Get Library Template":
               value:
                 $ref: ../components/examples/taskLibraryTemplate.json
-            Task Response - Get Nested Workflow:
+            "Task Response - Get Nested Workflow":
               value:
                 $ref: ../components/examples/taskNestedWorkflow.json
-            Task Response - Get PowerShell:
+            "Task Response - Get PowerShell":
               value:
                 $ref: ../components/examples/taskPowershell.json
-            Task Response - Get Puppet:
+            "Task Response - Get Puppet":
               value:
                 $ref: ../components/examples/taskPuppet.json
-            Task Response - Get Python:
+            "Task Response - Get Python":
               value:
                 $ref: ../components/examples/taskPython.json
-            Task Response - Get Restart:
+            "Task Response - Get Restart":
               value:
                 $ref: ../components/examples/taskRestart.json
-            Task Response - Get Shell:
+            "Task Response - Get Shell":
               value:
                 $ref: ../components/examples/taskShell.json
-            Task Response - Get vRO:
+            "Task Response - Get vRO":
               value:
                 $ref: ../components/examples/taskVro.json
-            Task Response - Get Write Attributes:
+            "Task Response - Get Write Attributes":
               value:
                 $ref: ../components/examples/taskWriteAttributes.json
     '4XX':
@@ -111,7 +111,7 @@ put:
             task:
               type: object
               properties:
-                name: 
+                name:
                   type: string
                   description: A unique name for the task
                   example: Sample Task
@@ -119,7 +119,7 @@ put:
                   type: string
                   description: A unique code for the task
                   example: aTaskCode
-                visibility: 
+                visibility:
                   type: string
                   description: Visibility
                   default: private
@@ -127,7 +127,7 @@ put:
                   type: object
                   required:
                     - code
-                  properties: 
+                  properties:
                     code:
                       type: string
                       description: The type of task
@@ -154,23 +154,24 @@ put:
                 labels:
                   type: array
                   description: An array of Category labels for filtering
-                  items: 
+                  items:
                     type: string
                 taskOptions:
                   type: object
                   description: Map of options specific to each `task type`. eg. script
                 resultType:
-                  type: string
-                  nullable: true
-                  enum: 
-                    - exitCode
-                    - keyValue
-                    - json
+                  oneOf:
+                    - type: string
+                      enum:
+                        - exitCode
+                        - keyValue
+                        - json
+                    - type: 'null'
                 executeTarget:
                   type: string
                   description: |
                     The execution target. eg. local,remote,resource. The default value varies by task type.
-                  enum: 
+                  enum:
                     - local
                     - remote
                     - resource
@@ -188,9 +189,9 @@ put:
                   type: object
                   description: |
                     File, object specifying type and content, see File Object. This is required for task types that expect a script, having scriptable:true and an optionType of `type:"file-content"`.
-                  required: 
+                  required:
                     - sourceType
-                  properties: 
+                  properties:
                     sourceType:
                       type: string
                       description: File Source i.e. `local`, `repository`, `url`. Default is `local`.
@@ -210,7 +211,7 @@ put:
                       description: Content Ref, the branch/tag. Only used when sourceType is `repository`.
                     repository:
                       type: object
-                      properties: 
+                      properties:
                         id:
                           type: integer
                           format: int64
@@ -219,13 +220,13 @@ put:
                   description: |
                     Map containing Credential ID or the default {"type": "local"} 
                     which means use the values set in the local task options username and password instead of associating a credential.
-                  oneOf: 
+                  oneOf:
                     - type: object
-                      properties: 
+                      properties:
                         type:
                           type: string
                           enum:
-                            - local                              
+                            - local
                     - type: object
                       properties:
                         id:
@@ -238,78 +239,78 @@ put:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                task:
-                  oneOf:
-                  - $ref: ../components/schemas/taskAnsiblePlaybookConfig.yaml
-                  - $ref: ../components/schemas/taskAnsibleTowerConfig.yaml
-                  - $ref: ../components/schemas/taskChefBootstrapConfig.yaml
-                  - $ref: ../components/schemas/taskEmailConfig.yaml
-                  - $ref: ../components/schemas/taskGroovyConfig.yaml
-                  - $ref: ../components/schemas/taskHttpConfig.yaml
-                  - $ref: ../components/schemas/taskJavaConfig.yaml
-                  - $ref: ../components/schemas/taskLibraryScriptConfig.yaml
-                  - $ref: ../components/schemas/taskLibraryTemplateConfig.yaml
-                  - $ref: ../components/schemas/taskNestedWorkflowConfig.yaml
-                  - $ref: ../components/schemas/taskPowershellConfig.yaml
-                  - $ref: ../components/schemas/taskPuppetConfig.yaml
-                  - $ref: ../components/schemas/taskPythonConfig.yaml
-                  - $ref: ../components/schemas/taskRestartConfig.yaml
-                  - $ref: ../components/schemas/taskShellConfig.yaml
-                  - $ref: ../components/schemas/taskVroConfig.yaml
-                  - $ref: ../components/schemas/taskWriteAttributesConfig.yaml
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  task:
+                    oneOf:
+                      - $ref: ../components/schemas/taskAnsiblePlaybookConfig.yaml
+                      - $ref: ../components/schemas/taskAnsibleTowerConfig.yaml
+                      - $ref: ../components/schemas/taskChefBootstrapConfig.yaml
+                      - $ref: ../components/schemas/taskEmailConfig.yaml
+                      - $ref: ../components/schemas/taskGroovyConfig.yaml
+                      - $ref: ../components/schemas/taskHttpConfig.yaml
+                      - $ref: ../components/schemas/taskJavaConfig.yaml
+                      - $ref: ../components/schemas/taskLibraryScriptConfig.yaml
+                      - $ref: ../components/schemas/taskLibraryTemplateConfig.yaml
+                      - $ref: ../components/schemas/taskNestedWorkflowConfig.yaml
+                      - $ref: ../components/schemas/taskPowershellConfig.yaml
+                      - $ref: ../components/schemas/taskPuppetConfig.yaml
+                      - $ref: ../components/schemas/taskPythonConfig.yaml
+                      - $ref: ../components/schemas/taskRestartConfig.yaml
+                      - $ref: ../components/schemas/taskShellConfig.yaml
+                      - $ref: ../components/schemas/taskVroConfig.yaml
+                      - $ref: ../components/schemas/taskWriteAttributesConfig.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
-            Task Response - Update Ansible Playbook:
+            "Task Response - Update Ansible Playbook":
               value:
                 $ref: ../components/examples/taskAnsiblePlaybookSuccess.json
-            Task Response - Update Ansible Tower:
+            "Task Response - Update Ansible Tower":
               value:
                 $ref: ../components/examples/taskAnsibleTowerSuccess.json
-            Task Response - Update Chef Bootstrap:
+            "Task Response - Update Chef Bootstrap":
               value:
                 $ref: ../components/examples/taskChefBootstrapSuccess.json
-            Task Response - Update Email:
+            "Task Response - Update Email":
               value:
                 $ref: ../components/examples/taskEmailSuccess.json
-            Task Response - Update Groovy:
+            "Task Response - Update Groovy":
               value:
                 $ref: ../components/examples/taskGroovySuccess.json
-            Task Response - Update HTTP:
+            "Task Response - Update HTTP":
               value:
                 $ref: ../components/examples/taskHttpSuccess.json
-            Task Response - Update Java:
+            "Task Response - Update Java":
               value:
                 $ref: ../components/examples/taskJavaSuccess.json
-            Task Response - Update Library Script:
+            "Task Response - Update Library Script":
               value:
                 $ref: ../components/examples/taskLibraryScriptSuccess.json
-            Task Response - Update Library Template:
+            "Task Response - Update Library Template":
               value:
                 $ref: ../components/examples/taskLibraryTemplateSuccess.json
-            Task Response - Update Nested Workflow:
+            "Task Response - Update Nested Workflow":
               value:
                 $ref: ../components/examples/taskNestedWorkflowSuccess.json
-            Task Response - Update PowerShell:
+            "Task Response - Update PowerShell":
               value:
                 $ref: ../components/examples/taskPowershellSuccess.json
-            Task Response - Update Puppet:
+            "Task Response - Update Puppet":
               value:
                 $ref: ../components/examples/taskPuppetSuccess.json
-            Task Response - Update Python:
+            "Task Response - Update Python":
               value:
                 $ref: ../components/examples/taskPythonSuccess.json
-            Task Response - Update Restart:
+            "Task Response - Update Restart":
               value:
                 $ref: ../components/examples/taskRestartSuccess.json
-            Task Response - Update Shell:
+            "Task Response - Update Shell":
               value:
                 $ref: ../components/examples/taskShellSuccess.json
-            Task Response - Update vRO:
+            "Task Response - Update vRO":
               value:
                 $ref: ../components/examples/taskVroSuccess.json
-            Task Response - Update Write Attributes:
+            "Task Response - Update Write Attributes":
               value:
                 $ref: ../components/examples/taskWriteAttributesSuccess.json
     '4XX':

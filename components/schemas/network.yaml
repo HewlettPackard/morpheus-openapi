@@ -1,19 +1,20 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
     description: Network ID
-  name: 
+  name:
     type: string
     description: Name
-  displayName: 
+  displayName:
     type: string
     description: Network Display Name
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
   group:
     type: object
@@ -27,237 +28,276 @@ properties:
         description: Group Name
   zone: 
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Cloud ID
-      name: 
+      name:
         type: string
         description: Cloud Name
-  type: 
+  type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Network Type ID
-      name: 
+      name:
         type: string
         description: Network Name
-      code: 
+      code:
         type: string
         description: Network Code
-  owner: 
+  owner:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
         description: Owner Tenant ID
-      name: 
+      name:
         type: string
         description: Owner Tenant Name
-  code: 
-    type: string
-    nullable: true
+  code:
+    type:
+      - string
+      - 'null'
     description: Network Code
   ipv4Enabled:
     type: boolean
   ipv6Enabled:
     type: boolean
-  category: 
-    type: string
+  category:
+    type:
+      - string
+      - 'null'
     description: Network Category
-    nullable: true
-  interfaceName: 
-    type: string
-    nullable: true
-  bridgeName: 
-    type: string
-    nullable: true
-  bridgeInterface: 
-    type: string
-    nullable: true
-  description: 
-    type: string
-    nullable: true
+  interfaceName:
+    type:
+      - string
+      - 'null'
+  bridgeName:
+    type:
+      - string
+      - 'null'
+  bridgeInterface:
+    type:
+      - string
+      - 'null'
+  description:
+    type:
+      - string
+      - 'null'
     description: Description
-  externalId: 
+  externalId:
+    type:
+      - string
+      - 'null'
+  internalId:
+    type:
+      - string
+      - 'null'
+  uniqueId:
+    type:
+      - string
+      - 'null'
+  externalType:
     type: string
-    nullable: true
-  internalId: 
+  refUrl:
+    type:
+      - string
+      - 'null'
+  refType:
     type: string
-    nullable: true
-  uniqueId: 
-    type: string
-    nullable: true
-  externalType: 
-    type: string
-  refUrl: 
-    type: string
-    nullable: true
-  refType: 
-    type: string
-  refId: 
+  refId:
     type: integer
     format: int64
-  vlanId: 
-    type: integer
+  vlanId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  vswitchName: 
-    type: string
-    nullable: true
-  dhcpServer: 
+  vswitchName:
+    type:
+      - string
+      - 'null'
+  dhcpServer:
     type: boolean
-  dhcpIp: 
-    type: string
-    nullable: true
-  dhcpServerIPv6: 
+  dhcpIp:
+    type:
+      - string
+      - 'null'
+  dhcpServerIPv6:
     type: boolean
-  gateway: 
-    type: string
-    description: Network Gateway 
-    nullable: true
-  netmask: 
-    type: string
-    nullable: true
-  broadcast: 
-    type: string
-    nullable: true
-  subnetAddress: 
-    type: string
-    nullable: true
-  dnsPrimary: 
-    type: string
+  gateway:
+    type:
+      - string
+      - 'null'
+    description: Network Gateway
+  netmask:
+    type:
+      - string
+      - 'null'
+  broadcast:
+    type:
+      - string
+      - 'null'
+  subnetAddress:
+    type:
+      - string
+      - 'null'
+  dnsPrimary:
+    type:
+      - string
+      - 'null'
     description: Primary DNS Server
-    nullable: true
-  dnsSecondary: 
-    type: string
+  dnsSecondary:
+    type:
+      - string
+      - 'null'
     description: Secondary DNS Server
-    nullable: true
-  cidr: 
+  cidr:
     type: string
     description: Network CIDR
-  gatewayIPv6: 
-    type: string
-    description: IPv6 Network Gateway 
-    nullable: true
-  netmaskIPv6: 
-    type: string
-    nullable: true
-  dnsPrimaryIPv6: 
-    type: string
+  gatewayIPv6:
+    type:
+      - string
+      - 'null'
+    description: IPv6 Network Gateway
+  netmaskIPv6:
+    type:
+      - string
+      - 'null'
+  dnsPrimaryIPv6:
+    type:
+      - string
+      - 'null'
     description: Primary IPv6 DNS Server
-    nullable: true
-  dnsSecondaryIPv6: 
-    type: string
+  dnsSecondaryIPv6:
+    type:
+      - string
+      - 'null'
     description: Secondary IPv6 DNS Server
-    nullable: true
-  cidrIPv6: 
-    type: string
+  cidrIPv6:
+    type:
+      - string
+      - 'null'
     description: IPv6 Network CIDR
-    nullable: true
-  tftpServer: 
+  tftpServer:
+    type:
+      - string
+      - 'null'
+  bootFile:
+    type:
+      - string
+      - 'null'
+  switchId:
+    type:
+      - string
+      - 'null'
+  fabricId:
+    type:
+      - string
+      - 'null'
+  networkRole:
+    type:
+      - string
+      - 'null'
+  status:
     type: string
-    nullable: true
-  bootFile: 
-    type: string
-    nullable: true
-  switchId: 
-    type: string
-    nullable: true
-  fabricId: 
-    type: string
-    nullable: true
-  networkRole: 
-    type: string
-    nullable: true
-  status: 
-    type: string
-  availabilityZone: 
-    type: string
-    nullable: true
-  pool: 
-    type: object
-    nullable: true
-  poolIPv6: 
-    type: object
-    nullable: true
-  networkProxy: 
-    type: object
-    nullable: true
-    properties: 
+  availabilityZone:
+    type:
+      - string
+      - 'null'
+  pool:
+    type:
+      - object
+      - 'null'
+  poolIPv6:
+    type:
+      - object
+      - 'null'
+  networkProxy:
+    type:
+      - object
+      - 'null'
+    properties:
       id:
         type: integer
         format: int64
         description: Network Proxy ID
-  networkDomain: 
-    type: object
-    nullable: true
-    properties: 
+  networkDomain:
+    type:
+      - object
+      - 'null'
+    properties:
       id:
         type: integer
         format: int64
         description: Network Domain ID
   searchDomains:
+    type:
+      - string
+      - 'null'
+  prefixLength:
+    type:
+      - string
+      - 'null'
+  visibility:
     type: string
-    nullable: true
-  prefixLength: 
-    type: string
-    nullable: true
-  visibility: 
-    type: string
-  enableAdmin: 
+  enableAdmin:
     type: boolean
-  active: 
+  active:
     type: boolean
-  defaultNetwork: 
+  defaultNetwork:
     type: boolean
-  assignPublicIp: 
+  assignPublicIp:
     type: boolean
-  noProxy: 
-    type: string
-    nullable: true
-  applianceUrlProxyBypass: 
+  noProxy:
+    type:
+      - string
+      - 'null'
+  applianceUrlProxyBypass:
     type: boolean
-  zonePool: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  zonePool:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  allowStaticOverride: 
+  allowStaticOverride:
     type: boolean
-  config: 
+  config:
     type: object
-    properties: 
-      vlanIDs: 
+    properties:
+      vlanIDs:
+        type:
+          - string
+          - 'null'
+      connectedGateway:
         type: string
-        nullable: true
-      connectedGateway: 
+      subnetIpManagementType:
         type: string
-      subnetIpManagementType: 
+      subnetIpServerId:
         type: string
-      subnetIpServerId: 
+      dhcpRange:
         type: string
-      dhcpRange: 
+      subnetDhcpServerAddress:
         type: string
-      subnetDhcpServerAddress: 
+      subnetDhcpLeaseTime:
         type: string
-      subnetDhcpLeaseTime: 
-        type: string
-  tenants: 
+  tenants:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string

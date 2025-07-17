@@ -5,8 +5,8 @@
         "externalId": "vm-104987",
         "internalId": "502d9a89-7fc8-1871-b192-f147984a8f3b",
         "externalUniqueId": "422d0218-8a98-da27-fa01-5532bb773433",
-        "name": "power-vc-proxy-dont-delete",
-        "externalName": "power-vc-proxy-dont-delete",
+        "name": "power-vc-proxy",
+        "externalName": "power-vc-proxy",
         "hostname": "dd-vmw-ubuntu-1",
         "parentServer": {
             "id": 577784,
@@ -57,7 +57,7 @@
         "osType": "linux",
         "dataDevice": "/dev/vda",
         "lvmEnabled": false,
-        "apiKey": "78c3d500-d093-4cbc-97a3-84bbb8e2d344",
+        "apiKey": "18c3e200-d093-9029-97a3-32bbb8e1d344",
         "softwareRaid": false,
         "dateCreated": "2022-11-22T16:27:14Z",
         "lastUpdated": "2022-12-19T21:45:37Z",
@@ -232,6 +232,13 @@
             "vmwareFolderId": "group-v80",
             "noAgent": false,
             "powerScheduleType": null
+        },
+        "instance": {
+            "id": 2342422,
+            "name": "power-vc-proxy",
+            "displayName": "power-vc-proxy",
+            "accountId": 1,
+            "accountName": "Morpheus QA"
         },
         "guestConsolePreferred": true,
         "guestConsoleType": "ssh",

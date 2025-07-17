@@ -16,6 +16,7 @@
       "datastore": null,
       "parentSnapshot": null,
       "currentlyActive": true,
+      "memorySnapshot": false,
       "dateCreated": "2022-07-20T18:35:42Z"
     }
   ]

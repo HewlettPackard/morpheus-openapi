@@ -1,50 +1,53 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  active: 
+  active:
     type: boolean
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  providerType: 
+  providerType:
     type: string
-  config: 
+  config:
     type: object
-    properties: 
-      accessKey: 
+    properties:
+      accessKey:
         type: string
-      secretKey: 
+      secretKey:
         type: string
-      stsAssumeRole: 
+      stsAssumeRole:
         type: string
-      useHostCredentials: 
+      useHostCredentials:
         type: boolean
-      endpoint: 
+      endpoint:
         type: string
-      secretKeyHash: 
+      secretKeyHash:
         type: string
-  bucketName: 
+  bucketName:
     type: string
-  readOnly: 
+  readOnly:
     type: boolean
-  defaultBackupTarget: 
+  defaultBackupTarget:
     type: boolean
-  defaultDeploymentTarget: 
+  defaultDeploymentTarget:
     type: boolean
-  defaultVirtualImageTarget: 
+  defaultVirtualImageTarget:
     type: boolean
-  copyToStore: 
+  copyToStore:
     type: boolean
-  retentionPolicyType: 
-    type: string
-    nullable: true
-  retentionPolicyDays: 
-    type: string
-    nullable: true
-  retentionProvider: 
-    type: string
-    nullable: true
+  retentionPolicyType:
+    type:
+      - string
+      - 'null'
+  retentionPolicyDays:
+    type:
+      - string
+      - 'null'
+  retentionProvider:
+    type:
+      - string
+      - 'null'

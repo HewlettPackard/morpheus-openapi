@@ -1,83 +1,79 @@
 type: object
-properties: 
-  subscriberId: 
+properties:
+  subscriberId:
     type: string
-  tenantId: 
+  tenantId:
     type: string
-  clientId: 
+  clientId:
     type: string
-  clientSecret: 
+  clientSecret:
     type: string
-  resourceGroup: 
+  resourceGroup:
     type: string
-  importExisting: 
+  importExisting:
     type: string
-  inventoryLevel: 
+  inventoryLevel:
     type: string
-  applianceUrl: 
+  applianceUrl:
     type: string
-  datacenterName: 
+  datacenterName:
     type: string
-  networkServer.id: 
+  networkServer.id:
     type: string
-      # oneOf:
-      # - type: string
-      # - type: integer
-      #   format: int64
-  networkServer: 
+  networkServer:
     type: object
-    properties: 
+    properties:
       id:
         type: string
-        # oneOf:
-        # - type: string
-        # - type: integer
-        #   format: int64
-  securityMode: 
+  securityMode:
     type: string
-  certificateProvider: 
+  certificateProvider:
     type: string
-  backupMode: 
+  backupMode:
     type: string
-  replicationMode: 
+  replicationMode:
     type: string
-  dnsIntegrationId: 
+  dnsIntegrationId:
     type: string
-  configManagementId: 
+  configManagementId:
     type: string
-  configCmdbId: 
+  configCmdbId:
     type: string
-  securityServer: 
+  securityServer:
+    type:
+      - string
+      - 'null'
+  accountType:
     type: string
-    nullable: true
-  accountType: 
+  serviceRegistryId:
     type: string
-  serviceRegistryId: 
+  cloudType:
     type: string
-  cloudType: 
+  rpcMode:
     type: string
-  rpcMode: 
+  diskEncryption:
     type: string
-  diskEncryption: 
+  encryptionSet:
     type: string
-  encryptionSet: 
+  cspTenantId:
     type: string
-  cspTenantId: 
+  cspClientId:
     type: string
-  cspClientId: 
-    type: string
-  cspClientSecret: 
-    type: string
-    nullable: true
-  cspCustomer: 
-    type: string
-    nullable: true
-  configCmdbDiscovery: 
+  cspClientSecret:
+    type:
+      - string
+      - 'null'
+  cspCustomer:
+    type:
+      - string
+      - 'null'
+  configCmdbDiscovery:
     type: boolean
-  azureCostingMode: 
+  azureCostingMode:
     type: string
-  clientSecretHash: 
+  clientSecretHash:
     type: string
-  cspClientSecretHash: 
-    type: string
-    nullable: true
+  cspClientSecretHash:
+    type:
+      - string
+      - 'null'

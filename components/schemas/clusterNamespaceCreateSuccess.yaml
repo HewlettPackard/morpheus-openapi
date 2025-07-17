@@ -1,17 +1,19 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
+  description:
     type: string
-  regionCode: 
-    type: string
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  status: 
+  regionCode:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  status:
     type: string

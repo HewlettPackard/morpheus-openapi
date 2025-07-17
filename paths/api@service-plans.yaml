@@ -195,8 +195,10 @@ post:
             allOf:
             - type: object
               properties:
-                servicePlan:
-                  $ref: ../components/schemas/servicePlan.yaml
+                id:
+                  type: integer
+                  format: int64
+                  description: The ID of the Service Plan created
             - $ref: ../components/schemas/200-success.yaml
           examples:
             Service Plan Response:

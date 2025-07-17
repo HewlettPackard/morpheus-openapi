@@ -7,23 +7,26 @@ properties:
     type: string
   labels:
     type: array
-    items: 
+    items:
       type: string
   type:
     type: string
   description:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   category:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   config:
     type: object
   visibility:
     type: string
   resourcePermission:
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
   owner:
     type: object
     properties:

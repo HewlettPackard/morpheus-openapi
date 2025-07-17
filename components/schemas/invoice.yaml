@@ -1,342 +1,370 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  ownerId: 
+  ownerId:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  group: 
+  group:
+    type:
+      - object
+      - 'null'
+  cloud:
     type: object
-    nullable: true
-  cloud: 
-    type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      uuid: 
+      uuid:
         type: string
-  instance: 
-    type: object
-    nullable: true
-  server: 
-    type: string
-    nullable: true
-  cluster: 
-    type: string
-    nullable: true
-  user: 
-    type: object
-    nullable: true
-  plan: 
-    type: object
-    nullable: true
-  tags: 
-    type: array
-    nullable: true
+  instance:
+    type:
+      - object
+      - 'null'
+  server:
+    type:
+      - string
+      - 'null'
+  cluster:
+    type:
+      - string
+      - 'null'
+  user:
+    type:
+      - object
+      - 'null'
+  plan:
+    type:
+      - object
+      - 'null'
+  tags:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  project: 
+  project:
+    type:
+      - string
+      - 'null'
+  refType:
     type: string
-    nullable: true
-  refType: 
-    type: string
-  refId: 
+  refId:
     type: integer
     format: int64
-  refUuid: 
+  refUuid:
+    type:
+      - string
+      - 'null'
+  refName:
     type: string
-    nullable: true
-  refName: 
+  refCategory:
     type: string
-  refCategory: 
+  resourceId:
+    type:
+      - string
+      - 'null'
+  resourceUuid:
+    type:
+      - string
+      - 'null'
+  resourceType:
+    type:
+      - string
+      - 'null'
+  resourceName:
+    type:
+      - string
+      - 'null'
+  resourceExternalId:
+    type:
+      - string
+      - 'null'
+  resourceInternalId:
+    type:
+      - string
+      - 'null'
+  interval:
     type: string
-  resourceId: 
+  period:
     type: string
-    nullable: true
-  resourceUuid: 
-    type: string
-    nullable: true
-  resourceType: 
-    type: string
-    nullable: true
-  resourceName: 
-    type: string
-    nullable: true
-  resourceExternalId: 
-    type: string
-    nullable: true
-  resourceInternalId: 
-    type: string
-    nullable: true
-  interval: 
-    type: string
-  period: 
-    type: string
-  estimate: 
+  estimate:
     type: boolean
-  summaryInvoice: 
+  summaryInvoice:
     type: boolean
-  active: 
+  active:
     type: boolean
-  startDate: 
+  startDate:
     type: string
     format: date-time
-  endDate: 
+  endDate:
     type: string
     format: date-time
-  refStart: 
+  refStart:
     type: string
     format: date-time
-  refEnd: 
+  refEnd:
     type: string
     format: date-time
-  estimatedComputePrice: 
+  estimatedComputePrice:
     type: number
-  estimatedComputeCost: 
+  estimatedComputeCost:
     type: number
-  estimatedMemoryPrice: 
+  estimatedMemoryPrice:
     type: number
-  estimatedMemoryCost: 
+  estimatedMemoryCost:
     type: number
-  estimatedStoragePrice: 
+  estimatedStoragePrice:
     type: number
-  estimatedStorageCost: 
+  estimatedStorageCost:
     type: number
-  estimatedNetworkPrice: 
+  estimatedNetworkPrice:
     type: number
-  estimatedNetworkCost: 
+  estimatedNetworkCost:
     type: number
-  estimatedLicensePrice: 
+  estimatedLicensePrice:
     type: number
-  estimatedLicenseCost: 
+  estimatedLicenseCost:
     type: number
-  estimatedExtraPrice: 
+  estimatedExtraPrice:
     type: number
-  estimatedExtraCost: 
+  estimatedExtraCost:
     type: number
-  estimatedTotalPrice: 
+  estimatedTotalPrice:
     type: number
-  estimatedTotalCost: 
+  estimatedTotalCost:
     type: number
-  estimatedRunningPrice: 
+  estimatedRunningPrice:
     type: number
-  estimatedRunningCost: 
+  estimatedRunningCost:
     type: number
-  estimatedCurrency: 
+  estimatedCurrency:
     type: string
-  estimatedConversionRate: 
+  estimatedConversionRate:
     type: number
-  actualComputePrice: 
+  actualComputePrice:
     type: number
-  actualComputeCost: 
+  actualComputeCost:
     type: number
-  actualMemoryPrice: 
+  actualMemoryPrice:
     type: number
-  actualMemoryCost: 
+  actualMemoryCost:
     type: number
-  actualStoragePrice: 
+  actualStoragePrice:
     type: number
-  actualStorageCost: 
+  actualStorageCost:
     type: number
-  actualNetworkPrice: 
+  actualNetworkPrice:
     type: number
-  actualNetworkCost: 
+  actualNetworkCost:
     type: number
-  actualLicensePrice: 
+  actualLicensePrice:
     type: number
-  actualLicenseCost: 
+  actualLicenseCost:
     type: number
-  actualExtraPrice: 
+  actualExtraPrice:
     type: number
-  actualExtraCost: 
+  actualExtraCost:
     type: number
-  actualTotalPrice: 
+  actualTotalPrice:
     type: number
-  actualTotalCost: 
+  actualTotalCost:
     type: number
-  actualRunningPrice: 
+  actualRunningPrice:
     type: number
-  actualRunningCost: 
+  actualRunningCost:
     type: number
-  actualCurrency: 
+  actualCurrency:
     type: string
-  actualConversionRate: 
+  actualConversionRate:
     type: number
-  computePrice: 
+  computePrice:
     type: number
-  computeCost: 
+  computeCost:
     type: number
-  memoryPrice: 
+  memoryPrice:
     type: number
-  memoryCost: 
+  memoryCost:
     type: number
-  storagePrice: 
+  storagePrice:
     type: number
-  storageCost: 
+  storageCost:
     type: number
-  networkPrice: 
+  networkPrice:
     type: number
-  networkCost: 
+  networkCost:
     type: number
-  licensePrice: 
+  licensePrice:
     type: number
-  licenseCost: 
+  licenseCost:
     type: number
-  extraPrice: 
+  extraPrice:
     type: number
-  extraCost: 
+  extraCost:
     type: number
-  totalPrice: 
+  totalPrice:
     type: number
-  totalCost: 
+  totalCost:
     type: number
-  runningPrice: 
+  runningPrice:
     type: number
-  runningCost: 
+  runningCost:
     type: number
-  currency: 
+  currency:
     type: string
-  conversionRate: 
+  conversionRate:
     type: number
-  costType: 
+  costType:
     type: string
-  offTime: 
+  offTime:
     type: integer
     format: int64
-  powerState: 
-    type: string
-    nullable: true
-  powerDate: 
+  powerState:
+    type:
+      - string
+      - 'null'
+  powerDate:
     type: string
     format: date-time
-  runningMultiplier: 
+  runningMultiplier:
     type: number
-  usageType: 
-    type: string
-    nullable: true
-  usageCategory: 
-    type: string
-    nullable: true
-  lastCostDate: 
+  usageType:
+    type:
+      - string
+      - 'null'
+  usageCategory:
+    type:
+      - string
+      - 'null'
+  lastCostDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  lastActualDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  dateCreated:
     type: string
     format: date-time
-    nullable: true
-  lastActualDate: 
+  lastUpdated:
     type: string
     format: date-time
-    nullable: true
-  dateCreated: 
-    type: string
-    format: date-time
-  lastUpdated: 
-    type: string
-    format: date-time
-  lineItemCount: 
+  lineItemCount:
     type: integer
     format: int64
-  lineItems: 
+  lineItems:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        invoiceId: 
+        invoiceId:
           type: integer
           format: int64
-        refType: 
+        refType:
           type: string
-        refId: 
+        refId:
           type: integer
           format: int64
-        refName: 
+        refName:
           type: string
-        startDate: 
+        startDate:
           type: string
           format: date-time
-        endDate: 
+        endDate:
           type: string
           format: date-time
-        itemId: 
+        itemId:
           type: string
-        itemType: 
+        itemType:
+          type:
+            - string
+            - 'null'
+        itemName:
           type: string
-          nullable: true
-        itemName: 
+        itemDescription:
           type: string
-        itemDescription: 
+        productId:
+          type:
+            - string
+            - 'null'
+        productCode:
           type: string
-        productId: 
+        productName:
           type: string
-          nullable: true
-        productCode: 
+        itemSeller:
+          type:
+            - string
+            - 'null'
+        itemAction:
+          type:
+            - string
+            - 'null'
+        externalId:
           type: string
-        productName: 
+        rateId:
           type: string
-        itemSeller: 
+        rateClass:
+          type:
+            - string
+            - 'null'
+        rateUnit:
           type: string
-          nullable: true
-        itemAction: 
+        rateTerm:
+          type:
+            - string
+            - 'null'
+        usageType:
           type: string
-          nullable: true
-        externalId: 
+        usageCategory:
           type: string
-        rateId: 
+        usageService:
           type: string
-        rateClass: 
-          type: string
-          nullable: true
-        rateUnit: 
-          type: string
-        rateTerm: 
-          type: string
-          nullable: true
-        usageType: 
-          type: string
-        usageCategory: 
-          type: string
-        usageService: 
-          type: string
-        itemUsage: 
+        itemUsage:
           type: number
-        itemRate: 
+        itemRate:
           type: number
-        itemCost: 
+        itemCost:
           type: number
-        itemPrice: 
+        itemPrice:
           type: number
-        itemTax: 
+        itemTax:
           type: integer
           format: int64
-        itemTerm: 
+        itemTerm:
+          type:
+            - string
+            - 'null'
+        taxType:
+          type:
+            - string
+            - 'null'
+        regionCode:
           type: string
-          nullable: true
-        taxType: 
+        currency:
           type: string
-          nullable: true
-        regionCode: 
-          type: string
-        currency: 
-          type: string
-        conversionRate: 
+        conversionRate:
           type: integer
           format: int64
-        dateCreated: 
+        dateCreated:
           type: string
           format: date-time
-        lastUpdated: 
+        lastUpdated:
           type: string
           format: date-time

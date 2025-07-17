@@ -6,55 +6,60 @@ required:
   - serviceUrl
   - zoneId
 properties:
-  type: 
+  type:
     type: string
     description: Type Code (nsx-t)
     enum:
       - nsx-t
-  name: 
+  name:
     type: string
     description: Name
   enabled:
     type: boolean
     description: Can be used to enable / disable the network server.
     default: true
-  serviceUrl: 
-    type: string
+  serviceUrl:
+    type:
+      - string
+      - 'null'
     description: URL
-    nullable: true
-    example: "https://nsxt-server"
-  serviceUsername: 
-    type: string
+    example: https://nsxt-server
+  serviceUsername:
+    type:
+      - string
+      - 'null'
     description: Username
-    nullable: true
-  servicePassword: 
-    type: string
+  servicePassword:
+    type:
+      - string
+      - 'null'
     description: Password
-    nullable: true
   config:
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
     properties:
       project:
-        type: string
+        type:
+          - string
+          - 'null'
         description: NSX Project (NSX 4.1+)
-        nullable: true
-  visibility: 
+  visibility:
     type: string
-    description: Visibility - Set to public to allow all tenants
+    description: "Visibility - Set to public to allow all tenants"
     default: private
     enum:
       - public
       - private
-  zoneId: 
+  zoneId:
     type: integer
     format: int64
     description: ID of the Cloud that the NSX network server integration should be attached to.
-  credential: 
+  credential:
     type: object
-    description: 'Map containing Credential ID or the default `{"type": "local"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential.'
-    properties: 
-      type: 
+    description: "Map containing Credential ID or the default `{\"type\": \"local\"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential."
+    properties:
+      type:
         type: string
       id:
         type: integer

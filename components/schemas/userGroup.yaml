@@ -9,15 +9,17 @@ properties:
   name:
     type: string
   description:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   enabled:
     type: boolean
   sudoUser:
     type: boolean
   serverGroup:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   users:
     type: array
     items:

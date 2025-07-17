@@ -1,34 +1,39 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  code: 
+  code:
     type: string
-  name: 
+  name:
     type: string
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  category:
     type: string
-    nullable: true
-  category: 
-    type: string
-  loadMethod: 
-    type: string
-    nullable: true
-  enforceMethod: 
-    type: string
-    nullable: true
-  prepareMethod: 
-    type: string
-    nullable: true
-  validateMethod: 
-    type: string
-    nullable: true
-  enforceOnProvision: 
+  loadMethod:
+    type:
+      - string
+      - 'null'
+  enforceMethod:
+    type:
+      - string
+      - 'null'
+  prepareMethod:
+    type:
+      - string
+      - 'null'
+  validateMethod:
+    type:
+      - string
+      - 'null'
+  enforceOnProvision:
     type: boolean
-  enforceOnManaged: 
+  enforceOnManaged:
     type: boolean
-  optionTypes: 
+  optionTypes:
     type: array
-    items: 
+    items:
       $ref: optionType.yaml

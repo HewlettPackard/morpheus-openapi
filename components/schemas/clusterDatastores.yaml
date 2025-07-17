@@ -1,86 +1,90 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
+  code:
+    type:
+      - string
+      - 'null'
+  type:
     type: string
-    nullable: true
-  type: 
+  visibility:
     type: string
-  visibility: 
+  storageSize:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  freeSpace:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  drsEnabled:
+    type: boolean
+  active:
+    type: boolean
+  allowWrite:
+    type: boolean
+  defaultStore:
+    type: boolean
+  online:
+    type: boolean
+  allowRead:
+    type: boolean
+  allowProvision:
+    type: boolean
+  refType:
     type: string
-  storageSize: 
+  refId:
     type: integer
     format: int64
-    nullable: true
-  freeSpace: 
-    type: integer
-    format: int64
-    nullable: true
-  drsEnabled: 
-    type: boolean
-  active: 
-    type: boolean
-  allowWrite: 
-    type: boolean
-  defaultStore: 
-    type: boolean
-  online: 
-    type: boolean
-  allowRead: 
-    type: boolean
-  allowProvision: 
-    type: boolean
-  refType: 
-    type: string
-  refId: 
-    type: integer
-    format: int64
-  externalId: 
+  externalId:
     type: string
   status:
     type: string
   statusMessage:
     type: string
-  zone: 
+  zone:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  zonePool: 
+  zonePool:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  owner: 
+  owner:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  tenants: 
+  tenants:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
         defaultStore:
           type: boolean
         defaultTarget:
           type: boolean
-  datastores: 
-    type: array
-    nullable: true
-    items: 
+  datastores:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
   locations:
     type: array
@@ -116,8 +120,9 @@ properties:
             type: integer
             format: int64
       sites:
-        type: array
-        nullable: true
+        type:
+          - array
+          - 'null'
         items:
           type: object
           properties:
@@ -129,8 +134,9 @@ properties:
             default:
               type: boolean
       plans:
-        type: array
-        nullable: true
+        type:
+          - array
+          - 'null'
         items:
           type: object
           properties:

@@ -1,131 +1,138 @@
 type: object
 properties:
-  applianceUrl: 
+  applianceUrl:
     type: string
     description: Appliance URL
-  internalApplianceUrl: 
-    type: string
-    nullable: true
+  internalApplianceUrl:
+    type:
+      - string
+      - 'null'
     description: Internal Appliance URL (PXE)
-  corsAllowed: 
-    type: string
+  corsAllowed:
+    type:
+      - string
+      - 'null'
     description: API Allowed Origins
-    nullable: true
-  registrationEnabled: 
+  registrationEnabled:
     type: boolean
     description: Registration enabled (true, false)
-  defaultRoleId: 
+  defaultRoleId:
     type: integer
     format: int64
     description: Default tenant role ID
-  defaultUserRoleId: 
+  defaultUserRoleId:
     type: integer
     format: int64
     description: Default user role ID
-  dockerPrivilegedMode: 
+  dockerPrivilegedMode:
     type: boolean
     description: Docker privileged mode (true, false)
-  passwordMinLength: 
+  passwordMinLength:
     type: string
     description: Min Password Length
-  passwordMinUpperCase: 
+  passwordMinUpperCase:
     type: string
     description: Min Password Uppercase
-  passwordMinNumbers: 
+  passwordMinNumbers:
     type: string
     description: Min Password Numbers
-  passwordMinSymbols: 
+  passwordMinSymbols:
     type: string
     description: Min Password Symbols
-  userBrowserSessionTimeout: 
+  userBrowserSessionTimeout:
     type: string
     description: User Browser Session Timeout (Minutes)
-  userBrowserSessionWarning: 
+  userBrowserSessionWarning:
     type: string
     description: User Browser Session Warning (Minutes)
-  expirePwdDays: 
+  expirePwdDays:
     type: integer
     format: int64
     description: Expire password after days. Setting to 0 disabled this feature
-  disableAfterAttempts: 
+  disableAfterAttempts:
     type: integer
     format: int64
     description: Disable user after number of attempts. Set to 0 to disable this feature
-  disableAfterDaysInactive: 
+  disableAfterDaysInactive:
     type: integer
     format: int64
     description: Disable user if inactive for specified days. Set to 0 to disable this feature
-  warnUserDaysBefore: 
+  warnUserDaysBefore:
     type: integer
     format: int64
     description: Send warning email number of days in advance before deactivating. Set to 0 to disable this feature
-  smtpMailFrom: 
+  smtpMailFrom:
     type: string
     description: From email address
-  smtpServer: 
+  smtpServer:
     type: string
     description: SMTP server / host
-  smtpPort: 
+  smtpPort:
     type: integer
     format: int64
     description: SMTP port
-  smtpSSL: 
+  smtpSSL:
     type: boolean
     description: Use SSL for SMTP connection
-  smtpTLS: 
+  smtpTLS:
     type: boolean
     description: Use TLS for SMTP connections
-  smtpUser: 
+  smtpUser:
     type: string
     description: SMTP username
-  smtpPassword: 
+  smtpPassword:
     type: string
     description: SMTP password
-  proxyHost: 
-    type: string
-    nullable: true
+  proxyHost:
+    type:
+      - string
+      - 'null'
     description: Proxy host
-  proxyPort: 
-    type: string
-    nullable: true
+  proxyPort:
+    type:
+      - string
+      - 'null'
     description: Proxy port
-  proxyUser: 
+  proxyUser:
     type: string
     description: Proxy username
-  proxyPassword: 
+  proxyPassword:
     type: string
     description: Proxy password
-  proxyDomain: 
-    type: string
-    nullable: true
+  proxyDomain:
+    type:
+      - string
+      - 'null'
     description: Proxy domain
-  proxyWorkstation: 
-    type: string
-    nullable: true
+  proxyWorkstation:
+    type:
+      - string
+      - 'null'
     description: Proxy workstation
-  currencyProvider: 
+  currencyProvider:
     type: string
     description: Currency provider
-  currencyKey: 
-    type: string
-    nullable: true
+  currencyKey:
+    type:
+      - string
+      - 'null'
     description: Currency provider API key
-  enableAllZoneTypes: 
+  enableAllZoneTypes:
     type: boolean
     description: Set all cloud types enabled status on, overrides enableZoneTypes and disableZoneTypes parameters
-  enableZoneTypes: 
+  enableZoneTypes:
     type: array
     description: List of cloud type IDs to set enabled status on
-    items: 
+    items:
       type: integer
       format: int64
-  disableZoneTypes: 
+  disableZoneTypes:
     type: array
     description: List of cloud type IDs to set enabled status off
-    items: 
+    items:
       type: integer
       format: int64
-  disableAllZoneTypes: 
+  disableAllZoneTypes:
     type: boolean
     description: Set all cloud types enabled status off, can be used in conjunction with enableZoneTypes
   twilioAccountSid:
@@ -193,4 +200,4 @@ properties:
     description: Max option list size. Units are x10^3 (thousand). Increasing this value can adversely affect Morpheus performance. Increase with caution.
   exchangeUrl:
     type: string
-    description: The url used for checking if there is an update for plugins. Default https\://share.morpheusdata.com
+    description: "The url used for checking if there is an update for plugins. Default https\\://share.morpheusdata.com"

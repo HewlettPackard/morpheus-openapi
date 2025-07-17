@@ -1,146 +1,154 @@
 type: object
-properties: 
-  refType: 
+properties:
+  refType:
     type: string
-  refUUID: 
+  refUUID:
     type: string
-  refId: 
-    type: string
-    nullable: true
-  startDate: 
-    type: string
-    format: date-time
-  endDate: 
+  refId:
+    type:
+      - string
+      - 'null'
+  startDate:
     type: string
     format: date-time
-  cost: 
-    type: number
-  price: 
-    type: number
-  numUnits: 
-    type: number
-  unit: 
+  endDate:
     type: string
-  currency: 
+    format: date-time
+  cost:
+    type: number
+  price:
+    type: number
+  numUnits:
+    type: number
+  unit:
     type: string
-  usages: 
+  currency:
+    type: string
+  usages:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        cost: 
+      properties:
+        cost:
           type: number
-        price: 
+        price:
           type: number
-        createdByUser: 
+        createdByUser:
           type: string
-        createdByUserId: 
+        createdByUserId:
           type: integer
           format: int64
-        siteId: 
+        siteId:
+          type:
+            - string
+            - 'null'
+        siteName:
+          type:
+            - string
+            - 'null'
+        siteUUID:
+          type:
+            - string
+            - 'null'
+        siteCode:
+          type:
+            - string
+            - 'null'
+        currency:
           type: string
-          nullable: true
-        siteName: 
-          type: string
-          nullable: true
-        siteUUID: 
-          type: string
-          nullable: true
-        siteCode: 
-          type: string
-          nullable: true
-        currency: 
-          type: string
-        startDate: 
+        startDate:
           type: string
           format: date-time
-        endDate: 
+        endDate:
           type: string
           format: date-time
-        status: 
+        status:
           type: string
-        tags: 
+        tags:
           type: array
-          items: 
+          items:
             type: object
-        applicablePrices: 
+        applicablePrices:
           type: array
-          items: 
+          items:
             type: object
-            properties: 
-              startDate: 
+            properties:
+              startDate:
                 type: string
                 format: date-time
-              endDate: 
+              endDate:
                 type: string
                 format: date-time
-              numUnits: 
+              numUnits:
                 type: number
-              cost: 
+              cost:
                 type: number
-              price: 
+              price:
                 type: number
-              currency: 
+              currency:
                 type: string
-              prices: 
+              prices:
                 type: array
-                items: 
+                items:
                   type: object
-                  properties: 
-                    type: 
+                  properties:
+                    type:
                       type: string
-                    pricePerUnit: 
+                    pricePerUnit:
                       type: number
-                    costPerUnit: 
+                    costPerUnit:
                       type: number
-                    cost: 
+                    cost:
                       type: number
-                    price: 
+                    price:
                       type: number
-                    quantity: 
+                    quantity:
                       type: integer
                       format: int64
-                    datastoreId: 
+                    datastoreId:
+                      type:
+                        - string
+                        - 'null'
+                    volumeType:
                       type: string
-                      nullable: true
-                    volumeType: 
+                    datastore:
                       type: string
-                    datastore: 
-                      type: string
-        servicePlanId: 
+        servicePlanId:
           type: integer
           format: int64
-        servicePlanName: 
+        servicePlanName:
           type: string
-        resourcePoolId: 
+        resourcePoolId:
           type: integer
           format: int64
-        resourcePoolName: 
+        resourcePoolName:
           type: string
-  numUsages: 
+  numUsages:
     type: integer
     format: int64
-  totalUsages: 
+  totalUsages:
     type: integer
     format: int64
-  hasMoreUsages: 
+  hasMoreUsages:
     type: boolean
-  foundPricing: 
+  foundPricing:
     type: boolean
-  name: 
+  name:
     type: string
-  serverUUID: 
+  serverUUID:
     type: string
-  serverUniqueId: 
+  serverUniqueId:
+    type:
+      - string
+      - 'null'
+  serverExternalId:
     type: string
-    nullable: true
-  serverExternalId: 
-    type: string
-  serverInternalId: 
-    type: string
-    nullable: true
-  resourcePoolId: 
+  serverInternalId:
+    type:
+      - string
+      - 'null'
+  resourcePoolId:
     type: integer
     format: int64
-  resourcePoolName: 
+  resourcePoolName:
     type: string

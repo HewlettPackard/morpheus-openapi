@@ -4,7 +4,7 @@ required:
   - policyType
   - config
 properties:
-  name: 
+  name:
     type: string
     description: A name for the policy
     example: Sample Policy
@@ -63,8 +63,8 @@ properties:
           - Approve Delete
           - Approve Provisiong
           - Approve Reconfigure
-        properties: 
-          accountIntegrationId: 
+        properties:
+          accountIntegrationId:
             type: string
       - type: object
         title: Backup Creation Policy Type Configuration
@@ -180,7 +180,7 @@ properties:
           hostNamingType:
             type: string
           hostNamingPattern:
-            type: string 
+            type: string
       - type: object
         title: Instance Name Policy Type Configuration
         description: |
@@ -218,7 +218,7 @@ properties:
           - Max Hosts
         properties:
           maxHosts:
-            type: string 
+            type: string
       - type: object
         title: Max Load Balancer Pools Policy Type Configuration
         description: |
@@ -240,7 +240,7 @@ properties:
               - type: string
               - type: integer
                 format: int64
-            description: "Max Memory (GB)"
+            description: Max Memory (GB)
           excludeContainers:
             $ref: checkbox.yaml
       - type: object
@@ -296,15 +296,17 @@ properties:
               type:
                 type: string
               _fullPage:
-                type: boolean
-                nullable: true
+                type:
+                  - boolean
+                  - 'null'
           motd.message:
             type: string
           motd.type:
             type: string
           motd._fullPage:
-            type: boolean
-            nullable: true
+            type:
+              - boolean
+              - 'null'
           motd.date:
             type: string
             format: date-time
@@ -417,16 +419,17 @@ properties:
     description: Set to false to disable
     default: true
   refType:
-    type: string
     description: Scope object type.  If none specified, will default to Global (null)
-    enum:
-    - ComputeSite
-    - ComputeZone
-    - User
-    - Role
-    - Network
-    - Plan
-    nullable: true
+    oneOf:
+      - type: string
+        enum:
+          - ComputeSite
+          - ComputeZone
+          - User
+          - Role
+          - Network
+          - Plan
+      - type: 'null'
   refId:
     type: integer
     format: int64
@@ -438,5 +441,5 @@ properties:
       type: integer
       format: int64
   eachUser:
-      type: boolean
-      description: Apply individually to each user in role.  Only when `refType` equals `Role`
+    type: boolean
+    description: Apply individually to each user in role.  Only when `refType` equals `Role`

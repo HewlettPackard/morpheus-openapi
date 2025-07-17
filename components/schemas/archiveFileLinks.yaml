@@ -1,39 +1,41 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  secretAccessKey: 
+  secretAccessKey:
     type: string
-  archiveFile: 
+  archiveFile:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      filePath: 
+      filePath:
         type: string
-  createdBy: 
+  createdBy:
     type: object
-    properties: 
-      username: 
+    properties:
+      username:
         type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  lastAccessDate: 
-    type: string
+  lastAccessDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  expirationDate: 
-    type: string
+  expirationDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  downloadCount: 
+  downloadCount:
     type: integer
     format: int64

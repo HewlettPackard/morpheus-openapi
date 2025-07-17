@@ -1,66 +1,77 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  code: 
+  code:
     type: string
-  account: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+  account:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-  name: 
+  name:
     type: string
-  labels: 
-    type: array
-    nullable: true
+  labels:
+    type:
+      - array
+      - 'null'
     items:
       type: string
-  fileName: 
+  fileName:
     type: string
-  filePath: 
+  filePath:
     type: string
-  templateType: 
+  templateType:
+    type:
+      - string
+      - 'null'
+  templatePhase:
     type: string
-    nullable: true
-  templatePhase: 
+  template:
     type: string
-  template: 
-    type: string
-  category: 
-    type: string
-    nullable: true
-  settingCategory: 
-    type: string
-    nullable: true
-  settingName: 
-    type: string
-    nullable: true
-  autoRun: 
+  category:
+    type:
+      - string
+      - 'null'
+  settingCategory:
+    type:
+      - string
+      - 'null'
+  settingName:
+    type:
+      - string
+      - 'null'
+  autoRun:
     type: boolean
-  runOnScale: 
-    type: boolean
-    nullable: true
-  runOnDeploy: 
-    type: boolean
-    nullable: true
-  fileOwner: 
-    type: string
-    nullable: true
-  fileGroup: 
-    type: string
-    nullable: true
-  permissions: 
-    type: string
-    nullable: true
-  dateCreated: 
+  runOnScale:
+    type:
+      - boolean
+      - 'null'
+  runOnDeploy:
+    type:
+      - boolean
+      - 'null'
+  fileOwner:
+    type:
+      - string
+      - 'null'
+  fileGroup:
+    type:
+      - string
+      - 'null'
+  permissions:
+    type:
+      - string
+      - 'null'
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

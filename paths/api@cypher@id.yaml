@@ -25,33 +25,33 @@ get:
         application/json:
           schema:
             allOf:
-            - $ref: ../components/schemas/200-success.yaml
-            - type: object
-              properties:
-                data:
-                  oneOf:
-                    - type: object
-                    - type: string
-                  description:  Data that was written to the key
-                type:
-                  type: string
-                  description:  Type of data that was written to the key
-                lease_duration:
-                  type: integer
-                  description: Lease duration in seconds, 0 means no expiry.
-            - type: object
-              properties:
-                cypher:
-                  $ref: ../components/schemas/cypher.yaml
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  data:
+                    oneOf:
+                      - type: object
+                      - type: string
+                    description: Data that was written to the key
+                  type:
+                    type: string
+                    description: Type of data that was written to the key
+                  lease_duration:
+                    type: integer
+                    description: Lease duration in seconds, 0 means no expiry.
+              - type: object
+                properties:
+                  cypher:
+                    $ref: ../components/schemas/cypher.yaml
           examples:
             Cyphers Response:
               value:
-                $ref: ../components/examples/cyphers.json 
+                $ref: ../components/examples/cyphers.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
-post: 
+post:
   summary: Write a Cypher
   description: This endpoint will create or update a cypher key.
   operationId: addCypherKey
@@ -64,12 +64,12 @@ post:
       description: The type of data being stored, `string` or `object`. The data type depends on the cypher mount being used. Most mounts use `string` as their data type, but `secret` uses `object` by default. You can store a string instead by passing `type=string`. This means the `data` value returned by the API will be a string instead of an object.
       schema:
         type: string
-  tags: 
-    -  Cypher
-  requestBody: 
-    content: 
-      application/json: 
-        schema: 
+  tags:
+    - Cypher
+  requestBody:
+    content:
+      application/json:
+        schema:
           type: object
           description: |
             The following parameters are available under the root context of the JSON body.
@@ -99,20 +99,21 @@ post:
       content:
         application/json:
           schema:
-            allOf: 
-            - type: object
-              properties:
-                data:
-                  type: string
-                type:
-                  type: string
-                lease_duration:
-                  type: integer
-                  format: int64
-                  nullable: true
-                cypher:
-                  $ref: ../components/schemas/cypher.yaml
-            - $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - type: object
+                properties:
+                  data:
+                    type: string
+                  type:
+                    type: string
+                  lease_duration:
+                    type:
+                      - integer
+                      - 'null'
+                    format: int64
+                  cypher:
+                    $ref: ../components/schemas/cypher.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Cypher Response:
               value:

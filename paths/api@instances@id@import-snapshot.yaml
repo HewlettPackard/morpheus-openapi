@@ -6,17 +6,18 @@ put:
     - Instances
   parameters:
     - $ref: ../components/parameters/id-path.yaml
-  requestBody: 
-    content: 
-      application/json: 
+  requestBody:
+    content:
+      application/json:
         schema:
           type: object
           properties:
             storageProviderId:
-              type: integer
+              type:
+                - integer
+                - 'null'
               format: int64
               description: Optional storage provider to use.
-              nullable: true
         examples:
           Import Snapshot Request:
             value:
@@ -31,7 +32,7 @@ put:
           examples:
             Response:
               value:
-                $ref: ../components/examples/success.json 
+                $ref: ../components/examples/success.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

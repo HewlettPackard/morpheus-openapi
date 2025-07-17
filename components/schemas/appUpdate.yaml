@@ -1,15 +1,16 @@
 type: object
 properties:
-  name: 
+  name:
     type: string
     description: A unique name for the app
-  description: 
+  description:
     type: string
     description: Description
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
   environment:

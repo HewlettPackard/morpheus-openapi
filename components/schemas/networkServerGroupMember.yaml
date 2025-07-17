@@ -8,23 +8,28 @@ properties:
   type:
     type: string
   memberName:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   memberType:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   memberValue:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   memberExpression:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   displayOrder:
     type: integer
     format: int64
   internalId:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   externalId:
     type: string
   members:

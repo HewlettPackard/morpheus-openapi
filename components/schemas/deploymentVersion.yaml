@@ -1,31 +1,34 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  deployType: 
+  deployType:
     type: string
-  deploymentId: 
+  deploymentId:
     type: integer
     format: int64
-  fetchUrl: 
+  fetchUrl:
+    type:
+      - string
+      - 'null'
+  gitUrl:
+    type:
+      - string
+      - 'null'
+  gitRef:
+    type:
+      - string
+      - 'null'
+  userVersion:
     type: string
-    nullable: true
-  gitUrl: 
+  version:
     type: string
-    nullable: true
-  gitRef: 
+  status:
     type: string
-    nullable: true
-  userVersion: 
-    type: string
-  version: 
-    type: string
-  status: 
-    type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

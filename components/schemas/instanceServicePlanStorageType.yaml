@@ -1,72 +1,82 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int32
-  editable: 
+  editable:
     type: boolean
-  optionTypes: 
-    type: array
-    nullable: true
+  optionTypes:
+    type:
+      - array
+      - 'null'
     items:
       type: object
-  displayOrder: 
+  displayOrder:
     type: integer
     format: int32
-  code: 
+  code:
     type: string
-  volumeType: 
+  volumeType:
     type: string
-  minStorage: 
-    type: string
-    nullable: true
-  deletable: 
+  minStorage:
+    type:
+      - string
+      - 'null'
+  deletable:
     type: boolean
-  defaultType: 
+  defaultType:
     type: boolean
-  createDatastore: 
-    type: string
-    nullable: true
-  resizable: 
+  createDatastore:
+    type:
+      - string
+      - 'null'
+  resizable:
     type: boolean
-  storageType: 
-    type: string
-    nullable: true
-  allowSearch: 
+  storageType:
+    type:
+      - string
+      - 'null'
+  allowSearch:
     type: boolean
-  volumeOptionSource: 
+  volumeOptionSource:
+    type:
+      - string
+      - 'null'
+  displayName:
     type: string
-    nullable: true
-  displayName: 
-    type: string
-  minIOPS: 
-    type: string
-    nullable: true
-  maxIOPS: 
-    type: string
-    nullable: true
-  hasDatastore: 
+  minIOPS:
+    type:
+      - string
+      - 'null'
+  maxIOPS:
+    type:
+      - string
+      - 'null'
+  hasDatastore:
     type: boolean
-  customSize: 
+  customSize:
     type: boolean
-  autoDelete: 
+  autoDelete:
     type: boolean
-  name: 
+  name:
     type: string
-  configurableIOPS: 
+  configurableIOPS:
     type: boolean
-  customLabel: 
+  customLabel:
     type: boolean
-  enabled: 
+  enabled:
     type: boolean
-  description: 
+  description:
+    type:
+      - string
+      - 'null'
+  volumeCategory:
     type: string
-    nullable: true
-  volumeCategory: 
-    type: string
-  externalId: 
-    type: string
-    nullable: true
-  maxStorage: 
-    type: string
-    nullable: true
+  externalId:
+    type:
+      - string
+      - 'null'
+  maxStorage:
+    type:
+      - string
+      - 'null'

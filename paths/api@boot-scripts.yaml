@@ -2,7 +2,7 @@ get:
   summary: Boot Scripts
   description: |
     Boot Scripts are used in the Image Builder service. See Image Builds.
-
+    
     This endpoint retrieves all boot scripts associated with the account.
   operationId: listBootScripts
   tags:
@@ -17,16 +17,16 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                bootScripts:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/bootScript.yaml
-                bootScriptCount:
-                  type: integer
-                  format: int64
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  bootScripts:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/bootScript.yaml
+                  bootScriptCount:
+                    type: integer
+                    format: int64
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Boot Scripts Response:
               value:
@@ -35,15 +35,15 @@ get:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
-post: 
+post:
   summary: Create a Boot Script
   description: Create a Boot Script
   operationId: addBootScript
-  tags: 
-    -  Image Builds
-  requestBody: 
-    content: 
-      application/json: 
+  tags:
+    - Image Builds
+  requestBody:
+    content:
+      application/json:
         schema:
           type: object
           properties:
@@ -65,10 +65,11 @@ post:
                   bootScript:
                     $ref: ../components/schemas/bootScript.yaml
               - type: object
-                properties: 
+                properties:
                   errorCode:
-                    type: string
-                    nullable: true
+                    type:
+                      - string
+                      - 'null'
                   inProgress:
                     type: boolean
               - $ref: ../components/schemas/200-success-expanded.yaml

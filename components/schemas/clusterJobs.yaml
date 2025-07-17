@@ -1,15 +1,15 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
   labels:
     type: array
     items:
       type: string
-  type: 
+  type:
     type: object
     properties:
       id:
@@ -20,61 +20,72 @@ properties:
       code:
         type: string
   jobSummary:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   scheduleMode:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   dateTime:
-    type: string
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  status: 
+  status:
+    type:
+      - string
+      - 'null'
+  namespace:
+    type:
+      - string
+      - 'null'
+  category:
     type: string
-    nullable: true
-  namespace: 
-    type: string
-    nullable: true
-  category: 
-    type: string
-  description: 
-    type: string
-    nullable: true
-  enabled: 
+  description:
+    type:
+      - string
+      - 'null'
+  enabled:
     type: boolean
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  lastRun: 
-    type: string
+  lastRun:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
   lastResult:
-    type: string
-    nullable: true
-  createdBy: 
-    type: object
-    nullable: true
-    properties: 
-      id: 
+    type:
+      - string
+      - 'null'
+  createdBy:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
   targetType:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   targets:
     type: array
     items:
       type: object
   customConfig:
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
   customOptions:
-    type: object
-    nullable: true
-    
+    type:
+      - object
+      - 'null'

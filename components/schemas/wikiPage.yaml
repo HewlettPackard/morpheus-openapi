@@ -1,43 +1,45 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  urlName: 
+  urlName:
     type: string
-  category: 
+  category:
     type: string
-  refId: 
+  refId:
+    type:
+      - string
+      - 'null'
+  refType:
+    type:
+      - string
+      - 'null'
+  format:
     type: string
-    nullable: true
-  refType: 
+  content:
     type: string
-    nullable: true
-  format: 
-    type: string
-  content: 
-    type: string
-  createdBy: 
+  createdBy:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-  updatedBy: 
+  updatedBy:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

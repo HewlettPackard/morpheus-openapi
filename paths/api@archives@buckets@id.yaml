@@ -19,8 +19,9 @@ get:
               isOwner:
                 type: boolean
               parentDirectory:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
               archiveFiles:
                 type: array
                 items:
@@ -40,13 +41,13 @@ put:
   summary: Update an Archive Bucket
   description: Update an Archive Bucket
   operationId: updateArchiveBucket
-  tags: 
+  tags:
     - Archives
   parameters:
     - $ref: ../components/parameters/id-path.yaml
-  requestBody: 
-    content: 
-      application/json: 
+  requestBody:
+    content:
+      application/json:
         schema:
           type: object
           properties:
@@ -94,7 +95,7 @@ delete:
           examples:
             Response:
               value:
-                $ref: ../components/examples/success.json 
+                $ref: ../components/examples/success.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

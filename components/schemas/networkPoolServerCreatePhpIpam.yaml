@@ -6,66 +6,70 @@ required:
   - serviceUrl
   - config
 properties:
-  type: 
+  type:
     type: string
     description: Type Code (phpIPAM)
     enum:
       - phpipam
-  name: 
+  name:
     type: string
     description: Name
   enabled:
     type: boolean
     description: Can be used to enable / disable the network pool server.
     default: true
-  serviceUrl: 
-    type: string
+  serviceUrl:
+    type:
+      - string
+      - 'null'
     description: URL
-    nullable: true
-    example: "http://phpipam-server/api"
-  serviceUsername: 
-    type: string
+    example: http://phpipam-server/api
+  serviceUsername:
+    type:
+      - string
+      - 'null'
     description: Username
-    nullable: true
-  servicePassword: 
-    type: string
+  servicePassword:
+    type:
+      - string
+      - 'null'
     description: Password
-    nullable: true
-  serviceThrottleRate: 
-    type: integer
+  serviceThrottleRate:
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Throttle Rate
-    nullable: true
     default: 0
-  ignoreSsl: 
+  ignoreSsl:
     type: boolean
     description: Disable SSL SNI Verification
     default: true
-  networkFilter: 
-    type: string
+  networkFilter:
+    type:
+      - string
+      - 'null'
     description: Network Filter
-    nullable: true
-  config: 
+  config:
     type: object
     required:
       - appId
-    properties: 
+    properties:
       appId:
         type: string
         description: App ID (Your App name in phpIPAM)
-      inventoryExisting: 
+      inventoryExisting:
         type: string
         description: Inventory Existing
-        nullable: true
-        default: off
+        default: "off"
         enum:
-          - on
-          - off
-  credential: 
+          - "on"
+          - "off"
+  credential:
     type: object
-    description: 'Map containing Credential ID or the default `{"type": "local"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential.'
-    properties: 
-      type: 
+    description: "Map containing Credential ID or the default `{\"type\": \"local\"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential."
+    properties:
+      type:
         type: string
       id:
         type: integer

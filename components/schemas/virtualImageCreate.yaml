@@ -1,82 +1,90 @@
 type: object
 properties:
-  name: 
+  name:
     type: string
     description: A name for the virtual image
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  imageType: 
+  imageType:
     type: string
     description: Code of image type. eg. vmware, ami, etc.
-  storageProvider: 
-    type: object
+  storageProvider:
+    type:
+      - object
+      - 'null'
     description: A Map containing the id of the Storage Provider
-    nullable: true
-    properties: 
+    properties:
       id:
         type: integer
         format: int64
-  isCloudInit: 
+  isCloudInit:
     type: boolean
     description: Cloud Init Enabled?
     default: false
-  userData: 
-    type: string
+  userData:
+    type:
+      - string
+      - 'null'
     description: Cloud-Init User Data, a bash script
-    nullable: true
-  installAgent: 
+  installAgent:
     type: boolean
     description: Install Agent?
     default: false
-  sshUsername: 
-    type: string
+  sshUsername:
+    type:
+      - string
+      - 'null'
     description: SSH Username
-    nullable: true
-  sshPassword: 
-    type: string
+  sshPassword:
+    type:
+      - string
+      - 'null'
     description: SSH Password
-    nullable: true
-  sshKey: 
-    type: string
+  sshKey:
+    type:
+      - string
+      - 'null'
     description: SSH Key
-    nullable: true
-  osType: 
+  osType:
     description: A Map containing the id of the OS Type. This can also be passed as a string (code or name) instead.
     oneOf:
-      - type: object
-        nullable: true
-        properties: 
-          id: 
+      - type:
+          - object
+          - 'null'
+        properties:
+          id:
             type: integer
             format: int64
-      - type: string
-        nullable: true
-  visibility: 
+      - type:
+          - string
+          - 'null'
+  visibility:
     type: string
     description: private or public
     default: private
-  accounts: 
+  accounts:
     type: array
-    items: 
+    items:
       type: integer
       format: int64
-  isAutoJoinDomain: 
-    type: boolean  
+  isAutoJoinDomain:
+    type: boolean
     description: Auto Join Domain?
     default: false
-  virtioSupported: 
+  virtioSupported:
     type: boolean
     description: VirtIO Drivers Loaded?
     default: true
-  vmToolsInstalled: 
+  vmToolsInstalled:
     type: boolean
     description: VM Tools Installed?
     default: true
-  isForceCustomization: 
+  isForceCustomization:
     type: boolean
     description: Force Guest Customization?
     default: false
@@ -84,21 +92,21 @@ properties:
     type: boolean
     description: Trial Version
     default: false
-  isSysprep: 
+  isSysprep:
     type: boolean
     description: Sysprep Enabled?
     default: false
-  config: 
+  config:
     description: Map of configuration properties, varies by image type.
-    oneOf: 
+    oneOf:
       - type: object
         description: Azure Reference Virtual Image Parameters
-        required: 
+        required:
           - publisher
           - offer
           - sku
           - version
-        properties: 
+        properties:
           publisher:
             type: string
             description: The name of the publisher in the Azure Marketplace
@@ -111,8 +119,8 @@ properties:
           version:
             type: string
             description: The name of the version in the Azure Marketplace
-      - type : object
-  tags: 
+      - type: object
+  tags:
     type: array
     description: Metadata tags, Array of objects having a name and value
     items:
@@ -120,12 +128,11 @@ properties:
       required:
         - name
         - value
-      properties: 
+      properties:
         name:
           type: string
         value:
           type: string
-  url: 
+  url:
     type: string
     description: Image File URL, a virtual image file will be created by fetching the specified URL
-

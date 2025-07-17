@@ -22,11 +22,13 @@ loadBalancer:
     ip:
       type: string
 instance:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 description:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 internalId:
   type: string
 externalId:
@@ -42,49 +44,60 @@ active:
 sticky:
   type: boolean
 sslEnabled:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalAddress:
   type: boolean
 backendPort:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipType:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipAddress:
   type: string
 vipHostname:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipProtocol:
   type: string
 vipScheme:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipMode:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipName:
   type: string
 vipPort:
   type: integer
   format: int64
 vipSticky:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipBalance:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 servicePort:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 sourceAddress:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 sslCert:
-  type: object
-  nullable: true
+  type:
+    - object
+    - 'null'
   properties:
     id:
       type: integer
@@ -92,41 +105,51 @@ sslCert:
     name:
       type: string
 sslMode:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 sslRedirectMode:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 vipShared:
   type: boolean
 vipDirectAddress:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 serverName:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 poolName:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 removing:
   type: boolean
 vipSource:
   type: string
 extraConfig:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 serviceAccess:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 networkId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 subnetId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalPortId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 status:
   type: string
 vipStatus:

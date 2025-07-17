@@ -62,8 +62,9 @@ properties:
   externalFqdn:
     type: string
   ports:
-    type: array
-    nullable: true
+    type:
+      - array
+      - 'null'
     items:
       $ref: containerPort.yaml
   plan:
@@ -88,8 +89,9 @@ properties:
   userStatus:
     type: string
   environmentPrefix:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   stats:
     type: object
     properties:
@@ -124,19 +126,23 @@ properties:
   runtimeInfo:
     type: object
   containerVersion:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   repositoryImage:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   planCategory:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   hostname:
     type: string
   domainName:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   volumeCreated:
     type: boolean
   containerCreated:
@@ -148,22 +154,27 @@ properties:
   maxCores:
     type: integer
   maxCpu:
-    type: integer
-    nullable: true
+    type:
+      - integer
+      - 'null'
   availableActions:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: object
   configGroup:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   configId:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   configRole:
-    type: string
-    nullable: true
+    type:
+      - string
+      - 'null'
   hourlyCost:
     type: number
     format: double

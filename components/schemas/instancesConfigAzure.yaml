@@ -1,3 +1,4 @@
+title: Azure Instance Configuration
 type: object
 properties:
   resourcePoolId:

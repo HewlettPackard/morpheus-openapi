@@ -1,45 +1,46 @@
 type: object
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: Cluster name
-  description: 
+  description:
     type: string
     description: Cluster description
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  enabled: 
+  enabled:
     type: boolean
     description: Cluster enabled
-  useAgent: 
+  useAgent:
     type: boolean
     description: Use the Agent to relay communications for the Kubernetes API instead of direct.
-  serviceUrl: 
+  serviceUrl:
     type: string
     description: Cluster API Url
-  serviceToken: 
+  serviceToken:
     type: string
     description: Cluster API token
-  refresh: 
+  refresh:
     type: boolean
     description: Queue cluster refresh
-  managed: 
+  managed:
     type: boolean
     description: Cluster managed
   autoRecoverPowerState:
     type: boolean
     description: Automatically Power on VMs
-  integrations: 
+  integrations:
     type: array
     description: Cluster integrations
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
           description: Integration ID. Only certain integration types may be associated to a cluster.

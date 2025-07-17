@@ -15,6 +15,7 @@
     "datastore": null,
     "parentSnapshot": null,
     "currentlyActive": true,
+    "memorySnapshot": false,
     "snapshotFiles": [
       {
         "id": 1,

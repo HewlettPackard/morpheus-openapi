@@ -47,25 +47,28 @@ put:
                   type: string
                   description: Authority (Name)
                 description:
-                  type: string
-                  nullable: true
+                  type:
+                    - string
+                    - 'null'
                   description: Description
                 landingUrl:
-                  type: string
-                  nullable: true
+                  type:
+                    - string
+                    - 'null'
                   description: An optional override for the default landing page after login for a user.
                 defaultPersona:
-                  type: string
-                  enum:
-                    - standard
-                    - serviceCatalog
-                    - vdi
+                  oneOf:
+                    - type: string
+                      enum:
+                        - standard
+                        - serviceCatalog
+                        - vdi
+                    - type: 'null'
                   description: Set the default persona by code.
-                  nullable: true
-                permissions: 
+                featurePermissions:
                   type: array
                   description: Set the access level for the specified permissions.
-                  items: 
+                  items:
                     type: object
                     required:
                       - code
@@ -81,17 +84,17 @@ put:
                         description: The new access level.
                         enum:
                           $ref: ../components/schemas/rolePermissionAccessLevels.yaml
-                globalSiteAccess: 
+                globalSiteAccess:
                   type: string
                   description: Set the default access level for for groups (sites). Only applies to user roles.
                   enum:
                     - full
                     - read
                     - none
-                sites: 
+                sites:
                   type: array
                   description: Set the access level for the specified groups (sites). Only applies to user roles.
-                  items: 
+                  items:
                     type: object
                     required:
                       - id
@@ -108,17 +111,17 @@ put:
                           - full
                           - read
                           - none
-                globalZoneAccess: 
+                globalZoneAccess:
                   type: string
                   description: Set the default access level for for clouds (zones). Only applies to base account (tenant) roles.
                   enum:
                     - full
                     - read
                     - none
-                zones: 
+                zones:
                   type: array
                   description: Set the access level for the specified clouds (zones). Only applies to base account (tenant) roles.
-                  items: 
+                  items:
                     type: object
                     required:
                       - id
@@ -135,16 +138,16 @@ put:
                           - full
                           - read
                           - none
-                globalInstanceTypeAccess: 
+                globalInstanceTypeAccess:
                   type: string
                   description: Set the default access level for for instance types
                   enum:
                     - full
                     - none
-                instanceTypes: 
+                instanceTypePermissions:
                   type: array
                   description: Set the access level for the specified instance types
-                  items: 
+                  items:
                     type: object
                     required:
                       - id
@@ -158,16 +161,16 @@ put:
                         description: The new access level.
                         enum:
                           $ref: ../components/schemas/rolePermissionAccessLevelsForResource.yaml
-                globalAppTemplateAccess: 
+                globalAppTemplateAccess:
                   type: string
                   description: Set the default access level for blueprints
                   enum:
                     - full
                     - none
-                appTemplates: 
+                appTemplatePermissions:
                   type: array
                   description: Set the access level for the specified blueprints (appTemplates)
-                  items: 
+                  items:
                     type: object
                     required:
                       - id
@@ -181,16 +184,16 @@ put:
                         description: The new access level.
                         enum:
                           $ref: ../components/schemas/rolePermissionAccessLevelsForResource.yaml
-                globalCatalogItemTypeAccess: 
+                globalCatalogItemTypeAccess:
                   type: string
                   description: Set the default access level for catalog item types
                   enum:
                     - full
                     - none
-                catalogItemTypes: 
+                catalogItemTypePermissions:
                   type: array
                   description: Set the access level for the specified catalog item types
-                  items: 
+                  items:
                     type: object
                     required:
                       - id
@@ -210,10 +213,10 @@ put:
                   enum:
                     - full
                     - none
-                personas: 
+                personaPermissions:
                   type: array
                   description: Set the access level for the specified personas
-                  items: 
+                  items:
                     type: object
                     required:
                       - id
@@ -231,16 +234,16 @@ put:
                         description: The new access level.
                         enum:
                           $ref: ../components/schemas/rolePermissionAccessLevelsForResource.yaml
-                globalVdiPoolAccess: 
+                globalVdiPoolAccess:
                   type: string
                   description: Set the default access level for VDI pools
                   enum:
                     - full
                     - none
-                vdiPools: 
+                vdiPoolPermissions:
                   type: array
                   description: Set the access level for the specified VDI pools
-                  items: 
+                  items:
                     type: object
                     required:
                       - id
@@ -254,16 +257,16 @@ put:
                         description: The new access level.
                         enum:
                           $ref: ../components/schemas/rolePermissionAccessLevelsForResource.yaml
-                globalReportTypeAccess: 
+                globalReportTypeAccess:
                   type: string
                   description: Set the default access level for report types
                   enum:
                     - full
                     - none
-                reportTypes: 
+                reportTypePermissions:
                   type: array
                   description: Set the access level for the specified report types
-                  items: 
+                  items:
                     type: object
                     required:
                       - code
@@ -283,7 +286,7 @@ put:
                   enum:
                     - full
                     - none
-                tasks:
+                taskPermissions:
                   type: array
                   description: Set the access level for the specified tasks
                   items:
@@ -306,7 +309,7 @@ put:
                   enum:
                     - full
                     - none
-                taskSets:
+                taskSetPermissions:
                   type: array
                   description: Set the access level for the specified workflows (taskSets)
                   items:
@@ -364,16 +367,12 @@ delete:
               summary: Role is assigned to a user or tenant
               value:
                 success: false
-                msg: >-
-                  Role is already in use. Please remove any occurrences of this
-                  role before attempting to remove.
+                msg: Role is already in use. Please remove any occurrences of this role before attempting to remove.
             roleInUseByIdentitySource:
               summary: Role is assigned to an identity source
               value:
                 success: false
-                msg: >-
-                  Role is assigned as a default account role for a configured
-                  Identity Source.
+                msg: Role is assigned as a default account role for a configured Identity Source.
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

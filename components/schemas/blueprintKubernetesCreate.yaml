@@ -1,35 +1,36 @@
 type: object
-required: 
+required:
   - name
   - type
   - kubernetes
-properties: 
-  name: 
+properties:
+  name:
     type: string
     description: A name for the blueprint
-  image: 
+  image:
     type: string
     description: Path to display image. Defaults to an internal Morpheus image.
-  type: 
+  type:
     type: string
     description: Blueprint Type
     enum:
       - kubernetes
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  kubernetes: 
+  kubernetes:
     type: object
     required:
       - configType
-    properties: 
-      configType: 
+    properties:
+      configType:
         type: string
         description: Configuration Type
-        enum: 
+        enum:
           - yaml
           - spec
           - git

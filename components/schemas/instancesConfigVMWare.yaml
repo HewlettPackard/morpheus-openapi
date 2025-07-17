@@ -1,8 +1,10 @@
+title: VMWare Instance Configuration
 type: object
 properties:
   noAgent:
-    type: boolean
-    nullable: true
+    type:
+      - boolean
+      - 'null'
     description: Skipping Agent installation will result in a lack of logging and guest operating system statistics. Automation scripts may also be adversely affected.
     default: false
   resourcePoolId:
@@ -24,3 +26,8 @@ properties:
   vmwareFolderId:
     type: string
     description: VMWare Folder External ID (as a String) or ID (as an Integer or String)
+  template:
+    description: Image ID. This is the ID of a Virtual Image.
+    type: integer
+    format: int64
+    example: 567

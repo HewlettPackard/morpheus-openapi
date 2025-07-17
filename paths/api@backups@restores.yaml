@@ -102,6 +102,10 @@ post:
                   type: integer
                   format: int64
                   description: Id of instance
+                siteId:
+                  type: integer
+                  format: int64
+                  description: Id of site for restore to new
                 config: 
                   type: object
                   description: Additional config

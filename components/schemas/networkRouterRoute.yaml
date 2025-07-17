@@ -1,51 +1,59 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  code: 
+  code:
+    type:
+      - string
+      - 'null'
+  description:
+    type:
+      - string
+      - 'null'
+  priority:
+    type:
+      - string
+      - 'null'
+  routeType:
     type: string
-    nullable: true
-  description: 
+  source:
     type: string
-    nullable: true
-  priority: 
+  sourceType:
     type: string
-    nullable: true
-  routeType: 
+  destination:
     type: string
-  source: 
+  destinationType:
     type: string
-  sourceType: 
-    type: string
-  destination: 
-    type: string
-  destinationType: 
-    type: string
-  defaultRoute: 
+  defaultRoute:
     type: boolean
-  networkMtu: 
+  networkMtu:
+    type:
+      - string
+      - 'null'
+  externalInterface:
+    type:
+      - string
+      - 'null'
+  internalId:
+    type:
+      - string
+      - 'null'
+  externalId:
     type: string
-    nullable: true
-  externalInterface: 
+  uniqueId:
+    type:
+      - string
+      - 'null'
+  providerId:
     type: string
-    nullable: true
-  internalId: 
-    type: string
-    nullable: true
-  externalId: 
-    type: string
-  uniqueId: 
-    type: string
-    nullable: true
-  providerId: 
-    type: string
-  externalType: 
-    type: string
-    nullable: true
-  enabled: 
+  externalType:
+    type:
+      - string
+      - 'null'
+  enabled:
     type: boolean
-  visible: 
+  visible:
     type: boolean

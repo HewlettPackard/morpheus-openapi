@@ -6,8 +6,9 @@ code:
 name:
   type: string
 description:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 category:
   type: string
 dateCreated:
@@ -23,13 +24,15 @@ status:
 enabled:
   type: boolean
 externalIp:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalId:
   type: string
 providerId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 type:
   type: object
   properties:
@@ -65,8 +68,9 @@ type:
       items:
         type: object
 networkServer:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 zone:
   type: object
   properties:
@@ -78,8 +82,9 @@ zone:
     name:
       type: string
 instance:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalNetwork:
   type: object
   properties:
@@ -91,8 +96,9 @@ externalNetwork:
     name:
       type: string
 site:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 interfaces:
   type: array
   items:
@@ -104,21 +110,25 @@ interfaces:
       name:
         type: string
       code:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       interfaceType:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       networkPosition:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       ipAddress:
         type: string
       cidr:
         type: string
       externalLink:
-        type: string
-        nullable: true
+        type:
+          - string
+          - 'null'
       enabled:
         type: boolean
       network:

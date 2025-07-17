@@ -1,70 +1,76 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
+  description:
+    type:
+      - string
+      - 'null'
   labels:
     type: array
-    items: 
+    items:
       type: string
-  type: 
+  type:
     type: string
-  sourceUrl: 
+  sourceUrl:
     type: string
-  sourceMethod: 
+  sourceMethod:
     type: string
-  apiType: 
-    type: string
-    nullable: true
-  ignoreSSLErrors: 
+  apiType:
+    type:
+      - string
+      - 'null'
+  ignoreSSLErrors:
     type: boolean
-  realTime: 
+  realTime:
     type: boolean
-  visibility: 
+  visibility:
     type: string
-  config: 
+  config:
     type: object
-    properties: 
-      sourceHeaders: 
+    properties:
+      sourceHeaders:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            name: 
+          properties:
+            name:
               type: string
-            value: 
+            value:
               type: string
-            masked: 
+            masked:
               type: string
-  credential: 
+  credential:
     type: object
-    properties: 
-      type: 
+    properties:
+      type:
         type: string
-  serviceUsername: 
+  serviceUsername:
+    type:
+      - string
+      - 'null'
+  servicePassword:
+    type:
+      - string
+      - 'null'
+  initialDataset:
+    type:
+      - string
+      - 'null'
+  translationScript:
     type: string
-    nullable: true
-  servicePassword: 
-    type: string
-    nullable: true
-  initialDataset: 
-    type: string
-    nullable: true
-  translationScript: 
-    type: string
-  requestScript: 
-    type: string
-    nullable: true
-  account: 
+  requestScript:
+    type:
+      - string
+      - 'null'
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string

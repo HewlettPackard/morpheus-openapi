@@ -55,7 +55,7 @@
       "osType": "other",
       "dataDevice": "/dev/sdb",
       "lvmEnabled": false,
-      "apiKey": "507ee0bb-527e-4495-b5be-86703bfe9d6c",
+      "apiKey": "18c3e200-d093-9029-97a3-32bbb8e1d344",
       "softwareRaid": false,
       "dateCreated": "2022-07-14T06:43:08Z",
       "lastUpdated": "2022-09-01T14:49:21Z",
@@ -200,6 +200,13 @@
       "enabled": true,
       "tagCompliant": null,
       "containers": [],
+      "instance": {
+        "id": 2342422,
+        "name": "67105test01",
+        "displayName": "67105test01",
+        "accountId": 3,
+        "accountName": "Morpheus"
+      },
       "guestConsolePreferred": false,
       "guestConsoleType": null,
       "guestConsoleUsername": null,

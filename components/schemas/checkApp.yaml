@@ -1,93 +1,103 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  account: 
+  account:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  active: 
+  active:
     type: boolean
-  app: 
-    type: object
-    nullable: true
-    properties: 
+  app:
+    type:
+      - object
+      - 'null'
+    properties:
       id:
         type: integer
         format: int64
       name:
         type: string
-  name: 
+  name:
     type: string
-  description: 
-    type: string
-    nullable: true
-  inUptime: 
+  description:
+    type:
+      - string
+      - 'null'
+  inUptime:
     type: boolean
-  lastCheckStatus: 
-    type: string
-    nullable: true
-  lastWarningDate: 
-    type: string
+  lastCheckStatus:
+    type:
+      - string
+      - 'null'
+  lastWarningDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastErrorDate: 
-    type: string
+  lastErrorDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastSuccessDate: 
-    type: string
+  lastSuccessDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastRunDate: 
-    type: string
+  lastRunDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  lastError: 
-    type: string
-    nullable: true
-  lastTimer: 
+  lastError:
+    type:
+      - string
+      - 'null'
+  lastTimer:
     type: integer
     format: int64
-  health: 
+  health:
     type: integer
     format: int64
-  history: 
+  history:
+    type:
+      - string
+      - 'null'
+  severity:
     type: string
-    nullable: true
-  severity: 
-    type: string
-  createIncident: 
+  createIncident:
     type: boolean
-  muted: 
+  muted:
     type: boolean
-  createdBy: 
+  createdBy:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      username: 
+      username:
         type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  availability: 
-    type: string
-    nullable: true
-  checks: 
+  availability:
+    type:
+      - string
+      - 'null'
+  checks:
     type: array
-    items: 
+    items:
       type: integer
       format: int64
-  checkGroups: 
+  checkGroups:
     type: array
-    items: 
+    items:
       type: integer
       format: int64

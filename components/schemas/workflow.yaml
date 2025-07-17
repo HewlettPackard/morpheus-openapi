@@ -1,277 +1,323 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  type: 
+  type:
     type: string
-  description: 
-    type: string
-    nullable: true
+  description:
+    type:
+      - string
+      - 'null'
   labels:
-    type: array
-    nullable: true
-    items: 
+    type:
+      - array
+      - 'null'
+    items:
       type: string
-  dateCreated: 
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
-  accountId: 
+  accountId:
     type: integer
     format: int64
-  platform: 
+  platform:
+    type:
+      - string
+      - 'null'
+  visibility:
     type: string
-    nullable: true
-  visibility: 
-    type: string
-  allowCustomConfig: 
+  allowCustomConfig:
     type: boolean
-  tasks: 
+  tasks:
     type: array
-    items: 
+    items:
       type: integer
       format: int64
-  optionTypes: 
-    type: array
-    nullable: true
-    items: 
+  optionTypes:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
-        description: 
+        description:
+          type:
+            - string
+            - 'null'
+        code:
           type: string
-          nullable: true
-        code: 
+        fieldName:
           type: string
-        fieldName: 
+        fieldLabel:
           type: string
-        fieldLabel: 
+        fieldCode:
+          type:
+            - string
+            - 'null'
+        fieldContext:
           type: string
-        fieldCode: 
-          type: string
-          nullable: true
-        fieldContext: 
-          type: string
-        fieldGroup: 
-          type: string
-          nullable: true
-        fieldClass: 
-          type: string
-          nullable: true
-        fieldAddOn: 
-          type: string
-          nullable: true
-        fieldComponent: 
-          type: string
-          nullable: true
-        fieldInput: 
-          type: string
-          nullable: true
-        placeHolder: 
-          type: string
-          nullable: true
-        verifyPattern: 
-          type: string
-          nullable: true
-        helpBlock: 
-          type: string
-          nullable: true
-        helpBlockFieldCode: 
-          type: string
-          nullable: true
-        defaultValue: 
-          type: string
-          nullable: true
-        optionSource: 
-          type: string
-          nullable: true
-        optionSourceType: 
-          type: string
-          nullable: true
-        optionList: 
-          type: object
-          nullable: true
-          properties: 
+        fieldGroup:
+          type:
+            - string
+            - 'null'
+        fieldClass:
+          type:
+            - string
+            - 'null'
+        fieldAddOn:
+          type:
+            - string
+            - 'null'
+        fieldComponent:
+          type:
+            - string
+            - 'null'
+        fieldInput:
+          type:
+            - string
+            - 'null'
+        placeHolder:
+          type:
+            - string
+            - 'null'
+        verifyPattern:
+          type:
+            - string
+            - 'null'
+        helpBlock:
+          type:
+            - string
+            - 'null'
+        helpBlockFieldCode:
+          type:
+            - string
+            - 'null'
+        defaultValue:
+          type:
+            - string
+            - 'null'
+        optionSource:
+          type:
+            - string
+            - 'null'
+        optionSourceType:
+          type:
+            - string
+            - 'null'
+        optionList:
+          type:
+            - object
+            - 'null'
+          properties:
             id:
               type: integer
               format: int64
             name:
               type: string
-        type: 
+        type:
           type: string
-        advanced: 
+        advanced:
           type: boolean
-        required: 
+        required:
           type: boolean
-        exportMeta: 
+        exportMeta:
           type: boolean
-        editable: 
+        editable:
           type: boolean
-        creatable: 
+        creatable:
           type: boolean
-        config: 
+        config:
           type: object
-        displayOrder: 
+        displayOrder:
           type: integer
           format: int64
-        wrapperClass: 
-          type: string
-          nullable: true
-        enabled: 
+        wrapperClass:
+          type:
+            - string
+            - 'null'
+        enabled:
           type: boolean
-        noBlank: 
+        noBlank:
           type: boolean
-        dependsOnCode: 
-          type: string
-          nullable: true
-        visibleOnCode: 
-          type: string
-          nullable: true
-        requireOnCode: 
-          type: string
-          nullable: true
-        contextualDefault: 
+        dependsOnCode:
+          type:
+            - string
+            - 'null'
+        visibleOnCode:
+          type:
+            - string
+            - 'null'
+        requireOnCode:
+          type:
+            - string
+            - 'null'
+        contextualDefault:
           type: boolean
-        displayValueOnDetails: 
-          type: boolean
-          nullable: true
-        showOnCreate: 
-          type: boolean
-          nullable: true
-        showOnEdit: 
-          type: boolean
-          nullable: true
-        localCredential: 
-          type: string
-          nullable: true
-  taskSetTasks: 
+        displayValueOnDetails:
+          type:
+            - boolean
+            - 'null'
+        showOnCreate:
+          type:
+            - boolean
+            - 'null'
+        showOnEdit:
+          type:
+            - boolean
+            - 'null'
+        localCredential:
+          type:
+            - string
+            - 'null'
+  taskSetTasks:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        taskPhase: 
+        taskPhase:
           type: string
-        taskOrder: 
+        taskOrder:
           type: integer
           format: int64
-        task: 
+        task:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int64
-            accountId: 
+            accountId:
               type: integer
               format: int64
-            name: 
+            name:
               type: string
-            code: 
-              type: string
-              nullable: true
-            taskType: 
-              type: object
-              nullable: true
-              properties: 
-                id: 
+            code:
+              type:
+                - string
+                - 'null'
+            taskType:
+              type:
+                - object
+                - 'null'
+              properties:
+                id:
                   type: integer
                   format: int64
-                code: 
+                code:
                   type: string
-                name: 
+                name:
                   type: string
             labels:
-              type: array
-              nullable: true
-              items: 
+              type:
+                - array
+                - 'null'
+              items:
                 type: string
-            taskOptions: 
-              type: object
-              nullable: true
-              properties: 
-                localScriptGitRef: 
-                  type: string
-                  nullable: true
-                username: 
-                  type: string
-                  nullable: true
-                localScriptGitId: 
-                  type: string
-                  nullable: true
-                host: 
-                  type: string
-                  nullable: true
-                sshKey: 
-                  type: string
-                  nullable: true
-                port: 
-                  type: string
-                  nullable: true
-                password: 
-                  type: string
-                  nullable: true
-                passwordHash: 
-                  type: string
-                  nullable: true
-                shell.sudo: 
-                  type: string
-                  nullable: true
-            file: 
-              type: object
-              nullable: true
-              properties: 
-                id: 
+            taskOptions:
+              type:
+                - object
+                - 'null'
+              properties:
+                localScriptGitRef:
+                  type:
+                    - string
+                    - 'null'
+                username:
+                  type:
+                    - string
+                    - 'null'
+                localScriptGitId:
+                  type:
+                    - string
+                    - 'null'
+                host:
+                  type:
+                    - string
+                    - 'null'
+                sshKey:
+                  type:
+                    - string
+                    - 'null'
+                port:
+                  type:
+                    - string
+                    - 'null'
+                password:
+                  type:
+                    - string
+                    - 'null'
+                passwordHash:
+                  type:
+                    - string
+                    - 'null'
+                shell.sudo:
+                  type:
+                    - string
+                    - 'null'
+            file:
+              type:
+                - object
+                - 'null'
+              properties:
+                id:
                   type: integer
                   format: int64
-                sourceType: 
+                sourceType:
                   type: string
-                contentRef: 
-                  type: string
-                  nullable: true
-                contentPath: 
-                  type: string
-                  nullable: true
-                repository: 
-                  type: object
-                  nullable: true
-                  properties: 
+                contentRef:
+                  type:
+                    - string
+                    - 'null'
+                contentPath:
+                  type:
+                    - string
+                    - 'null'
+                repository:
+                  type:
+                    - object
+                    - 'null'
+                  properties:
                     id:
                       type: integer
                       format: int64
                     name:
                       type: string
-                content: 
-                  type: string
-                  nullable: true
-            resultType: 
+                content:
+                  type:
+                    - string
+                    - 'null'
+            resultType:
+              type:
+                - string
+                - 'null'
+            executeTarget:
               type: string
-              nullable: true
-            executeTarget: 
-              type: string
-            retryable: 
+            retryable:
               type: boolean
-            retryCount: 
+            retryCount:
               type: integer
               format: int64
-            retryDelaySeconds: 
+            retryDelaySeconds:
               type: integer
               format: int64
-            allowCustomConfig: 
+            allowCustomConfig:
               type: boolean
-            dateCreated: 
+            dateCreated:
               type: string
               format: date-time
-            lastUpdated: 
+            lastUpdated:
               type: string
               format: date-time

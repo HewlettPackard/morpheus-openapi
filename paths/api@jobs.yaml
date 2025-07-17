@@ -22,16 +22,16 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                jobs:
-                  type: array
-                  items:
-                    anyOf:
-                    - $ref: ../components/schemas/job.yaml
-                    - $ref: ../components/schemas/jobTask.yaml
-                    - $ref: ../components/schemas/jobWorkflow.yaml
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  jobs:
+                    type: array
+                    items:
+                      anyOf:
+                        - $ref: ../components/schemas/job.yaml
+                        - $ref: ../components/schemas/jobTask.yaml
+                        - $ref: ../components/schemas/jobWorkflow.yaml
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Jobs Response:
               value:
@@ -56,230 +56,255 @@ post:
             - job
           properties:
             job:
-              oneOf: 
-              - type: object
-                title: Workflow Job Payload
-                required: [name,workflow,targetType,scheduleMode]
-                properties:
-                  name: 
-                    type: string
-                    description: A name for the Job
-                    example: Sample Job Name
-                  labels:
-                    type: array
-                    description: Array of label strings, can be used for filtering.
-                    nullable: true
-                    items: 
+              oneOf:
+                - type: object
+                  title: Workflow Job Payload
+                  required:
+                    - name
+                    - workflow
+                    - targetType
+                    - scheduleMode
+                  properties:
+                    name:
                       type: string
-                  enabled:
-                    type: boolean
-                    description: Use this to set enabled state
-                    default: true
-                  task:
-                    type: object
-                    nullable: true
-                    properties:
-                      id:
-                        type: integer
-                        format: int64
-                        example: 123
-                  workflow:
-                    type: object
-                    nullable: true
-                    properties:
-                      id:
-                        type: integer
-                        format: int64
-                        example: 123
-                  targetType:
-                    type: string
-                    description: Target type where job will execute
-                    enum:
-                      - appliance
-                      - instance
-                      - instance-label
-                      - server
-                      - server-label
-                  targets:
-                    type: array
-                    nullable: true
-                    items:
-                      type: object
+                      description: A name for the Job
+                      example: Sample Job Name
+                    labels:
+                      type:
+                        - array
+                        - 'null'
+                      description: Array of label strings, can be used for filtering.
+                      items:
+                        type: string
+                    enabled:
+                      type: boolean
+                      description: Use this to set enabled state
+                      default: true
+                    task:
+                      type:
+                        - object
+                        - 'null'
                       properties:
-                        refId:
+                        id:
                           type: integer
                           format: int64
-                  instanceLabel:
-                    type: string
-                    description: Instance Label. Only applicable if `targetType` is `instance-label`.
-                  serverLabel:
-                    type: string
-                    description: Server Label. Only applicable if `targetType` is `server-label`.
-                  scheduleMode:
-                    oneOf:
-                    - type: string
-                      description: Job execution schedule type. Schedule `id`, `manual`, or `dateTime`
-                      enum:
-                        - manual
-                        - dateTime
-                    - type: integer
-                      format: int64
-                      example: 123
-                  customOptions:
-                    type: object
-                    description: Map of options to be used as values in the workflow tasks. These correspond to option types.
-                  customConfig:
-                    type: string
-                    description: Job custom configuration (String in JSON format)
-                  dateTime:
-                    type: string
-                    format: date-time
-                    description: Date and Time to execute the job. Use UTC time in the format 2020-02-15T05:00:00Z. Required when scheduleMode is 'dateTime'.
-                    example: '2020-02-15T05:00:00Z'
-                  run:
-                    type: boolean
-                    description: If true, executes job
-              - type: object
-                title: Task Job Payload
-                required: [name,task,targetType,scheduleMode]
-                properties:
-                  name: 
-                    type: string
-                    description: A name for the Job
-                    example: Sample Job Name
-                  labels:
-                    type: array
-                    description: Array of label strings, can be used for filtering.
-                    nullable: true
-                    items: 
-                      type: string
-                  enabled:
-                    type: boolean
-                    description: Use this to set enabled state
-                    default: true
-                  task:
-                    type: object
-                    nullable: true
-                    properties:
-                      id:
-                        type: integer
-                        format: int64
-                        example: 123
-                  targetType:
-                    type: string
-                    description: Target type where job will execute
-                    enum:
-                      - appliance
-                      - instance
-                      - server
-                  targets:
-                    type: array
-                    nullable: true
-                    items:
-                      type: object
+                          example: 123
+                    workflow:
+                      type:
+                        - object
+                        - 'null'
                       properties:
-                        refId:
+                        id:
                           type: integer
                           format: int64
-                  scheduleMode:
-                    oneOf:
-                    - type: string
-                      description: Job execution schedule type. Schedule `id`, `manual`, or `dateTime`
-                      enum:
-                        - manual
-                        - dateTime
-                    - type: integer
-                      format: int64
-                      example: 123
-                  customOptions:
-                    type: object
-                    description: Map of options to be used as values in the workflow tasks. These correspond to option types.
-                  customConfig:
-                    type: string
-                    description: Job custom configuration (String in JSON format)
-                  dateTime:
-                    type: string
-                    format: date-time
-                    description: Date and Time to execute the job. Use UTC time in the format 2020-02-15T05:00:00Z. Required when scheduleMode is 'dateTime'.
-                    example: '2020-02-15T05:00:00Z'
-                  run:
-                    type: boolean
-                    description: If true, executes job
-              - type: object
-                title: Security Scan Job
-                required: [name,securityPackage,targetType,targets,scheduleMode]
-                properties: 
-                  name: 
-                    type: string
-                    description: A name for the Job
-                    example: Sample Job Name
-                  labels:
-                    type: array
-                    description: Array of label strings, can be used for filtering.
-                    nullable: true
-                    items: 
+                          example: 123
+                    targetType:
                       type: string
-                  enabled:
-                    type: boolean
-                    description: Use this to set enabled state
-                    default: true
-                  securityPackage:
-                    type: object
-                    nullable: true
-                    properties:
-                      id:
-                        type: integer
-                        format: int64
-                        example: 123
-                  scanPath: 
-                    type: string
-                    nullable: true
-                    description: Scan Checklist
-                    example: "/test_CentOS_Linux_7_Benchmark_v3/test_CentOS_Linux_7_Benchmark_v3.1.1-xccdf.xml"
-                  securityProfile: 
-                    type: string
-                    nullable: true
-                    description: Security Profile
-                    example: "xccdf_org.cisecurity.benchmarks_profile_Level_2_-_Server"
-                  targetType:
-                    type: string
-                    description: Target type where job will execute
-                    enum:
-                      - instance
-                      - server
-                  targets:
-                    type: array
-                    nullable: true
-                    items:
+                      description: Target type where job will execute
+                      enum:
+                        - appliance
+                        - instance
+                        - instance-label
+                        - server
+                        - server-label
+                    targets:
+                      type:
+                        - array
+                        - 'null'
+                      items:
+                        type: object
+                        properties:
+                          refId:
+                            type: integer
+                            format: int64
+                    instanceLabel:
+                      type: string
+                      description: Instance Label. Only applicable if `targetType` is `instance-label`.
+                    serverLabel:
+                      type: string
+                      description: Server Label. Only applicable if `targetType` is `server-label`.
+                    scheduleMode:
+                      oneOf:
+                        - type: string
+                          description: Job execution schedule type. Schedule `id`, `manual`, or `dateTime`
+                          enum:
+                            - manual
+                            - dateTime
+                        - type: integer
+                          format: int64
+                          example: 123
+                    customOptions:
                       type: object
+                      description: Map of options to be used as values in the workflow tasks. These correspond to option types.
+                    customConfig:
+                      type: string
+                      description: Job custom configuration (String in JSON format)
+                    dateTime:
+                      type: string
+                      format: date-time
+                      description: Date and Time to execute the job. Use UTC time in the format 2020-02-15T05:00:00Z. Required when scheduleMode is 'dateTime'.
+                      example: "2020-02-15T05:00:00Z"
+                    run:
+                      type: boolean
+                      description: If true, executes job
+                - type: object
+                  title: Task Job Payload
+                  required:
+                    - name
+                    - task
+                    - targetType
+                    - scheduleMode
+                  properties:
+                    name:
+                      type: string
+                      description: A name for the Job
+                      example: Sample Job Name
+                    labels:
+                      type:
+                        - array
+                        - 'null'
+                      description: Array of label strings, can be used for filtering.
+                      items:
+                        type: string
+                    enabled:
+                      type: boolean
+                      description: Use this to set enabled state
+                      default: true
+                    task:
+                      type:
+                        - object
+                        - 'null'
                       properties:
-                        refId:
+                        id:
                           type: integer
                           format: int64
-                  scheduleMode:
-                    oneOf:
-                    - type: string
-                      description: Job execution schedule type. Schedule `id`, `manual`, or `dateTime`
+                          example: 123
+                    targetType:
+                      type: string
+                      description: Target type where job will execute
                       enum:
-                        - manual
-                        - dateTime
-                    - type: integer
-                      format: int64
-                      example: 123
-                  customOptions:
-                    type: object
-                    description: Map of options to be used as values in the workflow tasks. These correspond to option types.
-                  customConfig:
-                    type: string
-                    description: Job custom configuration (String in JSON format)
-                  dateTime:
-                    type: string
-                    format: date-time
-                    description: Date and Time to execute the job. Use UTC time in the format 2020-02-15T05:00:00Z. Required when scheduleMode is 'dateTime'.
-                    example: '2020-02-15T05:00:00Z'
-                  run:
-                    type: boolean
-                    description: If true, executes job
+                        - appliance
+                        - instance
+                        - server
+                    targets:
+                      type:
+                        - array
+                        - 'null'
+                      items:
+                        type: object
+                        properties:
+                          refId:
+                            type: integer
+                            format: int64
+                    scheduleMode:
+                      oneOf:
+                        - type: string
+                          description: Job execution schedule type. Schedule `id`, `manual`, or `dateTime`
+                          enum:
+                            - manual
+                            - dateTime
+                        - type: integer
+                          format: int64
+                          example: 123
+                    customOptions:
+                      type: object
+                      description: Map of options to be used as values in the workflow tasks. These correspond to option types.
+                    customConfig:
+                      type: string
+                      description: Job custom configuration (String in JSON format)
+                    dateTime:
+                      type: string
+                      format: date-time
+                      description: Date and Time to execute the job. Use UTC time in the format 2020-02-15T05:00:00Z. Required when scheduleMode is 'dateTime'.
+                      example: "2020-02-15T05:00:00Z"
+                    run:
+                      type: boolean
+                      description: If true, executes job
+                - type: object
+                  title: Security Scan Job
+                  required:
+                    - name
+                    - securityPackage
+                    - targetType
+                    - targets
+                    - scheduleMode
+                  properties:
+                    name:
+                      type: string
+                      description: A name for the Job
+                      example: Sample Job Name
+                    labels:
+                      type:
+                        - array
+                        - 'null'
+                      description: Array of label strings, can be used for filtering.
+                      items:
+                        type: string
+                    enabled:
+                      type: boolean
+                      description: Use this to set enabled state
+                      default: true
+                    securityPackage:
+                      type:
+                        - object
+                        - 'null'
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                          example: 123
+                    scanPath:
+                      type:
+                        - string
+                        - 'null'
+                      description: Scan Checklist
+                      example: /test_CentOS_Linux_7_Benchmark_v3/test_CentOS_Linux_7_Benchmark_v3.1.1-xccdf.xml
+                    securityProfile:
+                      type:
+                        - string
+                        - 'null'
+                      description: Security Profile
+                      example: xccdf_org.cisecurity.benchmarks_profile_Level_2_-_Server
+                    targetType:
+                      type: string
+                      description: Target type where job will execute
+                      enum:
+                        - instance
+                        - server
+                    targets:
+                      type:
+                        - array
+                        - 'null'
+                      items:
+                        type: object
+                        properties:
+                          refId:
+                            type: integer
+                            format: int64
+                    scheduleMode:
+                      oneOf:
+                        - type: string
+                          description: Job execution schedule type. Schedule `id`, `manual`, or `dateTime`
+                          enum:
+                            - manual
+                            - dateTime
+                        - type: integer
+                          format: int64
+                          example: 123
+                    customOptions:
+                      type: object
+                      description: Map of options to be used as values in the workflow tasks. These correspond to option types.
+                    customConfig:
+                      type: string
+                      description: Job custom configuration (String in JSON format)
+                    dateTime:
+                      type: string
+                      format: date-time
+                      description: Date and Time to execute the job. Use UTC time in the format 2020-02-15T05:00:00Z. Required when scheduleMode is 'dateTime'.
+                      example: "2020-02-15T05:00:00Z"
+                    run:
+                      type: boolean
+                      description: If true, executes job
   responses:
     '200':
       description: Successful Request
@@ -287,19 +312,19 @@ post:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                job:
-                  $ref: ../components/schemas/job.yaml
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  job:
+                    $ref: ../components/schemas/job.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
-            Jobs Response - Generic:
+            "Jobs Response - Generic":
               value:
                 $ref: ../components/examples/jobSuccess.json
-            Jobs Response - Task Type:
+            "Jobs Response - Task Type":
               value:
                 $ref: ../components/examples/jobTaskSuccess.json
-            Jobs Response - Workflow Type:
+            "Jobs Response - Workflow Type":
               value:
                 $ref: ../components/examples/jobWorkflowSuccess.json
     '4XX':

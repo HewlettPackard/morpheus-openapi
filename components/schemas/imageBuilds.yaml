@@ -1,265 +1,273 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  account: 
-    type: object
-    properties: 
-      id: 
-        type: integer
-        format: int64
-      name: 
-        type: string
-  type: 
-    type: object
-    properties: 
-      id: 
-        type: integer
-        format: int64
-      code: 
-        type: string
-      name: 
-        type: string
-  site: 
-    type: object
-    properties: 
-      id: 
-        type: integer
-        format: int64
-      name: 
-        type: string
-  zone: 
-    type: object
-    properties: 
-      id: 
-        type: integer
-        format: int64
-      name: 
-        type: string
-  name: 
-    type: string
-  description: 
-    type: string
-  bootScript: 
-    type: object
-    properties: 
-      id: 
-        type: integer
-        format: int64
-      fileName: 
-        type: string
-  bootCommand: 
-    type: string
-    nullable: true
-  preseedScript: 
-    type: object
-    properties: 
-      id: 
-        type: integer
-        format: int64
-      fileName: 
-        type: string
-  scripts: 
-    type: array
-    items: 
-      type: object
-      properties: 
-        id: 
-          type: integer
-          format: int64
-        name: 
-          type: string
-        type: 
-          type: string
-        phase: 
-          type: string
-  sshUsername: 
-    type: string
-  sshPassword: 
-    type: string
-  storageProvider: 
-    type: string
-    nullable: true
-  buildOutputName: 
-    type: string
-  conversionFormats: 
-    type: string
-    nullable: true
-  isCloudInit: 
-    type: boolean
-  vmToolsInstalled: 
-    type: boolean
-  keepResults: 
-    type: integer
-    format: int64
-  config: 
+  account:
     type: object
     properties:
-      instance: 
-        type: object
-        properties: 
-          layout: 
-            type: object
-            properties: 
-              code: 
-                type: string
-              name: 
-                type: string
-              id: 
-                type: integer
-                format: int64
-          site: 
-            type: object
-            properties: 
-              id: 
-                type: integer
-                format: int64
-          name: 
-            type: string
-          type: 
-            type: string
-      networkInterfaces: 
-        type: array
-        items: 
-          type: object
-          properties: 
-            ipMode: 
-              type: string
-            primaryInterface: 
-              type: boolean
-            showNetworkPoolLabel: 
-              type: boolean
-            showNetworkDhcpLabel: 
-              type: boolean
-            network: 
-              type: object
-              properties: 
-                idName: 
-                  type: string
-                pool: 
-                  type: object
-                  properties: 
-                    name: 
-                      type: string
-                    id: 
-                      type: integer
-                      format: int64
-                id: 
-                  type: string
-                hasPool: 
-                  type: boolean
-            networkInterfaceTypeId: 
-              type: integer
-              format: int64
-            networkInterfaceTypeIdName: 
-              type: string
-      volumes: 
-        type: array
-        items: 
-          type: object
-          properties: 
-            volumeCustomizable: 
-              type: boolean
-            vId: 
-              type: integer
-              format: int64
-            readonlyName: 
-              type: boolean
-            size: 
-              type: integer
-              format: int64
-            maxIOPS: 
-              type: string
-              nullable: true
-            name: 
-              type: string
-            rootVolume: 
-              type: boolean
-            storageType: 
-              type: integer
-              format: int64
-            datastoreId: 
-              type: string
-            maxStorage: 
-              type: integer
-              format: int64
-      storageControllers: 
-        type: array
-        items: 
-          type: object
-      zoneId: 
+      id:
         type: integer
         format: int64
-      config: 
-        type: object
-        properties: 
-          template: 
-            type: integer
-            format: int64
-          resourcePoolId: 
-            type: integer
-            format: int64
-          expose: 
-            type: integer
-            format: int64
-      plan: 
-        type: object
-        properties: 
-          code: 
-            type: string
-          id: 
-            type: integer
-            format: int64
-  lastResult: 
+      name:
+        type: string
+  type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      imageBuild: 
+      code:
+        type: string
+      name:
+        type: string
+  site:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  zone:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  name:
+    type: string
+  description:
+    type: string
+  bootScript:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      fileName:
+        type: string
+  bootCommand:
+    type:
+      - string
+      - 'null'
+  preseedScript:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      fileName:
+        type: string
+  scripts:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        phase:
+          type: string
+  sshUsername:
+    type: string
+  sshPassword:
+    type: string
+  storageProvider:
+    type:
+      - string
+      - 'null'
+  buildOutputName:
+    type: string
+  conversionFormats:
+    type:
+      - string
+      - 'null'
+  isCloudInit:
+    type: boolean
+  vmToolsInstalled:
+    type: boolean
+  keepResults:
+    type: integer
+    format: int64
+  config:
+    type: object
+    properties:
+      instance:
         type: object
-        properties: 
-          id: 
-            type: integer
-            format: int64
-          name: 
+        properties:
+          layout:
+            type: object
+            properties:
+              code:
+                type: string
+              name:
+                type: string
+              id:
+                type: integer
+                format: int64
+          site:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+          name:
             type: string
-      buildNumber: 
-        type: integer
-        format: int64
-      startDate: 
-        type: string
-        format: date-time
-      endDate: 
-        type: string
-        format: date-time
-        nullable: true
-      statusMessage: 
-        type: string
-      statusPercent: 
-        type: integer
-        format: int64
-      statusEta: 
-        type: string
-        nullable: true
-      status: 
-        type: string
-      errorMessage: 
-        type: string
-        nullable: true
-      createdBy: 
-        type: object
-        properties: 
-          username: 
+          type:
             type: string
-      tempInstance: 
-        type: string
-        nullable: true
-      virtualImages: 
+      networkInterfaces:
         type: array
         items:
           type: object
-  executionCount: 
+          properties:
+            ipMode:
+              type: string
+            primaryInterface:
+              type: boolean
+            showNetworkPoolLabel:
+              type: boolean
+            showNetworkDhcpLabel:
+              type: boolean
+            network:
+              type: object
+              properties:
+                idName:
+                  type: string
+                pool:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    id:
+                      type: integer
+                      format: int64
+                id:
+                  type: string
+                hasPool:
+                  type: boolean
+            networkInterfaceTypeId:
+              type: integer
+              format: int64
+            networkInterfaceTypeIdName:
+              type: string
+      volumes:
+        type: array
+        items:
+          type: object
+          properties:
+            volumeCustomizable:
+              type: boolean
+            vId:
+              type: integer
+              format: int64
+            readonlyName:
+              type: boolean
+            size:
+              type: integer
+              format: int64
+            maxIOPS:
+              type:
+                - string
+                - 'null'
+            name:
+              type: string
+            rootVolume:
+              type: boolean
+            storageType:
+              type: integer
+              format: int64
+            datastoreId:
+              type: string
+            maxStorage:
+              type: integer
+              format: int64
+      storageControllers:
+        type: array
+        items:
+          type: object
+      zoneId:
+        type: integer
+        format: int64
+      config:
+        type: object
+        properties:
+          template:
+            type: integer
+            format: int64
+          resourcePoolId:
+            type: integer
+            format: int64
+          expose:
+            type: integer
+            format: int64
+      plan:
+        type: object
+        properties:
+          code:
+            type: string
+          id:
+            type: integer
+            format: int64
+  lastResult:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      imageBuild:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+      buildNumber:
+        type: integer
+        format: int64
+      startDate:
+        type: string
+        format: date-time
+      endDate:
+        type:
+          - string
+          - 'null'
+        format: date-time
+      statusMessage:
+        type: string
+      statusPercent:
+        type: integer
+        format: int64
+      statusEta:
+        type:
+          - string
+          - 'null'
+      status:
+        type: string
+      errorMessage:
+        type:
+          - string
+          - 'null'
+      createdBy:
+        type: object
+        properties:
+          username:
+            type: string
+      tempInstance:
+        type:
+          - string
+          - 'null'
+      virtualImages:
+        type: array
+        items:
+          type: object
+  executionCount:
     type: integer
     format: int64

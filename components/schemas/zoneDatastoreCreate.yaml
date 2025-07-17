@@ -1,5 +1,5 @@
 type: object
-properties: 
+properties:
   name:
     type: string
   datastoreType:
@@ -19,13 +19,13 @@ properties:
     type: boolean
   tenants:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
           format: int64
-        name: 
+        name:
           type: string
         defaultStore:
           type: boolean
@@ -58,16 +58,18 @@ properties:
             type: integer
             format: int64
       sites:
-        type: array
-        nullable: true
+        type:
+          - array
+          - 'null'
         items:
           type: object
       plans:
-        type: array
-        nullable: true
+        type:
+          - array
+          - 'null'
         items:
           type: object
-  datastores: 
+  datastores:
     type: array
     items:
       type: object

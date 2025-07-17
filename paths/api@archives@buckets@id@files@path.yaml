@@ -29,20 +29,21 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                archiveBucket:
-                  $ref: ../components/schemas/archiveBucket.yaml
-                isOwner:
-                  type: boolean
-                parentDirectory:
-                  type: string
-                  nullable: true
-                archiveFiles:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/archiveBucketFile.yaml
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  archiveBucket:
+                    $ref: ../components/schemas/archiveBucket.yaml
+                  isOwner:
+                    type: boolean
+                  parentDirectory:
+                    type:
+                      - string
+                      - 'null'
+                  archiveFiles:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/archiveBucketFile.yaml
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Archive Files Response:
               value:
@@ -51,14 +52,14 @@ get:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
-post: 
+post:
   summary: Upload Archive File
   description: |
     Upload a file to the specified archive bucket and file path.
-
+    
     This will overwrite the file if it already exists.
   operationId: addArchiveFile
-  tags: 
+  tags:
     - Archives
   parameters:
     - $ref: ../components/parameters/bucketName-path.yaml
@@ -66,10 +67,10 @@ post:
     - $ref: ../components/parameters/archiveFilename.yaml
   requestBody:
     content:
-      multipart/form-data: 
-        schema: 
+      multipart/form-data:
+        schema:
           type: object
-          properties: 
+          properties:
             file:
               type: string
               format: binary
@@ -81,7 +82,7 @@ post:
           schema:
             allOf:
               - type: object
-                properties: 
+                properties:
                   archiveFile:
                     $ref: ../components/schemas/archiveBucketFile.yaml
               - $ref: ../components/schemas/200-success.yaml

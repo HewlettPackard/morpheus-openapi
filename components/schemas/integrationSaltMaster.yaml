@@ -1,65 +1,67 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  enabled: 
+  enabled:
     type: boolean
-  type: 
+  type:
     type: string
     enum:
-    - saltMaster
-  integrationType: 
+      - saltMaster
+  integrationType:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      code: 
+      code:
         type: string
-      name: 
+      name:
         type: string
-  url: 
+  url:
     type: string
-  port: 
+  port:
     type: string
-  username: 
+  username:
     type: string
-  password: 
+  password:
     type: string
-  passwordHash: 
+  passwordHash:
     type: string
-  path: 
+  path:
     type: string
-  version: 
+  version:
     type: string
-  windowsVersion: 
+  windowsVersion:
     type: string
-  repoUrl: 
+  repoUrl:
     type: string
-  serviceMode: 
+  serviceMode:
     type: string
-  isPlugin: 
+  isPlugin:
     type: boolean
-  config: 
+  config:
     type: object
-    properties: 
-      saltApplyOnMinion: 
+    properties:
+      saltApplyOnMinion:
         type: boolean
-  status: 
+  status:
     type: string
-  statusDate: 
+  statusDate:
     type: string
     format: date-time
-  statusMessage: 
+  statusMessage:
     type: string
-  lastSync: 
-    type: string
-    nullable: true
-  lastSyncDuration: 
-    type: string
-    nullable: true
-  credential: 
+  lastSync:
+    type:
+      - string
+      - 'null'
+  lastSyncDuration:
+    type:
+      - string
+      - 'null'
+  credential:
     $ref: creds.yaml

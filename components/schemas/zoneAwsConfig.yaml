@@ -1,78 +1,73 @@
 type: object
-properties: 
-  endpoint: 
+properties:
+  endpoint:
     type: string
-  accessKey: 
+  accessKey:
     type: string
-  secretKey: 
+  secretKey:
     type: string
-  useHostCredentials: 
+  useHostCredentials:
     type: string
-  stsAssumeRole: 
+  stsAssumeRole:
     type: string
-  isVpc: 
+  isVpc:
     type: string
-  vpc: 
+  vpc:
     type: string
-  imageStoreId: 
+  imageStoreId:
     type: string
-  ebsEncryption: 
+  ebsEncryption:
     type: string
-  costingReport: 
+  costingReport:
     type: string
-  costingFolder: 
+  costingFolder:
     type: string
-  costingBucket: 
+  costingBucket:
     type: string
   costingBucketName:
     type: string
-  costingRegion: 
+  costingRegion:
     type: string
-  costingAccessKey: 
+  costingAccessKey:
     type: string
-  costingSecretKey: 
-    type: string
-    nullable: true
+  costingSecretKey:
+    type:
+      - string
+      - 'null'
   costingReportName:
     type: string
-  applianceUrl: 
+  applianceUrl:
     type: string
-  datacenterName: 
+  datacenterName:
     type: string
-  networkServer.id: 
+  networkServer.id:
     type: string
-      # oneOf:
-      # - type: string
-      # - type: integer
-      #   format: int64
-  networkServer: 
+  networkServer:
     type: object
-    properties: 
+    properties:
       id:
         type: string
-        # oneOf:
-        # - type: string
-        # - type: integer
-        #   format: int64
-  securityServer: 
+  securityServer:
+    type:
+      - string
+      - 'null'
+  certificateProvider:
     type: string
-    nullable: true
-  certificateProvider: 
+  backupMode:
     type: string
-  backupMode: 
+  replicationMode:
     type: string
-  replicationMode: 
+  dnsIntegrationId:
     type: string
-  dnsIntegrationId: 
+  serviceRegistryId:
     type: string
-  serviceRegistryId: 
+  configManagementId:
     type: string
-  configManagementId: 
-    type: string
-  configCmdbDiscovery: 
+  configCmdbDiscovery:
     type: boolean
-  secretKeyHash: 
+  secretKeyHash:
     type: string
-  costingSecretKeyHash: 
-    type: string
-    nullable: true
+  costingSecretKeyHash:
+    type:
+      - string
+      - 'null'

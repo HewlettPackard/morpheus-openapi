@@ -1,83 +1,94 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
     description: Backup Result ID
-  backupResultId: 
+  backupResultId:
     type: integer
     format: int64
-  backupId: 
+  backupId:
     type: integer
     format: int64
-  backup: 
-    type: object
-    properties: 
-      id: 
+  backup:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Backup ID
-      name: 
+      name:
         type: string
         description: Backup Name
-    nullable: true
-  containerId: 
-    type: integer
+  containerId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  container: 
-    type: object
-    properties: 
-      id: 
+  container:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Container ID
-      name: 
+      name:
         type: string
         description: Container Name
-    nullable: true
-  instance: 
-    type: object
-    properties: 
-      id: 
+  instance:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
         type: integer
         format: int64
         description: Instance ID
-      name: 
+      name:
         type: string
         description: Instance Name
-    nullable: true
-  restoreToNew: 
+  restoreToNew:
     type: boolean
-  status: 
-    type: string
-    nullable: true
-  errorMessage: 
-    type: string
-    nullable: true
-  startDate: 
-    type: string
+  status:
+    type:
+      - string
+      - 'null'
+  errorMessage:
+    type:
+      - string
+      - 'null'
+  startDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  endDate: 
-    type: string
+  endDate:
+    type:
+      - string
+      - 'null'
     format: date-time
-    nullable: true
-  durationMillis: 
-    type: integer
+  durationMillis:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
-  externalId: 
-    type: string
-    nullable: true
-  externalStatusRef: 
-    type: string
-    nullable: true
-  dateCreated: 
+  externalId:
+    type:
+      - string
+      - 'null'
+  externalStatusRef:
+    type:
+      - string
+      - 'null'
+  dateCreated:
     type: string
     format: date-time
     description: Date Created
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
     description: Last Updated

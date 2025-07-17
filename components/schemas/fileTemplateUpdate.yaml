@@ -1,15 +1,16 @@
 type: object
 properties:
-  name: 
+  name:
     type: string
     description: File template name
-  labels: 
-    type: array
+  labels:
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
-    nullable: true
     items:
       type: string
-  fileName: 
+  fileName:
     type: string
     description: Filename for the file template
   filePath:
@@ -18,17 +19,17 @@ properties:
   category:
     type: string
     description: Category
-  templatePhase: 
+  templatePhase:
     type: string
     description: Template Phase, provision, start, etc.
-  template: 
+  template:
     type: string
     description: Template content, that is, the file template content itself.
   fileOwner:
     type: integer
     format: int64
     description: File Owner
-  settingName: 
+  settingName:
     type: string
     description: Setting Name
   settingCategory:

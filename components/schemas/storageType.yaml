@@ -1,21 +1,22 @@
 type: object
 properties:
-  id: 
+  id:
     type: integer
     format: int64
-  code: 
+  code:
     type: string
-  name: 
+  name:
     type: string
-  displayOrder: 
+  displayOrder:
     type: integer
     format: int64
-  defaultType: 
+  defaultType:
     type: boolean
-  customLabel: 
+  customLabel:
     type: boolean
-  customSize: 
+  customSize:
     type: boolean
-  customSizeOptions: 
-    type: string
-    nullable: true
+  customSizeOptions:
+    type:
+      - string
+      - 'null'

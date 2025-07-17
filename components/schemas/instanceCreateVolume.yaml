@@ -21,26 +21,30 @@ properties:
     description: Size of the LV to be created in GBs.  Uses default from service plan.
     example: 5
   sizeId:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Can be used to select pre-existing LV choices from Morpheus.
-    nullable: true
   storageType:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
     description: Identifier for LV type
-    nullable: true
   datastoreId:
     anyOf:
-      - type: string
-        nullable: true
-      - type: integer
+      - type:
+          - string
+          - 'null'
+      - type:
+          - integer
+          - 'null'
         format: int64
-        nullable: true
     description: The ID of the specific datastore. Auto selection can be specified as auto or autoCluster (for clusters).
   controllerMountPoint:
     type: string
-    description: |
+    description: |-
       The controller mount point specification for this volume in the format: `"id:busNumber:typeId:unitNumber"`
       For new storage controllers the id is passed as -1, so an example value would be: `"-1:1:6:0"` which translates to id: -1 (new), busNumber: 1, storage controller type id: 6 (SCSI VMware Paravirtual), unit number: 0.
       The current list of storage controllers is returned for instances and servers for determining existing id values.

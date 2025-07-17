@@ -1,15 +1,16 @@
 description: |
-      Web check type allows you to perform a standard web request and validate the response came back successfully.  Additionally, you can check for matching text within the result.
+  Web check type allows you to perform a standard web request and validate the response came back successfully.  Additionally, you can check for matching text within the result.
 properties:
   name:
     type: string
     description: Unique name scoped to your account for the check
     example: My Check
   description:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Optional description field
     example: This is my awesome check
-    nullable: true
   checkType:
     type: object
     description: Check type you want to create
@@ -42,5 +43,4 @@ properties:
     allOf:
       - $ref: checkWebConfig.yaml
       - anyOf:
-        - $ref: checkSshConfig.yaml
-    
+          - $ref: checkSshConfig.yaml

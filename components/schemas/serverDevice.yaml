@@ -1,83 +1,100 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  refType: 
-    type: string
-    nullable: true
-  refId: 
-    type: integer
+  refType:
+    type:
+      - string
+      - 'null'
+  refId:
+    type:
+      - integer
+      - 'null'
     format: int64
-    nullable: true
     description: (Assignee) Target Server ID
-  status: 
+  status:
     type: string
-  externalId: 
-    type: string
-    nullable: true
-  domainId: 
-    type: integer
+  externalId:
+    type:
+      - string
+      - 'null'
+  domainId:
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
-  bus: 
-    type: integer
+  bus:
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
-  slot: 
-    type: integer
+  slot:
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
-  device: 
-    type: integer
+  device:
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
-  vendorId: 
-    type: string
-    nullable: true
-  productId: 
-    type: string
-    nullable: true
-  functionId: 
-    type: integer
+  vendorId:
+    type:
+      - string
+      - 'null'
+  productId:
+    type:
+      - string
+      - 'null'
+  functionId:
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
-  uniqueId: 
-    type: string
-    nullable: true
-  iommuGroup: 
-    type: integer
+  uniqueId:
+    type:
+      - string
+      - 'null'
+  iommuGroup:
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
-  iommuDeviceCount: 
-    type: integer
+  iommuDeviceCount:
+    type:
+      - integer
+      - 'null'
     format: int32
-    nullable: true
-  type: 
+  type:
     type: object
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-      name: 
+      name:
         type: string
-      family: 
-        type: string
-        nullable: true
-      busType: 
-        type: string
-        nullable: true
-      assignable: 
+      family:
+        type:
+          - string
+          - 'null'
+      busType:
+        type:
+          - string
+          - 'null'
+      assignable:
         type: boolean
-      hotpluggable: 
+      hotpluggable:
         type: boolean
-      vendorId: 
-        type: integer
+      vendorId:
+        type:
+          - integer
+          - 'null'
         format: int32
-        nullable: true
-      productId: 
-        type: integer
+      productId:
+        type:
+          - integer
+          - 'null'
         format: int32
-        nullable: true

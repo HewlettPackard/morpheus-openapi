@@ -1,125 +1,132 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int32
-  name: 
+  name:
     type: string
-  value: 
+  value:
     type: integer
     format: int32
-  code: 
+  code:
     type: string
-  maxStorage: 
+  maxStorage:
     type: integer
     format: int64
-  maxMemory: 
+  maxMemory:
     type: integer
     format: int32
-  maxCpu: 
+  maxCpu:
     type: integer
     format: int32
-  maxCores: 
+  maxCores:
     type: integer
     format: int32
-  customCpu: 
+  customCpu:
     type: boolean
-  customMaxMemory: 
+  customMaxMemory:
     type: boolean
-  customMaxStorage: 
+  customMaxStorage:
     type: boolean
-  customMaxDataStorage: 
+  customMaxDataStorage:
     type: boolean
-  customCoresPerSocket: 
+  customCoresPerSocket:
     type: boolean
-  coresPerSocket: 
+  coresPerSocket:
     type: integer
     format: int32
-  storageTypes: 
+  storageTypes:
     type: array
-    items: 
+    items:
       $ref: instanceServicePlanStorageType.yaml
-  rootStorageTypes: 
+  rootStorageTypes:
     type: array
-    items: 
+    items:
       $ref: instanceServicePlanStorageType.yaml
-  addVolumes: 
+  addVolumes:
     type: boolean
-  customizeVolume: 
+  customizeVolume:
     type: boolean
-  rootDiskCustomizable: 
+  rootDiskCustomizable:
     type: boolean
-  noDisks: 
+  noDisks:
     type: boolean
-  hasDatastore: 
+  hasDatastore:
     type: boolean
-  minDisk: 
+  minDisk:
     type: integer
     format: int32
-  maxDisk: 
-    type: string
-    nullable: true
-  lvmSupported: 
+  maxDisk:
+    type:
+      - string
+      - 'null'
+  lvmSupported:
     type: boolean
-  datastores: 
+  datastores:
     type: object
-    properties: 
-      cluster: 
+    properties:
+      cluster:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int32
-            name: 
+            name:
               type: string
-      store: 
+      store:
         type: array
-        items: 
+        items:
           type: object
-          properties: 
-            id: 
+          properties:
+            id:
               type: integer
               format: int32
-            name: 
+            name:
               type: string
-  supportsAutoDatastore: 
+  supportsAutoDatastore:
     type: boolean
-  autoOptions: 
+  autoOptions:
     type: array
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: string
-        name: 
+        name:
           type: string
-  cpuOptions: 
-    type: array
-    nullable: true
-    items: 
+  cpuOptions:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-  coreOptions: 
-    type: array
-    nullable: true
-    items: 
+  coreOptions:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-  memoryOptions: 
-    type: array
-    nullable: true
-    items: 
+  memoryOptions:
+    type:
+      - array
+      - 'null'
+    items:
       type: object
-  rootCustomSizeOptions: 
-    type: object
-    nullable: true  
-  customSizeOptions: 
-    type: object
-    nullable: true  
-  customCores: 
+  rootCustomSizeOptions:
+    type:
+      - object
+      - 'null'
+  customSizeOptions:
+    type:
+      - object
+      - 'null'
+  customCores:
     type: boolean
-  maxDisks: 
-    type: string
-    nullable: true
-  memorySizeType: 
+  maxDisks:
+    type:
+      - string
+      - 'null'
+  memorySizeType:
     type: string

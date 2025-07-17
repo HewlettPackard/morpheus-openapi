@@ -2,36 +2,37 @@ type: object
 required:
   - containerName
 properties:
-  containerName: 
+  containerName:
     type: string
-  externalId: 
+  externalId:
+    type:
+      - string
+      - 'null'
+  checkUser:
     type: string
-    nullable: true
-  checkUser: 
+  textCheckOn:
     type: string
-  textCheckOn: 
+  checkPassword:
     type: string
-  checkPassword: 
+  webTextMatch:
     type: string
-  webTextMatch: 
+  checkPasswordHash:
     type: string
-  checkPasswordHash: 
-    type: string
-  tunnelOn: 
+  tunnelOn:
     type: string
     description: Set to on to turn on tunneling
     enum:
-      - on
-      - off
-    default: off
-  sshHost: 
+      - "on"
+      - "off"
+    default: "off"
+  sshHost:
     type: string
     description: Hostname or IP address of the proxy host
-  sshPort: 
+  sshPort:
     type: integer
     format: int64
     description: Port for SSH on the proxy host, defaults to 22
-  sshUser: 
+  sshUser:
     type: string
     description: SSH user on the proxy host to login as
   sshPassword:

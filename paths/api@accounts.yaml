@@ -19,13 +19,13 @@ get:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                accounts:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/tenant.yaml
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  accounts:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/tenant.yaml
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Tenants Response:
               value:
@@ -36,9 +36,7 @@ get:
       $ref: ../components/responses/5xx.yaml
 post:
   summary: Create a Tenant
-  description: >-
-    Create a new tenant. This new account will be a sub-tenant with the master
-    tenant as its parent.
+  description: Create a new tenant. This new account will be a sub-tenant with the master tenant as its parent.
   operationId: addTenant
   tags:
     - Tenants
@@ -61,26 +59,24 @@ post:
                   description: Name
                   example: Test Tenant
                 description:
-                  type: string
-                  nullable: true
+                  type:
+                    - string
+                    - 'null'
                   description: Description
                   example: Testing Tenant Creation
                 role:
                   type: object
-                  description: >-
-                    Tenant Base Role. This restricts the access available to
-                    this tenant's roles and users.
+                  description: Tenant Base Role. This restricts the access available to this tenant's roles and users.
                   properties:
                     id:
                       type: integer
                       format: int64
                       example: 3
                 subdomain:
-                  type: string
-                  nullable: true
-                  description: >-
-                    The subdomain. This will be part of the login URL and
-                    username for sub tenant users.
+                  type:
+                    - string
+                    - 'null'
+                  description: The subdomain. This will be part of the login URL and username for sub tenant users.
                   example: tt
                 currency:
                   $ref: ../components/schemas/CurrencyCode.yaml
@@ -91,11 +87,11 @@ post:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                account:
-                  $ref: ../components/schemas/tenant.yaml
-            - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  account:
+                    $ref: ../components/schemas/tenant.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Tenant Response:
               value:

@@ -9,20 +9,25 @@ ipType:
 ipAddress:
   type: string
 gatewayAddress:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 subnetMask:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 dnsServer:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 interfaceName:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 description:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 active:
   type: boolean
 staticIp:
@@ -30,19 +35,23 @@ staticIp:
 fqdn:
   type: string
 domainName:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 hostname:
   type: string
 internalId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 externalId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 ptrId:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 dateCreated:
   type: string
   format: date-time
@@ -56,19 +65,23 @@ endDate:
   type: string
   format: date-time
 refType:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 refId:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
 subRefId:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
-  nullable: true
 networkDomain:
-  type: string
-  nullable: true
+  type:
+    - string
+    - 'null'
 createdBy:
   type: object
   properties:

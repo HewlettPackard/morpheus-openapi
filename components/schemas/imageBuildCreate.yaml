@@ -1,76 +1,79 @@
 type: object
 properties:
-  name: 
+  name:
     type: string
     description: A name for the image build
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
     description: A description for the image build
-    nullable: true
-  type: 
+  type:
     type: string
     description: The image builder type.
     enum:
       - vmware
-  site: 
+  site:
     type: object
     description: Group
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  zone: 
+  zone:
     type: object
     description: Cloud
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  config: 
+  config:
     type: object
     description: A map of config values. This is the instance config that is used for provisioning. See Provisioning Types.
-  bootScript: 
+  bootScript:
     type: object
     description: Boot Script
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  preseedScript: 
+  preseedScript:
     type: object
     description: Preseed Script
-    properties: 
-      id: 
+    properties:
+      id:
         type: integer
         format: int64
-  sshUsername: 
+  sshUsername:
     type: string
     description: SSH Username
-  sshPassword: 
+  sshPassword:
     type: string
     description: SSH Password
-  storageProvider: 
-    type: string
+  storageProvider:
+    type:
+      - string
+      - 'null'
     description: Storage Provider
-    nullable: true
-  isCloudInit: 
+  isCloudInit:
     type: string
     description: Cloud Init
-  buildOutputName: 
-    type: string
+  buildOutputName:
+    type:
+      - string
+      - 'null'
     description: Build Output Name
-    nullable: true
-  conversionFormats: 
+  conversionFormats:
     description: Conversion Formats
-    anyOf:
-    - type: "null"
-    - type: string
-      enum:
-        - ovf
-        - qcow2
-        - vhd
-  keepResults: 
+    oneOf:
+      - type: string
+        enum:
+          - ovf
+          - qcow2
+          - vhd
+      - type: 'null'
+  keepResults:
     type: integer
     format: int64
-    description: Keep Results - Keep only the most recent builds. Older executions will be deleted along with their associated Virtual Images. The value 0 disables this functionality.
+    description: "Keep Results - Keep only the most recent builds. Older executions will be deleted along with their associated Virtual Images. The value 0 disables this functionality."
     default: 0
