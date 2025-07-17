@@ -305,3 +305,22 @@ properties:
           format: int64
         name:
           type: string
+  resourcePermission:
+    type:
+      - object
+      - 'null'
+    properties:
+      all:
+        type: boolean
+      sites:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type:
+                - string
+                - 'null'
