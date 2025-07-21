@@ -162,7 +162,9 @@ properties:
       - 'null'
     description: Secondary DNS Server
   cidr:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Network CIDR
   gatewayIPv6:
     type:
