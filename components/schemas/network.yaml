@@ -5,9 +5,7 @@ properties:
     format: int64
     description: Network ID
   name:
-    type:
-      - string
-      - 'null'
+    type: string
     description: Name
   displayName:
     type:
