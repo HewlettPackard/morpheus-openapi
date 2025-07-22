@@ -109,17 +109,13 @@ properties:
       - string
       - 'null'
   externalType:
-    type:
-      - string
-      - 'null'
+    type: string
   refUrl:
     type:
       - string
       - 'null'
   refType:
-    type:
-      - string
-      - 'null'
+    type: string
   refId:
     type: integer
     format: int64
