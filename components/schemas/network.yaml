@@ -73,13 +73,9 @@ properties:
       - 'null'
     description: Network Code
   ipv4Enabled:
-    type:
-      - boolean
-      - 'null'
+    type: boolean
   ipv6Enabled:
-    type:
-      - boolean
-      - 'null'
+    type: boolean
   category:
     type:
       - string
@@ -265,9 +261,7 @@ properties:
       - string
       - 'null'
   visibility:
-    type:
-      - string
-      - 'null'
+    type: string
   enableAdmin:
     type: boolean
   active:
