@@ -224,10 +224,32 @@ properties:
     type:
       - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Pool ID
+      name:
+        type: string
+        description: Pool Name
+      dhcpServer:
+        type: boolean
+        description: DHCP Server enabled
   poolIPv6:
     type:
       - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: IPv6 Pool ID
+      name:
+        type: string
+        description: IPv6 Pool Name
+      dhcpServer:
+        type: boolean
+        description: IPv6 DHCP Server enabled
   networkProxy:
     type:
       - object
