@@ -222,7 +222,8 @@ properties:
           - array
           - 'null'
         items:
-          type: object
+          type: integer
+          format: int64
       createBackup:
         type: boolean
       backup:
@@ -348,9 +349,14 @@ properties:
       type: object
       properties:
         id:
-          type:
-            - string
-            - 'null'
+          oneOf:
+            - type:
+                - integer
+                - 'null'
+              format: int64
+            - type:
+                - string
+                - 'null'
         network:
           type: object
           properties:
@@ -632,3 +638,377 @@ properties:
       - 'null'
     items:
       type: object
+  containerDetails:
+    type:
+      - array
+      - 'null'
+    items:
+      additionalProperties: true
+      properties:
+        id:
+          type: integer
+          format: int64
+        uuid:
+          type: string
+        name:
+          type: string
+        ip:
+          type: string
+        internalIp:
+          type: string
+        internalHostname:
+          type: string
+        externalHostname:
+          type: string
+        externalDomain:
+          type: string
+        externalFqdn:
+          type: string
+        accountId:
+          type: integer
+          format: int64
+        instance:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+        containerType:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+            name:
+              type: string
+        containerTypeSet:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+        server:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            uuid:
+              type: string
+            externalId:
+              type:
+                - string
+                - 'null'
+            internalId:
+              type:
+                - string
+                - 'null'
+            hostName:
+              type: string
+            accountId:
+              type: integer
+              format: int64
+            account:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                name:
+                  type: string
+            owner:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                username:
+                  type: string
+            zone:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                name:
+                  type: string
+            plan:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                code:
+                  type: string
+                name:
+                  type: string
+            computeServerType:
+              additionalProperties: true
+              properties:
+                id:
+                  type:
+                    - integer
+                    - 'null'
+                  format: int64
+                code:
+                  type:
+                    - string
+                    - 'null'
+                name:
+                  type:
+                    - string
+                    - 'null'
+                managed:
+                  type:
+                    - boolean
+                    - 'null'
+                externalDelete:
+                  type:
+                    - boolean
+                    - 'null'
+                format:
+                  type:
+                    - string
+                    - 'null'
+            visibility:
+              type: string
+            description:
+              type:
+                - string
+                - 'null'
+            zoneId:
+              type: integer
+              format: int64
+            siteId:
+              type: integer
+              format: int64
+            resourcePoolId:
+              type: integer
+              format: int64
+            sshHost:
+              type:
+                - string
+                - 'null'
+            sshPort:
+              type: integer
+            externalIp:
+              type:
+                - string
+                - 'null'
+            internalIp:
+              type:
+                - string
+                - 'null'
+            platform:
+              type: string
+            status:
+              type: string
+            statusMessage:
+              type:
+                - string
+                - 'null'
+            errorMessage:
+              type:
+                - string
+                - 'null'
+            statusDate:
+              type: string
+              format: date-time
+            statusPercent:
+              type:
+                - integer
+                - 'null'
+            statusEta:
+              type:
+                - integer
+                - 'null'
+              format: int64
+            powerState:
+              anyOf:
+                - type: boolean
+                - type: string
+            agentInstalled:
+              type: boolean
+            lastAgentUpdate:
+              type:
+                - string
+                - 'null'
+              format: date-time
+            maxCores:
+              type: integer
+            maxMemory:
+              type: integer
+              format: int64
+            maxStorage:
+              type: integer
+              format: int64
+            sourceImage:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                code:
+                  type: string
+                name:
+                  type: string
+            serverOs:
+              additionalProperties: true
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                code:
+                  type: string
+                name:
+                  type: string
+                description:
+                  type:
+                    - string
+                    - 'null'
+                vendor:
+                  type: string
+                category:
+                  type: string
+                osFamily:
+                  type: string
+                osVersion:
+                  type: string
+                bitCount:
+                  type: integer
+                platform:
+                  type: string
+            volumes:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                  name:
+                    type: string
+                  controllerId:
+                    type:
+                      - integer
+                      - 'null'
+                    format: int64
+                  controllerMountPoint:
+                    type:
+                      - string
+                      - 'null'
+                  resizeable:
+                    type: boolean
+                  unitNumber:
+                    type:
+                      - string
+                      - 'null'
+                  typeId:
+                    type: integer
+                    format: int64
+                  configurableIOPS:
+                    type: boolean
+                  datastoreId:
+                    type:
+                      - integer
+                      - 'null'
+                    format: int64
+                  maxStorage:
+                    type: integer
+                    format: int64
+                  maxIOPS:
+                    type:
+                      - string
+                      - 'null'
+                  uuid:
+                    type: string
+                  uniqueId:
+                    type: string
+                  externalId:
+                    type:
+                      - string
+                      - 'null'
+                  internalId:
+                    type:
+                      - string
+                      - 'null'
+        cloud:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+        ports:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              external:
+                type: integer
+                format: int64
+              internal:
+                type: integer
+                format: int64
+              displayName:
+                type: string
+              primaryPort:
+                type: boolean
+              export:
+                type: boolean
+              visible:
+                type: boolean
+              exportName:
+                type: string
+              loadBalanceProtocol:
+                type:
+                  - string
+                  - 'null'
+              loadBalance:
+                type: boolean
+              protocol:
+                type:
+                  - string
+                  - 'null'
+              link:
+                type: boolean
+              externalIp:
+                type:
+                  - string
+                  - 'null'
+              internalIp:
+                type:
+                  - string
+                  - 'null'
+        plan:
+          additionalProperties: true
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+            name:
+              type: string
+        dateCreated:
+          type: string
+          format: date-time
+        lastUpdated:
+          type: string
+          format: date-time
+        hostname:
+          type: string
+        volumeCreated:
+          type: boolean
+        containerCreated:
+          type: boolean
