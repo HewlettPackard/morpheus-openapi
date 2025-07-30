@@ -1216,6 +1216,8 @@ paths:
     $ref: paths/api@virtual-images@id@locations@id.yaml
   /api/virtual-images/{virtualImageId}/upload:
     $ref: paths/api@virtual-images@id@upload.yaml
+  /api/virtual-images/{virtualImageId}/download:
+    $ref: paths/api@virtual-images@id@download.yaml
   /api/whitelabel-settings:
     $ref: paths/api@whitelabel-settings.yaml
   /api/whitelabel-settings/images:
