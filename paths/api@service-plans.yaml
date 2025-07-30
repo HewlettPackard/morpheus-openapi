@@ -59,6 +59,7 @@ post:
                 - code
                 - maxStorage
                 - maxMemory
+                - maxCores
                 - provisionType
               properties:
                 name: 
