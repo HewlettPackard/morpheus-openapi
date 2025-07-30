@@ -72,10 +72,6 @@ properties:
   lastUpdated:
     type: string
     format: date-time
-  regionCode:
-    type:
-      - string
-      - 'null'
   visibility:
     type: string
   editable:
