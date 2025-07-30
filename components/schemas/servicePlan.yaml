@@ -9,6 +9,10 @@ properties:
     type: string
   active:
     type: boolean
+  regionCode:
+    type:
+      - string
+      - 'null'
   sortOrder:
     type: integer
     format: int64
@@ -22,6 +26,8 @@ properties:
     type:
       - number
       - 'null'
+  maxGpus:
+    type: number
   maxCores:
     type:
       - number
@@ -130,51 +136,51 @@ properties:
         properties:
           minStorage:
             type:
-              - string
+              - integer
               - 'null'
           maxStorage:
             type:
-              - string
+              - integer
               - 'null'
           minPerDiskSize:
             type:
-              - string
+              - integer
               - 'null'
           maxPerDiskSize:
             type:
-              - string
+              - integer
               - 'null'
           minMemory:
             type:
-              - number
+              - integer
               - 'null'
           maxMemory:
             type:
-              - number
+              - integer
               - 'null'
           minCores:
             type:
-              - string
+              - integer
               - 'null'
           maxCores:
             type:
-              - string
+              - integer
               - 'null'
           minSockets:
             type:
-              - string
+              - integer
               - 'null'
           maxSockets:
             type:
-              - string
+              - integer
               - 'null'
           minCoresPerSocket:
             type:
-              - string
+              - integer
               - 'null'
           maxCoresPerSocket:
             type:
-              - string
+              - integer
               - 'null'
   zones:
     type: array

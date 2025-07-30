@@ -12,6 +12,10 @@ properties:
   sortOrder:
     type: integer
     format: int64
+  regionCode:
+    type: 
+      - string
+      - 'null'
   description:
     type: string
   maxStorage:
@@ -22,6 +26,10 @@ properties:
     type:
       - number
       - 'null'
+  maxGpus:
+    type:
+      - number
+      - null
   maxCores:
     type:
       - number
@@ -130,19 +138,19 @@ properties:
         properties:
           minStorage:
             type:
-              - string
+              - number
               - 'null'
           maxStorage:
             type:
-              - string
+              - number
               - 'null'
           minPerDiskSize:
             type:
-              - string
+              - number
               - 'null'
           maxPerDiskSize:
             type:
-              - string
+              - number
               - 'null'
           minMemory:
             type:
@@ -154,27 +162,27 @@ properties:
               - 'null'
           minCores:
             type:
-              - string
+              - number
               - 'null'
           maxCores:
             type:
-              - string
+              - number
               - 'null'
           minSockets:
             type:
-              - string
+              - number
               - 'null'
           maxSockets:
             type:
-              - string
+              - number
               - 'null'
           minCoresPerSocket:
             type:
-              - string
+              - number
               - 'null'
           maxCoresPerSocket:
             type:
-              - string
+              - number
               - 'null'
   zones:
     type: array
