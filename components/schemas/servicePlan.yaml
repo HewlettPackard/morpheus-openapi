@@ -9,35 +9,40 @@ properties:
     type: string
   active:
     type: boolean
-  regionCode:
-    type:
-      - string
-      - 'null'
   sortOrder:
     type: integer
     format: int64
   description:
     type: string
   maxStorage:
-    type: number
+    type: integer
+    format: int64
   maxMemory:
-    type: number
+    type: integer
+    format: int64
   maxCpu:
     type:
-      - number
+      - integer
       - 'null'
+    format: int64
   maxGpus:
-    type: number
+    type:
+      - integer
+      - 'null'
+    format: int64
   maxCores:
     type:
-      - number
+      - integer
       - 'null'
+    format: int64
   maxDisks:
     type:
-      - number
+      - integer
       - 'null'
+    format: int64
   coresPerSocket:
-    type: number
+    type: integer
+    format: int64
   customCpu:
     type: boolean
   customCores:
@@ -72,6 +77,10 @@ properties:
   lastUpdated:
     type: string
     format: date-time
+  regionCode:
+    type:
+      - string
+      - 'null'
   visibility:
     type: string
   editable:
@@ -134,50 +143,62 @@ properties:
             type:
               - integer
               - 'null'
+            format: int64
           maxStorage:
             type:
               - integer
               - 'null'
+            format: int64
           minPerDiskSize:
             type:
               - integer
               - 'null'
+            format: int64
           maxPerDiskSize:
             type:
               - integer
               - 'null'
+            format: int64
           minMemory:
             type:
               - integer
               - 'null'
+            format: int64
           maxMemory:
             type:
               - integer
               - 'null'
+            format: int64
           minCores:
             type:
               - integer
               - 'null'
+            format: int64
           maxCores:
             type:
               - integer
               - 'null'
+            format: int64
           minSockets:
             type:
               - integer
               - 'null'
+            format: int64
           maxSockets:
             type:
               - integer
               - 'null'
+            format: int64
           minCoresPerSocket:
             type:
               - integer
               - 'null'
+            format: int64
           maxCoresPerSocket:
             type:
               - integer
               - 'null'
+            format: int64
   zones:
     type: array
     items:

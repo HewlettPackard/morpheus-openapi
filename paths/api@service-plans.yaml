@@ -78,19 +78,24 @@ post:
                   description: Can be used to enable / disable the editability of the service plan.
                   default: true
                 maxStorage:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max storage size in bytes
                 maxMemory:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max memory size in bytes
                 maxCores:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max cores
                 maxGpus:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max Gpus
                 maxDisks:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max disks allowed
                 provisionType:
                   type: object
@@ -122,7 +127,8 @@ post:
                   description: Can be used to enable / disable ability to add volumes
                   default: false
                 sortOrder:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Sort order
                 priceSets:
                   type: array
@@ -156,15 +162,19 @@ post:
                       properties: 
                         minStorage: 
                           type: integer
+                          format: int64
                           description: Custom min storage in GB
                         maxStorage: 
                           type: integer
+                          format: int64
                           description: Custom max storage in GB
                         minPerDiskSize:
                           type: integer
+                          format: int64
                           description: Custom min per disk size in GB
                         maxPerDiskSize:
                           type: integer
+                          format: int64
                           description: Custom max per disk size in GB
                         minMemory: 
                           type: integer
@@ -176,21 +186,27 @@ post:
                           description: Custom max memory in bytes
                         minCores: 
                           type: integer
+                          format: int64
                           description: Custom min cores
                         maxCores: 
                           type: integer
+                          format: int64
                           description: Custom max cores
                         minSockets: 
                           type: integer
+                          format: int64
                           description: Custom min sockets
                         maxSockets:
                           type: integer
+                          format: int64
                           description: Custom max sockets
                         minCoresPerSocket:
                           type: integer
+                          format: int64
                           description: Custom min cores allowed per socket
                         maxCoresPerSocket:
                           type: integer
+                          format: int64
                           description: Custom max cores allowed per socket
   responses:
     '200':
