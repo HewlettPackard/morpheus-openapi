@@ -205,8 +205,6 @@ post:
                   type: integer
                   format: int64
                   description: The ID of the Service Plan created
-                servicePlan:
-                  $ref: ../components/schemas/servicePlan.yaml
             - $ref: ../components/schemas/200-success.yaml
           examples:
             Service Plan Response:
