@@ -52,12 +52,12 @@ properties:
     type: array
     items:
       type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-      name:
-        type: string
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
   dateCreated:
     type: string
     format: date-time
