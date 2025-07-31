@@ -88,11 +88,11 @@ post:
                 maxCores:
                   type: integer
                   format: int64
-                  description: Max number of total cores
+                  description: Max number of cores
                 maxCpu:
                   type: integer
                   format: int64
-                  description: Max CPU's 
+                  description: Max number of CPUs 
                 coresPerSocket:
                   type: integer
                   format: int64
@@ -100,7 +100,7 @@ post:
                 maxGpus:
                   type: integer
                   format: int64
-                  description: Max Gpus
+                  description: Max number of GPUs
                 maxDisks:
                   type: integer
                   format: int64
