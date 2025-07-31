@@ -41,7 +41,9 @@ properties:
       - 'null'
     format: int64
   coresPerSocket:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
   customCpu:
     type: boolean
