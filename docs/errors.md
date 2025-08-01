@@ -55,7 +55,7 @@ The Morpheus API uses the following error codes:
     "7-1": "I'm a teapot.",
     "8-1": "Too Many Requests -- You're asking too much of the server. Slow down!",
     "9-1": "Internal Server Error -- We had a problem with our server. Try again later.",
-    "10-1": "Service Unavailable -- Sorry, We're temporarially offline for maintanance. Please try again later."
+    "10-1": "Service Unavailable -- We're temporarially offline for maintanance. Please try again later."
   },
   "cols": 2,
   "rows": 11
