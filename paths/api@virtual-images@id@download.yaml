@@ -1,0 +1,15 @@
+get:
+  summary: Download Virtual Image
+  description: This will download the virtual image a zip file containing all of its files.
+  operationId: downloadVirtualImage
+  tags:
+    - Library
+  parameters:
+    - $ref: ../components/parameters/virtualImageId-path.yaml
+  responses:
+    '200':
+      description: Returns a .zip file containing all of its files as an attachment.
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

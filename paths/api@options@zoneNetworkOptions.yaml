@@ -18,7 +18,7 @@ get:
               - type: object
                 properties:
                   data:
-                    type: object
+                    type: array
                     items:
                       $ref: ../components/schemas/zoneNetworkOptions.yaml
               - $ref: ../components/schemas/200-success.yaml
