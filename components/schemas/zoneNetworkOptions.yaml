@@ -15,7 +15,7 @@ properties:
         allowStaticOverride:
           type: boolean
         pool:
-          type:
+          oneOf:
             - type: object
               properties:
                 id:
@@ -23,7 +23,7 @@ properties:
                   format: int64
                 name:
                   type: string
-            - 'null'
+            - type: 'null'
   networkGroups:
     type: array
     items:
