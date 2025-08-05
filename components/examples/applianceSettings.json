@@ -180,6 +180,8 @@
               "name": "vCloud Director"
           }
       ],
-      "statsRetainmentPeriod": 30
+      "statsRetainmentPeriod": 30,
+      "latestLinuxAgentVersion": "2.9.7",
+      "latestWindowsAgentVersion": "6.0.0"
   }
 }
