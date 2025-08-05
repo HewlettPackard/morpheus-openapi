@@ -12,11 +12,20 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            type: object
+            properties:
+              success: 
+                type: boolean
+              processIds: 
+                type: array
+                description: Process ID(s) to track execution results with, use `/api/processes/$processId`.
+                items: 
+                  type: integer
+                  format: int64
           examples:
             Response:
               value:
-                $ref: ../components/examples/success.json 
+                $ref: ../components/examples/upgradeAgentSuccess.json 
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
