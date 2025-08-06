@@ -67,7 +67,8 @@
         "noProxy": null,
         "applianceUrlProxyBypass": true,
         "zonePool": {
-            "id": 3772
+            "id": 3772,
+            "name": "Google Labs Project Pool"
         },
         "allowStaticOverride": true,
         "subnets": [],
