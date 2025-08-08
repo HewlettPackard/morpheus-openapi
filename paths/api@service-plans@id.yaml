@@ -82,27 +82,21 @@ put:
                 customCpu:
                   type: boolean
                   description: Can be used to enable / disable customizable cpu
-                  default: false
                 customCores:
                   type: boolean
                   description: Can be used to enable / disable customizable cores
-                  default: false
                 customMaxStorage:
                   type: boolean
                   description: Can be used to enable / disable customizable storage
-                  default: false
                 customMaxDataStorage:
                   type: boolean
                   description: Can be used to enable / disable customizable extra volumes.
-                  default: false
                 customMaxMemory:
                   type: boolean
                   description: Can be used to enable / disable customizable memory.
-                  default: false
                 addVolumes:
                   type: boolean
                   description: Can be used to enable / disable ability to add volumes
-                  default: false
                 sortOrder:
                   type: number
                   description: Sort order
