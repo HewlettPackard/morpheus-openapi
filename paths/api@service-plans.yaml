@@ -114,6 +114,10 @@ post:
                       type: integer
                       format: int64
                       description: Provision type ID
+                customCpu:
+                  type: boolean
+                  description: Can be used to enable / disable customizable cpu
+                  default: false
                 customCores:
                   type: boolean
                   description: Can be used to enable / disable customizable cores
