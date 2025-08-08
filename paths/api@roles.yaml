@@ -130,7 +130,6 @@ post:
                   type: string
                   description: Set the default access level for for groups (sites). Only applies to user roles.
                   enum:
-                    - default
                     - full
                     - read
                     - none
@@ -159,7 +158,6 @@ post:
                   type: string
                   description: Set the default access level for for clouds (zones). Only applies to base account (tenant) roles.
                   enum:
-                    - default
                     - full
                     - read
                     - none
