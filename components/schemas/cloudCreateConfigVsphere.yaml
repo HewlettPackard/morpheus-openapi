@@ -1,0 +1,93 @@
+description: VSphere Cloud
+type: object
+required:
+  - apiUrl
+  - apiVersion
+  - datacenter
+properties:
+  apiUrl:
+    type: string
+    description: The SDK URL of the vCenter server.
+    example: https://vcenter.morpheus.local/sdk
+  apiVersion:
+    type: string
+    description: The SDK version of the vCenter server.
+  datacenter:
+    type: string
+    description: The vSphere datacenter to add.
+  cluster:
+    type: string
+    description: The name of the vSphere cluster
+    default: all
+  configManagementId:
+    type: string
+    description: The id of the configuration management integration associated with the vSphere cloud.
+  resourcePool:
+    type: string
+    description: The name of the vSphere resource pool
+  rpcMode:
+    oneOf: 
+      - type: string 
+        enum:
+          - guestexec
+          - rpc
+      - type: 'null'
+    default: guestexec
+    description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))
+  consoleKeymap:
+    type: string
+    default: us
+    description: The keyboard layout
+  storageType:
+    type: string
+    default: thin
+    enum:
+      - thin
+      - thick
+      - thickEager
+    description: The default vSphere VMDK type for virtual machines
+  certificateProvider:
+    type: string
+    description: Certificate provider
+    default: internal
+  enableVnc:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Enable VNC access to the console.
+  hideHostSelection:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to hide the ability to select the vSphere host from the user during provisioning.
+  enableDiskTypeSelection:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to enable the user to select the disk type during provisioning.
+  enableStorageTypeSelection:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to enable the user to select the storage type during provisioning.
+  enableNetworkTypeSelection:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to enable the user to select the network type during provisioning.
+
