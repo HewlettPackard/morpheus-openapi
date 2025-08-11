@@ -46,7 +46,9 @@ properties:
           - 'null'
         description: The external id of the cloud
       importExisting:
-        type: [string, null]
+        type: 
+          - string
+          - null
         default: null
         enum:
           - on

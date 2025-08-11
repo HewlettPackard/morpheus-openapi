@@ -12,7 +12,9 @@ properties:
     type: string
     description: AWS secret key
   isVpc:
-    type: [string, null]
+    type: 
+      - string
+      - null
     default: null
     enum:
       - on

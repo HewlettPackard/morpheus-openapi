@@ -22,7 +22,9 @@ properties:
     description: Azure resource group
     example: /subscriptions/8d6b0be1b6a8/resourceGroups/TestRG
   rpcMode:
-    type: [string, null]
+    type: 
+      - string
+      - null
     default: guestexec
     enum:
       - guestexec
