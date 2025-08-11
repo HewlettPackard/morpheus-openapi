@@ -1,0 +1,31 @@
+description: Azure Cloud
+type: object
+properties:
+  subscriberId:
+    type: string
+    description: Azure subscriber id
+    example: 8d6b0be1b6a8
+  tenantId:
+    type: string
+    description: Azure tenant id
+    example: aa46b411cb55
+  clientId:
+    type: string
+    description: Azure client id
+    example: 477ae92bd8ad
+  clientSecret:
+    type: string
+    description: Azure client secret
+    example: '************'
+  resourceGroup:
+    type: string
+    description: Azure resource group
+    example: /subscriptions/8d6b0be1b6a8/resourceGroups/TestRG
+  rpcMode:
+    type: [string, null]
+    default: guestexec
+    enum:
+      - guestexec
+      - rpc
+      - null
+    description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))

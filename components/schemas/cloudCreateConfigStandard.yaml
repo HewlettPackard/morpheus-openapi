@@ -1,0 +1,14 @@
+description: Standard Cloud
+type: object
+properties:
+  certificateProvider:
+    type: string
+    description: Certificate provider
+    default: internal
+  enableNetworkTypeSelection:
+    type: [string, null]
+    default: null
+    enum:
+      - on
+      - null
+    description: Enable network type selection

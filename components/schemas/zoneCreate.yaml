@@ -1,13 +1,71 @@
 type: object
 required:
   - name
-  - zoneType
   - groupId
+  - zoneType
+  - config
 properties:
   name:
     type: string
     description: A unique name scoped to your account for the cloud
     example: My Cloud
+  groupId:
+    type: integer
+    format: int64
+    description: Specifies which Server group this cloud should be assigned to
+    example: 3
+  zoneType:
+    description: Map containing the Cloud (zone) type ID. See the zone-types API to fetch a list of all available Cloud (zone) types and their IDs.
+    oneOf:
+      - type: object
+        description: Map containing the Cloud (zone) type ID. See the zone-types API to fetch a list of all available Cloud (zone) types and their IDs.
+        properties:
+          id:
+            type: integer
+            format: int64
+            example: 12
+      - type: object
+        description: Map containing the Cloud (zone) code name. See the zone-types API to fetch a list of all available Cloud (zone) types and their codes.
+        properties:
+          code:
+            type: string
+            example: vmware
+  config:
+    type: object
+    description: Cloud configuration settings.
+    properties:
+      applianceUrl:
+        type: string
+        description: The URL used by workloads provisioned in the cloud for interacting with the Morpheus appliance.
+      datacenterId:
+        type: string
+        description: A custom id used to reference the datacenter for the cloud.
+      externalId:
+        type:
+          - string
+          - 'null'
+        description: The external id of the cloud
+      importExisting:
+        type: [string, null]
+        default: null
+        enum:
+          - on
+          - null
+        description: Whether to import existing virtual machines.
+      inventoryLevel:
+        type: string
+        default: off
+        enum:
+          - off
+          - basic
+          - full
+    anyOf:
+      - oneOf:
+          - $ref: cloudCreateConfigAWS.yaml
+          - $ref: cloudCreateConfigAzure.yaml
+          - $ref: cloudCreateConfigStandard.yaml
+          - $ref: cloudCreateConfigVsphere.yaml
+      - $ref: cloudCreateConfigGeneric.yaml
   description:
     type: string
     description: Optional description field if you want to put more info there
@@ -33,26 +91,6 @@ properties:
       - private
       - public
     default: private
-  zoneType:
-    anyOf:
-      - type: object
-        description: Map containing the Cloud (zone) type ID. See the zone-types API to fetch a list of all available Cloud (zone) types and their IDs.
-        properties:
-          id:
-            type: integer
-            format: int64
-            example: 12
-      - type: object
-        description: Map containing the Cloud (zone) code name. See the zone-types API to fetch a list of all available Cloud (zone) types and their codes.
-        properties:
-          code:
-            type: string
-            example: vmware
-  groupId:
-    type: integer
-    format: int64
-    description: Specifies which Server group this cloud should be assigned to
-    example: 3
   accountId:
     type: integer
     format: int64
@@ -93,13 +131,13 @@ properties:
     type: integer
     format: int64
     description: Linked Account ID (enter commercial ID to get costing for AWS Govcloud)
-  config:
-    type: object
-    description: Map containing zone configuration settings. See the section on specific zone types for details.
   securityMode:
     type: string
+    default: off
+    enum:
+      - off
+      - internal
     description: host firewall. `off` or `internal`. a.k.a. "local firewall"
-    default: "off"
   credential:
     type: object
     description: Map containing Credential ID. Setting `type` to `local` means use the values set in the local cloud config instead of associating a credential.

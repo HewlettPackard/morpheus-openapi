@@ -1,0 +1,21 @@
+description: Amazon Cloud
+type: object
+properties:
+  endpoint:
+    type: string
+    description: AWS endpoint
+    example: ec2.ca-central-1.amazonaws.com
+  accessKey:
+    type: string
+    description: AWS access key
+  secretKey:
+    type: string
+    description: AWS secret key
+  isVpc:
+    type: [string, null]
+    default: null
+    enum:
+      - on
+      - null
+    description: Cloud is an AWS VPC
+    example: on
