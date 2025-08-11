@@ -130,7 +130,6 @@ post:
                   type: string
                   description: Set the default access level for for groups (sites). Only applies to user roles.
                   enum:
-                    - default
                     - full
                     - read
                     - none
@@ -145,6 +144,7 @@ post:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the group (site)"
                       access:
                         type: string
@@ -158,7 +158,6 @@ post:
                   type: string
                   description: Set the default access level for for clouds (zones). Only applies to base account (tenant) roles.
                   enum:
-                    - default
                     - full
                     - read
                     - none
@@ -173,6 +172,7 @@ post:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the cloud (zone)"
                       access:
                         type: string
@@ -199,6 +199,7 @@ post:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the instance type"
                       access:
                         type: string
@@ -222,6 +223,7 @@ post:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the blueprint (appTemplate)"
                       access:
                         type: string
@@ -245,6 +247,7 @@ post:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the catalog item type"
                       access:
                         type: string
@@ -295,6 +298,7 @@ post:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the VDI pool"
                       access:
                         type: string
@@ -341,6 +345,7 @@ post:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the task"
                       access:
                         type: string
@@ -364,6 +369,7 @@ post:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the workflow (taskSet)"
                       access:
                         type: string

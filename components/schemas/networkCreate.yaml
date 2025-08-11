@@ -102,6 +102,13 @@ properties:
       - 'null'
     format: int64
     description: IPv6 Network Pool ID
+  zonePool:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Morpheus zone pool ID of the GCP Project for the network
   allowStaticOverride:
     type: boolean
     description: Allow IP Override
@@ -166,7 +173,7 @@ properties:
         id:
           type: integer
           format: int64
-  resourcePermissions:
+  resourcePermission:
     type: object
     properties:
       all:

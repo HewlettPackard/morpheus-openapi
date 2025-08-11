@@ -70,21 +70,40 @@ post:
                 description:
                   type: string
                   description: Service plan description
+                regionCode:
+                  type: string
+                  description: Service plan region code
                 editable:
                   type: boolean
                   description: Can be used to enable / disable the editability of the service plan.
                   default: true
                 maxStorage:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max storage size in bytes
                 maxMemory:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max memory size in bytes
                 maxCores:
-                  type: number
-                  description: Max cores
+                  type: integer
+                  format: int64
+                  description: Max number of cores
+                maxCpu:
+                  type: integer
+                  format: int64
+                  description: Max number of CPUs 
+                coresPerSocket:
+                  type: integer
+                  format: int64
+                  description: Number of cores per CPU 
+                maxGpus:
+                  type: integer
+                  format: int64
+                  description: Max number of GPUs
                 maxDisks:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max disks allowed
                 provisionType:
                   type: object
@@ -95,6 +114,10 @@ post:
                       type: integer
                       format: int64
                       description: Provision type ID
+                customCpu:
+                  type: boolean
+                  description: Can be used to enable / disable customizable cpu
+                  default: false
                 customCores:
                   type: boolean
                   description: Can be used to enable / disable customizable cores
@@ -116,7 +139,8 @@ post:
                   description: Can be used to enable / disable ability to add volumes
                   default: false
                 sortOrder:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Sort order
                 priceSets:
                   type: array
@@ -149,16 +173,20 @@ post:
                       type: object
                       properties: 
                         minStorage: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min storage in GB
                         maxStorage: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max storage in GB
                         minPerDiskSize:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min per disk size in GB
                         maxPerDiskSize:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max per disk size in GB
                         minMemory: 
                           type: integer
@@ -169,22 +197,28 @@ post:
                           format: int64
                           description: Custom max memory in bytes
                         minCores: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min cores
                         maxCores: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max cores
                         minSockets: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min sockets
                         maxSockets:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max sockets
                         minCoresPerSocket:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min cores allowed per socket
                         maxCoresPerSocket:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max cores allowed per socket
   responses:
     '200':
