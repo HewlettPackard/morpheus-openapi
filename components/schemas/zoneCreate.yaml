@@ -52,6 +52,7 @@ properties:
         default: null
         enum:
           - on
+          - off
           - null
         description: Whether to import existing virtual machines.
       inventoryLevel:
