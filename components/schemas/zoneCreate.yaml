@@ -48,7 +48,7 @@ properties:
       importExisting:
         type: 
           - string
-          - null
+          - 'null'
         default: null
         enum:
           - on

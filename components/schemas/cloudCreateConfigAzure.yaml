@@ -24,7 +24,7 @@ properties:
   rpcMode:
     type: 
       - string
-      - null
+      - 'null'
     default: guestexec
     enum:
       - guestexec

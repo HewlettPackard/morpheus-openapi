@@ -8,7 +8,7 @@ properties:
   enableNetworkTypeSelection:
     type: 
       - string
-      - null
+      - 'null'
     default: null
     enum:
       - on

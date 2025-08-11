@@ -28,7 +28,7 @@ properties:
   rpcMode:
     type: 
       - string 
-      - null
+      - 'null'
     default: guestexec
     enum:
       - guestexec
@@ -54,7 +54,7 @@ properties:
   enableVnc:
     type: 
       - string
-      - null
+      - 'null'
     default: null
     enum:
       - on
@@ -63,7 +63,7 @@ properties:
   hideHostSelection:
     type: 
       - string
-      - null
+      - 'null'
     default: null
     enum:
       - on
@@ -72,7 +72,7 @@ properties:
   enableDiskTypeSelection:
     type: 
       - string
-      - null
+      - 'null'
     default: null
     enum:
       - on
@@ -81,7 +81,7 @@ properties:
   enableStorageTypeSelection:
     type: 
       - string
-      - null
+      - 'null'
     default: null
     enum:
       - on
@@ -90,7 +90,7 @@ properties:
   enableNetworkTypeSelection:
     type: 
       - string
-      - null
+      - 'null'
     default: null
     enum:
       - on
