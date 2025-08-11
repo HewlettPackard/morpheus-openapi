@@ -62,11 +62,10 @@ properties:
           - basic
           - full
     anyOf:
-      - oneOf:
-          - $ref: cloudCreateConfigAWS.yaml
-          - $ref: cloudCreateConfigAzure.yaml
-          - $ref: cloudCreateConfigStandard.yaml
-          - $ref: cloudCreateConfigVsphere.yaml
+      - $ref: cloudCreateConfigAWS.yaml
+      - $ref: cloudCreateConfigAzure.yaml
+      - $ref: cloudCreateConfigStandard.yaml
+      - $ref: cloudCreateConfigVsphere.yaml
       - $ref: cloudCreateConfigGeneric.yaml
   description:
     type: string
