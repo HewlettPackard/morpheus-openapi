@@ -22,12 +22,11 @@ properties:
     description: Azure resource group
     example: /subscriptions/8d6b0be1b6a8/resourceGroups/TestRG
   rpcMode:
-    type: 
-      - string
-      - 'null'
+    oneOf: 
+      - type: string
+        enum:
+          - guestexec
+          - rpc
+      - type: 'null'
     default: guestexec
-    enum:
-      - guestexec
-      - rpc
-      - null
     description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))

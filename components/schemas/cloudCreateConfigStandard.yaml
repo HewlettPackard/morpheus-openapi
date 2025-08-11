@@ -6,11 +6,10 @@ properties:
     description: Certificate provider
     default: internal
   enableNetworkTypeSelection:
-    type: 
-      - string
-      - 'null'
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
     default: null
-    enum:
-      - on
-      - null
     description: Enable network type selection

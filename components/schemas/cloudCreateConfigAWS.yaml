@@ -12,12 +12,11 @@ properties:
     type: string
     description: AWS secret key
   isVpc:
-    type: 
-      - string
-      - 'null'
+    oneOf:
+      - type: string
+        enum:
+          - on
+      - type: 'null'
     default: null
-    enum:
-      - on
-      - null
     description: Cloud is an AWS VPC
     example: on

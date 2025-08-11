@@ -26,14 +26,13 @@ properties:
     type: string
     description: The name of the vSphere resource pool
   rpcMode:
-    type: 
-      - string 
-      - 'null'
+    oneOf: 
+      - type: string 
+        enum:
+          - guestexec
+          - rpc
+      - type: 'null'
     default: guestexec
-    enum:
-      - guestexec
-      - rpc
-      - null
     description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))
   consoleKeymap:
     type: string
@@ -52,48 +51,43 @@ properties:
     description: Certificate provider
     default: internal
   enableVnc:
-    type: 
-      - string
-      - 'null'
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
     default: null
-    enum:
-      - on
-      - null
     description: Enable VNC access to the console.
   hideHostSelection:
-    type: 
-      - string
-      - 'null'
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
     default: null
-    enum:
-      - on
-      - null
     description: Whether to hide the ability to select the vSphere host from the user during provisioning.
   enableDiskTypeSelection:
-    type: 
-      - string
-      - 'null'
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
     default: null
-    enum:
-      - on
-      - null
     description: Whether to enable the user to select the disk type during provisioning.
   enableStorageTypeSelection:
-    type: 
-      - string
-      - 'null'
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
     default: null
-    enum:
-      - on
-      - null
     description: Whether to enable the user to select the storage type during provisioning.
   enableNetworkTypeSelection:
-    type: 
-      - string
-      - 'null'
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
     default: null
-    enum:
-      - on
-      - null
     description: Whether to enable the user to select the network type during provisioning.
 
