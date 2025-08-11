@@ -16,7 +16,7 @@ properties:
     example: 3
   zoneType:
     description: Map containing the Cloud (zone) type ID. See the zone-types API to fetch a list of all available Cloud (zone) types and their IDs.
-    oneOf:
+    anyOf:
       - type: object
         description: Map containing the Cloud (zone) type ID. See the zone-types API to fetch a list of all available Cloud (zone) types and their IDs.
         properties:
