@@ -224,7 +224,7 @@ put:
                   items:
                     type: object
                     required:
-                      - id
+                      - code
                       - access
                     properties:
                       code:
