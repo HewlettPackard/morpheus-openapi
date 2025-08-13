@@ -94,11 +94,11 @@ post:
                 multitenant:
                   type: boolean
                   default: false
-                  description: Multitenant roles are copied to all tenant accounts and kept in sync until a sub-tenant user modifies their copy of the role. *Only available to master tenant*
+                  description: Multitenant roles are copied to all tenant accounts and kept in sync until a sub-tenant user modifies their copy of the role. *Only available to master tenant, only applies to user roles*
                 multitenantLocked:
                   type: boolean
                   default: false
-                  description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant roles. *Only available to master tenant*
+                  description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant roles. *Only available to master tenant, only applies to user roles*
                 defaultPersona:
                   oneOf:
                     - type: string
