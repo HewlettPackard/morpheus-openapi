@@ -103,10 +103,12 @@ post:
                   oneOf:
                     - type: string
                       enum:
+                        - api
                         - standard
                         - serviceCatalog
                         - vdi
                     - type: 'null'
+                  description: Set the default persona by code.
                 featurePermissions:
                   type: array
                   description: Set the access level for the specified permissions.
