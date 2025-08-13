@@ -66,6 +66,7 @@ put:
                   oneOf:
                     - type: string
                       enum:
+                        - api
                         - standard
                         - serviceCatalog
                         - vdi
