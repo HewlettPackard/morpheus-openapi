@@ -72,6 +72,12 @@ put:
                         - vdi
                     - type: 'null'
                   description: Set the default persona by code.
+                resetPermissions:
+                  type: boolean
+                  description: Resets access levels for all feature permissions to their default values.
+                resetAllAccess:
+                  type: boolean
+                  description: Resets access levels for all permissions (including feature, non-feature, and default access levels) to their default values.
                 featurePermissions:
                   type: array
                   description: Set the access level for the specified permissions.
