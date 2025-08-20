@@ -1,0 +1,7 @@
+name: planId
+in: query
+description: The Plan ID for Filtering
+schema:
+  type: integer
+  format: int64
+example: 1

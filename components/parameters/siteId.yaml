@@ -1,6 +1,6 @@
 name: siteId
 in: query
-description: The Site ID for Filtering
+description: The Group ID (Site ID) for Filtering
 schema:
   type: integer
   format: int64
