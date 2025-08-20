@@ -12,6 +12,7 @@ get:
     - $ref: ../components/parameters/direction.yaml
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/name.yaml
+    - $ref: ../components/parameters/uuid.yaml
   responses:
     '200':
       description: Successful Request
