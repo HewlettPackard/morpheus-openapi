@@ -39,7 +39,7 @@ properties:
         description: The URL used by workloads provisioned in the cloud for interacting with the Morpheus appliance.
       datacenterName:
         type: string
-        description: A custom id used to reference the datacenter for the cloud.
+        description: A custom name used to reference the datacenter for the cloud.
       externalId:
         type:
           - string
