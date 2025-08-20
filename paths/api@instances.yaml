@@ -12,6 +12,7 @@ get:
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/zoneId.yaml
     - $ref: ../components/parameters/siteId.yaml
+    - $ref: ../components/parameters/planId.yaml
     - $ref: ../components/parameters/instanceType.yaml
     - $ref: ../components/parameters/lastUpdated.yaml
     - $ref: ../components/parameters/createdBy.yaml
