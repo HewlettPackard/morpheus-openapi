@@ -79,7 +79,7 @@ post:
                   default: true
                 visibility:
                   type: string
-                  description: Can be used to enable / disable the visibility of the service plan, defaults to "public" unless the account is not a masterAccount in which the default is "Private"
+                  description: Can be used to enable / disable the visibility of the service plan, defaults to "public" unless the account is not a masterAccount in which the default is "private"
                 maxStorage:
                   type: integer
                   format: int64
