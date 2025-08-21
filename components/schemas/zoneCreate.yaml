@@ -61,9 +61,16 @@ properties:
       - oneOf:
           - $ref: cloudCreateConfigAWS.yaml
           - $ref: cloudCreateConfigAzure.yaml
-          - $ref: cloudCreateConfigStandard.yaml
+          - $ref: cloudCreateConfigHVM.yaml
           - $ref: cloudCreateConfigVsphere.yaml
       - $ref: cloudCreateConfigGeneric.yaml
+  agentMode:
+    type: string
+    default: cloudInit
+    enum:
+      - cloudInit
+      - ssh
+    description: The method used to install the Morpheus agent on virtual machines provisioned in the cloud (ssh, cloudInit).
   description:
     type: string
     description: Optional description field if you want to put more info there

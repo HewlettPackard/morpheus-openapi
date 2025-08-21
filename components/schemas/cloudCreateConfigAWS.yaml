@@ -1,5 +1,7 @@
 description: Amazon Cloud
 type: object
+required:
+  - endpoint
 properties:
   endpoint:
     type: string
