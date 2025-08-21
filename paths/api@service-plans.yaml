@@ -77,6 +77,10 @@ post:
                   type: boolean
                   description: Can be used to enable / disable the editability of the service plan.
                   default: true
+                visibility:
+                  type: string
+                  description: Can be used to enable / disable the visibility of the service plan.
+                  default: "public"
                 maxStorage:
                   type: integer
                   format: int64
@@ -152,6 +156,37 @@ post:
                         type: integer
                         format: int64
                         description: Price Set ID
+                permissions:
+                  type: object
+                  properties:
+                    tennantPermissions:
+                      type: object 
+                      properties:
+                        accounts:
+                          type: array
+                          description: List of tennant account ID's with permission to view servicePlan when visibility is private
+                          items:
+                            type: integer 
+                            format: int64
+                            description: ID of tennant account
+                    resourcePermissions:
+                      type: object 
+                      description: site related access to view servicePlan when visibility is private
+                      properties:
+                        allSites:
+                          type: boolean 
+                          description: gives all groups permission to view private servicePlan
+                          default: false
+                        sites:
+                          type: array
+                          description: group permissions that allows user to view servicePlan when visibility is private
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer 
+                                format: int64
+                                description: group ID
                 config: 
                   type: object
                   properties: 
