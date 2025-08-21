@@ -79,8 +79,7 @@ post:
                   default: true
                 visibility:
                   type: string
-                  description: Can be used to enable / disable the visibility of the service plan.
-                  default: "public"
+                  description: Can be used to enable / disable the visibility of the service plan, defaults to "public" unless the account is not a masterAccount in which the default is "Private"
                 maxStorage:
                   type: integer
                   format: int64
@@ -148,7 +147,7 @@ post:
                   description: Sort order
                 priceSets:
                   type: array
-                  description: List of price sets to include in service plan
+                  description: List of price sets to include in service plan.
                   items: 
                     type: object
                     properties: 
@@ -159,34 +158,34 @@ post:
                 permissions:
                   type: object
                   properties:
-                    tennantPermissions:
+                    tenantPermissions:
                       type: object 
                       properties:
                         accounts:
                           type: array
-                          description: List of tennant account ID's with permission to view servicePlan when visibility is private
+                          description: List of account (tenant) ID's with permission to view servicePlan when visibility is private.
                           items:
                             type: integer 
                             format: int64
-                            description: ID of tennant account
+                            description: ID of the account (tenant)
                     resourcePermissions:
                       type: object 
-                      description: site related access to view servicePlan when visibility is private
+                      description: Group (site) related access to view servicePlan when visibility is private.
                       properties:
                         allSites:
                           type: boolean 
-                          description: gives all groups permission to view private servicePlan
+                          description: Gives all groups (sites) permission to Provision and Reconfigure with servicePlan.
                           default: false
                         sites:
                           type: array
-                          description: group permissions that allows user to view servicePlan when visibility is private
+                          description: Group (site) permissions that determines what Groups the Service Plan will be available in for Provisioning and Reconfigure.
                           items:
                             type: object
                             properties:
                               id:
                                 type: integer 
                                 format: int64
-                                description: group ID
+                                description: Group ID
                 config: 
                   type: object
                   properties: 
