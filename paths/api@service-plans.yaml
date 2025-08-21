@@ -171,7 +171,7 @@ post:
                             description: ID of tennant account
                     resourcePermissions:
                       type: object 
-                      description: site related access to view servicePlan when visibility is private
+                      description: group related access to view servicePlan when visibility is private
                       properties:
                         allSites:
                           type: boolean 
