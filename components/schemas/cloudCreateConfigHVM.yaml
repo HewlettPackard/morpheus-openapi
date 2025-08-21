@@ -1,4 +1,4 @@
-description: Standard Cloud
+description: HVM Cloud
 type: object
 properties:
   certificateProvider:

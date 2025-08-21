@@ -34,10 +34,6 @@ properties:
       - type: 'null'
     default: guestexec
     description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))
-  consoleKeymap:
-    type: string
-    default: us
-    description: The keyboard layout
   storageType:
     type: string
     default: thin
