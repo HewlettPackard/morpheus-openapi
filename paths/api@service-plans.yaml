@@ -163,11 +163,11 @@ post:
                       properties:
                         accounts:
                           type: array
-                          description: List of account (tenant) ID's with permission to view servicePlan when visibility is private.
+                          description: List of tenant ID's with permission to view servicePlan when visibility is private.
                           items:
                             type: integer 
                             format: int64
-                            description: ID of the account (tenant)
+                            description: ID of the tenant
                     resourcePermissions:
                       type: object 
                       description: Group (site) related access to view servicePlan when visibility is private.
