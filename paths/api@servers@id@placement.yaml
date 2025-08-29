@@ -31,6 +31,14 @@ put:
                       format: int64
                       example: 1
                       description: Server ID
+                guestAgentStatus:
+                  type: string
+                  description: Guest Agent Status
+                  enum:
+                    - connected
+                    - disconnected
+                    - unconfigured
+                    - error
   responses:
     '200':
       description: Successful Request
