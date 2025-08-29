@@ -24,8 +24,7 @@ properties:
     description: Description
   site:
     type: object
-    required:
-      - id
+    description: Group to assign the network to. Omit this parameter to allow all groups (Shared).
     properties:
       id:
         type: integer
@@ -168,6 +167,7 @@ properties:
           format: int64
   resourcePermissions:
     type: object
+    description: Resource Permissions object for defining group access. Note that this is only configurable when there's no assigned Group (Shared).
     properties:
       all:
         type: boolean
