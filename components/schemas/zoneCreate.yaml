@@ -47,7 +47,6 @@ properties:
         description: The external id of the cloud
       inventoryLevel:
         type: string
-        default: off
         enum:
           - off
           - basic
@@ -55,7 +54,6 @@ properties:
         description: Whether to import existing virtual machines.
       consoleKeymap:
         type: string
-        default: us
         description: The keyboard layout to use for the console
     anyOf:
       - oneOf:

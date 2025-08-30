@@ -1,0 +1,30 @@
+type: object
+properties:
+  applianceUrl:
+    type:
+      - string
+      - 'null'
+  certificateProvider:
+    type:
+      - string
+      - 'null'
+  configCmdbDiscovery:
+    type: boolean
+  consoleKeymap:
+    type:
+      - string
+      - 'null'
+  datacenterName:
+    type:
+      - string
+      - 'null'
+  enableNetworkTypeSelection:
+    type: boolean
+  externalId:
+    type:
+      - string
+      - 'null'
+  inventoryLevel:
+    type:
+      - string
+      - 'null'
