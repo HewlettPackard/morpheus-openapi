@@ -65,7 +65,7 @@
             "importExisting": "on",
             "enableVnc": "on",
             "enableDiskTypeSelection": "on",
-            "enableNetworkTypeSelection": "",
+            "enableNetworkTypeSelection": false,
             "diskStorageType": "thin",
             "applianceUrl": "",
             "datacenterName": "",

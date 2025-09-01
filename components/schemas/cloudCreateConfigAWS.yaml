@@ -1,5 +1,7 @@
 description: Amazon Cloud
 type: object
+required:
+  - endpoint
 properties:
   endpoint:
     type: string
@@ -11,12 +13,29 @@ properties:
   secretKey:
     type: string
     description: AWS secret key
-  isVpc:
-    oneOf:
-      - type: string
-        enum:
-          - on
-      - type: 'null'
-    default: null
-    description: Cloud is an AWS VPC
+  useHostCredentials:
+    type: string
+    enum:
+      - on
+      - off
+    description: Whether to use the IAM profile associated with the Morpheus server or not
+    default: on
     example: on
+  ebsEncryption:
+    type: string
+    enum:
+      - on
+      - off
+    description: Determines whether to configure default EBS volume encryption or not
+    default: on
+    example: on
+  stsAssumeRole:
+    type: string
+    description: The AWS IAM role ARN to assume for authentication
+  configManagementId:
+    type: string
+    description: The id of the configuration management integration associated with the AWS cloud
+  vpc:
+    type: string
+    description: The VPC ID for a specific VPC
+    example: vpc-25e6dae

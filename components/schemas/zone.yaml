@@ -172,10 +172,11 @@ properties:
     type: boolean
   config:
     anyOf:
-      - $ref: zoneVcenterConfig.yaml
-      - $ref: zoneAwsConfig.yaml
-      - $ref: zoneAzureConfig.yaml
-      - $ref: zoneGcpConfig.yaml
+      - $ref: cloudHVMConfig.yaml
+      # - $ref: zoneVcenterConfig.yaml
+      # - $ref: zoneAwsConfig.yaml
+      # - $ref: zoneAzureConfig.yaml
+      # - $ref: zoneGcpConfig.yaml
   credential:
     anyOf:
       - type: object

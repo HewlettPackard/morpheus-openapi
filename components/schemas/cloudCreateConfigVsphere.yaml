@@ -34,10 +34,6 @@ properties:
       - type: 'null'
     default: guestexec
     description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))
-  consoleKeymap:
-    type: string
-    default: us
-    description: The keyboard layout
   storageType:
     type: string
     default: thin
@@ -90,4 +86,13 @@ properties:
       - type: 'null'
     default: null
     description: Whether to enable the user to select the network type during provisioning.
+  username:
+    type: string
+    description: Username.
+    example: jsmith
+  password:
+    type: string
+    format: password
+    description: Password to apply to the user
+    example: Passw0rd!
 

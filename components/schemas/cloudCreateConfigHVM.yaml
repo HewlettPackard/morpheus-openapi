@@ -1,15 +1,9 @@
-description: Standard Cloud
+description: HVM Cloud
 type: object
 properties:
   certificateProvider:
     type: string
     description: Certificate provider
-    default: internal
   enableNetworkTypeSelection:
-    oneOf: 
-      - type: string
-        enum:
-          - on
-      - type: 'null'
-    default: null
+    type: boolean
     description: Enable network type selection
