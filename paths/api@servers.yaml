@@ -26,6 +26,11 @@ get:
     - $ref: ../components/parameters/tags.yaml
     - $ref: ../components/parameters/metadata.yaml
     - $ref: ../components/parameters/uuid.yaml
+    - in: query
+      name: uuid
+      description: Filter by UUID, accepts multiple values
+      schema:
+        type: string
     - $ref: ../components/parameters/externalId.yaml
     - $ref: ../components/parameters/internalId.yaml
     - $ref: ../components/parameters/externalUniqueId.yaml
