@@ -1,0 +1,32 @@
+{
+  "connected": {
+    "value": "connected",
+    "summary": "Connected status",
+    "description": "Guest agent is successfully connected"
+  },
+  "disconnected": {
+    "value": "disconnected", 
+    "summary": "Disconnected status",
+    "description": "Guest agent is currently disconnected"
+  },
+    "configured": {
+    "value": "configured",
+    "summary": "Configured status", 
+    "description": "Guest agent has been configured"
+  },
+  "unconfigured": {
+    "value": "unconfigured",
+    "summary": "Unconfigured status", 
+    "description": "Guest agent has not been configured yet"
+  },
+    "unknown": {
+    "value": "unknown",
+    "summary": "Unknown status", 
+    "description": "Guest agent status is unknown"
+  },
+  "error": {
+    "value": "error",
+    "summary": "Error status",
+    "description": "Guest agent is in an error state"
+  }
+}

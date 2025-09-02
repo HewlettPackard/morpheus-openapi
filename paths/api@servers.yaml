@@ -29,6 +29,7 @@ get:
     - $ref: ../components/parameters/externalId.yaml
     - $ref: ../components/parameters/internalId.yaml
     - $ref: ../components/parameters/externalUniqueId.yaml
+    - $ref: ../components/parameters/guestAgentStatus.yaml
   responses:
     '200':
       description: Successful Request
