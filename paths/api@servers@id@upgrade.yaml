@@ -7,7 +7,7 @@ put:
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   responses:
-    '200':
+    '202':
       description: Successful Request
       content:
         application/json:
