@@ -60,12 +60,20 @@ post:
               required:
                 - name
                 - checkType
+              properties:
+                name:
+                  type: string
+                  description: Name of the check
+                checkType:
+                  type: object
+                  description: Check type you want to create
               oneOf:
               - $ref: ../components/schemas/checkWeb.yaml
               - $ref: ../components/schemas/checkSql.yaml
               - $ref: ../components/schemas/checkSocket.yaml
               - $ref: ../components/schemas/checkElastic.yaml
               - $ref: ../components/schemas/checkPush.yaml
+              - $ref: ../components/schemas/checkSNMP.yaml
         examples:
           Check Request - Web:
             value:
@@ -91,6 +99,9 @@ post:
           Check Request - Push:
             value:
               $ref: ../components/examples/checkPushRequest.json
+          Check Request - SNMP:
+            value:
+              $ref: ../components/examples/checkSNMPRequest.json
   responses:
     '200':
       description: Check Object
@@ -128,6 +139,9 @@ post:
             Check Response - Create Push Check:
               value:
                 $ref: ../components/examples/checkPushSuccess.json
+            Check Response - Create SNMP Check:
+              value:
+                $ref: ../components/examples/checkSNMPSuccess.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
