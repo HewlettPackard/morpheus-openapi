@@ -204,6 +204,7 @@ properties:
     type:
       - string
       - 'null'
+    description: Network switch identifier
   fabricId:
     type:
       - string
