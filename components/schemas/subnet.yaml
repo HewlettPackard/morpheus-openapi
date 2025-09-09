@@ -83,8 +83,14 @@ properties:
       - 'null'
   networkDomain:
     type:
-      - string
+      - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   searchDomains:
     type:
       - string
