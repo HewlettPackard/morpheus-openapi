@@ -3,13 +3,13 @@ in: query
 description: Retrieves Guest Agent Status. 
 schema:
   type: string
-enum:
-- connected
-- disconnected
-- configured
-- unconfigured
-- unknown
-- error
+  enum:
+    - connected
+    - disconnected
+    - configured
+    - unconfigured
+    - unknown
+    - error
 examples:
   connected:
     $ref: '../examples/guestAgentStatus.json#/connected'
