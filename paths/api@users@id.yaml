@@ -92,6 +92,9 @@ put:
                   description: List of Roles
                   items:
                     $ref: ../components/schemas/ReferenceObject.yaml
+                receiveNotifications:
+                  type: boolean
+                  description: Receive Notifications?
   responses:
     '200':
       description: User Object
