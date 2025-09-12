@@ -70,6 +70,8 @@ post:
               oneOf:
               - $ref: ../components/schemas/checkWeb.yaml
               - $ref: ../components/schemas/checkSql.yaml
+              - $ref: ../components/schemas/checkMysql.yaml
+              - $ref: ../components/schemas/checkPostgres.yaml
               - $ref: ../components/schemas/checkSocket.yaml
               - $ref: ../components/schemas/checkElastic.yaml
               - $ref: ../components/schemas/checkPush.yaml
@@ -81,7 +83,7 @@ post:
           Check Request - MySQL:
             value:
               $ref: ../components/examples/checkMysqlRequest.json
-          Check Request with SSH - MySQL:
+          Check Request - MySQL with SSH:
             value:
               $ref: ../components/examples/checkMysqlWSshRequest.json
           Check Request - SQL:

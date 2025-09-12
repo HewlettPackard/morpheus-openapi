@@ -1,7 +1,16 @@
 {
-    "check": {
-      "name": "PostgerSQL Check",
-      "checkType": {"code": "postgresCheck"},
-      "config": {"dbHost":"db.example.org","dbPort": "3306", "dbUser":"basicUser","dbPassword":"basicPassword", "dbName": "mydb", "dbQuery": "select 1", "checkOperator": "lt", "checkResult": 2}
+  "check": {
+    "name": "PostgerSQL Check",
+    "checkType": {"code": "postgresCheck"},
+    "config": {
+      "dbHost": "db.example.org",
+      "dbPort": "3306",
+      "dbUser": "basicUser",
+      "dbPassword": "basicPassword",
+      "dbName": "mydb",
+      "dbQuery": "select 1",
+      "checkOperator": "lt",
+      "checkResult": 2
     }
   }
+}

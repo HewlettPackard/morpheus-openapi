@@ -1,3 +1,4 @@
+title: SNMP Config
 type: object
 required:
   - host
@@ -18,7 +19,7 @@ properties:
   checkOperator:
     type: string
     description: Operator to use when comparing returned value with the expected check response value. One of 'lt', 'equal', or 'gt'.
-  checkReponse:
+  checkResponse:
     type: string
     description: Value to use with the check operator
   version:

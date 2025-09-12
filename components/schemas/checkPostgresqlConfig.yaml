@@ -1,3 +1,4 @@
+title: PostgreSQL Config
 type: object
 properties: 
   dbPort: 

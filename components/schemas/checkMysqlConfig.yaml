@@ -1,3 +1,4 @@
+title: Mysql Config
 type: object
 required:
   - dbPort
