@@ -1,3 +1,4 @@
+title: Elastic Search Config
 type: object
 required:
   - esHost

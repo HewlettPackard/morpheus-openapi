@@ -1,46 +1,22 @@
+title: SNMP Check
 description: |
   SNMP check performs an SNMP get request to a network entity and validates the data returned matches the expected value.
-properties:
-  name:
-    type: string
-    description: Unique name scoped to your account for the check
-    example: My SNMP Check
-  description:
-    type:
-      - string
-      - 'null'
-    description: Optional description field
-    example: This is my awesome check
-  checkType:
-    type: object
-    description: Check type you want to create
+allOf:
+  - $ref: checkCreateCommon.yaml
+  - type: object
     properties:
-      code:
-        type: string
-        enum:
-          - snmpCheck
-  checkInterval:
-    type: integer
-    description: Number of seconds you want between check executions (minimum value is 60, depending on your subscription plan)
-    default: 300
-  inUptime:
-    type: boolean
-    description: Used to determine if check should affect account wide availability calculations
-    default: true
-  active:
-    type: boolean
-    description: Used to determine if check should be scheduled to execute
-    default: true
-  severity:
-    type: string
-    description: Severity level threshold for sending notifications.
-    default: critical
-    enum:
-      - info
-      - warning
-      - critical
-  config:
-    allOf:
-      - $ref: checkSNMPConfig.yaml
-      - anyOf:
-          - $ref: checkSshConfig.yaml
+      name:
+        example: My SNMP Check  # override example only
+      checkType:
+        type: object
+        description: Check type you want to create
+        properties:
+          code:
+            type: string
+            enum:
+              - snmpCheck
+      config:
+        allOf:
+          - $ref: checkSNMPConfig.yaml
+          - anyOf:
+              - $ref: checkSshConfig.yaml

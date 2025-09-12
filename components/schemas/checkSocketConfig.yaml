@@ -1,3 +1,4 @@
+title: Socket Config
 type: object
 required:
   - port

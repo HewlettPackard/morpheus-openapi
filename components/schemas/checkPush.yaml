@@ -1,44 +1,17 @@
+title: Push Check
 description: |
   A push Check is not polled regularly by the standard monitoring system. Instead it is expected that an external API push updates as to the status of the check timed closely with the configured check interval setting. This is used to throttle the push from performing too many status updates.
   To push an update using the api key one must send a json payload like so: `curl -XPOST https://<morpheus url>/api/monitoring/push?apiKey=<apiKey> -H 'Content-Type: application/json' -d '{"success":true, "message": "any comment goes here"}'`
   The API Key will be returned on successful creation or can be found by getting this check.
-type: object
-properties:
-  name:
-    type: string
-    description: Unique name scoped to your account for the check
-    example: My Check
-  description:
-    type:
-      - string
-      - 'null'
-    description: Optional description field
-    example: This is my awesome check
-  checkType:
-    type: object
-    description: Check type you want to create
+allOf:
+  - $ref: checkCreateCommon.yaml
+  - type: object
     properties:
-      code:
-        type: string
-        enum:
-          - pushCheck
-  checkInterval:
-    type: integer
-    description: Number of seconds you want between check executions (minimum value is 60, depending on your subscription plan)
-    default: 300
-  inUptime:
-    type: boolean
-    description: Used to determine if check should affect account wide availability calculations
-    default: true
-  active:
-    type: boolean
-    description: Used to determine if check should be scheduled to execute
-    default: true
-  severity:
-    type: string
-    description: Severity level threshold for sending notifications.
-    default: critical
-    enum:
-      - info
-      - warning
-      - critical
+      checkType:
+        type: object
+        description: Check type you want to create
+        properties:
+          code:
+            type: string
+            enum:
+              - pushCheck

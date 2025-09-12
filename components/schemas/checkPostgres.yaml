@@ -1,97 +1,21 @@
+title: Postgres Check
 description: |
   PostgreSQL check allows to execute a query so that you may validate the value returned in addition to verifying the database is responding.
   This can be useful for doing a slow query check or just making sure something isn't growing out of control.
-type: object
-properties:
-  name:
-    type: string
-    description: Unique name scoped to your account for the check
-    example: My Check
-  description:
-    type:
-      - string
-      - 'null'
-    description: Optional description field
-    example: This is my awesome check
-  checkType:
-    type: object
-    description: Check type you want to create
+allOf:
+  - $ref: checkCreateCommon.yaml
+  - type: object
     properties:
-      code:
-        type: string
-        enum:
-          - postgresCheck
-  checkInterval:
-    type: integer
-    description: Number of seconds you want between check executions (minimum value is 60, depending on your subscription plan)
-    default: 300
-  inUptime:
-    type: boolean
-    description: Used to determine if check should affect account wide availability calculations
-    default: true
-  active:
-    type: boolean
-    description: Used to determine if check should be scheduled to execute
-    default: true
-  severity:
-    type: string
-    description: Severity level threshold for sending notifications.
-    default: critical
-    enum:
-      - info
-      - warning
-      - critical
-  config:
-    type: object
-    required:
-      - dbHost
-      - dbPort
-      - dbUser
-      - dbPassword
-      - dbName
-      - dbQuery
-    properties:
-      dbHost:
-        type: string
-        description: Hostname or IP address of the PostgreSQL database
-        example: db.example.org
-      dbPort:
-        type: number
-        description: PostgreSQL Port (defaults to 5432)
-        example: 3306
-      dbUser:
-        type: string
-        description: Database username
-        example: basicUser
-      dbPassword:
-        type: string
-        description: Database password, (all check data is encrypted inside the database)
-        example: basicPassword
-      dbName:
-        type: string
-        description: Database name you would like to connect to
-        example: testDb
-      dbQuery:
-        type: string
-        description: Query to test
-        example: select 1
-      checkOperator:
-        type: string
-        description: Can be set to `lt` (less than), `gt` (greater than), `equal` (Equal to) for comparison
-        enum:
-          - lt
-          - gt
-          - equal
-      checkResult:
-        type: number
-        example: 3
-      tunnelOn:
-        type: string
-        description: Turn `on` to enable checks through a proxy host
-        default: "off"
-    oneOf:
-      - $ref: checkSsh.yaml
-    discriminator:
-      propertyName: tunnelOn
-      mapping:
-        "off": checkSsh.yaml
+      checkType:
+        type: object
+        description: Check type you want to create
+        properties:
+          code:
+            type: string
+            enum:
+              - postgresCheck
+      config:
+        allOf:
+          - $ref: checkSqlConfig.yaml
+          - anyOf:
+              - $ref: checkSshConfig.yaml
