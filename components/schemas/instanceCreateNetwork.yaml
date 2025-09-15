@@ -24,7 +24,49 @@ properties:
   ipAddress:
     type: string
     description: The ip address. Not applicable when using DHCP or IP Pools.
+  macAddress:
+    type: string
+    description: The MAC address.
   id:
     type: integer
     format: int64
     description: The interface id. Applicable when resizing and you want to identify an interface to update that already exists.
+  networkInterfaces:
+    type: array
+    description: |
+      The nested networkInterfaces can be used to define child virtual network intefaces.
+      The Options API `/api/options/zoneNetworkOptions?zoneId=5&provisionTypeId=10` can be used to see which types support this (`hasVirtualInvirtualInterfaces = true` and list of available `virtualInterfaces` will be defined.
+    items:
+      type: object
+      required:
+        - network
+      properties:
+        network:
+          type: object
+          required:
+            - id
+          properties:
+            id:
+              type: string
+              description: id of the network to be used. A network group can be specified instead by prefixing its ID with `networkGroup-`.
+        networkInterfaceTypeId:
+          type: integer
+          format: int64
+          description: The id of type of the network interface.
+        ipMode:
+          type: string
+          description: The mode for determining ip address. Use 'static' when specifying an ipAddress, otherwise 'dhcp' is used.
+          enum:
+            - static
+            - dhcp
+          default: dhcp
+        ipAddress:
+          type: string
+          description: The ip address. Not applicable when using DHCP or IP Pools.
+        macAddress:
+          type: string
+          description: The MAC address.
+        id:
+          type: integer
+          format: int64
+          description: The interface id. Applicable when resizing and you want to identify an interface to update that already exists.

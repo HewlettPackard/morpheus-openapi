@@ -48,6 +48,13 @@ properties:
     type: array
     items:
       type: string
+  serverOs: 
+    type: object
+    properties: 
+      id: 
+        type: integer
+        format: int64
+        description: The ID of the OS Type for this server. See GET /api/options/osTypes
   tags:
     description: Metadata tags, Array of objects having a name and value.
     type: array

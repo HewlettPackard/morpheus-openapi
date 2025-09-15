@@ -15,8 +15,6 @@
             },
             "datastore": null,
             "parentSnapshot": null,
-            "currentlyActive": true,
-            "memorySnapshot": false,
             "snapshotFiles": [
                 {
                     "id": 1,
@@ -31,6 +29,10 @@
                     "diskIndex": 0
                 }
             ],
+            "currentlyActive": true,
+            "memorySnapshot": false,
+            "forExport": false,
+            "forBackup": false,
             "dateCreated": "2022-07-20T18:35:42Z"
         }
     ]

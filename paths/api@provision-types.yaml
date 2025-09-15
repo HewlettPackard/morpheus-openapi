@@ -25,7 +25,7 @@ get:
                 provisionTypes:
                   type: array
                   items:
-                    $ref: ../components/schemas/provisionTypes.yaml
+                    $ref: ../components/schemas/provisionType.yaml
             - $ref: ../components/schemas/meta.yaml
           examples:
             Search Response:

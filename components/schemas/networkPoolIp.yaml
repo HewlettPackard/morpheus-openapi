@@ -80,8 +80,14 @@ subRefId:
   format: int64
 networkDomain:
   type:
-    - string
+    - object
     - 'null'
+  properties:
+    id:
+      type: integer
+      format: int64
+    name:
+      type: string
 createdBy:
   type: object
   properties:

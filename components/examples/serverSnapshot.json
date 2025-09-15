@@ -1,0 +1,6 @@
+{
+  "snapshot": {
+    "name": "snapshot-test",
+    "description": "A snapshot created via the Morpheus api"
+  }
+}

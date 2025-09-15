@@ -1,11 +1,18 @@
 put:
   summary: Start an instance
-  description: This will start all containers running within an instance.
+  description: This will start the service for all containers within an instance. To start the underlying server(s) as well you must include the query parameter `server=true`.
   operationId: startInstance
   tags:
     - Instances
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: server
+      in: query
+      description: Start the underlying server(s) as well by passing `true`. By default only the service will be started.
+      required: false
+      schema:
+        type: boolean
+        default: true
   responses:
     '200':
       description: Successful Request

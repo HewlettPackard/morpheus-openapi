@@ -48,6 +48,7 @@ properties:
       - $ref: checkSocketConfig.yaml
       - $ref: checkPushConfig.yaml
       - $ref: checkVmConfig.yaml
+      - $ref: checkSNMPConfig.yaml
   container:
     type:
       - object

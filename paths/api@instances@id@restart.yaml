@@ -1,11 +1,18 @@
 put:
   summary: Restart an instance
-  description: This will restart all containers running within an instance. This includes rebuilding the environment variables and applying settings to the docker containers.
+  description: This will restart the service for all containers within an instance. To restart the underlying server(s) as well you must include the query parameter `server=true`. This includes rebuilding the environment variables and applying settings to the docker containers.
   operationId: restartInstance
   tags:
     - Instances
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: server
+      in: query
+      description: Restart the underlying server(s) as well by passing `true`. By default only the service will be restarted.
+      required: false
+      schema:
+        type: boolean
+        default: true
   responses:
     '200':
       description: Successful Request

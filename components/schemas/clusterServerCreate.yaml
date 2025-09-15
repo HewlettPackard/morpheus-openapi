@@ -15,7 +15,13 @@ properties:
         type:
           - integer
           - 'null'
-        description: Default Git Account to be used when pulling images.  Default behavior is to be anonymous, which does have limits on allowed image pulls from public Docker Repos.
+        description: Default Repo Account is the repository to be used when pulling images.  Default behavior is to be anonymous, which does have limits on allowed image pulls from public Docker Repos.
+      imageServer: 
+        type: string
+        description: Act as Image Server. Set to on to use the Default Repo Account to pull images.
+        enum:
+          - on
+          - off
   serverType:
     type: object
     description: Server type to create.  See `/api/server-types` for available server types for the cloud.

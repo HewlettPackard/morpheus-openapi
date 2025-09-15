@@ -74,6 +74,10 @@ properties:
     type: boolean
   memorySnapshot: 
     type: boolean
+  forExport: 
+    type: boolean
+  forBackup: 
+    type: boolean
   dateCreated:
     type: string
     format: date-time

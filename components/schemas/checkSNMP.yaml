@@ -1,11 +1,12 @@
-title: Postgres Check
+title: SNMP Check
 description: |
-  PostgreSQL check allows to execute a query so that you may validate the value returned in addition to verifying the database is responding.
-  This can be useful for doing a slow query check or just making sure something isn't growing out of control.
+  SNMP check performs an SNMP get request to a network entity and validates the data returned matches the expected value.
 allOf:
   - $ref: checkCreateCommon.yaml
   - type: object
     properties:
+      name:
+        example: My SNMP Check  # override example only
       checkType:
         type: object
         description: Check type you want to create
@@ -13,9 +14,9 @@ allOf:
           code:
             type: string
             enum:
-              - postgresCheck
+              - snmpCheck
       config:
         allOf:
-          - $ref: checkSqlConfig.yaml
+          - $ref: checkSNMPConfig.yaml
           - anyOf:
               - $ref: checkSshConfig.yaml

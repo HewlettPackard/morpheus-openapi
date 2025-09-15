@@ -1,3 +1,4 @@
+title: Web Get Config
 type: object
 required:
   - webMethod

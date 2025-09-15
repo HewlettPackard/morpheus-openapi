@@ -1,13 +1,22 @@
 put:
-  summary: Upgrade Agent
-  description: This will upgrade the version of the agent installed on the host.
-  operationId: updateHostUpgradeAgent
+  summary: Snapshot a Host
+  description: This endpoint will create a snapshot of a host. This is done asychronously, so the ID of the snapshot is not returned.
+  operationId: snapshotHost
   tags:
     - Hosts
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+  requestBody: 
+    content: 
+      application/json: 
+        schema:
+          $ref: ../components/schemas/instanceSnapshot.yaml
+        examples:
+          Snapshot Request:
+            value:
+              $ref: ../components/examples/serverSnapshot.json
   responses:
-    '202':
+    '200':
       description: Successful Request
       content:
         application/json:
@@ -25,7 +34,7 @@ put:
           examples:
             Response:
               value:
-                $ref: ../components/examples/upgradeAgentSuccess.json 
+                $ref: ../components/examples/createSnapshot.json 
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

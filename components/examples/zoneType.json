@@ -7,6 +7,7 @@
         "provision": true,
         "autoCapacity": false,
         "migrationTarget": false,
+        "hasAffinityGroups": false,
         "hasDatastores": false,
         "hasNetworks": true,
         "hasResourcePools": false,

@@ -20,7 +20,6 @@ put:
         format: int64
       description: The ID of the storage volume
   requestBody:
-    required: false
     content:
       application/json:
         schema:
@@ -44,6 +43,9 @@ put:
               required:
                 - controller
                 - unitNumber
+            rootVolume:
+              type: boolean
+              description: Attach as root volume
           required:
             - mountPoint
         examples:

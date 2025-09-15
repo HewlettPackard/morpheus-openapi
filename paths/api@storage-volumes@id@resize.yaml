@@ -1,0 +1,39 @@
+put:
+  summary: Resizes a Specific Storage Volume
+  description: |
+    Resizes a specific storage volume.
+  operationId: getStorageVolumes
+  tags:
+    - Storage
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - maxStorage
+          properties:
+            maxStorage:
+              type: integer
+              format: int64
+              description: The size in bytes to which the storage volume should be resized.
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              storageVolume:
+                $ref: ../components/schemas/storageVolume.yaml
+          examples:
+            Storage Volume Response:
+              value:
+                $ref: ../components/examples/storageVolumeSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
