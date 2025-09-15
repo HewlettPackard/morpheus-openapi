@@ -24,6 +24,8 @@ properties:
     anyOf:
       - $ref: clusterDatastoreConfigNFS.yaml
       - $ref: clusterDatastoreConfigGFS2.yaml
+      - $ref: storageDatastoreConfigGeneric.yaml
+      - $ref: storageDatastoreConfigAlletraMPHVM.yaml
   tenants:
     type: array
     items:
@@ -65,17 +67,25 @@ properties:
             type: integer
             format: int64
       sites:
-        type:
-          - array
-          - 'null'
+        type: array
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
       plans:
-        type:
-          - array
-          - 'null'
+        type: array
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+            code:
+              type: string
   datastores:
     type: array
     items:

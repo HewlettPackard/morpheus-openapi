@@ -131,3 +131,31 @@ put:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Datastore
+  description: |
+    Will initiate delete of a datastore.
+    
+    **Note**: This will initiate a delete request but does not guarantee success.
+  operationId: deleteDatastores
+  tags:
+    - Datastores
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - $ref: ../components/schemas/executionId.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/successExecution.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
