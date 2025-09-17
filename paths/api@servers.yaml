@@ -33,6 +33,11 @@ get:
     - $ref: ../components/parameters/externalId.yaml
     - $ref: ../components/parameters/internalId.yaml
     - $ref: ../components/parameters/externalUniqueId.yaml
+    - in: query
+      name: stats
+      description: This can be used to exclude the `stats` object in the response by passing `false` which can increase performance when returning a large number of servers.
+      schema:
+        type: string
   responses:
     '200':
       description: Successful Request
