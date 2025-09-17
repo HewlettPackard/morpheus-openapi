@@ -6,8 +6,10 @@ schema:
   oneOf:
     - type: integer
       format: int64
+      title: ID
       description: The `id` of the server record.
       example: 1
     - type: string
+      title: UUID
       description: The `uuid` of the server record.
       example: "170a7696-36a7-4800-91a6-1247e24b37e2"
