@@ -1,12 +1,19 @@
 delete:
   summary: Delete a Virtual Image Location
-  description: Will delete a virtual image location, use removeFromCloud=true to all also delete image locations from all clouds as well.
+  description: Will delete a virtual image location, use removeFromCloud=true to also delete the image location files in the cloud as well.
   operationId: removeVirtualImageLocation
   tags:
     - Library
   parameters:
     - $ref: ../components/parameters/virtualImageId-path.yaml
     - $ref: ../components/parameters/id-path.yaml
+    - name: removeFromCloud
+      in: query
+      description: Include removeFromCloud=true to delete the image location files in the cloud as well.
+      schema:
+        type: boolean
+        description: Remove From Cloud
+      example: true
   responses:
     '200':
       description: Successful Request
