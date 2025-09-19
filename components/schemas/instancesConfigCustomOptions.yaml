@@ -3,3 +3,8 @@ properties:
   customOptions:
     type: object
     description: Custom Option Type settings object containing name value pairs.
+  userData:
+    description: User data to be made available to the instance. Typically used for cloud-init.
+    type:
+      - string
+      - 'null'

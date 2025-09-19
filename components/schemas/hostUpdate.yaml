@@ -115,3 +115,12 @@ properties:
     type: boolean
     description: Can turn off guest console preferences on server in favor of hypervisor console
     default: true
+  config:
+    type: object
+    description: Configuration object with parameters that vary by `type`. Only the specified config properties will be updated, other existing config properties will be left unchanged.
+    properties:
+      userData:
+        description: User data to be made available to the instance. Typically used for cloud-init.
+        type:
+          - string
+          - 'null'
