@@ -1,2 +1,9 @@
 title: Generic Instance Configuration
 type: object
+additionalProperties: true
+properties:
+  userData:
+    description: User Data. Allows for override of cloud-init based user-data yaml or custom scripts
+    type:
+      - string
+      - 'null'
