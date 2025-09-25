@@ -1,7 +1,7 @@
 get:
   summary: Retrieves a Specific Storage Bucket
   description: |
-    Retrieves a specific storage bucket.
+    Retrieves a specific storage bucket or file share.
   operationId: getStorageBuckets
   tags:
     - Storage
@@ -200,7 +200,7 @@ put:
 delete:
   summary: Deletes a Storage Bucket
   description: |
-    Deletes a specified storage bucket.
+    Deletes a specified storage bucket or file share.
   operationId: removeStorageBuckets
   tags:
     - Storage
