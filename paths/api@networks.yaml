@@ -16,6 +16,13 @@ get:
       description: Filter by cidr, matches beginning of value.
       schema:
         type: string
+    - name: clusterId
+      in: query
+      description: The Cluster ID for filtering.
+      schema:
+        type: integer
+        format: int64
+      example: 135
   responses:
     '200':
       description: Successful Request
