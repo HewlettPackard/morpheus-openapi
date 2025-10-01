@@ -6,6 +6,12 @@ get:
     - Clusters
   parameters:
     - $ref: ../components/parameters/clusterId-path.yaml
+    - in: query
+      name: stats
+      description: This can be used to include the cluster `stats` object in the response by passing `true`. This object includes usage information that varies by cluster type. For example for HVM it may include `cephStats` and `pacemakerStats`.
+      schema:
+        type: boolean
+        example: true
   responses:
     '200':
       description: Successful Request
