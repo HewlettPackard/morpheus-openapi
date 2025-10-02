@@ -1,0 +1,67 @@
+{
+  "check": {
+    "id": 95,
+    "account": {
+      "id": 1
+    },
+    "active": true,
+    "apiKey": "7f444564-ffaf-46ee-9747-9b69b731a8c7",
+    "availability": 0.0,
+    "checkAgent": null,
+    "checkInterval": null,
+    "checkSpec": null,
+    "checkType": {
+      "id": 11,
+      "code": "snmpCheck",
+      "name": "SNMP Check",
+      "metricName": "result"
+    },
+    "config": {
+      "auth": "MD5",
+      "checkResponse": "the-check-value",
+      "oid": ".1.3.6.1.2.1.1.5.0",
+      "community": "",
+      "version": "3",
+      "privpassword": "************",
+      "securityLevel": "authPriv",
+      "authpassword": "************",
+      "port": "161",
+      "host": "snmp.entity.net",
+      "checkOperator": "equal",
+      "priv": "DES",
+      "username": "snmpuser",
+      "privpasswordHash": "739145a8634b184276559a2f3055353db3b261109649ef78445149415f0b4dee",
+      "authpasswordHash": "739145a8634b184276559a2f3055353db3b261109649ef78445149415f0b4dee"
+    },
+    "container": null,
+    "createIncident": true,
+    "muted": false,
+    "createdBy": {
+      "id": 1,
+      "username": "admin"
+    },
+    "dateCreated": "2025-09-09T20:33:18Z",
+    "description": null,
+    "endDate": null,
+    "health": 9,
+    "inUptime": true,
+    "lastBoxStats": null,
+    "lastCheckStatus": null,
+    "lastError": null,
+    "lastErrorDate": null,
+    "lastMessage": null,
+    "lastMetric": null,
+    "lastRunDate": null,
+    "lastStats": null,
+    "lastSuccessDate": null,
+    "lastTimer": 0,
+    "lastUpdated": "2025-09-09T20:33:18Z",
+    "lastWarningDate": null,
+    "name": "SNMP Check",
+    "nextRunDate": null,
+    "outageTime": 0,
+    "severity": "critical",
+    "startDate": null
+  },
+  "success": true
+}

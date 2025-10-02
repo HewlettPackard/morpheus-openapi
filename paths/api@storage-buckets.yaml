@@ -1,7 +1,7 @@
 get:
   summary: Retrieves all Storage Buckets
   description: |
-    Retrieves all storage buckets.
+    Retrieves all storage buckets and file shares.
   operationId: listStorageBuckets
   tags:
     - Storage
@@ -37,7 +37,7 @@ get:
 post:
   summary: Creates a Storage Bucket
   description: |
-    Creates a storage bucket.
+    Creates a storage bucket or file share.
   operationId: addStorageBuckets
   tags:
     - Storage

@@ -5,9 +5,9 @@ put:
   tags:
     - Hosts
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
   responses:
-    '200':
+    '202':
       description: Successful Request
       content:
         application/json:

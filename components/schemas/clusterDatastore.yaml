@@ -49,6 +49,9 @@ properties:
     type: boolean
   allowProvision:
     type: boolean
+  heartbeatTarget:
+    type: boolean
+    description: Heartbeat Target
   refType:
     type: string
   refId:

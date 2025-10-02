@@ -1,0 +1,23 @@
+{
+  "check": {
+    "name": "SNMP Check",
+    "checkType": {
+      "code": "snmpCheck",
+    },
+    "config": {
+      "host": "snmp.entity.net",
+      "port": "161",
+      "oid": ".1.3.6.1.2.1.1.5.0",
+      "checkOperator": "equal",
+      "checkResponse": "the-check-value",
+      "version": "3",
+      "community": "",
+      "username": "snmpuser",
+      "securityLevel": "authPriv",
+      "auth": "MD5",
+      "authpassword": "apassword",
+      "priv": "DES",
+      "privpassword": "apassword"
+    }
+  }
+}
