@@ -1,6 +1,6 @@
 name: guestAgentStatus
 in: query
-description: Retrieves Guest Agent Status. 
+description: Filter by Guest Agent Status. 
 schema:
   type: string
   enum:
