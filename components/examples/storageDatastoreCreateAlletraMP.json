@@ -1,14 +1,12 @@
 {
     "datastore": {
-      "name": "NFS",
-      "datastoreType": "nfs",
+      "name": "Alletra MP",
+      "datastoreType": "hpedatatore-alletra-mp",
       "active": true,
       "config": {
-        "sourceHostname": "10.32.150.167",
-        "sourceDirPath": "/var/nfs/mvm",
-        "sourceVersion": "3"
+        "enableRansomware": false,
+        "protocolType": "iSCSI"
       },
-      "defaultStore": true,
       "resourcePermissions": {
         "sites": [
           {
@@ -16,7 +14,10 @@
           }
         ]
       },
-      "refType": "ComputeZone",
+      "storageServer": {
+        "id": 1
+      },
+      "refType": "ComputeServerGroup",
       "refId" : 3,
       "tenantPermissions": {
         "accounts": [

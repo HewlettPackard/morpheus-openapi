@@ -2,7 +2,7 @@
   "datastore": {
     "name": "NFS",
     "datastoreType": {
-      "id": 3
+      "id": 3,
     },
     "active": true,
     "config": {

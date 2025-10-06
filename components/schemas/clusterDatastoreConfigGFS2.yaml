@@ -1,5 +1,11 @@
 type: object
+description: GFS2 Cluster Datastore Configuration
 properties:
   blockDevice:
     type: string
     description: Block device for target GFS2.
+  allowReformat:
+    type: boolean
+    description: Allow reformatting of the device if it is already formatted.
+required:
+  - blockDevice
