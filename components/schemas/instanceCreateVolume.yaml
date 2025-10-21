@@ -49,3 +49,9 @@ properties:
       For new storage controllers the id is passed as -1, so an example value would be: `"-1:1:6:0"` which translates to id: -1 (new), busNumber: 1, storage controller type id: 6 (SCSI VMware Paravirtual), unit number: 0.
       The current list of storage controllers is returned for instances and servers for determining existing id values.
       Use `/api/provision-types?code=vmware` to see the available `controllerTypes` for vmware.
+  storageProfile:
+    type:
+      - string
+      - 'null'
+    format: string
+    description: Storage Profile Code for the HVM volume storage profile assignment. eg. `"kvm-cache-none"`, `"kvm-cache-directsync"`, or `"kvm-cache-writeback"`.

@@ -187,6 +187,16 @@ properties:
     type: boolean
   rawData:
     type: string
+  createForMultiAttach:
+    type: boolean
+  isMultiAttach:
+    type: boolean
+  storageProfile:
+    type:
+      - string
+      - 'null'
+    format: string
+    description: Storage Profile Code for the HVM volume storage profile assignment. eg. `"kvm-cache-none"`, `"kvm-cache-directsync"`, or `"kvm-cache-writeback"`.
   account:
     type: object
     properties:
