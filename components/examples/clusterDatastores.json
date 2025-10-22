@@ -40,8 +40,20 @@
                  "account": {
                      "id": 1
                  },
-                 "sites": [],
-                 "plans": []
+                 "sites": [
+                   {
+                     "id": 1,
+                     "name": "Default Site",
+                     "default": true
+                   }
+                 ],
+                 "plans": [
+                   {
+                     "id": 1,
+                     "name": "Default Plan",
+                     "default": true
+                   }
+                 ]
              },
              "tenantPermissions": {
                  "accounts": [
