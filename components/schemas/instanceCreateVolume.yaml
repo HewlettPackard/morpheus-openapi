@@ -54,4 +54,4 @@ properties:
       - string
       - 'null'
     format: string
-    description: Storage Profile Code for the HVM volume storage profile assignment. eg. `"kvm-cache-none"`, `"kvm-cache-directsync"`, or `"kvm-cache-writeback"`.
+    description: Storage Profile Code for the volume storage profile assignment. eg. `"kvm-cache-none"` or `"kvm-cache-directsync"`. Use `/api/provision-types?code=kvm` to see the available `storageProfiles` for HVM and KVM.
