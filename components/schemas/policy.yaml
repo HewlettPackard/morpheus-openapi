@@ -66,8 +66,9 @@ properties:
       - 'null'
   refId:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
   eachUser:
     type:
       - boolean
