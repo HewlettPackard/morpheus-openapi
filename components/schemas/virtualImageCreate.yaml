@@ -58,8 +58,12 @@ properties:
     type:
       - integer
       - 'null'
+      - object
+    properties:
+      id:
+        type: integer
+        format: int64
     format: int64
-
   visibility:
     type: string
     description: private or public
