@@ -86,13 +86,14 @@ properties:
     format: int64
   minRamGB:
     type:
+      - number
+      - 'null'
+    format: double
+  minDisk:
+    type:
       - integer
       - 'null'
     format: int64
-  minDisk:
-    type:
-      - string
-      - 'null'
   minDiskGB:
     type:
       - string
@@ -136,14 +137,23 @@ properties:
       - 'null'
   storageProvider:
     type:
-      - string
+      - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   externalId:
     type:
       - string
       - 'null'
   visibility:
     type: string
+    enum:
+      - "private"
+      - "public"
   accounts:
     type: array
     items:
@@ -155,6 +165,29 @@ properties:
         name:
           type: string
   config:
+    description: Map of configuration properties, varies by image type.
+    oneOf:
+      - type: object
+        title: Azure Reference Virtual Image Configuration
+        description: Azure Reference Virtual Image Parameters
+        required:
+          - publisher
+          - offer
+          - sku
+          - version
+        properties:
+          publisher:
+            type: string
+            description: The name of the publisher in the Azure Marketplace
+          offer:
+            type: string
+            description: The name of the offer in the Azure Marketplace
+          sku:
+            type: string
+            description: The name of the sku in the Azure Marketplace
+          version:
+            type: string
+            description: The name of the version in the Azure Marketplace
     type: object
     properties:
       memorySizeType:
@@ -175,6 +208,11 @@ properties:
     type: array
     items:
       type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
   locations:
     type: array
     items:

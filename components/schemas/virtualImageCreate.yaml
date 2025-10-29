@@ -3,6 +3,9 @@ properties:
   name:
     type: string
     description: A name for the virtual image
+  description:
+    type: string
+    description: A description for the virtual image
   labels:
     type:
       - array
@@ -52,21 +55,18 @@ properties:
     description: SSH Key
   osType:
     description: A Map containing the id of the OS Type. This can also be passed as a string (code or name) instead.
-    oneOf:
-      - type:
-          - object
-          - 'null'
-        properties:
-          id:
-            type: integer
-            format: int64
-      - type:
-          - string
-          - 'null'
+    type:
+      - integer
+      - 'null'
+    format: int64
+
   visibility:
     type: string
     description: private or public
     default: private
+    enum:
+      - "private"
+      - "public"
   accounts:
     type: array
     items:
@@ -100,6 +100,7 @@ properties:
     description: Map of configuration properties, varies by image type.
     oneOf:
       - type: object
+        title: Azure Reference Virtual Image Configuration
         description: Azure Reference Virtual Image Parameters
         required:
           - publisher
@@ -136,3 +137,23 @@ properties:
   url:
     type: string
     description: Image File URL, a virtual image file will be created by fetching the specified URL
+  minRam:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  minRamGB:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  minDisk:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  minDiskGB:
+    type:
+      - integer
+      - 'null'
+    format: int64
