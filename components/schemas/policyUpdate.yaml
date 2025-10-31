@@ -266,7 +266,6 @@ properties:
               - 'null'
           motd.date:
             type: string
-            format: date-time
       - type: object
         title: Network Quota Policy Type Configuration
         description: |

@@ -255,7 +255,6 @@ properties:
                   - 'null'
               motd.date:
                 type: string
-                format: date-time
           - type: object
             description: |
               - Network Quota

@@ -350,7 +350,6 @@ properties:
               - type: 'null'
           motd.date:
             type: string
-            format: date-time
       - type: object
         additionalProperties: false
         required:
