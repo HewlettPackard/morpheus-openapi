@@ -48,6 +48,12 @@ properties:
       - string
       - 'null'
     description: SSH Password
+  uefi:
+    type: boolean
+    description: UEFI enabled?
+  fipsEnabled:
+    description: FIPS enabled?
+    type: boolean
   sshKey:
     type:
       - string
