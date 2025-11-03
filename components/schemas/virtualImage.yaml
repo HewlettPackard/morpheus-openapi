@@ -112,8 +112,9 @@ properties:
   virtioSupported:
     type: boolean
   uefi:
+    description: UEFI enabled?
     type:
-      - string
+      - boolean
       - 'null'
   isAutoJoinDomain:
     type: boolean
