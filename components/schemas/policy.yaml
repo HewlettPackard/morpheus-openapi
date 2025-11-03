@@ -384,6 +384,18 @@ properties:
       - type: object
         additionalProperties: false
         required:
+          - requiredNetworks
+        description: |
+          - Instance Networks
+        properties:
+          requiredNetworks:
+            type: array
+            items:
+              type: integer
+              format: int64
+      - type: object
+        additionalProperties: false
+        required:
           - shutdownType
         description: |
           - Shutdown

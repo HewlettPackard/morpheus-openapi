@@ -46,6 +46,7 @@ properties:
           - maxNetworks
           - storageBucketQuota
           - powerSchedule
+          - requiredNetwork
           - maxRouters
           - shutdown
           - storageServerQuota
@@ -337,6 +338,18 @@ properties:
         properties:
           maxRouters:
             type: string
+      - type: object
+        title: Required Network Policy Type Configuration
+        description: |
+          Configuration settings for the following policy types:
+          - Instance Networks
+        properties:
+          requiredNetworks:
+            type: array
+            description: Array of network IDs that are required
+            items:
+              type: integer
+              format: int64
       - type: object
         title: Shutdown Policy Type Configuration
         description: |
