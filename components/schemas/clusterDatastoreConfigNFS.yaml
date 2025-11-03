@@ -1,4 +1,5 @@
 type: object
+title: NFS Datastore Configuration
 description: NFS Cluster Datastore Configuration
 properties:
   sourceHostname:
