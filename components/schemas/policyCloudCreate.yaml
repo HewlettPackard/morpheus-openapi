@@ -44,6 +44,7 @@ properties:
           - Network Quota
           - Object Storage Quota
           - Power Schedule
+          - Instance Networks
           - Router Quota
           - Shutdown
           - Storage Server Storage Quota
@@ -281,6 +282,15 @@ properties:
             properties:
               maxRouters:
                 type: string
+          - type: object
+            description: |
+              - Instance Networks
+            properties:
+              requiredNetworks:
+                type: array
+                items:
+                  type: integer
+                  format: int64
           - type: object
             description: |
               - Shutdown
