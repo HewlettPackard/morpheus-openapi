@@ -1,4 +1,5 @@
 type: object
+title: GFS2 Datastore Configuration
 description: GFS2 Cluster Datastore Configuration
 properties:
   blockDevice:
