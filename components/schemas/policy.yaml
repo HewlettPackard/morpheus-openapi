@@ -76,6 +76,7 @@ properties:
   config:
     oneOf:
       - type: object
+        title: Approve Policy Type Configuration
         additionalProperties: false
         description: |
           - Approve Delete
@@ -85,6 +86,7 @@ properties:
           accountIntegrationId:
             type: string
       - type: object
+        title: Backup Creation Policy Type Configuration
         additionalProperties: false
         required:
           - createBackupType
@@ -98,6 +100,7 @@ properties:
           accountIntegrationId:
             type: string
       - type: object
+        title: Backup Targets Policy Type Configuration
         additionalProperties: false
         required:
           - backupStorageIds
@@ -109,6 +112,7 @@ properties:
             items:
               type: string
       - type: object
+        title: Budget Policy Type Configuration
         additionalProperties: false
         required:
           - maxPrice
@@ -122,6 +126,7 @@ properties:
           maxPriceUnit:
             type: string
       - type: object
+        title: Cluster Resource Name Policy Type Configuration
         additionalProperties: false
         required:
           - serverNamingType
@@ -137,6 +142,7 @@ properties:
           serverNamingConflict:
             type: boolean
       - type: object
+        title: Cypher Access Policy Type Configuration
         additionalProperties: false
         required:
           - keyPattern
@@ -158,6 +164,7 @@ properties:
           list:
             type: boolean
       - type: object
+        title: Delayed Delete Policy Type Configuration
         additionalProperties: false
         required:
           - removalAge
@@ -169,6 +176,7 @@ properties:
           removalAge:
             type: string
       - type: object
+        title: Expiration Policy Type Configuration
         additionalProperties: false
         required:
           - lifecycleType
@@ -196,6 +204,7 @@ properties:
           lifecycleHideFixed:
             type: boolean
       - type: object
+        title: Hostname Policy Type Configuration
         additionalProperties: false
         required:
           - hostNamingType
@@ -207,6 +216,7 @@ properties:
           hostNamingPattern:
             type: string
       - type: object
+        title: Instance Name Policy Type Configuration
         additionalProperties: false
         required:
           - namingType
@@ -220,6 +230,7 @@ properties:
           namingConflict:
             type: boolean
       - type: object
+        title: Max Containers Policy Type Configuration
         additionalProperties: false
         required:
           - maxContainers
@@ -229,6 +240,7 @@ properties:
           maxContainers:
             type: string
       - type: object
+        title: Max Cores Policy Type Configuration
         additionalProperties: false
         required:
           - maxCores
@@ -240,6 +252,7 @@ properties:
           excludeContainers:
             $ref: checkbox.yaml
       - type: object
+        title: Max Hosts Policy Type Configuration
         additionalProperties: false
         required:
           - maxHosts
@@ -249,6 +262,7 @@ properties:
           maxHosts:
             type: string
       - type: object
+        title: Max Load Balancer Pools Policy Type Configuration
         additionalProperties: false
         required:
           - maxPools
@@ -258,6 +272,7 @@ properties:
           maxPools:
             type: string
       - type: object
+        title: Max Memory Policy Type Configuration
         additionalProperties: false
         required:
           - maxMemory
@@ -269,6 +284,7 @@ properties:
           excludeContainers:
             $ref: checkbox.yaml
       - type: object
+        title: Max Pool Members Policy Type Configuration
         additionalProperties: false
         required:
           - maxPoolMembers
@@ -278,6 +294,7 @@ properties:
           maxPoolMembers:
             type: string
       - type: object
+        title: Max Storage and Object Storage Quota Policy Type Configuration
         additionalProperties: false
         required:
           - maxStorage
@@ -291,6 +308,7 @@ properties:
           excludeContainers:
             $ref: checkbox.yaml
       - type: object
+        title: Max Virtual Servers Policy Type Configuration
         additionalProperties: false
         required:
           - maxVirtualServers
@@ -300,6 +318,7 @@ properties:
           maxVirtualServers:
             type: string
       - type: object
+        title: Max VMs Policy Type Configuration
         additionalProperties: false
         required:
           - maxVms
@@ -309,6 +328,7 @@ properties:
           maxVms:
             type: string
       - type: object
+        title: Message of the Day Policy Type Configuration
         additionalProperties: false
         required:
           - motd
@@ -351,6 +371,7 @@ properties:
           motd.date:
             type: string
       - type: object
+        title: Network Quota Policy Type Configuration
         additionalProperties: false
         required:
           - maxNetworks
@@ -360,6 +381,7 @@ properties:
           maxNetworks:
             type: string
       - type: object
+        title: Power Schedule Policy Type Configuration
         additionalProperties: false
         required:
           - powerScheduleType
@@ -373,6 +395,7 @@ properties:
           powerScheduleHideFixed:
             type: boolean
       - type: object
+        title: Router Quota Policy Type Configuration
         additionalProperties: false
         required:
           - maxRouters
@@ -382,6 +405,7 @@ properties:
           maxRouters:
             type: string
       - type: object
+        title: Required Network Policy Type Configuration
         additionalProperties: false
         required:
           - requiredNetworks
@@ -394,6 +418,7 @@ properties:
               type: integer
               format: int64
       - type: object
+        title: Shutdown Policy Type Configuration
         additionalProperties: false
         required:
           - shutdownType
@@ -421,6 +446,7 @@ properties:
           shutdownHideFixed:
             type: boolean
       - type: object
+        title: Storage Server Storage Quota Policy Type Configuration
         additionalProperties: false
         required:
           - storageServerId
@@ -432,6 +458,7 @@ properties:
           maxStorage:
             type: string
       - type: object
+        title: Tags Policy Type Configuration
         additionalProperties: false
         required:
           - strict
@@ -447,6 +474,7 @@ properties:
           value:
             type: string
       - type: object
+        title: User Creation Policy Type Configuration
         additionalProperties: false
         required:
           - createUserType
@@ -458,6 +486,7 @@ properties:
           createUser:
             type: boolean
       - type: object
+        title: User Group Creation Policy Type Configuration
         additionalProperties: false
         required:
           - userGroup
@@ -467,6 +496,7 @@ properties:
           userGroup:
             type: string
       - type: object
+        title: Workflow Policy Type Configuration
         additionalProperties: false
         required:
           - workflowId
