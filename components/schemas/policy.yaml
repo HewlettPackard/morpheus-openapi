@@ -294,6 +294,14 @@ properties:
           maxPoolMembers:
             type: string
       - type: object
+        title: Max Snapshots Policy Type Configuration
+        description: |
+          Configuration settings for the following policy types:
+          - Max Snapshots
+        properties:
+          maxSnapshots:
+            type: string
+      - type: object
         title: Max Storage and Object Storage Quota Policy Type Configuration
         additionalProperties: false
         required:
