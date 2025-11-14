@@ -212,6 +212,12 @@ properties:
                 type: string
           - type: object
             description: |
+              - Max Snapshots
+            properties:
+              maxSnapshots:
+                type: string
+          - type: object
+            description: |
               - Max Storage
               - Object Storage Quota
             properties:
