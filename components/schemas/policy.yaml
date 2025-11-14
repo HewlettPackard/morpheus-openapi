@@ -358,7 +358,7 @@ properties:
                 type: string
               type:
                 type: string
-              _fullPage:
+              fullPage:
                 oneOf:
                   - type: string
                     enum:
@@ -370,7 +370,7 @@ properties:
             type: string
           motd.type:
             type: string
-          motd._fullPage:
+          motd.fullPage:
             oneOf:
               - type: string
                 enum:

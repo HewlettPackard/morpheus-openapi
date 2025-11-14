@@ -252,7 +252,7 @@ properties:
                     type: string
                   type:
                     type: string
-                  _fullPage:
+                  fullPage:
                     type:
                       - boolean
                       - 'null'
@@ -260,7 +260,7 @@ properties:
                 type: string
               motd.type:
                 type: string
-              motd._fullPage:
+              motd.fullPage:
                 type:
                   - boolean
                   - 'null'

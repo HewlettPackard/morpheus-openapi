@@ -423,11 +423,11 @@
                     "title": "",
                     "message": "knlghsn",
                     "type": "info",
-                    "_fullPage": ""
+                    "fullPage": ""
                 },
                 "motd.message": "knlghsn",
                 "motd.type": "info",
-                "motd._fullPage": "",
+                "motd.fullPage": "",
                 "motd.date": "2022-08-26 15:53:26"
             },
             "enabled": false,
