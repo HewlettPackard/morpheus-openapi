@@ -295,6 +295,9 @@ properties:
             type: string
       - type: object
         title: Max Snapshots Policy Type Configuration
+        additionalProperties: false
+        required:
+          - maxSnapshots
         description: |
           - Max Snapshots
         properties:
