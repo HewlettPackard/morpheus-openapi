@@ -6,7 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Bundle Spec
-        uses: docker://redocly/cli:latest
+        uses: docker://redocly/cli:2.10.0
         with:
           args: bundle --dereferenced openapi.yaml -o bundle.yaml
       - name: OpenAPI Generator Validate
