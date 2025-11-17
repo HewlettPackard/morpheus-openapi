@@ -27,8 +27,8 @@ jobs:
           args: lint openapi.yaml
       - name: bundle with redocly in docker
         uses: docker://redocly/cli:2.10.0
-        run: |
-          docker run --rm -v $PWD:/spec redocly/cli bundle --dereferenced openapi.yaml > bundle.yaml
+        with:
+          args: bundle --dereferenced openapi.yaml -o bundled.yaml
       - name: push to readme
         if: github.ref != 'refs/heads/main'
         #uses: readmeio/rdme@7.3.0
