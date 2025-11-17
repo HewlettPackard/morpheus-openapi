@@ -17,9 +17,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Bundle Spec
-        uses: docker://redocly/cli:latest
-        with:
-          args: bundle --dereferenced openapi.yaml -o bundled.yaml
+        run: |
+          docker run --rm \
+            -v $PWD:/workspace \
+            -w /workspace \
+            redocly/cli:latest \
+            bundle --dereferenced openapi.yaml -o bundled.yaml
       - name: Spectral Lint
         uses: docker://stoplight/spectral:latest
         with:
