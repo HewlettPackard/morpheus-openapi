@@ -28,7 +28,7 @@ jobs:
       - name: bundle with redocly in docker
         uses: docker://redocly/cli:2.10.0
         with:
-          args: bundle --dereferenced openapi.yaml -o bundled.yaml
+          args: bundle --dereferenced openapi.yaml -o bundle.yaml
       - name: push to readme
         if: github.ref != 'refs/heads/main'
         #uses: readmeio/rdme@7.3.0
