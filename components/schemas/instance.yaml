@@ -644,6 +644,7 @@ properties:
       - 'null'
     items:
       additionalProperties: true
+      title: Instance Container
       properties:
         id:
           type: integer
@@ -695,6 +696,7 @@ properties:
               type: string
         server:
           additionalProperties: true
+          title: Instance Container Server
           properties:
             id:
               type: integer
@@ -938,6 +940,68 @@ properties:
                     type:
                       - string
                       - 'null'
+            interfaces:
+              type: array
+              title: Instance Container Server Interfaces
+              items:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+                  name:
+                    type: string
+                  uniqueId:
+                    type: string
+                  publicIpAddress:
+                    type: string
+                  ipAddress:
+                    type: string
+                  dhcp:
+                    type: boolean
+                  active:
+                    type: boolean
+                  poolAssigned:
+                    type: boolean
+                  primaryInterface:
+                    type: boolean
+                  network:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      name:
+                        type: string
+                  networkGroup:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      name:
+                        type: string
+                  networkPool:
+                    type: integer
+                    format: int64
+                  ipMode:
+                    type: string
+                    enum:
+                      - dhcp
+                      - static
+                  macAddress:
+                    type: string
+                  interfaces:
+                    type: array
+                    title: Instance Container Server Instances Inner
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                        name:
+                          type: string
         cloud:
           additionalProperties: true
           properties:

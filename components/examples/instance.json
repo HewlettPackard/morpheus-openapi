@@ -412,9 +412,9 @@
                             "internalId": null,
                             "externalId": null,
                             "uniqueId": "morpheus-nic-51714-749153-0",
-                            "publicIpAddress": null,
+                            "publicIpAddress": "10.0.0.0",
                             "publicIpv6Address": null,
-                            "ipAddress": null,
+                            "ipAddress": "10.0.0.0",
                             "ipv6Address": null,
                             "ipSubnet": null,
                             "ipv6Subnet": null,
@@ -433,11 +433,12 @@
                                 "name": "Demo Preferred"
                             },
                             "networkPosition": null,
-                            "networkPool": null,
+                            "networkPool": 1,
                             "networkDomain": null,
                             "type": null,
-                            "ipMode": null,
-                            "macAddress": null
+                            "ipMode": "dhcp",
+                            "macAddress": "52:54:00:de:a6:85",
+                            "interfaces": []
                         }
                     ],
                     "labels": [],
