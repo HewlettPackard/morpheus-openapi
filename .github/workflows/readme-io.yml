@@ -22,7 +22,7 @@ jobs:
           echo "::add-mask::$README_VERSION_ID"
           echo "README_VERSION_ID=${README_VERSION_ID}" >> $GITHUB_ENV
       - name: lint with redocly in docker
-        uses: docker://redocly/cli
+        uses: docker://redocly/cli:2.10.0
         with:
           args: lint openapi.yaml
       - name: bundle with redocly in docker
