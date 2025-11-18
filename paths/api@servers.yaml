@@ -10,6 +10,7 @@ get:
     - $ref: ../components/parameters/zoneId.yaml
     - $ref: ../components/parameters/siteId.yaml
     - $ref: ../components/parameters/clusterId.yaml
+    - $ref: ../components/parameters/parentServerId.yaml
     - $ref: ../components/parameters/managed.yaml
     - $ref: ../components/parameters/serverType.yaml
     - $ref: ../components/parameters/powerState.yaml
