@@ -77,8 +77,6 @@ properties:
                 type: string
               createBackup:
                 type: boolean
-              accountIntegrationId:
-                type: string
           - type: object
             description: |
               - Backup Targets

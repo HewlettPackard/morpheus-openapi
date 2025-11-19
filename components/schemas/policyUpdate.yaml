@@ -36,8 +36,6 @@ properties:
             type: string
           createBackup:
             type: boolean
-          accountIntegrationId:
-            type: string
       - type: object
         title: Backup Targets Policy Type Configuration
         description: |
