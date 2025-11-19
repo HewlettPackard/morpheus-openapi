@@ -85,6 +85,12 @@ properties:
         properties:
           accountIntegrationId:
             type: string
+          workflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
       - type: object
         title: Backup Creation Policy Type Configuration
         additionalProperties: false
@@ -200,6 +206,12 @@ properties:
           lifecycleExtensionsBeforeApproval:
             type: string
           accountIntegrationId:
+            type: string
+          lifecycleWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
             type: string
           lifecycleHideFixed:
             type: boolean
@@ -331,6 +343,15 @@ properties:
         title: Max VMs Policy Type Configuration
         additionalProperties: false
         required:
+          - maxSnapshots
+        description: |
+          - Max Snapshots
+        properties:
+          maxSnapshots:
+            type: string
+      - type: object
+        additionalProperties: false
+        required:
           - maxVms
         description: |
           - Max VMs
@@ -455,6 +476,12 @@ properties:
             type: string
           shutdownHideFixed:
             type: boolean
+          shutdownWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
       - type: object
         title: Storage Server Storage Quota Policy Type Configuration
         additionalProperties: false

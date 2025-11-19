@@ -20,6 +20,12 @@ properties:
         properties:
           accountIntegrationId:
             type: string
+          workflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
       - type: object
         title: Backup Creation Policy Type Configuration
         description: |
@@ -30,6 +36,8 @@ properties:
             type: string
           createBackup:
             type: boolean
+          accountIntegrationId:
+            type: string
       - type: object
         title: Backup Targets Policy Type Configuration
         description: |
@@ -117,6 +125,12 @@ properties:
             type: string
           lifecycleHideFixed:
             type: boolean
+          lifecycleWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
       - type: object
         title: File Share Storage Quota Policy Type Configuration
         description: |
@@ -235,6 +249,14 @@ properties:
           maxVirtualServers:
             type: string
       - type: object
+        title: Max Snapshots Policy Type Configuration
+        description: |
+          Configuration settings for the following policy types:
+          - Max Snapshots
+        properties:
+          maxSnapshots:
+            type: string
+      - type: object
         title: Max VMs Policy Type Configuration
         description: |
           Configuration settings for the following policy types:
@@ -339,6 +361,12 @@ properties:
             type: string
           shutdownHideFixed:
             type: boolean
+          shutdownWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
       - type: object
         title: Storage Server Storage Quota Policy Type Configuration
         description: |
