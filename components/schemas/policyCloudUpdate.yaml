@@ -53,7 +53,7 @@ properties:
           - type: object
             description: |
               - Approve Delete
-              - Approve Provisiong
+              - Approve Provision
               - Approve Reconfigure
             properties:
               accountIntegrationId:

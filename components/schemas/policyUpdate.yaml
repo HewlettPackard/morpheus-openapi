@@ -15,7 +15,7 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Approve Delete
-          - Approve Provisiong
+          - Approve Provision
           - Approve Reconfigure
         properties:
           accountIntegrationId:
