@@ -78,12 +78,16 @@ properties:
       - type: object
         title: Approve Policy Type Configuration
         additionalProperties: false
+        required:
+          - accountIntegrationId
         description: |
           - Approve Delete
           - Approve Provision
           - Approve Reconfigure
         properties:
           accountIntegrationId:
+            type: string
+          workflowId:
             type: string
           flowId:
             type: string
