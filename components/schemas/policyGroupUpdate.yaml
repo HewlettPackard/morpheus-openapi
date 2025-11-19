@@ -59,8 +59,6 @@ properties:
             properties:
               accountIntegrationId:
                 type: string
-              workflowId:
-                type: string
               flowId:
                 type: string
               workflowType:
