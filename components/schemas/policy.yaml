@@ -80,7 +80,7 @@ properties:
         additionalProperties: false
         description: |
           - Approve Delete
-          - Approve Provisiong
+          - Approve Provision
           - Approve Reconfigure
         properties:
           accountIntegrationId:
