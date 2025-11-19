@@ -78,10 +78,16 @@ properties:
         additionalProperties: false
         description: |
           - Approve Delete
-          - Approve Provisiong
+          - Approve Provision
           - Approve Reconfigure
         properties:
           accountIntegrationId:
+            type: string
+          workflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
             type: string
       - type: object
         additionalProperties: false
@@ -192,6 +198,12 @@ properties:
             type: string
           accountIntegrationId:
             type: string
+          lifecycleWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
           lifecycleHideFixed:
             type: boolean
       - type: object
@@ -297,6 +309,15 @@ properties:
           - Max Virtual Servers
         properties:
           maxVirtualServers:
+            type: string
+      - type: object
+        additionalProperties: false
+        required:
+          - maxSnapshots
+        description: |
+          - Max Snapshots
+        properties:
+          maxSnapshots:
             type: string
       - type: object
         additionalProperties: false
@@ -408,6 +429,12 @@ properties:
             type: string
           shutdownHideFixed:
             type: boolean
+          shutdownWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
       - type: object
         additionalProperties: false
         required:

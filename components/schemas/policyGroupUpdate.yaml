@@ -58,6 +58,12 @@ properties:
             properties:
               accountIntegrationId:
                 type: string
+              workflowId:
+                type: string
+              flowId:
+                type: string
+              workflowType:
+                type: string
           - type: object
             description: |
               - Backup Creation
@@ -66,6 +72,8 @@ properties:
                 type: string
               createBackup:
                 type: boolean
+              accountIntegrationId:
+                type: string
           - type: object
             description: |
               - Backup Targets
@@ -141,6 +149,12 @@ properties:
                 type: string
               lifecycleHideFixed:
                 type: boolean
+              lifecycleWorkflowId:
+                type: string
+              flowId:
+                type: string
+              workflowType:
+                type: string
           - type: object
             description: |
               - File Share Storage Quota
@@ -219,6 +233,12 @@ properties:
               - Max Virtual Servers
             properties:
               maxVirtualServers:
+                type: string
+          - type: object
+            description: |
+              - Max Snapshots
+            properties:
+              maxSnapshots:
                 type: string
           - type: object
             description: |
@@ -302,6 +322,12 @@ properties:
                 type: string
               shutdownHideFixed:
                 type: boolean
+              shutdownWorkflowId:
+                type: string
+              flowId:
+                type: string
+              workflowType:
+                type: string
           - type: object
             description: |
               - Storage Server Storage Quota
