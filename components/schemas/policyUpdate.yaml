@@ -15,10 +15,16 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Approve Delete
-          - Approve Provisiong
+          - Approve Provision
           - Approve Reconfigure
         properties:
           accountIntegrationId:
+            type: string
+          workflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
             type: string
       - type: object
         title: Backup Creation Policy Type Configuration
@@ -117,6 +123,12 @@ properties:
             type: string
           lifecycleHideFixed:
             type: boolean
+          lifecycleWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
       - type: object
         title: File Share Storage Quota Policy Type Configuration
         description: |
@@ -339,6 +351,12 @@ properties:
             type: string
           shutdownHideFixed:
             type: boolean
+          shutdownWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
       - type: object
         title: Storage Server Storage Quota Policy Type Configuration
         description: |
