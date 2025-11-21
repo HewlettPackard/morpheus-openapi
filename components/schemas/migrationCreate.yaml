@@ -5,13 +5,16 @@ properties:
     description: Name
   skippedPrechecks:
     type: boolean
-    description: Indicates if the precheck was skipped
+    description: Indicates if the precheck should be skipped
+    default: false
   installGuestTools:
     type: boolean
     description: Indicates if guest tools should be installed
+    default: true
   reInitializeServerOnMigration:
     type: boolean
     description: Indicates if the server should be re-initialized on migration
+    default: false
   linuxUsername:
     type:
       - string

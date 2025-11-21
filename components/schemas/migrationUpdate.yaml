@@ -5,7 +5,7 @@ properties:
     description: Name
   skippedPrechecks:
     type: boolean
-    description: Indicates if the precheck was skipped
+    description: Indicates if the precheck should be skipped
   installGuestTools:
     type: boolean
     description: Indicates if guest tools should be installed
