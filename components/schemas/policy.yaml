@@ -78,8 +78,6 @@ properties:
       - type: object
         title: Approve Policy Type Configuration
         additionalProperties: false
-        required:
-          - accountIntegrationId
         description: |
           - Approve Delete
           - Approve Provision
@@ -96,8 +94,6 @@ properties:
       - type: object
         title: Backup Creation Policy Type Configuration
         additionalProperties: false
-        required:
-          - createBackupType
         description: |
           - Backup Creation
         properties:
@@ -108,8 +104,6 @@ properties:
       - type: object
         title: Backup Targets Policy Type Configuration
         additionalProperties: false
-        required:
-          - backupStorageIds
         description: |
           - Backup Targets
         properties:
@@ -120,8 +114,6 @@ properties:
       - type: object
         title: Budget Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxPrice
         description: |
           - Budget
         properties:
@@ -134,8 +126,6 @@ properties:
       - type: object
         title: Cluster Resource Name Policy Type Configuration
         additionalProperties: false
-        required:
-          - serverNamingType
         description: |
           - Cluster Resource Name
         properties:
@@ -148,8 +138,6 @@ properties:
       - type: object
         title: Cypher Access Policy Type Configuration
         additionalProperties: false
-        required:
-          - keyPattern
         description: |
           - Cypher Access
         properties:
@@ -168,8 +156,6 @@ properties:
       - type: object
         title: Delayed Delete Policy Type Configuration
         additionalProperties: false
-        required:
-          - removalAge
         description: |
           - Delayed Delete
         properties:
@@ -178,8 +164,6 @@ properties:
       - type: object
         title: Expiration Policy Type Configuration
         additionalProperties: false
-        required:
-          - lifecycleType
         description: |
           - Expiration
         properties:
@@ -212,8 +196,6 @@ properties:
       - type: object
         title: Hostname Policy Type Configuration
         additionalProperties: false
-        required:
-          - hostNamingType
         description: |
           - Hostname
         properties:
@@ -224,8 +206,6 @@ properties:
       - type: object
         title: Instance Name Policy Type Configuration
         additionalProperties: false
-        required:
-          - namingType
         description: |
           - Instance Name
         properties:
@@ -238,8 +218,6 @@ properties:
       - type: object
         title: Max Containers Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxContainers
         description: |
           - Max Containers
         properties:
@@ -248,8 +226,6 @@ properties:
       - type: object
         title: Max Cores Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxCores
         description: |
           - Max Cores
         properties:
@@ -260,8 +236,6 @@ properties:
       - type: object
         title: Max Hosts Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxHosts
         description: |
           - Max Hosts
         properties:
@@ -270,8 +244,6 @@ properties:
       - type: object
         title: Max Load Balancer Pools Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxPools
         description: |
           - Max Load Balancer Pools
         properties:
@@ -280,8 +252,6 @@ properties:
       - type: object
         title: Max Memory Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxMemory
         description: |
           - Max Memory
         properties:
@@ -292,8 +262,6 @@ properties:
       - type: object
         title: Max Pool Members Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxPoolMembers
         description: |
           - Max Pool Members
         properties:
@@ -302,8 +270,6 @@ properties:
       - type: object
         title: Max Snapshots Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxSnapshots
         description: |
           - Max Snapshots
         properties:
@@ -312,8 +278,6 @@ properties:
       - type: object
         title: Max Storage and Object Storage Quota Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxStorage
         description: |
           - Max Storage
           - Object Storage Quota
@@ -326,8 +290,6 @@ properties:
       - type: object
         title: Max Virtual Servers Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxVirtualServers
         description: |
           - Max Virtual Servers
         properties:
@@ -336,8 +298,6 @@ properties:
       - type: object
         title: Max VMs Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxVms
         description: |
           - Max VMs
         properties:
@@ -346,8 +306,6 @@ properties:
       - type: object
         title: Message of the Day Policy Type Configuration
         additionalProperties: false
-        required:
-          - motd
         description: |
           - Message of the Day
         properties:
@@ -389,8 +347,6 @@ properties:
       - type: object
         title: Network Quota Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxNetworks
         description: |
           - Network Quota
         properties:
@@ -399,8 +355,6 @@ properties:
       - type: object
         title: Power Schedule Policy Type Configuration
         additionalProperties: false
-        required:
-          - powerScheduleType
         description: |
           - Power Schedule
         properties:
@@ -413,8 +367,6 @@ properties:
       - type: object
         title: Router Quota Policy Type Configuration
         additionalProperties: false
-        required:
-          - maxRouters
         description: |
           - Router Quota
         properties:
@@ -423,8 +375,6 @@ properties:
       - type: object
         title: Required Network Policy Type Configuration
         additionalProperties: false
-        required:
-          - requiredNetworks
         description: |
           - Instance Networks
         properties:
@@ -436,8 +386,6 @@ properties:
       - type: object
         title: Shutdown Policy Type Configuration
         additionalProperties: false
-        required:
-          - shutdownType
         description: |
           - Shutdown
         properties:
@@ -470,8 +418,6 @@ properties:
       - type: object
         title: Storage Server Storage Quota Policy Type Configuration
         additionalProperties: false
-        required:
-          - storageServerId
         description: |
           - Storage Server Storage Quota
         properties:
@@ -482,8 +428,6 @@ properties:
       - type: object
         title: Tags Policy Type Configuration
         additionalProperties: false
-        required:
-          - strict
         description: |
           - Tags
         properties:
@@ -498,8 +442,6 @@ properties:
       - type: object
         title: User Creation Policy Type Configuration
         additionalProperties: false
-        required:
-          - createUserType
         description: |
           - User Creation
         properties:
@@ -510,8 +452,6 @@ properties:
       - type: object
         title: User Group Creation Policy Type Configuration
         additionalProperties: false
-        required:
-          - userGroup
         description: |
           - User Group Creation
         properties:
@@ -520,8 +460,6 @@ properties:
       - type: object
         title: Workflow Policy Type Configuration
         additionalProperties: false
-        required:
-          - workflowId
         description: |
           - Workflow
         properties:
