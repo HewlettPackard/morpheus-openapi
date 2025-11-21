@@ -139,8 +139,6 @@ properties:
         description: |
           - Cluster Resource Name
         properties:
-          accountIntegrationId:
-            type: string
           serverNamingType:
             type: string
           serverNamingPattern:
@@ -155,8 +153,6 @@ properties:
         description: |
           - Cypher Access
         properties:
-          accountIntegrationId:
-            type: string
           keyPattern:
             type: string
           read:
@@ -177,8 +173,6 @@ properties:
         description: |
           - Delayed Delete
         properties:
-          accountIntegrationId:
-            type: string
           removalAge:
             type: string
       - type: object
