@@ -207,6 +207,10 @@ paths:
     $ref: paths/api@zones.yaml
   /api/zones/{id}:
     $ref: paths/api@zones@id.yaml
+  /api/zones/{zoneId}/affinity-groups:
+    $ref: paths/api@zones@id@affinity-groups.yaml
+  /api/zones/{zoneId}/affinity-groups/{id}:
+    $ref: paths/api@zones@id@affinity-groups@id.yaml
   /api/zones/{zoneId}/data-stores:
     $ref: paths/api@zones@zoneId@data-stores.yaml
   /api/zones/{zoneId}/data-stores/{id}:
@@ -242,6 +246,10 @@ paths:
     $ref: paths/api@clusters.yaml
   /api/clusters/{clusterId}:
     $ref: paths/api@clusters@id.yaml
+  /api/clusters/{clusterId}/affinity-groups:
+    $ref: paths/api@clusters@id@affinity-groups.yaml
+  /api/clusters/{clusterId}/affinity-groups/{id}:
+    $ref: paths/api@clusters@id@affinity-groups@id.yaml
   /api/clusters/{clusterId}/api-config:
     $ref: paths/api@clusters@id@api-config.yaml
   /api/clusters/{clusterId}/apply-template:
