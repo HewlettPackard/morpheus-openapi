@@ -1,0 +1,139 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name
+  skippedPrechecks:
+    type: boolean
+    description: Indicates if the precheck was skipped
+  installGuestTools:
+    type: boolean
+    description: Indicates if guest tools should be installed
+  reInitializeServerOnMigration:
+    type: boolean
+    description: Indicates if the server should be re-initialized on migration
+  linuxUsername:
+    type:
+      - string
+      - 'null'
+    description: Linux Username for migrated servers
+  linuxPassword:
+    type:
+      - string
+      - 'null'
+    description: Linux Password for migrated servers
+  linuxKeyPair:
+    type:
+      - object
+      - 'null'
+    description: SSH Key for Linux migrated servers. See `/api/options/privateKeyPairs` for available private key pairs.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Key Pair ID
+      name:
+        type: string
+        description: Key Pair Name
+  windowsUsername:
+    type:
+      - string
+      - 'null'
+    description: Windows Username for migrated servers
+  windowsPassword:
+    type:
+      - string
+      - 'null'
+    description: Windows Password for migrated servers
+  sourceCloudId:
+    type: integer
+    format: int64
+    description: |
+      Source Cloud ID.
+      The API `/api/migrations/source-clouds` can be used to find available options.
+  targetCloudId:
+    type: integer
+    format: int64
+    description: |
+      Target Cloud ID.
+      The API `/api/migrations/target-clouds?sourceCloudId=34` can be used to find available options.
+  targetGroupId:
+    type: integer
+    format: int64
+    description: |
+      Target Group ID. 
+      The Options API `/api/options/targetGroups?sourceCloudId=34&targetCloudId=129` can be used to find available options.
+  targetPoolId:
+    type:
+      - string
+      - integer
+    format: int64
+    description: |
+      Target Resource Pool ID.
+      The Options API `/api/options/zonePools?provisionTypeCode=kvm&cloudId=129&groupId=555` can be used to find available options.
+      This parameter can also be passed as a string with the prefix 'pool-'.
+  sourceServerIds:
+    type:
+      - array
+    description: |
+      Array of Server IDs to be migrated.
+      The API `/api/migrations/source-servers?sourceCloudId=34` can be used to find available options.
+    items:
+      type: integer
+      format: int64
+      description: Source Server ID. 
+  datastores:
+    type:
+      - array
+    description: Array of datastore mappings.
+    items:
+      type: object
+      properties:
+        sourceDatastore:
+          type: object
+          description: Source Datastore
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: |
+                Source Datastore ID.
+                The API `/api/migrations/source-storage?sourceCloudId=34&sourceServerIds=31331%2C31571` can be used to find available options.
+        destinationDatastore:
+          type: object
+          description: Destination Datastore
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: 
+                Destination Datastore ID.
+                The API `/api/migrations/target-storage?targetCloudId=129&targetPoolId=pool-9406` can be used to find available options.
+  networks:
+    type:
+      - array
+    description: Array of network mappings.
+    items:
+      type: object
+      properties:
+        sourceNetwork:
+          type: object
+          description: Source Network
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: |
+                Source Network ID.
+                The API `/api/migrations/source-network?sourceCloudId=34&sourceServerIds=31331%2C31571` can be used to find available options.
+        destinationNetwork:
+          type: object
+          description: Destination Network
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: |
+                Destination Network ID.
+                The API `/api/migrations/target-network?targetCloudId=129&targetPoolId=pool-9406` can be used to find available options.
+

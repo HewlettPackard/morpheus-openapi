@@ -732,7 +732,12 @@ paths:
 
   /api/monitoring-settings:
     $ref: paths/api@monitoring-settings.yaml
-  
+  /api/migrations:
+    $ref: paths/api@migrations.yaml
+  /api/migrations/{id}:
+    $ref: paths/api@migrations@id.yaml
+  /api/migrations/{id}/run:
+    $ref: paths/api@migrations@id@run.yaml
   /api/network-types:
     $ref: paths/api@network-types.yaml
   /api/network-types/{id}:
@@ -1404,6 +1409,8 @@ tags:
     description: Manage Monitoring Settings
   - name: Morpheus API
     description: All Endpoints Specific to Morpheus API
+  - name: Migrations
+    description: Manage Migrations
   - name: Networks
     description: Manage Networks
   - name: Node Types

@@ -1,0 +1,91 @@
+get:
+  summary: Get a Specific Migration
+  description: |
+    This endpoint retrieves a specific Migration.
+  operationId: getMigration
+  tags:
+    - Migrations
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              migration:
+                $ref: ../components/schemas/migration.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/migration.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+put:
+  summary: Update a Migration
+  description: |
+    Update a Migration.
+  operationId: updateMigration
+  tags:
+    - Migrations
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          type: object
+          properties: 
+            migration:
+              $ref: ../components/schemas/migrationUpdate.yaml
+        examples: 
+          Update Migration Request Example:
+            value: 
+              $ref: ../components/examples/migrationUpdate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              migration:
+                $ref: ../components/schemas/migration.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/migrationSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml 
+
+delete:
+  summary: Delete a Migration
+  description: Deletes a specified migration.
+  operationId: deleteMigration
+  tags:
+    - Migrations
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json 
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
