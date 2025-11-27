@@ -982,8 +982,13 @@ properties:
                       name:
                         type: string
                   networkPool:
-                    type: integer
-                    format: int64
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      name:
+                        type: string
                   ipMode:
                     type: string
                     enum:
