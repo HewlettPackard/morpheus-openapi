@@ -433,7 +433,10 @@
                                 "name": "Demo Preferred"
                             },
                             "networkPosition": null,
-                            "networkPool": 1,
+                            "networkPool": {
+                              "id": 1,
+                              "name": "Demo Pool"
+                            },
                             "networkDomain": null,
                             "type": null,
                             "ipMode": "dhcp",
