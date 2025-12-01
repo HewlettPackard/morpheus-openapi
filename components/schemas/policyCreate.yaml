@@ -101,7 +101,7 @@ properties:
           - Budget
         properties:
           maxPrice:
-            type: number
+            type: string
           maxPriceCurrency:
             type: string
           maxPriceUnit:
