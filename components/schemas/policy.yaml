@@ -133,7 +133,7 @@ properties:
           - Budget
         properties:
           maxPrice:
-            type: string
+            type: number
             description: Maximum price limit
           maxPriceCurrency:
             type: string
