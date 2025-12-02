@@ -56,6 +56,8 @@ properties:
               - Approve Delete
               - Approve Provision
               - Approve Reconfigure
+            required:
+              - accountIntegrationId
             properties:
               accountIntegrationId:
                 type: string
@@ -72,6 +74,8 @@ properties:
           - type: object
             description: |
               - Backup Creation
+            required:
+              - createBackupType
             properties:
               createBackupType:
                 type: string
@@ -82,6 +86,8 @@ properties:
           - type: object
             description: |
               - Backup Targets
+            required:
+              - backupStorageIds
             properties:
               backupStorageIds:
                 type: array
@@ -92,6 +98,8 @@ properties:
           - type: object
             description: |
               - Budget
+            required:
+              - maxPrice
             properties:
               maxPrice:
                 type: number
@@ -105,6 +113,8 @@ properties:
           - type: object
             description: |
               - Cluster Resource Name
+            required:
+              - serverNamingType
             properties:
               serverNamingType:
                 type: string
@@ -118,6 +128,8 @@ properties:
           - type: object
             description: |
               - Cypher Access
+            required:
+              - keyPattern
             properties:
               keyPattern:
                 type: string
@@ -140,6 +152,8 @@ properties:
           - type: object
             description: |
               - Delayed Delete
+            required:
+              - removalAge
             properties:
               removalAge:
                 type: string
@@ -147,6 +161,8 @@ properties:
           - type: object
             description: |
               - Expiration
+            required:
+              - lifecycleType
             properties:
               lifecycleType:
                 type: string
@@ -188,6 +204,8 @@ properties:
           - type: object
             description: |
               - File Share Storage Quota
+            required:
+              - maxStorage
             properties:
               maxStorage:
                 type: string
@@ -195,6 +213,8 @@ properties:
           - type: object
             description: |
               - Hostname
+            required:
+              - hostNamingType
             properties:
               hostNamingType:
                 type: string
@@ -205,6 +225,8 @@ properties:
           - type: object
             description: |
               - Instance Name
+            required:
+              - namingType
             properties:
               namingType:
                 type: string
@@ -218,6 +240,8 @@ properties:
           - type: object
             description: |
               - Max Containers
+            required:
+              - maxContainers
             properties:
               maxContainers:
                 type: string
@@ -225,6 +249,8 @@ properties:
           - type: object
             description: |
               - Max Cores
+            required:
+              - maxCores
             properties:
               maxCores:
                 type: string
@@ -234,6 +260,8 @@ properties:
           - type: object
             description: |
               - Max Hosts
+            required:
+              - maxHosts
             properties:
               maxHosts:
                 type: string
@@ -241,6 +269,8 @@ properties:
           - type: object
             description: |
               - Max Load Balancer Pools
+            required:
+              - maxPools
             properties:
               maxPools:
                 type: string
@@ -248,6 +278,8 @@ properties:
           - type: object
             description: |
               - Max Memory
+            required:
+              - maxMemory
             properties:
               maxMemory:
                 type: string
@@ -257,6 +289,8 @@ properties:
           - type: object
             description: |
               - Max Pool Members
+            required:
+              - maxPoolMembers
             properties:
               maxPoolMembers:
                 type: string
@@ -264,6 +298,8 @@ properties:
           - type: object
             description: |
               - Max Snapshots
+            required:
+              - maxSnapshots
             properties:
               maxSnapshots:
                 type: string
@@ -272,6 +308,8 @@ properties:
             description: |
               - Max Storage
               - Object Storage Quota
+            required:
+              - maxStorage
             properties:
               maxStorage:
                 type: string
@@ -281,6 +319,8 @@ properties:
           - type: object
             description: |
               - Max Virtual Servers
+            required:
+              - maxVirtualServers
             properties:
               maxVirtualServers:
                 type: string
@@ -288,6 +328,8 @@ properties:
           - type: object
             description: |
               - Max VMs
+            required:
+              - maxVms
             properties:
               maxVms:
                 type: string
@@ -295,6 +337,8 @@ properties:
           - type: object
             description: |
               - Message of the Day
+            required:
+              - motd
             properties:
               motd.title:
                 type: string
@@ -333,6 +377,8 @@ properties:
           - type: object
             description: |
               - Network Quota
+            required:
+              - maxNetworks
             properties:
               maxNetworks:
                 type: string
@@ -340,6 +386,8 @@ properties:
           - type: object
             description: |
               - Power Schedule
+            required:
+              - powerScheduleType
             properties:
               powerScheduleType:
                 type: string
@@ -352,6 +400,8 @@ properties:
           - type: object
             description: |
               - Router Quota
+            required:
+              - maxRouters
             properties:
               maxRouters:
                 type: string
@@ -359,6 +409,8 @@ properties:
           - type: object
             description: |
               - Instance Networks
+            required:
+              - requiredNetworks
             properties:
               requiredNetworks:
                 type: array
@@ -369,6 +421,8 @@ properties:
           - type: object
             description: |
               - Shutdown
+            required:
+              - shutdownType
             properties:
               shutdownType:
                 type: string
@@ -410,6 +464,8 @@ properties:
           - type: object
             description: |
               - Storage Server Storage Quota
+            required:
+              - storageServerId
             properties:
               storageServerId:
                 type: string
@@ -420,6 +476,8 @@ properties:
           - type: object
             description: |
               - Tags
+            required:
+              - strict
             properties:
               strict:
                 type: boolean
@@ -436,6 +494,8 @@ properties:
           - type: object
             description: |
               - User Creation
+            required:
+              - createUserType
             properties:
               createUserType:
                 type: string
@@ -446,6 +506,8 @@ properties:
           - type: object
             description: |
               - User Group Creation
+            required:
+              - userGroup
             properties:
               userGroup:
                 type: string
@@ -453,6 +515,8 @@ properties:
           - type: object
             description: |
               - Workflow
+            required:
+              - workflowId
             properties:
               workflowId:
                 type: string

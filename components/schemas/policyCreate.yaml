@@ -64,6 +64,8 @@ properties:
           - Approve Delete
           - Approve Provision
           - Approve Reconfigure
+        required:
+          - accountIntegrationId
         properties:
           accountIntegrationId:
             type: string
@@ -82,6 +84,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Backup Creation
+        required:
+          - createBackupType
         properties:
           createBackupType:
             type: string
@@ -94,6 +98,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Backup Targets
+        required:
+          - backupStorageIds
         properties:
           backupStorageIds:
             type: array
@@ -106,6 +112,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Budget
+        required:
+          - maxPrice
         properties:
           maxPrice:
             type: number
@@ -121,6 +129,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Cluster Resource Name
+        required:
+          - serverNamingType
         properties:
           serverNamingType:
             type: string
@@ -136,6 +146,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Cypher Access
+        required:
+          - keyPattern
         properties:
           keyPattern:
             type: string
@@ -160,6 +172,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Delayed Delete
+        required:
+          - removalAge
         properties:
           removalAge:
             type: string
@@ -169,6 +183,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Expiration
+        required:
+          - lifecycleType
         properties:
           lifecycleType:
             type: string
@@ -212,6 +228,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - File Share Storage Quota
+        required:
+          - maxStorage
         properties:
           maxStorage:
             type: string
@@ -221,6 +239,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Hostname
+        required:
+          - hostNamingType
         properties:
           hostNamingType:
             type: string
@@ -233,6 +253,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Instance Name
+        required:
+          - namingType
         properties:
           namingType:
             type: string
@@ -248,6 +270,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Max Containers
+        required:
+          - maxContainers
         properties:
           maxContainers:
             type: string
@@ -257,6 +281,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Max Cores
+        required:
+          - maxCores
         properties:
           maxCores:
             type: string
@@ -269,6 +295,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Max Hosts
+        required:
+          - maxHosts
         properties:
           maxHosts:
             type: string
@@ -278,6 +306,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Max Load Balancer Pools
+        required:
+          - maxPools
         properties:
           maxPools:
             type: string
@@ -304,6 +334,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Max Pool Members
+        required:
+          - maxPoolMembers
         properties:
           maxPoolMembers:
             type: string
@@ -313,6 +345,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Max Snapshots
+        required:
+          - maxSnapshots
         properties:
           maxSnapshots:
             type: string
@@ -323,6 +357,8 @@ properties:
           Configuration settings for the following policy types:
           - Max Storage
           - Object Storage Quota
+        required:
+          - maxStorage
         properties:
           maxStorage:
             type: string
@@ -335,6 +371,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Max Virtual Servers
+        required:
+          - maxVirtualServers
         properties:
           maxVirtualServers:
             type: string
@@ -344,6 +382,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Max VMs
+        required:
+          - maxVms
         properties:
           maxVms:
             type: string
@@ -353,6 +393,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Message of the Day
+        required:
+          - motd
         properties:
           motd.title:
             type: string
@@ -393,6 +435,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Network Quota
+        required:
+          - maxNetworks
         properties:
           maxNetworks:
             type: string
@@ -402,6 +446,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Power Schedule
+        required:
+          - powerScheduleType
         properties:
           powerScheduleType:
             type: string
@@ -417,6 +463,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Router Quota
+        required:
+          - maxRouters
         properties:
           maxRouters:
             type: string
@@ -426,6 +474,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Instance Networks
+        required:
+          - requiredNetworks
         properties:
           requiredNetworks:
             type: array
@@ -438,6 +488,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Shutdown
+        required:
+          - shutdownType
         properties:
           shutdownType:
             type: string
@@ -481,6 +533,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Storage Server Storage Quota
+        required:
+          - storageServerId
         properties:
           storageServerId:
             type: string
@@ -493,6 +547,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Tags
+        required:
+          - strict
         properties:
           strict:
             type: boolean
@@ -511,6 +567,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - User Creation
+        required:
+          - createUserType
         properties:
           createUserType:
             type: string
@@ -523,6 +581,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - User Group Creation
+        required:
+          - userGroup
         properties:
           userGroup:
             type: string
@@ -532,6 +592,8 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Workflow
+        required:
+          - workflowId
         properties:
           workflowId:
             type: string
