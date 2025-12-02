@@ -16,7 +16,7 @@
         "refId": null,
         "eachUser": false,
         "config": {
-            "maxPrice": "144",
+            "maxPrice": 144,
             "maxPriceCurrency": "USD",
             "maxPriceUnit": "month"
         },
