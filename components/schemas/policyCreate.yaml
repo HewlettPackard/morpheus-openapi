@@ -67,16 +67,12 @@ properties:
         properties:
           accountIntegrationId:
             type: string
-            description: ID of your ServiceNow or approval integration
           workflowId:
             type: string
-            description: ID of legacy ServiceNow workflow (set if workflowType is 'workflow')
           flowId:
             type: string
-            description: ID of ServiceNow Flow (set if workflowType is 'flow')
           workflowType:
             type: string
-            description: 'Options: "workflow" (legacy workflow), "flow" (ServiceNow Flow)'
       - type: object
         title: Backup Creation Policy Type Configuration
         description: |
@@ -85,10 +81,8 @@ properties:
         properties:
           createBackupType:
             type: string
-            description: 'Options: "user" (user configurable), "fixed" (strict pattern)'
           createBackup:
             type: boolean
-            description: Enforce backup creation
       - type: object
         title: Backup Targets Policy Type Configuration
         description: |
@@ -97,7 +91,6 @@ properties:
         properties:
           backupStorageIds:
             type: array
-            description: Array of backup storage IDs to restrict available backup targets
             items:
               type: integer
               format: int64
@@ -109,13 +102,10 @@ properties:
         properties:
           maxPrice:
             type: number
-            description: Maximum price limit
           maxPriceCurrency:
             type: string
-            description: Currency code (e.g., USD)
           maxPriceUnit:
             type: string
-            description: 'Options: "hour", "month"'
       - type: object
         title: Cluster Resource Name Policy Type Configuration
         description: |
@@ -124,13 +114,10 @@ properties:
         properties:
           serverNamingType:
             type: string
-            description: 'Options: "user" (user configurable), "fixed" (strict pattern)'
           serverNamingPattern:
             type: string
-            description: 'Name pattern uses ${variable} string interpolation. Available variables are: groupName, groupCode, cloudName, cloudCode, type, accountId, account, accountType, platform, username, userId, userInitials, provisionType'
           serverNamingConflict:
             type: boolean
-            description: Auto-resolve conflicts
       - type: object
         title: Cypher Access Policy Type Configuration
         description: |
@@ -139,22 +126,16 @@ properties:
         properties:
           keyPattern:
             type: string
-            description: 'Pattern to match Cypher keys (e.g., "secret/*", "password/*")'
           read:
             type: boolean
-            description: Allow read access
           write:
             type: boolean
-            description: Allow write access
           update:
             type: boolean
-            description: Allow update access
           delete:
             type: boolean
-            description: Allow delete access
           list:
             type: boolean
-            description: Allow list access
       - type: object
         title: Delayed Delete Policy Type Configuration
         description: |
@@ -163,7 +144,6 @@ properties:
         properties:
           removalAge:
             type: string
-            description: Removal Age (days)
       - type: object
         title: Expiration Policy Type Configuration
         description: |
@@ -172,41 +152,30 @@ properties:
         properties:
           lifecycleType:
             type: string
-            description: 'Options: "user" (user configurable), "fixed" (fixed expiration)'
           lifecycleAge:
             type: string
-            description: Lifecycle Age (days)
           lifecycleRenewal:
             type: string
-            description: Renewal Days
           lifecycleNotify:
             type: string
-            description: Notification Days
           lifecycleMessage:
             type: string
-            description: Notification message
           lifecycleAutoRenew:
             $ref: checkbox.yaml
           lifecycleAllowExtend:
             $ref: checkbox.yaml
           lifecycleExtensionsBeforeApproval:
             type: string
-            description: Extensions Before Approval
           accountIntegrationId:
             type: string
-            description: ID of your ServiceNow or approval integration
           lifecycleHideFixed:
             type: boolean
-            description: Hide fixed expiration from users
           lifecycleWorkflowId:
             type: string
-            description: ID of legacy ServiceNow workflow (set if workflowType is 'workflow')
           flowId:
             type: string
-            description: ID of ServiceNow Flow (set if workflowType is 'flow')
           workflowType:
             type: string
-            description: 'Options: "workflow" (legacy workflow), "flow" (ServiceNow Flow)'
       - type: object
         title: File Share Storage Quota Policy Type Configuration
         description: |
@@ -215,7 +184,6 @@ properties:
         properties:
           maxStorage:
             type: string
-            description: Max Storage (GB)
       - type: object
         title: Hostname Policy Type Configuration
         description: |
@@ -224,10 +192,8 @@ properties:
         properties:
           hostNamingType:
             type: string
-            description: 'Options: "user" (user configurable), "fixed" (strict pattern)'
           hostNamingPattern:
             type: string
-            description: 'Name pattern uses ${variable} string interpolation. Available variables are: groupName, groupCode, cloudName, cloudCode, type, accountId, account, accountType, platform, username, userId, userInitials, provisionType'
       - type: object
         title: Instance Name Policy Type Configuration
         description: |
@@ -236,13 +202,10 @@ properties:
         properties:
           namingType:
             type: string
-            description: 'Options: "user" (user configurable), "fixed" (strict pattern)'
           namingPattern:
             type: string
-            description: 'Name pattern uses ${variable} string interpolation. Available variables are: groupName, groupCode, cloudName, cloudCode, type, accountId, account, accountType, platform, username, userId, userInitials, provisionType'
           namingConflict:
             type: boolean
-            description: Auto-resolve conflicts
       - type: object
         title: Max Containers Policy Type Configuration
         description: |
@@ -251,7 +214,6 @@ properties:
         properties:
           maxContainers:
             type: string
-            description: Max Containers
       - type: object
         title: Max Cores Policy Type Configuration
         description: |
@@ -260,10 +222,8 @@ properties:
         properties:
           maxCores:
             type: string
-            description: Max Cores
           excludeContainers:
             $ref: checkbox.yaml
-            description: 'Exclude containers from count'
       - type: object
         title: Max Hosts Policy Type Configuration
         description: |
@@ -272,7 +232,6 @@ properties:
         properties:
           maxHosts:
             type: string
-            description: Max Hosts
       - type: object
         title: Max Load Balancer Pools Policy Type Configuration
         description: |
@@ -281,7 +240,6 @@ properties:
         properties:
           maxPools:
             type: string
-            description: Max Pools
       - type: object
         title: Max Memory Policy Type Configuration
         description: |
@@ -298,7 +256,6 @@ properties:
             description: Max Memory (GB)
           excludeContainers:
             $ref: checkbox.yaml
-            description: 'Exclude containers from count'
       - type: object
         title: Max Pool Members Policy Type Configuration
         description: |
@@ -307,16 +264,13 @@ properties:
         properties:
           maxPoolMembers:
             type: string
-            description: Max Pool Members
       - type: object
         title: Max Snapshots Policy Type Configuration
         description: |
-          Configuration settings for the following policy types:
           - Max Snapshots
         properties:
           maxSnapshots:
             type: string
-            description: Max Snapshots
       - type: object
         title: Max Storage and Object Storage Quota Policy Type Configuration
         description: |
@@ -326,10 +280,8 @@ properties:
         properties:
           maxStorage:
             type: string
-            description: Max Storage (GB)
           excludeContainers:
             $ref: checkbox.yaml
-            description: 'Exclude containers from count'
       - type: object
         title: Max Virtual Servers Policy Type Configuration
         description: |
@@ -338,7 +290,6 @@ properties:
         properties:
           maxVirtualServers:
             type: string
-            description: Max Virtual Servers
       - type: object
         title: Max VMs Policy Type Configuration
         description: |
@@ -347,7 +298,6 @@ properties:
         properties:
           maxVms:
             type: string
-            description: Max VMs
       - type: object
         title: Message of the Day Policy Type Configuration
         description: |
@@ -356,38 +306,29 @@ properties:
         properties:
           motd.title:
             type: string
-            description: Message title
           motd:
             type: object
             properties:
               title:
                 type: string
-                description: Message title
               message:
                 type: string
-                description: Message content
               type:
                 type: string
-                description: 'Options: "info", "warning", "critical"'
               fullPage:
                 type:
                   - boolean
                   - 'null'
-                description: Display full page
           motd.message:
             type: string
-            description: Message content
           motd.type:
             type: string
-            description: 'Options: "info", "warning", "critical"'
           motd.fullPage:
             type:
               - boolean
               - 'null'
-            description: Display full page
           motd.date:
             type: string
-            description: Display date for message
       - type: object
         title: Network Quota Policy Type Configuration
         description: |
@@ -396,7 +337,6 @@ properties:
         properties:
           maxNetworks:
             type: string
-            description: Max Networks
       - type: object
         title: Power Schedule Policy Type Configuration
         description: |
@@ -405,13 +345,10 @@ properties:
         properties:
           powerScheduleType:
             type: string
-            description: 'Options: "user" (user configurable), "fixed" (strict schedule)'
           powerSchedule:
             type: string
-            description: ID of the power schedule
           powerScheduleHideFixed:
             type: boolean
-            description: Hide fixed schedule from users
       - type: object
         title: Router Quota Policy Type Configuration
         description: |
@@ -420,7 +357,6 @@ properties:
         properties:
           maxRouters:
             type: string
-            description: Max Routers
       - type: object
         title: Required Network Policy Type Configuration
         description: |
@@ -441,41 +377,30 @@ properties:
         properties:
           shutdownType:
             type: string
-            description: 'Options: "user" (user configurable), "fixed" (strict shutdown)'
           shutdownAge:
             type: string
-            description: Shutdown Age (days)
           shutdownRenewal:
             type: string
-            description: Renewal Days
           shutdownNotify:
             type: string
-            description: Notification Days
           shutdownMessage:
             type: string
-            description: Notification message
           shutdownAutoRenew:
             $ref: checkbox.yaml
           shutdownAllowExtend:
             $ref: checkbox.yaml
           shutdownExtensionsBeforeApproval:
             type: string
-            description: Extensions Before Approval
           accountIntegrationId:
             type: string
-            description: ID of your ServiceNow or approval integration
           shutdownHideFixed:
             type: boolean
-            description: Hide fixed shutdown from users
           shutdownWorkflowId:
             type: string
-            description: ID of legacy ServiceNow workflow (set if workflowType is 'workflow')
           flowId:
             type: string
-            description: ID of ServiceNow Flow (set if workflowType is 'flow')
           workflowType:
             type: string
-            description: 'Options: "workflow" (legacy workflow), "flow" (ServiceNow Flow)'
       - type: object
         title: Storage Server Storage Quota Policy Type Configuration
         description: |
@@ -484,10 +409,8 @@ properties:
         properties:
           storageServerId:
             type: string
-            description: ID of the storage server
           maxStorage:
             type: string
-            description: Max Storage (GB)
       - type: object
         title: Tags Policy Type Configuration
         description: |
@@ -496,16 +419,12 @@ properties:
         properties:
           strict:
             type: boolean
-            description: Strict enforcement
           key:
             type: string
-            description: Tag key to enforce
           valueListId:
             type: string
-            description: ID of value from value list (optional)
           value:
             type: string
-            description: Tag value (optional, can be left empty for any value)
       - type: object
         title: User Creation Policy Type Configuration
         description: |
@@ -514,10 +433,8 @@ properties:
         properties:
           createUserType:
             type: string
-            description: 'Options: "user" (user configurable), "fixed"'
           createUser:
             type: boolean
-            description: Enforce user creation
       - type: object
         title: User Group Creation Policy Type Configuration
         description: |
@@ -526,7 +443,6 @@ properties:
         properties:
           userGroup:
             type: string
-            description: ID of the user group to assign
       - type: object
         title: Workflow Policy Type Configuration
         description: |
@@ -535,7 +451,6 @@ properties:
         properties:
           workflowId:
             type: string
-            description: ID of the workflow to execute
   enabled:
     type: boolean
     description: Set to false to disable
