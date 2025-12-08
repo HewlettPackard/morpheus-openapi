@@ -24,8 +24,9 @@ properties:
     description: The id of type of the network interface.
   ipMode:
     type: string
-    description: The mode for determining ip address. Use 'static' when specifying an ipAddress, otherwise 'dhcp' is used.
+    description: The mode for determining ip address. Can be 'static', 'dhcp' or empty string.
     enum:
+      - ""
       - static
       - dhcp
     default: dhcp
@@ -43,7 +44,7 @@ properties:
     type: array
     title: Instances Child Virtual Network Interfaces
     description: |
-      The nested networkInterfaces can be used to define child virtual network intefaces.
+      The nested networkInterfaces can be used to define child virtual network interfaces.
       The Options API `/api/options/zoneNetworkOptions?zoneId=5&provisionTypeId=10` can be used to see which types support this (`hasVirtualInvirtualInterfaces = true` and list of available `virtualInterfaces` will be defined.
     items:
       type: object
@@ -71,8 +72,9 @@ properties:
           description: The id of type of the network interface.
         ipMode:
           type: string
-          description: The mode for determining ip address. Use 'static' when specifying an ipAddress, otherwise 'dhcp' is used.
+          description: The mode for determining ip address. Can be 'static', 'dhcp' or empty string.
           enum:
+            - ""
             - static
             - dhcp
           default: dhcp
