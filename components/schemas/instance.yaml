@@ -369,6 +369,7 @@ properties:
               type:
                 - integer
                 - 'null'
+              format: int64
             subnet:
               type:
                 - string
@@ -404,6 +405,69 @@ properties:
           type:
             - string
             - 'null'
+        networkInterfaces:
+          title: Instance Interfaces Network Interfaces
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                oneOf:
+                  - type:
+                      - integer
+                      - 'null'
+                    format: int64
+                  - type:
+                      - string
+                      - 'null'
+              network:
+                type: object
+                properties:
+                  id:
+                    type:
+                      - integer
+                      - 'null'
+                    format: int64
+                  group:
+                    type:
+                      - integer
+                      - 'null'
+                    format: int64
+                  subnet:
+                    type:
+                      - string
+                      - 'null'
+                  dhcpServer:
+                    type:
+                      - boolean
+                      - 'null'
+                  name:
+                    type:
+                      - string
+                      - 'null'
+                  pool:
+                    type:
+                      - object
+                      - 'null'
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      name:
+                        type: string
+              ipAddress:
+                type:
+                  - string
+                  - 'null'
+              networkInterfaceTypeId:
+                type:
+                  - integer
+                  - 'null'
+                format: int64
+              ipMode:
+                type:
+                  - string
+                  - 'null'
   customOptions:
     type: object
   instanceVersion:
