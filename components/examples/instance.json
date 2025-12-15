@@ -121,7 +121,28 @@
                 },
                 "ipAddress": null,
                 "networkInterfaceTypeId": null,
-                "ipMode": null
+                "ipMode": null,
+                "networkInterfaces": [
+                    {
+                        "id": "networkGroup-3",
+                        "row": 0,
+                        "network": {
+                            "id": 4,
+                            "subnet": null,
+                            "group": null,
+                            "dhcpServer": false,
+                            "name": "BM Management",
+                            "pool": {
+                                "id": 1,
+                                "name": "BM Management Pool"
+                            }
+                        },
+                        "ipAddress": "",
+                        "macAddress": null,
+                        "ipMode": "",
+                        "networkInterfaceTypeId": 19,
+                    }
+                ]
             }
         ],
         "customOptions": {},
