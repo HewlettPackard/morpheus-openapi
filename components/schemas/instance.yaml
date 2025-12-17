@@ -759,6 +759,7 @@ properties:
             code:
               type: string
         server:
+          type: object
           additionalProperties: true
           title: Instance Container Server
           properties:
@@ -954,6 +955,7 @@ properties:
               type: array
               items:
                 type: object
+                title: Instance Container Server Volume
                 properties:
                   id:
                     type: integer
@@ -971,6 +973,56 @@ properties:
                       - 'null'
                   resizeable:
                     type: boolean
+                  rootVolume:
+                    type: boolean
+                  deviceName:
+                    type: string
+                  deviceDisplayName:
+                    type: string
+                  diskMode:
+                    type:
+                      - string
+                      - 'null'
+                  diskType:
+                    type:
+                      - string
+                      - 'null'
+                  category:
+                    type:
+                      - string
+                      - 'null'
+                  storageServer:
+                    type: object
+                    title: Instance Container Server Volume Storage Server
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      name:
+                        type: string
+                  zoneId:
+                    type:
+                      - integer
+                      - 'null'
+                    format: int64
+                  zone:
+                    type: object
+                    title: Instance Container Server Volume Zone
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      name:
+                        type: string
+                  datastore:
+                    type: object
+                    title: Instance Container Server Volume Datastore
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      name:
+                        type: string
                   unitNumber:
                     type:
                       - string

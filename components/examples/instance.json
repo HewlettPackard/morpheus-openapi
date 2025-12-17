@@ -413,6 +413,25 @@
                             "resizeable": true,
                             "planResizable": true,
                             "rootVolume": true,
+                            "diskType": "block",
+                            "diskMode": "virtio",
+                            "category": "disk",
+                            "deviceName": "/dev/vda",
+                            "deviceDisplayName": "vda",
+                            "storageServer":
+                            {
+                                "id": 1489,
+                                "name": "Alletra MP"
+                            },
+                            "zoneId": 12,
+                            "datastore": {
+                                "id": 128,
+                                "name": "Alltera MP iSCSI"
+                            },
+                            "zone": {
+                                "id": 12,
+                                "name": "HVM"
+                            },
                             "unitNumber": null,
                             "typeId": 6,
                             "configurableIOPS": false,
