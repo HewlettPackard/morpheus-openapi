@@ -369,6 +369,9 @@ properties:
                 type: string
               workflowType:
                 type: string
+                enum:
+                  - "flow"
+                  - "workflow"
           - type: object
             description: |
               - Storage Server Storage Quota
