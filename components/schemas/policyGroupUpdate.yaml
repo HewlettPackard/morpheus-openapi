@@ -292,6 +292,10 @@ properties:
                 type: string
               motd.type:
                 type: string
+                enum:
+                  - "info"
+                  - "warning"
+                  - "critical"
               motd.fullPage:
                 type:
                   - boolean
