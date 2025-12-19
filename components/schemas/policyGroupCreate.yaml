@@ -69,12 +69,18 @@ properties:
                 type: string
               workflowType:
                 type: string
+                enum:
+                  - "flow"
+                  - "workflow"
           - type: object
             description: |
               - Backup Creation
             properties:
               createBackupType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               createBackup:
                 type: boolean
           - type: object
@@ -96,12 +102,18 @@ properties:
                 type: string
               maxPriceUnit:
                 type: string
+                enum:
+                  - "hour"
+                  - "month"
           - type: object
             description: |
               - Cluster Resource Name
             properties:
               serverNamingType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               serverNamingPattern:
                 type: string
               serverNamingConflict:
@@ -134,6 +146,9 @@ properties:
             properties:
               lifecycleType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               lifecycleAge:
                 type: string
               lifecycleRenewal:
@@ -158,6 +173,9 @@ properties:
                 type: string
               workflowType:
                 type: string
+                enum:
+                  - "flow"
+                  - "workflow"
           - type: object
             description: |
               - File Share Storage Quota
@@ -170,6 +188,9 @@ properties:
             properties:
               hostNamingType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               hostNamingPattern:
                 type: string
           - type: object
@@ -178,6 +199,9 @@ properties:
             properties:
               namingType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               namingPattern:
                 type: string
               namingConflict:
@@ -290,6 +314,9 @@ properties:
             properties:
               powerScheduleType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               powerSchedule:
                 type: string
               powerScheduleHideFixed:
@@ -315,6 +342,9 @@ properties:
             properties:
               shutdownType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               shutdownAge:
                 type: string
               shutdownRenewal:
@@ -365,6 +395,9 @@ properties:
             properties:
               createUserType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               createUser:
                 type: boolean
           - type: object
