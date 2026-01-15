@@ -88,6 +88,7 @@ properties:
           type:
             - integer
             - 'null'
+          format: int64
         name:
           type: string
   layout:
@@ -524,8 +525,9 @@ properties:
     format: int64
   maxCpu:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
   hourlyCost:
     type: number
   hourlyPrice:
@@ -864,6 +866,7 @@ properties:
                 - 'null'
             sshPort:
               type: integer
+              format: int64
             externalIp:
               type:
                 - string
@@ -891,6 +894,7 @@ properties:
               type:
                 - integer
                 - 'null'
+              format: int64
             statusEta:
               type:
                 - integer
@@ -909,6 +913,7 @@ properties:
               format: date-time
             maxCores:
               type: integer
+              format: int64
             maxMemory:
               type: integer
               format: int64
@@ -949,6 +954,7 @@ properties:
                   type: string
                 bitCount:
                   type: integer
+                  format: int64
                 platform:
                   type: string
             volumes:
