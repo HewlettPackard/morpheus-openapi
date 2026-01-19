@@ -640,3 +640,24 @@ properties:
       - 'null'
     items:
       type: object
+  currentLoadBalancerInstances:
+    type:
+      - array
+      - 'null'
+    items:
+      type: object
+  currentLoadBalancerContainersIn:
+    type: integer
+  currentLoadBalancerContainersOut:
+    type: integer
+  lastDeploy:
+    type:
+      - object
+      - 'null'
+    format: date-time
+  containerDetails:
+    type:
+      - array
+      - 'null'
+    items:
+      type: object
