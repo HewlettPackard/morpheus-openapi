@@ -1,7 +1,7 @@
 put: 
   summary: Update Cluster Layout
   description: Update Cluster Layout
-  operationId: updateClusterLayout
+  operationId: updateClusterAssignedLayout
   tags: 
     -  Clusters
   parameters:

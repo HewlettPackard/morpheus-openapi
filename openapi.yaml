@@ -280,6 +280,8 @@ paths:
     $ref: paths/api@clusters@id@jobs.yaml
   /api/clusters/{clusterId}/jobs/{id}:
     $ref: paths/api@clusters@id@jobs@id.yaml
+  /api/clusters/{clusterId}/layout:
+    $ref: paths/api@clusters@id@layout.yaml
   /api/clusters/{clusterId}/masters:
     $ref: paths/api@clusters@id@masters.yaml
   /api/clusters/{clusterId}/namespaces:
