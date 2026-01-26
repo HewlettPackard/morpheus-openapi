@@ -1,6 +1,7 @@
 put: 
-  summary: Update Cluster Layout
-  description: Update Cluster Layout
+  summary: Update Cluster Assigned Layout
+  description: |
+    This endpoint updates the layout assigned to a specific cluster. This can be utilized to change the layout configuration of a cluster that has been manually upgraded.
   operationId: updateClusterAssignedLayout
   tags: 
     -  Clusters
