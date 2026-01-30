@@ -1,0 +1,33 @@
+type: object
+additionalProperties: false
+properties:
+  conditionalScript:
+    type:
+      - string
+      - "null"
+    description: Allows the user to set JavaScript logic. If it resolves to true, HPE Morpheus
+      Enterprise will run the Operational Workflow set as the “IF OPERATIONAL WORKFLOW” and if
+      it resolves to false, HPE Morpheus Enterprise will run the “ELSE OPERATIONAL WORKFLOW”
+  ifOperationalWorkflowId:
+    type:
+      - integer
+      - "null"
+    format: int64
+    description: If Operational Workflow ID
+  ifOperationalWorkflowName:
+    type:
+      - string
+      - "null"
+    description: If Operational Workflow Name
+  elseOperationalWorkflowId:
+    type:
+      - integer
+      - "null"
+    format: int64
+    description: else Operational Workflow ID
+  elseOperationalWorkflowName:
+    type:
+      - string
+      - "null"
+    description: Else Operational Workflow Name
+title: Conditional Workflow Task Config
