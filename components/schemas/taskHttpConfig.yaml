@@ -5,6 +5,7 @@ properties:
     type:
       - string
       - 'null'
+    format: password
   webPasswordHash:
     type:
       - string
@@ -63,4 +64,5 @@ properties:
     type:
       - string
       - 'null'
+    format: password
 title: HTTP Task Config

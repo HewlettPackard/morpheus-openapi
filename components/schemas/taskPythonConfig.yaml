@@ -29,10 +29,12 @@ properties:
     type:
       - string
       - 'null'
+    format: password
   password:
     type:
       - string
       - 'null'
+    format: password
   passwordHash:
     type:
       - string
