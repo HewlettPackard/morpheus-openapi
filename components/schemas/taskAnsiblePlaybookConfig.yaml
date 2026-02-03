@@ -24,6 +24,7 @@ properties:
     type:
       - string
       - 'null'
+    format: password
   passwordHash:
     type:
       - string

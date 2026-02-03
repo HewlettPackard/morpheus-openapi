@@ -45,6 +45,7 @@ properties:
     type:
       - string
       - 'null'
+    format: password
   username:
     type:
       - string
@@ -53,6 +54,7 @@ properties:
     type:
       - string
       - 'null'
+    format: password
   passwordHash:
     type:
       - string
