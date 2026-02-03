@@ -1,0 +1,114 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  accountId:
+    type: integer
+    format: int64
+  name:
+    type: string
+  code:
+    type:
+      - string
+      - 'null'
+  taskType:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      code:
+        type: string
+      name:
+        type: string
+  labels:
+    type: array
+    items:
+      type: string
+  visibility:
+    type: string
+  taskOptions:
+    anyOf:
+      - $ref: taskAnsiblePlaybookConfig.yaml
+      - $ref: taskAnsibleTowerConfig.yaml
+      - $ref: taskChefBootstrapConfig.yaml
+      - $ref: taskConditionalWorkflowConfig.yaml
+      - $ref: taskEmailConfig.yaml
+      - $ref: taskGroovyConfig.yaml
+      - $ref: taskHttpConfig.yaml
+      - $ref: taskJavaConfig.yaml
+      - $ref: taskLibraryScriptConfig.yaml
+      - $ref: taskLibraryTemplateConfig.yaml
+      - $ref: taskNestedWorkflowConfig.yaml
+      - $ref: taskPowershellConfig.yaml
+      - $ref: taskPuppetConfig.yaml
+      - $ref: taskPythonConfig.yaml
+      - $ref: taskRestartConfig.yaml
+      - $ref: taskShellConfig.yaml
+      - $ref: taskVroConfig.yaml
+      - $ref: taskWriteAttributesConfig.yaml
+      - type: object
+  file:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        type:
+          - integer
+          - 'null'
+        format: int64
+      sourceType:
+        type:
+          - string
+          - 'null'
+      contentRef:
+        type:
+          - string
+          - 'null'
+      contentPath:
+        type:
+          - string
+          - 'null'
+      repository:
+        type:
+          - object
+          - 'null'
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+      content:
+        type:
+          - string
+          - 'null'
+  resultType:
+    type:
+      - string
+      - 'null'
+  executeTarget:
+    type: string
+  retryable:
+    type: boolean
+  retryCount:
+    type: integer
+    format: int64
+  retryDelaySeconds:
+    type: integer
+    format: int64
+  allowCustomConfig:
+    type: boolean
+  credential:
+    type: object
+    properties:
+      type:
+        type: string
+  dateCreated:
+    type: string
+    format: date-time
+  lastUpdated:
+    type: string
+    format: date-time
