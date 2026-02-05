@@ -76,6 +76,9 @@ post:
                 - taskType
                 - executeTarget
               properties:
+                allowCustomConfig:
+                  type: boolean
+                  description: When enabled, a text area is provided at Task execution time to allow the user to pass extra variables or specify extra configuration
                 name:
                   type: string
                   description: A unique name for the task
