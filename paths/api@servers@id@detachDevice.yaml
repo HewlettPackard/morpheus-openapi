@@ -13,6 +13,7 @@ put:
       schema:
         type: integer
       example: 99
+    - $ref: ../components/parameters/force.yaml
   responses:
     '200':
       description: Successful Request
