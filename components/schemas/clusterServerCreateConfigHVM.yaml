@@ -1,0 +1,26 @@
+description: Configuration for HVM cluster servers
+type: object
+properties:
+  cpuArch:
+    type: string
+  cpuModel:
+    type: string
+  dynamicPlacementMode:
+    type: string
+    enum:
+      - on
+      - off
+  powerPolicy:
+    type: string
+  storageInterfaceName:
+    type: string
+  computeInterfaceName:
+    type: string
+  computeVlans:
+    type: string
+  overlayInterfaceName:
+    type: string
+  createUser:
+    type: 
+      - bool
+      - 'null'

@@ -1,0 +1,62 @@
+description: Configuration for Amazon Elastic Kubernetes Service cluster servers
+type: object
+properties:
+  controller:
+    type: object
+    properties:
+      role:
+        type: object
+        properties:
+          id:
+            type: string
+      network:
+        type: object
+        properties:
+          id:
+            type: array
+            items:
+              type: string
+      securityGroup:
+        type: object
+        properties:
+          id:
+            type: array
+            items:
+              type: string
+  worker:
+    type: object
+    properties:
+      network:
+        type: object
+        properties:
+          id:
+            type: array
+            items:
+              type: string
+      securityGroup:
+        type: object
+        properties:
+          id:
+            type: array
+            items:
+              type: string
+      plan:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+      role:
+        type: object
+        properties:
+          id:
+            type: string
+  publicIpType:
+    type: string
+  nodeCount:
+    type: integer
+    format: int64
+  createUser:
+    type:
+      - bool
+      - 'null'
