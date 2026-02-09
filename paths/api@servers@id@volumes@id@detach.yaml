@@ -21,7 +21,13 @@ put:
             description: The `uuid` of the storage volume record.
             example: "170a7696-36a7-4800-91a6-1247e24b37e2"
       description: The `id` or `uuid` to identify the storage volume record.
-    - $ref: ../components/parameters/force.yaml
+    - name: force
+      in: query
+      description: Force the detachment of the volume
+      required: false
+      schema:
+        type: boolean
+        default: false
   responses:
     '200':
       description: Successful Request
