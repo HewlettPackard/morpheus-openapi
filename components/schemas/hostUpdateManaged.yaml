@@ -3,8 +3,8 @@ server:
   description: Object containing server configuration parameters
   properties:
     sshHost:
-        type: string
-        description: Hostname or IP address of the server to be managed
+      type: string
+      description: Hostname or IP address of the server to be managed
     sshUsername: 
       type: string
       description: SSH username to use when provisioning
@@ -12,12 +12,12 @@ server:
       type: string
       description: SSH password to use, if not specified the account public key can be used
     sshKeyPair:
-        type: object
-        properties:
-            id:
-            type: integer
-            format: int64
-            description: ID of the Key Pair to use for SSH credentials
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of the Key Pair to use for SSH credentials
     serverOs:
       type: object
       properties: 
