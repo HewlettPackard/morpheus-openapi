@@ -6,11 +6,12 @@ OpenAPI documentation for the Morpheus API
 Using docker:
 
 ```shell
-docker run --rm -v $PWD:/spec redocly/openapi-cli lint openapi.yaml --skip-rule no-invalid-media-type-examples
-docker run --rm -v $PWD:/tmp -it stoplight/spectral lint -v -F hint "/tmp/openapi.yaml" --ruleset "/tmp/.spectral.json"
+docker run --rm -v $PWD:/spec redocly/cli lint openapi.yaml --skip-rule no-invalid-media-type-examples
+docker run --rm -v $PWD:/spec redocly/cli bundle --dereferenced openapi.yaml > bundled.yaml
+docker run --rm -v $PWD:/tmp -it stoplight/spectral lint -v -F error \"/tmp/bundled.yaml\" --ruleset \"/tmp/.spectral.json\"
 ```
 
-The *test* rake task does the same as above:
+The `test` rake task does the same as above:
 
 ```shell
 rake test
@@ -23,16 +24,16 @@ NOTE: The OpenAPI spec is case senstive.  This has caused problems when developi
 Using docker:
 
 ```shell
-docker run --rm -v $PWD:/spec redocly/openapi-cli bundle openapi.yaml > bundled.yaml
+docker run --rm -v $PWD:/spec redocly/cli bundle --dereferenced openapi.yaml > bundled.yaml
 ```
 
-The *build* rake task does the same as above:
+The `build` rake task does the same as above:
 
 ```shell
 rake build
 ```
 
-This will build the file that we upload to the host, you can use this file in any openapi 3.0.3 renderer.
+This generates the complete openapi spec file named `bundled.yaml` in the current directory. You can use this file in any openapi 3.1.0 renderer.
 
 ## Publishing
 
