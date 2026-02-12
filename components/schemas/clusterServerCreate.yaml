@@ -22,16 +22,16 @@ properties:
         enum:
           - on
           - off
-      anyOf:
-        - oneOf:
-          - $ref: clusterServerCreateConfigAKS.yaml
-          - $ref: clusterServerCreateConfigDocker.yaml
-          - $ref: clusterServerCreateConfigEKS.yaml
-          - $ref: clusterServerCreateConfigGKE.yaml
-          - $ref: clusterServerCreateConfigHKS.yaml
-          - $ref: clusterServerCreateConfigHVM.yaml
-          - $ref: clusterServerCreateConfigVsphere.yaml
-        - $ref: clusterServerCreateConfigGeneric.yaml
+    anyOf:
+      - oneOf:
+        - $ref: clusterServerCreateConfigAKS.yaml
+        - $ref: clusterServerCreateConfigDocker.yaml
+        - $ref: clusterServerCreateConfigEKS.yaml
+        - $ref: clusterServerCreateConfigGKE.yaml
+        - $ref: clusterServerCreateConfigHKS.yaml
+        - $ref: clusterServerCreateConfigHVM.yaml
+        - $ref: clusterServerCreateConfigVsphere.yaml
+      - $ref: clusterServerCreateConfigGeneric.yaml
   serverType:
     type: object
     description: Server type to create.  See `/api/server-types` for available server types for the cloud.

@@ -49,7 +49,6 @@ properties:
       templateParameter:
         type: object
         description: Configuration settings for the ARM Template when creating an Azure Kubernetes Service (AKS) cluster
-        proper
         properties:
           dnsPrefix:
             type: string

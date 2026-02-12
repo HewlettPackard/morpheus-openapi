@@ -7,5 +7,5 @@ properties:
     description: Number of workers or hosts
   createUser:
     type:
-      - bool
+      - boolean
       - 'null'

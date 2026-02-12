@@ -3,5 +3,5 @@ type: object
 properties:
   createUser:
     type:
-      - bool
+      - boolean
       - 'null'

@@ -13,5 +13,5 @@ properties:
     type: string
   createUser:
     type:
-      - bool
+      - boolean
       - 'null'

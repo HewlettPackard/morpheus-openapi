@@ -58,5 +58,5 @@ properties:
     format: int64
   createUser:
     type:
-      - bool
+      - boolean
       - 'null'
