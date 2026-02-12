@@ -21,6 +21,4 @@ properties:
   overlayInterfaceName:
     type: string
   createUser:
-    type: 
-      - boolean
-      - 'null'
+    type: boolean

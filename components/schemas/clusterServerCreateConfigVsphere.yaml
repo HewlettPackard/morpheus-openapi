@@ -12,6 +12,4 @@ properties:
   serviceCidr:
     type: string
   createUser:
-    type:
-      - boolean
-      - 'null'
+    type: boolean

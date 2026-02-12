@@ -21,6 +21,4 @@ properties:
     type: integer
     format: int64
   createUser:
-    type:
-      - boolean
-      - 'null'
+    type: boolean

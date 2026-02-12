@@ -2,6 +2,4 @@ description: Configuration for Docker cluster servers
 type: object
 properties:
   createUser:
-    type:
-      - boolean
-      - 'null'
+    type: boolean

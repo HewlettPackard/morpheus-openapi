@@ -6,6 +6,4 @@ properties:
     format: int64
     description: Number of workers or hosts
   createUser:
-    type:
-      - boolean
-      - 'null'
+    type: boolean
