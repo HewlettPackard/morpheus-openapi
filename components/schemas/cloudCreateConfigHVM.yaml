@@ -1,9 +1,36 @@
 description: HVM Cloud
 type: object
 properties:
+  applianceUrl:
+    type: string
+    description: The URL used by workloads provisioned in the cloud for interacting with the Morpheus appliance.
+  datacenterName:
+    type: string
+    description: A custom name used to reference the datacenter for the cloud.
+  externalId:
+    type:
+      - string
+      - 'null'
+    description: The external id of the cloud
+  inventoryLevel:
+    type: string
+    enum:
+      - off
+      - basic
+      - full
+    description: Whether to import existing virtual machines.
+  consoleKeymap:
+    type: string
+    description: The keyboard layout to use for the console
   certificateProvider:
     type: string
     description: Certificate provider
+    default: internal
   enableNetworkTypeSelection:
-    type: boolean
-    description: Enable network type selection
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to enable the user to select the network type during provisioning.
