@@ -42,6 +42,37 @@ properties:
         type: integer
         format: int64
         description: The Cloud ID to provision the host into
+  config:
+    type: object
+    description: Additional configuration for specific cluster types
+    properties:
+      templateParameter:
+        type: object
+        description: Configuration settings for the ARM Template when creating an Azure Kubernetes Service (AKS) cluster
+        properties:
+          dnsPrefix:
+            type: string
+            description: Optional DNS prefix to use with hosted Kubernetes API server FQDN.
+          onDiskSizeGB:
+            type: integer
+            format: int64
+            description: Disk size (in GB) to provision for each of the agent pool nodes. This value ranges from 0 to 1023. Specifying 0 will apply the default disk size for that agentVMSize.
+          nodeVMSize:
+            type: integer
+            format: int64
+            description: The size of the Virtual Machine.
+          vnetSubnetID:
+            type: string
+            description: Resource ID of virtual network subnet used for nodes and/or pods IP assignment.
+          serviceCidr:
+            type: string
+            description: A CIDR notation IP range from which to assign service cluster IPs.
+          dnsServiceIP:
+            type: string
+            description: Containers DNS server IP address.
+          dockerBridgeCidr:
+            type: string
+            description: A CIDR notation IP for Docker bridge.
   layout: 
     type: object
     properties: 
