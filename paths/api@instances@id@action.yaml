@@ -13,6 +13,16 @@ put:
       schema:
         type: string
       example: generic-add-node
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/instanceActionAddNode.yaml
+        examples:
+          Add Node:
+            summary: Add Node
+            value:
+              $ref: ../components/examples/instanceActionAddNode.json
   responses:
     '200':
       description: Successful Request
