@@ -151,6 +151,11 @@ properties:
               type:
                 - string
                 - 'null'
+      kvmHostId:
+        type:
+          - integer
+          - 'null'
+        format: int64
       smbiosAssetTag:
         type:
           - string
