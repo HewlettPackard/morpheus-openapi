@@ -171,9 +171,11 @@ properties:
   defaultPlanSyncActive:
     type: boolean
   config:
+    additionalProperties: true
     anyOf:
-      - $ref: cloudHVMConfig.yaml
-      # - $ref: zoneVcenterConfig.yaml
+      - $ref: cloudsConfigHVM.yaml
+      - $ref: cloudsConfigVMware.yaml
+      - $ref: cloudsConfigGeneric.yaml
       # - $ref: zoneAwsConfig.yaml
       # - $ref: zoneAzureConfig.yaml
       # - $ref: zoneGcpConfig.yaml

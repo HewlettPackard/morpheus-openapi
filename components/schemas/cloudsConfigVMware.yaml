@@ -1,0 +1,138 @@
+type: object
+properties:
+  applianceUrl:
+    type:
+      - string
+      - 'null'
+  datacenterName:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  inventoryLevel:
+    type:
+      - string
+      - 'null'
+  consoleKeymap:
+    type:
+      - string
+      - 'null'
+
+  apiUrl:
+    type: string
+  apiVersion:
+    type:
+      - string
+      - 'null'
+  backupMode:
+    type:
+      - string
+      - 'null'
+  certificateProvider:
+    type:
+      - string
+      - 'null'
+  cluster:
+    type: string
+  clusterRef:
+    type: string
+  configCmId:
+    type:
+      - string
+      - 'null'
+  configCmdbDiscovery:
+    type: boolean
+  configCmdbId:
+    type:
+      - string
+      - 'null'
+  configManagementId:
+    type:
+      - string
+      - 'null'
+  datacenter:
+    type: string
+  datacenterId:
+    type:
+      - string
+      - 'null'
+  diskStorageType:
+    type:
+      - string
+      - 'null'
+  distributedWorkerId:
+    type:
+      - string
+      - 'null'
+  dnsIntegrationId:
+    type:
+      - string
+      - 'null'
+  enableDiskTypeSelection:
+    type:
+      - string
+      - 'null'
+  enableNetworkTypeSelection:
+    type:
+      - string
+      - 'null'
+  enableStorageTypeSelection:
+    type:
+      - string
+      - 'null'
+  enableVnc:
+    type:
+      - string
+      - 'null'
+  hideHostSelection:
+    type:
+      - string
+      - 'null'
+  importExisting:
+    type:
+      - string
+      - 'null'
+  kubeUrl:
+    type:
+      - string
+      - 'null'
+  networkServer:
+    type: object
+    properties:
+      id:
+        type: string
+  networkServer.id:
+    type: string
+  password:
+    type:
+      - string
+      - 'null'
+  passwordHash:
+    type:
+      - string
+      - 'null'
+  replicationMode:
+    type:
+      - string
+      - 'null'
+  resourcePool:
+    type: string
+  resourcePoolId:
+    type: string
+  rpcMode:
+    type: string
+  securityMode:
+    type: string
+  securityServer:
+    type:
+      - string
+      - 'null'
+  serviceRegistryId:
+    type:
+      - string
+      - 'null'
+  username:
+    type: string
