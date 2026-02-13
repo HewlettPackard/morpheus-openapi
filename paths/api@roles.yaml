@@ -370,6 +370,29 @@ post:
                         description: The new access level.
                         enum:
                           $ref: ../components/schemas/rolePermissionAccessLevelsForResource.yaml
+                globalClusterTypeAccess:
+                  type: string
+                  description: Set the default access level for cluster types
+                  enum:
+                    - full
+                    - none
+                clusterTypePermissions:
+                  type: array
+                  description: Set the access level for the specified cluster types
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - access
+                    properties:
+                      id:
+                        type: integer
+                        description: "`id` of the cluster type"
+                      access:
+                        type: string
+                        description: The new access level.
+                        enum:
+                          $ref: ../components/schemas/rolePermissionAccessLevelsForResource.yaml
                 owner:
                   type: integer
                   format: int64

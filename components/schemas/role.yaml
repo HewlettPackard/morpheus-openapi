@@ -230,3 +230,19 @@ properties:
           type: string
         access:
           type: string
+  globalClusterTypeAccess:
+    type: string
+  clusterTypePermissions:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        name:
+          type: string
+        access:
+          type: string
