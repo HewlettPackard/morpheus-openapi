@@ -123,6 +123,7 @@ properties:
       - $ref: instancesConfigGCP.yaml
       - $ref: instancesConfigAWS.yaml
       - $ref: instancesConfigGeneric.yaml
+      - $ref: instancesConfigHVM.yaml
   labels:
     type: array
     description: Array of strings (keywords).
