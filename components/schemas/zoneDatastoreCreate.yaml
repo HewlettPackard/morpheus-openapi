@@ -5,6 +5,13 @@ properties:
   datastoreType:
     type: string
     description: The code of the datatoreType
+  config:
+    description: Configuration options for the datastore, varies based on the type of datastore.
+    anyOf:
+      - $ref: clusterDatastoreConfigNFS.yaml
+      - $ref: clusterDatastoreConfigGFS2.yaml
+      - $ref: storageDatastoreConfigGeneric.yaml
+      - $ref: storageDatastoreConfigAlletraMPHVM.yaml
   storageServer:
     type: object
     properties:
