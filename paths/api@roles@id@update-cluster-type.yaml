@@ -1,0 +1,35 @@
+put:
+  summary: Customizing Cluster Type Access
+  description: Customizing Cluster Type Access
+  operationId: updateRoleClusterTypeAccess
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  tags:
+    - Roles
+  requestBody:
+    content:
+      application/json:
+        schema:
+          oneOf:
+            - $ref: ../components/schemas/rolePermissionClusterType.yaml
+            - $ref: ../components/schemas/rolePermissionClusterTypeAll.yaml
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  access:
+                    type: string
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Role Permission Response:
+              value:
+                $ref: ../components/examples/updateRolePermissionResponse.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
