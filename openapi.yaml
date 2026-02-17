@@ -973,6 +973,8 @@ paths:
     $ref: paths/api@roles@id@update-group.yaml
   /api/roles/{id}/update-instance-type:
     $ref: paths/api@roles@id@update-instance-type.yaml
+  /api/roles/{id}/update-cluster-type:
+    $ref: paths/api@roles@id@update-cluster-type.yaml
   /api/roles/{id}/update-permission:
     $ref: paths/api@roles@id@update-permission.yaml
   /api/roles/{id}/update-persona:

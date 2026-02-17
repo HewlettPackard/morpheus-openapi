@@ -1,11 +1,11 @@
 type: object
 required:
-  - allInstanceTypes
+  - allClusterTypes
   - access
 properties:
-  allInstanceTypes:
+  allClusterTypes:
     type: boolean
-    description: "Apply to all instance types"
+    description: "Apply to all cluster types"
   access:
     type: string
     description: The new access level.
