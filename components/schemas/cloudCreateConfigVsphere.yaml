@@ -53,7 +53,6 @@ properties:
           - guestexec
           - rpc
       - type: 'null'
-    default: guestexec
     description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))
   storageType:
     type: string
