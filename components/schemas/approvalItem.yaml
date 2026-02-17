@@ -65,8 +65,9 @@ properties:
           displayName:
             type: string
       details:
-        type: array
-        nullable: true
+        type:
+          - array
+          - 'null'
         description: |
           List of request change details associated with the approval item.
           Only present when the approval is for a reconfigure request.
