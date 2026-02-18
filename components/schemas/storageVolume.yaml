@@ -138,9 +138,7 @@ properties:
       - string
       - 'null'
   storageServer:
-    type:
-      - string
-      - 'null'
+    type: object
   source:
     type: string
   uniqueId:

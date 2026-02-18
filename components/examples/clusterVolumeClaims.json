@@ -38,7 +38,7 @@
             "datastoreId": 507,
             "storageGroup": null,
             "namespace": null,
-            "storageServer": null,
+            "storageServer": {},
             "source": "ld-amazon",
             "owner": {
                 "id": 1,
