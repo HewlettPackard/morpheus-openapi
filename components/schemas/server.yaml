@@ -533,8 +533,10 @@ properties:
       isEC2:
         type: boolean
       resourcePoolId:
-        type: integer
-        format: int64
+        oneOf:
+          - type: integer
+            format: int64
+          - type: string
       hostId:
         type:
           - integer
