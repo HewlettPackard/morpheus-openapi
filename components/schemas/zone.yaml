@@ -176,7 +176,7 @@ properties:
       - $ref: cloudsConfigHVM.yaml
       - $ref: cloudsConfigVMware.yaml
       - $ref: cloudsConfigGeneric.yaml
-      # - $ref: zoneAwsConfig.yaml
+      - $ref: cloudsConfigAWS.yaml
       # - $ref: zoneAzureConfig.yaml
       # - $ref: zoneGcpConfig.yaml
   credential:
