@@ -12,6 +12,11 @@
             "accountName": "atenant",
             "active": true,
             "master": false,
+            "parent": {
+                "id": 1,
+                "name": "root",
+                "subdomain": null
+            },
             "role": {
                 "id": 425,
                 "authority": "A Tenant Role",
@@ -36,6 +41,11 @@
             "accountName": "gekko",
             "active": true,
             "master": false,
+            "parent": {
+                "id": 1,
+                "name": "root",
+                "subdomain": null
+            },
             "role": {
                 "id": 84,
                 "authority": "Gekko & Co",

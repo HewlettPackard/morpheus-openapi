@@ -64,9 +64,17 @@ post:
                     - 'null'
                   description: Description
                   example: Testing Tenant Creation
+                parentAccount:
+                  type: object
+                  description: Parent Account. This specifies the parent account for the new tenant. By default this will be the current user's tenant. This is only available to master tenant users.
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      example: 1
                 role:
                   type: object
-                  description: Tenant Base Role. This restricts the access available to this tenant's roles and users.
+                  description: Tenant Base Role. This restricts the access available to this tenant's roles and users. The Options API `/api/options/roles?roleType=account&tenantId=1` can be used to see which options are available.
                   properties:
                     id:
                       type: integer
