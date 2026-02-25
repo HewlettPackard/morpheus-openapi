@@ -1,0 +1,107 @@
+get:
+  summary: Retrieves all Support Bundles
+  description: |
+    Retrieves all support bundles.
+  operationId: listSupportBundles
+  tags:
+    - Support Bundles
+  parameters:
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/direction.yaml
+    - $ref: ../components/parameters/phrase.yaml
+  responses:
+    "200":
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  supportBundles:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/supportBundle.yaml
+              - $ref: ../components/schemas/meta.yaml
+    "4XX":
+      $ref: ../components/responses/4xx.yaml
+    "5XX":
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Generates a Support Bundle
+  description: |
+    Generates a new support bundle. The bundle is created asynchronously — poll `GET /api/support-bundles/{id}` until `status` is `COMPLETED` or `FAILED`.
+
+    The request accepts an optional flat `contents` array describing which support bundle content entries to include. Each entry must provide either a content type `code` or `typeId`, and may optionally provide a `resourceId` for resource-backed content types.
+
+    If `contents` is omitted or empty, Morpheus includes all eligible support bundle contents automatically.
+
+    You can discover valid values before calling this endpoint using the options API:
+
+    - `GET /api/options/supportBundles.supportBundleCategories` returns available category values.
+    - `GET /api/options/supportBundles.contentTypes?category=APPLIANCE` returns valid support bundle content types for a category.
+    - `GET /api/options/supportBundles.contentTypeResources?contentTypeCode=cloud-type-vmware` returns eligible resource instances for a resource-backed content type.
+
+    Options API responses are returned as JSON with a top-level `data` array. For `contentTypes`, use `code` as the preferred identifier in this API request. For `contentTypeResources`, use the returned `resourceId` together with the matching `code` or `value` (`typeId`).
+  operationId: generateSupportBundle
+  tags:
+    - Support Bundles
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            storageProviderId:
+              type: integer
+              format: int64
+              description: ID of the storage provider (storage bucket) where the bundle should be saved. Defaults to the storage bucket configured as the default support bundle target. If no default is configured, the bundle is saved to the appliance's local storage. If provided, this ID must reference an existing storage provider or the request returns `404`.
+            contents:
+              type: array
+              description: Flat list of support bundle content entries to include. Resource-backed entries should include `resourceId`. Standalone entries omit it. If omitted or empty, all eligible content entries are included.
+              items:
+                type: object
+                properties:
+                  code:
+                    type: string
+                    description: Support bundle content type code. Preferred identifier for this API. Use `GET /api/options/supportBundles.contentTypes` to see available values. If provided, the code must resolve to a valid support bundle content type or the request returns `400`.
+                  typeId:
+                    type: integer
+                    format: int64
+                    description: Alternative support bundle content type ID returned by `GET /api/options/supportBundles.contentTypes`. Use this instead of `code` when the numeric type ID is known. If provided, the type ID must resolve to a valid support bundle content type or the request returns `400`.
+                  resourceId:
+                    type:
+                      - integer
+                      - "null"
+                    format: int64
+                    description: Resource ID for resource-backed content types. Use `GET /api/options/supportBundles.contentTypeResources?contentTypeCode=...` to see eligible values for a selected content type. Omit or set to null for standalone content types.
+                anyOf:
+                  - required:
+                      - code
+                  - required:
+                      - typeId
+                additionalProperties: false
+              example:
+                - code: appliance.logs
+                - code: cloud.vmware
+                  resourceId: 42
+                - typeId: 7
+                  resourceId: 101
+  responses:
+    "200":
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  supportBundle:
+                    $ref: ../components/schemas/supportBundle.yaml
+              - $ref: ../components/schemas/200-success.yaml
+    "4XX":
+      $ref: ../components/responses/4xx.yaml
+    "5XX":
+      $ref: ../components/responses/5xx.yaml

@@ -1144,6 +1144,12 @@ paths:
     $ref: paths/api@subnets.yaml
   /api/subnets/{id}:
     $ref: paths/api@subnets@id.yaml
+  /api/support-bundles:
+    $ref: paths/api@support-bundles.yaml
+  /api/support-bundles/{id}:
+    $ref: paths/api@support-bundles@id.yaml
+  /api/support-bundles/{id}/download:
+    $ref: paths/api@support-bundles@id@download.yaml
   /api/tasks:
     $ref: paths/api@tasks.yaml
   /api/tasks/{id}:
