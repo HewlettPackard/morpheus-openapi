@@ -1122,6 +1122,12 @@ paths:
     $ref: paths/api@storage-volumes.yaml
   /api/storage-volumes/{id}:
     $ref: paths/api@storage-volumes@id.yaml
+  /api/support-bundles:
+    $ref: paths/api@support-bundles.yaml
+  /api/support-bundles/{id}:
+    $ref: paths/api@support-bundles@id.yaml
+  /api/support-bundles/{id}/download:
+    $ref: paths/api@support-bundles@id@download.yaml
   /api/accounts:
     $ref: paths/api@accounts.yaml
   /api/accounts/available-roles:
