@@ -1,0 +1,13 @@
+type: object
+required:
+  - clusterTypeId
+  - access
+properties:
+  clusterTypeId:
+    type: integer
+    description: "`id` of the cluster type"
+  access:
+    type: string
+    description: The new access level.
+    enum:
+      $ref: rolePermissionAccessLevelsForResource.yaml

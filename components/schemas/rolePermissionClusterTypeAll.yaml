@@ -1,0 +1,13 @@
+type: object
+required:
+  - allClusterTypes
+  - access
+properties:
+  allClusterTypes:
+    type: boolean
+    description: "Apply to all cluster types"
+  access:
+    type: string
+    description: The new access level.
+    enum:
+      $ref: rolePermissionAccessLevelsForResource.yaml

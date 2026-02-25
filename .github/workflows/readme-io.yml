@@ -22,12 +22,13 @@ jobs:
           echo "::add-mask::$README_VERSION_ID"
           echo "README_VERSION_ID=${README_VERSION_ID}" >> $GITHUB_ENV
       - name: lint with redocly in docker
-        uses: docker://redocly/cli
+        uses: docker://redocly/cli:2.10.0
         with:
           args: lint openapi.yaml
       - name: bundle with redocly in docker
-        run: |
-          docker run --rm -v $PWD:/spec redocly/cli bundle --dereferenced openapi.yaml > bundle.yaml
+        uses: docker://redocly/cli:2.10.0
+        with:
+          args: bundle --dereferenced openapi.yaml -o bundle.yaml
       - name: push to readme
         if: github.ref != 'refs/heads/main'
         #uses: readmeio/rdme@7.3.0

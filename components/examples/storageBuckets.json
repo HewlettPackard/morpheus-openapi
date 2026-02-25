@@ -6,6 +6,7 @@
             "active": true,
             "accountId": 1,
             "providerType": "s3",
+            "storageServer": null,
             "config": {
                 "region": "us-east-1",
                 "endpoint": "s3.us-east-1.amazonaws.com",
@@ -31,6 +32,7 @@
             "active": true,
             "accountId": 1,
             "providerType": "s3",
+            "storageServer": null,
             "config": {
                 "accessKey": "AKIAYYQUH7Y6TBUZTES4",
                 "secretKey": "************",
@@ -55,6 +57,7 @@
             "active": true,
             "accountId": 1,
             "providerType": "local",
+            "storageServer": null,
             "config": {
                 "basePath": "/var/opt/morpheus/morpheus-ui/localstorage"
             },

@@ -12,6 +12,16 @@ properties:
     format: int64
   providerType:
     type: string
+  storageServer:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   config:
     type: object
     properties:

@@ -1,7 +1,7 @@
 get:
   summary: Retrieves a Specific Storage Bucket
   description: |
-    Retrieves a specific storage bucket.
+    Retrieves a specific storage bucket or file share.
   operationId: getStorageBuckets
   tags:
     - Storage
@@ -200,12 +200,19 @@ put:
 delete:
   summary: Deletes a Storage Bucket
   description: |
-    Deletes a specified storage bucket.
+    Deletes a specified storage bucket or file share.
   operationId: removeStorageBuckets
   tags:
     - Storage
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: removeResources
+      in: query
+      description: Removing resources will permanently delete the bucket and all files within the bucket.
+      required: false
+      schema:
+        type: boolean
+        default: false
   responses:
     '200':
       description: Successful Request

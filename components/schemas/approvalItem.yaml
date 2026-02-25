@@ -64,3 +64,32 @@ properties:
             type: string
           displayName:
             type: string
+      details:
+        type:
+          - array
+          - 'null'
+        description: |
+          List of request change details associated with the approval item.
+          Only present when the approval is for a reconfigure request.
+        items:
+          type: object
+          properties:
+            category:
+              type: string
+              description: The category of the change (e.g. network, volume, plan, planMemory, planCores)
+            type:
+              type: string
+              description: The type of change (e.g. increase, decrease, add, remove, change)
+            name:
+              type: string
+              description: The name of the item being changed
+            fromValue:
+              type:
+                - string
+                - 'null'
+              description: The original value before the change
+            toValue:
+              type:
+                - string
+                - 'null'
+              description: The new value after the change

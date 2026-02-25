@@ -1,0 +1,94 @@
+get: 
+  summary: Get a Specific Cluster Affinity Group
+  description: This endpoint retrieves a specific cluster affinity group.
+  operationId: getClusterAffinityGroup
+  tags: 
+    -  Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content: 
+        application/json: 
+          schema:
+            type: object
+            properties:
+              affinityGroup:
+                $ref: ../components/schemas/clusterAffinityGroup.yaml
+          examples:
+            Get Affinity Group Response:
+              value:
+                $ref: ../components/examples/clusterAffinityGroupSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put: 
+  summary: Update Cluster Affinity Group
+  description: Update Cluster Affinity Group
+  operationId: updateClusterAffinityGroup
+  tags: 
+    -  Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          type: object
+          properties: 
+            affinityGroup:
+              $ref: ../components/schemas/clusterAffinityGroupUpdate.yaml
+        examples:
+          Update Affinity Group Request:
+            value:
+              $ref: ../components/examples/clusterAffinityGroupUpdate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf: 
+            - type: object
+              properties:
+                affinityGroup:
+                  $ref: ../components/schemas/clusterAffinityGroup.yaml
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Update Affinity Group Response:
+              value:
+                $ref: ../components/examples/clusterAffinityGroupSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Cluster Affinity Group
+  description: |
+    Will delete a cluster affinity group.
+  operationId: deleteClusterAffinityGroup
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -10,3 +10,6 @@ properties:
     type: string
     description: Visibility for datastore
     default: private
+  heartbeatTarget: 
+    type: boolean
+    description: Heartbeat Target

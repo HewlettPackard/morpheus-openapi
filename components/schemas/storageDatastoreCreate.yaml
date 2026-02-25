@@ -102,6 +102,9 @@ properties:
     type: array
     items:
       type: object
+  heartbeatTarget: 
+    type: boolean
+    description: Heartbeat Target
 required:
   - name
   - datastoreType

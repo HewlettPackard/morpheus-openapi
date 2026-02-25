@@ -1,38 +1,46 @@
 # morpheus-openapi
 OpenAPI documentation for the Morpheus API
 
-## Testing
+## Building
 
-Using docker:
+First, download the repository and cd to the working directory:
 
 ```shell
-docker run --rm -v $PWD:/spec redocly/openapi-cli lint openapi.yaml --skip-rule no-invalid-media-type-examples
-docker run --rm -v $PWD:/tmp -it stoplight/spectral lint -v -F hint "/tmp/openapi.yaml" --ruleset "/tmp/.spectral.json"
+git clone git@github.com:HewlettPackard/morpheus-openapi.git
+cd morpheus-openapi
 ```
 
-The *test* rake task does the same as above:
+Build with docker:
+
+```shell
+docker run --rm -v $PWD:/spec redocly/cli bundle --dereferenced openapi.yaml > bundled.yaml
+```
+
+Build with rake:
+
+```shell
+rake build
+```
+
+This generates the complete openapi spec file named `bundled.yaml` in the current directory. You can use this file in any openapi 3.1.0 renderer.
+
+## Testing
+
+Test with docker:
+
+```shell
+docker run --rm -v $PWD:/spec redocly/cli lint openapi.yaml --skip-rule no-invalid-media-type-examples
+docker run --rm -v $PWD:/spec redocly/cli bundle --dereferenced openapi.yaml > bundled.yaml
+docker run --rm -v $PWD:/tmp -it stoplight/spectral lint -v -F error \"/tmp/bundled.yaml\" --ruleset \"/tmp/.spectral.json\"
+```
+
+Test with rake:
 
 ```shell
 rake test
 ```
 
 NOTE: The OpenAPI spec is case senstive.  This has caused problems when developing on Windows and Mac.  You may get a good lint with the above commands, but when pushed, it will show any errors in the Actions log.
-
-## Building
-
-Using docker:
-
-```shell
-docker run --rm -v $PWD:/spec redocly/openapi-cli bundle openapi.yaml > bundled.yaml
-```
-
-The *build* rake task does the same as above:
-
-```shell
-rake build
-```
-
-This will build the file that we upload to the host, you can use this file in any openapi 3.0.3 renderer.
 
 ## Publishing
 

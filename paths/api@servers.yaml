@@ -10,6 +10,7 @@ get:
     - $ref: ../components/parameters/zoneId.yaml
     - $ref: ../components/parameters/siteId.yaml
     - $ref: ../components/parameters/clusterId.yaml
+    - $ref: ../components/parameters/parentServerId.yaml
     - $ref: ../components/parameters/managed.yaml
     - $ref: ../components/parameters/serverType.yaml
     - $ref: ../components/parameters/powerState.yaml
@@ -19,6 +20,7 @@ get:
     - $ref: ../components/parameters/bareMetalHost.yaml
     - $ref: ../components/parameters/status-server.yaml
     - $ref: ../components/parameters/agentInstalled-server.yaml
+    - $ref: ../components/parameters/guestAgentStatus.yaml
     - $ref: ../components/parameters/max.yaml
     - $ref: ../components/parameters/offset.yaml
     - $ref: ../components/parameters/lastUpdated.yaml
@@ -33,6 +35,11 @@ get:
     - $ref: ../components/parameters/externalId.yaml
     - $ref: ../components/parameters/internalId.yaml
     - $ref: ../components/parameters/externalUniqueId.yaml
+    - in: query
+      name: stats
+      description: This can be used to exclude the `stats` object in the response by passing `false` which can increase performance when returning a large number of servers.
+      schema:
+        type: string
   responses:
     '200':
       description: Successful Request

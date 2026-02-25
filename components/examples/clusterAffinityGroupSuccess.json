@@ -1,0 +1,48 @@
+{
+  "success": true,
+  "affinityGroup": {
+    "id": 53,
+    "visibility": "private",
+    "active": false,
+    "owner": {
+      "id": 1
+    },
+    "pool": {
+      "id": 9406,
+      "name": "HVM Cluster"
+    },
+    "servers": [
+      {
+        "id": 31666,
+        "name": "instance"
+      },
+      {
+        "id": 31667,
+        "name": "instance-2"
+      }
+    ],
+    "affinityType": "KEEP_SEPARATE",
+    "source": "user",
+    "refType": "ComputeServerGroup",
+    "refId": 1139,
+    "name": "AG Example",
+    "permissions": {
+      "resourcePermissions": {
+        "defaultStore": false,
+        "allPlans": true,
+        "defaultTarget": false,
+        "canManage": false,
+        "all": true,
+        "account": {
+          "id": 1
+        },
+        "sites": [
+
+        ],
+        "plans": [
+
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "migration": {
+    "name": "Migration Example",
+    "sourceCloudId": 34,
+    "targetCloudId": 129,
+    "targetGroupId": 555,
+    "targetPoolId": "pool-9406",
+    "skipPrechecks": false,
+    "installGuestTools": true,
+    "sourceServerIds": [
+      31331
+    ],
+    "datastores": [
+      {
+        "sourceDatastore": {
+          "id": 2210
+        },
+        "destinationDatastore": {
+          "id": 2297
+        }
+      }
+    ],
+    "networks": [
+      {
+        "sourceNetwork": {
+          "id": 7118
+        },
+        "destinationNetwork": {
+          "id": 7336
+        }
+      }
+    ]
+  }
+}
