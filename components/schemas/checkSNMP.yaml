@@ -18,5 +18,5 @@ allOf:
       config:
         allOf:
           - $ref: checkSNMPConfig.yaml
-          - anyOf:
-              - $ref: checkSshConfig.yaml
+          - $ref: checkSshConfig.yaml
+

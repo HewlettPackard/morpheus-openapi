@@ -44,3 +44,14 @@ properties:
           type: integer
           format: int64
           description: Integration ID. Only certain integration types may be associated to a cluster.
+  config:
+    type: object
+    description: Configuration object with parameters that vary by `type`. Only the specified config properties will be updated, other existing config properties will be left unchanged.
+    additionalProperties: true
+    properties:
+      dynamicPlacementMode:
+        type: string
+        description: Dynamic Placement
+        enum:
+          - on
+          - off

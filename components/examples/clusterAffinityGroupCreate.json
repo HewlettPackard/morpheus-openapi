@@ -1,0 +1,18 @@
+{
+  "affinityGroup": {
+    "name": "Cluster AG Example",
+    "affinityType": "KEEP_SEPARATE",
+    "active": true,
+    "pool": {
+      "id": 532
+    },
+    "servers": [
+      67,
+      68
+    ],
+    "resourcePermissions": {
+      "all": true
+    },
+    "visibility": "private"
+  }
+}

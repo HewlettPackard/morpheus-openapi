@@ -78,6 +78,7 @@
       "agentInstalled": false,
       "lastAgentUpdate": null,
       "agentVersion": null,
+      "guestAgentStatus": "unknown",
       "maxCores": 2,
       "coresPerSocket": 1,
       "maxMemory": 17179869184,

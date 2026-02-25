@@ -1,6 +1,6 @@
 type: object
 required:
-  - allAppTemplates
+  - allInstanceTypes
   - access
 properties:
   allInstanceTypes:

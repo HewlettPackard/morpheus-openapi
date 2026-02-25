@@ -1,0 +1,51 @@
+{
+  "affinityGroup": {
+    "id": 53,
+    "visibility": "private",
+    "active": false,
+    "owner": {
+      "id": 1
+    },
+    "pool": {
+      "id": 33,
+      "name": "resource-pool-1"
+    },
+    "affinityType": "KEEP_SEPARATE",
+    "source": "user",
+    "refType": "ComputeServer",
+    "refId": 34,
+    "name": "AG Example",
+    "servers": [
+    {
+      "id": 31666,
+      "name": "Test Instance"
+    },
+    {
+      "id": 31667,
+      "name": "Test Instance 2"
+    }
+    ],
+    "resourcePermissions": {
+      "defaultStore": false,
+      "allPlans": true,
+      "defaultTarget": false,
+      "canManage": false,
+      "all": true,
+      "account": {
+        "id": 1
+      },
+      "sites": [
+
+      ],
+      "plans": [
+
+      ]
+    },
+    "tenants": [
+      {
+        "id": 1,
+        "name": "root"
+      }
+    ]
+  }
+}

@@ -5,7 +5,7 @@ info:
     Morpheus is a powerful cloud management tool that provides provisioning, monitoring, logging, backups, and application deployment strategies.
 
     This document describes the Morpheus API protocol and the available endpoints. Sections are organized in the same manner as they appear in the Morpheus UI.
-  version: 8.0.10
+  version: 8.1.1
   termsOfService: https://morpheusdata.com/terms-and-conditions/
   contact:
     email: dev@morpheusdata.com
@@ -207,6 +207,10 @@ paths:
     $ref: paths/api@zones.yaml
   /api/zones/{id}:
     $ref: paths/api@zones@id.yaml
+  /api/zones/{zoneId}/affinity-groups:
+    $ref: paths/api@zones@id@affinity-groups.yaml
+  /api/zones/{zoneId}/affinity-groups/{id}:
+    $ref: paths/api@zones@id@affinity-groups@id.yaml
   /api/zones/{zoneId}/data-stores:
     $ref: paths/api@zones@zoneId@data-stores.yaml
   /api/zones/{zoneId}/data-stores/{id}:
@@ -242,6 +246,10 @@ paths:
     $ref: paths/api@clusters.yaml
   /api/clusters/{clusterId}:
     $ref: paths/api@clusters@id.yaml
+  /api/clusters/{clusterId}/affinity-groups:
+    $ref: paths/api@clusters@id@affinity-groups.yaml
+  /api/clusters/{clusterId}/affinity-groups/{id}:
+    $ref: paths/api@clusters@id@affinity-groups@id.yaml
   /api/clusters/{clusterId}/api-config:
     $ref: paths/api@clusters@id@api-config.yaml
   /api/clusters/{clusterId}/apply-template:
@@ -272,6 +280,8 @@ paths:
     $ref: paths/api@clusters@id@jobs.yaml
   /api/clusters/{clusterId}/jobs/{id}:
     $ref: paths/api@clusters@id@jobs@id.yaml
+  /api/clusters/{clusterId}/layout:
+    $ref: paths/api@clusters@id@layout.yaml
   /api/clusters/{clusterId}/masters:
     $ref: paths/api@clusters@id@masters.yaml
   /api/clusters/{clusterId}/namespaces:
@@ -732,7 +742,12 @@ paths:
 
   /api/monitoring-settings:
     $ref: paths/api@monitoring-settings.yaml
-  
+  /api/migrations:
+    $ref: paths/api@migrations.yaml
+  /api/migrations/{id}:
+    $ref: paths/api@migrations@id.yaml
+  /api/migrations/{id}/run:
+    $ref: paths/api@migrations@id@run.yaml
   /api/network-types:
     $ref: paths/api@network-types.yaml
   /api/network-types/{id}:
@@ -958,6 +973,8 @@ paths:
     $ref: paths/api@roles@id@update-group.yaml
   /api/roles/{id}/update-instance-type:
     $ref: paths/api@roles@id@update-instance-type.yaml
+  /api/roles/{id}/update-cluster-type:
+    $ref: paths/api@roles@id@update-cluster-type.yaml
   /api/roles/{id}/update-permission:
     $ref: paths/api@roles@id@update-permission.yaml
   /api/roles/{id}/update-persona:
@@ -1404,6 +1421,8 @@ tags:
     description: Manage Monitoring Settings
   - name: Morpheus API
     description: All Endpoints Specific to Morpheus API
+  - name: Migrations
+    description: Manage Migrations
   - name: Networks
     description: Manage Networks
   - name: Node Types

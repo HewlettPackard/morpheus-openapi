@@ -64,6 +64,9 @@
             "sourceImage": "morpheus-rocky-9-x86_64-20250218.qcow2",
             "imageType": "qcow2",
             "online": true,
+            "createForMultiAttach": false,
+            "isMultiAttach": false,
+            "storageProfile": null,
             "account": {
                 "id": 1,
                 "name": "Daniel DeVilbiss"

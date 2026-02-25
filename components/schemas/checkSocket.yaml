@@ -16,5 +16,4 @@ allOf:
       config:
         allOf:
           - $ref: checkSocketConfig.yaml
-          - anyOf:
-              - $ref: checkSshConfig.yaml
+          - $ref: checkSshConfig.yaml

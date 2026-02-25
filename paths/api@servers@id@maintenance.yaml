@@ -5,7 +5,7 @@ put:
   tags:
     - Hosts
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
   requestBody:
     content:
       application/json:
@@ -26,6 +26,10 @@ put:
                 deleteLocalData:
                   type: boolean
                   description: option relevant to kubernetes nodes
+                movePoweredOff:
+                  type: boolean
+                  description: Move powered-off virtual machines to other hosts
+                  default: true
                 
   responses:
     '200':

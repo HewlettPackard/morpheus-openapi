@@ -1,0 +1,78 @@
+get: 
+  summary: Get Cluster Affinity Groups
+  description: This endpoint retrieves affinity groups of a specified cluster.
+  operationId: listClusterAffinityGroups
+  tags: 
+    -  Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/order.yaml
+    - $ref: ../components/parameters/phrase.yaml
+    - $ref: ../components/parameters/name.yaml
+    - $ref: ../components/parameters/code.yaml
+    - $ref: ../components/parameters/hideInactive.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content: 
+        application/json: 
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  affinityGroups:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/clusterAffinityGroup.yaml
+              - $ref: ../components/schemas/meta.yaml
+          examples:
+            List Affinity Groups Response:
+              value:
+                $ref: ../components/examples/clusterAffinityGroups.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Create a Cluster Affinity Group
+  description: This endpoint will create an affinity group for a specific cluster.
+  operationId: saveClusterAffinityGroup
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            affinityGroup:
+              $ref: ../components/schemas/clusterAffinityGroupCreate.yaml
+        examples:
+          Create Affinity Group Request:
+            value:
+              $ref: ../components/examples/clusterAffinityGroupCreate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  affinityGroup:
+                    $ref: ../components/schemas/clusterAffinityGroup.yaml
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Create Affinity Group Response:
+              value:
+                $ref: ../components/examples/clusterAffinityGroupSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -1,7 +1,7 @@
 get:
   summary: Retrieves all Storage Buckets
   description: |
-    Retrieves all storage buckets.
+    Retrieves all storage buckets and file shares.
   operationId: listStorageBuckets
   tags:
     - Storage
@@ -37,7 +37,7 @@ get:
 post:
   summary: Creates a Storage Bucket
   description: |
-    Creates a storage bucket.
+    Creates a storage bucket or file share.
   operationId: addStorageBuckets
   tags:
     - Storage
@@ -71,6 +71,12 @@ post:
                     - nfs
                     - openstack
                     - rackspace
+                storageServer:
+                  type: integer
+                  description: |
+                    Storage Server ID. This is required when creating buckets tied to a cloud's storage server such as Amazon S3 and Google Cloud Storage. 
+                    The API `/api/storage-servers?type=amazons3` can be used to see which options are available.
+                  format: int64
                 defaultBackupTarget:
                   type: boolean
                   description: Default Backup Target

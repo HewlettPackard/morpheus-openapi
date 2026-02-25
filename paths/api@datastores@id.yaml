@@ -49,6 +49,9 @@ put:
                 active: 
                   type: boolean
                   description: Activate `true` or disable `false` the datastore
+                heartbeatTarget: 
+                  type: boolean
+                  description: Heartbeat Target
                 visibility:
                   type: string
                   description: Setting `private` or `public`

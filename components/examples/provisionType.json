@@ -46,7 +46,8 @@
     "networkTypes": [],
     "storageTypes": [],
     "rootStorageTypes": [],
-    "controllerTypes": []
+    "controllerTypes": [],
+    "storageProfiles": []
   },
   "success": true
 }

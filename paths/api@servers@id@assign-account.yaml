@@ -5,7 +5,7 @@ put:
   tags:
     - Hosts
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
     - $ref: ../components/parameters/serverAccountId.yaml
   requestBody: 
     content: 

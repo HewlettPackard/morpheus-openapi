@@ -6,7 +6,7 @@ get:
   tags:
     - Storage
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/storage-volume-id-path.yaml
   responses:
     '200':
       description: Successful Request
@@ -33,7 +33,7 @@ put:
   tags:
     - Storage
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/storage-volume-id-path.yaml
   requestBody:
     content:
       application/json:
@@ -98,7 +98,8 @@ delete:
   tags:
     - Storage
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/storage-volume-id-path.yaml
+    - $ref: ../components/parameters/force.yaml
   responses:
     '200':
       description: Successful Request
