@@ -1,0 +1,33 @@
+title: HVM Instance Configuration
+type: object
+properties:
+  noAgent:
+    type:
+      - boolean
+      - 'null'
+    description: Skipping Agent installation will result in a lack of logging and guest operating system statistics. Automation scripts may also be adversely affected.
+    default: false
+  resourcePoolId:
+    type: string
+    description: id of the resource group to be used, can be prefixed with `pool-`. A resource pool group can be specified instead by prefixing its ID with `poolGroup-`.
+  nestedVirtualization:
+    type: string
+    description: Enable Nested Virtualization
+    default: "off"
+    enum:
+      - "on"
+      - "off"
+  createUser:
+    type:
+      - boolean
+      - 'null'
+    description: Create user
+    default: false
+  poolProviderType:
+    type: string
+    description: The type of pool provider to use for this instance, must be "mvm"
+    default: "mvm"
+  kvmHostId:
+    type: integer
+    format: int64
+    description: The ID of the KVM host to provision the instance on

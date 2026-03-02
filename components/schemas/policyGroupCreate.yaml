@@ -44,6 +44,7 @@ properties:
           - Network Quota
           - Object Storage Quota
           - Power Schedule
+          - Instance Networks
           - Router Quota
           - Shutdown
           - Storage Server Storage Quota
@@ -57,17 +58,29 @@ properties:
           - type: object
             description: |
               - Approve Delete
-              - Approve Provisiong
+              - Approve Provision
               - Approve Reconfigure
             properties:
               accountIntegrationId:
                 type: string
+              workflowId:
+                type: string
+              flowId:
+                type: string
+              workflowType:
+                type: string
+                enum:
+                  - "flow"
+                  - "workflow"
           - type: object
             description: |
               - Backup Creation
             properties:
               createBackupType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               createBackup:
                 type: boolean
           - type: object
@@ -89,12 +102,18 @@ properties:
                 type: string
               maxPriceUnit:
                 type: string
+                enum:
+                  - "hour"
+                  - "month"
           - type: object
             description: |
               - Cluster Resource Name
             properties:
               serverNamingType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               serverNamingPattern:
                 type: string
               serverNamingConflict:
@@ -127,6 +146,9 @@ properties:
             properties:
               lifecycleType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               lifecycleAge:
                 type: string
               lifecycleRenewal:
@@ -145,6 +167,15 @@ properties:
                 type: string
               lifecycleHideFixed:
                 type: boolean
+              lifecycleWorkflowId:
+                type: string
+              flowId:
+                type: string
+              workflowType:
+                type: string
+                enum:
+                  - "flow"
+                  - "workflow"
           - type: object
             description: |
               - File Share Storage Quota
@@ -157,6 +188,9 @@ properties:
             properties:
               hostNamingType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               hostNamingPattern:
                 type: string
           - type: object
@@ -165,6 +199,9 @@ properties:
             properties:
               namingType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               namingPattern:
                 type: string
               namingConflict:
@@ -211,6 +248,12 @@ properties:
                 type: string
           - type: object
             description: |
+              - Max Snapshots
+            properties:
+              maxSnapshots:
+                type: string
+          - type: object
+            description: |
               - Max Storage
               - Object Storage Quota
             properties:
@@ -245,7 +288,7 @@ properties:
                     type: string
                   type:
                     type: string
-                  _fullPage:
+                  fullPage:
                     type:
                       - boolean
                       - 'null'
@@ -253,13 +296,16 @@ properties:
                 type: string
               motd.type:
                 type: string
-              motd._fullPage:
+                enum:
+                  - "info"
+                  - "warning"
+                  - "critical"
+              motd.fullPage:
                 type:
                   - boolean
                   - 'null'
               motd.date:
                 type: string
-                format: date-time
           - type: object
             description: |
               - Network Quota
@@ -272,6 +318,9 @@ properties:
             properties:
               powerScheduleType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               powerSchedule:
                 type: string
               powerScheduleHideFixed:
@@ -284,10 +333,22 @@ properties:
                 type: string
           - type: object
             description: |
+              - Instance Networks
+            properties:
+              requiredNetworks:
+                type: array
+                items:
+                  type: integer
+                  format: int64
+          - type: object
+            description: |
               - Shutdown
             properties:
               shutdownType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               shutdownAge:
                 type: string
               shutdownRenewal:
@@ -306,6 +367,15 @@ properties:
                 type: string
               shutdownHideFixed:
                 type: boolean
+              shutdownWorkflowId:
+                type: string
+              flowId:
+                type: string
+              workflowType:
+                type: string
+                enum:
+                  - "flow"
+                  - "workflow"
           - type: object
             description: |
               - Storage Server Storage Quota
@@ -332,6 +402,9 @@ properties:
             properties:
               createUserType:
                 type: string
+                enum:
+                  - "user"
+                  - "fixed"
               createUser:
                 type: boolean
           - type: object

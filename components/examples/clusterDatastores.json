@@ -24,34 +24,71 @@
           "owner": {
               "id": 1
           },
-          "datastores": [],
-          "permissions": {
-              "resourcePermissions": {
-                  "defaultStore": false,
-                  "allPlans": true,
-                  "defaultTarget": false,
-                  "canManage": false,
-                  "all": true,
-                  "account": {
-                      "id": 1
-                  },
-                  "sites": [],
-                  "plans": []
-              },
-              "tenantPermissions": {
-                  "accounts": [
-                      1
-                  ]
-              }
+         "datastoreType": {
+           "id": 11,
+           "code": "kubernetes-storageclass-rook-ceph-block",
+           "name": "Kubernetes StorageClass - Rook Ceph Block",
+         },
+         "datastores": [],
+         "permissions": {
+             "resourcePermissions": {
+                 "defaultStore": false,
+                 "allPlans": true,
+                 "defaultTarget": false,
+                 "canManage": false,
+                 "all": true,
+                 "account": {
+                     "id": 1
+                 },
+                 "sites": [
+                   {
+                     "id": 1,
+                     "name": "Default Site",
+                     "default": true
+                   }
+                 ],
+                 "plans": [
+                   {
+                     "id": 1,
+                     "name": "Default Plan",
+                     "default": true
+                   }
+                 ]
+             },
+             "tenantPermissions": {
+                 "accounts": [
+                     1
+                 ]
+             }
+         },
+         "tenants": [
+             {
+                 "id": 1,
+                 "name": "mastertenant"
+             }
+            ],
+        "locations": [
+          {
+            "refType": "ComputeServer",
+            "refId": 346676,
+            "status": "provisioned",
+            "statusMessage": "provisioned datastore on host"
           },
-          "tenants": [
-              {
-                  "id": 1,
-                  "name": "mastertenant"
-              }
-          ]
+          {
+            "refType": "ComputeServer",
+            "refId": 346677,
+            "status": "provisioned",
+            "statusMessage": "provisioned datastore on host"
+          },
+          {
+            "refType": "ComputeServer",
+            "refId": 346675,
+            "status": "provisioned",
+            "statusMessage": "provisioned datastore on host"
+          }
+        ]
       }
-  ],
+    ],
   "meta": {
       "offset": 0,
       "max": 25,

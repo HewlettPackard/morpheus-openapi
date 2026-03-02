@@ -1,0 +1,31 @@
+{
+    "datastore": {
+      "name": "Alletra MP",
+      "datastoreType": "hpedatatore-alletra-mp",
+      "active": true,
+      "config": {
+        "enableRansomware": false,
+        "protocolType": "iSCSI"
+      },
+      "resourcePermissions": {
+        "sites": [
+          {
+            "id": 2
+          }
+        ]
+      },
+      "storageServer": {
+        "id": 1
+      },
+      "refType": "ComputeServerGroup",
+      "refId" : 3,
+      "tenantPermissions": {
+        "accounts": [
+           {
+             "id": 1
+           }
+        ]
+      },
+      "visibility": "private"
+    }
+}

@@ -22,9 +22,9 @@ properties:
         - value
   readOnlyEnvs:
     type:
-      - array
+      - object
       - 'null'
-    items:
+    additionalProperties:
       type: object
       properties:
         export:
@@ -34,7 +34,9 @@ properties:
         name:
           type: string
         value:
-          type: string
+          type:
+            - string
+            - number
       required:
         - export
         - masked
@@ -42,10 +44,12 @@ properties:
         - value
   importedEnvs:
     type:
-      - array
+      - object
       - 'null'
-    items:
-      type: object
+    additionalProperties:
+      type: 
+        - object
+        - string
       properties:
         export:
           type: boolean
@@ -54,7 +58,9 @@ properties:
         name:
           type: string
         value:
-          type: string
+          type:
+            - string
+            - number
       required:
         - export
         - masked

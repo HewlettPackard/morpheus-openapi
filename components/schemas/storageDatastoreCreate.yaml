@@ -2,14 +2,27 @@ type: object
 properties:
   name:
     type: string
+    description: The name of the datastore to be created.
   datastoreType:
     type: string
     description: The code of the datatoreType
+  config:
+    description: Configuration options for the datastore, varies based on the type of datastore.
+    anyOf:
+      - $ref: clusterDatastoreConfigNFS.yaml
+      - $ref: clusterDatastoreConfigGFS2.yaml
+      - $ref: storageDatastoreConfigGeneric.yaml
+      - $ref: storageDatastoreConfigAlletraMPHVM.yaml
   refType:
     type: string
+    enum:
+      - 'ComputeZone'
+      - 'ComputeServerGroup'
+    description: Type of the resource this datastore is associated with, can be 'ComputeZone' ('Cloud') or 'ComputeServerGroup' ('Cluster')
   refId:
     type: integer
     format: int64
+    description: The ID of the resource this datastore is associated with, e.g. ComputeZone, ComputeServerGroup
   storageServer:
     type: object
     properties:
@@ -17,25 +30,27 @@ properties:
         type: integer
         format: int64
   visibility:
+    description: Visibility level of the datastore, can be 'private' or 'public'. If not specified, defaults to 'private'.
+    enum:
+      - private
+      - public
     type: string
   active:
     type: boolean
   defaultStore:
     type: boolean
-  tenants:
-    type: array
-    items:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        name:
-          type: string
-        defaultStore:
-          type: boolean
-        defaultTarget:
-          type: boolean
+  tenantPermissions:
+    type: object
+    description: List of tenants to assign this datastore to
+    properties:
+      accounts:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
   resourcePermissions:
     type: object
     properties:
@@ -63,21 +78,36 @@ properties:
             type: integer
             format: int64
       sites:
-        type:
-          - array
-          - 'null'
+        type: array
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
       plans:
-        type:
-          - array
-          - 'null'
+        type: array
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+            code:
+              type: string
   datastores:
+    description: List of datastores associated with this datastore, for use with vSphere clouds.
     type: array
     items:
       type: object
   heartbeatTarget: 
     type: boolean
     description: Heartbeat Target
+required:
+  - name
+  - datastoreType
+  - refId
+  - refType
+  - config

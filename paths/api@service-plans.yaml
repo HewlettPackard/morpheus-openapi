@@ -70,21 +70,43 @@ post:
                 description:
                   type: string
                   description: Service plan description
+                regionCode:
+                  type: string
+                  description: Service plan region code
                 editable:
                   type: boolean
                   description: Can be used to enable / disable the editability of the service plan.
                   default: true
+                visibility:
+                  type: string
+                  description: Can be used to enable / disable the visibility of the service plan, defaults to "public" unless the account is not a masterAccount in which the default is "private"
                 maxStorage:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max storage size in bytes
                 maxMemory:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max memory size in bytes
                 maxCores:
-                  type: number
-                  description: Max cores
+                  type: integer
+                  format: int64
+                  description: Max number of cores
+                maxCpu:
+                  type: integer
+                  format: int64
+                  description: Max number of CPUs 
+                coresPerSocket:
+                  type: integer
+                  format: int64
+                  description: Number of cores per CPU 
+                maxGpus:
+                  type: integer
+                  format: int64
+                  description: Max number of GPUs
                 maxDisks:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Max disks allowed
                 provisionType:
                   type: object
@@ -95,6 +117,10 @@ post:
                       type: integer
                       format: int64
                       description: Provision type ID
+                customCpu:
+                  type: boolean
+                  description: Can be used to enable / disable customizable cpu
+                  default: false
                 customCores:
                   type: boolean
                   description: Can be used to enable / disable customizable cores
@@ -116,11 +142,12 @@ post:
                   description: Can be used to enable / disable ability to add volumes
                   default: false
                 sortOrder:
-                  type: number
+                  type: integer
+                  format: int64
                   description: Sort order
                 priceSets:
                   type: array
-                  description: List of price sets to include in service plan
+                  description: List of price sets to include in service plan.
                   items: 
                     type: object
                     properties: 
@@ -128,6 +155,37 @@ post:
                         type: integer
                         format: int64
                         description: Price Set ID
+                permissions:
+                  type: object
+                  properties:
+                    tenantPermissions:
+                      type: object 
+                      properties:
+                        accounts:
+                          type: array
+                          description: List of tenant ID's with permission to view servicePlan when visibility is private.
+                          items:
+                            type: integer 
+                            format: int64
+                            description: ID of the tenant
+                    resourcePermissions:
+                      type: object 
+                      description: Group (site) related access to view servicePlan when visibility is private.
+                      properties:
+                        allSites:
+                          type: boolean 
+                          description: Gives all groups (sites) permission to Provision and Reconfigure with servicePlan.
+                          default: false
+                        sites:
+                          type: array
+                          description: Group (site) permissions that determines what Groups the Service Plan will be available in for Provisioning and Reconfigure.
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer 
+                                format: int64
+                                description: Group ID
                 config: 
                   type: object
                   properties: 
@@ -149,16 +207,20 @@ post:
                       type: object
                       properties: 
                         minStorage: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min storage in GB
                         maxStorage: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max storage in GB
                         minPerDiskSize:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min per disk size in GB
                         maxPerDiskSize:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max per disk size in GB
                         minMemory: 
                           type: integer
@@ -169,22 +231,28 @@ post:
                           format: int64
                           description: Custom max memory in bytes
                         minCores: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min cores
                         maxCores: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max cores
                         minSockets: 
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min sockets
                         maxSockets:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max sockets
                         minCoresPerSocket:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom min cores allowed per socket
                         maxCoresPerSocket:
-                          type: string
+                          type: integer
+                          format: int64
                           description: Custom max cores allowed per socket
   responses:
     '200':
@@ -195,8 +263,10 @@ post:
             allOf:
             - type: object
               properties:
-                servicePlan:
-                  $ref: ../components/schemas/servicePlan.yaml
+                id:
+                  type: integer
+                  format: int64
+                  description: The ID of the Service Plan created
             - $ref: ../components/schemas/200-success.yaml
           examples:
             Service Plan Response:

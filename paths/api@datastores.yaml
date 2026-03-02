@@ -23,12 +23,12 @@ get:
                 datastores:
                   type: array
                   items:
-                    $ref: ../components/schemas/zoneDatastore.yaml
+                    $ref: ../components/schemas/storageDatastore.yaml
             - $ref: ../components/schemas/meta.yaml
           examples:
             Datastores Response:
               value:
-                $ref: ../components/examples/zoneDatastores.json 
+                $ref: ../components/examples/storageDatastore.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
@@ -48,9 +48,9 @@ post:
             datastore:
               $ref: ../components/schemas/storageDatastoreCreate.yaml
         examples:
-          NFS Datastore Request:
+          AlletraMP Datastore Request:
             value:
-              $ref: ../components/examples/storageDatastoreCreateNFS.json
+              $ref: ../components/examples/storageDatastoreCreateAlletraMP.json
   responses:
     '200':
       description: Successful Request

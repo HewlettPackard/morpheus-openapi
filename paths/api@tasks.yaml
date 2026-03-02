@@ -76,6 +76,9 @@ post:
                 - taskType
                 - executeTarget
               properties:
+                allowCustomConfig:
+                  type: boolean
+                  description: When enabled, a text area is provided at Task execution time to allow the user to pass extra variables or specify extra configuration
                 name:
                   type: string
                   description: A unique name for the task
@@ -109,6 +112,7 @@ post:
                         - javascriptTask
                         - containerScript
                         - containerTemplate
+                        - conditionalWorkflow
                         - localScript
                         - nestedWorkflow
                         - winrmTask
@@ -125,8 +129,27 @@ post:
                   items:
                     type: string
                 taskOptions:
-                  type: object
                   description: Map of options specific to each `task type`. eg. script
+                  anyOf:
+                    - $ref: ../components/schemas/taskAnsiblePlaybookConfig.yaml
+                    - $ref: ../components/schemas/taskAnsibleTowerConfig.yaml
+                    - $ref: ../components/schemas/taskChefBootstrapConfig.yaml
+                    - $ref: ../components/schemas/taskConditionalWorkflowConfig.yaml
+                    - $ref: ../components/schemas/taskEmailConfig.yaml
+                    - $ref: ../components/schemas/taskGroovyConfig.yaml
+                    - $ref: ../components/schemas/taskHttpConfig.yaml
+                    - $ref: ../components/schemas/taskJavaConfig.yaml
+                    - $ref: ../components/schemas/taskLibraryScriptConfig.yaml
+                    - $ref: ../components/schemas/taskLibraryTemplateConfig.yaml
+                    - $ref: ../components/schemas/taskNestedWorkflowConfig.yaml
+                    - $ref: ../components/schemas/taskPowershellConfig.yaml
+                    - $ref: ../components/schemas/taskPuppetConfig.yaml
+                    - $ref: ../components/schemas/taskPythonConfig.yaml
+                    - $ref: ../components/schemas/taskRestartConfig.yaml
+                    - $ref: ../components/schemas/taskShellConfig.yaml
+                    - $ref: ../components/schemas/taskVroConfig.yaml
+                    - $ref: ../components/schemas/taskWriteAttributesConfig.yaml
+                    - type: object
                 resultType:
                   oneOf:
                     - type: string
@@ -149,9 +172,11 @@ post:
                   default: false
                 retryCount:
                   type: integer
+                  format: int64
                   description: The number of times to retry.
                 retryDelaySeconds:
-                  type: number
+                  type: integer
+                  format: int64
                   description: The delay, between retries.
                 file:
                   type: object
@@ -209,24 +234,7 @@ post:
               - type: object
                 properties:
                   task:
-                    oneOf:
-                      - $ref: ../components/schemas/taskAnsiblePlaybookConfig.yaml
-                      - $ref: ../components/schemas/taskAnsibleTowerConfig.yaml
-                      - $ref: ../components/schemas/taskChefBootstrapConfig.yaml
-                      - $ref: ../components/schemas/taskEmailConfig.yaml
-                      - $ref: ../components/schemas/taskGroovyConfig.yaml
-                      - $ref: ../components/schemas/taskHttpConfig.yaml
-                      - $ref: ../components/schemas/taskJavaConfig.yaml
-                      - $ref: ../components/schemas/taskLibraryScriptConfig.yaml
-                      - $ref: ../components/schemas/taskLibraryTemplateConfig.yaml
-                      - $ref: ../components/schemas/taskNestedWorkflowConfig.yaml
-                      - $ref: ../components/schemas/taskPowershellConfig.yaml
-                      - $ref: ../components/schemas/taskPuppetConfig.yaml
-                      - $ref: ../components/schemas/taskPythonConfig.yaml
-                      - $ref: ../components/schemas/taskRestartConfig.yaml
-                      - $ref: ../components/schemas/taskShellConfig.yaml
-                      - $ref: ../components/schemas/taskVroConfig.yaml
-                      - $ref: ../components/schemas/taskWriteAttributesConfig.yaml
+                    $ref: ../components/schemas/taskResponse.yaml
               - $ref: ../components/schemas/200-success.yaml
           examples:
             "Task Response - Create Ansible Playbook":

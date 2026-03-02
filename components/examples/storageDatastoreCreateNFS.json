@@ -1,25 +1,30 @@
 {
     "datastore": {
       "name": "NFS",
-      "datastoreType": "3par",
+      "datastoreType": "nfs",
       "active": true,
       "config": {
         "sourceHostname": "10.32.150.167",
-        "sourceDirPath": "/var/nfs/mvm"
+        "sourceDirPath": "/var/nfs/mvm",
+        "sourceVersion": "3"
       },
       "defaultStore": true,
       "resourcePermissions": {
-        "allSites": true
+        "sites": [
+          {
+            "id": 2
+          }
+        ]
       },
       "refType": "ComputeZone",
       "refId" : 3,
-      "tenants": [
-        {
-          "id": 1,
-          "defaultStore": false,
-          "defaultTarget": false
-        }
-      ],
+      "tenantPermissions": {
+        "accounts": [
+           {
+             "id": 1
+           }
+        ]
+      },
       "visibility": "private"
     }
-  }
+}

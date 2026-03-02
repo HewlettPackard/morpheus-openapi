@@ -56,15 +56,28 @@ put:
                     - string
                     - 'null'
                   description: An optional override for the default landing page after login for a user.
+                multitenant:
+                  type: boolean
+                  description: Multitenant roles are copied to all tenant accounts and kept in sync until a sub-tenant user modifies their copy of the role. *Only available to master tenant, only applies to user roles*
+                multitenantLocked:
+                  type: boolean
+                  description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant roles. *Only available to master tenant, only applies to user roles*
                 defaultPersona:
                   oneOf:
                     - type: string
                       enum:
+                        - api
                         - standard
                         - serviceCatalog
                         - vdi
                     - type: 'null'
                   description: Set the default persona by code.
+                resetPermissions:
+                  type: boolean
+                  description: Resets access levels for all feature permissions to their default values.
+                resetAllAccess:
+                  type: boolean
+                  description: Resets access levels for all permissions (including feature, non-feature, and default access levels) to their default values.
                 featurePermissions:
                   type: array
                   description: Set the access level for the specified permissions.
@@ -102,6 +115,7 @@ put:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the group (site)"
                       access:
                         type: string
@@ -129,6 +143,7 @@ put:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the cloud (zone)"
                       access:
                         type: string
@@ -155,6 +170,7 @@ put:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the instance type"
                       access:
                         type: string
@@ -178,6 +194,7 @@ put:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the blueprint (appTemplate)"
                       access:
                         type: string
@@ -201,6 +218,7 @@ put:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the catalog item type"
                       access:
                         type: string
@@ -219,7 +237,7 @@ put:
                   items:
                     type: object
                     required:
-                      - id
+                      - code
                       - access
                     properties:
                       code:
@@ -251,6 +269,7 @@ put:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the VDI pool"
                       access:
                         type: string
@@ -297,6 +316,7 @@ put:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the task"
                       access:
                         type: string
@@ -320,6 +340,7 @@ put:
                     properties:
                       id:
                         type: integer
+                        format: int64
                         description: "`id` of the workflow (taskSet)"
                       access:
                         type: string

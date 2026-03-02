@@ -47,16 +47,16 @@
             "storageSizeType": "gb",
             "memorySizeType": "mb",
             "ranges": {
-                "minStorage": "1",
-                "maxStorage": "2",
+                "minStorage": 1,
+                "maxStorage": 2,
                 "minMemory": 1048576,
                 "maxMemory": 2097152,
-                "minCores": "1",
-                "maxCores": "2",
-                "minSockets":"1",
-                "maxSockets":"10",
-                "minCoresPerSocket":"1",
-                "maxCoresPerSocket":"10"
+                "minCores": 1,
+                "maxCores": 2,
+                "minSockets":1,
+                "maxSockets":10,
+                "minCoresPerSocket":1,
+                "maxCoresPerSocket":10
             }
         },
         "zones": [

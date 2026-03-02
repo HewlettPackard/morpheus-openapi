@@ -26,6 +26,8 @@
 - admin-profiles
 - admin-provisioningSettings
 - admin-roles
+- admin-server-devices
+- admin-server-software
 - admin-servers
 - admin-servicePlans
 - admin-users
@@ -74,6 +76,8 @@
 - infrastructure-router-dhcp-relay
 - infrastructure-routers
 - infrastructure-securityGroups
+- infrastructure-servers-maintenance
+- infrastructure-servers-placement
 - infrastructure-state
 - infrastructure-storage
 - infrastructure-storage-browser
@@ -82,6 +86,7 @@
 - job-templates
 - kubernetes-template
 - library-advanced-node-type-options
+- library-operating-systems
 - library-options
 - library-templates
 - logs
@@ -131,6 +136,7 @@
 - services-cypher
 - services-image-builder
 - services-kubernetes
+- services-migrations
 - services-network-registry
 - services-vdi-copy
 - services-vdi-pools
@@ -144,3 +150,4 @@
 - thresholds
 - trust-services
 - virtual-images
+- workflows

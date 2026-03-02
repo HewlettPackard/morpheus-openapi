@@ -12,10 +12,7 @@ get:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              instance:
-                $ref: ../components/schemas/instanceEnvs.yaml
+            $ref: ../components/schemas/instanceEnvs.yaml
           examples:
             Instance Env Response:
               value:

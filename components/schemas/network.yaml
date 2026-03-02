@@ -8,7 +8,9 @@ properties:
     type: string
     description: Name
   displayName:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Network Display Name
   labels:
     type:
@@ -16,6 +18,20 @@ properties:
       - 'null'
     items:
       type: string
+  group:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Group ID
+      name:
+        type:
+          - string
+          - 'null'
+        description: Group Name
   zone:
     type: object
     properties:
@@ -148,7 +164,9 @@ properties:
       - 'null'
     description: Secondary DNS Server
   cidr:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Network CIDR
   gatewayIPv6:
     type:
@@ -186,6 +204,7 @@ properties:
     type:
       - string
       - 'null'
+    description: Network switch identifier
   fabricId:
     type:
       - string
@@ -195,7 +214,9 @@ properties:
       - string
       - 'null'
   status:
-    type: string
+    type:
+      - string
+      - 'null'
   availabilityZone:
     type:
       - string
@@ -204,10 +225,32 @@ properties:
     type:
       - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Pool ID
+      name:
+        type: string
+        description: Pool Name
+      dhcpServer:
+        type: boolean
+        description: DHCP Server enabled
   poolIPv6:
     type:
       - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: IPv6 Pool ID
+      name:
+        type: string
+        description: IPv6 Pool Name
+      dhcpServer:
+        type: boolean
+        description: IPv6 DHCP Server enabled
   networkProxy:
     type:
       - object
@@ -291,3 +334,22 @@ properties:
           format: int64
         name:
           type: string
+  resourcePermission:
+    type:
+      - object
+      - 'null'
+    properties:
+      all:
+        type: boolean
+      sites:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type:
+                - string
+                - 'null'

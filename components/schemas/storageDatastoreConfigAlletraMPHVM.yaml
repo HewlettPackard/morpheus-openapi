@@ -1,0 +1,19 @@
+type: object
+title: Alletra MP HVM Datastore Configuration
+description: AlletraMP HVM Datastore Configuration
+properties:
+  enableransomware:
+    type: string
+    description: Enable ransomware protection for this datastore
+    enum:
+      - on
+      - off
+  protocolType:
+    type: string
+    description: Storage protocol to use, can be 'iSCSI' or 'FC'
+    enum:
+      - iSCSI
+      - FC
+required:
+  - protocolType
+  - enableRansomware

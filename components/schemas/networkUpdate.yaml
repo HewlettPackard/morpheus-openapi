@@ -30,12 +30,23 @@ properties:
   vlanId:
     type: integer
     format: int64
+  switchId:
+    type: string
+    description: Network switch identifier
+    example: "Compute"
   pool:
     type:
       - integer
       - 'null'
     format: int64
     description: Network Pool ID
+  zonePool:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Morpheus zone pool ID of the GCP Project for the network
   allowStaticOverride:
     type: boolean
     description: Allow IP Override

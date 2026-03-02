@@ -1,139 +1,46 @@
 type: object
+additionalProperties: false
 properties:
-  id:
-    type: integer
-    format: int64
-  accountId:
-    type: integer
-    format: int64
-  name:
-    type: string
-  code:
+  host:
     type:
       - string
       - 'null'
-  taskType:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-      code:
-        type: string
-        enum:
-          - containerScript
-      name:
-        type: string
-  labels:
-    type: array
-    items:
-      type: string
-  visibility:
-    type: string
-  taskOptions:
-    type: object
-    additionalProperties: false
-    properties:
-      host:
-        type:
-          - string
-          - 'null'
-      username:
-        type:
-          - string
-          - 'null'
-      password:
-        type:
-          - string
-          - 'null'
-      passwordHash:
-        type:
-          - string
-          - 'null'
-      localScriptGitRef:
-        type:
-          - string
-          - 'null'
-      localScriptGitId:
-        type:
-          - string
-          - 'null'
-      containerScriptId:
-        type:
-          - string
-          - 'null'
-      sshKey:
-        type:
-          - string
-          - 'null'
-      containerScript:
-        type:
-          - string
-          - 'null'
-      port:
-        type:
-          - string
-          - 'null'
-  file:
-    type:
-      - object
-      - 'null'
-    properties:
-      id:
-        type:
-          - integer
-          - 'null'
-        format: int64
-      sourceType:
-        type:
-          - string
-          - 'null'
-      contentRef:
-        type:
-          - string
-          - 'null'
-      contentPath:
-        type:
-          - string
-          - 'null'
-      repository:
-        type:
-          - object
-          - 'null'
-        properties:
-          id:
-            type: integer
-            format: int64
-          name:
-            type: string
-      content:
-        type:
-          - string
-          - 'null'
-  resultType:
+  username:
     type:
       - string
       - 'null'
-  executeTarget:
-    type: string
-  retryable:
-    type: boolean
-  retryCount:
-    type: integer
-    format: int64
-  retryDelaySeconds:
-    type: integer
-    format: int64
-  allowCustomConfig:
-    type: boolean
-  credential:
-    type: object
-    properties:
-      type:
-        type: string
-  dateCreated:
-    type: string
-    format: date-time
-  lastUpdated:
-    type: string
-    format: date-time
+  password:
+    type:
+      - string
+      - 'null'
+    format: password
+  passwordHash:
+    type:
+      - string
+      - 'null'
+  localScriptGitRef:
+    type:
+      - string
+      - 'null'
+  localScriptGitId:
+    type:
+      - string
+      - 'null'
+  containerScriptId:
+    type:
+      - string
+      - 'null'
+  sshKey:
+    type:
+      - string
+      - 'null'
+    format: password
+  containerScript:
+    type:
+      - string
+      - 'null'
+  port:
+    type:
+      - string
+      - 'null'
+title: Library Script Task Config
