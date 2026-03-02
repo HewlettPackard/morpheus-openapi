@@ -1154,6 +1154,10 @@ paths:
     $ref: paths/api@support-bundles@id@download.yaml
   /api/support-bundles/{id}/cancel:
     $ref: paths/api@support-bundles@id@cancel.yaml
+  /api/infrastructure/systems:
+    $ref: paths/api@infrastructure@systems.yaml
+  /api/infrastructure/systems/{id}:
+    $ref: paths/api@infrastructure@systems@id.yaml
   /api/tasks:
     $ref: paths/api@tasks.yaml
   /api/tasks/{id}:
@@ -1498,6 +1502,8 @@ tags:
     description: Manage SSL Certificates
   - name: Storage
     description: Manage Storage
+  - name: Systems
+    description: Manage Systems
   - name: Tenants
     description: Manage Tenants (Accounts)
   - name: Tools
