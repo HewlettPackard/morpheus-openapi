@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: get README_VERSION_ID
-        if: github.ref != 'refs/heads/main'
+        if: ${{ github.ref_name == 'dev-8.1' || startsWith(github.ref_name, '8.') }}
         env:
           IDJSON: ${{ secrets.README_ID_JSON }}
         run: |
@@ -30,7 +30,7 @@ jobs:
         with:
           args: bundle --dereferenced openapi.yaml -o bundle.yaml
       - name: push to readme
-        if: github.ref != 'refs/heads/main'
+        if: ${{ github.ref_name == 'dev-8.1' || startsWith(github.ref_name, '8.') }}
         #uses: readmeio/rdme@7.3.0
         uses: readmeio/rdme@8.1.1
         with:
