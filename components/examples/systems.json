@@ -3,7 +3,11 @@
     {
       "id": 1,
       "name": "my-system",
-      "description": "My system description"
+      "type": { "name": "Generic" },
+      "layout": { "name": "Default" },
+      "status": "ok",
+      "enabled": true,
+      "dateCreated": "2026-01-01T00:00:00Z"
     }
   ]
 }

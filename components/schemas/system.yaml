@@ -11,3 +11,37 @@ properties:
     type: string
     description: Optional description for the system.
     example: My system description
+  type:
+    type: object
+    properties:
+      name:
+        type: string
+  layout:
+    type: object
+    properties:
+      name:
+        type: string
+  status:
+    type: string
+    description: The current status of the system.
+    example: ok
+  statusMessage:
+    type: string
+    description: A message describing the current status.
+    example: null
+  enabled:
+    type: boolean
+    description: Whether the system is enabled.
+    example: true
+  externalId:
+    type: string
+    description: External ID of the system.
+    example: ext-1234
+  dateCreated:
+    type: string
+    format: date-time
+    description: The date the system was created.
+  lastUpdated:
+    type: string
+    format: date-time
+    description: The date the system was last updated.
