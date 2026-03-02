@@ -1,14 +1,20 @@
 # .github/workflows/readme-io.yml
 
 name: Sync OpenAPI to ReadMe
-on: [workflow_dispatch, push]
+on:
+  push:
+    workflow_dispatch:
+    # This workflow runs only on branches matching these patterns
+    branches:
+      - dev-8.0
+      - '8.*'
+      - '7.*'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: get README_VERSION_ID
-        if: ${{ github.ref_name == 'dev-8.1' || startsWith(github.ref_name, '8.') }}
         env:
           IDJSON: ${{ secrets.README_ID_JSON }}
         run: |
@@ -30,7 +36,6 @@ jobs:
         with:
           args: bundle --dereferenced openapi.yaml -o bundle.yaml
       - name: push to readme
-        if: ${{ github.ref_name == 'dev-8.1' || startsWith(github.ref_name, '8.') }}
         #uses: readmeio/rdme@7.3.0
         uses: readmeio/rdme@8.1.1
         with:
