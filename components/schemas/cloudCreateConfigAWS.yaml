@@ -69,7 +69,7 @@ properties:
   changeManagementConfig:
     type: string
     description: The change management configuration for this cloud to use for syncing with the change management system.
-  NetworkMode:
+  networkMode:
     type: string
     enum:
       - 'null'
