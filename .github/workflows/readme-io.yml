@@ -1,11 +1,17 @@
 # .github/workflows/readme-io.yml
 
 name: Sync OpenAPI to ReadMe
-on: [workflow_dispatch, push]
+on:
+  push:
+    branches:
+      - 'dev-8.0'
+      - 'dev-8.1'
+      - '8.*'
+      - '7.*'
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.ref_name, '8.') || startsWith(github.ref_name, 'dev-8') }}
     steps:
       - uses: actions/checkout@v2
       - name: get README_VERSION_ID
