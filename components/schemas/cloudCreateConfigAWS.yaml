@@ -70,8 +70,7 @@ properties:
     type: string
     description: The change management configuration for this cloud to use for syncing with the change management system.
   networkMode:
-    type: string
-    enum:
+    type:
+      - string
       - 'null'
-      - unmanaged
     description: Whether to use public or private IP addresses for provisioning and managing instances in this cloud.
