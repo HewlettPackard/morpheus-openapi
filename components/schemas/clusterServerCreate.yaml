@@ -10,18 +10,6 @@ properties:
       Key for specific host type configuration
       
       The config parameter is for configuration options that are specific to each Provision Type. The Provision Types api can be used to see which options are available.
-    properties:
-      defaultRepoAccount:
-        type:
-          - integer
-          - 'null'
-        description: Default Repo Account is the repository to be used when pulling images.  Default behavior is to be anonymous, which does have limits on allowed image pulls from public Docker Repos.
-      imageServer: 
-        type: string
-        description: Act as Image Server. Set to on to use the Default Repo Account to pull images.
-        enum:
-          - on
-          - off
     anyOf:
       - oneOf:
         - $ref: clusterServerCreateConfigAKS.yaml
@@ -29,6 +17,7 @@ properties:
         - $ref: clusterServerCreateConfigEKS.yaml
         - $ref: clusterServerCreateConfigGKE.yaml
         - $ref: clusterServerCreateConfigHKS.yaml
+        - $ref: clusterServerCreateConfigHKSHVM.yaml
         - $ref: clusterServerCreateConfigHVM.yaml
         - $ref: clusterServerCreateConfigVsphere.yaml
       - $ref: clusterServerCreateConfigGeneric.yaml
