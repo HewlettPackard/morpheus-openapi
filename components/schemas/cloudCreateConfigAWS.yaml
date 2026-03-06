@@ -74,3 +74,90 @@ properties:
       - string
       - 'null'
     description: Whether to use public or private IP addresses for provisioning and managing instances in this cloud.
+  apiProxy:
+    type: 
+      - string
+      - 'null'
+    description: The API proxy to use for API calls to the cloud.
+  region:
+    type: string
+    description: The AWS region to use for this cloud.
+  credentials:
+    type: string
+    description: The credentials to use for this cloud.
+  costingBucket:
+    type: string
+    description: The S3 bucket to use for storing costing reports.
+  costingFolder:
+    type: 
+      - string
+      - 'null'
+    description: The folder within the S3 bucket to use for storing costing reports.
+  costingReportName:
+    type:  
+      - string
+      - 'null'
+    description: The name of the costing report to generate.
+  costingKey:
+    type: 
+      - string
+      - 'null'
+    description: The AWS access key to use for generating costing reports.
+  costingSecret:
+    type: 
+      - string
+      - 'null'
+    description: The AWS secret key to use for generating costing reports.
+  domain:
+    type: string
+    description: The domain to use for this cloud.
+  timezone:
+    type: string
+    description: The timezone to use for this cloud.
+  securityServer:
+    type: string
+    description: The security server to use for this cloud, or 'off' to not use a security server.
+  guidance:
+    type: string
+    enum:
+      - off
+      - manual
+    description: Optional guidance field if you want to put more info there
+  costing:
+    type: string
+    enum:
+      - costing
+      - reservations
+      - costing and reservations
+    description: Whether to enable costing for this cloud or not.
+  configCmdbDiscovery:
+    type: string
+    enum:
+      - on
+      - off
+    description: The CMDB discovery configuration to use for this cloud.
+  logo:
+    type: 
+      - string
+      - 'null'
+    description: The logo to use for this cloud.
+  darkModeLogo:
+    type: 
+      - string
+      - 'null'
+    description: The logo to use for this cloud in dark mode.
+  proxy:
+    type: string
+    description: The proxy to use for this cloud.
+  bypassProxyForCloud:
+    type: string
+    enum:
+      - on
+      - off
+    description: Whether to bypass the proxy for API calls to the cloud or not.
+  noProxy:
+    type: string
+    description: A comma separated list of hosts to bypass the proxy for when making API calls to the cloud.
+  userDataLinux:
+    type: string
+    description: The user data script to use for provisioning instances in this cloud.
