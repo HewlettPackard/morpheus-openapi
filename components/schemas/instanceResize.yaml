@@ -4,6 +4,11 @@ properties:
     type: object
     description: The map containing the id of the service plan you wish to apply to the containers in this instance.
     properties:
+      id:
+        type: integer
+        format: int64
+        example: 123
+        description: The id of the instance to resize.
       plan:
         type: object
         properties:
