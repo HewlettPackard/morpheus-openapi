@@ -60,3 +60,17 @@ properties:
     type: string
     description: The VPC ID for a specific VPC
     example: vpc-25e6dae
+  vdiGateway:
+    type: string
+    description: The VDI gateway for this cloud to use for provisioning virtual desktops.
+  cmdbConfig:
+    type: string
+    description: The CMDB configuration for this cloud to use for syncing with the CMDB.
+  changeManagementConfig:
+    type: string
+    description: The change management configuration for this cloud to use for syncing with the change management system.
+  networkMode:
+    type:
+      - string
+      - 'null'
+    description: Whether to use public or private IP addresses for provisioning and managing instances in this cloud.
