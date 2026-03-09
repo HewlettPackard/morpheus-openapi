@@ -1,0 +1,11 @@
+defaultRepoAccount:
+  type:
+    - integer
+    - 'null'
+  description: Default Repo Account is the repository to be used when pulling images.  Default behavior is to be anonymous, which does have limits on allowed image pulls from public Docker Repos.
+imageServer: 
+  type: string
+  description: Act as Image Server. Set to on to use the Default Repo Account to pull images.
+  enum:
+    - on
+    - off

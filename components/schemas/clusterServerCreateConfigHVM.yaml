@@ -1,6 +1,7 @@
 description: Configuration for HVM cluster servers
 type: object
 properties:
+  $ref: clusterServerCreateConfigCommon.yaml
   cpuArch:
     type: string
   cpuModel:
@@ -12,6 +13,9 @@ properties:
       - off
   powerPolicy:
     type: string
+    enum:
+    - balanced
+    - performance
   storageInterfaceName:
     type: string
   computeInterfaceName:
