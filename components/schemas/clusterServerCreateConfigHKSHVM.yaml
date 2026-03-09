@@ -1,4 +1,4 @@
-description: Configuration for HKS cluster servers provisioned using HVM
+description: Configuration for HKS cluster provisioning on a HVM cluster.
 type: object
 properties:
   $ref: clusterServerCreateConfigCommon.yaml
