@@ -1017,6 +1017,8 @@ paths:
     $ref: paths/api@security-scans.yaml
   /api/security-scans/{id}:
     $ref: paths/api@security-scans@id.yaml
+  /api/lease-token/{tokenType}/{serverId}:
+    $ref: paths/api@lease-token@tokenType@serverId.yaml
   /api/servers:
     $ref: paths/api@servers.yaml
   /api/servers/{id}:
