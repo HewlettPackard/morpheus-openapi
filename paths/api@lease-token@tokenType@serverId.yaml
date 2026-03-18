@@ -1,0 +1,137 @@
+post:
+  summary: Lease an Agent WebSocket Token
+  description: |-
+    Creates a short-lived lease token for agent websocket access.
+
+    The returned `url` and `headers.X-LEASE-TOKEN` are used together to establish the websocket connection.
+
+    ### Sample Usage
+    ```bash
+    curl -X POST "https://CHANGEME/api/lease-token/vnc/97?timeout=300000" \
+      -H "Authorization: BEARER ${ACCESS_TOKEN}" \
+      -H "Content-Type: application/json"
+    ```
+  operationId: leaseAgentToken
+  tags:
+    - Hosts
+  parameters:
+    - name: tokenType
+      in: path
+      required: true
+      description: Lease token scope/type.
+      schema:
+        type: string
+        enum:
+          - vnc
+          - nbd
+          - libvirt
+      example: vnc
+    - name: serverId
+      in: path
+      required: true
+      description: Server ID or UUID.
+      schema:
+        oneOf:
+          - type: integer
+            format: int64
+          - type: string
+      example: 97
+    - name: timeout
+      in: query
+      required: false
+      description: Token time-to-live in milliseconds. Defaults to 300000 (5 minutes).
+      schema:
+        type: integer
+        format: int64
+        default: 300000
+      example: 300000
+    - name: nbdListenPort
+      in: query
+      required: false
+      description: NBD listen port. Only used when `tokenType` is `nbd`. Defaults to `10809`.
+      schema:
+        type: integer
+        format: int32
+        default: 10809
+      example: 10809
+  responses:
+    '200':
+      description: Successful lease token response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                description: Indicates the request succeeded.
+              url:
+                type: string
+                description: Websocket endpoint URL for the token scope.
+              headers:
+                type: object
+                description: Headers required for websocket authentication.
+                properties:
+                  X-LEASE-TOKEN:
+                    type: string
+                    description: Lease token value.
+              data:
+                type: object
+                description: Additional lease payload returned by the server.
+                additionalProperties: true
+            required:
+              - success
+              - url
+              - headers
+              - data
+          examples:
+            VNC Lease Token:
+              value:
+                success: true
+                url: wss://server.example.com:7443/ws/vnc
+                headers:
+                  X-LEASE-TOKEN: 1b2f95cc-67a4-4f9d-8eab-38a6f3f42b16
+                data:
+                  leaseId: 12345
+                  certificateThumbprint: "74:E8:59:ED:4E:83:25:46:4E:49:54:71:ED:70:0E:1D:CD:7A:CF:5A:24:82:..."
+    '404':
+      description: Invalid server ID
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              succes:
+                type: boolean
+                description: Indicates failed request (note the legacy field spelling).
+              message:
+                type: string
+            required:
+              - succes
+              - message
+          examples:
+            Invalid Server:
+              value:
+                succes: false
+                message: "Invalid serverId: 999999"
+    '400':
+      description: Failed to create lease token
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              message:
+                type: string
+            required:
+              - success
+              - message
+          examples:
+            Lease Failure:
+              value:
+                success: false
+                message: lease creation failed
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
