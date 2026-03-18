@@ -37,7 +37,7 @@
                 "code": "git",
                 "name": "Git repository"
             },
-            "url": "https://github.com/gomorpheus/morpheus-automation-examples",
+            "url": "https://github.com/HewlettPackard/morpheus-automation-examples",
             "isPlugin": false,
             "config": {
                 "defaultBranch": "main"

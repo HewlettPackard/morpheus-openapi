@@ -13,6 +13,8 @@ get:
     - $ref: ../components/parameters/zoneId.yaml
     - $ref: ../components/parameters/siteId.yaml
     - $ref: ../components/parameters/planId.yaml
+    - $ref: ../components/parameters/serverId.yaml
+    - $ref: ../components/parameters/parentServerId.yaml
     - $ref: ../components/parameters/instanceType.yaml
     - $ref: ../components/parameters/lastUpdated.yaml
     - $ref: ../components/parameters/createdBy.yaml

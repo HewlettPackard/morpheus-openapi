@@ -1,0 +1,76 @@
+{
+  "migrations": [
+    {
+      "id": 44,
+      "name": "Example Migration",
+      "status": "pending",
+      "statusMessage": null,
+      "skipPrechecks": false,
+      "installGuestTools": true,
+      "reInitializeServerOnMigration": false,
+      "linuxUsername": null,
+      "linuxPassword": null,
+      "linuxKeyPair": null,
+      "windowsUsername": null,
+      "windowsPassword": null,
+      "sourceCloud": {
+        "id": 34,
+        "name": "VMWare Cloud"
+      },
+      "targetCloud": {
+        "id": 129,
+        "name": "HVM Cloud"
+      },
+      "targetGroup": {
+        "id": 555,
+        "name": "Developer Labs"
+      },
+      "targetPool": {
+        "id": 9406,
+        "name": "HVM Cluster"
+      },
+      "servers": [
+        {
+          "status": "pending",
+          "statusMessage": null,
+          "sourceServer": {
+            "id": 31331,
+            "name": "vm-1",
+            "status": "provisioned"
+          },
+          "destinationServer": null
+        }
+      ],
+      "networks": [
+        {
+          "sourceNetwork": {
+            "id": 7118,
+            "name": "VLAN0043"
+          },
+          "destinationNetwork": {
+            "id": 7336,
+            "name": "Management"
+          }
+        }
+      ],
+      "datastores": [
+        {
+          "sourceDatastore": {
+            "id": 2210,
+            "name": "LUN1"
+          },
+          "destinationDatastore": {
+            "id": 2297,
+            "name": "labs"
+          }
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "offset": 0,
+    "max": 25,
+    "size": 1,
+    "total": 1
+  }
+}

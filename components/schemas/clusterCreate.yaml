@@ -2,7 +2,6 @@ type: object
 required: 
   - type
   - name
-  - group
   - cloud
   - layout
   - server

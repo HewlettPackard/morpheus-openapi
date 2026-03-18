@@ -1,0 +1,148 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+    description: Migration ID
+  name:
+    type: string
+    description: Name
+  status:
+    type: string
+    description: "Migration Status. The possible status values are: 'pending', 'running', 'failed', 'completed'"
+  statusMessage:
+    type:
+      - string
+      - 'null'
+    description: Status Message
+  skippedPrechecks:
+    type: boolean
+    description: Indicates if the precheck was skipped
+  installGuestTools:
+    type: boolean
+    description: Indicates if guest tools should be installed
+  reInitializeServerOnMigration:
+    type: boolean
+    description: Indicates if the server should be re-initialized on migration
+  linuxUsername:
+    type:
+      - string
+      - 'null'
+    description: Linux Username for migrated servers
+  linuxPassword:
+    type:
+      - string
+      - 'null'
+    description: Linux Password for migrated servers
+  linuxKeyPair:
+    type:
+      - object
+      - 'null'
+    description: SSH Key for Linux migrated servers. See `/api/options/privateKeyPairs` for available private key pairs.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Key Pair ID
+      name:
+        type: string
+        description: Key Pair Name
+  windowsUsername:
+    type:
+      - string
+      - 'null'
+    description: Windows Username for migrated servers
+  windowsPassword:
+    type:
+      - string
+      - 'null'
+    description: Windows Password for migrated servers
+  sourceCloud:
+    type: object
+    description: Source Cloud Object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Source Cloud ID
+      name:
+        type: string
+        description: Source Cloud Name
+  targetCloud:
+    type: object
+    description: Target Cloud Object
+    properties:
+      id: 
+        type: integer
+        format: int64
+        description: Target Cloud ID
+      name:
+        type: string
+        description: Target Cloud Name
+  targetGroup:
+    type: object
+    description: Target Group Object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Target Group ID
+      name:
+        type: string
+        description: Target Group Name
+  targetPool:
+    type: object
+    description: Target Pool Object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Target Pool ID
+      name:
+        type: string
+        description: Target Pool Name
+  servers:
+    type:
+      - array
+    items:
+      type: object
+      description: Server Migration
+      properties:
+        status:
+          type: string
+          description: "Migration Server Status. The possible status values are: 'pending', 'precheck', 'running', 'failed', 'completed'"
+        statusMessage:
+          type:
+            - string
+            - 'null'
+          description: Status Message
+        sourceServer:
+          type: object
+          description: Source Server
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Source Server ID
+            name:
+              type: string
+              description: Source Server Name
+            status:
+              type: string
+              description: Source Server Status
+        destinationServer:
+          type:
+            - string
+            - 'null'
+          description: Destination Server
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Destination Server ID
+            name:
+              type: string
+              description: Destination Server Name
+            status:
+              type: string
+              description: Destination Server Status

@@ -1,11 +1,11 @@
 type: object
 required:
-  - allInstanceTypes
+  - clusterTypeId
   - access
 properties:
-  allInstanceTypes:
-    type: boolean
-    description: "Apply to all instance types"
+  clusterTypeId:
+    type: integer
+    description: "`id` of the cluster type"
   access:
     type: string
     description: The new access level.

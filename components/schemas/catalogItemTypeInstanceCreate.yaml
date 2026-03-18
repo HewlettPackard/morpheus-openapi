@@ -1,4 +1,5 @@
 type: object
+title: Instance Catalog Item Type
 required:
   - config
 properties:
@@ -55,7 +56,10 @@ properties:
     type: boolean
     default: false
   config:
-    $ref: catalogItemTypeInstanceScribe.yaml
+    oneOf:
+    - $ref: catalogItemTypeInstanceScribe.yaml
+    - type: string
+      title: Instance Config String
   instanceSpec:
     type: string
     description: The instance `config` specification as a string in the JSON format.
