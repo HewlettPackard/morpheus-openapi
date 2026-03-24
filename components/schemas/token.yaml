@@ -1,1 +1,38 @@
-token.yaml
+type: object
+properties: 
+  id: 
+    type: integer
+    format: int64
+  name: 
+    type:
+      - string
+      - 'null'
+  clientId: 
+    type: string
+  username:
+    description: Username associated with the token. Sub-tenant users will have their username formatted as `subdomain\username` with a prefix that is the tenant subdomain or id by default.
+    type: string
+  expiration:
+    type:
+      - string
+      - 'null'
+    format: date-time
+    description: Expiration date of the token
+  tokenType:
+    type: string
+    description: Type of the token
+  scope:
+    type: string
+    description: Authorized scope(s), separated by spaces. Either `write` or `write openid`.
+  maskedAccessToken:
+    type: string
+    description: Masked Access Token, with all but the first 8 characters replaced by asterisks for security.
+  maskedRefreshToken:
+    type: string
+    description: Masked Refresh Token, with all but the first 8 characters replaced by asterisks for security.    
+  dateCreated:
+    type:
+      - string
+      - 'null'
+    format: date-time
+    description: Date the token was created
