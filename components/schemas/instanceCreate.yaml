@@ -97,8 +97,7 @@ properties:
     description: Apply a multiply factor of containers/vms within the instance.
     default: 1
   servicePlanOptions:
-    type: object
-    description: Map of custom options depending on selected service plan.
+    $ref: servicePlanOptions.yaml
   securityGroups:
     type:
       - array

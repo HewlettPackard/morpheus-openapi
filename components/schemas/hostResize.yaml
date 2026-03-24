@@ -9,20 +9,7 @@ server:
           format: int64
           description: The ID of the new plan (optional). See Available Service Plans
 servicePlanOptions:
-  type: object
-  properties:
-    maxCores:
-      type: integer
-      format: int64
-      description: Core Count
-    coresPerSocket:
-      type: integer
-      format: int64
-      description: Cores Per Socket
-    maxMemory:
-      type: integer
-      format: int64
-      description: Memory in bytes For backwards compatability, values less than 1048576 are treated as being in MB and will be converted to bytes
+  $ref: servicePlanOptions.yaml
 volumes:
   type: array
   description: List of volumes with their new sizes.
