@@ -1172,6 +1172,10 @@ paths:
     $ref: paths/api@task-types.yaml
   /api/task-types/{id}:
     $ref: paths/api@task-types@id.yaml
+  /api/tokens:
+    $ref: paths/api@tokens.yaml
+  /api/tokens/{id}:
+    $ref: paths/api@tokens@id.yaml
   /api/usage:
     $ref: paths/api@usage.yaml
   
@@ -1490,6 +1494,8 @@ tags:
     description: Manage Tenants (Accounts)
   - name: Tools
     description: All Endpoints Under the Tools Tab
+  - name: Tokens
+    description: Manage User Tokens (API Keys)
   - name: Usage
     description: View Usage
   - name: Users
