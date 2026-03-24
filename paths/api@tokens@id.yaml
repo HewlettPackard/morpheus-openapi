@@ -1,0 +1,48 @@
+get:
+  summary: Retrieves a Specific Token
+  description: |
+    Retrieves a specific oauth token (API Key).
+  operationId: getTokens
+  tags:
+    - Tokens
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+              properties:
+                token:
+                  $ref: ../components/schemas/token.yaml
+          examples:
+            Token Response:
+              value:
+                $ref: ../components/examples/token.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+delete:
+  summary: Deletes Token
+  description: |
+    Deletes a specified oauth token.
+  operationId: removeTokens
+  tags:
+    - Tokens
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

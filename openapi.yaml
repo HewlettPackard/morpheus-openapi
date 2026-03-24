@@ -1256,15 +1256,15 @@ paths:
     $ref: paths/api@instances@id@wiki.yaml
   /api/servers/{id}/wiki:
     $ref: paths/api@servers@id@wiki.yaml
+  /api/zones/{id}/wiki:
+    $ref: paths/api@zones@id@wiki.yaml
   /api/wiki/categories:
     $ref: paths/api@wiki@categories.yaml
   /api/wiki/pages:
     $ref: paths/api@wiki@pages.yaml
   /api/wiki/pages/{id}:
     $ref: paths/api@wiki@pages@id.yaml
-    
-  /api/zones/{id}/wiki:
-    $ref: paths/api@zones@id@wiki.yaml
+  
   /oauth/token:
     $ref: paths/oauth@token.yaml
 components:

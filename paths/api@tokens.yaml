@@ -1,0 +1,132 @@
+get:
+  summary: Get All Tokens
+  description: This endpoint retrieves a paginated list of oauth tokens owned by your user. These tokens can be used as API keys to authenticate with the API and are associated with an Oauth Client.
+  operationId: listTokens
+  tags:
+    - Tokens
+  parameters:
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - name: sort
+      in: query
+      description: Sort order, the name of the property to sort by
+      schema:
+        type: string
+        default: name
+    - $ref: ../components/parameters/direction.yaml
+    - name: phrase
+      in: query
+      description: Search phrase for partial matches on name
+      schema:
+        type: string
+    - name: clientId
+      in: query
+      description: If specified will return an exact match on clientId
+      schema:
+        type: string
+    - name: token
+      in: query
+      description: If specified will return an exact match on access token value (should be kept secret)
+      schema:
+        type: string
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  tokens:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/token.yaml
+              - $ref: ../components/schemas/meta.yaml
+          examples:
+            Tokens Response:
+              value:
+                $ref: ../components/examples/tokens.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Create Token
+  description: Create a new Token (API Key)
+  operationId: addToken
+  tags:
+    - Tokens
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - token
+          properties:
+            token:
+              type: object
+              description: Payload for creating a new token
+              required:
+                - clientId
+              properties:
+                clientId:
+                  type: string
+                  description: Client ID
+                  example: morph-api
+                name:
+                  type: string
+                  description: Name is optional and can be used to help identify the token. It is not used for authentication.
+                  example: My Token
+  responses:
+    '200':
+      description: Token Object
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  token:
+                    $ref: ../components/schemas/token.yaml
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Token Response:
+              value:
+                $ref: ../components/examples/tokenSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete Tokens in Bulk
+  description: |
+    Deletes multiple oauth tokens.
+  operationId: removeTokens
+  tags:
+    - Tokens
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - name: id
+      in: path
+      description: Token ID to delete, can specify multiple for bulk delete
+      required: true
+      schema:
+        type: array
+        items:
+          type: integer
+          format: int64
+      style: form
+      explode: true
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

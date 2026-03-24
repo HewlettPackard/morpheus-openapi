@@ -1,59 +1,80 @@
 post:
-  summary: Provides authentication via username and password
+  summary: Get Access Token
   description: |
-    This endpoint provides authentication via `username` and `password` of a Morpheus User. The response includes a valid access token. If your current token is expired, a new one will be created and returned.
+    This endpoint provides granting API access tokens for clients and users.
+    The access tokens can then be used in the Authorization header to 
+    authenticate requests when accessing protected resources in the API.
+    
+    The following oauth2 grant types are supported for requesting access tokens: 
+      - password
+      - refresh_token
+      - authorization_code
+    
+    
+    This endpoints expects the request body to be in `application/x-www-form-urlencoded` format, 
+    and the parameters should be included in the body of the request rather than as query parameters. 
+    The `grant_type` parameter is required to specify which grant type is being used for the token request, 
+    and additional parameters are required based on the chosen grant type.
 
-    Subtenant users will need to pass their subdomain prefix like subdomain\username. The default subdomain is the tenant account ID.
+    Password Grant Type
 
-    This endpoint also allows refreshing your current access token to get a new token. This is done by passing your current `refresh_token`. This provides a way to renew your client’s session with the API, and extend the expiration date.
+    The password grant type is for users generating their own tokens by 
+    authenticating with a `username` and `password`.
 
-    This will render your current access token invalid, so you will need to update any scripts relying on it.
+    Password Example:
+    
+      grant_type=password&scope=write&client_id=morph-api&username=admin&password=secret
+    
+    Sub-Tenant Password Example:
+    
+      grant_type=password&scope=write&client_id=morph-api&username=subtenant%5Cadmin&password=secret
+
+    Successful authentication returns a response with the following:
+      - `access_token` is the new access token value. Access tokens can be used in the `Authorization` header of API requests to access protected resources.
+      - `refresh_token` is the new refresh token value. Refresh tokens can be used to obtain a new access token without re-entering credentials.
+      - `expires_in` indicates the number of seconds until the access token expires and can no longer be used to access the API.
+      - `token_type` indicates the type of token granted. This API issues "Bearer" for OAuth 2.0 access tokens.
+      - `scope` indicates the scope of access granted by the token. The API uses "write" for the scope value.
+
+    Refresh Token Grant Type
+
+    The refresh token grant type is for users to obtain a new access token using a valid refresh token from a previous authentication. This allows users to maintain access without re-entering credentials when their access token expires.
+    
+    Refresh Token Example:
+    
+      grant_type=refresh_token&client_id=morph-api&refresh_token=$refreshToken
+    
+    Successful authentication with a refresh token will return a new access token and refresh token
+    just like the password grant type does. The provided refresh token and its access token will be deleted and can no longer be used.
+    
+    Authorization Code Grant Type
+
+    The authorization_code grant type is used in the OAuth 2.0 Authorization Code Flow, which is a more secure authentication method typically used for web applications. It involves redirecting the user to an authorization server to obtain an authorization code, which is then exchanged for an access token. This flow is not commonly used for API authentication in scripts or command-line tools, but it can be implemented if needed.
+
+    Authorization Code Example:
+    
+      grant_type=authorization_code&client_id=my-client&client_secret=$clientSecret&code=$authorizationCode&state=$state
+    
+    Successful authentication with the authorization code grant type will return an access token and
+    if the request includes the `openid` scope then the response will also include an `id_token` which is a JSON Web Token (JWT) that contains user identity information and claims of authority.
+    
+    Note that as of version 9.0, a new access token is issued for every successful `/oauth/token` request.
+    Prior to version 9.0, if a token already existed for that user and `client_id` then it would be returned until it expired, so that each user could only have one token per client.
+    Now it will always create a new token, so users can have many tokens per client.
+    It is also incumbent upon users to manage their tokens and remove those that are no longer needed or may be compromised.
+    The system will automatically delete expired tokens, but users should also proactively delete tokens that are no longer in use to maintain security.
   operationId: getAccessToken
   tags:
     - Authentication
   security: []
-  parameters:
-    - name: client_id
-      required: true
-      in: query
-      description: Client ID, use morph-api. Users may only have one access token per Client ID. The CLI uses morph-cli.
-      schema:
-        type: string
-        enum:
-          - morph-api
-    - name: grant_type
-      required: true
-      in: query
-      description: OAuth Grant Type, use password.
-      schema:
-        type: string
-        enum:
-          - password
-          - refresh_token
-    - name: scope
-      required: true
-      in: query
-      description: OAuth token scope, use write.
-      schema:
-        type: string
-        enum:
-          - write
   requestBody:
-    required: true
     content:
-      application/x-www-form-urlencoded:
+      application/json:
         schema:
-          type: object
-          properties:
-            username:
-              description: Specified as "username" or "tenantId\username" with proper HTML encoding and used in conjunction with `password`. Not utilized with `refresh_token`.
-              type: string
-            password:
-              description: The Password for defined `username`. Must have proper HTML encoding
-              type: string
-              format: password
-            refresh_token:
-              description: The `refresh_token` value from a previous API generation can be utilized instead of `username` and `password`.
+          oneOf:
+            - $ref: ../components/schemas/tokenPasswordRequest.yaml
+            - $ref: ../components/schemas/tokenRefreshTokenRequest.yaml
+            - $ref: ../components/schemas/tokenAuthorizationCodeRequest.yaml
   responses:
     '200':
       description: Successful Request

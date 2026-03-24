@@ -1,0 +1,27 @@
+title: Get Token Request (Authorization Code)
+type: object
+required:
+  - client_id
+  - client_secret
+  - grant_type
+  - authorization_code
+properties:
+  client_id:
+    type: string
+    description: Client ID
+    default: morph-api
+  client_secret:
+    type: string
+    description: Client Secret
+    format: password
+  grant_type:
+    type: string
+    description: OAuth Grant Type, use authorization_code.
+    enum:
+      - authorization_code
+    default: authorization_code
+  authorization_code:
+    type: string
+    description: Authorization code must be obtained with a valid request to `/oauth/authorize`. This code is used to request an access token in the OAuth 2.0 Authorization Code Flow.
+    format: password
+  
