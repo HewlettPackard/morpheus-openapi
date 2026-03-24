@@ -132,7 +132,7 @@ properties:
               description: Source Server Status
         destinationServer:
           type:
-            - string
+            - object
             - 'null'
           description: Destination Server
           properties:
