@@ -103,13 +103,12 @@ delete:
   summary: Delete Tokens in Bulk
   description: |
     Deletes multiple oauth tokens.
-  operationId: removeTokens
+  operationId: bulkDeleteTokens
   tags:
     - Tokens
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
     - name: id
-      in: path
+      in: query
       description: Token ID to delete, can specify multiple for bulk delete
       required: true
       schema:

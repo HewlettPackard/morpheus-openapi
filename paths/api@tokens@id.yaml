@@ -2,7 +2,7 @@ get:
   summary: Retrieves a Specific Token
   description: |
     Retrieves a specific oauth token (API Key).
-  operationId: getTokens
+  operationId: getToken
   tags:
     - Tokens
   parameters:
@@ -14,9 +14,9 @@ get:
         application/json:
           schema:
             type: object
-              properties:
-                token:
-                  $ref: ../components/schemas/token.yaml
+            properties:
+              token:
+                $ref: ../components/schemas/token.yaml
           examples:
             Token Response:
               value:
@@ -27,10 +27,10 @@ get:
       $ref: ../components/responses/5xx.yaml
 
 delete:
-  summary: Deletes Token
+  summary: Delete Token
   description: |
-    Deletes a specified oauth token.
-  operationId: removeTokens
+    Delete a specified oauth token.
+  operationId: deleteToken
   tags:
     - Tokens
   parameters:
