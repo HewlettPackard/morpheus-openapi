@@ -1,4 +1,4 @@
-description: Configuration for HKS cluster servers
+description: Configuration for HKS cluster provisioning on a HVM cluster.
 type: object
 properties:
   $ref: clusterServerCreateConfigCommon.yaml
@@ -6,5 +6,8 @@ properties:
     type: string
   serviceCidr:
     type: string
+  nodeCount:
+    type: integer
+    format: int64
   createUser:
     type: boolean
