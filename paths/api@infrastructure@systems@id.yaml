@@ -1,0 +1,85 @@
+get:
+  summary: Get a System
+  description: This endpoint retrieves a specific system.
+  operationId: getSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              system:
+                $ref: ../components/schemas/system.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/system.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+put:
+  summary: Update a System
+  description: This endpoint updates an existing system.
+  operationId: updateSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            system:
+              $ref: ../components/schemas/systemCreate.yaml
+        examples:
+          System Request:
+            value:
+              $ref: ../components/examples/systemRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              system:
+                $ref: ../components/schemas/system.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/system.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+delete:
+  summary: Delete a System
+  description: This endpoint deletes an existing system.
+  operationId: removeSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

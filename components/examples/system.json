@@ -1,0 +1,15 @@
+{
+  "system": {
+    "id": 1,
+    "name": "my-system",
+    "description": "My system description",
+    "type": { "name": "Generic" },
+    "layout": { "name": "Default" },
+    "status": "ok",
+    "statusMessage": null,
+    "enabled": true,
+    "externalId": "ext-1234",
+    "dateCreated": "2026-01-01T00:00:00Z",
+    "lastUpdated": "2026-01-01T00:00:00Z"
+  }
+}
