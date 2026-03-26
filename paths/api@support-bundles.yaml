@@ -1,0 +1,108 @@
+get:
+  summary: Retrieves all Support Bundles
+  description: |
+    Retrieves all support bundles.
+  operationId: listSupportBundles
+  tags:
+    - Support Bundles
+  parameters:
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/direction.yaml
+    - $ref: ../components/parameters/phrase.yaml
+  responses:
+    "200":
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  supportBundles:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/supportBundle.yaml
+              - $ref: ../components/schemas/meta.yaml
+    "4XX":
+      $ref: ../components/responses/4xx.yaml
+    "5XX":
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Generates a Support Bundle
+  description: |
+    Generates a new support bundle. The bundle is created asynchronously — poll `GET /api/support-bundles/{id}` until `status` is `COMPLETED` or `FAILED`.
+
+    All parameters are optional, but the bundle will only contain data for the resources you explicitly specify. To capture appliance-level data, set `includeApplianceSupportContents` to `true`. To capture resource-specific data, provide the relevant IDs for each resource type.
+
+    Only resources whose integration type has `providesSupportBundleContents: true` will contribute data to the bundle. Resources of unsupported types are silently ignored.
+  operationId: generateSupportBundle
+  tags:
+    - Support Bundles
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            storageProviderId:
+              type: integer
+              format: int64
+              description: ID of the storage provider (storage bucket) where the bundle should be saved. Defaults to the storage bucket configured as the default support bundle target. If no default is configured, the bundle is saved to the appliance's local storage.
+            includeApplianceSupportContents:
+              type: boolean
+              description: Include appliance-level support contents in the bundle (e.g, logs, health).
+              default: false
+            systemIds:
+              type: array
+              description: List of system IDs to include in the bundle. Only systems whose type has `providesSupportBundleContents` enabled will contribute data.
+              items:
+                type: integer
+                format: int64
+            cloudIds:
+              type: array
+              description: List of cloud IDs to include in the bundle. Only clouds whose type has `providesSupportBundleContents` enabled will contribute data.
+              items:
+                type: integer
+                format: int64
+            clusterIds:
+              type: array
+              description: List of cluster IDs to include in the bundle. Only clusters whose type has `providesSupportBundleContents` enabled will contribute data.
+              items:
+                type: integer
+                format: int64
+            storageServerIds:
+              type: array
+              description: List of storage server IDs to include in the bundle. Only storage servers whose type has `providesSupportBundleContents` enabled will contribute data.
+              items:
+                type: integer
+                format: int64
+            networkServerIds:
+              type: array
+              description: List of network server IDs to include in the bundle. Only network servers whose type has `providesSupportBundleContents` enabled will contribute data.
+              items:
+                type: integer
+                format: int64
+            serverIds:
+              type: array
+              description: List of server IDs to include in the bundle. Only servers whose type has `providesSupportBundleContents` enabled will contribute data.
+              items:
+                type: integer
+                format: int64
+  responses:
+    "200":
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  supportBundle:
+                    $ref: ../components/schemas/supportBundle.yaml
+              - $ref: ../components/schemas/200-success.yaml
+    "4XX":
+      $ref: ../components/responses/4xx.yaml
+    "5XX":
+      $ref: ../components/responses/5xx.yaml

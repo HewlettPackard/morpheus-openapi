@@ -1,0 +1,21 @@
+get:
+  summary: Downloads a Support Bundle
+  description: |
+    Downloads a specific support bundle as a file attachment (zip archive).
+  operationId: downloadSupportBundle
+  tags:
+    - Support Bundles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    "200":
+      description: Successful Request
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+    "4XX":
+      $ref: ../components/responses/4xx.yaml
+    "5XX":
+      $ref: ../components/responses/5xx.yaml
