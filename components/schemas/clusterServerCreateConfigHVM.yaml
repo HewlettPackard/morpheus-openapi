@@ -1,12 +1,12 @@
 description: Configuration for HVM cluster servers
 type: object
 properties:
-  $ref: clusterServerCreateConfigCommon.yaml
   cpuArch:
     type: string
   cpuModel:
     type: string
   dynamicPlacementMode:
+    description: When enabled, Dynamic Placement will automatically balance VMs across cluster hosts based on resource utilization. When disabled, VMs will only migrate to a new host if they are pinned to a specific host or failed over and not running on the preferred host.
     type: string
     enum:
       - on
@@ -16,6 +16,11 @@ properties:
     enum:
     - balanced
     - performance
+  vcpuPlacementMode:
+    type: string
+    enum:
+    - unmanaged
+    - auto
   storageInterfaceName:
     type: string
   computeInterfaceName:
