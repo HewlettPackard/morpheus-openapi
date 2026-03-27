@@ -2,6 +2,9 @@ description: Configuration for HKS cluster provisioning on a HVM cluster.
 type: object
 properties:
   $ref: clusterServerCreateConfigCommon.yaml
+  resourcePoolId:
+    type: integer
+    format: int64
   podCidr:
     type: string
   serviceCidr:
