@@ -19,6 +19,12 @@ properties:
     type: string
     description: |
       The platform of the osType. 
+  owner:                             
+    type:                          
+      - string                     
+      - 'null'                     
+    description: |                 
+      The owner  of the osType.
   category:
     type:
       - string
