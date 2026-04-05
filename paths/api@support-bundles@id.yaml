@@ -24,12 +24,19 @@ get:
 delete:
   summary: Deletes a Support Bundle
   description: |
-    Deletes a specific support bundle by ID.
+    Deletes a specific support bundle by ID. Active bundles (PENDING, IN_PROGRESS, or CANCELLING)
+    are rejected unless `force=true` is passed.
   operationId: removeSupportBundle
   tags:
     - Support Bundles
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: force
+      in: query
+      required: false
+      schema:
+        type: boolean
+      description: If true, delete the bundle even if it is in an active state (PENDING, IN_PROGRESS, or CANCELLING).
   responses:
     '200':
       description: Successful Request

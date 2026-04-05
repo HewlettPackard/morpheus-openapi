@@ -1152,6 +1152,8 @@ paths:
     $ref: paths/api@support-bundles@id.yaml
   /api/support-bundles/{id}/download:
     $ref: paths/api@support-bundles@id@download.yaml
+  /api/support-bundles/{id}/cancel:
+    $ref: paths/api@support-bundles@id@cancel.yaml
   /api/tasks:
     $ref: paths/api@tasks.yaml
   /api/tasks/{id}:
