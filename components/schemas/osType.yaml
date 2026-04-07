@@ -19,10 +19,16 @@ properties:
     type: string
     description: |
       The platform of the osType. 
-  owner:                             
-    type:                          
-      - string                     
-      - 'null'                     
+  owner:                                
+    oneOf:                       
+      - type: string                     
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string                   
     description: |                 
       The owner  of the osType.
   category:
