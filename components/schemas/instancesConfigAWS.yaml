@@ -17,6 +17,14 @@ properties:
   securityId:
     type: string
     description: Security Group
+  securityGroups:
+    type: array
+    description: Security Group IDs
+    items:
+      type: object
+      properties:
+        id:
+          type: string
   publicIpType:
     type: string
     description: Public IP
