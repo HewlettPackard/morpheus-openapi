@@ -7,6 +7,12 @@ properties:
       - 'null'
     description: Skipping Agent installation will result in a lack of logging and guest operating system statistics. Automation scripts may also be adversely affected.
     default: false
+  createUser:
+    type:
+      - boolean
+      - 'null'
+    description: Create user
+    default: false
   isEC2:
     type: string
     description: Amazon Cloud Type
@@ -17,14 +23,6 @@ properties:
   securityId:
     type: string
     description: Security Group
-  securityGroups:
-    type: array
-    description: Security Group IDs
-    items:
-      type: object
-      properties:
-        id:
-          type: string
   publicIpType:
     type: string
     description: Public IP
@@ -35,3 +33,6 @@ properties:
   kmsKeyId:
     type: string
     description: KMS Key ID
+  resourcePoolId:
+    type: string
+    description: Resource Pool ID

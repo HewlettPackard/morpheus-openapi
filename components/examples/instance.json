@@ -52,7 +52,7 @@
             "poolProviderType": null,
             "isVpcSelectable": false,
             "instanceProfile": null,
-            "isEC2": false,
+            "isEC2": "false",
             "resourcePoolId": 129,
             "availabilityId": null,
             "publicIpType": "elasticIp",
