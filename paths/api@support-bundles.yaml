@@ -53,11 +53,23 @@ post:
       application/json:
         schema:
           type: object
+          required:
+            - startDate
           properties:
             storageProviderId:
               type: integer
               format: int64
               description: ID of the storage provider (storage bucket) where the bundle should be saved. Defaults to the storage bucket configured as the default support bundle target. If no default is configured, the bundle is saved to the appliance's local storage. If provided, this ID must reference an existing storage provider or the request returns `404`.
+            startDate:
+              type: string
+              format: date-time
+              description: ISO 8601 start of the log collection window (e.g. `2026-01-15T00:00:00Z`). Required. Appliance logs are collected starting from this time.
+              example: "2026-01-15T00:00:00Z"
+            endDate:
+              type: string
+              format: date-time
+              description: ISO 8601 end of the log collection window (e.g. `2026-01-15T23:59:59Z`). Defaults to the time the request is processed when omitted.
+              example: "2026-01-15T23:59:59Z"
             contents:
               type: array
               description: Flat list of support bundle content entries to include. Resource-backed entries should include `resourceId`. Standalone entries omit it. If omitted or empty, all eligible content entries are included.

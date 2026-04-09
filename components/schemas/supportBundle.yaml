@@ -17,6 +17,7 @@ properties:
       - CANCELLING
       - CANCELLED
       - COMPLETED
+      - WARNING
       - FAILED
   statusMessage:
     type:
