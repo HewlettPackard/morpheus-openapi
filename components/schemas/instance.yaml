@@ -133,7 +133,7 @@ properties:
       createUser:
         type: boolean
       isEC2:
-        type: boolean
+        type: string
       isVpcSelectable:
         type: boolean
       noAgent:
@@ -219,6 +219,22 @@ properties:
             type: string
       type:
         type: string
+      kmsKeyId:
+        type:
+          - string
+          - 'null'
+      instanceProfile:
+        type:
+          - string
+          - 'null'
+      availabilityId:
+        type:
+          - string
+          - 'null'
+      publicIpType:
+        type:
+          - string
+          - 'null'
       instanceContext:
         type: string
       memoryDisplay:
