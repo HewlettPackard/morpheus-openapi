@@ -31,7 +31,7 @@ properties:
         description: Cloud/Zone ID
   config:
     description: Configuration object with parameters that vary by load balancer type.
-    oneOf:
+    anyOf:
       - $ref: loadBalancerCreateConfigHaproxy.yaml
       - type: object
   visibility:
@@ -59,4 +59,3 @@ properties:
         items:
           type: integer
           format: int64
-
