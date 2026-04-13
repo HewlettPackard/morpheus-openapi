@@ -1,40 +1,61 @@
 type: object
-properties: 
-  name: 
+properties:
+  type:
+    type: string
+    description: Load Balancer Type Code
+  name:
     type: string
     description: Name
   description:
     type: string
     description: Description
-  networkServerId: 
+  networkServerId:
     type: integer
     format: int64
     description: Network Server ID
-  config: 
+  site:
     type: object
+    description: Group/Site reference
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Group/Site ID
+  zone:
+    type: object
+    description: Cloud/Zone reference
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Cloud/Zone ID
+  config:
     description: Configuration object with parameters that vary by load balancer type.
-  visibility: 
+    anyOf:
+      - $ref: loadBalancerCreateConfigHaproxy.yaml
+      - type: object
+  visibility:
     type: string
     description: private or public
     default: "public"
-  tenants: 
+  tenants:
     type: array
     description: Array of tenant account ids that are allowed access
-    items: 
+    items:
       type: object
-      properties: 
-        id: 
+      properties:
+        id:
           type: integer
-          format: int32
-  resourcePermission: 
+          format: int64
+  resourcePermissions:
     type: object
-    properties: 
-      all: 
+    properties:
+      all:
         type: boolean
         description: Pass true to allow access to all groups
       sites:
         type: array
         description: Array of groups that are allowed access
-        items: 
+        items:
           type: integer
           format: int64
