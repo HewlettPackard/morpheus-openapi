@@ -12,64 +12,62 @@ get:
     - $ref: ../components/parameters/name.yaml
     - $ref: ../components/parameters/phrase.yaml
   responses:
-    '200':
+    "200":
       description: Successful Request
       content:
         application/json:
           schema:
             allOf:
-            - type: object
-              properties:
-                loadBalancers:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/loadBalancer.yaml
-            - $ref: ../components/schemas/meta.yaml
+              - type: object
+                properties:
+                  loadBalancers:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/loadBalancer.yaml
+              - $ref: ../components/schemas/meta.yaml
           examples:
             Load Balancers Response:
               value:
                 $ref: ../components/examples/loadBalancers.json
-    '4XX':
+    "4XX":
       $ref: ../components/responses/4xx.yaml
-    '5XX':
+    "5XX":
       $ref: ../components/responses/5xx.yaml
-      
-post: 
+
+post:
   summary: Create a Load Balancer
   description: |
-    Available for NSX load balancers only
-
     Use this command to create a load balancer.
   operationId: createLoadBalancer
   tags:
     - Load Balancers
-  requestBody: 
-    content: 
-      application/json: 
-        schema: 
+  requestBody:
+    content:
+      application/json:
+        schema:
           type: object
           properties:
             loadBalancer:
               $ref: ../components/schemas/loadBalancerCreate.yaml
         examples:
           Load Balancer Request:
-            value: 
+            value:
               $ref: ../components/examples/loadBalancerCreate.json
   responses:
-    '200':
+    "200":
       description: Successful Response
-      content: 
-        application/json: 
+      content:
+        application/json:
           schema:
             type: object
             properties:
               loadBalancer:
                 $ref: ../components/schemas/loadBalancer.yaml
-          examples: 
+          examples:
             Load Balancers Update Success:
               value:
                 $ref: ../components/examples/loadBalancer.json
-    '4XX':
+    "4XX":
       $ref: ../components/responses/4xx.yaml
-    '5XX':
+    "5XX":
       $ref: ../components/responses/5xx.yaml
