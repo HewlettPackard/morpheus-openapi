@@ -20,13 +20,10 @@ externalId:
   type: string
 config: 
   type: object
-  properties: 
-    edgeCluster: 
-      type: string
-    preferredEdgeNode1: 
-      type: string
-    preferredEdgeNode2: 
-      type: string
+  description: Configuration object with parameters that vary by type.
+  anyOf:
+    - $ref: networkDhcpServerConfigNSX.yaml
+    - $ref: networkDhcpServerConfigGeneric.yaml
 owner: 
   type: object
   properties: 

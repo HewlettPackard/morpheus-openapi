@@ -18,14 +18,7 @@ properties:
     description: Name
   config:
     type: object
-    description: Configuration object with parameters that vary by pool type.
-    properties:
-      edgeCluster:
-        type: string
-        description: Edge Cluster
-      preferredEdgeNode1:
-        type: string
-        description: Active Edge Node Options obtained by calling option source with :optionSource = nsxtEdgeNodes and networkServerId param
-      preferredEdgeNode2:
-        type: string
-        description: Standby Edge Node Options obtained by calling option source with optionSource = nsxtEdgeNodes and networkServerId param
+    description: Configuration object with parameters that vary by type.
+    anyOf:
+      - $ref: networkDhcpServerConfigNSX.yaml
+      - $ref: networkDhcpServerConfigGeneric.yaml
