@@ -1,7 +1,19 @@
 type: object
 properties:
+  defaultStore:
+    type: boolean
+  defaultTarget:
+    type: boolean
+  canManage:
+    type: boolean
   all:
     type: boolean
+  account:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
   sites:
     type:
       - array
