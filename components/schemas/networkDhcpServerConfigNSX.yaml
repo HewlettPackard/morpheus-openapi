@@ -3,11 +3,17 @@ type: object
 description: Configuration for NSX-T DHCP servers.
 properties:
   edgeCluster:
-    type: string
+    type: 
+      - string
+      - 'null'
     description: Edge Cluster
   preferredEdgeNode1:
-    type: string
+    type: 
+      - string
+      - 'null'
     description: Active Edge Node Options obtained by calling option source with :optionSource = nsxtEdgeNodes and networkServerId param
   preferredEdgeNode2:
-    type: string
+    type: 
+      - string
+      - 'null'
     description: Standby Edge Node Options obtained by calling option source with optionSource = nsxtEdgeNodes and networkServerId param
