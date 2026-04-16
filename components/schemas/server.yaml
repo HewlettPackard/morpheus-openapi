@@ -510,7 +510,7 @@ properties:
     type: boolean
   tagCompliant:
     type:
-      - string
+      - boolean
       - 'null'
   containers:
     type: array
