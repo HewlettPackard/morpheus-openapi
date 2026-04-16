@@ -1,38 +1,40 @@
-id: 
-  type: integer
-  format: int32
-dateCreated: 
-  type: string
-  format: date-time
-providerId: 
-  type: string
-serverIpAddress: 
-  type: string
-lastUpdated: 
-  type: string
-  format: date-time
-leaseTime: 
-  type: integer
-  format: int32
-name: 
-  type: string
-externalId: 
-  type: string
-config: 
-  type: object
-  description: Configuration object with parameters that vary by type.
-  anyOf:
-    - $ref: networkDhcpServerConfigNSX.yaml
-    - $ref: networkDhcpServerConfigGeneric.yaml
-owner: 
-  type: object
-  properties: 
-    id: 
-      type: integer
-      format: int32
-networkServer: 
-  type: object
-  properties: 
-    id: 
-      type: integer
-      format: int32
+type: object
+properties:
+  id: 
+    type: integer
+    format: int64
+  dateCreated: 
+    type: string
+    format: date-time
+  providerId: 
+    type: string
+  serverIpAddress: 
+    type: string
+  lastUpdated: 
+    type: string
+    format: date-time
+  leaseTime: 
+    type: integer
+    format: int64
+  name: 
+    type: string
+  externalId: 
+    type: string
+  config: 
+    type: object
+    description: Configuration object with parameters that vary by type.
+    anyOf:
+      - $ref: networkDhcpServerConfigNSX.yaml
+      - $ref: networkDhcpServerConfigGeneric.yaml
+  owner: 
+    type: object
+    properties: 
+      id: 
+        type: integer
+        format: int64
+  networkServer: 
+    type: object
+    properties: 
+      id: 
+        type: integer
+        format: int64
