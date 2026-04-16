@@ -22,10 +22,9 @@ get:
             - type: object
               properties:
                 networkDhcpServers:
+                  type: array
                   items:
-                    type: object
-                    properties:
-                      $ref: ../components/schemas/networkDhcpServer.yaml
+                    $ref: ../components/schemas/networkDhcpServer.yaml
             - $ref: ../components/schemas/meta.yaml
           examples:
             Networks Response:
