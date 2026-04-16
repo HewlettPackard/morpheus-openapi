@@ -1,6 +1,6 @@
 id: 
   type: integer
-  format: int32
+  format: int64
 dateCreated: 
   type: string
   format: date-time
@@ -13,7 +13,7 @@ lastUpdated:
   format: date-time
 leaseTime: 
   type: integer
-  format: int32
+  format: int64
 name: 
   type: string
 externalId: 
@@ -29,10 +29,10 @@ owner:
   properties: 
     id: 
       type: integer
-      format: int32
+      format: int64
 networkServer: 
   type: object
   properties: 
     id: 
       type: integer
-      format: int32
+      format: int64
