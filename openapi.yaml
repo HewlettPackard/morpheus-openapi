@@ -1154,6 +1154,20 @@ paths:
     $ref: paths/api@support-bundles@id@download.yaml
   /api/support-bundles/{id}/cancel:
     $ref: paths/api@support-bundles@id@cancel.yaml
+  /api/infrastructure/systems:
+    $ref: paths/api@infrastructure@systems.yaml
+  /api/infrastructure/systems/uninitialized:
+    $ref: paths/api@infrastructure@systems@uninitialized.yaml
+  /api/infrastructure/systems/{id}:
+    $ref: paths/api@infrastructure@systems@id.yaml
+  /api/infrastructure/systems/{id}/validate:
+    $ref: paths/api@infrastructure@systems@id@validate.yaml
+  /api/infrastructure/systems/{id}/initialize:
+    $ref: paths/api@infrastructure@systems@id@initialize.yaml
+  /api/infrastructure/system-types:
+    $ref: paths/api@infrastructure@system-types.yaml
+  /api/infrastructure/system-types/{typeId}/layouts:
+    $ref: paths/api@infrastructure@system-types@typeId@layouts.yaml
   /api/tasks:
     $ref: paths/api@tasks.yaml
   /api/tasks/{id}:
@@ -1498,6 +1512,8 @@ tags:
     description: Manage SSL Certificates
   - name: Storage
     description: Manage Storage
+  - name: Systems
+    description: Manage Systems
   - name: Tenants
     description: Manage Tenants (Accounts)
   - name: Tools

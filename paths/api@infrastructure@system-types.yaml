@@ -1,0 +1,31 @@
+get:
+  summary: List System Types
+  description: |
+    Returns a list of all available system types. System types define the kind of external
+    system that can be managed (e.g. Generic, Kubernetes). Use the `id` from this list
+    when creating a system via `POST /api/infrastructure/systems`.
+
+    Requires **read** or **full** permission on `infrastructure-system`.
+  operationId: listSystemTypes
+  tags:
+    - Systems
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              systemTypes:
+                type: array
+                items:
+                  $ref: ../components/schemas/systemTypeSummary.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systemTypes.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

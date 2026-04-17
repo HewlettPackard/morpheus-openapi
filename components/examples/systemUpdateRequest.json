@@ -1,0 +1,7 @@
+{
+  "system": {
+    "name": "my-system-renamed",
+    "description": "Updated description",
+    "enabled": true
+  }
+}

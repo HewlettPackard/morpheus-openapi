@@ -1,0 +1,41 @@
+type: object
+description: |
+  Request body for updating an existing system. All fields are optional — only supplied
+  fields are applied. The system's existing `type` cannot be changed via this endpoint.
+properties:
+  name:
+    type: string
+    description: New name for the system.
+    example: my-system-renamed
+  description:
+    type: string
+    description: New description for the system.
+    example: Updated description
+  enabled:
+    type: boolean
+    description: Enable or disable the system.
+    example: true
+  externalId:
+    type: string
+    description: Override the external identifier.
+    example: ext-5678
+  config:
+    type: object
+    description: Override the system configuration data.
+    additionalProperties: true
+  status:
+    type: string
+    description: Override the system status.
+    example: ok
+  statusMessage:
+    type: string
+    description: Override the status message.
+  layout:
+    type: object
+    description: Change the system type layout. Must belong to the system's existing type.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: ID of the new system type layout.
+        example: 2

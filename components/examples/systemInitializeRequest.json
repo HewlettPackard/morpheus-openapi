@@ -1,0 +1,18 @@
+{
+  "system": {
+    "externalId": "ext-1234-updated",
+    "config": {
+      "region": "us-east-1"
+    },
+    "components": [
+      {
+        "typeCode": "primary-node",
+        "name": "Primary Node",
+        "externalId": "ext-comp-99",
+        "config": {
+          "hostname": "node1.example.com"
+        }
+      }
+    ]
+  }
+}

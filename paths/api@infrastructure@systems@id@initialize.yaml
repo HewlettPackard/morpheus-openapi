@@ -1,0 +1,57 @@
+put:
+  summary: Initialize a System
+  description: |
+    Invokes the provider's full initialize lifecycle on a system that is in `uninitialized`
+    or `failed` status. This is the counterpart to `POST /api/infrastructure/systems/uninitialized`.
+
+    Any fields supplied in the request body are applied to the system before provider invocation.
+
+    **Component matching behavior** for `components[]` entries:
+
+    1. Match by `id` — if a payload supplies an `id`, the component with that id is updated.
+    2. Fallback to `typeCode` — if no `id` is supplied (or the id is not found), the system's
+       existing components are searched by `typeCode`. The fallback only applies when **exactly
+       one** existing component matches; if multiple components share the same `typeCode` the
+       entry is skipped (ambiguous — supply `id` to disambiguate).
+    3. New component creation — if no existing component matches and the `typeCode` is a valid
+       component type code, a new component is created in `uninitialized` status.
+    4. Unknown `typeCode` — if no existing component matches and the `typeCode` does not
+       correspond to a known component type, the entry is silently skipped.
+
+    The initialize operation runs asynchronously via the provider plugin. On success the system
+    status transitions to `ok`. On failure it transitions to `failed`.
+
+    Requires **full** permission on `infrastructure-system`.
+  operationId: initializeSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            system:
+              $ref: ../components/schemas/systemInitialize.yaml
+        examples:
+          Initialize System Request:
+            value:
+              $ref: ../components/examples/systemInitializeRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systemInitializeResponse.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
