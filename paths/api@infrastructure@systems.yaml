@@ -32,6 +32,7 @@ post:
   tags:
     - Systems
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -51,12 +52,18 @@ post:
           schema:
             type: object
             properties:
-              system:
-                $ref: ../components/schemas/system.yaml
+              success:
+                type: boolean
+                example: true
+              id:
+                type: integer
+                format: int64
+                description: ID of the newly created system.
+                example: 42
           examples:
             Successful Response:
               value:
-                $ref: ../components/examples/system.json
+                $ref: ../components/examples/systemCreateResponse.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

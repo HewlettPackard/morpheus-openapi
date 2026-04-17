@@ -27,7 +27,9 @@ get:
 
 put:
   summary: Update a System
-  description: This endpoint updates an existing system.
+  description: |
+    Updates an existing system. All request body fields are optional — only supplied
+    fields are applied. The system's `type` cannot be changed via this endpoint.
   operationId: updateSystem
   tags:
     - Systems
@@ -40,25 +42,22 @@ put:
           type: object
           properties:
             system:
-              $ref: ../components/schemas/systemCreate.yaml
+              $ref: ../components/schemas/systemUpdate.yaml
         examples:
-          System Request:
+          System Update Request:
             value:
-              $ref: ../components/examples/systemRequest.json
+              $ref: ../components/examples/systemUpdateRequest.json
   responses:
     '200':
       description: Successful Request
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              system:
-                $ref: ../components/schemas/system.yaml
+            $ref: ../components/schemas/200-success.yaml
           examples:
             Successful Response:
               value:
-                $ref: ../components/examples/system.json
+                $ref: ../components/examples/systemUpdateResponse.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
