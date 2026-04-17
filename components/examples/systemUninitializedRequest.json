@@ -6,6 +6,14 @@
     "layout": { "id": 1 },
     "enabled": true,
     "externalId": "ext-1234",
-    "config": {}
+    "config": {},
+    "components": [
+      {
+        "typeCode": "primary-node",
+        "name": "Primary Node",
+        "externalId": "ext-comp-99",
+        "config": {}
+      }
+    ]
   }
 }

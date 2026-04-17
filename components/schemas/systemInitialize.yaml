@@ -1,0 +1,30 @@
+type: object
+description: |
+  Optional request body for initializing an existing uninitialized system.
+  All fields are optional — fields provided here are applied to the system before the
+  provider's initialize lifecycle is invoked. The system must currently be in
+  `uninitialized` or `failed` status.
+properties:
+  name:
+    type: string
+    description: Override the system name.
+    example: my-system
+  description:
+    type: string
+    description: Override the system description.
+    example: My system description
+  externalId:
+    type: string
+    description: Override the external identifier.
+    example: ext-1234
+  config:
+    type: object
+    description: Override the system configuration data.
+    additionalProperties: true
+  components:
+    type: array
+    description: |
+      Optional component overrides. Components are matched by `id` first, then by `typeCode`.
+      Updates name, externalId, and config on matched skeleton components.
+    items:
+      $ref: systemComponentRequest.yaml

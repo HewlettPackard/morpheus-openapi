@@ -1,4 +1,9 @@
 type: object
+description: |
+  Request body for creating an uninitialized system skeleton.
+  Unlike the standard create endpoint, this does **not** invoke any provider plugin logic.
+  Components are created directly from the layout's component type definitions and set to
+  `uninitialized` status. The system can later be initialized via `PUT /systems/{id}/initialize`.
 properties:
   name:
     type: string
@@ -10,7 +15,7 @@ properties:
     example: My system description
   type:
     type: object
-    description: The system type. Required on create.
+    description: The system type. Must be provided.
     properties:
       id:
         type: integer
@@ -19,7 +24,7 @@ properties:
         example: 1
   layout:
     type: object
-    description: The system type layout. Must belong to the selected type. Required on create.
+    description: The system type layout. Must belong to the selected type.
     properties:
       id:
         type: integer
@@ -38,6 +43,13 @@ properties:
     type: object
     description: Arbitrary configuration data for the system.
     additionalProperties: true
+  components:
+    type: array
+    description: |
+      Optional component payloads to enrich skeleton components at creation time.
+      Each entry is matched to a layout component type by `typeCode`. Unmatched entries are ignored.
+    items:
+      $ref: systemComponentRequest.yaml
 required:
   - name
   - type

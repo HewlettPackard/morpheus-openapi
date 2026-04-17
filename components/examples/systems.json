@@ -3,11 +3,14 @@
     {
       "id": 1,
       "name": "my-system",
-      "type": { "name": "Generic" },
-      "layout": { "name": "Default" },
+      "description": "My system description",
+      "type": { "id": 1, "name": "Generic", "code": "generic" },
+      "layout": { "id": 1, "name": "Default", "code": "generic-default" },
       "status": "ok",
       "enabled": true,
-      "dateCreated": "2026-01-01T00:00:00Z"
+      "externalId": "ext-1234",
+      "dateCreated": "2026-01-01T00:00:00Z",
+      "lastUpdated": "2026-01-01T00:00:00Z"
     }
   ]
 }

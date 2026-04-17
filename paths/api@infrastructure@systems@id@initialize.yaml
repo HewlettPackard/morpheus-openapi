@@ -1,0 +1,56 @@
+put:
+  summary: Initialize a System
+  description: |
+    Invokes the provider's full initialize lifecycle on a system that is in `uninitialized`
+    or `failed` status. This is the counterpart to `POST /api/infrastructure/systems/uninitialized`.
+
+    Any fields supplied in the request body are applied to the system before provider invocation.
+    Component payloads are matched to existing skeleton components by `id` first, then by `typeCode`,
+    and update `name`, `externalId`, and `config` on matched components.
+
+    The initialize operation runs asynchronously via the provider plugin. On success the system
+    status transitions to `ok`. On failure it transitions to `failed`.
+
+    Requires **full** permission on `infrastructure-system`.
+  operationId: initializeSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            system:
+              $ref: ../components/schemas/systemInitialize.yaml
+        examples:
+          Initialize System Request:
+            value:
+              $ref: ../components/examples/systemInitializeRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              id:
+                type: integer
+                format: int64
+                description: ID of the initialized system.
+                example: 42
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systemInitializeResponse.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

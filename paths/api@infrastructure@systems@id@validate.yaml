@@ -1,0 +1,40 @@
+get:
+  summary: Validate a System
+  description: |
+    Validates an existing system and returns whether it is ready to be initialized.
+
+    Validation checks include:
+    - Duplicate name detection within the account
+    - Provider availability for the system type (a loaded plugin must supply a provider for the type code)
+
+    Returns `success: true` and a confirmation message on success, or `success: false`
+    with a descriptive message on failure (HTTP 400).
+
+    Requires **read** or **full** permission on `infrastructure-system`.
+  operationId: validateSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              msg:
+                type: string
+                example: System validated successfully
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systemValidateResponse.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

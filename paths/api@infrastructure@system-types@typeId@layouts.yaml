@@ -1,0 +1,44 @@
+get:
+  summary: List System Type Layouts
+  description: |
+    Returns all layouts available for a given system type. Layouts define the set of
+    component types that make up a system of that type. Use the `id` from this list
+    when creating a system via `POST /api/infrastructure/systems`.
+
+    The `componentTypes` array on each layout describes the component type definitions
+    (and their `typeCode` values) that can be supplied in `components[]` payloads
+    on create and initialize requests.
+
+    Requires **read** or **full** permission on `infrastructure-system`.
+  operationId: listSystemTypeLayouts
+  tags:
+    - Systems
+  parameters:
+    - name: typeId
+      in: path
+      description: ID of the system type whose layouts to retrieve.
+      required: true
+      schema:
+        type: integer
+        format: int64
+      example: 1
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              systemTypeLayouts:
+                type: array
+                items:
+                  $ref: ../components/schemas/systemTypeLayoutSummary.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systemTypeLayouts.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

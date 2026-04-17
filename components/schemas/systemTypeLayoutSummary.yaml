@@ -1,0 +1,41 @@
+type: object
+description: A summary representation of a system type layout, including its component type definitions.
+properties:
+  id:
+    type: integer
+    format: int64
+    description: Unique identifier for the layout.
+    example: 1
+  name:
+    type: string
+    description: Display name of the layout.
+    example: Default
+  code:
+    type: string
+    description: Unique code identifier for the layout.
+    example: generic-default
+  componentTypes:
+    type: array
+    description: The component type definitions associated with this layout.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Unique identifier for the component type.
+          example: 5
+        code:
+          type: string
+          description: Unique code identifier for the component type.
+          example: primary-node
+        name:
+          type: string
+          description: Display name of the component type.
+          example: Primary Node
+        category:
+          type:
+            - string
+            - "null"
+          description: Category grouping for the component type.
+          example: compute
