@@ -1,7 +1,7 @@
 {
     "datastore": {
       "name": "Alletra MP",
-      "datastoreType": "hpedatatore-alletra-mp",
+      "datastoreType": "hpedatastore-alletra-mp",
       "active": true,
       "config": {
         "enableRansomware": false,
