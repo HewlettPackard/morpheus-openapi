@@ -4,7 +4,7 @@ properties:
     type: string
   datastoreType:
     type: string
-    description: The code of the datatoreType
+    description: The code of the datastoreType
   storageServer:
     type: object
     properties:
