@@ -17,8 +17,7 @@ get:
             type: object
             properties:
               networkDhcpServer:
-                properties:
-                  $ref: ../components/schemas/networkDhcpServer.yaml
+                $ref: ../components/schemas/networkDhcpServer.yaml
           examples:
             Networks Response:
               value:
