@@ -31,3 +31,7 @@ properties:
     type: integer
     format: int64
     description: The ID of the KVM host to provision the instance on
+  provisionPoweredOff:
+    type: boolean
+    description: Whether to provision the instance in a powered off state
+    default: false
