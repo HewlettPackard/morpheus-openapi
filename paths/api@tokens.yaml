@@ -24,6 +24,11 @@ get:
       description: If specified will return an exact match on clientId
       schema:
         type: string
+    - name: name
+      in: query
+      description: If specified will return an exact match on name
+      schema:
+        type: string
     - name: token
       in: query
       description: If specified will return an exact match on access token value (should be kept secret)
