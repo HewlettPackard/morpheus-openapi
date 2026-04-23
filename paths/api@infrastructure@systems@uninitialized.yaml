@@ -1,0 +1,49 @@
+post:
+  summary: Create an Uninitialized System
+  description: |
+    Creates a new system skeleton without invoking any provider plugin logic.
+    Components are created directly from the selected layout's component type definitions
+    and set to `uninitialized` status. The system can later be activated via
+    `PUT /api/infrastructure/systems/{id}/initialize`.
+
+    Requires **full** permission on `infrastructure-system`.
+  operationId: addUninitializedSystem
+  tags:
+    - Systems
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            system:
+              $ref: ../components/schemas/systemUninitializedCreate.yaml
+        examples:
+          Uninitialized System Request:
+            value:
+              $ref: ../components/examples/systemUninitializedRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              id:
+                type: integer
+                format: int64
+                description: ID of the newly created system.
+                example: 42
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systemUninitializedResponse.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -1,0 +1,24 @@
+type: object
+description: |
+  A component payload for use in uninitialized create and initialize requests.
+  Components are matched to layout component type definitions by `typeCode`.
+  Unmatched `typeCode` values are silently ignored.
+properties:
+  typeCode:
+    type: string
+    description: The code of the layout component type this entry applies to.
+    example: primary-node
+  name:
+    type: string
+    description: Optional override for the component name. Defaults to the component type name.
+    example: Primary Node
+  externalId:
+    type: string
+    description: External identifier for the component.
+    example: ext-comp-99
+  config:
+    type: object
+    description: Arbitrary configuration data for the component.
+    additionalProperties: true
+required:
+  - typeCode

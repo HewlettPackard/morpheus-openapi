@@ -1,0 +1,70 @@
+get:
+  summary: List Systems
+  description: This endpoint retrieves a list of systems.
+  operationId: listSystems
+  tags:
+    - Systems
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              systems:
+                type: array
+                items:
+                  $ref: ../components/schemas/system.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systems.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+post:
+  summary: Create a System
+  description: This endpoint creates a new system.
+  operationId: addSystem
+  tags:
+    - Systems
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            system:
+              $ref: ../components/schemas/systemCreate.yaml
+        examples:
+          System Request:
+            value:
+              $ref: ../components/examples/systemRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+                example: true
+              id:
+                type: integer
+                format: int64
+                description: ID of the newly created system.
+                example: 42
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systemCreateResponse.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
