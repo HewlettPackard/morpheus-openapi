@@ -71,6 +71,16 @@ properties:
         type: string
         description: Hostname of the instance to be created.  Can be the same as the instance name.
         example: myinstance
+      networkDomain:
+        type: object
+        required:
+          - id
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: The Network Domain ID to provision the instance into.
+            example: 3
   zoneId:
     type: integer
     format: int64
