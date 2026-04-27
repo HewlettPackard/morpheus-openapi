@@ -37,7 +37,9 @@ properties:
   components:
     type: array
     description: |
-      Optional component overrides. Components are matched by `id` first, then by `typeCode`.
-      Updates name, externalId, and config on matched skeleton components.
+      Optional component overrides. Components are matched by `id` first, then by `typeCode`
+      when exactly one existing component matches. Updates name, externalId, and config on
+      matched components, and can create a new component when a valid `typeCode` is supplied
+      with no existing match.
     items:
       $ref: systemComponentRequest.yaml

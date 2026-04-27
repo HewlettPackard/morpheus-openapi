@@ -5,6 +5,8 @@ put:
     or `failed` status. This is the counterpart to `POST /api/infrastructure/systems/uninitialized`.
 
     Any fields supplied in the request body are applied to the system before provider invocation.
+    Unlike normal `PUT /api/infrastructure/systems/{id}` updates, initialize does not use
+    authoritative omission-based component removal semantics.
 
     **Component matching behavior** for `components[]` entries:
 

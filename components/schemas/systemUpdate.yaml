@@ -2,6 +2,9 @@ type: object
 description: |
   Request body for updating an existing system. All fields are optional — only supplied
   fields are applied. The system's existing `type` cannot be changed via this endpoint.
+  If `components` is omitted, the existing component set is left unchanged.
+  If `components` is present, it is authoritative: the submitted array is treated as the
+  desired final component set, and existing components omitted from the array are removed.
 properties:
   name:
     type: string
@@ -39,3 +42,12 @@ properties:
         format: int64
         description: ID of the new system type layout.
         example: 2
+  components:
+    type: array
+    description: |
+      Optional authoritative component payloads. Components are matched by `id` first, then
+      by `typeCode` when exactly one existing component matches. New components can be created
+      by supplying a valid `typeCode`. When this field is present, omitted existing components
+      are removed from the system.
+    items:
+      $ref: systemComponentRequest.yaml
