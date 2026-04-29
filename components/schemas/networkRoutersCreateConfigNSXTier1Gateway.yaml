@@ -1,0 +1,27 @@
+type: object
+description: Configuration object for NSX-T Tier-1 gateway network routers.
+properties:
+  tier0Gateway:
+    type: string
+  edgeCluster:
+    type: string
+  failOver:
+    type: string
+  ipManagementType:
+    type: string
+  ipServerId:
+    type: string
+  TIER1_CONNECTED:
+    type: string
+  TIER1_NAT:
+    type: string
+  TIER1_STATIC_ROUTES:
+    type: string
+  TIER1_LB_VIP:
+    type: string
+  TIER1_LB_SNAT:
+    type: string
+  TIER1_DNS_FORWARDER_IP:
+    type: string
+  TIER1_IPSEC_LOCAL_ENDPOINT:
+    type: string

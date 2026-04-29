@@ -1,0 +1,59 @@
+type: object
+description: Configuration object for NSX-T Tier-0 gateway network routers.
+properties:
+  haMode:
+    type: string
+  edgeCluster:
+    type: string
+  failOver:
+    type: string
+  ipManagementType:
+    type: string
+  ipServerId:
+    type: string
+  TIER0_STATIC:
+    type: string
+  TIER0_NAT:
+    type: string
+  TIER0_IPSEC_LOCAL_IP:
+    type: string
+  TIER0_DNS_FORWARDER_IP:
+    type: string
+  TIER0_SERVICE_INTERFACE:
+    type: string
+  TIER0_EXTERNAL_INTERFACE:
+    type: string
+  TIER0_LOOPBACK_INTERFACE:
+    type: string
+  TIER0_SEGMENT:
+    type: string
+  TIER1_DNS_FORWARDER_IP:
+    type: string
+  TIER1_STATIC:
+    type: string
+  TIER1_LB_VIP:
+    type: string
+  TIER1_NAT:
+    type: string
+  TIER1_LB_SNAT:
+    type: string
+  TIER1_IPSEC_LOCAL_ENDPOINT:
+    type: string
+  TIER1_SERVICE_INTERFACE:
+    type: string
+  TIER1_SEGMENT:
+    type: string
+  LOCAL_AS_NUM:
+    type: string
+  ECMP:
+    type: string
+  MULTIPATH_RELAX:
+    type: string
+  RESTART_MODE:
+    type: string
+  RESTART_TIME:
+    type: integer
+    format: int64
+  STALE_ROUTE_TIME:
+    type: integer
+    format: int64
