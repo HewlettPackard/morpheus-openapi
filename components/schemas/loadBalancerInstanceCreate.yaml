@@ -4,6 +4,9 @@ vipName:
 description: 
   type: string
   description: Description
+vipType:
+  type: string
+  description: VIP Type
 vipAddress: 
   type: string
   description: VIP Address
