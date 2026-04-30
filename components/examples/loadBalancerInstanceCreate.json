@@ -1,5 +1,6 @@
 {
   "loadBalancerInstance": {
+    "vipType": "DHCP",
     "vipName": "test virtual server",
     "description": "a test virtual server",
     "vipAddress": "10.11.12.13",

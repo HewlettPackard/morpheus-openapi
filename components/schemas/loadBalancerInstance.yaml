@@ -25,6 +25,9 @@ instance:
   type:
     - string
     - 'null'
+config:
+  type: object
+  description: Configuration object with parameters that vary by type.
 description:
   type:
     - string
