@@ -51,3 +51,10 @@ properties:
         type: integer
         format: int64
         description: Network Server ID
+  config:
+    type: object
+    anyOf:
+      - oneOf:
+          - $ref: networkRoutersCreateConfigNSXTier0Gateway.yaml
+          - $ref: networkRoutersCreateConfigNSXTier1Gateway.yaml
+      - $ref: networkRoutersCreateConfigGeneric.yaml

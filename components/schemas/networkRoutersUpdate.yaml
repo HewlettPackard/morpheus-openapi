@@ -39,3 +39,6 @@ properties:
         type: integer
         format: int64
         description: Network Server ID
+  config:
+    type:
+      - object

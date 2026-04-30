@@ -320,3 +320,5 @@ networkRouter:
               items:
                 type: integer
                 format: int64
+    config:
+      type: object
