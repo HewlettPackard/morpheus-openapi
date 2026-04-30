@@ -1,6 +1,7 @@
 {
   "datastore": {
     "active": true,
+    "supportsVmSecureMetadata": true,
     "resourcePermissions": {
       "all": true,
       "sites": [
