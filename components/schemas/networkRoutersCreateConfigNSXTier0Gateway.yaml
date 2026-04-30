@@ -3,54 +3,84 @@ description: Configuration object for NSX-T Tier-0 gateway network routers.
 properties:
   haMode:
     type: string
+    enum:
+      - ACTIVE_ACTIVE
+      - ACTIVE_STANDBY
   edgeCluster:
     type: string
   failOver:
     type: string
+    enum:
+      - NON_PREEMPTIVE
+      - PREEMPTIVE
   ipManagementType:
     type: string
+    enum:
+      - dhcpLocal
   ipServerId:
     type: string
   TIER0_STATIC:
     type: string
+    enum: [on, off]
   TIER0_NAT:
     type: string
+    enum: [on, off]
   TIER0_IPSEC_LOCAL_IP:
     type: string
+    enum: [on, off]
   TIER0_DNS_FORWARDER_IP:
     type: string
+    enum: [on, off]
   TIER0_SERVICE_INTERFACE:
     type: string
+    enum: [on, off]
   TIER0_EXTERNAL_INTERFACE:
     type: string
+    enum: [on, off]
   TIER0_LOOPBACK_INTERFACE:
     type: string
+    enum: [on, off]
   TIER0_SEGMENT:
     type: string
+    enum: [on, off]
   TIER1_DNS_FORWARDER_IP:
     type: string
+    enum: [on, off]
   TIER1_STATIC:
     type: string
+    enum: [on, off]
   TIER1_LB_VIP:
     type: string
+    enum: [on, off]
   TIER1_NAT:
     type: string
+    enum: [on, off]
   TIER1_LB_SNAT:
     type: string
+    enum: [on, off]
   TIER1_IPSEC_LOCAL_ENDPOINT:
     type: string
+    enum: [on, off]
   TIER1_SERVICE_INTERFACE:
     type: string
+    enum: [on, off]
   TIER1_SEGMENT:
     type: string
+    enum: [on, off]
   LOCAL_AS_NUM:
     type: string
   ECMP:
     type: string
+    enum: [on, off]
   MULTIPATH_RELAX:
     type: string
+    enum: [on, off]
   RESTART_MODE:
     type: string
+    enum:
+      - HELPER_ONLY
+      - GR_AND_HELPER
+      - DISABLE
   RESTART_TIME:
     type: integer
     format: int64

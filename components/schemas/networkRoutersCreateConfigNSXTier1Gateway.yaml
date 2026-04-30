@@ -7,21 +7,33 @@ properties:
     type: string
   failOver:
     type: string
+    enum:
+      - NON_PREEMPTIVE
+      - PREEMPTIVE
   ipManagementType:
     type: string
+    enum:
+      - dhcpLocal
   ipServerId:
     type: string
   TIER1_CONNECTED:
     type: string
+    enum: [on, off]
   TIER1_NAT:
     type: string
+    enum: [on, off]
   TIER1_STATIC_ROUTES:
     type: string
+    enum: [on, off]
   TIER1_LB_VIP:
     type: string
+    enum: [on, off]
   TIER1_LB_SNAT:
     type: string
+    enum: [on, off]
   TIER1_DNS_FORWARDER_IP:
     type: string
+    enum: [on, off]
   TIER1_IPSEC_LOCAL_ENDPOINT:
     type: string
+    enum: [on, off]
