@@ -14,6 +14,8 @@
       "online": true,
       "allowRead": true,
       "allowProvision": true,
+      "heartbeatTarget": false,
+      "supportsVmSecureMetadata": true,
       "refType": "ComputeServerGroup",
       "refId": 14982,
       "externalId": "46dda0f5-df48-4fd0-986d-76ebe259a3cb",

@@ -10,6 +10,7 @@
       "sourceDirPath": "/var/nfs/mvm"
     },
     "defaultStore": true,
+    "supportsVmSecureMetadata": true,
     "resourcePermissions": {
       "allSites": true
     },
