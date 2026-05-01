@@ -3,7 +3,7 @@ post:
   description: This endpoint updates your desktop background image that is used in the Virtual Desktop persona. Expects multipart form data as the request format, not JSON.
   operationId: updateUserSettingsDesktopBackground
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query
@@ -41,7 +41,7 @@ delete:
   description: Delete your desktop background image.
   operationId: deleteUserSettingsDesktopBackground
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query

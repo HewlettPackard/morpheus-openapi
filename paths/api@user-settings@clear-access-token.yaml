@@ -3,7 +3,7 @@ put:
   description: This endpoint revokes your API access token for the specified client.
   operationId: deleteUserSettingsAccessToken
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query

@@ -3,7 +3,7 @@ get:
   description: This endpoint will retrieve a specific user group by id
   operationId: getUserGroup
   tags:
-    - Users
+    - User Groups
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   responses:
@@ -29,7 +29,7 @@ put:
   description: Update an existing user group.
   operationId: updateUserGroup
   tags:
-    - Users
+    - User Groups
   parameters:
   - $ref: ../components/parameters/id-path.yaml
   requestBody:

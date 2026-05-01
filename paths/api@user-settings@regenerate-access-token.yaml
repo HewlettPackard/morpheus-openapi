@@ -3,7 +3,7 @@ put:
   description: This endpoint regenerates your API access token for the specified client. If a current token exists, it is revoked and a new token is returned.
   operationId: updateUserSettingsAccessToken
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query

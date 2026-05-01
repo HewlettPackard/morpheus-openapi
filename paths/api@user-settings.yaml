@@ -6,7 +6,7 @@ get:
     This endpoint retrieves your user settings and API access token information.
   operationId: listUserSettings
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query

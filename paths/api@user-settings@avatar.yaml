@@ -3,7 +3,7 @@ post:
   description: This endpoint updates your avatar image. Expects multipart form data as the request format, not JSON.
   operationId: updateUserSettingsAvatar
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query
@@ -41,7 +41,7 @@ delete:
   description: Delete your avatar image.
   operationId: deleteUserSettingsAvatar
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query
