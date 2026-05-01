@@ -2,10 +2,10 @@ type: object
 properties:
   access_token:
     type: string
-    description: Token that grants API Access
+    description: Access token that is used as a bearer token in the Authorization header of API requests to protected resources
   refresh_token: 
     type: string
-    description: Token that can request an new API access_token
+    description: Refresh token that allows refreshing access token without re-authenticating
   expires_in:
     type: number
     description: Seconds until token expires
@@ -15,3 +15,6 @@ properties:
   scope:
     type: string
     description: Scope granted
+  id_token:
+    type: string
+    description: ID token that is only returned when using the `openid` scope. The ID token is a JSON Web Token (JWT) that contains claims about the authenticated user and can be decoded and verified using the tenant's public key. The claims in the ID token can be used to obtain user information such as the user's name, email, and roles without needing to make additional API calls. The ID token is intended for use in OIDC-compliant applications that require user authentication and authorization based on OIDC claims.
