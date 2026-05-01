@@ -7,6 +7,12 @@ get:
     - Tokens
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: userId
+      in: query
+      description: ID of User that owns the token being fetched. Operating on a user other than your own requires admin permissions to manage users.
+      schema:
+        type: integer
+        format: int64
   responses:
     '200':
       description: Successful Request
@@ -35,6 +41,12 @@ delete:
     - Tokens
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: userId
+      in: query
+      description: ID of User that owns the token being deleted. Operating on a user other than your own requires admin permissions to manage users.
+      schema:
+        type: integer
+        format: int64
   responses:
     '200':
       description: Successful Request

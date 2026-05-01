@@ -34,6 +34,12 @@ get:
       description: If specified will return an exact match on access token value (should be kept secret)
       schema:
         type: string
+    - name: userId
+      in: query
+      description: ID of User to fetch tokens for. Operating on a user other than your own requires admin permissions to manage users.
+      schema:
+        type: integer
+        format: int64
   responses:
     '200':
       description: Successful Request
@@ -62,6 +68,13 @@ post:
   operationId: addToken
   tags:
     - Tokens
+  parameters:
+    - name: userId
+      in: query
+      description: ID of User to create the token for. Operating on a user other than your own requires admin permissions to manage users.
+      schema:
+        type: integer
+        format: int64
   requestBody:
     content:
       application/json:
