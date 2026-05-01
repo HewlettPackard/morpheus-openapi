@@ -9,7 +9,6 @@ properties:
   client_id:
     type: string
     description: Client ID
-    default: morph-api
   client_secret:
     type: string
     description: Client Secret
