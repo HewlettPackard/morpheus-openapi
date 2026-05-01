@@ -28,6 +28,8 @@ x-readme:
     - javascript
     - go
 paths:
+  /oauth/token:
+    $ref: paths/oauth@token.yaml
 
   /api/activity:
     $ref: paths/api@activity.yaml
@@ -1290,9 +1292,6 @@ paths:
     $ref: paths/api@wiki@pages.yaml
   /api/wiki/pages/{id}:
     $ref: paths/api@wiki@pages@id.yaml
-  
-  /oauth/token:
-    $ref: paths/oauth@token.yaml
 components:
   securitySchemes:
     bearerAuth:
