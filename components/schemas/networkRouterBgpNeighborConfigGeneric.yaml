@@ -1,0 +1,4 @@
+title: Generic BGP Neighbor Config
+description: Freeform configuration for other router types
+type: object
+additionalProperties: true

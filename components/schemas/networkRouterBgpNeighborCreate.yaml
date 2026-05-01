@@ -1,0 +1,80 @@
+type: object
+required:
+  - ipAddress
+description: Payload for creating a network router BGP neighbor. Available fields depend on the router type's bgpOptionTypes.
+properties:
+  ipAddress:
+    type: string
+    description: IP address of the BGP neighbor
+  description:
+    type: string
+    description: Description of the BGP neighbor
+  forwardingAddress:
+    type: string
+    description: Forwarding address (NSX-V distributed router)
+  protocolAddress:
+    type: string
+    description: Protocol address (NSX-V distributed router)
+  remoteAs:
+    type: string
+    description: Remote AS number
+  weight:
+    type: integer
+    format: int64
+    description: Route weight
+    default: 60
+  keepAlive:
+    type: integer
+    format: int64
+    description: Keep-alive interval in seconds
+    default: 60
+  holdDown:
+    type: integer
+    format: int64
+    description: Hold-down timer in seconds
+    default: 180
+  password:
+    type: string
+    description: BGP session password
+  routeFilteringType:
+    type: string
+    description: Address family for route filtering (e.g. IPV4, IPV6)
+  routeFilteringIn:
+    type: string
+    description: Inbound route filter name
+  routeFilteringOut:
+    type: string
+    description: Outbound route filter name
+  bfdEnabled:
+    type:
+      - boolean
+      - string
+    description: Enable BFD (Bidirectional Forwarding Detection). Accepts true/false or "on"/"off"
+    default: false
+  bfdInterval:
+    type: integer
+    format: int64
+    description: BFD interval in milliseconds
+  bfdMultiple:
+    type: integer
+    format: int64
+    description: BFD multiplier
+  allowAsIn:
+    type:
+      - boolean
+      - string
+    description: Allow AS-in. Accepts true/false or "on"/"off"
+    default: false
+  hopLimit:
+    type: integer
+    format: int64
+    description: Maximum hop limit
+    default: 1
+  restartMode:
+    type: string
+    description: Graceful restart mode (e.g. HELPER_ONLY, GRACEFUL_RESTART, DISABLE)
+  config:
+    anyOf:
+      - $ref: networkRouterBgpNeighborConfigNsxtCreate.yaml
+      - $ref: networkRouterBgpNeighborConfigNsxvCreate.yaml
+      - $ref: networkRouterBgpNeighborConfigGeneric.yaml
