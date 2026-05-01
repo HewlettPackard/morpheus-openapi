@@ -1,68 +1,81 @@
 post:
   summary: Get Access Token
-  description: |
-    This endpoint provides granting API access tokens for clients and users.
-    The access tokens can then be used in the Authorization header to 
-    authenticate requests when accessing protected resources in the API.
+  description: |-
+    This endpoint provides authentication to generate an API token for a specific user. It follows the Oauth 2.0 protocol to provide user and client authentication to obtain access tokens.
     
-    The following oauth2 grant types are supported for requesting access tokens: 
+    ## Request Format
+
+    Requests must use the content type `application/x-www-form-urlencoded` with parameters in the body of the request rather than as query string parameters.
+
+    ## Grant Types
+    
+    The `grant_type` parameter is required and determines which Oauth 2.0 grant type is being used and the additional parameters.
+
+    The following grant types are supported: 
       - password
       - refresh_token
       - authorization_code
-    
-    
-    This endpoints expects the request body to be in `application/x-www-form-urlencoded` format, 
-    and the parameters should be included in the body of the request rather than as query parameters. 
-    The `grant_type` parameter is required to specify which grant type is being used for the token request, 
-    and additional parameters are required based on the chosen grant type.
 
-    Password Grant Type
-
-    The password grant type is for users generating their own tokens by 
-    authenticating with a `username` and `password`.
-
-    Password Example:
+    The `password` and `refresh_token` grant types are the most commonly used for API authentication in scripts and command-line tools, while the `authorization_code` grant type is typically used for web applications and requires the client secret and redirect URI as parameters. Each grant type has specific parameters that must be included in the request body.
     
-      grant_type=password&scope=write&client_id=morph-api&username=admin&password=secret
-    
-    Sub-Tenant Password Example:
-    
-      grant_type=password&scope=write&client_id=morph-api&username=subtenant%5Cadmin&password=secret
+    ## Password Grant Type
 
-    Successful authentication returns a response with the following:
-      - `access_token` is the new access token value. Access tokens can be used in the `Authorization` header of API requests to access protected resources.
-      - `refresh_token` is the new refresh token value. Refresh tokens can be used to obtain a new access token without re-entering credentials.
-      - `expires_in` indicates the number of seconds until the access token expires and can no longer be used to access the API.
-      - `token_type` indicates the type of token granted. This API issues "Bearer" for OAuth 2.0 access tokens.
-      - `scope` indicates the scope of access granted by the token. The API uses "write" for the scope value.
+    The password grant type allows users to generate an API token by authenticating with their `username` and `password`. Note that the values must be URL-encoded in the request body. For example the `!` character in the password must be encoded as `%21`.
 
-    Refresh Token Grant Type
+    ### Password Example:
+    
+    ```
+      grant_type=password&scope=write&client_id=morph-api&username=admin&password=Password123%21
+    ```
 
-    The refresh token grant type is for users to obtain a new access token using a valid refresh token from a previous authentication. This allows users to maintain access without re-entering credentials when their access token expires.
+    ### Sub-Tenant Password Example:
     
-    Refresh Token Example:
+    Sub-tenant users are identified using the format `subdomain\username` to indicate that the user belongs to a specific sub-tenant. The default `subdomain` value is the tenant `id`. Note that the backslash (`\`) must be URL-encoded as `%5C`.
+
+    ```
+      grant_type=password&scope=write&client_id=morph-api&username=2%5Cjdoe&password=Password123%21
+    ```
+
+    ### Successful Response
+
+    A successful authentication response contains the following:
+
+    - `access_token` The new access token. Access tokens can be used in the `Authorization` header of API requests to access protected resources as the authenticated user.
+    - `refresh_token` The new refresh token. Refresh tokens can be used to obtain a new access token without re-entering credentials.
+    - `expires_in` The number of seconds until the access token expires and can no longer be used to access the API.
+    - `token_type` The type of token granted. This API issues "Bearer" for OAuth 2.0 access tokens.
+    - `scope` The scope of access granted by the token. The available scope values are `write` and `openid`. The Authorization Code Flow supports the `openid` scope which indicates that the response should include an `id_token` in addition to the access token.
+
+    ## Refresh Token Grant Type
+
+    The refresh token grant type is for users to obtain a new access token using a valid refresh token obtained in a previous authentication. This allows users to maintain access without re-entering credentials when their access token expires.
     
+    ### Refresh Token Example:
+    
+    ```
       grant_type=refresh_token&client_id=morph-api&refresh_token=$refreshToken
+    ```
     
     Successful authentication with a refresh token will return a new access token and refresh token
     just like the password grant type does. The provided refresh token and its access token will be deleted and can no longer be used.
     
-    Authorization Code Grant Type
+    ## Authorization Code Grant Type
 
-    The authorization_code grant type is used in the OAuth 2.0 Authorization Code Flow, which is a more secure authentication method typically used for web applications. It involves redirecting the user to an authorization server to obtain an authorization code, which is then exchanged for an access token. This flow is not commonly used for API authentication in scripts or command-line tools, but it can be implemented if needed.
+    The authorization_code grant type is used in the OAuth 2.0 Authorization Code Flow, which is a secure authentication method typically used for web applications. It involves redirecting the user to an authorization server to obtain an authorization code, which is then exchanged for an access token. This flow is not commonly used for API authentication in scripts or command-line tools, but it can be implemented if needed. Using this grant type requires a client that has a client secret and redirect URI(s) configured.
 
-    Authorization Code Example:
-    
+    ### Authorization Code Example:
+
+    ```
       grant_type=authorization_code&client_id=my-client&client_secret=$clientSecret&code=$authorizationCode&state=$state
+    ```
+
+    Successful authentication with the authorization code grant type will return an access token. If the request includes the `openid` scope then an `id_token` will be returned which is a JSON Web Token (JWT) that contains user identity and authorized claim information that the client can then use to determine the access level in its application.
     
-    Successful authentication with the authorization code grant type will return an access token and
-    if the request includes the `openid` scope then the response will also include an `id_token` which is a JSON Web Token (JWT) that contains user identity information and claims of authority.
+    ## Token Generation
     
-    Note that as of version 9.0, a new access token is issued for every successful `/oauth/token` request.
-    Prior to version 9.0, if a token already existed for that user and `client_id` then it would be returned until it expired, so that each user could only have one token per client.
-    Now it will always create a new token, so users can have many tokens per client.
-    It is also incumbent upon users to manage their tokens and remove those that are no longer needed or may be compromised.
-    The system will automatically delete expired tokens, but users should also proactively delete tokens that are no longer in use to maintain security.
+    Prior to version 9.0, if a token already existed for the specified `client_id` then the existing token would be returned until it expired, without extending the expiration. This limited each user to only one token per client.
+    As of version 9.0, the behavior has changed to issue a new access token for each successful request. This allows users to have multiple valid tokens for the same client, which can be useful for different sessions or applications. Each token will have its own expiration time based on the client and returned in the `expires_in` value returned in the response.
+    The system will automatically delete tokens when they expire. Users can proactively delete old tokens that are no longer in use via the Delete Token endpoint as well as in the User Settings UI.
   operationId: getAccessToken
   tags:
     - Authentication
