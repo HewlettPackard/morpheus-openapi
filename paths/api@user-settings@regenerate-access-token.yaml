@@ -1,10 +1,16 @@
 put:
   summary: Regenerate API Access Token
-  description: This endpoint regenerates your API access token for the specified client. If a current token exists, it is revoked and a new token is returned.
+  description: This endpoint regenerates your API access token for the specified client. If the `id` parameter is passed then the existing token will be revoked and deleted. If no `id` parameter is passed then a new token is generated and no existing tokens are modified. In versions prior to 9.0 this endpoint would always revoke the existing token for the specified client whether `id` was passed or not.
   operationId: updateUserSettingsAccessToken
   tags:
     - User Settings
   parameters:
+    - name: id
+      in: query
+      description: ID of Access Token to be regenerated. If specified, the existing token will be revoked and a new token will be generated for the same client.
+      schema:
+        type: integer
+        format: int64
     - name: userId
       in: query
       description: ID of User (Only available to the master tenant.)  Default is the current user
