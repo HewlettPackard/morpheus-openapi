@@ -1,4 +1,8 @@
 type: object
+description: |
+  Request body for creating a provider-backed system.
+  Standard create supports optional `components[]`. When supplied, component entries are
+  processed after the parent system is created and provider lifecycle begins.
 properties:
   name:
     type: string
@@ -38,6 +42,14 @@ properties:
     type: object
     description: Arbitrary configuration data for the system.
     additionalProperties: true
+  components:
+    type: array
+    description: |
+      Optional component payloads for create. Existing components are matched by `id` first,
+      then by `typeCode` when exactly one existing component matches. New components can be
+      created by supplying a valid `typeCode`.
+    items:
+      $ref: systemComponentRequest.yaml
 required:
   - name
   - type

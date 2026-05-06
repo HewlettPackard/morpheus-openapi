@@ -27,7 +27,12 @@ get:
 
 post:
   summary: Create a System
-  description: This endpoint creates a new system.
+  description: |
+    Creates a new provider-backed system.
+
+    Standard create supports optional `system.components[]` payloads. When supplied,
+    component entries are applied as part of the create lifecycle after the parent system
+    record is created.
   operationId: addSystem
   tags:
     - Systems

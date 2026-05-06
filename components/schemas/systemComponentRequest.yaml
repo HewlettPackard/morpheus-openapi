@@ -1,12 +1,17 @@
 type: object
 description: |
-  A component payload for use in uninitialized create and initialize requests.
-  Components are matched to layout component type definitions by `typeCode`.
-  Unmatched `typeCode` values are silently ignored.
+  A component payload for Systems create, update, and initialize requests.
+  Components can be matched by `id` or `typeCode`, depending on the endpoint behavior.
+  For create or new-component creation flows, `typeCode` identifies the component type to create.
 properties:
+  id:
+    type: integer
+    format: int64
+    description: Existing system component id. When supplied, endpoints that support component updates match by id first.
+    example: 10
   typeCode:
     type: string
-    description: The code of the layout component type this entry applies to.
+    description: The code of the component type this entry applies to.
     example: primary-node
   name:
     type: string
@@ -20,5 +25,3 @@ properties:
     type: object
     description: Arbitrary configuration data for the component.
     additionalProperties: true
-required:
-  - typeCode
