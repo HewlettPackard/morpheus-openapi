@@ -150,6 +150,11 @@ properties:
     type: boolean
     description: Automatically Power on VMs
     default: false
+  cpuPlacementMode:
+    type:
+      - string
+      - 'null'
+    description: Cluster CPU placement mode
   useAgent:
     type:
       - string

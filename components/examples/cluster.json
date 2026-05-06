@@ -41,6 +41,7 @@
     "managed": true,
     "labels": [],
     "autoRecoverPowerState": false,
+    "cpuPlacementMode": "unmanaged",
     "useAgent": null,
     "provisionComplete": true,
     "tags": [],
