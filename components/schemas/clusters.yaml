@@ -124,6 +124,11 @@ properties:
       type: string
   autoRecoverPowerState:
     type: boolean
+  cpuPlacementMode:
+    type:
+      - string
+      - 'null'
+    description: Cluster CPU placement mode
   serviceEntry:
     type:
       - string
