@@ -22,6 +22,14 @@ properties:
   accountId:
     type: integer
     format: int64
+  account:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   active:
     type: boolean
   config:

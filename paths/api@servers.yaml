@@ -27,19 +27,26 @@ get:
     - $ref: ../components/parameters/createdBy.yaml
     - $ref: ../components/parameters/tags.yaml
     - $ref: ../components/parameters/metadata.yaml
-    - in: query
-      name: uuid
+    - name: uuid
+      in: query
       description: Filter by UUID, accepts multiple values
       schema:
         type: string
     - $ref: ../components/parameters/externalId.yaml
     - $ref: ../components/parameters/internalId.yaml
     - $ref: ../components/parameters/externalUniqueId.yaml
-    - in: query
-      name: stats
+    - name: stats
+      in: query
       description: This can be used to exclude the `stats` object in the response by passing `false` which can increase performance when returning a large number of servers.
       schema:
         type: string
+    - name: includeTenants
+      in: query
+      description: Optional ability to include all subtenant resources when calling from a master tenant user. The default is true for backwards compatibility but can be set to false to exclude subtenant resources.
+      schema:
+        type: boolean
+        default: true
+    - $ref: ../components/parameters/tenantId.yaml
   responses:
     '200':
       description: Successful Request

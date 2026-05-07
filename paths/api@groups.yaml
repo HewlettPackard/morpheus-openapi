@@ -13,6 +13,8 @@ get:
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/name.yaml
     - $ref: ../components/parameters/labels.yaml
+    - $ref: ../components/parameters/includeTenants.yaml
+    - $ref: ../components/parameters/tenantId.yaml
   responses:
     '200':
       description: Successful Request

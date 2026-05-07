@@ -35,6 +35,8 @@ get:
     - $ref: ../components/parameters/allLabels.yaml
     - $ref: ../components/parameters/tags.yaml
     - $ref: ../components/parameters/detailsFalse.yaml
+    - $ref: ../components/parameters/includeTenants.yaml
+    - $ref: ../components/parameters/tenantId.yaml
   responses:
     '200':
       description: Successful Request
