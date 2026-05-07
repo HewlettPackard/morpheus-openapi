@@ -69,6 +69,10 @@ monitorPassword:
   type:
     - string
     - 'null'
+monitorPasswordHash:
+  type:
+    - string
+    - 'null'
 monitorDestination:
   type: string
 monitorReverse:
@@ -120,8 +124,14 @@ config:
   type: object
 createdBy:
   type:
-    - string
+    - object
     - 'null'
+  properties:
+    id:
+      type: integer
+      format: int64
+    username:
+      type: string
 dateCreated:
   type: string
   format: date-time

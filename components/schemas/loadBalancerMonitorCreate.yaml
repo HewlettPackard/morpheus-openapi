@@ -6,9 +6,68 @@ description:
   description: Description
 monitorType:
   type: string
+monitorInterval:
+  type: integer
+  format: int64
 monitorTimeout:
   type: integer
   format: int64
+sendData:
+  type:
+    - string
+    - 'null'
+sendVersion:
+  type:
+    - string
+    - 'null'
+sendType:
+  type:
+    - string
+    - 'null'
+receiveData:
+  type:
+    - string
+    - 'null'
+receiveCode:
+  type:
+    - string
+    - 'null'
+monitorUsername:
+  type:
+    - string
+    - 'null'
+monitorPassword:
+  type:
+    - string
+    - 'null'
+  format: password
+monitorDestination:
+  type:
+    - string
+    - 'null'
+fallCount:
+  type: integer
+  format: int64
+riseCount:
+  type: integer
+  format: int64
+aliasPort:
+  type: integer
+  format: int64
+dataLength:
+  type: integer
+  format: int64
+maxRetry:
+  type: integer
+  format: int64
+extraConfig:
+  type:
+    - string
+    - 'null'
+partition:
+  type:
+    - string
+    - 'null'
 config:
   type:
     - object

@@ -3,6 +3,22 @@
     "name": "test monitor",
     "description": "a test monitor",
     "monitorType": "LBHttpMonitorProfile",
-    "monitorTimeout": 15
+    "monitorInterval": 5,
+    "monitorTimeout": 15,
+    "sendData": "GET / HTTP/1.1",
+    "sendVersion": "1.1",
+    "sendType": "GET",
+    "receiveData": "200 OK",
+    "receiveCode": "200",
+    "monitorUsername": null,
+    "monitorPassword": null,
+    "monitorDestination": "192.168.1.100:8080",
+    "fallCount": 3,
+    "riseCount": 3,
+    "aliasPort": 8080,
+    "dataLength": null,
+    "maxRetry": 3,
+    "extraConfig": null,
+    "partition": null
   }
 }
