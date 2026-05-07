@@ -23,6 +23,8 @@ status:
   type: string
 enabled:
   type: boolean
+enableBgp:
+  type: boolean
 externalIp:
   type:
     - string
@@ -151,3 +153,5 @@ interfaces:
       type:
         - object
         - 'null'
+config:
+  type: object
