@@ -87,3 +87,6 @@ properties:
   STALE_ROUTE_TIME:
     type: integer
     format: int64
+  INTER_SR_IBGP:
+    type: string
+    enum: [on, off]
