@@ -118,8 +118,9 @@ riseCount:
   format: int64
 dataLength:
   type:
-    - string
+    - integer
     - 'null'
+  format: int64
 config:
   type: object
 createdBy:
