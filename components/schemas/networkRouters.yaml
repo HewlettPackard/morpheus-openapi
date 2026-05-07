@@ -97,8 +97,14 @@ externalNetwork:
       type: string
 site:
   type:
-    - string
+    - object
     - 'null'
+  properties:
+    id:
+      type: integer
+      format: int64
+    name:
+      type: string
 interfaces:
   type: array
   items:
