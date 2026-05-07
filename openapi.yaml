@@ -28,17 +28,10 @@ x-readme:
     - javascript
     - go
 paths:
-  /oauth/token:
-    $ref: paths/oauth@token.yaml
 
   /api/activity:
     $ref: paths/api@activity.yaml
     
-  /api/monitoring/alerts:
-    $ref: paths/api@monitoring@alerts.yaml
-  /api/monitoring/alerts/{id}:
-    $ref: paths/api@monitoring@alerts@id.yaml
-
   /api/appliance-settings:
     $ref: paths/api@appliance-settings.yaml
   /api/appliance-settings/maintenance:
@@ -170,7 +163,11 @@ paths:
     $ref: paths/api@email-templates.yaml
   /api/email-templates/{id}:
     $ref: paths/api@email-templates@id.yaml
-    
+  
+  /api/monitoring/alerts:
+    $ref: paths/api@monitoring@alerts.yaml
+  /api/monitoring/alerts/{id}:
+    $ref: paths/api@monitoring@alerts@id.yaml
   /api/monitoring/apps:
     $ref: paths/api@monitoring@apps.yaml
   /api/monitoring/apps/mute-all:
@@ -191,7 +188,6 @@ paths:
     $ref: paths/api@monitoring@check-types.yaml
   /api/monitoring/check-types/{id}:
     $ref: paths/api@monitoring@check-types@id.yaml
-
   /api/monitoring/groups:
     $ref: paths/api@monitoring@groups.yaml
   /api/monitoring/groups/{id}:
@@ -1292,6 +1288,9 @@ paths:
     $ref: paths/api@wiki@pages.yaml
   /api/wiki/pages/{id}:
     $ref: paths/api@wiki@pages@id.yaml
+
+  /oauth/token:
+    $ref: paths/oauth@token.yaml
 components:
   securitySchemes:
     bearerAuth:
@@ -1521,6 +1520,10 @@ tags:
     description: Manage User Tokens (API Keys)
   - name: Usage
     description: View Usage
+  - name: User Groups
+    description: Manage User Groups
+  - name: User Settings
+    description: Manage User Settings
   - name: Users
     description: Manage Users
   - name: VDI
@@ -1528,6 +1531,6 @@ tags:
   - name: Virtual Images
     description: Manage Virtual Images
   - name: Whitelabel Settings
-    description: Manage Whitelabelling
+    description: Manage Whitelabel Settings
   - name: Wiki
     description: Manage Wiki
