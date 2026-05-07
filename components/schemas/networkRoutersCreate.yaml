@@ -31,6 +31,8 @@ properties:
   enabled:
     type: boolean
     description: Can be used to enable / disable the network router (true, false). Default is on
+  enableBgp:
+    type: boolean
   zone:
     type: object
     description: Required when type does not support a network server
