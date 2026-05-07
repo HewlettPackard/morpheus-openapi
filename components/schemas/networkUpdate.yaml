@@ -103,7 +103,7 @@ properties:
         id:
           type: integer
           format: int64
-  resourcePermissions:
+  resourcePermission:
     type: object
     properties:
       all:
