@@ -16,7 +16,7 @@
     "fallCount": 3,
     "riseCount": 3,
     "aliasPort": 8080,
-    "dataLength": null,
+    "dataLength": 0,
     "maxRetry": 3,
     "extraConfig": null,
     "partition": null
