@@ -28,6 +28,7 @@
     "disabledData": null,
     "monitorUsername": null,
     "monitorPassword": null,
+    "monitorPasswordHash": null,
     "monitorDestination": "/",
     "monitorReverse": false,
     "monitorTransparent": false,
