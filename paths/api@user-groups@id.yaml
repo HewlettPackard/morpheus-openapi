@@ -67,7 +67,7 @@ delete:
   description: Delete an existing user group.
   operationId: deleteUserGroup
   tags:
-    - Users
+    - User Groups
   parameters:
   - $ref: ../components/parameters/id-path.yaml
   responses:

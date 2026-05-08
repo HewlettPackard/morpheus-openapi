@@ -37,7 +37,7 @@ put:
     This endpoint allows updating user settings.
   operationId: updateUserSettings
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query
