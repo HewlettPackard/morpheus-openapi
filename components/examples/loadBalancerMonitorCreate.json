@@ -19,6 +19,12 @@
     "dataLength": 0,
     "maxRetry": 3,
     "extraConfig": null,
-    "partition": null
+    "partition": null,
+    "config": {
+      "monitor": {
+        "id": 1
+      },
+      "monitorConfig": null
+    }
   }
 }

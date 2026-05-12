@@ -1,5 +1,11 @@
 {
   "loadBalancerMonitor": {
-    "description": "new description"
+    "description": "new description",
+    "config": {
+      "monitor": {
+        "id": 2
+      },
+      "monitorConfig": null
+    }
   }
 }
