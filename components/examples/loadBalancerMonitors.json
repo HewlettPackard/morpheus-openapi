@@ -47,6 +47,10 @@
       "riseCount": 3,
       "dataLength": null,
       "config": {
+        "monitor": {
+          "id": 1
+        },
+        "monitorConfig": null
       },
       "createdBy": null,
       "dateCreated": "2021-10-19T17:39:33Z",
@@ -99,6 +103,8 @@
       "riseCount": 14,
       "dataLength": null,
       "config": {
+        "monitor": null,
+        "monitorConfig": null
       },
       "createdBy": null,
       "dateCreated": "2021-10-19T17:39:33Z",

@@ -73,3 +73,19 @@ config:
     - object
     - 'null'
   description: Configuration object with parameters that vary by type.
+  properties:
+    monitor:
+      type:
+        - object
+        - 'null'
+      description: Parent monitor reference. Allows this monitor to inherit from an existing monitor.
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The ID of the parent monitor. If set, the monitorType of the new monitor will be inherited from the parent monitor.
+    monitorConfig:
+      type:
+        - string
+        - 'null'
+      description: Free-form monitor configuration content.

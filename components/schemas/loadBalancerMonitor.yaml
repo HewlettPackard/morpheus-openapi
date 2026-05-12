@@ -123,6 +123,23 @@ dataLength:
   format: int64
 config:
   type: object
+  description: Configuration object with parameters that vary by type.
+  properties:
+    monitor:
+      type:
+        - object
+        - 'null'
+      description: Parent monitor reference.
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: The ID of the parent monitor.
+    monitorConfig:
+      type:
+        - string
+        - 'null'
+      description: Free-form monitor configuration content.
 createdBy:
   type:
     - object
