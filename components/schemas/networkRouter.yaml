@@ -175,6 +175,48 @@ networkRouter:
       type: array
       items:
         type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+          code:
+            type:
+              - string
+              - 'null'
+          interfaceType:
+            type:
+              - string
+              - 'null'
+          networkPosition:
+            type:
+              - string
+              - 'null'
+          ipAddress:
+            type: string
+          cidr:
+            type: string
+          externalLink:
+            type:
+              - string
+              - 'null'
+          enabled:
+            type: boolean
+          network:
+            type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              name:
+                type: string
+              code:
+                type: string
+        config:
+          type:
+            - object
+            - 'null'
     firewall:
       type: object
       properties:
