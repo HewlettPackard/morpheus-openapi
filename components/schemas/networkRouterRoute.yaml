@@ -31,8 +31,9 @@ properties:
     type: boolean
   networkMtu:
     type:
-      - string
+      - number
       - 'null'
+      format: int64
   externalInterface:
     type:
       - string
