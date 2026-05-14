@@ -81,6 +81,11 @@ vipName:
 vipPort:
   type: integer
   format: int64
+vipPool:
+  type:
+    - object
+    - 'null'
+  description: Network Pool used for VIP address allocation, if set.
 vipSticky:
   type:
     - string
@@ -98,6 +103,16 @@ sourceAddress:
     - string
     - 'null'
 sslCert:
+  type:
+    - object
+    - 'null'
+  properties:
+    id:
+      type: integer
+      format: int64
+    name:
+      type: string
+sslServerCert:
   type:
     - object
     - 'null'
@@ -131,6 +146,17 @@ poolName:
     - 'null'
 removing:
   type: boolean
+pool:
+  type:
+    - object
+    - 'null'
+  description: Backend server pool assigned to this virtual server.
+  properties:
+    id:
+      type: integer
+      format: int64
+    name:
+      type: string
 vipSource:
   type: string
 extraConfig:

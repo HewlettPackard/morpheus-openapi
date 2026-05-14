@@ -11,9 +11,16 @@
       "name": "dd-nsxt-1",
       "ip": "10.32.23.7"
     },
-    "config": {},
+    "config": {
+      "applicationProfile": "85",
+      "pool": "42",
+      "persistence": "SOURCE_IP",
+      "persistenceProfile": "78",
+      "sslClientProfile": "33",
+      "sslServerProfile": "44"
+    },
     "instance": null,
-    "description": null,
+    "description": "Web virtual server",
     "internalId": "/infra/lb-virtual-servers/93bd9df9-966b-4698-8dc0-1431295df6a4",
     "externalId": "93bd9df9-966b-4698-8dc0-1431295df6a4",
     "dateCreated": "2021-07-06T18:33:03Z",
@@ -25,17 +32,25 @@
     "backendPort": null,
     "vipType": null,
     "vipAddress": "192.168.2.2",
-    "vipHostname": null,
+    "vipHostname": "web.example.com",
     "vipProtocol": "http",
     "vipScheme": null,
     "vipMode": null,
     "vipName": "dd-nsx-test2",
     "vipPort": 8080,
+    "vipPool": null,
     "vipSticky": null,
     "vipBalance": null,
     "servicePort": null,
     "sourceAddress": null,
-    "sslCert": null,
+    "sslCert": {
+      "id": 12,
+      "name": "web-client-cert"
+    },
+    "sslServerCert": {
+      "id": 15,
+      "name": "web-server-cert"
+    },
     "sslMode": null,
     "sslRedirectMode": null,
     "vipShared": false,
@@ -43,6 +58,10 @@
     "serverName": null,
     "poolName": null,
     "removing": false,
+    "pool": {
+      "id": 42,
+      "name": "web-pool"
+    },
     "vipSource": "user",
     "extraConfig": null,
     "serviceAccess": null,

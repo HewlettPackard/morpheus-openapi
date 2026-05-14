@@ -6,5 +6,47 @@ properties:
       - string
       - 'null'
     description: |-
-      The Load Balancer Application Profile ID
+      The Load Balancer Application Profile ID.
       The Options API `/api/options/nsxt/nsxtLBVirtualServerApplicationProfile?loadBalancerId=42&loadBalancerInstance.vipProtocol=tcp` can be used to see which options are available.
+  pool:
+    type:
+      - string
+      - 'null'
+    description: |-
+      The backend server pool ID (`NetworkLoadBalancerPool`).
+      The Options API `/api/options/nsxt/nsxtLBPool?loadBalancerId=42` can be used to see which options are available.
+  persistence:
+    type:
+      - string
+      - 'null'
+    description: |-
+      Session persistence mode. The available values depend on the virtual server protocol.
+      For HTTP: `SOURCE_IP`, `COOKIE`, or empty string (disabled).
+      For TCP/UDP: `SOURCE_IP` or empty string (disabled).
+      The Options API `/api/options/nsxt/nsxtLBPersistence?loadBalancerId=42&loadBalancerInstance.vipProtocol=tcp` can be used to see which options are available.
+    enum:
+      - SOURCE_IP
+      - COOKIE
+      - ''
+      - null
+  persistenceProfile:
+    type:
+      - string
+      - 'null'
+    description: |-
+      The ID of the persistence profile to use. Required when `persistence` is set to a non-empty value (`SOURCE_IP` or `COOKIE`).
+      The Options API `/api/options/nsxt/nsxtLBPersistenceProfile?loadBalancerId=42&config.persistence=SOURCE_IP` can be used to see which options are available.
+  sslClientProfile:
+    type:
+      - string
+      - 'null'
+    description: |-
+      The SSL client profile ID. Only applicable when `sslCert` is set to a non-zero value.
+      The Options API `/api/options/nsxt/nsxtLBClientSSlProfiles?loadBalancerId=42` can be used to see which options are available.
+  sslServerProfile:
+    type:
+      - string
+      - 'null'
+    description: |-
+      The SSL server profile ID. Only applicable when `sslServerCert` is set to a non-zero value.
+      The Options API `/api/options/nsxt/nsxtLBServerSSlProfiles?loadBalancerId=42` can be used to see which options are available.

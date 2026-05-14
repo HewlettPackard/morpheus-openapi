@@ -9,26 +9,36 @@ vipType:
   description: VIP Type
 vipAddress: 
   type: string
-  description: VIP Address
+  description: VIP Address. Required when `vipPool` is not set.
 vipPort: 
   type: integer
   format: int64
   description: VIP Port
 vipProtocol: 
   type: string
-  description: VIP Protocol
+  description: |-
+    VIP Protocol.
+    For NSX-T load balancers, this is the virtual server type. Valid values are `http`, `tcp`, `udp`.
 vipHostname: 
   type: string
   description: VIP Hostname
+vipPool:
+  type:
+    - integer
+    - 'null'
+  format: int64
+  description: |-
+    Network Pool ID for automatic VIP address allocation.
+    When set, a VIP address will be leased from this pool and `vipAddress` does not need to be specified.
 sslCert: 
   type: integer
   format: int64
-  description: SSL Client Certificate ID
+  description: SSL Client Certificate ID. Use `0` for none.
 sslServerCert: 
   type: integer
   format: int64
-  description: SSL Server Certificate ID
+  description: SSL Server Certificate ID. Use `0` for none.
 config:
-  oneOf:
+  anyOf:
     - $ref: loadBalancerInstanceGenericConfig.yaml
     - $ref: loadBalancerInstanceNSXTConfig.yaml
