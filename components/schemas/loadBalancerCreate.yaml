@@ -33,6 +33,7 @@ properties:
     description: Configuration object with parameters that vary by load balancer type.
     anyOf:
       - $ref: loadBalancerCreateConfigHaproxy.yaml
+      - $ref: loadBalancerCreateConfigNSXT.yaml
       - type: object
   visibility:
     type: string
