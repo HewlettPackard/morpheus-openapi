@@ -42,6 +42,6 @@ properties:
     format: int64
     description: SSL Server Certificate ID. Use `0` for none.
   config:
-    oneOf:
+    anyOf:
       - $ref: loadBalancerInstanceGenericConfig.yaml
       - $ref: loadBalancerInstanceNSXTConfig.yaml
