@@ -33,7 +33,7 @@ properties:
     type:
       - number
       - 'null'
-      format: int64
+    format: int64
   externalInterface:
     type:
       - string
