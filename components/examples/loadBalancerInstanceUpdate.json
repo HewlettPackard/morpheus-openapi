@@ -1,5 +1,11 @@
 {
   "loadBalancerInstance": {
-    "description": "new description"
+    "description": "updated description",
+    "vipHostname": "updated.example.com",
+    "config": {
+      "persistence": "COOKIE",
+      "persistenceProfile": "92",
+      "pool": "55"
+    }
   }
 }

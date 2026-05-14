@@ -1,12 +1,20 @@
 {
   "loadBalancerInstance": {
-    "vipType": "DHCP",
-    "vipName": "test virtual server",
-    "description": "a test virtual server",
-    "vipAddress": "10.11.12.13",
-    "vipPort": 80,
+    "vipName": "my-web-vs",
+    "description": "Web virtual server",
+    "vipAddress": "192.168.1.100",
+    "vipPort": 443,
     "vipProtocol": "http",
-    "sslCert": 0,
-    "sslServerCert": 0
+    "vipHostname": "web.example.com",
+    "sslCert": 12,
+    "sslServerCert": 15,
+    "config": {
+      "applicationProfile": "85",
+      "pool": "42",
+      "persistence": "SOURCE_IP",
+      "persistenceProfile": "78",
+      "sslClientProfile": "33",
+      "sslServerProfile": "44"
+    }
   }
 }
