@@ -2,7 +2,6 @@ type: object
 required:
   - source
   - destination
-  - networkMtu
 properties:
   name:
     type: string
@@ -25,5 +24,6 @@ properties:
     type: string
     description: Destination address or range
   networkMtu:
-    type: string
+    type: number
+    format: int64
     description: MTU
