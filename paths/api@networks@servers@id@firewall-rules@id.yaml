@@ -17,6 +17,7 @@ get:
             type: object
             properties:
               rule:
+                type: object
                 properties:
                   $ref: ../components/schemas/networkFirewallRule.yaml
           examples:
@@ -47,7 +48,7 @@ put:
             The parameters for update a Network Firewall Rule is type dependent. The following lists the common parameters. Get a specific network type to list available options for the network relay type.
           properties: 
             rule:
-              type: object
+              $ref: ../components/schemas/networkFirewallRuleUpdate.yaml
         examples: 
           Network Firewall Rule Request:
             value:

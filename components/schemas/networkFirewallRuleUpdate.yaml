@@ -1,6 +1,4 @@
 type: object
-required:
-  - name
 properties:
   ruleGroup:
     type: object

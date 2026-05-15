@@ -9,6 +9,10 @@ destinationType:
   type: string
 name:
   type: string
+description:
+  type:
+    - string
+    - 'null'
 policy:
   type: string
 priority:
