@@ -17,6 +17,7 @@ get:
             type: object
             properties:
               ruleGroup:
+                type: object
                 properties:
                   $ref: ../components/schemas/networkFirewallRuleGroup.yaml
           examples:
@@ -47,6 +48,21 @@ put:
           properties: 
             ruleGroup:
               type: object
+              properties:
+                name:
+                  type: string
+                  description: Network firewall rule group name
+                description:
+                  type:
+                    - string
+                    - 'null'
+                  description: Network firewall rule group description
+                priority:
+                  type:
+                    - integer
+                    - 'null'
+                  format: int64
+                  description: Network firewall rule group priority
         examples: 
           Network Firewall Rule Group:
             value:
