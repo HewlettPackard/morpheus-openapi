@@ -1,0 +1,61 @@
+type: object
+properties:
+  ruleGroup:
+    type: object
+    properties:
+      id:
+        description: Firewall rule group for rule (*applicable to select network servers).
+        type: integer
+        format: int32
+  name:
+    type: string
+    description: Network firewall rule name
+  description:
+    type:
+      - string
+      - 'null'
+    description: Network firewall rule description
+  enabled:
+    type: boolean
+    description: Use this to set enabled state
+  priority:
+    type:
+      - string
+      - 'null'
+    description: Network firewall rule priority
+  direction:
+    type: string
+  sources:
+    type: object
+    properties:
+      id:
+        type: array
+        items:
+          type: string
+  destinations:
+    type: object
+    properties:
+      id:
+        type: array
+        items:
+          type: string
+  config:
+    type: object
+    properties:
+      application:
+        type: array
+        items:
+          type: string
+      profile:
+        type: array
+        items:
+          type: string
+  scopes:
+    type: object
+    properties:
+      id:
+        type: array
+        items:
+          type: string
+  policy:
+    type: string
