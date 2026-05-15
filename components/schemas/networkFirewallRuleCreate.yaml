@@ -22,8 +22,9 @@ properties:
     description: Use this to set enabled state
   priority:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
     description: Network firewall rule priority
   direction:
     type: string
