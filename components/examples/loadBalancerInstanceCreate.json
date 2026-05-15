@@ -9,12 +9,12 @@
     "sslCert": 12,
     "sslServerCert": 15,
     "config": {
-      "applicationProfile": "85",
+      "applicationProfile": 85,
       "pool": "42",
       "persistence": "SOURCE_IP",
-      "persistenceProfile": "78",
-      "sslClientProfile": "33",
-      "sslServerProfile": "44"
+      "persistenceProfile": 78,
+      "sslClientProfile": 33,
+      "sslServerProfile": 44
     }
   }
 }
