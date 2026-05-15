@@ -12,12 +12,12 @@
       "ip": "10.32.23.7"
     },
     "config": {
-      "applicationProfile": "85",
+      "applicationProfile": 85,
       "pool": "42",
       "persistence": "SOURCE_IP",
-      "persistenceProfile": "78",
-      "sslClientProfile": "33",
-      "sslServerProfile": "44"
+      "persistenceProfile": 78,
+      "sslClientProfile": 33,
+      "sslServerProfile": 44
     },
     "instance": null,
     "description": "Web virtual server",

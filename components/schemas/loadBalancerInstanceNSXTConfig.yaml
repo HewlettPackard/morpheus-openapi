@@ -3,8 +3,9 @@ type: object
 properties:
   applicationProfile:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
     description: |-
       The Load Balancer Application Profile ID.
       The Options API `/api/options/nsxt/nsxtLBVirtualServerApplicationProfile?loadBalancerId=42&loadBalancerInstance.vipProtocol=tcp` can be used to see which options are available.
@@ -31,22 +32,25 @@ properties:
       - null
   persistenceProfile:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
     description: |-
       The ID of the persistence profile to use. Required when `persistence` is set to a non-empty value (`SOURCE_IP` or `COOKIE`).
       The Options API `/api/options/nsxt/nsxtLBPersistenceProfile?loadBalancerId=42&config.persistence=SOURCE_IP` can be used to see which options are available.
   sslClientProfile:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
     description: |-
       The SSL client profile ID. Only applicable when `sslCert` is set to a non-zero value.
       The Options API `/api/options/nsxt/nsxtLBClientSSlProfiles?loadBalancerId=42` can be used to see which options are available.
   sslServerProfile:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
     description: |-
       The SSL server profile ID. Only applicable when `sslServerCert` is set to a non-zero value.
       The Options API `/api/options/nsxt/nsxtLBServerSSlProfiles?loadBalancerId=42` can be used to see which options are available.
