@@ -2,12 +2,12 @@ type: object
 properties:
   id:
     type: integer
-    format: int32
+    format: int64
   name:
     type: string
   value:
     type: integer
-    format: int32
+    format: int64
   code:
     type: string
   maxStorage:
@@ -15,13 +15,13 @@ properties:
     format: int64
   maxMemory:
     type: integer
-    format: int32
+    format: int64
   maxCpu:
     type: integer
-    format: int32
+    format: int64
   maxCores:
     type: integer
-    format: int32
+    format: int64
   customCpu:
     type: boolean
   customMaxMemory:
@@ -34,7 +34,7 @@ properties:
     type: boolean
   coresPerSocket:
     type: integer
-    format: int32
+    format: int64
   storageTypes:
     type: array
     items:
@@ -55,7 +55,7 @@ properties:
     type: boolean
   minDisk:
     type: integer
-    format: int32
+    format: int64
   maxDisk:
     type:
       - string
@@ -72,7 +72,7 @@ properties:
           properties:
             id:
               type: integer
-              format: int32
+              format: int64
             name:
               type: string
       store:
@@ -82,7 +82,7 @@ properties:
           properties:
             id:
               type: integer
-              format: int32
+              format: int64
             name:
               type: string
   supportsAutoDatastore:

@@ -2,7 +2,7 @@ type: object
 properties:
   id:
     type: integer
-    format: int32
+    format: int64
   name:
     type: string
   description:
@@ -31,7 +31,7 @@ properties:
       - 'null'
   priority:
     type: integer
-    format: int32
+    format: int64
   protocol:
     type:
       - string

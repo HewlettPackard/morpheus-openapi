@@ -2,7 +2,7 @@ type: object
 properties:
   id:
     type: integer
-    format: int32
+    format: int64
   editable:
     type: boolean
   optionTypes:
@@ -13,7 +13,7 @@ properties:
       type: object
   displayOrder:
     type: integer
-    format: int32
+    format: int64
   code:
     type: string
   volumeType:

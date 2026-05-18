@@ -127,12 +127,12 @@ properties:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   adminPort:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   status:
     type: string
     description: Status

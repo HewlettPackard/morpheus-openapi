@@ -25,22 +25,22 @@ properties:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   bus:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   slot:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   device:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   vendorId:
     type:
       - string
@@ -53,7 +53,7 @@ properties:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   uniqueId:
     type:
       - string
@@ -62,12 +62,12 @@ properties:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   iommuDeviceCount:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
   type:
     type: object
     properties:
@@ -92,9 +92,9 @@ properties:
         type:
           - integer
           - 'null'
-        format: int32
+        format: int64
       productId:
         type:
           - integer
           - 'null'
-        format: int32
+        format: int64

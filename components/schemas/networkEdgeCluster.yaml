@@ -1,6 +1,6 @@
 id:
   type: integer
-  format: int32
+  format: int64
 internalId:
   type: string
 visibility:
@@ -30,7 +30,7 @@ config:
       type: string
     members:
       type: integer
-      format: int32
+      format: int64
     deploymentType:
       type: string
     memberNodeType:
@@ -40,19 +40,19 @@ owner:
   properties:
     id:
       type: integer
-      format: int32
+      format: int64
 networkServer:
   type: object
   properties:
     id:
       type: integer
-      format: int32
+      format: int64
 zone:
   type: object
   properties:
     id:
       type: integer
-      format: int32
+      format: int64
 tenants:
   type: array
   items:
@@ -60,6 +60,6 @@ tenants:
     properties:
       id:
         type: integer
-        format: int32
+        format: int64
       name:
         type: string

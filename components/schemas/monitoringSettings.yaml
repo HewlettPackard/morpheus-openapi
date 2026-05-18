@@ -7,21 +7,21 @@ properties:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
     description: Availability Time Frame. The number of days availability should be calculated for. Changes will not take effect until your checks have passed their check interval.
     example: 30
   availabilityPrecision:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
     description: Availability Precision. The number of decimal places availability should be displayed in. Can be anywhere between 0 and 5.
     example: 3
   defaultCheckInterval:
     type:
       - integer
       - 'null'
-    format: int32
+    format: int64
     description: Default Check Interval. The number of minutes to use as the default interval to use when creating new checks.
     example: 5
   serviceNow:

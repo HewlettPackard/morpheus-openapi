@@ -8,7 +8,7 @@ properties:
       id:
         description: Firewall rule group for rule (*applicable to select network servers).
         type: integer
-        format: int32
+        format: int64
   name:
     type: string
     description: Network firewall rule name
