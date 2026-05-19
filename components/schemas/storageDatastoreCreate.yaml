@@ -5,7 +5,7 @@ properties:
     description: The name of the datastore to be created.
   datastoreType:
     type: string
-    description: The code of the datatoreType
+    description: The code of the datastoreType
   config:
     description: Configuration options for the datastore, varies based on the type of datastore.
     anyOf:
