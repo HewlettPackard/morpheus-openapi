@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "token": {
+    "id": 475,
+    "name": "My Token",
+    "clientId": "morph-cli",
+    "username": "testuser",
+    "expiration": "2026-03-31T04:55:48.000Z",
+    "tokenType": "bearer",
+    "scope": "write",
+    "maskedAccessToken": "5cc38e45-********",
+    "maskedRefreshToken": "57fe0846-********",
+    "dateCreated": "2026-03-20T02:28:24.025Z"
+  }
+}

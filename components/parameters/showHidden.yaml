@@ -1,0 +1,6 @@
+name: showHidden
+in: query
+description: If true, includes hidden network servers in the response.
+schema:
+  type: boolean
+example: true

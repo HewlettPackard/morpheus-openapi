@@ -1,7 +1,7 @@
 get:
-  summary: Retrieves information about current user roles and permissions
+  summary: Whoami
   description: |
-    Provides API to retrieve information about yourself, including your roles and permissions.
+    Provides API to retrieve information about the current user, including roles and permissions.
 
     The appliance build version is also returned.
   operationId: whoami
