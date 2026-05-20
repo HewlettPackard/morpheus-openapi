@@ -4,6 +4,12 @@ properties:
   resourcePoolId:
     type: string
     description: id of the resource group to be used, can be prefixed with `pool-`. A resource pool group can be specified instead by prefixing its ID with `poolGroup-`.
+  azureRegion:
+    type: string
+    description: The Azure region to provision the instance in.
+  azuresecurityGroupId:
+    type: string
+    description: The id of the Azure security group to assign the instance to.
   availabilityOptions:
     type: string
     description: Availability Options
