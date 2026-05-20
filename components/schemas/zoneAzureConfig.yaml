@@ -49,6 +49,8 @@ properties:
     type: string
   cloudType:
     type: string
+  storageAccount:
+    type: string
   rpcMode:
     type: string
   diskEncryption:
