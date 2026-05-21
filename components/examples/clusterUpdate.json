@@ -6,6 +6,7 @@
     "serviceUrl": "https://api-endpoint.com",
     "serviceToken": "12345xyz",
     "refresh": true,
-    "managed": true
+    "managed": true,
+    "cpuPlacementMode": "spread"
   }
 }

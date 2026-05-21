@@ -603,3 +603,19 @@ properties:
     type:
       - string
       - 'null'
+  secureMetadataDatastore:
+    type:
+      - object
+      - 'null'
+    description: >
+      The Datastore designated to hold this VM's NVRAM and swtpm state for
+      TPM/SecureBoot support. Locked in at provision time and immutable after
+      that point. `null` when no shared metadata datastore was available at
+      provision time — the VM uses local swtpm storage only and is not eligible
+      for live migration or HA failover.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string

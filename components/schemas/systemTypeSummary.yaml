@@ -1,0 +1,16 @@
+type: object
+description: A summary representation of a system type.
+properties:
+  id:
+    type: integer
+    format: int64
+    description: Unique identifier for the system type.
+    example: 1
+  name:
+    type: string
+    description: Display name of the system type.
+    example: Generic
+  code:
+    type: string
+    description: Unique code identifier for the system type.
+    example: generic

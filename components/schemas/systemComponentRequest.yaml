@@ -1,0 +1,27 @@
+type: object
+description: |
+  A component payload for Systems create, update, and initialize requests.
+  Components can be matched by `id` or `typeCode`, depending on the endpoint behavior.
+  For create or new-component creation flows, `typeCode` identifies the component type to create.
+properties:
+  id:
+    type: integer
+    format: int64
+    description: Existing system component id. When supplied, endpoints that support component updates match by id first.
+    example: 10
+  typeCode:
+    type: string
+    description: The code of the component type this entry applies to.
+    example: primary-node
+  name:
+    type: string
+    description: Optional override for the component name. Defaults to the component type name.
+    example: Primary Node
+  externalId:
+    type: string
+    description: External identifier for the component.
+    example: ext-comp-99
+  config:
+    type: object
+    description: Arbitrary configuration data for the component.
+    additionalProperties: true

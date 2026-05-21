@@ -1,0 +1,19 @@
+{
+  "system": {
+    "description": "Updated description",
+    "components": [
+      {
+        "id": 10,
+        "name": "Primary Node Renamed",
+        "externalId": "ext-comp-10"
+      },
+      {
+        "typeCode": "storage-controller",
+        "name": "Storage Controller",
+        "config": {
+          "hostname": "storage1.example.com"
+        }
+      }
+    ]
+  }
+}

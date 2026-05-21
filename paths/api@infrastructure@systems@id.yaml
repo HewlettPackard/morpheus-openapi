@@ -1,0 +1,100 @@
+get:
+  summary: Get a System
+  description: This endpoint retrieves a specific system.
+  operationId: getSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              system:
+                $ref: ../components/schemas/system.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/system.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+put:
+  summary: Update a System
+  description: |
+    Updates an existing system. All request body fields are optional — only supplied
+    fields are applied. The system's `type` cannot be changed via this endpoint.
+
+    If `system.components` is omitted, the system's existing components are left unchanged.
+    If `system.components` is present, it is authoritative: the submitted array is treated
+    as the desired final component set, and existing components omitted from the array are removed.
+
+    **Component matching behavior** for `components[]` entries:
+
+    1. Match by `id` — if a payload supplies an `id`, the component with that id is updated.
+    2. Fallback to `typeCode` — if no `id` is supplied (or the id is not found), the system's
+       existing components are searched by `typeCode`. The fallback only applies when **exactly
+       one** existing component matches; if multiple components share the same `typeCode` the
+       entry is skipped (ambiguous — supply `id` to disambiguate).
+    3. New component creation — if no existing component matches and the `typeCode` is a valid
+       component type code, a new component is created.
+    4. Unknown `typeCode` — if no existing component matches and the `typeCode` does not
+       correspond to a known component type, the entry is silently skipped.
+  operationId: updateSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            system:
+              $ref: ../components/schemas/systemUpdate.yaml
+        examples:
+          System Update Request:
+            value:
+              $ref: ../components/examples/systemUpdateRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/systemUpdateResponse.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+delete:
+  summary: Delete a System
+  description: This endpoint deletes an existing system.
+  operationId: removeSystem
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -34,6 +34,9 @@ properties:
   autoRecoverPowerState:
     type: boolean
     description: Automatically Power on VMs
+  cpuPlacementMode:
+    type: string
+    description: Cluster CPU placement mode
   integrations:
     type: array
     description: Cluster integrations
