@@ -69,6 +69,17 @@ post:
                 active:
                   type: boolean
                   description: Set to `false` to disable a security group.
+                visibility:
+                  type: string
+                  description: Visibility for the security group.
+                  enum:
+                    - private
+                    - public
+                  default: private
+                networkServerId:
+                  type: integer
+                  format: int64
+                  description: Network Server ID to scope the security group to a network integration (e.g. NSX-T). Use as an alternative to zoneId for network-server-scoped groups.
                 customOptions:
                   anyOf:
                   - $ref: ../components/schemas/securityGroupLocationAzureCustomOptions.yaml
