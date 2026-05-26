@@ -1,6 +1,12 @@
 subnet:
   type: object
   properties:
+    name:
+      type: string
+      description: Name for the subnet
+    description:
+      type: string
+      description: Description
     type:
       type: object
       properties:
@@ -8,9 +14,32 @@ subnet:
           type: integer
           format: int64
           description: Subnet Type ID
+    networkId:
+      type: integer
+      format: int64
+      description: The ID of the Network this subnet belongs to. Required when not using the nested route `/api/networks/{networkId}/subnets`.
     config:
       type: object
       description: Configuration object. Settings vary by type.
+    cidr:
+      type: string
+      description: Subnet CIDR. Used directly by subnet types with `cidrEditable` and `cidrRequired` (e.g. Google). For Azure subnets, this is derived from `config.subnetCidr` and does not need to be set explicitly.
+    active:
+      type: boolean
+      description: Activate (true) or disable (false) the subnet
+    dhcpServer:
+      type: boolean
+      description: DHCP Server enabled subnet
+    allowStaticOverride:
+      type: boolean
+      description: Allow IP Override
+    pool:
+      type: object
+      description: Network Pool
+      properties:
+        id:
+          type: integer
+          format: int64
     tenants:
       type: array
       description: Array of tenant account ID objects that are allowed access

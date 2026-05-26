@@ -37,6 +37,10 @@
       "id": 55,
       "name": "our-subnet"
     },
+    "zone": {
+      "id": 4617,
+      "name": "Azure Cloud"
+    },
     "type": {
       "id": 6,
       "code": "azure",
