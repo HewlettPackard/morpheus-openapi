@@ -11,6 +11,21 @@ minActive:
   type: integer
   format: int64
   description: Min Active Members
+port:
+  type: integer
+  format: int64
+  description: Port number
+vipSticky:
+  type: string
+  description: Session persistence mode
+vipClientIpMode:
+  type: string
+  description: VIP client IP mode
+partition:
+  type: string
+  description: Partition
 config:
-  type: object
   description: Configuration object with parameters that vary by type.
+  anyOf:
+    - $ref: loadBalancerPoolCreateConfigNSXT.yaml
+    - $ref: loadBalancerPoolCreateConfigGeneric.yaml

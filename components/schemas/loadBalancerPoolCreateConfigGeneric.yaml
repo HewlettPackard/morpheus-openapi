@@ -1,0 +1,3 @@
+title: Load Balancer Pool Config Object
+type: object
+description: Configuration object with parameters that vary by type.
