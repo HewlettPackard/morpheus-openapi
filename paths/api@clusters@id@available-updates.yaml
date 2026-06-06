@@ -1,0 +1,29 @@
+get:
+  summary: List Cluster Available Updates
+  description: List Cluster Available Updates
+  operationId: listClusterAvailableUpdates
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                updateDefinitions:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/clusterUpdateDefinition.yaml
+          examples:
+            List Cluster Available Updates Response:
+              value:
+                $ref: ../components/examples/listClusterAvailableUpdates.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

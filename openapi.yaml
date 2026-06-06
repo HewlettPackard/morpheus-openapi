@@ -280,6 +280,14 @@ paths:
     $ref: paths/api@clusters@id@jobs@id.yaml
   /api/clusters/{clusterId}/layout:
     $ref: paths/api@clusters@id@layout.yaml
+  /api/clusters/{clusterId}/available-updates:
+    $ref: paths/api@clusters@id@available-updates.yaml
+  /api/clusters/{clusterId}/execute-update:
+    $ref: paths/api@clusters@id@execute-update.yaml
+  /api/clusters/{clusterId}/updates:
+    $ref: paths/api@clusters@id@updates.yaml
+  /api/clusters/{clusterId}/updates/{id}:
+    $ref: paths/api@clusters@id@updates@updateId.yaml
   /api/clusters/{clusterId}/masters:
     $ref: paths/api@clusters@id@masters.yaml
   /api/clusters/{clusterId}/namespaces:

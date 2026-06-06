@@ -1,0 +1,29 @@
+{
+    "updates": [{
+      "id": 1,
+      "name": "HVM Cluster 1.2 Upgrade",
+      "code": "hvm-1-1-to-1-2",
+      "updateDefinition": {
+        "id": 1,
+        "name": "HVM Cluster 1.2 Upgrade"
+      },
+      "user": {
+        "id": 1,
+        "username": "admin"
+      },
+      "percentComplete": 0,
+      "precheckValidUntil": null,
+      "status": "pending",
+      "statusMessage": null,
+      "lastUpdatedOn": null,
+      "startedOn": "2026-06-06T16:17:08Z",
+      "completedOn": null
+    }
+  ],
+  "meta": {
+    "size": 1,
+    "total": 1,
+    "max": 25,
+    "offset": 0
+  }
+}
