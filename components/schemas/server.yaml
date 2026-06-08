@@ -205,13 +205,17 @@ properties:
         type: integer
         format: int64
       usedMemory:
-        type: integer
+        type:
+          - integer
+          - 'null'
         format: int64
       maxStorage:
         type: integer
         format: int64
       usedStorage:
-        type: integer
+        type:
+          - integer
+          - 'null'
         format: int64
       reservedStorage:
         type: integer
