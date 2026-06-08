@@ -242,7 +242,9 @@ properties:
           jobRetentionCount:
             type: string
           providerBackupType:
-            type: integer
+            type:
+              - integer
+              - 'null'
             format: int64
       replicationGroup:
         type: object
