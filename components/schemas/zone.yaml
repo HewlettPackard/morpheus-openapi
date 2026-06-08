@@ -288,3 +288,9 @@ properties:
   serverCount:
     type: integer
     format: int64
+  backupProviders:
+    type: array
+    description: Array of backup provider (integration) IDs assigned to this cloud.
+    items:
+      type: integer
+      format: int64
