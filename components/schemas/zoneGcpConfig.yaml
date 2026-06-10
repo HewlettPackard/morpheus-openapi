@@ -29,10 +29,6 @@ properties:
     type:
       - string
       - 'null'
-  backupMode:
-    type:
-      - string
-      - 'null'
   replicationMode:
     type:
       - string
