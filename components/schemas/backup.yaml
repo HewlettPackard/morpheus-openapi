@@ -57,6 +57,41 @@ properties:
       - string
       - 'null'
     description: The file or directory path on the target host. Present when backupType is `fileBackup`, `directoryBackup`, or `tarDirectoryBackup`.
+  targetHost:
+    type:
+      - string
+      - 'null'
+    description: Target host. Present when backupType is a database type (MySQL, SqlServer, Postgres, MongoDB) or lvmSnapshot.
+  targetPort:
+    type:
+      - integer
+      - 'null'
+    description: Target port. Present when backupType is a database type (MySQL, SqlServer, Postgres, MongoDB).
+  targetAll:
+    type:
+      - boolean
+      - 'null'
+    description: Whether to backup all databases. Present when backupType is a database type.
+  targetName:
+    type:
+      - string
+      - 'null'
+    description: Target database name. Present when backupType is a database type and `targetAll` is false.
+  targetUsername:
+    type:
+      - string
+      - 'null'
+    description: Target username. Present when backupType is a database type.
+  targetPassword:
+    type:
+      - string
+      - 'null'
+    description: Target password (masked). Present when backupType is a database type.
+  targetPasswordHash:
+    type:
+      - string
+      - 'null'
+    description: Target password hash. Present when backupType is a database type.
   job:
     type:
       - object
