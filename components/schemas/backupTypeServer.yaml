@@ -2,15 +2,14 @@ title: Backup Server (Host)
 required:
   - locationType
   - name
-  - instanceId
-  - containerId
+  - serverId
   - backupType
   - jobAction
 properties:
   locationType: 
     type: string
     enum:
-    - instance
+    - server
   name: 
     type: string
     description: A name for the backup
@@ -20,58 +19,26 @@ properties:
     description: The ID of the server to backup
   backupType:
     type: string
-    description: The backup type code, options vary by the type of cloud and source
+    description: The backup type code for server backups
     enum:
-      - alibabaSnapshot
-      - amazonSnapshot
-      - avamarVMWareBackup
-      - azureSnapshot
-      - bluemixSnapshot
-      - commvaultFileBackup
-      - commvaultOpenstackBackup
-      - commvaultVMWareBackup
-      - digitaloceanSnapshot
-      - directoryBackup
-      - esxiSnapshot
       - fileBackup
-      - fusionSnapshot
-      - googleSnapshot
-      - huaweiSnapshot
-      - hypervSnapshot
-      - kvm
-      - lvmImage
-      - lvmMigration
-      - lvmSnapshot
-      - MongoDB
-      - morpheusAppliance
-      - morpheusContainerBackup
-      - morpheusStorageBackup
-      - morpheusVmBackup
-      - MySQL
-      - nutanixSnapshot
-      - openstackSnapshot
-      - opentelekomSnapshot
-      - oracleCloudSnapshot
-      - Postgres
-      - powervcSnapshot
-      - rubrikVMWareBackup
-      - scvmmSnapshot
-      - softlayerSnapshot
-      - SqlServer
-      - tarDirectoryBackup
-      - upCloudSnapshot
-      - vcdSnapshot
-      - veeamHypervBackup
-      - veeamScvmmBackup
-      - veeamVcdBackup
-      - veeamVMWareBackup
-      - virtustreamSnapshot
-      - vmwareSnapshot
-      - winMigration
-      - xenSnapshot
+      - directoryBackup
+  targetPath:
+    type: string
+    description: The file or directory path on the target host to back up.
+  sshUsername:
+    type: string
+    description: SSH username for connecting to the server.
+  sshPassword:
+    type: string
+    description: SSH password for connecting to the server.
+  target:
+    type: integer
+    format: int64
+    description: The ID of the storage bucket to store the backup in.
   jobAction:
     type: string
-    description: Create a new backup job, clone an existing job or add the new backup to an existing job
+    description: Create a new backup job, clone an existing job or add the new backup to an existing job. If not specified, defaults to `new`.
     enum:
       - new
       - clone
@@ -82,7 +49,7 @@ properties:
     description: The ID of the job to clone or add to. Only applies to jobAction `clone` and `addTo`.
   jobName:
     type: string
-    description: Name for new job. Only applies to jobAction `new` and `clone`.
+    description: Name for new job. Only applies to jobAction `new` and `clone`. Defaults to the backup name if not specified.
   jobSchedule:
     type: integer
     format: int64
@@ -90,4 +57,4 @@ properties:
   retentionCount:
     type: integer
     format: int64
-    description: Retention Count for new job. By default the backup settings value will be used. Only applies to jobAction `new` and `clone`. 
+    description: Retention Count for new job. By default the backup settings value will be used. Only applies to jobAction `new` and `clone`.

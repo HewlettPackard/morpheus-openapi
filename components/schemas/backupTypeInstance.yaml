@@ -21,10 +21,10 @@ properties:
   containerId:
     type: integer
     format: int64
-    description: The ID of the container to backup
+    description: The ID of the container (workload) to backup. Can be obtained from the instance's containers list via `GET /api/instances/{instanceId}`.
   backupType:
     type: string
-    description: The backup type code, options vary by the type of cloud and source
+    description: The backup type code, options vary by the type of cloud and source. If not specified, the type is automatically determined from the instance's container.
     enum:
       - alibabaSnapshot
       - amazonSnapshot
@@ -75,7 +75,7 @@ properties:
       - xenSnapshot
   jobAction:
     type: string
-    description: Create a new backup job, clone an existing job or add the new backup to an existing job
+    description: Create a new backup job, clone an existing job or add the new backup to an existing job. If not specified, defaults to `new`.
     enum:
       - new
       - clone
@@ -86,7 +86,7 @@ properties:
     description: The ID of the job to clone or add to. Only applies to jobAction `clone` and `addTo`.
   jobName:
     type: string
-    description: Name for new job. Only applies to jobAction `new` and `clone`.
+    description: Name for new job. Only applies to jobAction `new` and `clone`. Defaults to the backup name if not specified.
   jobSchedule:
     type: integer
     format: int64
@@ -95,13 +95,25 @@ properties:
     type: integer
     format: int64
     description: Retention Count for new job. By default the backup settings value will be used. Only applies to jobAction `new` and `clone`.
+  target:
+    type: integer
+    format: int64
+    description: The ID of the storage bucket to store the backup in.
+  backupRepository:
+    type: integer
+    format: int64
+    description: The ID of the backup repository (for provider-specific repositories such as Veeam or Commvault).
+  providerBackupType:
+    type: integer
+    format: int64
+    description: The ID of the backup type when using an external backup provider (e.g. Veeam, Commvault). Overrides `backupType`.
   backupJob:
     type: object
     properties:
       syntheticFullEnabled:
         type: boolean
-        description: Enable synthetic full backups on this backup jobAction. Only applies to `kvm` backup type.
+        description: Enable synthetic full backups on this backup job. Only applies to backup types whose job type supports synthetic full backups.
       syntheticFullSchedule:
         type: integer
         format: int64
-        description: the ID of the execute schedule for the synthetic full backup to be created. Only applies to `kvm` backup type.
+        description: The ID of the execute schedule for the synthetic full backup. Required when `syntheticFullEnabled` is true.
