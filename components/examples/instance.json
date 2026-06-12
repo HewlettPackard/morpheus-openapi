@@ -467,7 +467,10 @@
                                 "id": 57802,
                                 "name": "labs_public_1a (subnet-25a65d40)"
                             },
-                            "subnet": null,
+                            "subnet": {
+                                "id": 245,
+                                "name": "labs_public_1a"
+                            },
                             "networkGroup": {
                                 "id": 2,
                                 "name": "Demo Preferred"
