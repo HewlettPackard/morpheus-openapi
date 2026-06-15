@@ -99,8 +99,6 @@ paths:
     $ref: paths/api@backup-settings.yaml
   /api/backups:
     $ref: paths/api@backups.yaml
-  /api/backups/create:
-    $ref: paths/api@backups@create.yaml
   /api/backups/{id}:
     $ref: paths/api@backups@id.yaml
   /api/backups/{id}/execute:
