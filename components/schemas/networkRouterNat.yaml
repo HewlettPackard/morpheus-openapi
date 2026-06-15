@@ -5,6 +5,8 @@ properties:
     format: int32
   name:
     type: string
+  action:
+    type: string
   description:
     type: string
   enabled:
