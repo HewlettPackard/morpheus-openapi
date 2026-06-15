@@ -1,0 +1,151 @@
+type: object
+properties:
+  success:
+    type: boolean
+    description: Whether the validation passed
+  errors:
+    type: object
+    description: Map of field names to error messages
+    additionalProperties:
+      type: string
+  backup:
+    type: object
+    description: The backup configuration as submitted, with any computed defaults applied
+    properties:
+      locationType:
+        type: string
+        description: The resolved location type
+      name:
+        type: string
+        description: The backup name
+      instanceId:
+        type: integer
+        format: int64
+      containerId:
+        type: integer
+        format: int64
+      serverId:
+        type: integer
+        format: int64
+      backupType:
+        type: string
+        description: The computed or submitted backup type code
+      jobAction:
+        type: string
+      jobId:
+        type: integer
+        format: int64
+      jobName:
+        type: string
+      targetPort:
+        type:
+          - integer
+          - 'null'
+        description: Default target port, computed for database backup types
+    additionalProperties: true
+  zoneId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: The cloud (zone) ID associated with the instance. Present when locationType is `instance`.
+  instance:
+    type:
+      - object
+      - 'null'
+    description: The resolved instance. Present when locationType is `instance`.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  containers:
+    type: array
+    description: List of containers (workloads) belonging to the instance. Present when locationType is `instance`.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Container ID
+        name:
+          type: string
+          description: Container name
+  server:
+    type:
+      - object
+      - 'null'
+    description: The resolved server. Present when locationType is `server`.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  backupTypes:
+    type: array
+    description: List of available backup type codes for the resolved instance or server.
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Backup type code
+        name:
+          type: string
+          description: Backup type display name
+  accountId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: The account ID. Present when locationType is `instance`.
+  providerBackupTypes:
+    type: array
+    description: List of external backup provider types available for this instance (e.g. Veeam, Commvault). Present when locationType is `instance`.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        code:
+          type: string
+        name:
+          type: string
+        providerCode:
+          type: string
+  veeamSupported:
+    type: boolean
+    description: Whether Veeam backup is available for this instance.
+  commvaultSupported:
+    type: boolean
+    description: Whether Commvault backup is available for this instance.
+  backupSettings:
+    type: object
+    description: Default backup settings for the account.
+    properties:
+      retentionCount:
+        type:
+          - integer
+          - 'null'
+        description: Default retention count
+      defaultBackupSchedule:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: Default backup schedule ID (execute schedule type)
+      defaultSyntheticFullBackupsEnabled:
+        type:
+          - boolean
+          - 'null'
+        description: Whether synthetic full backups are enabled by default
+      defaultSyntheticFullBackupSchedule:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: Default synthetic full backup schedule ID

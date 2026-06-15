@@ -1,0 +1,34 @@
+post:
+  summary: Validates a Backup Configuration
+  description: |
+    This endpoint validates a backup configuration and returns contextual information
+    needed to create a backup, such as available backup types, containers, and default settings.
+    It does not persist anything. Use this as a pre-flight check before calling `POST /api/backups`.
+  operationId: validateBackupCreate
+  tags:
+    - Backups
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - backup
+          properties:
+            backup:
+              type: object
+              anyOf:
+                - $ref: ../components/schemas/backupTypeInstance.yaml
+                - $ref: ../components/schemas/backupTypeServer.yaml
+                - $ref: ../components/schemas/backupTypeProvider.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/backupCreateResponse.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
