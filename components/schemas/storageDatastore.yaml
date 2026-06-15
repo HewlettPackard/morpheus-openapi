@@ -15,6 +15,20 @@ properties:
       id:
         type: integer
         format: int64
+      code:
+        type: string
+        description: Code for the datastore type
+      name:
+          type: string
+          description: Name of the datastore type
+    required:
+      - id
+      - code
+      - name
+  config:
+    type: object
+    description: Configuration object. Settings vary by type.
+    additionalProperties: true
   storageServer:
     type: object
     properties:
@@ -23,7 +37,18 @@ properties:
         format: int64
   type:
     type: string
+    description: The underlying type of the datastore, e.g. 'generic', 'cluster', 'nfs', 'vmfs', 'NFS Pool', 'Directory Pool', 'GFS2 Pool (Global File System 2)', 'storage-profile', 'ext'
+  status:
+    type: string
+    description: The current status of the datastore, e.g. 'provisioned', 'provisioning', 'failed', 'warning'
+  statusMessage:
+    type: string
+    description: Additional details about the current status of the datastore
   visibility:
+    description: Visibility level of the datastore, can be 'private' or 'public'. If not specified, defaults to 'private'.
+    enum:
+      - private
+      - public
     type: string
   storageSize:
     type:
@@ -49,21 +74,34 @@ properties:
     type: boolean
   allowProvision:
     type: boolean
+  heartBeatTarget:
+    type: boolean
   refType:
     type: string
+    description: Type of the resource this datastore is associated with, e.g. 'ComputeZone', 'ComputeServerGroup'
   refId:
     type: integer
     format: int64
+    description: The ID of the resource this datastore is associated with, e.g. ComputeZone, ComputeServerGroup
   externalId:
     type: string
+    description: UUID for the datastore
+  externalPath:
+    type: string
+    description: External path for the datastore, e.g. mount path, datastore path, etc.
+  externalType:
+    type: string
+    description: External type for the datastore, e.g. rbd, netfs, dir:gfs2
   zone:
     type: object
+    description: The zone (Cloud) this datastore belongs to
     properties:
       id:
         type: integer
         format: int64
   zonePool:
     type: object
+    description: The zone pool (resource pool) this datastore belongs to (for some Cloud datastores)
     properties:
       id:
         type: integer
@@ -74,59 +112,37 @@ properties:
       id:
         type: integer
         format: int64
-  tenants:
+  datastores:
     type: array
+    description: List of datastores associated with this datastore, for use with vSphere clouds.
     items:
       type: object
       properties:
         id:
           type: integer
-          format: int64
+          description: id of the component datastore
         name:
           type: string
-        defaultStore:
-          type: boolean
-        defaultTarget:
-          type: boolean
-  resourcePermissions:
-    type: object
-    properties:
-      allGroups:
-        type: boolean
-      defaultStore:
-        type: boolean
-      allPlans:
-        type: boolean
-      defaultTarget:
-        type: boolean
-      morpheusResourceType:
-        type: string
-      morpheusResourceId:
-        type: integer
-        format: int64
-      canManage:
-        type: boolean
-      all:
-        type: boolean
-      account:
-        type: object
-        properties:
-          id:
-            type: integer
-            format: int64
-      sites:
-        type:
-          - array
-          - 'null'
-        items:
-          type: object
-      plans:
-        type:
-          - array
-          - 'null'
-        items:
-          type: object
-  datastores:
+          description: Name of the component datastore
+  locations:
     type: array
     items:
       type: object
+      properties:
+        refType:
+          type: string
+          description: Type of the location, e.g. 'ComputeServer'
+        refId:
+          type: integer
+          format: int64
+        status:
+          type: string
+          description: Status of the location, e.g. 'provisioned', 'provisioning', 'failed', 'warning'
+        statusMessage:
+          type: string
+required:
+- id
+- name
+- datastoreType
+- type
+- status

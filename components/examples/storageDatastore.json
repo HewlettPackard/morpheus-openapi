@@ -4,7 +4,7 @@
       "name": "vsanDatastore",
       "code": null,
       "type": "vsan",
-      "visibility": "privates",
+      "visibility": "private",
       "storageSize": 3000483446784,
       "freeSpace": 1634729396798,
       "drsEnabled": false,
@@ -18,9 +18,14 @@
       "refId": 3,
       "externalId": "datastore-58601",
       "status": "provisioned",
-      "statusMessage": null,
+      "statusMessage": "provisioned datastore on host",
       "zone": {
         "id": 3
+      },
+      "datastoreType": {
+        "id": 1,
+        "code": "vmware-vsan",
+        "name": "VMware vSAN"
       },
       "zonePool": {
         "id": 9
@@ -56,6 +61,25 @@
         "plans": []
       },
       "datastores": [],
-      "locations": []
+      "locations": [
+        {
+          "refType": "ComputeServer",
+          "refId": 346676,
+          "status": "provisioned",
+          "statusMessage": "provisioned datastore on host"
+        },
+        {
+          "refType": "ComputeServer",
+          "refId": 346677,
+          "status": "provisioned",
+          "statusMessage": "provisioned datastore on host"
+        },
+        {
+          "refType": "ComputeServer",
+          "refId": 346675,
+          "status": "provisioned",
+          "statusMessage": "provisioned datastore on host"
+        }
+      ]
     }
   }

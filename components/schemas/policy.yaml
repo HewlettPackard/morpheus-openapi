@@ -66,8 +66,9 @@ properties:
       - 'null'
   refId:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
   eachUser:
     type:
       - boolean
@@ -75,15 +76,28 @@ properties:
   config:
     oneOf:
       - type: object
+        title: Approve Policy Type Configuration
         additionalProperties: false
+        required:
+          - accountIntegrationId
         description: |
           - Approve Delete
-          - Approve Provisiong
+          - Approve Provision
           - Approve Reconfigure
         properties:
           accountIntegrationId:
             type: string
+          workflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
+            enum:
+              - "flow"
+              - "workflow"
       - type: object
+        title: Backup Creation Policy Type Configuration
         additionalProperties: false
         required:
           - createBackupType
@@ -92,11 +106,13 @@ properties:
         properties:
           createBackupType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           createBackup:
             type: boolean
-          accountIntegrationId:
-            type: string
       - type: object
+        title: Backup Targets Policy Type Configuration
         additionalProperties: false
         required:
           - backupStorageIds
@@ -108,6 +124,7 @@ properties:
             items:
               type: string
       - type: object
+        title: Budget Policy Type Configuration
         additionalProperties: false
         required:
           - maxPrice
@@ -115,35 +132,39 @@ properties:
           - Budget
         properties:
           maxPrice:
-            type: string
+            type: number
           maxPriceCurrency:
             type: string
           maxPriceUnit:
             type: string
+            enum:
+              - "hour"
+              - "month"
       - type: object
+        title: Cluster Resource Name Policy Type Configuration
         additionalProperties: false
         required:
           - serverNamingType
         description: |
           - Cluster Resource Name
         properties:
-          accountIntegrationId:
-            type: string
           serverNamingType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           serverNamingPattern:
             type: string
           serverNamingConflict:
             type: boolean
       - type: object
+        title: Cypher Access Policy Type Configuration
         additionalProperties: false
         required:
           - keyPattern
         description: |
           - Cypher Access
         properties:
-          accountIntegrationId:
-            type: string
           keyPattern:
             type: string
           read:
@@ -157,17 +178,17 @@ properties:
           list:
             type: boolean
       - type: object
+        title: Delayed Delete Policy Type Configuration
         additionalProperties: false
         required:
           - removalAge
         description: |
           - Delayed Delete
         properties:
-          accountIntegrationId:
-            type: string
           removalAge:
             type: string
       - type: object
+        title: Expiration Policy Type Configuration
         additionalProperties: false
         required:
           - lifecycleType
@@ -176,6 +197,9 @@ properties:
         properties:
           lifecycleType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           lifecycleAge:
             type: string
           lifecycleRenewal:
@@ -192,9 +216,19 @@ properties:
             type: string
           accountIntegrationId:
             type: string
+          lifecycleWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
+            enum:
+              - "flow"
+              - "workflow"
           lifecycleHideFixed:
             type: boolean
       - type: object
+        title: Hostname Policy Type Configuration
         additionalProperties: false
         required:
           - hostNamingType
@@ -203,9 +237,13 @@ properties:
         properties:
           hostNamingType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           hostNamingPattern:
             type: string
       - type: object
+        title: Instance Name Policy Type Configuration
         additionalProperties: false
         required:
           - namingType
@@ -214,11 +252,15 @@ properties:
         properties:
           namingType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           namingPattern:
             type: string
           namingConflict:
             type: boolean
       - type: object
+        title: Max Containers Policy Type Configuration
         additionalProperties: false
         required:
           - maxContainers
@@ -228,6 +270,7 @@ properties:
           maxContainers:
             type: string
       - type: object
+        title: Max Cores Policy Type Configuration
         additionalProperties: false
         required:
           - maxCores
@@ -239,6 +282,7 @@ properties:
           excludeContainers:
             $ref: checkbox.yaml
       - type: object
+        title: Max Hosts Policy Type Configuration
         additionalProperties: false
         required:
           - maxHosts
@@ -248,6 +292,7 @@ properties:
           maxHosts:
             type: string
       - type: object
+        title: Max Load Balancer Pools Policy Type Configuration
         additionalProperties: false
         required:
           - maxPools
@@ -257,6 +302,7 @@ properties:
           maxPools:
             type: string
       - type: object
+        title: Max Memory Policy Type Configuration
         additionalProperties: false
         required:
           - maxMemory
@@ -268,6 +314,7 @@ properties:
           excludeContainers:
             $ref: checkbox.yaml
       - type: object
+        title: Max Pool Members Policy Type Configuration
         additionalProperties: false
         required:
           - maxPoolMembers
@@ -277,6 +324,17 @@ properties:
           maxPoolMembers:
             type: string
       - type: object
+        title: Max Snapshots Policy Type Configuration
+        additionalProperties: false
+        required:
+          - maxSnapshots
+        description: |
+          - Max Snapshots
+        properties:
+          maxSnapshots:
+            type: string
+      - type: object
+        title: Max Storage and Object Storage Quota Policy Type Configuration
         additionalProperties: false
         required:
           - maxStorage
@@ -290,6 +348,7 @@ properties:
           excludeContainers:
             $ref: checkbox.yaml
       - type: object
+        title: Max Virtual Servers Policy Type Configuration
         additionalProperties: false
         required:
           - maxVirtualServers
@@ -299,6 +358,7 @@ properties:
           maxVirtualServers:
             type: string
       - type: object
+        title: Max VMs Policy Type Configuration
         additionalProperties: false
         required:
           - maxVms
@@ -308,6 +368,7 @@ properties:
           maxVms:
             type: string
       - type: object
+        title: Message of the Day Policy Type Configuration
         additionalProperties: false
         required:
           - motd
@@ -327,7 +388,7 @@ properties:
                 type: string
               type:
                 type: string
-              _fullPage:
+              fullPage:
                 oneOf:
                   - type: string
                     enum:
@@ -339,7 +400,11 @@ properties:
             type: string
           motd.type:
             type: string
-          motd._fullPage:
+            enum:
+              - "info"
+              - "warning"
+              - "critical"
+          motd.fullPage:
             oneOf:
               - type: string
                 enum:
@@ -349,8 +414,8 @@ properties:
               - type: 'null'
           motd.date:
             type: string
-            format: date-time
       - type: object
+        title: Network Quota Policy Type Configuration
         additionalProperties: false
         required:
           - maxNetworks
@@ -360,6 +425,7 @@ properties:
           maxNetworks:
             type: string
       - type: object
+        title: Power Schedule Policy Type Configuration
         additionalProperties: false
         required:
           - powerScheduleType
@@ -368,11 +434,15 @@ properties:
         properties:
           powerScheduleType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           powerSchedule:
             type: string
           powerScheduleHideFixed:
             type: boolean
       - type: object
+        title: Router Quota Policy Type Configuration
         additionalProperties: false
         required:
           - maxRouters
@@ -382,6 +452,20 @@ properties:
           maxRouters:
             type: string
       - type: object
+        title: Required Network Policy Type Configuration
+        additionalProperties: false
+        required:
+          - requiredNetworks
+        description: |
+          - Instance Networks
+        properties:
+          requiredNetworks:
+            type: array
+            items:
+              type: integer
+              format: int64
+      - type: object
+        title: Shutdown Policy Type Configuration
         additionalProperties: false
         required:
           - shutdownType
@@ -390,6 +474,9 @@ properties:
         properties:
           shutdownType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           shutdownAge:
             type: string
           shutdownRenewal:
@@ -408,7 +495,17 @@ properties:
             type: string
           shutdownHideFixed:
             type: boolean
+          shutdownWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
+            enum:
+              - "flow"
+              - "workflow"
       - type: object
+        title: Storage Server Storage Quota Policy Type Configuration
         additionalProperties: false
         required:
           - storageServerId
@@ -420,6 +517,7 @@ properties:
           maxStorage:
             type: string
       - type: object
+        title: Tags Policy Type Configuration
         additionalProperties: false
         required:
           - strict
@@ -435,6 +533,7 @@ properties:
           value:
             type: string
       - type: object
+        title: User Creation Policy Type Configuration
         additionalProperties: false
         required:
           - createUserType
@@ -443,9 +542,13 @@ properties:
         properties:
           createUserType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           createUser:
             type: boolean
       - type: object
+        title: User Group Creation Policy Type Configuration
         additionalProperties: false
         required:
           - userGroup
@@ -455,6 +558,7 @@ properties:
           userGroup:
             type: string
       - type: object
+        title: Workflow Policy Type Configuration
         additionalProperties: false
         required:
           - workflowId

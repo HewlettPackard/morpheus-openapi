@@ -15,11 +15,20 @@ properties:
         description: |
           Configuration settings for the following policy types:
           - Approve Delete
-          - Approve Provisiong
+          - Approve Provision
           - Approve Reconfigure
         properties:
           accountIntegrationId:
             type: string
+          workflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
+            enum:
+              - "flow"
+              - "workflow"
       - type: object
         title: Backup Creation Policy Type Configuration
         description: |
@@ -28,6 +37,9 @@ properties:
         properties:
           createBackupType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           createBackup:
             type: boolean
       - type: object
@@ -53,6 +65,9 @@ properties:
             type: string
           maxPriceUnit:
             type: string
+            enum:
+              - "hour"
+              - "month"
       - type: object
         title: Cluster Resource Name Policy Type Configuration
         description: |
@@ -61,6 +76,9 @@ properties:
         properties:
           serverNamingType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           serverNamingPattern:
             type: string
           serverNamingConflict:
@@ -99,6 +117,9 @@ properties:
         properties:
           lifecycleType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           lifecycleAge:
             type: string
           lifecycleRenewal:
@@ -117,6 +138,15 @@ properties:
             type: string
           lifecycleHideFixed:
             type: boolean
+          lifecycleWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
+            enum:
+              - "flow"
+              - "workflow"
       - type: object
         title: File Share Storage Quota Policy Type Configuration
         description: |
@@ -133,6 +163,9 @@ properties:
         properties:
           hostNamingType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           hostNamingPattern:
             type: string
       - type: object
@@ -143,6 +176,9 @@ properties:
         properties:
           namingType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           namingPattern:
             type: string
           namingConflict:
@@ -209,6 +245,13 @@ properties:
           maxPoolMembers:
             type: string
       - type: object
+        title: Max Snapshots Policy Type Configuration
+        description: |
+          - Max Snapshots
+        properties:
+          maxSnapshots:
+            type: string
+      - type: object
         title: Max Storage and Object Storage Quota Policy Type Configuration
         description: |
           Configuration settings for the following policy types:
@@ -252,7 +295,7 @@ properties:
                 type: string
               type:
                 type: string
-              _fullPage:
+              fullPage:
                 type:
                   - boolean
                   - 'null'
@@ -260,13 +303,16 @@ properties:
             type: string
           motd.type:
             type: string
-          motd._fullPage:
+            enum:
+              - "info"
+              - "warning"
+              - "critical"
+          motd.fullPage:
             type:
               - boolean
               - 'null'
           motd.date:
             type: string
-            format: date-time
       - type: object
         title: Network Quota Policy Type Configuration
         description: |
@@ -283,6 +329,9 @@ properties:
         properties:
           powerScheduleType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           powerSchedule:
             type: string
           powerScheduleHideFixed:
@@ -296,6 +345,18 @@ properties:
           maxRouters:
             type: string
       - type: object
+        title: Required Network Policy Type Configuration
+        description: |
+          Configuration settings for the following policy types:
+          - Instance Networks
+        properties:
+          requiredNetworks:
+            type: array
+            description: Array of network IDs that are required
+            items:
+              type: integer
+              format: int64
+      - type: object
         title: Shutdown Policy Type Configuration
         description: |
           Configuration settings for the following policy types:
@@ -303,6 +364,9 @@ properties:
         properties:
           shutdownType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           shutdownAge:
             type: string
           shutdownRenewal:
@@ -321,6 +385,15 @@ properties:
             type: string
           shutdownHideFixed:
             type: boolean
+          shutdownWorkflowId:
+            type: string
+          flowId:
+            type: string
+          workflowType:
+            type: string
+            enum:
+              - "flow"
+              - "workflow"
       - type: object
         title: Storage Server Storage Quota Policy Type Configuration
         description: |
@@ -353,6 +426,9 @@ properties:
         properties:
           createUserType:
             type: string
+            enum:
+              - "user"
+              - "fixed"
           createUser:
             type: boolean
       - type: object

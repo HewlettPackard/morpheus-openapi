@@ -1,4 +1,6 @@
 type: object
+title: NFS Datastore Configuration
+description: NFS Cluster Datastore Configuration
 properties:
   sourceHostname:
     type: string
@@ -6,3 +8,12 @@ properties:
   sourceDirPath:
     type: string
     description: Path to the target NFS export directory.
+  sourceVersion:
+    type: string
+    description: NFS version to use when mounting the export.
+    enum:
+      - "3"
+      - "4"
+required:
+  - sourceHostname
+  - sourceDirPath

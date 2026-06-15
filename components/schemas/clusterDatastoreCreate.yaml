@@ -24,6 +24,8 @@ properties:
     anyOf:
       - $ref: clusterDatastoreConfigNFS.yaml
       - $ref: clusterDatastoreConfigGFS2.yaml
+      - $ref: storageDatastoreConfigGeneric.yaml
+      - $ref: storageDatastoreConfigAlletraMPHVM.yaml
   tenants:
     type: array
     items:
@@ -65,17 +67,25 @@ properties:
             type: integer
             format: int64
       sites:
-        type:
-          - array
-          - 'null'
+        type: array
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
       plans:
-        type:
-          - array
-          - 'null'
+        type: array
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+            code:
+              type: string
   datastores:
     type: array
     items:
@@ -83,3 +93,13 @@ properties:
   heartbeatTarget: 
     type: boolean
     description: Heartbeat Target
+  supportsVmSecureMetadata:
+    type: boolean
+    description: >
+      When `true`, designates this datastore to hold NVRAM and swtpm state for
+      TPM/SecureBoot VMs in the cluster, enabling live migration and HA
+      failover. Only one datastore per cluster scope may be designated at a
+      time; setting this to `true` automatically clears the flag on any
+      previously designated datastore. Only applicable to GFS2 and NFS
+      datastore types.
+

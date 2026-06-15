@@ -1,0 +1,45 @@
+type: object
+description: Request body for the Add Node action
+properties:
+  code:
+    type: string
+    description: The instance type code for the node being added during scale operation
+    example: generic-add-node
+  selectedResourcePoolId:
+    type: integer
+    format: int64
+    description: The ID of the resource pool where the node will be created
+    example: 35856
+  preProvisioned:
+    type: string
+    description: Set to 'on' to use a pre-provisioned server
+    enum:
+      - on
+      - off
+    example: on
+  selectedServerId:
+    type: integer
+    format: int64
+    description: The ID of the pre-provisioned server
+    example: 123
+  sshUsername:
+    type: string
+    description: SSH username for connecting to the pre-provisioned server
+    example: root
+  sshPassword:
+    type: string
+    description: SSH password for connecting to the pre-provisioned server
+    example: mypassword
+  sshHost:
+    type: string
+    description: The SSH host IP address for the pre-provisioned server
+    example: 192.168.1.100
+  sshKeyPair:
+    type: object
+    description: SSH key pair for connecting to the pre-provisioned server
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The ID of the SSH key pair
+        example: 5

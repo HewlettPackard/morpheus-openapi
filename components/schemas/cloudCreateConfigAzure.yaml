@@ -1,0 +1,52 @@
+description: Azure Cloud
+type: object
+properties:
+  applianceUrl:
+    type: string
+    description: The URL used by workloads provisioned in the cloud for interacting with the Morpheus appliance.
+  datacenterName:
+    type: string
+    description: A custom name used to reference the datacenter for the cloud.
+  externalId:
+    type:
+      - string
+      - 'null'
+    description: The external id of the cloud
+  inventoryLevel:
+    type: string
+    enum:
+      - off
+      - basic
+      - full
+    description: Whether to import existing virtual machines.
+  consoleKeymap:
+    type: string
+    description: The keyboard layout to use for the console
+  subscriberId:
+    type: string
+    description: Azure subscriber id
+    example: 8d6b0be1b6a8
+  tenantId:
+    type: string
+    description: Azure tenant id
+    example: aa46b411cb55
+  clientId:
+    type: string
+    description: Azure client id
+    example: 477ae92bd8ad
+  clientSecret:
+    type: string
+    description: Azure client secret
+    example: '************'
+  resourceGroup:
+    type: string
+    description: Azure resource group
+    example: /subscriptions/8d6b0be1b6a8/resourceGroups/TestRG
+  rpcMode:
+    oneOf: 
+      - type: string
+        enum:
+          - guestexec
+          - rpc
+      - type: 'null'
+    description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))

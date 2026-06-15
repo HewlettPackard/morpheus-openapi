@@ -3,5 +3,6 @@ in: path
 description: The ID of the cloud
 required: true
 schema:
-  type: number
+  type: integer
+  format: int64
 example: 7

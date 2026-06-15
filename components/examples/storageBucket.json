@@ -5,6 +5,7 @@
         "active": true,
         "accountId": 1,
         "providerType": "local",
+        "storageServer": null,
         "config": {
             "basePath": "/tmp/test-storage"
         },

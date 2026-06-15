@@ -5,15 +5,19 @@ properties:
     format: int64
   name:
     type: string
+    description: A name for the virtual image
   description:
     type:
       - string
       - 'null'
+    description: A description for the virtual image
   labels:
     type: array
+    description: Array of label strings, can be used for filtering.
     items:
       type: string
   ownerId:
+    description: Owner of the image
     type: integer
     format: int64
   tenant:
@@ -26,15 +30,21 @@ properties:
         type: string
   imageType:
     type: string
+    description: Code of image type. eg. vmware, ami, etc.
   userUploaded:
+    description: Is uploaded by an user?
     type: boolean
   userDefined:
+    description: Is defined by an user?
     type: boolean
   systemImage:
+    description: Is created by system?
     type: boolean
   isCloudInit:
     type: boolean
+    description: Cloud Init Enabled?
   sshUsername:
+    description: SSH Username
     type:
       - string
       - 'null'
@@ -47,6 +57,7 @@ properties:
       - string
       - 'null'
   sshKey:
+    description: SSH Key
     type:
       - string
       - 'null'
@@ -80,53 +91,70 @@ properties:
       platform:
         type: string
   minRam:
+    description: Minimum required RAM in bytes
     type:
       - integer
       - 'null'
     format: int64
   minRamGB:
+    description: Minimum required RAM in gigabytes
+    type:
+      - number
+      - 'null'
+    format: double
+  minDisk:
+    description: Minimum required disk size in bytes
     type:
       - integer
       - 'null'
     format: int64
-  minDisk:
-    type:
-      - string
-      - 'null'
   minDiskGB:
+    description: Minimum required disk size in gigabytes
     type:
       - string
       - 'null'
   rawSize:
+    description: Size of image in bytes
     type:
       - integer
       - 'null'
     format: int64
   rawSizeGB:
+    description: Size of image in gigabytes
     type:
       - number
       - 'null'
   trialVersion:
+    description: Is Trial Version?
     type: boolean
   virtioSupported:
     type: boolean
+    description: VirtIO Drivers Loaded?
   uefi:
+    description: UEFI enabled?
     type:
-      - string
+      - boolean
       - 'null'
   isAutoJoinDomain:
     type: boolean
+    description: Auto Join Domain?
   vmToolsInstalled:
     type: boolean
+    description: VM Tools Installed?
   installAgent:
     type: boolean
+    description: Install Agent?
   isForceCustomization:
     type: boolean
+    description: Force Guest Customization?
   isSysprep:
     type: boolean
+    description: Sysprep Enabled?
   fipsEnabled:
     type: boolean
+    description: FIPS enabled?
   userData:
+    description: Cloud-Init User Data, a bash script
     type:
       - string
       - 'null'
@@ -136,14 +164,24 @@ properties:
       - 'null'
   storageProvider:
     type:
-      - string
+      - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   externalId:
     type:
       - string
       - 'null'
   visibility:
     type: string
+    description: private or public
+    enum:
+      - "private"
+      - "public"
   accounts:
     type: array
     items:
@@ -155,7 +193,30 @@ properties:
         name:
           type: string
   config:
-    type: object
+    description: Map of configuration properties, varies by image type.
+    oneOf:
+      - type: object
+        title: Azure Reference Virtual Image Configuration
+        description: Azure Reference Virtual Image Parameters
+        required:
+          - publisher
+          - offer
+          - sku
+          - version
+        properties:
+          publisher:
+            type: string
+            description: The name of the publisher in the Azure Marketplace
+          offer:
+            type: string
+            description: The name of the offer in the Azure Marketplace
+          sku:
+            type: string
+            description: The name of the sku in the Azure Marketplace
+          version:
+            type: string
+            description: The name of the version in the Azure Marketplace
+      - type: object
     properties:
       memorySizeType:
         type: string
@@ -167,18 +228,123 @@ properties:
     type: array
     items:
       type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        active:
+          type: boolean
+        type:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            code:
+              type: string
+            name:
+              type: string
+        busNumber:
+          type: integer
+          format: int64
+        maxDevices:
+          type: integer
+          format: int64
+        removable:
+          type: boolean
+        editable:
+          type: boolean
+        reservedUnitNumber:
+          type: integer
+          format: int64
+        category:
+          type: string
   networkInterfaces:
     type: array
     items:
       type: object
   tags:
     type: array
+    description: Metadata tags, Array of objects having a name and value
     items:
       type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: string
   locations:
     type: array
     items:
       type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        cloud:
+          type: object
+        code:
+          type: string
+        internalId:
+          type: 
+            - string
+            - 'null'
+        externalId:
+          type: 
+            - string
+            - 'null'
+        externalDiskId:
+          type: 
+            - string
+            - 'null'
+        remotePath:
+          type: 
+            - string
+            - 'null'
+        imagePath:
+          type:
+            - string
+            - 'null'
+        imageName:
+          type:
+            - string
+        imageRegion:
+          type:
+            - string
+            - 'null'
+        imageFolder:
+          type:
+            - string
+            - 'null'
+        refType:
+          type: string
+        refId:
+          type: 
+            - integer
+            - 'null'
+          format: int64
+        nodeRefType:
+          type:
+            - string
+            - 'null'
+        subRefType:
+          type:
+            - string
+            - 'null'
+        subRefId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+        isPublic:
+          type: boolean
+        systemImage:
+          type: boolean
+        diskIndex:
+          type: integer
+          format: int64
   dateCreated:
     type: string
     format: date-time

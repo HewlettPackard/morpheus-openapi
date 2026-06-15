@@ -1,0 +1,118 @@
+description: VSphere Cloud
+type: object
+required:
+  - apiUrl
+  - apiVersion
+  - datacenter
+properties:
+  applianceUrl:
+    type: string
+    description: The URL used by workloads provisioned in the cloud for interacting with the Morpheus appliance.
+  datacenterName:
+    type: string
+    description: A custom name used to reference the datacenter for the cloud.
+  externalId:
+    type:
+      - string
+      - 'null'
+    description: The external id of the cloud
+  inventoryLevel:
+    type: string
+    enum:
+      - off
+      - basic
+      - full
+    description: Whether to import existing virtual machines.
+  consoleKeymap:
+    type: string
+    description: The keyboard layout to use for the console
+  apiUrl:
+    type: string
+    description: The SDK URL of the vCenter server.
+    example: https://vcenter.morpheus.local/sdk
+  apiVersion:
+    type: string
+    description: The SDK version of the vCenter server.
+  datacenter:
+    type: string
+    description: The vSphere datacenter to add.
+  cluster:
+    type: string
+    description: The name of the vSphere cluster
+    default: all
+  configManagementId:
+    type: string
+    description: The id of the configuration management integration associated with the vSphere cloud.
+  resourcePool:
+    type: string
+    description: The name of the vSphere resource pool
+  rpcMode:
+    oneOf: 
+      - type: string 
+        enum:
+          - guestexec
+          - rpc
+      - type: 'null'
+    description: The method for interacting with cloud workloads (guestexec (VMware Tools) or rpc (SSH/WinRM))
+  storageType:
+    type: string
+    default: thin
+    enum:
+      - thin
+      - thick
+      - thickEager
+    description: The default vSphere VMDK type for virtual machines
+  certificateProvider:
+    type: string
+    description: Certificate provider
+    default: internal
+  enableVnc:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Enable VNC access to the console.
+  hideHostSelection:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to hide the ability to select the vSphere host from the user during provisioning.
+  enableDiskTypeSelection:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to enable the user to select the disk type during provisioning.
+  enableStorageTypeSelection:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to enable the user to select the storage type during provisioning.
+  enableNetworkTypeSelection:
+    oneOf: 
+      - type: string
+        enum:
+          - on
+      - type: 'null'
+    default: null
+    description: Whether to enable the user to select the network type during provisioning.
+  username:
+    type: string
+    description: Username.
+    example: jsmith
+  password:
+    type: string
+    format: password
+    description: Password to apply to the user
+    example: Passw0rd!
+

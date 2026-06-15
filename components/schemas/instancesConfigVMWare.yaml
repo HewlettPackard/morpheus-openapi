@@ -26,6 +26,12 @@ properties:
   vmwareFolderId:
     type: string
     description: VMWare Folder External ID (as a String) or ID (as an Integer or String)
+  createUser:
+    type:
+      - boolean
+      - 'null'
+    description: Create user
+    default: false
   template:
     description: Image ID. This is the ID of a Virtual Image.
     type: integer

@@ -12,11 +12,11 @@
     "zone": {
       "id": 143
     },
+    "zonePool": {
+      "id": 3772
+    },
     "config": {
         "mtu": "1460",
-        "zonePool": {
-            "id": 3772
-        },
         "autoCreate": true
     },
     "cidr": "192.168.12.0/24",

@@ -1,0 +1,31 @@
+{
+    "policy": {
+        "id": 9686,
+        "name": "Instance Networks Policy",
+        "description": null,
+        "policyType": {
+            "id": 36,
+            "code": "requiredNetwork",
+            "name": "Instance Networks"
+        },
+        "zone": null,
+        "site": null,
+        "user": null,
+        "role": null,
+        "refType": null,
+        "refId": null,
+        "eachUser": false,
+        "config": {
+            "requiredNetworks": [
+                5
+            ]
+        },
+        "enabled": false,
+        "owner": {
+            "id": 1,
+            "name": "Home"
+        },
+        "accounts": []
+    },
+    "success": true
+}

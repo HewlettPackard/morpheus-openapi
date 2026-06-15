@@ -89,6 +89,10 @@ properties:
   vlanId:
     type: integer
     format: int64
+  switchId:
+    type: string
+    description: Network switch identifier
+    example: "Compute"
   pool:
     type:
       - integer
@@ -101,6 +105,13 @@ properties:
       - 'null'
     format: int64
     description: IPv6 Network Pool ID
+  zonePool:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Morpheus zone pool ID of the GCP Project for the network
   allowStaticOverride:
     type: boolean
     description: Allow IP Override
@@ -165,7 +176,7 @@ properties:
         id:
           type: integer
           format: int64
-  resourcePermissions:
+  resourcePermission:
     type: object
     description: Resource Permissions object for defining group access. Note that this is only configurable when there's no assigned Group (Shared).
     properties:

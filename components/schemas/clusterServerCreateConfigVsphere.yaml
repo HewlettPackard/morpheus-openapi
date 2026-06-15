@@ -1,0 +1,15 @@
+description: Configuration for VMware cluster servers
+type: object
+properties:
+  nodeCount:
+    type: integer
+    format: int64
+    description: Number of workers or hosts
+  podCidr:
+    type: string
+  vmwareFolderId:
+    type: string
+  serviceCidr:
+    type: string
+  createUser:
+    type: boolean

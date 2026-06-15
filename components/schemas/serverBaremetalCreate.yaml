@@ -70,27 +70,3 @@ properties:
             type: boolean
             description: Set to 'true' if the server is pre-provisioned (brownfield)
             example: false
-          windowsOS:
-            type: boolean
-            description: Set to 'true' if preProvisioned is 'true' and the server has a Windows OS installed
-            example: false
-          osIpAddress:
-            type: string
-            description: The IP address of the OS installed on the server. Required if preProvisioned is 'true'.
-            format: ipv4
-            example: 192.168.1.1
-          osUsername:
-            type: string
-            description: The username to access the OS installed on the server. Required if preProvisioned is 'true'.
-            example: ""
-          osPassword:
-            type: string
-            description: The password to access the OS installed on the server. Required if preProvisioned is 'true'.
-            example: ""
-          osSSHKeyId:
-            type: integer
-            description: |
-              ID of the SSH Key Pair needed to access the OS installed on the server.
-              Required if preProvisioned is 'true' and the OS is Linux and password authentication is disabled.
-            example: 5
-

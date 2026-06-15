@@ -1,0 +1,3 @@
+title: Generic Cloud Configuration
+description: Generic configuration options for the cloud, varies based on the type of cloud.
+type: object

@@ -5,6 +5,10 @@
       "name": "my-network",
       "displayName": "my-displayName",
       "labels": [],
+      "group": {
+        "id": 1,
+        "name": "Group"
+      },
       "zone": {
         "id": 5,
         "name": "qa-azure"

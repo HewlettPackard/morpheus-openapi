@@ -6,7 +6,7 @@ get:
     This endpoint retrieves your user settings and API access token information.
   operationId: listUserSettings
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query
@@ -37,7 +37,7 @@ put:
     This endpoint allows updating user settings.
   operationId: updateUserSettings
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query

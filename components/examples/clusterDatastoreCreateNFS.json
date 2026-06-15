@@ -2,7 +2,7 @@
   "datastore": {
     "name": "NFS",
     "datastoreType": {
-      "id": 3
+      "id": 3,
     },
     "active": true,
     "config": {
@@ -10,6 +10,7 @@
       "sourceDirPath": "/var/nfs/mvm"
     },
     "defaultStore": true,
+    "supportsVmSecureMetadata": true,
     "resourcePermissions": {
       "allSites": true
     },

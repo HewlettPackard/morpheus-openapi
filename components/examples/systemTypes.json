@@ -1,0 +1,14 @@
+{
+  "systemTypes": [
+    {
+      "id": 1,
+      "name": "Generic",
+      "code": "generic"
+    },
+    {
+      "id": 2,
+      "name": "Kubernetes",
+      "code": "kubernetes"
+    }
+  ]
+}

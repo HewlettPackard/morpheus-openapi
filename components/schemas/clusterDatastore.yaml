@@ -52,6 +52,13 @@ properties:
   heartbeatTarget:
     type: boolean
     description: Heartbeat Target
+  supportsVmSecureMetadata:
+    type: boolean
+    description: >
+      When `true`, this datastore is designated to hold NVRAM and swtpm state
+      for TPM/SecureBoot VMs in the cluster, enabling live migration and HA
+      failover. Only one datastore per cluster scope may have this set to
+      `true`. Only applicable to GFS2 and NFS datastore types.
   refType:
     type: string
   refId:
@@ -118,17 +125,29 @@ properties:
             type: integer
             format: int64
       sites:
-        type:
-          - array
-          - 'null'
+        type: array
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+            default:
+              type: boolean
       plans:
-        type:
-          - array
-          - 'null'
+        type: array
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
+            default:
+              type: boolean
   datastores:
     type: array
     items:

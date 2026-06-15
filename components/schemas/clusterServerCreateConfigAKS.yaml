@@ -1,0 +1,9 @@
+description: Configuration for Azure Kubernetes Service cluster servers
+type: object
+properties:
+  nodeCount:
+    type: integer
+    format: int64
+    description: Number of workers or hosts
+  createUser:
+    type: boolean

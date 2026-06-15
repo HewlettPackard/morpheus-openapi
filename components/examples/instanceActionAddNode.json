@@ -1,0 +1,12 @@
+{
+  "code": "generic-add-node",
+  "selectedResourcePoolId": 35856,
+  "preProvisioned": "on",
+  "selectedServerId": 123,
+  "sshUsername": "root",
+  "sshPassword": "mypassword",
+  "sshHost": "192.168.1.100",
+  "sshKeyPair": {
+    "id": 5
+  }
+}

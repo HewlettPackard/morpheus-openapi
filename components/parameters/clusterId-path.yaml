@@ -4,4 +4,5 @@ description: The ID of the cluster
 required: true
 schema:
   type: integer
+  format: int64
 example: 5

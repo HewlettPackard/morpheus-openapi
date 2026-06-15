@@ -121,7 +121,28 @@
                 },
                 "ipAddress": null,
                 "networkInterfaceTypeId": null,
-                "ipMode": null
+                "ipMode": null,
+                "networkInterfaces": [
+                    {
+                        "id": "networkGroup-3",
+                        "row": 0,
+                        "network": {
+                            "id": 4,
+                            "subnet": null,
+                            "group": null,
+                            "dhcpServer": false,
+                            "name": "BM Management",
+                            "pool": {
+                                "id": 1,
+                                "name": "BM Management Pool"
+                            }
+                        },
+                        "ipAddress": "",
+                        "macAddress": null,
+                        "ipMode": "",
+                        "networkInterfaceTypeId": 19,
+                    }
+                ]
             }
         ],
         "customOptions": {},
@@ -392,6 +413,25 @@
                             "resizeable": true,
                             "planResizable": true,
                             "rootVolume": true,
+                            "diskType": "block",
+                            "diskMode": "virtio",
+                            "category": "disk",
+                            "deviceName": "/dev/vda",
+                            "deviceDisplayName": "vda",
+                            "storageServer":
+                            {
+                                "id": 1489,
+                                "name": "Alletra MP"
+                            },
+                            "zoneId": 12,
+                            "datastore": {
+                                "id": 128,
+                                "name": "Alltera MP iSCSI"
+                            },
+                            "zone": {
+                                "id": 12,
+                                "name": "HVM"
+                            },
                             "unitNumber": null,
                             "typeId": 6,
                             "configurableIOPS": false,
@@ -412,9 +452,9 @@
                             "internalId": null,
                             "externalId": null,
                             "uniqueId": "morpheus-nic-51714-749153-0",
-                            "publicIpAddress": null,
+                            "publicIpAddress": "10.0.0.0",
                             "publicIpv6Address": null,
-                            "ipAddress": null,
+                            "ipAddress": "10.0.0.0",
                             "ipv6Address": null,
                             "ipSubnet": null,
                             "ipv6Subnet": null,
@@ -433,11 +473,15 @@
                                 "name": "Demo Preferred"
                             },
                             "networkPosition": null,
-                            "networkPool": null,
+                            "networkPool": {
+                              "id": 1,
+                              "name": "Demo Pool"
+                            },
                             "networkDomain": null,
                             "type": null,
-                            "ipMode": null,
-                            "macAddress": null
+                            "ipMode": "dhcp",
+                            "macAddress": "52:54:00:de:a6:85",
+                            "interfaces": []
                         }
                     ],
                     "labels": [],

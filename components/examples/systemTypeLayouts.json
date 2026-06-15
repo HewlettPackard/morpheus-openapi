@@ -1,0 +1,23 @@
+{
+  "systemTypeLayouts": [
+    {
+      "id": 1,
+      "name": "Default",
+      "code": "generic-default",
+      "componentTypes": [
+        {
+          "id": 5,
+          "code": "primary-node",
+          "name": "Primary Node",
+          "category": "compute"
+        },
+        {
+          "id": 6,
+          "code": "storage-volume",
+          "name": "Storage Volume",
+          "category": "storage"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+name: removeVolumes
+in: query
+description: Remove Volumes
+schema:
+  type: string
+  default: "off"
+example: "on"

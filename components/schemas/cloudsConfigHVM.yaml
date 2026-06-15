@@ -1,0 +1,56 @@
+type: object
+properties:
+  applianceUrl:
+    type:
+      - string
+      - 'null'
+  datacenterName:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+  inventoryLevel:
+    type:
+      - string
+      - 'null'
+  consoleKeymap:
+    type:
+      - string
+      - 'null'
+
+  backupMode:
+    type:
+      - string
+      - 'null'
+  certificateProvider:
+    type:
+      - string
+      - 'null'
+  configCmdbDiscovery:
+    type: boolean
+  enableNetworkTypeSelection:
+    type:
+      - string
+      - 'null'
+  kubeUrl:
+    type:
+      - string
+      - 'null'
+  networkServer:
+    type: object
+    properties:
+      id:
+        type: string
+  networkServer.id:
+    type: string
+  replicationMode:
+    type:
+      - string
+      - 'null'
+  securityServer:
+    type:
+      - string
+      - 'null'

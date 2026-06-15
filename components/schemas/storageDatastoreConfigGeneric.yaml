@@ -1,0 +1,3 @@
+title: Generic Datastore Configuration
+description: Generic configuration options for the datastore, varies based on the type of datastore.
+type: object

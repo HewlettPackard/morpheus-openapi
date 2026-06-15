@@ -1,0 +1,12 @@
+description: Configuration for HKS cluster servers
+type: object
+properties:
+  podCidr:
+    type: string
+  serviceCidr:
+    type: string
+  nodeCount:
+    type: integer
+    format: int64
+  createUser:
+    type: boolean

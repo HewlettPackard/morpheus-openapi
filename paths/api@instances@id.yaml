@@ -75,6 +75,7 @@ delete:
     - $ref: ../components/parameters/releaseFloatingIps.yaml
     - $ref: ../components/parameters/releaseEIPs.yaml
     - $ref: ../components/parameters/force.yaml
+    - $ref: ../components/parameters/removeVolumes.yaml
   responses:
     '200':
       description: Successful Request

@@ -31,6 +31,12 @@ properties:
       - string
       - 'null'
     description: Cloud-Init User Data, a bash script
+  uefi:
+    type: boolean
+    description: UEFI enabled?
+  fipsEnabled:
+    description: FIPS enabled?
+    type: boolean
   installAgent:
     type: boolean
     description: Install Agent?
@@ -52,17 +58,10 @@ properties:
     description: SSH Key
   osType:
     description: A Map containing the id of the OS Type. This can also be passed as a string (code or name) instead.
-    oneOf:
-      - type:
-          - object
-          - 'null'
-        properties:
-          id:
-            type: integer
-            format: int64
-      - type:
-          - string
-          - 'null'
+    type:
+      - integer
+      - 'null'
+    format: int64
   visibility:
     type: string
     description: private or public
@@ -158,3 +157,18 @@ properties:
           type: string
         value:
           type: string
+  minRamGB:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  minDisk:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  minDiskGB:
+    type:
+      - integer
+      - 'null'
+    format: int64

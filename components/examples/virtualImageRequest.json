@@ -7,9 +7,7 @@
     "sshUsername": "root",
     "sshPassword": "mygoodpassword123",
     "sshKey": null,
-    "osType": {
-      "id": 9
-    },
+    "osType": 9,
     "virtioSupported": true,
     "vmToolsInstalled": true,
     "config": {}
