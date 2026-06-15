@@ -70,7 +70,9 @@ type:
       items:
         type: object
 networkServer:
-  type: object
+  type:
+    - object
+    - 'null'
   properties:
     id:
       type: integer
