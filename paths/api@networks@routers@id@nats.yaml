@@ -47,9 +47,42 @@ post:
               description: For a full list of available NAT options, see natOptionTypes in the specific Network Router Type
               required:
                 - name
+                - config
               properties:
                 name:
+                  type: string
                   description: NAT name
+                description:
+                  type: string
+                  description: Description of the NAT rule.
+                enabled:
+                  type: boolean
+                  description: Whether the NAT rule is enabled.
+                sourceNetwork:
+                  type: string
+                  description: Source network for the NAT rule.
+                destinationNetwork:
+                  type: string
+                  description: Destination network for the NAT rule.
+                translatedNetwork:
+                  type: string
+                  description: Translated network for the NAT rule.
+                priority:
+                  type: integer
+                  format: int64
+                  description: Priority of the NAT rule.
+                protocol:
+                  type: string
+                  description: Protocol for the NAT rule.
+                config:
+                  type: object
+                  description: NAT config-context options (bound to the NAT's config map).
+                  required:
+                    - action
+                  properties:
+                    action:
+                      type: string
+                      description: The NAT action (e.g. SNAT, DNAT, REFLEXIVE).
         examples: 
           Network Router NAT Request:
             value:
