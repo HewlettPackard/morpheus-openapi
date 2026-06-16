@@ -1,0 +1,91 @@
+type: object
+description: Backup Type
+properties:
+  id:
+    type: integer
+    format: int64
+    description: Backup Type ID
+  code:
+    type: string
+    description: Unique code identifier for the backup type
+  name:
+    type: string
+    description: Display name of the backup type
+  backupFormat:
+    type:
+      - string
+      - 'null'
+    description: The format of the backup output
+  containerFormat:
+    type:
+      - string
+      - 'null'
+    description: The container format for the backup
+  providerCode:
+    type:
+      - string
+      - 'null'
+    description: The code of the backup provider that handles this type (e.g., `commvault`, `veeam`)
+  containerType:
+    type:
+      - string
+      - 'null'
+    description: Which containers this backup type applies to (`all`, `single`, or null)
+  containerCategory:
+    type:
+      - string
+      - 'null'
+    description: Comma-separated container categories this type is limited to
+  restoreType:
+    type:
+      - string
+      - 'null'
+    description: The restore type identifier
+  active:
+    type: boolean
+    description: Whether this backup type is active and available for use
+  hasCopyToStore:
+    type: boolean
+    description: Whether this backup type supports copying results to a storage provider
+  hasStreamToStore:
+    type: boolean
+    description: Whether this backup type supports streaming results directly to a storage provider
+  copyToStore:
+    type: boolean
+    description: Whether backup results are copied to the storage provider by default
+  downloadEnabled:
+    type: boolean
+    description: Whether backup results can be downloaded
+  downloadFromStoreOnly:
+    type: boolean
+    description: Whether downloads are only available from the storage provider
+  restoreExistingEnabled:
+    type: boolean
+    description: Whether restoring to the existing instance/server is supported
+  restoreNewEnabled:
+    type: boolean
+    description: Whether restoring to a new instance/server is supported
+  viewSet:
+    type:
+      - string
+      - 'null'
+    description: The view set used for rendering backup type specific UI
+  restoreNewMode:
+    type:
+      - string
+      - 'null'
+    description: The mode used when restoring to a new target
+  pruneResultsOnRestoreExisting:
+    type: boolean
+    description: Whether existing backup results are pruned when restoring to an existing target
+  restrictTargets:
+    type: boolean
+    description: Whether restore targets are restricted
+  isPlugin:
+    type:
+      - boolean
+      - 'null'
+    description: Whether this backup type is provided by an external plugin
+  isEmbedded:
+    type: boolean
+    description: Whether this backup type is embedded (bundled with the platform)

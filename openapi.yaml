@@ -119,6 +119,10 @@ paths:
     $ref: paths/api@backups@restores.yaml
   /api/backups/restores/{id}:
     $ref: paths/api@backups@restores@id.yaml
+  /api/backups/types:
+    $ref: paths/api@backups@types.yaml
+  /api/backups/types/{id}:
+    $ref: paths/api@backups@types@id.yaml
   /api/billing/account:
     $ref: paths/api@billing@account.yaml
   /api/billing/account/{id}:
