@@ -6,10 +6,51 @@ properties:
     example: "my-cloned-instance"
   group:
     type: object
-    description: The map containing the id of the server group you would like to clone into.
+    description: The map containing the id of the server group you would like to clone into. Defaults to the source instance's group.
     properties:
       id:
         type: integer
         format: int64
         description: The id of the server group you would like to clone into.
         example: 2
+  cloud:
+    type: object
+    description: The map containing the id of the cloud you would like to clone into. Defaults to the source instance's cloud.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The id of the cloud to clone into.
+        example: 6
+  plan:
+    type: object
+    description: The service plan override for the clone. Defaults to the source instance's service plan.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The id of the service plan (the pre-configured memory and storage option) for the clone.
+        example: 75
+  volumes:
+    type: array
+    description: |
+      The complete set of volumes for the clone. When provided, this replaces (does not merge with) the source instance's volumes.
+
+      Volume specifications define infrastructure parameters (size, datastore, type) only - the disk contents are always copied from the source instance.
+    items:
+      $ref: instanceCreateVolume.yaml
+  networkInterfaces:
+    type: array
+    description: |
+      The complete set of network interfaces for the clone. When provided, this replaces (does not merge with) the source instance's network interfaces.
+
+      The Options API `/api/options/zoneNetworkOptions?zoneId=5&provisionTypeId=10` can be used to see which options are available.
+    items:
+      $ref: instanceCreateNetwork.yaml
+  config:
+    type: object
+    description: Additional configuration overrides merged into the source instance's configuration when provisioning the clone.
+    properties:
+      resourcePoolId:
+        type: string
+        description: id of the resource pool to clone into, can be prefixed with `pool-`. A resource pool group can be specified instead by prefixing its ID with `poolGroup-`.
