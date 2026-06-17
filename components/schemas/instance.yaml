@@ -156,6 +156,12 @@ properties:
           - integer
           - 'null'
         format: int64
+      cloneInstanceId:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: The ID of the source instance this instance was cloned from. Set by Morpheus when the instance is created via the clone endpoint; absent for instances that were not cloned.
       smbiosAssetTag:
         type:
           - string
