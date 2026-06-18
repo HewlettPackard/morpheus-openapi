@@ -48,9 +48,16 @@ properties:
     items:
       $ref: instanceCreateNetwork.yaml
   config:
-    type: object
-    description: Additional configuration overrides merged into the source instance's configuration when provisioning the clone.
-    properties:
-      resourcePoolId:
-        type: string
-        description: id of the resource pool to clone into, can be prefixed with `pool-`. A resource pool group can be specified instead by prefixing its ID with `poolGroup-`.
+    description: |
+      Configuration overrides applied when provisioning the clone. Unlike `volumes` and `networkInterfaces` (which replace the source set when provided), `config` is **merged** key-by-key over the source instance's existing configuration: keys you set here override the source value, and keys you omit are inherited from the source instance.
+
+      This does not modify the source instance in any way - the merge happens only on the new clone's configuration at provision time.
+
+      The shape mirrors instance creation, so the same per-cloud configuration options can be supplied. Provide the variant that matches the target cloud type.
+    anyOf:
+      - $ref: instancesConfigAzure.yaml
+      - $ref: instancesConfigVMWare.yaml
+      - $ref: instancesConfigGCP.yaml
+      - $ref: instancesConfigAWS.yaml
+      - $ref: instancesConfigGeneric.yaml
+      - $ref: instancesConfigHVM.yaml
