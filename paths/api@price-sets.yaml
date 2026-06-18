@@ -117,9 +117,14 @@ post:
                     - software_or_service
                 prices:
                   type: array
+                  description: Prices to include in the price set
                   items:
-                    type: integer
-                    format: int64
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                        description: Price ID
   responses:
     '200':
       description: Successful Request

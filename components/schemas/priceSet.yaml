@@ -64,8 +64,9 @@ properties:
             - string
             - 'null'
         markup:
-          type: integer
-          format: int64
+          type:
+            - number
+            - 'null'
         markupPercent:
           type:
             - number
@@ -102,8 +103,14 @@ properties:
               type: string
         datastore:
           type:
-            - string
+            - object
             - 'null'
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
         crossCloudApply:
           type:
             - boolean
