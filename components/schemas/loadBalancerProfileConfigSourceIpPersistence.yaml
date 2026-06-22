@@ -1,0 +1,27 @@
+title: Source IP Persistence Load Balancer Profile Config
+type: object
+description: Configuration object for the NSX-T source IP persistence profile (serviceType LBSourceIpPersistenceProfile).
+properties:
+  profileType:
+    type: string
+    description: Profile category. Automatically set from serviceType (persistence-profile).
+  sharePersistence:
+    type: boolean
+    description: Whether persistence is shared across virtual servers that use this profile.
+  purgeEntries:
+    type: boolean
+    description: Whether the oldest persistence entries are purged when the table is full. Defaults to true.
+  haPersistenceMirroring:
+    type: boolean
+    description: Whether persistence entries are synchronized to the standby node for high availability.
+  persistenceEntryTimeout:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Persistence entry timeout in seconds. Defaults to 300.
+  tags:
+    type: array
+    description: NSX-T tags applied to the profile.
+    items:
+      $ref: loadBalancerProfileConfigTag.yaml

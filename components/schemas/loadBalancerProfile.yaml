@@ -80,7 +80,16 @@ persistenceExpiresIn:
 editable:
   type: boolean
 config:
-  type: object
+  description: Configuration object with parameters that vary by serviceType.
+  anyOf:
+    - $ref: loadBalancerProfileConfigHttp.yaml
+    - $ref: loadBalancerProfileConfigFastTcp.yaml
+    - $ref: loadBalancerProfileConfigFastUdp.yaml
+    - $ref: loadBalancerProfileConfigCookiePersistence.yaml
+    - $ref: loadBalancerProfileConfigSourceIpPersistence.yaml
+    - $ref: loadBalancerProfileConfigGenericPersistence.yaml
+    - $ref: loadBalancerProfileConfigClientSsl.yaml
+    - $ref: loadBalancerProfileConfigServerSsl.yaml
 createdBy:
   type:
     - string

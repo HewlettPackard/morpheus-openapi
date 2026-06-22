@@ -1,0 +1,69 @@
+title: Server SSL Load Balancer Profile Config
+type: object
+description: Configuration object for the NSX-T server SSL profile (serviceType LBServerSslProfile).
+properties:
+  profileType:
+    type: string
+    description: Profile category. Automatically set from serviceType (ssl-profile).
+  sslSuite:
+    type: string
+    description: Predefined cipher suite. Use CUSTOM to specify supportedSslCiphers and supportedSslProtocols explicitly.
+    enum:
+      - BALANCED
+      - HIGH_COMPATIBILITY
+      - HIGH_SECURITY
+      - CUSTOM
+  sessionCache:
+    type: boolean
+    description: Whether SSL session caching is enabled. Defaults to true.
+  supportedSslCiphers:
+    type: array
+    description: Supported SSL ciphers. Required when sslSuite is CUSTOM.
+    items:
+      type: string
+      enum:
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA
+        - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+        - TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA
+        - TLS_ECDH_RSA_WITH_AES_256_CBC_SHA
+        - TLS_RSA_WITH_AES_256_CBC_SHA
+        - TLS_RSA_WITH_AES_128_CBC_SHA
+        - TLS_RSA_WITH_3DES_EDE_CBC_SHA
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+        - TLS_RSA_WITH_AES_128_CBC_SHA256
+        - TLS_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_RSA_WITH_AES_256_CBC_SHA256
+        - TLS_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+        - TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+        - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+        - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA
+        - TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256
+        - TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384
+        - TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDH_RSA_WITH_AES_128_CBC_SHA
+        - TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256
+        - TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384
+        - TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384
+  supportedSslProtocols:
+    type: array
+    description: Supported SSL/TLS protocols. Required when sslSuite is CUSTOM.
+    items:
+      type: string
+      enum:
+        - SSL_V2
+        - SSL_V3
+        - TLS_V1
+  tags:
+    type: array
+    description: NSX-T tags applied to the profile.
+    items:
+      $ref: loadBalancerProfileConfigTag.yaml

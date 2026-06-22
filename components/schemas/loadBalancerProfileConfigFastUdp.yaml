@@ -1,0 +1,21 @@
+title: Fast UDP Load Balancer Profile Config
+type: object
+description: Configuration object for the NSX-T Fast UDP application profile (serviceType LBFastUdpProfile).
+properties:
+  profileType:
+    type: string
+    description: Profile category. Automatically set from serviceType (application-profile).
+  fastUdpIdleTimeout:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Idle timeout in seconds before an inactive flow is closed. Defaults to 300.
+  haFlowMirroring:
+    type: boolean
+    description: Whether all flows to the active member are mirrored to the standby member.
+  tags:
+    type: array
+    description: NSX-T tags applied to the profile.
+    items:
+      $ref: loadBalancerProfileConfigTag.yaml
