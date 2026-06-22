@@ -15,6 +15,7 @@ properties:
       - CUSTOM
   sessionCache:
     type: boolean
+    default: true
     description: Whether SSL session caching is enabled. Defaults to true.
   supportedSslCiphers:
     type: array
@@ -67,9 +68,11 @@ properties:
       - integer
       - 'null'
     format: int64
+    default: 300
     description: SSL session cache timeout in seconds. Defaults to 300. Range 1-86400.
   preferServerCipher:
     type: boolean
+    default: true
     description: Whether the server cipher order is preferred during SSL negotiation. Defaults to true.
   tags:
     type: array

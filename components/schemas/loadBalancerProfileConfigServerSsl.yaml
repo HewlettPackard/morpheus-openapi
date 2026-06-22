@@ -15,6 +15,7 @@ properties:
       - CUSTOM
   sessionCache:
     type: boolean
+    default: true
     description: Whether SSL session caching is enabled. Defaults to true.
   supportedSslCiphers:
     type: array

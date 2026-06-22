@@ -10,6 +10,7 @@ properties:
       - integer
       - 'null'
     format: int64
+    default: 300
     description: Idle timeout in seconds before an inactive flow is closed. Defaults to 300.
   haFlowMirroring:
     type: boolean

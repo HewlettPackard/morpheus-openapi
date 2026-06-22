@@ -10,6 +10,7 @@ properties:
     description: Whether persistence is shared across virtual servers that use this profile.
   purgeEntries:
     type: boolean
+    default: true
     description: Whether the oldest persistence entries are purged when the table is full. Defaults to true.
   haPersistenceMirroring:
     type: boolean
@@ -19,6 +20,7 @@ properties:
       - integer
       - 'null'
     format: int64
+    default: 300
     description: Persistence entry timeout in seconds. Defaults to 300.
   tags:
     type: array

@@ -13,9 +13,11 @@ properties:
     description: Cookie name.
   cookieFallback:
     type: boolean
+    default: true
     description: Whether to fall back to another pool member when the cookie-pointed member is down. Defaults to true.
   cookieGarbling:
     type: boolean
+    default: true
     description: Whether the cookie value is encrypted (garbled). Defaults to true.
   cookieMode:
     type: string
