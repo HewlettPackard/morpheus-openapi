@@ -26,15 +26,33 @@ get:
     '5XX':
       $ref: ../components/responses/5xx.yaml
 put:
-  summary: Updates a Storage Volume
+  summary: Transfers Storage Volume Ownership
   description: |
-    Updates a storage volume.
-  operationId: updateStorageVolumes
+    Transfers ownership of an **unattached** storage volume to a target tenant.
+
+    This operation requires the caller to be a **master-tenant** user holding the
+    `admin-accounts` permission with **Full** access. Lacking this is the most common
+    cause of a `403 Access Denied`.
+
+    The target tenant may be specified using any one of the equivalent fields
+    `tenant.id`, `account.id`, `owner.id`, or `accountId`. The `tenant.id` form is
+    the canonical/preferred representation.
+
+    Behavior and constraints:
+    - The volume must be unattached (`status: "unattached"` and not attached to any
+      host or instance).
+    - The volume's backing datastore must be accessible to the target tenant.
+    - Transferring to the volume's current tenant is a no-op and returns success.
+
+    Related tenant-awareness changes apply to the storage volume list
+    (MORPH-12454) and get (MORPH-12455) endpoints.
+  operationId: transferStorageVolumeOwnership
   tags:
     - Storage
   parameters:
     - $ref: ../components/parameters/storage-volume-id-path.yaml
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -44,48 +62,101 @@ put:
           properties:
             storageVolume:
               type: object
+              description: |
+                Provide the target tenant using exactly one of the equivalent
+                fields below. `tenant.id` is the preferred form.
               properties:
-                name: 
-                  type: string
-                  description: A unique name scoped to your account for the storage volume
-                type:
-                  type: string
-                  description: Storage Type Code or ID
-                config:
+                tenant:
                   type: object
-                  description: Configuration object with parameters that vary by `type`.
-                storageServer:
-                  type: object
-                  required:
-                    - id
+                  description: Target tenant (preferred form).
                   properties:
                     id:
                       type: integer
                       format: int64
-                storageGroup:
+                      description: Target tenant ID
+                account:
                   type: object
-                  required:
-                    - id
+                  description: Alias for the target tenant.
                   properties:
                     id:
                       type: integer
                       format: int64
+                      description: Alias for target tenant ID
+                owner:
+                  type: object
+                  description: Alias for the target tenant.
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                      description: Alias for target tenant ID
+                accountId:
+                  type: integer
+                  format: int64
+                  description: Alias for target tenant ID
+        examples:
+          Transfer to Tenant:
+            value:
+              storageVolume:
+                tenant:
+                  id: 2
   responses:
     '200':
-      description: Successful Request
+      description: |
+        Successful Request. Returns the updated storage volume (same schema as
+        `GET /api/storage-volumes/{id}`), reflecting the new `account`/`owner`.
       content:
         application/json:
           schema:
-            allOf:
-            - type: object
-              properties:
-                storageVolume:
-                  $ref: ../components/schemas/storageVolume.yaml
-            - $ref: ../components/schemas/200-success.yaml
+            type: object
+            properties:
+              storageVolume:
+                $ref: ../components/schemas/storageVolume.yaml
           examples:
             Storage Volume Response:
               value:
-                $ref: ../components/examples/storageVolumeSuccess.json
+                $ref: ../components/examples/storageVolume.json
+    '400':
+      description: |
+        The request body did not contain a valid target tenant, or the volume
+        cannot be transferred in its current state.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          examples:
+            Missing Target Tenant:
+              value:
+                success: false
+                msg: A valid target tenant is required
+            Volume Attached:
+              value:
+                success: false
+                msg: Storage volume is currently attached and cannot be transferred
+            Datastore Not Accessible:
+              value:
+                success: false
+                msg: Backing datastore is not accessible to the target tenant
+    '403':
+      description: |
+        The caller is not a master-tenant user with the `admin-accounts`
+        permission at Full access.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            success: false
+            msg: Access Denied
+    '404':
+      description: The target tenant does not exist or is not accessible to the caller.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            success: false
+            msg: Tenant not found or insufficient access
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
