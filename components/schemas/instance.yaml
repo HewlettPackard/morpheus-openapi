@@ -188,8 +188,9 @@ properties:
         properties:
           id:
             type:
-              - string
+              - integer
               - 'null'
+            format: int64
       expireDays:
         type: string
       shutdownDays:
@@ -1055,6 +1056,11 @@ properties:
                     type:
                       - string
                       - 'null'
+                  storageProfile:
+                    type:
+                      - string
+                      - 'null'
+                    description: Storage Profile Code for the volume storage profile assignment. eg. `"kvm-cache-none"` or `"kvm-cache-directsync"`. Use `/api/provision-types?code=kvm` to see the available `storageProfiles` for HVM and KVM.
                   storageServer:
                     type: object
                     title: Instance Container Server Volume Storage Server

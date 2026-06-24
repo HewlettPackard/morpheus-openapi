@@ -66,7 +66,7 @@
               "resourcePoolId": 4080,
               "poolProviderType": null,
               "userGroup": {
-                  "id": ""
+                  "id": null
               },
               "expireDays": "2",
               "shutdownDays": "1",
