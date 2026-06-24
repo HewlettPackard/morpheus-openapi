@@ -17,9 +17,7 @@ get:
             - type: object
               properties:
                 update:
-                  type: array
-                  items:
-                    $ref: ../components/schemas/clusterUpdateOperation.yaml
+                  $ref: ../components/schemas/clusterUpdateOperation.yaml
           examples:
             Clusters Response:
               value:
