@@ -13,3 +13,15 @@ properties:
     type: array
     items: 
       type: object
+  visibility:
+    $ref: visibility.yaml
+  tenants:
+    type: array
+    description: Array of tenant account ids that are allowed access
+    nullable: true
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
