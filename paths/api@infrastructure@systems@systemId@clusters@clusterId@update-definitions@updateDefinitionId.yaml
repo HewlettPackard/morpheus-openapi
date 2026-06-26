@@ -1,0 +1,41 @@
+post:
+  summary: Execute System Cluster Update
+  description: |
+    Execute an available update against a cluster that is a registered component of the specified
+    system, identified by the update definition id in the path.
+
+    The update runs **asynchronously**: this endpoint returns `202 Accepted` with a `pending`
+    update operation, and the update then transitions through `pending → running → completed/failed`
+    via a background job. This system-scoped endpoint set has **no poll endpoint** — to poll the
+    resulting cluster update execution status, use the existing `GET /api/clusters/{id}/updates/{updateId}`
+    endpoint (Clusters tag).
+
+    See also the non-system-scoped `POST /api/clusters/{id}/execute-update` (Clusters tag), which
+    executes the same update for a cluster without requiring system membership. This system-scoped
+    variant additionally requires the cluster to be a registered component of the named system
+    (else 404), and the update definition must be applicable to the cluster's type (else 400). There
+    is no request body.
+
+    Requires the `infrastructure-system` permission with full access.
+  operationId: executeSystemClusterUpdate
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/systemId-path.yaml
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '202':
+      description: Update accepted and queued
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/updateOperationAccepted.yaml
+          examples:
+            Execute System Update Accepted Response:
+              value:
+                $ref: ../components/examples/executeSystemUpdateAccepted.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

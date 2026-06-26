@@ -1170,6 +1170,22 @@ paths:
     $ref: paths/api@infrastructure@systems@id@validate.yaml
   /api/infrastructure/systems/{id}/initialize:
     $ref: paths/api@infrastructure@systems@id@initialize.yaml
+  /api/infrastructure/systems/{systemId}/servers/{serverId}/update-definitions:
+    $ref: paths/api@infrastructure@systems@systemId@servers@serverId@update-definitions.yaml
+  /api/infrastructure/systems/{systemId}/servers/{serverId}/update-definitions/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@servers@serverId@update-definitions@updateDefinitionId.yaml
+  /api/infrastructure/systems/{systemId}/storage-servers/{serverId}/update-definitions:
+    $ref: paths/api@infrastructure@systems@systemId@storage-servers@serverId@update-definitions.yaml
+  /api/infrastructure/systems/{systemId}/storage-servers/{serverId}/update-definitions/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@storage-servers@serverId@update-definitions@updateDefinitionId.yaml
+  /api/infrastructure/systems/{systemId}/network-servers/{serverId}/update-definitions:
+    $ref: paths/api@infrastructure@systems@systemId@network-servers@serverId@update-definitions.yaml
+  /api/infrastructure/systems/{systemId}/network-servers/{serverId}/update-definitions/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@network-servers@serverId@update-definitions@updateDefinitionId.yaml
+  /api/infrastructure/systems/{systemId}/clusters/{clusterId}/update-definitions:
+    $ref: paths/api@infrastructure@systems@systemId@clusters@clusterId@update-definitions.yaml
+  /api/infrastructure/systems/{systemId}/clusters/{clusterId}/update-definitions/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@clusters@clusterId@update-definitions@updateDefinitionId.yaml
   /api/infrastructure/system-types:
     $ref: paths/api@infrastructure@system-types.yaml
   /api/infrastructure/system-types/{typeId}/layouts:

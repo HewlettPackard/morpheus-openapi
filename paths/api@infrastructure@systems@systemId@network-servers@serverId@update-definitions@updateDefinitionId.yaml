@@ -1,0 +1,37 @@
+post:
+  summary: Execute System Network Server Update
+  description: |
+    Execute an available update against a network server that is a registered component of the
+    specified system, identified by the update definition id in the path.
+
+    The update runs **asynchronously**: this endpoint returns `202 Accepted` with a `pending`
+    update operation, and the update then transitions through `pending → running → completed/failed`
+    via a background job. There is currently **no endpoint in this set to poll the update operation
+    status**.
+
+    The network server must be a component of the system (else 404), and the update definition must
+    be applicable to the network server's type (else 400). There is no request body.
+
+    Requires the `infrastructure-system` permission with full access.
+  operationId: executeSystemNetworkServerUpdate
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/systemId-path.yaml
+    - $ref: ../components/parameters/serverId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '202':
+      description: Update accepted and queued
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/updateOperationAccepted.yaml
+          examples:
+            Execute System Update Accepted Response:
+              value:
+                $ref: ../components/examples/executeSystemUpdateAccepted.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
