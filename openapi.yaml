@@ -1073,6 +1073,12 @@ paths:
     $ref: paths/api@servers@id@volumes@id@attach.yaml
   /api/servers/{id}/volumes/{volumeId}/detach:
     $ref: paths/api@servers@id@volumes@id@detach.yaml
+  /api/v1/servers/{serverId}/config-profiles:
+    $ref: paths/api@v1@servers@id@config-profiles.yaml
+  /api/v1/servers/{serverId}/config-profiles/{id}:
+    $ref: paths/api@v1@servers@id@config-profiles@id.yaml
+  /api/v1/servers/{serverId}/config-profiles/{id}/restore:
+    $ref: paths/api@v1@servers@id@config-profiles@id@restore.yaml
   /api/catalog/cart:
     $ref: paths/api@catalog@cart.yaml
   /api/catalog/cart/items:

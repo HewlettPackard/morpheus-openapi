@@ -1,0 +1,174 @@
+get:
+  summary: Get a Specific Host Configuration Profile
+  description: |
+    Retrieves a specific Host Configuration Profile, including the full
+    serialized configuration JSON stored when the profile was captured.
+
+    This endpoint requires the **infrastructure admin** role.
+
+    Host Configuration Profiles are only supported for MVM server types. A `404`
+    with a descriptive message is returned for non-MVM server types.
+  operationId: getHostConfigProfile
+  tags:
+    - Hosts
+  parameters:
+    - $ref: ../components/parameters/serverId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              configProfile:
+                $ref: ../components/schemas/hostConfigProfile.yaml
+          examples:
+            Host Config Profile Response:
+              value:
+                $ref: ../components/examples/hostConfigProfile.json
+    '403':
+      description: The caller does not hold the infrastructure admin role.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            success: false
+            msg: Access Denied
+    '404':
+      description: Profile not found, host not found, or the host type does not support configuration profiles.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            success: false
+            msg: Host configuration profiles are only supported for MVM server types
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+put:
+  summary: Update a Host Configuration Profile
+  description: |
+    Updates Host Configuration Profile metadata. Only the `name` and
+    `description` fields can be modified; the captured configuration is
+    immutable.
+
+    This endpoint requires the **infrastructure admin** role.
+
+    Host Configuration Profiles are only supported for MVM server types. A `404`
+    with a descriptive message is returned for non-MVM server types.
+  operationId: updateHostConfigProfile
+  tags:
+    - Hosts
+  parameters:
+    - $ref: ../components/parameters/serverId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - configProfile
+          properties:
+            configProfile:
+              $ref: ../components/schemas/hostConfigProfileUpdate.yaml
+        examples:
+          Host Config Profile Update Request:
+            value:
+              $ref: ../components/examples/hostConfigProfileUpdate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              configProfile:
+                $ref: ../components/schemas/hostConfigProfile.yaml
+          examples:
+            Host Config Profile Update Response:
+              value:
+                $ref: ../components/examples/hostConfigProfile.json
+    '403':
+      description: The caller does not hold the infrastructure admin role.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            success: false
+            msg: Access Denied
+    '404':
+      description: Profile not found, host not found, or the host type does not support configuration profiles.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            success: false
+            msg: Host configuration profiles are only supported for MVM server types
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
+delete:
+  summary: Delete a Host Configuration Profile
+  description: |
+    Deletes a Host Configuration Profile from the host. This does not modify the
+    running host configuration; it only removes the stored profile.
+
+    This endpoint requires the **infrastructure admin** role.
+
+    Host Configuration Profiles are only supported for MVM server types. A `404`
+    with a descriptive message is returned for non-MVM server types.
+  operationId: deleteHostConfigProfile
+  tags:
+    - Hosts
+  parameters:
+    - $ref: ../components/parameters/serverId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json
+    '403':
+      description: The caller does not hold the infrastructure admin role.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            success: false
+            msg: Access Denied
+    '404':
+      description: Profile not found, host not found, or the host type does not support configuration profiles.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            success: false
+            msg: Host configuration profiles are only supported for MVM server types
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+
