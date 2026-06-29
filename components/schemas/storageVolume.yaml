@@ -131,8 +131,9 @@ properties:
     type: string
   storageGroup:
     type:
-      - string
+      - object
       - 'null'
+    description: The storage group the volume belongs to (id and name).
   namespace:
     type:
       - string
@@ -160,6 +161,10 @@ properties:
       - string
       - 'null'
   fiberWwn:
+    type:
+      - string
+      - 'null'
+  wwn:
     type:
       - string
       - 'null'
