@@ -130,7 +130,9 @@ properties:
   datastoreOption:
     type: string
   storageGroup:
-    type: object
+    type:
+      - object
+      - 'null'
     description: The storage group the volume belongs to (id and name).
   namespace:
     type:
