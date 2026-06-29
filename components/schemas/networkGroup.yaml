@@ -28,3 +28,34 @@ tenants:
         format: int64
       name: 
         type: string
+resourcePermission:
+  type: object
+  properties:
+    all:
+      type: boolean
+    sites:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+          default:
+            type: boolean
+    allPlans:
+      type: boolean
+    plans:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+          default:
+            type: boolean

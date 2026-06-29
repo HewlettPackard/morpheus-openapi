@@ -155,6 +155,9 @@ put:
                   type: string
                   description: Sunday Off time of the day in 24-hour format
                   default: 24:00
+                visibility:
+                  type: string
+                  description: Visibility level (public or private)
   responses:
     '200':
       description: Successful Request
