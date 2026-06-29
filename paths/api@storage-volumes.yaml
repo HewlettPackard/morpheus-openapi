@@ -57,7 +57,6 @@ post:
               required:
                 - name
                 - type
-                - storageServer
               properties:
                 name: 
                   type: string

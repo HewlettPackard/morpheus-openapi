@@ -130,9 +130,8 @@ properties:
   datastoreOption:
     type: string
   storageGroup:
-    type:
-      - string
-      - 'null'
+    type: object
+    description: The storage group the volume belongs to (id and name).
   namespace:
     type:
       - string
@@ -160,6 +159,10 @@ properties:
       - string
       - 'null'
   fiberWwn:
+    type:
+      - string
+      - 'null'
+  wwn:
     type:
       - string
       - 'null'
