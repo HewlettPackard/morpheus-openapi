@@ -29,7 +29,9 @@ tenants:
       name: 
         type: string
 resourcePermission:
-  type: object
+  type:
+    - object
+    - 'null'
   properties:
     all:
       type: boolean
@@ -46,7 +48,9 @@ resourcePermission:
           default:
             type: boolean
     allPlans:
-      type: boolean
+      type:
+        - boolean
+        - 'null'
     plans:
       type: array
       items:

@@ -1,11 +1,17 @@
 type: object
 properties:
   defaultStore:
-    type: boolean
+    type:
+      - boolean
+      - 'null'
   defaultTarget:
-    type: boolean
+    type:
+      - boolean
+      - 'null'
   canManage:
-    type: boolean
+    type:
+      - boolean
+      - 'null'
   all:
     type: boolean
   account:
@@ -29,7 +35,9 @@ properties:
         default:
           type: boolean
   allPlans:
-    type: boolean
+    type:
+      - boolean
+      - 'null'
   plans:
     type:
       - array
