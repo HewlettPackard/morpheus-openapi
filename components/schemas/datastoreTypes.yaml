@@ -1,0 +1,51 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  code:
+    type: string
+  name:
+    type: string
+  externalType:
+    type: string
+  externalSubType:
+    type: string
+  diskType:
+    type: string
+  creatable:
+    type: boolean
+  removable:
+    type: boolean
+  editable:
+    type: boolean
+  localStorage:
+    type: boolean
+  isPlugin:
+    type: boolean
+  pluginManagedVolumeRefresh:
+    type: boolean
+  isEmbedded:
+    type: boolean
+  imageTargetCapable:
+    type: boolean
+  heartbeatTargetCapable:
+    type: boolean
+  checkpointTargetCapable:
+    type: boolean
+  supportsVmSecureMetadataCapable:
+    type: boolean
+  discoverable:
+    type: boolean
+  hasMaintenanceMode:
+    type: boolean
+  storageServerType:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+  optionTypes:
+    type: array
+    items:
+      $ref: optionType.yaml

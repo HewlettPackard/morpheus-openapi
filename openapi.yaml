@@ -402,6 +402,8 @@ paths:
     $ref: paths/api@cypher.yaml
   /api/cypher/{cypherPath}:
     $ref: paths/api@cypher@id.yaml
+  /api/data-store-types:
+    $ref: paths/api@data-store-types.yaml
   /api/data-stores:
     $ref: paths/api@datastores.yaml
   /api/data-stores/{id}:
