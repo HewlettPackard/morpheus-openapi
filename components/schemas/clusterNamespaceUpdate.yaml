@@ -23,11 +23,8 @@ properties:
             type: array
             description: Array of tenant account IDs
             items:
-              type: object
-              properties:
-                id:
-                  type: integer
-                  format: int64
+              type: integer
+              format: int64
       resourcePermissions: 
         type: object
         description: Map for namespace group and service plan permissions.
