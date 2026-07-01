@@ -64,6 +64,10 @@ post:
                 type:
                   type: string
                   description: Storage Type Code or ID
+                maxStorage:
+                  type: integer
+                  format: int64
+                  description: The size of the storage volume in bytes.
                 config:
                   description: Configuration object with parameters that vary by `type`.
                   anyOf:
