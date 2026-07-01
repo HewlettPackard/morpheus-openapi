@@ -26,15 +26,6 @@ properties:
     description: List of Server IDs to include in the Affinity Group
   visibility:
     $ref: visibility.yaml
-  tenants:
-    type: array
-    description: Array of tenant account ids that are allowed access
-    items:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
   resourcePermissions:
     type: object
     description: Resource Permissions for controlling Group Access
