@@ -63,6 +63,18 @@ put:
                     - 'null'
                   format: int64
                   description: Network firewall rule group priority
+                visibility:
+                  type: string
+                  description: Visibility level (public or private)
+                tenants:
+                  type: array
+                  description: Array of tenant accounts
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
         examples: 
           Network Firewall Rule Group:
             value:

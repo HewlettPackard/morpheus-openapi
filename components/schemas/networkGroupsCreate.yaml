@@ -4,6 +4,12 @@ properties:
     type: string
   description: 
     type: string
+  visibility:
+    type: string
+    description: Visibility level (public or private)
+  active:
+    type: boolean
+    description: Network group active flag
   networks: 
     type: array
     items: 

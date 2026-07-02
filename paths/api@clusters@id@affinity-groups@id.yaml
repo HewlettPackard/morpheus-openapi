@@ -42,6 +42,15 @@ put:
           properties: 
             affinityGroup:
               $ref: ../components/schemas/clusterAffinityGroupUpdate.yaml
+            tenantPermissions:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: Array of tenant account IDs
+                  items:
+                    type: integer
+                    format: int64
         examples:
           Update Affinity Group Request:
             value:
