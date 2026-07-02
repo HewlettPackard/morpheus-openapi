@@ -148,6 +148,7 @@ properties:
       - $ref: instancesConfigAWS.yaml
       - $ref: instancesConfigGeneric.yaml
       - $ref: instancesConfigHVM.yaml
+      - $ref: instancesConfigBMaaS.yaml
   labels:
     type: array
     description: Array of strings (keywords).
