@@ -1,0 +1,22 @@
+{
+  "availableNics": [
+    {
+      "serverId": 42,
+      "serverName": "hvm-host01",
+      "nics": [
+        {
+          "name": "eno1",
+          "macAddress": "aa:bb:cc:dd:ee:01",
+          "active": true,
+          "consumed": false
+        },
+        {
+          "name": "eno2",
+          "macAddress": "aa:bb:cc:dd:ee:02",
+          "active": true,
+          "consumed": true
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+type: object
+description: >-
+  Uplink NIC assignment for a single host, supplied when creating or updating a
+  virtual switch.
+required:
+  - serverId
+  - nic1
+properties:
+  serverId:
+    type: integer
+    format: int64
+    description: The ID of the host (compute server) to assign NICs on.
+    example: 42
+  nic1:
+    type: string
+    description: Primary physical NIC name.
+    example: eno1
+  nic2:
+    type:
+      - string
+      - 'null'
+    description: Optional secondary NIC. Omit or null for single-NIC mode.
+    example: eno2

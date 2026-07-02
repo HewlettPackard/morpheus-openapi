@@ -1,0 +1,40 @@
+type: object
+description: A traffic segment definition supplied when creating a virtual switch or adding a segment.
+required:
+  - trafficType
+properties:
+  trafficType:
+    type: string
+    enum:
+      - vm
+      - data-nfs
+      - data-iscsi
+      - live-migration
+      - sdn
+      - management
+    example: vm
+  interfaceName:
+    type: string
+    description: OS interface carrying this traffic (e.g. bond0, bond0.220).
+    example: bond0.220
+  ipAddress:
+    type: string
+    example: 10.0.20.5
+  netmask:
+    type: string
+    example: 255.255.255.0
+  gateway:
+    type: string
+    example: 10.0.20.1
+  vlanId:
+    type: integer
+    description: VLAN tag (1-4094). Omit for untagged.
+    minimum: 1
+    maximum: 4094
+    example: 220
+  mtu:
+    type: integer
+    enum:
+      - 1500
+      - 9000
+    example: 1500

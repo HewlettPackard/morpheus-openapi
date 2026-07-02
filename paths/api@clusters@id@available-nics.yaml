@@ -1,0 +1,31 @@
+get:
+  summary: List Available NICs
+  description: >-
+    Retrieves the candidate physical NICs per host in a cluster, used when
+    assigning uplinks to a virtual switch. NICs already consumed by an existing
+    switch uplink are flagged with `consumed: true`.
+  operationId: listClusterAvailableNics
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              availableNics:
+                type: array
+                items:
+                  $ref: ../components/schemas/availableNicHost.yaml
+          examples:
+            Available NICs Response:
+              value:
+                $ref: ../components/examples/availableNics.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

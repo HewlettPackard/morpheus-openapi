@@ -1,0 +1,26 @@
+delete:
+  summary: Delete a Virtual Switch Segment
+  description: >-
+    Removes a traffic segment from a virtual switch. This is an asynchronous
+    operation that returns a `processId`.
+  operationId: deleteVirtualSwitchSegment
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/segId-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/virtualSwitchAsyncSuccess.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/virtualSwitchAsyncSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

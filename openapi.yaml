@@ -252,6 +252,8 @@ paths:
     $ref: paths/api@clusters@id@api-config.yaml
   /api/clusters/{clusterId}/apply-template:
     $ref: paths/api@clusters@id@apply-template.yaml
+  /api/clusters/{clusterId}/available-nics:
+    $ref: paths/api@clusters@id@available-nics.yaml
   /api/clusters/{clusterId}/containers:
     $ref: paths/api@clusters@id@containers.yaml
   /api/clusters/{clusterId}/containers/{id}:
@@ -1291,6 +1293,16 @@ paths:
     $ref: paths/api@virtual-images@id@upload.yaml
   /api/virtual-images/{virtualImageId}/download:
     $ref: paths/api@virtual-images@id@download.yaml
+  /api/virtual-switches:
+    $ref: paths/api@virtual-switches.yaml
+  /api/virtual-switches/{id}:
+    $ref: paths/api@virtual-switches@id.yaml
+  /api/virtual-switches/{id}/segments:
+    $ref: paths/api@virtual-switches@id@segments.yaml
+  /api/virtual-switches/{id}/segments/{segId}:
+    $ref: paths/api@virtual-switches@id@segments@segId.yaml
+  /api/virtual-switches/{id}/uplinks:
+    $ref: paths/api@virtual-switches@id@uplinks.yaml
   /api/whitelabel-settings:
     $ref: paths/api@whitelabel-settings.yaml
   /api/whitelabel-settings/images:
@@ -1560,6 +1572,8 @@ tags:
     description: Manage VDI Pools & Desktops
   - name: Virtual Images
     description: Manage Virtual Images
+  - name: Virtual Switches
+    description: Manage cluster-scoped HVM Virtual Switches
   - name: Whitelabel Settings
     description: Manage Whitelabel Settings
   - name: Wiki

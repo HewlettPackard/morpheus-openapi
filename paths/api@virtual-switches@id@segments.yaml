@@ -1,0 +1,65 @@
+get:
+  summary: List Virtual Switch Segments
+  description: Retrieves the traffic segments defined on a virtual switch.
+  operationId: listVirtualSwitchSegments
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              segments:
+                type: array
+                items:
+                  $ref: ../components/schemas/virtualSwitchSegment.yaml
+          examples:
+            Segments Response:
+              value:
+                $ref: ../components/examples/virtualSwitchSegments.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Add a Virtual Switch Segment
+  description: >-
+    Adds a traffic segment to a virtual switch. This is an asynchronous
+    operation that returns a `processId`.
+  operationId: addVirtualSwitchSegment
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            segment:
+              $ref: ../components/schemas/virtualSwitchSegmentCreate.yaml
+        examples:
+          Segment Request:
+            value:
+              $ref: ../components/examples/virtualSwitchSegmentCreate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/virtualSwitchAsyncSuccess.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/virtualSwitchAsyncSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
