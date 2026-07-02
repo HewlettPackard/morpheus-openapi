@@ -1,0 +1,28 @@
+get:
+  summary: List Virtual Switch Uplinks
+  description: Retrieves the per-host NIC uplink mappings for a virtual switch.
+  operationId: listVirtualSwitchUplinks
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              uplinks:
+                type: array
+                items:
+                  $ref: ../components/schemas/virtualSwitchUplink.yaml
+          examples:
+            Uplinks Response:
+              value:
+                $ref: ../components/examples/virtualSwitchUplinks.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
