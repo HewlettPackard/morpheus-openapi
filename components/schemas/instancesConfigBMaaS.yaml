@@ -1,0 +1,39 @@
+title: BMaaS Instance Configuration
+type: object
+description: Configuration options for HPE bare metal (BMaaS) instances.
+required:
+  - imageId
+properties:
+  imageId:
+    type: integer
+    format: int64
+    description: The id of the ISO virtual image to boot the bare metal instance from.
+  resourcePoolId:
+    type: string
+    description: id of the resource pool to provision into, can be prefixed with `pool-`. A resource pool group can be specified instead by prefixing its ID with `poolGroup-`.
+  createUser:
+    type:
+      - boolean
+      - 'null'
+    description: Whether to create a user when provisioning the instance.
+    default: false
+  noAgent:
+    type:
+      - boolean
+      - 'null'
+    description: Skipping Agent installation will result in a lack of logging and guest operating system statistics. Automation scripts may also be adversely affected.
+    default: false
+  enforceRaidBootVolume:
+    type: boolean
+    description: When enabled, provisioning fails if a RAID boot volume cannot be created. When disabled, provisioning falls back to a single disk if RAID1 is unavailable.
+    default: true
+  selectedHosts:
+    type: array
+    description: The bare metal host(s) to provision this workload on. Each item wraps the host id in a `value` field (the baremetal plugin reads each selected host as `host.value`).
+    items:
+      type: object
+      properties:
+        value:
+          type: integer
+          format: int64
+          description: The id of a bare metal host to provision this workload on.
