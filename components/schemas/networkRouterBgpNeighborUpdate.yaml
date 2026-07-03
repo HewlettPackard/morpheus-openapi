@@ -64,7 +64,7 @@ properties:
     description: Maximum hop limit
   restartMode:
     type: string
-    description: Graceful restart mode (e.g. HELPER_ONLY, GRACEFUL_RESTART, DISABLE)
+    description: Graceful restart mode (e.g. HELPER_ONLY, GR_AND_HELPER, DISABLE)
   config:
     anyOf:
       - $ref: networkRouterBgpNeighborConfigNsxtCreate.yaml
