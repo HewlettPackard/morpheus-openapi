@@ -2,9 +2,9 @@ title: Load Balancer Profile Tag
 type: object
 description: NSX-T tag applied to the load balancer profile.
 properties:
-  name:
+  scope:
     type: string
-    description: Tag name.
-  value:
+    description: Tag scope. Maps to the Terraform tag "value".
+  tag:
     type: string
-    description: Tag scope/value.
+    description: Tag name. Maps to the Terraform tag "name".
