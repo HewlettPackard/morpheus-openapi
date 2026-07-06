@@ -52,3 +52,9 @@ properties:
     type: boolean
   failOnError:
     type: boolean
+  dateCreated:
+    type: string
+    format: date-time
+  lastUpdated:
+    type: string
+    format: date-time
