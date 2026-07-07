@@ -64,6 +64,10 @@ properties:
     type: string
   providerId:
     type: string
+  firewall:
+    type: string
+  service:
+    type: string
   dateCreated:
     type: string
     format: date-time
