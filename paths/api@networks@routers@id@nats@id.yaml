@@ -76,7 +76,19 @@ put:
                   properties:
                     action:
                       type: string
-                      description: The NAT action (e.g. SNAT, DNAT, REFLEXIVE).
+                      description: >-
+                        The NAT action (config-context). NSX-T values: SNAT, DNAT,
+                        NO_SNAT, NO_DNAT, REFLEXIVE.
+                    firewall:
+                      type: string
+                      description: >-
+                        Firewall match mode for the NAT rule (config-context). NSX-T
+                        values: MATCH_EXTERNAL_ADDRESS, MATCH_INTERNAL_ADDRESS, BYPASS.
+                    service:
+                      type: string
+                      description: >-
+                        Service the NAT rule applies to (config-context). For NSX-T this
+                        is a service path, for example /infra/services/HTTP.
         examples: 
           Network Router NAT Request:
             value:

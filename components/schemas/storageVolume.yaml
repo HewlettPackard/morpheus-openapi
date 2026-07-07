@@ -133,13 +133,26 @@ properties:
     type:
       - object
       - 'null'
-    description: The storage group the volume belongs to (id and name).
+    description: The storage group the volume belongs to.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   namespace:
     type:
       - string
       - 'null'
   storageServer:
     type: object
+    description: The storage server the volume is provisioned on.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   source:
     type: string
   uniqueId:

@@ -3,6 +3,7 @@ properties:
   name:
     type: string
     description: Script name
+    maxLength: 255
   labels:
     type:
       - array
@@ -20,6 +21,17 @@ properties:
   scriptPhase:
     type: string
     description: Phase for the script, provision, start, etc.
+    enum:
+      - start
+      - stop
+      - preProvision
+      - provision
+      - postProvision
+      - preDeploy
+      - deploy
+      - reconfigure
+      - scaleDown
+      - teardown
   scriptType:
     type: string
     description: Type for the script
