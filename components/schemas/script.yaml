@@ -6,9 +6,13 @@ properties:
   code:
     type: string
   account:
-    type:
-      - string
-      - 'null'
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   name:
     type: string
   labels:
