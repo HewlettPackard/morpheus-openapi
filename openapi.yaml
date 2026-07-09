@@ -250,6 +250,8 @@ paths:
     $ref: paths/api@clusters@id@affinity-groups@id.yaml
   /api/clusters/{clusterId}/api-config:
     $ref: paths/api@clusters@id@api-config.yaml
+  /api/clusters/{clusterId}/configure-autoscaler:
+    $ref: paths/api@clusters@id@configure-autoscaler.yaml
   /api/clusters/{clusterId}/apply-template:
     $ref: paths/api@clusters@id@apply-template.yaml
   /api/clusters/{clusterId}/available-nics:

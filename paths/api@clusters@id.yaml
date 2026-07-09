@@ -32,7 +32,10 @@ get:
       $ref: ../components/responses/5xx.yaml
 put: 
   summary: Update Cluster
-  description: Update Cluster
+  description: |
+    Update Cluster.
+
+    Autoscaler settings are not updated through this endpoint. Use `POST /api/clusters/{clusterId}/configure-autoscaler` to configure cluster autoscaler settings.
   operationId: updateCluster
   tags: 
     -  Clusters

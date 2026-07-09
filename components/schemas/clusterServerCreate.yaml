@@ -11,6 +11,17 @@ properties:
       
       The config parameter is for configuration options that are specific to each Provision Type. The Provision Types api can be used to see which options are available.
     properties:
+      autoScalerEnabled:
+        type: boolean
+        description: Enable autoscaler during cluster creation for supported cluster types.
+      minNodes:
+        type: integer
+        format: int64
+        description: Minimum worker node count for autoscaler-enabled cluster creation on supported cluster types.
+      maxNodes:
+        type: integer
+        format: int64
+        description: Maximum worker node count for autoscaler-enabled cluster creation on supported cluster types.
       defaultRepoAccount:
         type:
           - integer
