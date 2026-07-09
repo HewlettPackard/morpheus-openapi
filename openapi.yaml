@@ -1148,6 +1148,8 @@ paths:
     $ref: paths/api@accounts@id@user-sources.yaml
   /api/subnet-types:
     $ref: paths/api@subnet-types.yaml
+  /api/subnet-types/{id}:
+    $ref: paths/api@subnet-types@id.yaml
   /api/subnets:
     $ref: paths/api@subnets.yaml
   /api/subnets/{id}:
