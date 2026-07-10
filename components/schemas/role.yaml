@@ -35,6 +35,29 @@ properties:
           - 'null'
       diverged:
         type: boolean
+      tenantCopies:
+        type: array
+        description: >-
+          The per-tenant copies of a multitenant master role, each identifying a
+          subtenant and the id of the role copy propagated into it. Populated
+          only for multitenant=true master roles on Morpheus 9.0.2 and later;
+          empty or absent otherwise.
+        items:
+          type: object
+          properties:
+            tenantId:
+              type: integer
+              format: int64
+              description: The id of the subtenant (account) the copy belongs to.
+            roleId:
+              type: integer
+              format: int64
+              description: The id of the propagated per-tenant role copy.
+            diverged:
+              type: boolean
+              description: >-
+                Whether the subtenant has modified (diverged) its copy, which
+                stops further propagation of changes from the master role.
       ownerId:
         type: integer
         format: int64
