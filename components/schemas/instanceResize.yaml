@@ -18,6 +18,13 @@ properties:
     description: Can be used to grow just the logical volume of the instance instead of choosing a plan
     items:
       $ref: instanceCreateVolume.yaml
+  storageController:
+    type: array
+    description: |
+      Optional array of storage controller configurations. When provided, additional disk controllers will be
+      created (or existing ones updated by id) during the resize. Supported on VMware and MVM.
+    items:
+      $ref: instanceCreateStorageController.yaml
   deleteOriginalVolumes:
     type: boolean
     description: Delete the original volumes after resizing. (Amazon only)
