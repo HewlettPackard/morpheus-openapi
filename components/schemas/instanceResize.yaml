@@ -21,8 +21,13 @@ properties:
   storageController:
     type: array
     description: |
-      Optional array of storage controller configurations. When provided, additional disk controllers will be
-      created (or existing ones updated by id) during the resize. Supported on VMware and MVM.
+      Optional array of storage controller configurations representing the full desired controller state
+      of the instance after resize. Include every existing controller (by `id`) that should be preserved,
+      plus any new controllers to add. Existing controllers omitted from the array are treated as deletes;
+      controllers with volumes attached cannot be deleted and will fail the resize.
+
+      Must be sent alongside the `volumes` array in the same request — controller changes are only
+      processed when `volumes` is present in the payload. Supported on VMware and MVM.
     items:
       $ref: instanceCreateStorageController.yaml
   deleteOriginalVolumes:
