@@ -55,7 +55,6 @@ post:
               - type: object
                 required:
                   - name
-                  - gatewayUrl
                 properties:
                   name: 
                     type: string
