@@ -18,7 +18,7 @@ properties:
     description: Can be used to grow just the logical volume of the instance instead of choosing a plan
     items:
       $ref: instanceCreateVolume.yaml
-  storageController:
+  storageControllers:
     type: array
     description: |
       Optional array of storage controller configurations representing the full desired controller state

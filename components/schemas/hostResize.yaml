@@ -15,7 +15,7 @@ volumes:
   description: List of volumes with their new sizes.
   items:
     $ref: instanceCreateVolume.yaml
-storageController:
+storageControllers:
   type: array
   description: |
     Optional array of storage controller configurations representing the full desired controller state
