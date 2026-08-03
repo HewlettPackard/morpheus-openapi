@@ -278,6 +278,16 @@ paths:
     $ref: paths/api@clusters@id@history@id.yaml
   /api/clusters/{clusterId}/history/events/{id}:
     $ref: paths/api@clusters@id@history@events@id.yaml
+  /api/clusters/{clusterId}/host-profile:
+    $ref: paths/api@clusters@id@host-profile.yaml
+  /api/clusters/{clusterId}/host-profile/attach:
+    $ref: paths/api@clusters@id@host-profile@attach.yaml
+  /api/clusters/{clusterId}/host-profile/compliance:
+    $ref: paths/api@clusters@id@host-profile@compliance.yaml
+  /api/clusters/{clusterId}/host-profile/remediate:
+    $ref: paths/api@clusters@id@host-profile@remediate.yaml
+  /api/clusters/{clusterId}/host-profile/detach:
+    $ref: paths/api@clusters@id@host-profile@detach.yaml
   /api/clusters/{clusterId}/jobs:
     $ref: paths/api@clusters@id@jobs.yaml
   /api/clusters/{clusterId}/jobs/{id}:
@@ -497,6 +507,10 @@ paths:
     $ref: paths/api@boot-scripts.yaml
   /api/boot-scripts/{id}:
     $ref: paths/api@boot-scripts@id.yaml
+  /api/host-profiles:
+    $ref: paths/api@host-profiles.yaml
+  /api/host-profiles/{id}:
+    $ref: paths/api@host-profiles@id.yaml
   /api/image-builds:
     $ref: paths/api@image-builds.yaml
   /api/image-builds/{id}:
@@ -1035,6 +1049,14 @@ paths:
     $ref: paths/api@servers@id.yaml
   /api/servers/{id}/assign-account:
     $ref: paths/api@servers@id@assign-account.yaml
+  /api/servers/{id}/host-profile:
+    $ref: paths/api@servers@id@host-profile.yaml
+  /api/servers/{id}/host-profile/extract:
+    $ref: paths/api@servers@id@host-profile@extract.yaml
+  /api/servers/{id}/host-profile/compliance:
+    $ref: paths/api@servers@id@host-profile@compliance.yaml
+  /api/servers/{id}/host-profile/remediate:
+    $ref: paths/api@servers@id@host-profile@remediate.yaml
   /api/servers/{id}/install-agent:
     $ref: paths/api@servers@id@install-agent.yaml
   /api/servers/{id}/make-managed:
@@ -1445,6 +1467,8 @@ tags:
     description: View History
   - name: Hosts
     description: Manage Hosts
+  - name: Host Profiles
+    description: Manage KVM/MVM Host Profiles — capture, compliance, and remediation
   - name: Identity Sources
     description: Manage Identity Sources
   - name: Image Builds

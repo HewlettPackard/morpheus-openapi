@@ -1,0 +1,77 @@
+get:
+  summary: Get Server Host Profile Compliance Status
+  description: Returns the last persisted compliance check result without triggering a new SSH check. Includes full per-key complianceDetails with `remediable` and `remediationImpact` on every entry.
+  operationId: getServerHostProfileCompliance
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Stored compliance result
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              serverId: { type: integer, format: int64 }
+              serverName: { type: string }
+              profileId: { type: integer, format: int64 }
+              profileName: { type: string }
+              status:
+                type: string
+                enum: [unknown, checking, compliant, non-compliant, remediating, error]
+              compliant: { type: boolean }
+              lastChecked: { type: [string, 'null'], format: date-time }
+              remediatedDate: { type: [string, 'null'], format: date-time }
+              remediableViolations: { type: integer }
+              manualViolations: { type: integer }
+              complianceDetails:
+                type: object
+                description: "Map of profile key → compliance entry"
+                additionalProperties:
+                  $ref: ../components/schemas/hostProfileComplianceEntry.yaml
+          example:
+            $ref: ../components/examples/serverHostProfileCompliance.json
+    '400':
+      description: No host profile attached
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/serverHostProfileNoAttachmentError.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put:
+  summary: Trigger Host Profile Compliance Check
+  description: "Kicks off an async SSH compliance check against the attached profile. Immediately sets the compliance record status to `checking`. Returns `success: true` immediately; poll `GET /api/servers/{id}/host-profile/compliance` for the result."
+  operationId: checkServerHostProfileCompliance
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Compliance check started
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          example:
+            $ref: ../components/examples/success.json
+    '400':
+      description: No host profile attached
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/serverHostProfileNoAttachmentError.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

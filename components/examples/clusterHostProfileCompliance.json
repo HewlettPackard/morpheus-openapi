@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "clusterId": 1,
+  "clusterName": "Cluster1",
+  "profileId": 11,
+  "profileName": "node1 - Profile 2026-06-23 09:09",
+  "overallStatus": "non-compliant",
+  "hosts": [
+    {
+      "serverId": 2,
+      "serverName": "node2",
+      "status": "compliant",
+      "compliant": true,
+      "lastChecked": "2026-06-23T09:10:08Z",
+      "remediatedDate": null,
+      "remediableViolations": 0,
+      "manualViolations": 0
+    },
+    {
+      "serverId": 1,
+      "serverName": "node1",
+      "status": "non-compliant",
+      "compliant": false,
+      "lastChecked": "2026-06-23T09:10:08Z",
+      "remediatedDate": null,
+      "remediableViolations": 2,
+      "manualViolations": 1
+    }
+  ]
+}
