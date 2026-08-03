@@ -1,0 +1,11 @@
+type: object
+properties:
+  id: { type: integer, format: int64 }
+  name: { type: string }
+  description: { type: [string, 'null'] }
+  enabled: { type: boolean }
+  serverCount: { type: integer, description: "Number of servers currently attached to this profile" }
+  complianceStatus:
+    type: string
+    enum: [unknown, checking, compliant, non-compliant, remediating, error]
+    description: "Aggregated compliance status across all attached hosts. Highest severity wins: non-compliant > error > remediating > checking > compliant > unknown"

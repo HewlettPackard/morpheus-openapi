@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "serverId": 1,
+  "serverName": "node1",
+  "profileId": 11,
+  "profileName": "node1 - Profile 2026-06-23 09:09",
+  "status": "non-compliant",
+  "compliant": false,
+  "lastChecked": "2026-06-23T09:10:08Z",
+  "remediatedDate": null,
+  "remediableViolations": 2,
+  "manualViolations": 1,
+  "complianceDetails": {
+    "system.timezone": {
+      "desired": "America/Denver",
+      "current": "UTC",
+      "compliant": false,
+      "remediable": true,
+      "remediationImpact": "none"
+    },
+    "system.ntp.servers": {
+      "desired": [
+        "pool.ntp.org"
+      ],
+      "current": [
+        "10.0.0.1"
+      ],
+      "compliant": false,
+      "remediable": true,
+      "remediationImpact": "service-restart"
+    },
+    "baseline.kernelVersion": {
+      "desired": "6.8.0-84-generic",
+      "current": "6.8.0-59-generic",
+      "compliant": false,
+      "remediable": false,
+      "remediationImpact": "manual"
+    }
+  }
+}

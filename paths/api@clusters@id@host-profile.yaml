@@ -1,0 +1,52 @@
+get:
+  summary: Get Host Profile for a Cluster
+  description: Returns the profile attached to the cluster plus a per-host compliance status summary. Use GET /api/clusters/{clusterId}/host-profile/compliance for full per-key complianceDetails.
+  operationId: getClusterHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Attached host profile with per-host summary, or null if none attached
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              clusterId: { type: integer, format: int64 }
+              clusterName: { type: string }
+              hostProfile:
+                oneOf:
+                  - allOf:
+                      - $ref: ../components/schemas/hostProfileDetail.yaml
+                      - type: object
+                        properties:
+                          overallStatus:
+                            type: string
+                            enum: [unknown, checking, compliant, non-compliant, remediating, error]
+                            description: "Aggregated status: non-compliant > error > compliant > unknown"
+                          hosts:
+                            type: array
+                            items:
+                              type: object
+                              properties:
+                                serverId: { type: integer, format: int64 }
+                                serverName: { type: string }
+                                status: { type: string }
+                                compliant: { type: boolean }
+                                lastChecked: { type: [string, 'null'], format: date-time }
+                  - type: 'null'
+              msg: { type: [string, 'null'] }
+          examples:
+            Profile attached:
+              value:
+                $ref: ../components/examples/clusterHostProfile.json
+            No profile attached:
+              value:
+                $ref: ../components/examples/clusterHostProfileNoAttachment.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

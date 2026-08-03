@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "results": [
+    {
+      "serverId": 1,
+      "serverName": "node1",
+      "success": true,
+      "msg": null
+    },
+    {
+      "serverId": 2,
+      "serverName": "node2",
+      "success": true,
+      "msg": null
+    }
+  ]
+}

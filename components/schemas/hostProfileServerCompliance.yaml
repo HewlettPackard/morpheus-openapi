@@ -1,0 +1,17 @@
+type: object
+properties:
+  serverId: { type: integer, format: int64 }
+  serverName: { type: string }
+  status:
+    type: string
+    enum: [unknown, checking, compliant, non-compliant, remediating, error]
+  compliant: { type: boolean }
+  lastChecked: { type: [string, 'null'], format: date-time }
+  remediatedDate: { type: [string, 'null'], format: date-time }
+  remediableViolations: { type: integer }
+  manualViolations: { type: integer }
+  complianceDetails:
+    type: object
+    description: "Map of profile key → compliance entry"
+    additionalProperties:
+      $ref: ./hostProfileComplianceEntry.yaml

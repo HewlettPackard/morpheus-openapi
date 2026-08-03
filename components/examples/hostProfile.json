@@ -1,0 +1,51 @@
+{
+  "success": true,
+  "hostProfile": {
+    "id": 11,
+    "name": "node1 - Profile 2026-06-23 09:09",
+    "description": "Captured from node1",
+    "enabled": true,
+    "serverCount": 2,
+    "complianceStatus": "non-compliant",
+    "config": {
+      "storage": {
+        "multipath": {
+          "enabled": true,
+          "findMultipaths": false,
+          "userFriendlyNames": false
+        },
+        "iscsi": {
+          "transport": "tcp",
+          "chapEnabled": false
+        }
+      },
+      "system": {
+        "ntp": {
+          "enabled": true,
+          "servers": [
+            "ntp.ubuntu.com"
+          ]
+        },
+        "timezone": "America/Denver",
+        "locale": "C.UTF-8"
+      }
+    },
+    "versions": [
+      {
+        "id": 3,
+        "versionNumber": 3,
+        "dateCreated": "2026-06-25T14:22:00Z"
+      },
+      {
+        "id": 2,
+        "versionNumber": 2,
+        "dateCreated": "2026-06-24T10:11:00Z"
+      },
+      {
+        "id": 1,
+        "versionNumber": 1,
+        "dateCreated": "2026-06-23T09:09:00Z"
+      }
+    ]
+  }
+}
