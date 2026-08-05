@@ -17,6 +17,12 @@ properties:
     enum:
       - "on"
       - "off"
+  disableQgaChannel:
+    type:
+      - boolean
+      - 'null'
+    description: Exclude the virtio-serial channel for the QEMU Guest Agent from the VM. Intended for VMs that do not use a guest agent or need the slot for another device. Takes effect on existing VMs only after a full power-off.
+    default: false
   createUser:
     type:
       - boolean
