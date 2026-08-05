@@ -269,6 +269,17 @@ properties:
     type:
       - string
       - 'null'
+  guestAgentStatus:
+    type:
+      - string
+      - 'null'
+    enum:
+      - connected
+      - disconnected
+      - configured
+      - unconfigured
+      - unknown
+      - error
   maxCores:
     type: integer
     format: int64
@@ -557,6 +568,8 @@ properties:
         type:
           - string
           - 'null'
+      disableQgaChannel:
+        type: boolean
       vmwareFolderId:
         type: string
       noAgent:
