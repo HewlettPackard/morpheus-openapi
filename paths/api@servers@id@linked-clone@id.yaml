@@ -1,0 +1,24 @@
+put:
+  summary: Create Linked Clone of Host Snapshot
+  description: It is possible to create a linked clone of a Host Snapshot.
+  operationId: linkedCloneSnapshotHost
+  tags:
+    - Hosts
+  parameters:
+    - $ref: ../components/parameters/server-id-path.yaml
+    - $ref: ../components/parameters/snapshotId-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json 
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -1067,6 +1067,8 @@ paths:
     $ref: paths/api@servers@id@snapshot.yaml
   /api/servers/{id}/snapshots:
     $ref: paths/api@servers@id@snapshots.yaml
+  /api/servers/{id}/linked-clone/{snapshotId}:
+    $ref: paths/api@servers@id@linked-clone@id.yaml
   /api/servers/{id}/start:
     $ref: paths/api@servers@id@start.yaml
   /api/servers/{id}/stop:
