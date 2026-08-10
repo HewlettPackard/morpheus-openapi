@@ -12,6 +12,7 @@ properties:
     type: array
     items:
       type: integer
+      format: int64
     description: List of Server IDs to include in the Affinity Group
   visibility:
     $ref: visibility.yaml
