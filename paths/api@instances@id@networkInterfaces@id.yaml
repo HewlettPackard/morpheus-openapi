@@ -1,6 +1,9 @@
 put:
   summary: Updating a label for an Instance's Network
-  description: Updating an Instance's Network's Label
+  description: >-
+    Updating an Instance's Network's Label. Both name and connected are
+    optional parameters. The connected parameter can be used to bring the
+    NIC's link status up (true) or down (false).
   operationId: updateInstanceNetworkInterface
   tags: 
     -  Instances
