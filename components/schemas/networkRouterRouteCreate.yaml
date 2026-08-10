@@ -27,3 +27,6 @@ properties:
     type: number
     format: int64
     description: MTU
+  priority:
+    type: string
+    description: Priority of the route rule. Lower values have higher priority.

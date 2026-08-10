@@ -67,6 +67,15 @@ post:
                 translatedNetwork:
                   type: string
                   description: Translated network for the NAT rule.
+                sourcePorts:
+                  type: string
+                  description: Source ports for the NAT rule.
+                destinationPorts:
+                  type: string
+                  description: Destination ports for the NAT rule.
+                translatedPorts:
+                  type: string
+                  description: Translated ports for the NAT rule.
                 priority:
                   type: integer
                   format: int64
