@@ -56,6 +56,9 @@ post:
           NFS Datastore Request:
             value:
               $ref: ../components/examples/clusterDatastoreCreateNFS.json
+          Datastore Group Request:
+            value:
+              $ref: ../components/examples/clusterDatastoreCreateDatastoreGroup.json
   responses:
     '200':
       description: Successful Request

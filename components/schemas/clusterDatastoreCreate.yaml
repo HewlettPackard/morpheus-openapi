@@ -24,6 +24,7 @@ properties:
     anyOf:
       - $ref: clusterDatastoreConfigNFS.yaml
       - $ref: clusterDatastoreConfigGFS2.yaml
+      - $ref: clusterDatastoreConfigDatastoreGroup.yaml
       - $ref: storageDatastoreConfigGeneric.yaml
       - $ref: storageDatastoreConfigAlletraMPHVM.yaml
   tenants:

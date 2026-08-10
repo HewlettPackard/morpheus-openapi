@@ -1,0 +1,18 @@
+type: object
+title: Datastore Group Configuration
+description: Datastore Group balancing configuration.
+properties:
+  spaceThresholdPct:
+    type: integer
+    description: Utilization percentage that marks a member datastore as over-threshold.
+    minimum: 70
+    maximum: 95
+  spaceAutomationLevel:
+    type: string
+    description: Space automation mode used for datastore cluster balancing. Use `Manual` for No Automation (recommendations only), or `Automatic` for Fully Automated.
+    enum:
+      - Manual
+      - Automatic
+required:
+  - spaceThresholdPct
+  - spaceAutomationLevel
