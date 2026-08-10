@@ -51,6 +51,7 @@ post:
                   type: array
                   items: 
                     type: integer
+                    format: int64
         examples:
           App Update:
             value:
