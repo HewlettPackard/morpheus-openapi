@@ -2,5 +2,12 @@ type: object
 properties:
   name:
     type: string
-    description: Desired Name for the Network Interface
+    description: Desired Name for the Network Interface. Optional.
     example: eth0-new
+  connected:
+    type: boolean
+    description: >-
+      Optional. Controls the NIC link status. Setting to true brings the
+      network interface link status up (connected); setting to false brings
+      the link status down (disconnected).
+    example: true
