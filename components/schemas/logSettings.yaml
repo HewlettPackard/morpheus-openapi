@@ -4,6 +4,16 @@ properties:
     type: boolean
   retentionDays:
     type: string
+  minimumLogLevel:
+    type:
+      - string
+      - 'null'
+    enum:
+      - null
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR
   syslogRules:
     type:
       - array
