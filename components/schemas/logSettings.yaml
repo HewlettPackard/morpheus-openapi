@@ -13,9 +13,3 @@ properties:
     example:
       - name: foo
         rule: "*.* @@localhost:4567"
-  integrations:
-    type:
-      - array
-      - 'null'
-    items:
-      type: object
