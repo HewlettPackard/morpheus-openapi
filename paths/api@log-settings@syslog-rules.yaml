@@ -29,13 +29,13 @@ post:
                   example: "*.* @@bar.com:8080"
   responses:
     '200':
-      description: Syslog Rule Object
+      description: Syslog Rule Response
       content:
         application/json:
           schema:
             $ref: ../components/schemas/200-success.yaml
           examples:
-            Create User Response:
+            Successful Response:
               value:
                 $ref: ../components/examples/success.json
     '4XX':
