@@ -1,0 +1,18 @@
+type: object
+description: Logging settings returned with monitoring settings. These fields use the internal settings names rather than the `/api/log-settings` payload shape.
+properties:
+  logsEnabled:
+    type: boolean
+    description: Whether agent logging is enabled
+    example: true
+  minimumLogLevel:
+    type:
+      - string
+      - 'null'
+    description: Minimum agent log level. Empty string when unset.
+    example: ''
+  logRetainmentPeriod:
+    type: integer
+    format: int32
+    description: Number of days to retain logs
+    example: 7

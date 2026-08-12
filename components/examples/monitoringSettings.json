@@ -16,5 +16,10 @@
       "warningMapping": "medium",
       "criticalMapping": "high"
     }
+  },
+  "loggingSettings": {
+    "logsEnabled": true,
+    "minimumLogLevel": "",
+    "logRetainmentPeriod": 7
   }
 }

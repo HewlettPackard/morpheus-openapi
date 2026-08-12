@@ -1,6 +1,12 @@
 get:
   summary: List All Log Settings
-  description: This endpoint retrieves log settings.
+  description: |
+    This endpoint retrieves log settings, including enabled state, minimum log
+    level, retention days, and syslog rules.
+
+    A subset of logging settings is also returned from `GET /api/monitoring-settings`
+    under `loggingSettings` using internal field names (`logsEnabled`,
+    `logRetainmentPeriod`). Prefer this endpoint for full log settings management.
   operationId: listLogSettings
   tags:
     - Log Settings
@@ -24,7 +30,9 @@ get:
       $ref: ../components/responses/5xx.yaml
 put:
   summary: Update Log Settings
-  description: Update Log Settings
+  description: |
+    Update log settings. Supported fields include `enabled`, `minimumLogLevel`,
+    `retentionDays`, and `syslogRules`.
   operationId: updateLogSettings
   tags:
     - Log Settings

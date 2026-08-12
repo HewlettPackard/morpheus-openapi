@@ -2,12 +2,16 @@ type: object
 properties:
   enabled:
     type: boolean
+    description: Whether agent logging is enabled
   retentionDays:
     type: string
+    description: Number of days to retain logs
+    example: "7"
   minimumLogLevel:
     type:
       - string
       - 'null'
+    description: Minimum agent log level
     enum:
       - null
       - DEBUG
@@ -20,6 +24,15 @@ properties:
       - 'null'
     items:
       type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        rule:
+          type: string
     example:
-      - name: foo
+      - id: 1
+        name: foo
         rule: "*.* @@localhost:4567"

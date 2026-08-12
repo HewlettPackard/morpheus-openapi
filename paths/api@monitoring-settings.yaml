@@ -1,6 +1,12 @@
 get:
   summary: Get Monitoring Settings
-  description: This endpoint retrieves monitoring settings.
+  description: |
+    This endpoint retrieves monitoring settings, including ServiceNow configuration
+    and a read-only snapshot of logging settings.
+
+    Logging settings are also available from `GET /api/log-settings`, which uses a
+    different field naming convention (`enabled`, `retentionDays`, `minimumLogLevel`).
+    Updates to logging settings should be made via `PUT /api/log-settings`.
   operationId: getMonitoringSettings
   tags:
     - Monitoring Settings
@@ -14,6 +20,8 @@ get:
             properties:
               monitoringSettings:
                 $ref: ../components/schemas/monitoringSettings.yaml
+              loggingSettings:
+                $ref: ../components/schemas/monitoringLoggingSettings.yaml
           examples:
             Monitoring Settings Response:
               value:
@@ -24,7 +32,11 @@ get:
       $ref: ../components/responses/5xx.yaml
 put:
   summary: Update Monitoring Settings
-  description: Update Monitoring Settings
+  description: |
+    Update Monitoring Settings and nested ServiceNow settings.
+
+    This endpoint does not update logging settings. Use `PUT /api/log-settings`
+    to change logging configuration.
   operationId: updateMonitoringSettings
   tags:
     - Monitoring Settings
