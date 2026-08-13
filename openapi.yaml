@@ -991,8 +991,8 @@ paths:
     $ref: paths/api@roles@validate.yaml
   /api/roles/{id}:
     $ref: paths/api@roles@id.yaml
-  /api/roles/{id}/update-blueprint:
-    $ref: paths/api@roles@id@update-blueprint.yaml
+  /api/roles/{id}/update-app-template:
+    $ref: paths/api@roles@id@update-app-template.yaml
   /api/roles/{id}/update-catalog-item-type:
     $ref: paths/api@roles@id@update-catalog-item-type.yaml
   /api/roles/{id}/update-cloud:

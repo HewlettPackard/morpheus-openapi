@@ -1,7 +1,7 @@
 put:
-  summary: Customizing Blueprint Access
-  description: Customizing Blueprint Access
-  operationId: updateRoleBlueprintAccess
+  summary: Customizing Blueprint (App Template) Access
+  description: Customizing Blueprint (App Template) Access
+  operationId: updateRoleAppTemplateAccess
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   tags:
