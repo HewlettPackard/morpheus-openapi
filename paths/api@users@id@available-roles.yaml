@@ -1,23 +1,22 @@
 get:
-  summary: List available roles for a user
+  summary: List available roles for an existing user
   description: |
-    Get roles that can be assigned when creating a user (no path id) or roles available
-    to an existing user (`GET /api/users/{id}/available-roles`).
-
+    Get roles that can be assigned to an existing user.
     Target tenant may be selected with query `accountId` or `tenantId`.
-  operationId: listUsersAvailableRoles
+  operationId: listUserAvailableRoles
   tags:
     - Users
   parameters:
+    - $ref: ../components/parameters/id-path.yaml
     - name: accountId
       in: query
-      description: Tenant ID, find roles available to users of a sub tenant account.
+      description: Tenant ID for tenant-scoped lookup.
       schema:
         type: integer
         format: int64
     - name: tenantId
       in: query
-      description: Alias of `accountId` for target tenant.
+      description: Alias of `accountId`.
       schema:
         type: integer
         format: int64

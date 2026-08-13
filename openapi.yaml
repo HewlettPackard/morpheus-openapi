@@ -1172,6 +1172,16 @@ paths:
     $ref: paths/api@accounts@id@groups@id@update-zones.yaml
   /api/accounts/{accountId}/users:
     $ref: paths/api@accounts@id@users.yaml
+  /api/accounts/{accountId}/users/{id}:
+    $ref: paths/api@accounts@id@users@id.yaml
+  /api/accounts/{accountId}/users/available-roles:
+    $ref: paths/api@accounts@id@users@available-roles.yaml
+  /api/accounts/{accountId}/users/{id}/available-roles:
+    $ref: paths/api@accounts@id@users@id@available-roles.yaml
+  /api/accounts/{accountId}/users/{id}/permissions:
+    $ref: paths/api@accounts@id@users@id@permissions.yaml
+  /api/accounts/{accountId}/users/{id}/feature-permissions:
+    $ref: paths/api@accounts@id@users@id@feature-permissions.yaml
   /api/accounts/{accountId}/user-sources:
     $ref: paths/api@accounts@id@user-sources.yaml
   /api/subnet-types:
@@ -1273,6 +1283,10 @@ paths:
     $ref: paths/api@users@id.yaml
   /api/users/{id}/permissions:
     $ref: paths/api@users@id@permissions.yaml
+  /api/users/{id}/feature-permissions:
+    $ref: paths/api@users@id@feature-permissions.yaml
+  /api/users/{id}/available-roles:
+    $ref: paths/api@users@id@available-roles.yaml
   /api/vdi-apps:
     $ref: paths/api@vdi-apps.yaml
   /api/vdi-apps/{id}:

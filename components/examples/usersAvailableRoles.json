@@ -1,324 +1,356 @@
 {
   "roles": [
-      {
-          "id": 17,
-          "authority": "ah-admin",
-          "description": "Adam Hicks Role",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 296,
-          "authority": "al-admin",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 593,
-          "authority": "Archives",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 609,
-          "authority": "Channels West Demo Role 1",
-          "description": "User permissions",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 254,
-          "authority": "chef-user",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 491,
-          "authority": "CT Admin",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 224,
-          "authority": "Dashboard",
-          "description": "Dashboard Read Access Only",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 62,
-          "authority": "Demo",
-          "description": "Role for Demo use",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 273,
-          "authority": "Dev Limited",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 26,
-          "authority": "Developer",
-          "description": "Developer Access Role",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 285,
-          "authority": "End User Basic",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 594,
-          "authority": "gp-admin",
-          "description": "Greg Pietro Admin",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 384,
-          "authority": "Irresponsible Developer",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 223,
-          "authority": "js-admin",
-          "description": "James Smith Role",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 15,
-          "authority": "jw-admin",
-          "description": "Jeff Wheeler Role",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 619,
-          "authority": "lockout instance types",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 293,
-          "authority": "Marketing",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 260,
-          "authority": "Monitoring Admin",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 16,
-          "authority": "Morpheus Admin",
-          "description": "Morpheus Administrator Role",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 294,
-          "authority": "Morpheus Engineer",
-          "description": "Morpheus Engineer",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 378,
-          "authority": "multi-tenant user locked",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 67,
-          "authority": "Provisioning User",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 328,
-          "authority": "ProvisionOnly",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 19,
-          "authority": "QA",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 336,
-          "authority": "ReadOnly",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 63,
-          "authority": "Sales",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 421,
-          "authority": "Service Catalog Access",
-          "description": "This Role only grants access to Service Catalog Persona. No other permissions",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 335,
-          "authority": "Space Developer",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 21,
-          "authority": "Sub Account Admin",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 415,
-          "authority": "Subtenant Multirole",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 620,
-          "authority": "thuan - test",
-          "description": null,
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
-      },
-      {
-          "id": 585,
-          "authority": "Web Tour",
-          "description": "Tourial User to limit options",
-          "roleType": "user",
-          "owner": {
-              "id": 3,
-              "name": "Morpheus"
-          }
+    {
+      "id": 17,
+      "name": "ah-admin",
+      "authority": "ah-admin",
+      "description": "Adam Hicks Role",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
       }
+    },
+    {
+      "id": 296,
+      "name": "al-admin",
+      "authority": "al-admin",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 593,
+      "name": "Archives",
+      "authority": "Archives",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 609,
+      "name": "Channels West Demo Role 1",
+      "authority": "Channels West Demo Role 1",
+      "description": "User permissions",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 254,
+      "name": "chef-user",
+      "authority": "chef-user",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 491,
+      "name": "CT Admin",
+      "authority": "CT Admin",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 224,
+      "name": "Dashboard",
+      "authority": "Dashboard",
+      "description": "Dashboard Read Access Only",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 62,
+      "name": "Demo",
+      "authority": "Demo",
+      "description": "Role for Demo use",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 273,
+      "name": "Dev Limited",
+      "authority": "Dev Limited",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 26,
+      "name": "Developer",
+      "authority": "Developer",
+      "description": "Developer Access Role",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 285,
+      "name": "End User Basic",
+      "authority": "End User Basic",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 594,
+      "name": "gp-admin",
+      "authority": "gp-admin",
+      "description": "Greg Pietro Admin",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 384,
+      "name": "Irresponsible Developer",
+      "authority": "Irresponsible Developer",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 223,
+      "name": "js-admin",
+      "authority": "js-admin",
+      "description": "James Smith Role",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 15,
+      "name": "jw-admin",
+      "authority": "jw-admin",
+      "description": "Jeff Wheeler Role",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 619,
+      "name": "lockout instance types",
+      "authority": "lockout instance types",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 293,
+      "name": "Marketing",
+      "authority": "Marketing",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 260,
+      "name": "Monitoring Admin",
+      "authority": "Monitoring Admin",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Morpheus Admin",
+      "authority": "Morpheus Admin",
+      "description": "Morpheus Administrator Role",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 294,
+      "name": "Morpheus Engineer",
+      "authority": "Morpheus Engineer",
+      "description": "Morpheus Engineer",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 378,
+      "name": "multi-tenant user locked",
+      "authority": "multi-tenant user locked",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 67,
+      "name": "Provisioning User",
+      "authority": "Provisioning User",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 328,
+      "name": "ProvisionOnly",
+      "authority": "ProvisionOnly",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 19,
+      "name": "QA",
+      "authority": "QA",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 336,
+      "name": "ReadOnly",
+      "authority": "ReadOnly",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 63,
+      "name": "Sales",
+      "authority": "Sales",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 421,
+      "name": "Service Catalog Access",
+      "authority": "Service Catalog Access",
+      "description": "This Role only grants access to Service Catalog Persona. No other permissions",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 335,
+      "name": "Space Developer",
+      "authority": "Space Developer",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 21,
+      "name": "Sub Account Admin",
+      "authority": "Sub Account Admin",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 415,
+      "name": "Subtenant Multirole",
+      "authority": "Subtenant Multirole",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 620,
+      "name": "thuan - test",
+      "authority": "thuan - test",
+      "description": null,
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    },
+    {
+      "id": 585,
+      "name": "Web Tour",
+      "authority": "Web Tour",
+      "description": "Tourial User to limit options",
+      "roleType": "user",
+      "owner": {
+        "id": 3,
+        "name": "Morpheus"
+      }
+    }
   ]
 }

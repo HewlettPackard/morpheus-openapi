@@ -1,0 +1,38 @@
+get:
+  summary: Get feature permissions for a tenant user (deprecated)
+  description: |
+    **Deprecated.** Prefer `GET /api/accounts/{accountId}/users/{id}/permissions`.
+  deprecated: true
+  operationId: getTenantUserFeaturePermissions
+  tags:
+    - Tenants
+  parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Feature permissions map and list
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              featurePermissions:
+                type: object
+                additionalProperties:
+                  type: string
+              permissions:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    code:
+                      type: string
+                    access:
+                      type: string
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
