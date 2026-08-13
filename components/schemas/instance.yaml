@@ -156,6 +156,26 @@ properties:
           - integer
           - 'null'
         format: int64
+      affinityGroup:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: >-
+          ID of the affinity group this instance's servers were added to when it
+          was provisioned. Recorded at provision time and not updated
+          afterwards, so it reflects what was requested rather than current
+          membership. Current membership is reported by the affinity group
+          itself.
+      affinityGroupId:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: >-
+          ID of the affinity group considered during host selection when the
+          instance was provisioned. Recorded at provision time and not updated
+          afterwards. Normally the same value as affinityGroup.
       cloneInstanceId:
         type:
           - integer
