@@ -10,20 +10,9 @@ put:
     content:
       application/json:
         schema:
-          type: object
-          required:
-            - vdiPoolId
-            - access
-          properties:
-            vdiPoolId:
-              type: integer
-              description: "`id` of the VDI Pool"
-            access:
-              type: string
-              description: The new access level.
-              enum:
-                - full
-                - none
+          oneOf:
+            - $ref: ../components/schemas/rolePermissionVDIPool.yaml
+            - $ref: ../components/schemas/rolePermissionVDIPoolAll.yaml
   responses:
     '200':
       description: Successful Response

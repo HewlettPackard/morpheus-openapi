@@ -1,11 +1,16 @@
 type: object
 required:
-  - vdiPoolId
   - access
 properties:
   vdiPoolId:
     type: integer
     description: "`id` of the VDI Pool"
+  name:
+    type: string
+    description: VDI Pool name (alternative to id). Alias of `vdiPoolName`.
+  vdiPoolName:
+    type: string
+    description: Alias for `name`
   access:
     type: string
     description: The new access level.

@@ -985,6 +985,10 @@ paths:
     $ref: paths/api@resource-pools@groups@id.yaml
   /api/roles:
     $ref: paths/api@roles.yaml
+  /api/roles/personas:
+    $ref: paths/api@roles@personas.yaml
+  /api/roles/validate:
+    $ref: paths/api@roles@validate.yaml
   /api/roles/{id}:
     $ref: paths/api@roles@id.yaml
   /api/roles/{id}/update-blueprint:

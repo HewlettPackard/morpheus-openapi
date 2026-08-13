@@ -31,8 +31,9 @@ properties:
         type: boolean
       parentRoleId:
         type:
-          - string
+          - integer
           - 'null'
+        format: int64
       diverged:
         type: boolean
       ownerId:
@@ -58,6 +59,20 @@ properties:
             type: string
           name:
             type: string
+      tenantCopies:
+        type: array
+        description: Per-tenant copies of a multitenant master role (show only when applicable)
+        items:
+          type: object
+          properties:
+            tenantId:
+              type: integer
+              format: int64
+            roleId:
+              type: integer
+              format: int64
+            diverged:
+              type: boolean
       dateCreated:
         type: string
         format: date-time
@@ -254,3 +269,15 @@ properties:
           type: string
         access:
           type: string
+  tenantCopiesMeta:
+    type: object
+    description: Paging metadata for `role.tenantCopies` on multitenant master roles
+    properties:
+      offset:
+        type: integer
+      max:
+        type: integer
+      size:
+        type: integer
+      total:
+        type: integer

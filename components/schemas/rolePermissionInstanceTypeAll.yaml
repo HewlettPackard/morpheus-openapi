@@ -6,6 +6,9 @@ properties:
   allInstanceTypes:
     type: boolean
     description: "Apply to all instance types"
+  all:
+    type: boolean
+    description: Alias for `allInstanceTypes`
   access:
     type: string
     description: The new access level.
