@@ -44,4 +44,8 @@ properties:
     properties:
       parentId:
         type: string
-        description: External id of the parent firewall rule group (required by NSX-T).
+        description: >-
+          External id of the parent firewall rule group (required by NSX-T).
+          Must be in the format "group-{id}", where {id} is the id of the
+          firewall rule group - for example "group-123". Any other format is
+          rejected.
