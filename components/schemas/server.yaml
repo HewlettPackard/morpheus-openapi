@@ -570,6 +570,14 @@ properties:
           - 'null'
       disableQgaChannel:
         type: boolean
+      bootToBios:
+        type:
+          - boolean
+          - 'null'
+      bootToBiosMenuTimeout:
+        type:
+          - integer
+          - 'null'
       vmwareFolderId:
         type: string
       noAgent:

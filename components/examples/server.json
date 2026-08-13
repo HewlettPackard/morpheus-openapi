@@ -232,7 +232,9 @@
             "nestedVirtualization": null,
             "vmwareFolderId": "group-v80",
             "noAgent": false,
-            "powerScheduleType": null
+            "powerScheduleType": null,
+            "bootToBios": true,
+            "bootToBiosMenuTimeout": 0
         },
         "instance": {
             "id": 2342422,
