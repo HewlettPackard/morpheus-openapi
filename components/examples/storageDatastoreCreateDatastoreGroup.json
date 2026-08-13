@@ -1,0 +1,37 @@
+{
+  "datastore": {
+    "name": "Datastore Group",
+    "datastoreType": "libvirt-datastore-cluster",
+    "active": true,
+    "config": {
+      "spaceThresholdPct": 85,
+      "spaceAutomationLevel": "Automatic"
+    },
+    "datastores": [
+      {
+        "id": 1112
+      },
+      {
+        "id": 1113
+      }
+    ],
+    "defaultStore": false,
+    "resourcePermissions": {
+      "sites": [
+        {
+          "id": 2
+        }
+      ]
+    },
+    "refType": "ComputeServerGroup",
+    "refId": 586,
+    "tenantPermissions": {
+      "accounts": [
+        {
+          "id": 1
+        }
+      ]
+    },
+    "visibility": "private"
+  }
+}

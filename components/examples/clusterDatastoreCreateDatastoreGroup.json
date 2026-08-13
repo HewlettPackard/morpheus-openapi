@@ -1,0 +1,33 @@
+{
+  "datastore": {
+    "name": "Cluster Datastore Group",
+    "datastoreType": {
+      "id": 6
+    },
+    "active": true,
+    "config": {
+      "spaceThresholdPct": 85,
+      "spaceAutomationLevel": "Automatic"
+    },
+    "datastores": [
+      {
+        "id": 1112
+      },
+      {
+        "id": 1113
+      }
+    ],
+    "defaultStore": false,
+    "resourcePermissions": {
+      "allSites": true
+    },
+    "tenants": [
+      {
+        "id": 1,
+        "defaultStore": false,
+        "defaultTarget": false
+      }
+    ],
+    "visibility": "private"
+  }
+}
