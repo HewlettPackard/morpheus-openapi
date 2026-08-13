@@ -31,6 +31,23 @@ properties:
     type: integer
     format: int64
     description: The ID of the KVM host to provision the instance on
+  affinityGroup:
+    type: integer
+    format: int64
+    description: >-
+      ID of an affinity group to add this instance's servers to. This records
+      membership; it does not by itself influence which host the instance is
+      placed on. Placement is applied by the cluster's dynamic placement loop,
+      which must be enabled on the cluster. Applies at provision time only.
+  affinityGroupId:
+    type: integer
+    format: int64
+    description: >-
+      ID of an affinity group to consider during host selection. For a
+      KEEP_TOGETHER group the instance is placed on the same host as the group's
+      existing members. Has no effect for a KEEP_SEPARATE group, or when the
+      group has no members yet. Normally set to the same value as affinityGroup,
+      which records the membership itself. Applies at provision time only.
   provisionPoweredOff:
     type: boolean
     description: Whether to provision the instance in a powered off state
