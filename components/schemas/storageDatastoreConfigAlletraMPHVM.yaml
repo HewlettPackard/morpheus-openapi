@@ -12,8 +12,8 @@ properties:
     type: string
     description: Storage protocol to use, can be 'iSCSI' or 'FC'
     enum:
-      - iSCSI
-      - FC
+      - "iSCSI"
+      - "FC"
 required:
   - protocolType
-  - enableRansomware
+  - enableransomware
