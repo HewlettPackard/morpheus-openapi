@@ -1,0 +1,27 @@
+get:
+  summary: Get permissions for a tenant user
+  description: Full access map for a user in the given tenant.
+  operationId: getTenantUserPermissions
+  tags:
+    - Tenants
+  parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: User access object
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              access:
+                $ref: ../components/schemas/userPermissions.yaml
+          examples:
+            Get User Permissions Response:
+              value:
+                $ref: ../components/examples/userPermissions.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

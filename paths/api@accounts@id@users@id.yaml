@@ -1,26 +1,13 @@
 get:
-  summary: Get a Specific User
-  description: |
-    Retrieve a specific user by id if the caller has permission to access the user.
-    Pass `includeAccess=true` to embed the full access map on the user object.
-  operationId: getUser
+  summary: Get a User For a Tenant
+  description: Retrieve a user by id within a tenant. Equivalent to `GET /api/users/{id}?accountId={accountId}`.
+  operationId: getUserTenant
   tags:
-    - Users
+    - Tenants
   parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
     - $ref: ../components/parameters/id-path.yaml
     - $ref: ../components/parameters/includeAccess.yaml
-    - name: accountId
-      in: query
-      description: Scope lookup to a tenant (alias `tenantId` also accepted).
-      schema:
-        type: integer
-        format: int64
-    - name: tenantId
-      in: query
-      description: Alias of `accountId` for tenant-scoped user lookup.
-      schema:
-        type: integer
-        format: int64
   responses:
     '200':
       description: User Object
@@ -40,31 +27,14 @@ get:
     '5XX':
       $ref: ../components/responses/5xx.yaml
 put:
-  summary: Update user
-  description: |
-    Update an existing user.
-
-    Password confirmation fields are optional for API callers when the matching password
-    is supplied and the confirmation key is omitted. Explicit confirmation values are validated as-is.
-
-    Query `accountId` / `tenantId` may scope the target user for master-tenant operators.
-  operationId: updateUser
+  summary: Update a User For a Tenant
+  description: Update a user within a tenant.
+  operationId: updateUserTenant
   tags:
-    - Users
+    - Tenants
   parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
     - $ref: ../components/parameters/id-path.yaml
-    - name: accountId
-      in: query
-      description: Scope update to a tenant (alias `tenantId` also accepted).
-      schema:
-        type: integer
-        format: int64
-    - name: tenantId
-      in: query
-      description: Alias of `accountId` for tenant-scoped user update.
-      schema:
-        type: integer
-        format: int64
   requestBody:
     content:
       application/json:
@@ -104,25 +74,14 @@ put:
     '5XX':
       $ref: ../components/responses/5xx.yaml
 delete:
-  summary: Delete a User
-  description: Delete an existing user.
-  operationId: deleteUser
+  summary: Delete a User For a Tenant
+  description: Delete a user within a tenant.
+  operationId: deleteUserTenant
   tags:
-    - Users
+    - Tenants
   parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
     - $ref: ../components/parameters/id-path.yaml
-    - name: accountId
-      in: query
-      description: Scope delete to a tenant (alias `tenantId` also accepted).
-      schema:
-        type: integer
-        format: int64
-    - name: tenantId
-      in: query
-      description: Alias of `accountId` for tenant-scoped user delete.
-      schema:
-        type: integer
-        format: int64
   responses:
     '200':
       description: Success Object
