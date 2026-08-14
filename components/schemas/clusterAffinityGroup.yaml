@@ -66,3 +66,11 @@ properties:
           - 'null'
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Group ID
+            default:
+              type: boolean
+              description: Whether this is the default group

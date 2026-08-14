@@ -459,12 +459,24 @@ properties:
               type: string
         subnet:
           type:
-            - string
+            - object
             - 'null'
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
         networkGroup:
           type:
-            - string
+            - object
             - 'null'
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
         networkPosition:
           type:
             - string
@@ -514,7 +526,7 @@ properties:
       - array
       - 'null'
     items:
-      type: object
+      type: string
   tags:
     type:
       - array

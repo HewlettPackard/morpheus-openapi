@@ -28,6 +28,7 @@
     "disabledData": null,
     "monitorUsername": null,
     "monitorPassword": null,
+    "monitorPasswordHash": null,
     "monitorDestination": "/",
     "monitorReverse": false,
     "monitorTransparent": false,
@@ -46,6 +47,10 @@
     "riseCount": 3,
     "dataLength": null,
     "config": {
+      "monitor": {
+        "id": 1
+      },
+      "monitorConfig": null
     },
     "createdBy": null,
     "dateCreated": "2021-10-19T17:39:33Z",

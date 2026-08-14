@@ -1,12 +1,17 @@
 {
   "subnet": {
+    "name": "My Subnet",
+    "description": "A new subnet in the Azure VNet",
     "type": {
       "id": 6
     },
+    "networkId": 55,
     "config": {
       "subnetName": "My Subnet",
       "subnetCidr": "192.168.2.0/24"
     },
+    "active": true,
+    "dhcpServer": true,
     "tenants": [
       {
         "id": 2
@@ -15,7 +20,8 @@
         "id": 1
       }
     ],
-    "visibility": "private"
+    "visibility": "private",
+    "labels": ["production", "azure"]
   },
   "resourcePermissions": {
     "all": true

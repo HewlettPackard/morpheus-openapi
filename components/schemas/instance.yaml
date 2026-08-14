@@ -133,7 +133,7 @@ properties:
       createUser:
         type: boolean
       isEC2:
-        type: boolean
+        type: string
       isVpcSelectable:
         type: boolean
       noAgent:
@@ -156,6 +156,32 @@ properties:
           - integer
           - 'null'
         format: int64
+      affinityGroup:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: >-
+          ID of the affinity group this instance's servers were added to when it
+          was provisioned. Recorded at provision time and not updated
+          afterwards, so it reflects what was requested rather than current
+          membership. Current membership is reported by the affinity group
+          itself.
+      affinityGroupId:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: >-
+          ID of the affinity group considered during host selection when the
+          instance was provisioned. Recorded at provision time and not updated
+          afterwards. Normally the same value as affinityGroup.
+      cloneInstanceId:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: The ID of the source instance this instance was cloned from. Set by Morpheus when the instance is created via the clone endpoint; absent for instances that were not cloned.
       smbiosAssetTag:
         type:
           - string
@@ -182,8 +208,9 @@ properties:
         properties:
           id:
             type:
-              - string
+              - integer
               - 'null'
+            format: int64
       expireDays:
         type: string
       shutdownDays:
@@ -219,6 +246,22 @@ properties:
             type: string
       type:
         type: string
+      kmsKeyId:
+        type:
+          - string
+          - 'null'
+      instanceProfile:
+        type:
+          - string
+          - 'null'
+      availabilityId:
+        type:
+          - string
+          - 'null'
+      publicIpType:
+        type:
+          - string
+          - 'null'
       instanceContext:
         type: string
       memoryDisplay:
@@ -260,6 +303,14 @@ properties:
           - 'null'
         items:
           type: object
+      networkDomain:
+        type: object
+        properties:
+          id:
+            type:
+              - integer
+              - 'null'
+            format: int64
   configGroup:
     type:
       - string
@@ -1027,6 +1078,11 @@ properties:
                     type:
                       - string
                       - 'null'
+                  storageProfile:
+                    type:
+                      - string
+                      - 'null'
+                    description: Storage Profile Code for the volume storage profile assignment. eg. `"kvm-cache-none"` or `"kvm-cache-directsync"`. Use `/api/provision-types?code=kvm` to see the available `storageProfiles` for HVM and KVM.
                   storageServer:
                     type: object
                     title: Instance Container Server Volume Storage Server
@@ -1118,6 +1174,14 @@ properties:
                   primaryInterface:
                     type: boolean
                   network:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      name:
+                        type: string
+                  subnet:
                     type: object
                     properties:
                       id:

@@ -1,8 +1,5 @@
 type: object
 properties:
-  id:
-    type: integer
-    format: int64
   name:
     type: string
     description: Name
@@ -26,6 +23,7 @@ properties:
     type: array
     items:
       type: integer
+      format: int64
     description: List of Server IDs to include in the Affinity Group
   visibility:
     $ref: visibility.yaml
@@ -50,3 +48,11 @@ properties:
           - 'null'
         items:
           type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Group ID
+            default:
+              type: boolean
+              description: Whether this is the default group

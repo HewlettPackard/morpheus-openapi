@@ -6,6 +6,6 @@
     "defaultRoute": false,
     "source": "99.99.99.99",
     "destination": "88.88.88.88",
-    "networkMtu": "65535"
+    "networkMtu": 65535,
   }
 }

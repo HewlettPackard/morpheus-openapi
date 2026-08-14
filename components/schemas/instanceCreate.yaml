@@ -71,6 +71,25 @@ properties:
         type: string
         description: Hostname of the instance to be created.  Can be the same as the instance name.
         example: myinstance
+      networkDomain:
+        type: object
+        required:
+          - id
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: The Network Domain ID to provision the instance into.
+            example: 3
+      userGroup:
+        type: object
+        description: Optional user group reference. Provide the user group id; the group's owner can be created as a user on the instance when create_user is enabled.
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: The user group id.
+            example: 1
   zoneId:
     type: integer
     format: int64
@@ -105,6 +124,9 @@ properties:
     description: Key for security group configuration. It should be passed as an array of objects containing the id of the security group to assign the instance to.
     items:
       type: object
+      properties:
+        id:
+          type: string
   volumes:
     type: array
     description: The (optional) volumes parameter is for LV configuration, can create additional LVs at provision It should be passed as an array of
@@ -133,6 +155,7 @@ properties:
       - $ref: instancesConfigAWS.yaml
       - $ref: instancesConfigGeneric.yaml
       - $ref: instancesConfigHVM.yaml
+      - $ref: instancesConfigBMaaS.yaml
   labels:
     type: array
     description: Array of strings (keywords).

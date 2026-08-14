@@ -3,6 +3,10 @@ id:
   format: int64
 ipAddress:
   type: string
+description:
+  type:
+    - string
+    - 'null'
 forwardingAddress:
   type:
     - string
@@ -26,52 +30,79 @@ password:
   type:
     - string
     - 'null'
+passwordHash:
+  type:
+    - string
+    - 'null'
 routeFilteringType:
-  type: string
+  type:
+    - string
+    - 'null'
 routeFilteringIn:
-  type: string
+  type:
+    - string
+    - 'null'
 routeFilteringOut:
-  type: string
+  type:
+    - string
+    - 'null'
 bfdEnabled:
-  type: boolean
+  type:
+    - boolean
+    - 'null'
 bfdInterval:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
 bfdMultiple:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
 allowAsIn:
-  type: boolean
+  type:
+    - boolean
+    - 'null'
 hopLimit:
-  type: integer
+  type:
+    - integer
+    - 'null'
   format: int64
 restartMode:
-  type: string
+  type:
+    - string
+    - 'null'
 providerId:
-  type: string
+  type:
+    - string
+    - 'null'
 syncSource:
-  type: string
+  type:
+    - string
+    - 'null'
 internalId:
   type:
     - string
     - 'null'
 externalId:
-  type: string
+  type:
+    - string
+    - 'null'
 refType:
   type:
     - string
     - 'null'
 refId:
   type:
-    - string
+    - integer
     - 'null'
+  format: int64
 config:
-  type: object
-  properties:
-    sourceAddresses:
-      type: array
-      items:
-        type: string
+  anyOf:
+    - $ref: networkRouterBgpNeighborConfigNsxt.yaml
+    - $ref: networkRouterBgpNeighborConfigNsxv.yaml
+    - $ref: networkRouterBgpNeighborConfigGeneric.yaml
 dateCreated:
   type: string
   format: date-time

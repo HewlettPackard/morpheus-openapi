@@ -31,6 +31,8 @@ properties:
   enabled:
     type: boolean
     description: Can be used to enable / disable the network router (true, false). Default is on
+  enableBgp:
+    type: boolean
   zone:
     type: object
     description: Required when type does not support a network server
@@ -51,3 +53,10 @@ properties:
         type: integer
         format: int64
         description: Network Server ID
+  config:
+    type: object
+    anyOf:
+      - oneOf:
+          - $ref: networkRoutersCreateConfigNSXTier0Gateway.yaml
+          - $ref: networkRoutersCreateConfigNSXTier1Gateway.yaml
+      - $ref: networkRoutersCreateConfigGeneric.yaml

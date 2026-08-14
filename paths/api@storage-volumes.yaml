@@ -59,7 +59,6 @@ post:
               required:
                 - name
                 - type
-                - storageServer
               properties:
                 name: 
                   type: string
@@ -67,9 +66,18 @@ post:
                 type:
                   type: string
                   description: Storage Type Code or ID
+                maxStorage:
+                  type: integer
+                  format: int64
+                  description: The size of the storage volume in bytes.
                 config:
-                  type: object
                   description: Configuration object with parameters that vary by `type`.
+                  anyOf:
+                    - $ref: ../components/schemas/storageVolumeConfigGeneric.yaml
+                    - $ref: ../components/schemas/storageVolumeConfigAlletraMPBmaas.yaml
+                provisionType:
+                  type: string
+                  description: Provision type for storage volume types that support it (for example 3Par - FULL, TPVV, SNP, PEER, TDVV).
                 storageServer:
                   type: object
                   required:

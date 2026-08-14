@@ -10,9 +10,21 @@ properties:
     type: boolean
     description: Namespace active
     default: false
+  visibility:
+    type: string
+    description: Visibility level (public or private)
   permissions:
     type: object
     properties:
+      tenantPermissions:
+        type: object
+        properties:
+          accounts:
+            type: array
+            description: Array of tenant account IDs
+            items:
+              type: integer
+              format: int64
       resourcePermissions: 
         type: object
         description: Map for namespace group and service plan permissions.

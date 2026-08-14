@@ -5,6 +5,7 @@
     "sourceType": "cidr",
     "destinationType": "instance",
     "name": "stubby-toes-rule-1",
+    "description": null,
     "policy": "accept",
     "priority": 0,
     "enabled": true,

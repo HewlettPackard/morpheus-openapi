@@ -14,6 +14,7 @@ properties:
       - $ref: clusterDatastoreConfigDatastoreGroup.yaml
       - $ref: storageDatastoreConfigGeneric.yaml
       - $ref: storageDatastoreConfigAlletraMPHVM.yaml
+      - $ref: storageDatastoreConfigAlletraMPBmaas.yaml
   refType:
     type: string
     enum:
@@ -26,6 +27,16 @@ properties:
     description: The ID of the resource this datastore is associated with, e.g. ComputeZone, ComputeServerGroup
   storageServer:
     type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+  zonePool:
+    type: object
+    description: >
+      The resource pool (CloudPool) the datastore is created in. Required for
+      HPE Alletra Storage MP Bare Metal (BMaaS) datastores; ignored by other
+      datastore types.
     properties:
       id:
         type: integer

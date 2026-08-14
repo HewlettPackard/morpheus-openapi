@@ -8,6 +8,11 @@ properties:
       id:
         type: integer
         format: int64
+      code:
+        type: string
+        description: >
+          The code of the datastore type. If provided, it takes precedence
+          over id.
   storageServer:
     type: object
     properties:

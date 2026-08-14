@@ -1,6 +1,7 @@
 description: Configuration for Google Kuberenetes Engine cluster servers
 type: object
 properties:
+  $ref: clusterServerCreateConfigCommon.yaml
   googleZoneId:
     type: integer
     format: int64

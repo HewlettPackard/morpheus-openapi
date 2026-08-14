@@ -52,6 +52,15 @@ post:
           properties:
             affinityGroup:
               $ref: ../components/schemas/clusterAffinityGroupCreate.yaml
+            tenantPermissions:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: Array of tenant account IDs
+                  items:
+                    type: integer
+                    format: int64
         examples:
           Create Affinity Group Request:
             value:

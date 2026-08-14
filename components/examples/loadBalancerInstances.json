@@ -39,6 +39,7 @@
         "id": 272,
         "name": "bob-apache-lb"
       },
+      "sslServerCert": null,
       "sslMode": null,
       "sslRedirectMode": null,
       "vipShared": false,
@@ -46,6 +47,10 @@
       "serverName": null,
       "poolName": null,
       "removing": false,
+      "pool": {
+        "id": 42,
+        "name": "web-pool"
+      },
       "vipSource": "user",
       "extraConfig": null,
       "serviceAccess": null,

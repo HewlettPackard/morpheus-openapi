@@ -1,0 +1,10 @@
+title: NSX-V BGP Neighbor Config
+description: Configuration for NSX-V Edge router BGP neighbors
+type: object
+properties:
+  routerId:
+    type: string
+    description: The router identifier
+  interface:
+    type: string
+    description: The interface name for the BGP session

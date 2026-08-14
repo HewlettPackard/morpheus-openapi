@@ -47,9 +47,63 @@ post:
               description: For a full list of available NAT options, see natOptionTypes in the specific Network Router Type
               required:
                 - name
+                - config
               properties:
                 name:
+                  type: string
                   description: NAT name
+                description:
+                  type: string
+                  description: Description of the NAT rule.
+                enabled:
+                  type: boolean
+                  description: Whether the NAT rule is enabled.
+                sourceNetwork:
+                  type: string
+                  description: Source network for the NAT rule.
+                destinationNetwork:
+                  type: string
+                  description: Destination network for the NAT rule.
+                translatedNetwork:
+                  type: string
+                  description: Translated network for the NAT rule.
+                sourcePorts:
+                  type: string
+                  description: Source ports for the NAT rule.
+                destinationPorts:
+                  type: string
+                  description: Destination ports for the NAT rule.
+                translatedPorts:
+                  type: string
+                  description: Translated ports for the NAT rule.
+                priority:
+                  type: integer
+                  format: int64
+                  description: Priority of the NAT rule.
+                protocol:
+                  type: string
+                  description: Protocol for the NAT rule.
+                config:
+                  type: object
+                  description: NAT config-context options (bound to the NAT's config map).
+                  required:
+                    - action
+                  properties:
+                    action:
+                      type: string
+                      description: >-
+                        The NAT action (config-context). NSX-T values: SNAT, DNAT,
+                        NO_SNAT, NO_DNAT, REFLEXIVE.
+                    firewall:
+                      type: string
+                      description: >-
+                        Firewall match mode for the NAT rule (config-context). NSX-T
+                        values: MATCH_EXTERNAL_ADDRESS, MATCH_INTERNAL_ADDRESS, BYPASS.
+                    service:
+                      type: string
+                      description: >-
+                        Service the NAT rule applies to (config-context). For NSX-T this
+                        is a service path, for example /infra/services/HTTP.
         examples: 
           Network Router NAT Request:
             value:

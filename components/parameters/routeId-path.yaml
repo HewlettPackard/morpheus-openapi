@@ -3,5 +3,7 @@ in: path
 description: The ID of the route
 required: true
 schema:
-  type: number
+  type: integer
+  format: int64
+  description: Route ID
 example: 4

@@ -1,0 +1,19 @@
+title: HAProxy Load Balancer Config Object
+type: object
+description: Configuration object for HAProxy load balancer type.
+properties:
+  plan:
+    type: object
+    description: Service plan reference
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Service Plan ID
+  pool:
+    type: object
+    description: Resource pool reference
+    properties:
+      id:
+        type: string
+        description: Resource Pool ID

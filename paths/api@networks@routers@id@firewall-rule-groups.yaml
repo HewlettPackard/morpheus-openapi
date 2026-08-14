@@ -16,6 +16,7 @@ get:
             type: object
             properties:
               ruleGroups:
+                type: array
                 items:
                   type: object
                   properties:

@@ -99,6 +99,8 @@ paths:
     $ref: paths/api@backup-settings.yaml
   /api/backups:
     $ref: paths/api@backups.yaml
+  /api/backups/create:
+    $ref: paths/api@backups@create.yaml
   /api/backups/{id}:
     $ref: paths/api@backups@id.yaml
   /api/backups/{id}/execute:
@@ -117,6 +119,10 @@ paths:
     $ref: paths/api@backups@restores.yaml
   /api/backups/restores/{id}:
     $ref: paths/api@backups@restores@id.yaml
+  /api/backups/types:
+    $ref: paths/api@backups@types.yaml
+  /api/backups/types/{id}:
+    $ref: paths/api@backups@types@id.yaml
   /api/billing/account:
     $ref: paths/api@billing@account.yaml
   /api/billing/account/{id}:
@@ -418,6 +424,8 @@ paths:
     $ref: paths/api@cypher.yaml
   /api/cypher/{cypherPath}:
     $ref: paths/api@cypher@id.yaml
+  /api/data-store-types:
+    $ref: paths/api@data-store-types.yaml
   /api/data-stores:
     $ref: paths/api@datastores.yaml
   /api/data-stores/{id}:
@@ -1190,6 +1198,8 @@ paths:
     $ref: paths/api@accounts@id@user-sources.yaml
   /api/subnet-types:
     $ref: paths/api@subnet-types.yaml
+  /api/subnet-types/{id}:
+    $ref: paths/api@subnet-types@id.yaml
   /api/subnets:
     $ref: paths/api@subnets.yaml
   /api/subnets/{id}:

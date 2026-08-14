@@ -1,0 +1,28 @@
+title: NSX-T Load Balancer Config Object
+type: object
+description: Configuration object for NSX-T load balancer type.
+properties:
+  adminState:
+    type: boolean
+    description: If true, the admin state is enabled.
+  size:
+    type: string
+    description: Load balancer size.
+    enum:
+      - SMALL
+      - MEDIUM
+      - LARGE
+  tier1:
+    type: string
+    description: Tier 1 gateway provider ID.
+  loglevel:
+    type: string
+    description: Log level.
+    enum:
+      - DEBUG
+      - INFO
+      - WARNING
+      - ERROR
+      - CRITICAL
+      - ALERT
+      - EMERGENCY
