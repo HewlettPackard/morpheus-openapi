@@ -23,7 +23,7 @@
     "visibility": "private",
     "labels": ["production", "azure"]
   },
-  "resourcePermission": {
+  "resourcePermissions": {
     "all": true
   }
 }

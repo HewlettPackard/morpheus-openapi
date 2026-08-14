@@ -60,7 +60,7 @@ subnet:
       description: Array of label strings, can be used for filtering.
       items:
         type: string
-resourcePermission:
+resourcePermissions:
   type: object
   properties:
     all:
