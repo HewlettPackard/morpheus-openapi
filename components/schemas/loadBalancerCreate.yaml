@@ -9,6 +9,9 @@ properties:
   description:
     type: string
     description: Description
+  enabled:
+    type: boolean
+    description: Activate (true) or disable (false)
   networkServerId:
     type: integer
     format: int64
