@@ -1,0 +1,53 @@
+post:
+  summary: Validate role permissions
+  description: >
+    Validate role permission payload without persisting. Accepts the same body shape as create role.
+    Returns `success`/`valid` and optional `errors`/`msg`.
+  operationId: validateRole
+  tags:
+    - Roles
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            role:
+              type: object
+              description: Role payload to validate (same fields as create)
+  responses:
+    '200':
+      description: Permissions are valid
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  valid:
+                    type: boolean
+                  msg:
+                    type: string
+          examples:
+            Valid Role Permissions:
+              value:
+                success: true
+                valid: true
+                msg: Role permissions are valid
+    '400':
+      description: Invalid role permissions
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/Error.yaml
+              - type: object
+                properties:
+                  valid:
+                    type: boolean
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

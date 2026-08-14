@@ -28,8 +28,9 @@ properties:
     type: boolean
   parentRoleId:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
   diverged:
     type: boolean
   ownerId:
@@ -58,6 +59,9 @@ properties:
   dateCreated:
     type: string
     format: date-time
+  canExport:
+    type: boolean
+    description: True when the role has full `admin-export-import` permission
   lastUpdated:
     type: string
     format: date-time

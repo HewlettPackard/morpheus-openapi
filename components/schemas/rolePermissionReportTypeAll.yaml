@@ -6,6 +6,9 @@ properties:
   allReportTypes:
     type: boolean
     description: "Apply to all report types"
+  all:
+    type: boolean
+    description: Alias for `allReportTypes`
   access:
     type: string
     description: The new access level.
