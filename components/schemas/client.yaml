@@ -1,29 +1,78 @@
 type: object
-properties: 
-  id: 
-    type: integer
-    format: int64
-  clientId: 
+description: OAuth client as returned by ClientsController gson (`_client.gson`).
+properties:
+  id:
+    type:
+      - integer
+      - string
+    description: Client database id
+    example: 2
+  clientId:
     type: string
-  accessTokenValiditySeconds: 
-    type: integer
-    format: int64
-  refreshTokenValiditySeconds: 
-    type: integer
-    format: int64
-  authorities: 
+    description: OAuth client identifier
+    example: morph-cli
+  clientSecret:
+    type:
+      - string
+      - 'null'
+    description: |
+      Masked client secret when a secret is set. Omitted when no secret is configured.
+      Masking uses the standard secret mask (not the raw secret value).
+    example: '************'
+  clientSecretHash:
+    type:
+      - string
+      - 'null'
+    description: |
+      Hash of the client secret when a secret is set. Omitted when no secret is configured.
+    example: a1b2c3d4e5f6
+  accessTokenValiditySeconds:
+    type:
+      - integer
+      - 'null'
+    description: Access token lifetime in seconds
+    example: 43200
+  refreshTokenValiditySeconds:
+    type:
+      - integer
+      - 'null'
+    description: Refresh token lifetime in seconds
+    example: 43200
+  authorizedGrantTypes:
     type: array
-    items: 
+    description: |
+      Grant types configured on the client. Set by the server on create
+      (defaults include authorization_code, refresh_token, password). Not writable via create/update payload.
+    items:
       type: string
-  authorizedGrantTypes: 
+    example:
+      - authorization_code
+      - refresh_token
+      - password
+  scopes:
     type: array
-    items: 
+    description: |
+      OAuth scopes on the client. Set by the server on create (defaults include write, openid).
+      Not writable via create/update payload.
+    items:
       type: string
-  scopes: 
+    example:
+      - write
+      - openid
+  redirectUris:
     type: array
-    items: 
+    description: Redirect URIs for the authorization code flow
+    items:
       type: string
-  redirectUris: 
-    type: array
-    items: 
-      type: string
+    example:
+      - https://example.com/callback
+  requireConsent:
+    type: boolean
+    description: Whether the client requires user consent
+    example: false
+  system:
+    type: boolean
+    description: |
+      True when the client is a system client (`removable != true`).
+      System clients cannot be deleted and have restricted editable fields in the UI.
+    example: false

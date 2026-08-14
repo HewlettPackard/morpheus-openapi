@@ -1,15 +1,50 @@
 type: object
-properties: 
-  clientId: 
+description: |
+  Writable client fields for create/update under the required `client` object.
+  Create binds: clientId, clientSecret, accessTokenValiditySeconds, refreshTokenValiditySeconds,
+  requireConsent, redirectUris.
+  Update binds the same fields when the client is removable; system clients only accept
+  accessTokenValiditySeconds and refreshTokenValiditySeconds.
+  Pass a masked secret value starting with `********` on update to leave the existing secret unchanged.
+properties:
+  clientId:
     type: string
-  accessTokenValiditySeconds: 
-    type: integer
-    format: int64
-  refreshTokenValiditySeconds: 
-    type: integer
-    format: int64
+    description: OAuth client identifier (required on create)
+    example: Test Client
+  clientSecret:
+    type:
+      - string
+      - 'null'
+    description: |
+      Client secret. On update, values starting with `********` are ignored so the existing
+      secret is retained.
+    example: thisIsaClientSecretKeyPhrase
+  accessTokenValiditySeconds:
+    type:
+      - integer
+      - string
+      - 'null'
+    description: Access token lifetime in seconds (must be a number greater than 0 when provided)
+    example: 43200
+  refreshTokenValiditySeconds:
+    type:
+      - integer
+      - string
+      - 'null'
+    description: Refresh token lifetime in seconds (must be a number greater than 0 when provided)
+    example: 43200
   redirectUris:
-    type: array
-    description: List of Redirect URIs for use with the OpenID Authorization Code Flow
-    items: 
-      type: string
+    description: |
+      Redirect URIs. Accepts a JSON array of strings or a comma-separated string.
+    oneOf:
+      - type: array
+        items:
+          type: string
+        example:
+          - https://example.com/callback
+      - type: string
+        example: https://example.com/callback, https://example.com/other
+  requireConsent:
+    type: boolean
+    description: Whether the client requires user consent
+    example: false
