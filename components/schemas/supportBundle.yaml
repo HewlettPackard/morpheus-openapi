@@ -64,3 +64,18 @@ properties:
         format: int64
       name:
         type: string
+  deliveryStatus:
+    type:
+      - string
+      - "null"
+    description: RDA delivery status (only present when Send to HPE is enabled)
+    enum:
+      - IN_PROGRESS
+      - DELIVERED
+      - FAILED
+      - SUPERSEDED
+  deliveredFilename:
+    type:
+      - string
+      - "null"
+    description: Filename of the CMB file delivered to HPE via rda-cas
