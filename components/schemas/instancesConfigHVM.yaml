@@ -41,3 +41,17 @@ properties:
     type: boolean
     description: Whether to provision the instance in a powered off state
     default: false
+  bootToBios:
+    type:
+      - boolean
+      - 'null'
+    description: Enable or disable the QEMU boot menu at VM startup. When enabled, the VM displays a boot selection menu. Defaults to true for new HVM VMs.
+    default: true
+  bootToBiosMenuTimeout:
+    type:
+      - integer
+      - 'null'
+    description: Boot menu display duration in seconds (0-30). Only applicable when bootToBios is true. A value of 0 means no delay.
+    default: 0
+    minimum: 0
+    maximum: 30
