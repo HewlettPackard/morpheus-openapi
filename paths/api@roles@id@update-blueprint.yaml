@@ -1,10 +1,10 @@
 put:
-  summary: Customizing Blueprint (App Template) Access
+  summary: Customizing Blueprint Access
   description: >
-    Customizing Blueprint (App Template) Access.
+    Customizing Blueprint Access.
 
-    Equivalent alias path: `PUT /api/roles/{id}/update-blueprint` (same controller action).
-  operationId: updateRoleAppTemplateAccess
+    Equivalent alias path: `PUT /api/roles/{id}/update-app-template` (same controller action).
+  operationId: updateRoleBlueprintAccess
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   tags:

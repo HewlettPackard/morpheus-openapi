@@ -20,10 +20,12 @@ get:
         type: integer
     - name: tenantId
       in: query
-      description: Filter `tenantCopies` to a specific tenant/account ID
+      description: Filter `tenantCopies` to a specific tenant/account ID. Integer or string accepted.
       schema:
-        type: integer
-        format: int64
+        oneOf:
+          - type: integer
+            format: int64
+          - type: string
   responses:
     '200':
       description: Role Object
@@ -82,9 +84,17 @@ put:
                   type: boolean
                   description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant roles. *Only available to master tenant, only applies to user roles*
                 defaultPersona:
-                  description: Default persona. Accepts persona code string, persona id, or `{id}`, `{code}`, or `{name}`. Null clears.
+                  description: >
+                    Default persona. Accepts persona code string, persona id, or object
+                    `{id}`, `{code}`, or `{name}`. Null clears. Common persona codes are listed
+                    on the string form; other codes may also be accepted by the API.
                   oneOf:
                     - type: string
+                      enum:
+                        - api
+                        - standard
+                        - serviceCatalog
+                        - vdi
                     - type: integer
                       format: int64
                     - type: object

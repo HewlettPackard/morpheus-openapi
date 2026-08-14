@@ -32,7 +32,9 @@ properties:
       parentRoleId:
         type:
           - integer
+          - string
           - 'null'
+        description: Parent role id (numeric). String form is also accepted for compatibility.
         format: int64
       diverged:
         type: boolean

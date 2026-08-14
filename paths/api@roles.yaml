@@ -12,15 +12,18 @@ get:
     - $ref: ../components/parameters/direction.yaml
     - name: id
       in: query
-      description: Filter by one or more role IDs
+      description: Filter by one or more role IDs (integer or string forms accepted)
       schema:
         oneOf:
           - type: integer
             format: int64
+          - type: string
           - type: array
             items:
-              type: integer
-              format: int64
+              oneOf:
+                - type: integer
+                  format: int64
+                - type: string
     - name: authority
       in: query
       description: Filter by authority (exact match, case-insensitive)
@@ -46,16 +49,20 @@ get:
           - account
     - name: owner
       in: query
-      description: Tenant/account ID whose roles to list. Master tenants may load a child tenant's roles. Alias of `tenant`.
+      description: Tenant/account ID whose roles to list. Master tenants may load a child tenant's roles. Alias of `tenant`. Integer or string accepted.
       schema:
-        type: integer
-        format: int64
+        oneOf:
+          - type: integer
+            format: int64
+          - type: string
     - name: tenant
       in: query
-      description: Alias for `owner`
+      description: Alias for `owner`. Integer or string accepted.
       schema:
-        type: integer
-        format: int64
+        oneOf:
+          - type: integer
+            format: int64
+          - type: string
   responses:
     '200':
       description: Successful Request
@@ -136,9 +143,17 @@ post:
                   default: false
                   description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant roles. *Only available to master tenant, only applies to user roles*
                 defaultPersona:
-                  description: Default persona. Accepts persona code string, persona id, or `{id}`, `{code}`, or `{name}`. Null clears.
+                  description: >
+                    Default persona. Accepts persona code string, persona id, or object
+                    `{id}`, `{code}`, or `{name}`. Null clears. Common persona codes are listed
+                    on the string form; other codes may also be accepted by the API.
                   oneOf:
                     - type: string
+                      enum:
+                        - api
+                        - standard
+                        - serviceCatalog
+                        - vdi
                     - type: integer
                       format: int64
                     - type: object
