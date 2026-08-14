@@ -6,7 +6,7 @@ put:
     For operational workflows, see Execute a Workflow.
   operationId: updateHostExecuteWorkflow
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
     - $ref: ../components/parameters/workflowId.yaml
     - $ref: ../components/parameters/workflowName.yaml
   tags: 

@@ -89,6 +89,7 @@
         "agentInstalled": true,
         "lastAgentUpdate": "2022-12-19T21:45:37Z",
         "agentVersion": "2.3.2",
+        "guestAgentStatus": "unknown",
         "maxCores": 1,
         "coresPerSocket": 1,
         "maxMemory": 1073741824,
@@ -231,7 +232,9 @@
             "nestedVirtualization": null,
             "vmwareFolderId": "group-v80",
             "noAgent": false,
-            "powerScheduleType": null
+            "powerScheduleType": null,
+            "bootToBios": true,
+            "bootToBiosMenuTimeout": 0
         },
         "instance": {
             "id": 2342422,

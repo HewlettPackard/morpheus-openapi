@@ -1,0 +1,8 @@
+{
+  "id": 12,
+  "name": "My HVM Profile",
+  "description": "Baseline for Cluster1 nodes",
+  "enabled": true,
+  "serverCount": 0,
+  "complianceStatus": "unknown"
+}

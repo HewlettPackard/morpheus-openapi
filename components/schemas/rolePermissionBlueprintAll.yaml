@@ -1,11 +1,13 @@
 type: object
 required:
-  - allAppTemplates
   - access
 properties:
   allAppTemplates:
     type: boolean
-    description: "Apply to all blueprints (appTemplate)"
+    description: Apply to all blueprints (appTemplate). Alias of `allBlueprints`.
+  allBlueprints:
+    type: boolean
+    description: Alias for `allAppTemplates`
   access:
     type: string
     description: The new access level.

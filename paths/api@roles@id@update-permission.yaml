@@ -1,6 +1,9 @@
 put:
   summary: Updating Role Permissions
-  description: Update a feature permission or default permission category (group, cloud, persona, ect.)
+  description: >
+    Update a single feature/default-category permission on the role via `permissionCode` + `access`
+    (also accepted as query params). Resource-specific grants use the dedicated
+    `/update-group`, `/update-cloud`, `/update-instance-type`, etc. endpoints.
   operationId: updateRolePermission
   parameters:
     - $ref: ../components/parameters/id-path.yaml

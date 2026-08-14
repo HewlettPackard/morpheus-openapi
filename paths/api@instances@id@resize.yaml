@@ -6,7 +6,8 @@ put:
     -  Instances
   parameters:
     - $ref: ../components/parameters/id-path.yaml
-  requestBody: 
+    - $ref: ../components/parameters/force-resize.yaml
+  requestBody:
     content: 
       application/json: 
         schema:

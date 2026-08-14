@@ -1,0 +1,19 @@
+{
+  "success": true,
+  "hostProfiles": [
+    {
+      "id": 11,
+      "name": "node1 - Profile 2026-06-23 09:09",
+      "description": "Captured from node1",
+      "enabled": true,
+      "serverCount": 2,
+      "complianceStatus": "non-compliant"
+    }
+  ],
+  "meta": {
+    "total": 3,
+    "size": 1,
+    "max": 25,
+    "offset": 0
+  }
+}

@@ -34,6 +34,9 @@ properties:
   autoRecoverPowerState:
     type: boolean
     description: Automatically Power on VMs
+  cpuPlacementMode:
+    type: string
+    description: Cluster CPU placement mode
   integrations:
     type: array
     description: Cluster integrations
@@ -44,3 +47,20 @@ properties:
           type: integer
           format: int64
           description: Integration ID. Only certain integration types may be associated to a cluster.
+  config:
+    type: object
+    description: Configuration object with parameters that vary by `type`. Only the specified config properties will be updated, other existing config properties will be left unchanged.
+    additionalProperties: true
+    properties:
+      dynamicPlacementMode:
+        type: string
+        description: Dynamic Placement
+        enum:
+          - on
+          - off
+      migrationConcurrencyLimit:
+        type: string
+        description: Sets the maximum number of VMs to migrate in parallel per host during maintenance mode.
+      migrationConcurrencyAutoMode:
+        type: string
+        description: When enabled, Morpheus automatically sizes maintenance mode migration concurrency based on available bandwidth and VM count, using Migration Concurrency (if set) as an upper bound. When disabled, Migration Concurrency runs as a fixed number of parallel migrations at all times.

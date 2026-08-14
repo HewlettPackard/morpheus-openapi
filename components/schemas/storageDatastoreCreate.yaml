@@ -5,12 +5,13 @@ properties:
     description: The name of the datastore to be created.
   datastoreType:
     type: string
-    description: The code of the datatoreType
+    description: The code of the datastoreType
   config:
     description: Configuration options for the datastore, varies based on the type of datastore.
     anyOf:
       - $ref: clusterDatastoreConfigNFS.yaml
       - $ref: clusterDatastoreConfigGFS2.yaml
+      - $ref: clusterDatastoreConfigDatastoreGroup.yaml
       - $ref: storageDatastoreConfigGeneric.yaml
       - $ref: storageDatastoreConfigAlletraMPHVM.yaml
   refType:
@@ -102,6 +103,9 @@ properties:
     type: array
     items:
       type: object
+  heartbeatTarget: 
+    type: boolean
+    description: Heartbeat Target
 required:
   - name
   - datastoreType

@@ -77,7 +77,7 @@ put:
             allOf:
             - type: object
               properties:
-                task:
+                userSource:
                   oneOf:
                   - $ref: ../components/schemas/identitySourcesLDAPConfig.yaml
                   - $ref: ../components/schemas/identitySourcesJumpCloudConfig.yaml

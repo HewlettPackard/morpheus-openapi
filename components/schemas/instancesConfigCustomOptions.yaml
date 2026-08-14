@@ -3,3 +3,8 @@ properties:
   customOptions:
     type: object
     description: Custom Option Type settings object containing name value pairs.
+  userData:
+    description: User Data. Allows for override of cloud-init based user-data yaml or custom scripts
+    type:
+      - string
+      - 'null'

@@ -6,7 +6,7 @@ put:
   tags:
     - Storage
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/storage-volume-id-path.yaml
   requestBody:
     content:
       application/json:

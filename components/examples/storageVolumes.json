@@ -50,7 +50,7 @@
             "datastoreId": 1136,
             "storageGroup": null,
             "namespace": null,
-            "storageServer": null,
+            "storageServer": {},
             "source": "Morpheus",
             "uniqueId": "morpheus-vol-116-122-0",
             "externalId": "rocky-1/rocky_122-disk-0",
@@ -64,6 +64,9 @@
             "sourceImage": "morpheus-rocky-9-x86_64-20250218.qcow2",
             "imageType": "qcow2",
             "online": true,
+            "createForMultiAttach": false,
+            "isMultiAttach": false,
+            "storageProfile": null,
             "account": {
                 "id": 1,
                 "name": "Daniel DeVilbiss"

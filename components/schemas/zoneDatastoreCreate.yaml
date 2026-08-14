@@ -4,7 +4,7 @@ properties:
     type: string
   datastoreType:
     type: string
-    description: The code of the datatoreType
+    description: The code of the datastoreType
   config:
     description: Configuration options for the datastore, varies based on the type of datastore.
     anyOf:

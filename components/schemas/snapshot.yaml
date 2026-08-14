@@ -26,6 +26,12 @@ properties:
       - string
       - 'null'
     format: date-time
+  maxStorage:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Total size of the snapshot in bytes. Null when not populated.
   zone:
     type: object
     properties:
@@ -70,6 +76,12 @@ properties:
               format: int32
         diskIndex:
           type: integer
+        fileSize:
+          type:
+            - integer
+            - 'null'
+          format: int64
+          description: Size of the snapshot file in bytes. Null when not populated.
   currentlyActive:
     type: boolean
   memorySnapshot: 

@@ -6,6 +6,9 @@ properties:
   allGroups:
     type: boolean
     description: "Apply to all groups (site)"
+  all:
+    type: boolean
+    description: Alias for `allGroups`
   access:
     type: string
     description: The new access level.

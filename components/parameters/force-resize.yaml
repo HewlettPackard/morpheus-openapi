@@ -1,0 +1,8 @@
+name: force
+in: query
+description: Proceed with the resize, overriding the snapshot deletion restriction
+required: false
+schema:
+  type: boolean
+  default: false
+example: true

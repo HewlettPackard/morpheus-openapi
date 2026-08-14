@@ -28,7 +28,7 @@ properties:
   isCloudInit:
     type: boolean
     description: Cloud Init Enabled?
-    default: false
+    default: true
   userData:
     type:
       - string
@@ -37,7 +37,7 @@ properties:
   installAgent:
     type: boolean
     description: Install Agent?
-    default: false
+    default: true
   sshUsername:
     type:
       - string

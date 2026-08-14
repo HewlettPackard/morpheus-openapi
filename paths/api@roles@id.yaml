@@ -8,6 +8,24 @@ get:
     - Roles
   parameters:
     - $ref: ../components/parameters/includeDefaultAccess.yaml
+    - name: max
+      in: query
+      description: Page size for `tenantCopies` on multitenant master roles (default 10, max 1000)
+      schema:
+        type: integer
+    - name: offset
+      in: query
+      description: Offset for `tenantCopies` paging
+      schema:
+        type: integer
+    - name: tenantId
+      in: query
+      description: Filter `tenantCopies` to a specific tenant/account ID. Integer or string accepted.
+      schema:
+        oneOf:
+          - type: integer
+            format: int64
+          - type: string
   responses:
     '200':
       description: Role Object
@@ -45,7 +63,10 @@ put:
               properties:
                 authority:
                   type: string
-                  description: Authority (Name)
+                  description: Authority (Name). Alias of `name`.
+                name:
+                  type: string
+                  description: Alias for `authority`
                 description:
                   type:
                     - string
@@ -63,6 +84,10 @@ put:
                   type: boolean
                   description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant roles. *Only available to master tenant, only applies to user roles*
                 defaultPersona:
+                  description: >
+                    Default persona. Accepts persona code string, persona id, or object
+                    `{id}`, `{code}`, or `{name}`. Null clears. Common persona codes are listed
+                    on the string form; other codes may also be accepted by the API.
                   oneOf:
                     - type: string
                       enum:
@@ -70,8 +95,18 @@ put:
                         - standard
                         - serviceCatalog
                         - vdi
+                    - type: integer
+                      format: int64
+                    - type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                        code:
+                          type: string
+                        name:
+                          type: string
                     - type: 'null'
-                  description: Set the default persona by code.
                 resetPermissions:
                   type: boolean
                   description: Resets access levels for all feature permissions to their default values.
@@ -347,6 +382,29 @@ put:
                         description: The new access level.
                         enum:
                           $ref: ../components/schemas/rolePermissionAccessLevelsForResource.yaml
+                globalClusterTypeAccess:
+                  type: string
+                  description: Set the default access level for cluster types
+                  enum:
+                    - full
+                    - none
+                clusterTypePermissions:
+                  type: array
+                  description: Set the access level for the specified cluster types
+                  items:
+                    type: object
+                    required:
+                      - id
+                      - access
+                    properties:
+                      id:
+                        type: integer
+                        description: "`id` of the cluster type"
+                      access:
+                        type: string
+                        description: The new access level.
+                        enum:
+                          $ref: ../components/schemas/rolePermissionAccessLevelsForResource.yaml
   responses:
     '200':
       description: Role Object
@@ -372,11 +430,22 @@ delete:
     - Roles
   responses:
     '200':
-      description: Role Object
+      description: Successful delete
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  roleName:
+                    type: string
+                    description: Authority of the deleted role
+          examples:
+            Delete Role Response:
+              value:
+                success: true
+                roleName: Example Role
     '400':
       description: Role still has managed resources
       content:

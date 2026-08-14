@@ -1,0 +1,22 @@
+{
+  "name": "My HVM Profile",
+  "description": "Baseline for Cluster1 nodes",
+  "config": {
+    "storage": {
+      "multipath": {
+        "enabled": true,
+        "findMultipaths": false,
+        "userFriendlyNames": false
+      }
+    },
+    "system": {
+      "timezone": "America/Denver",
+      "ntp": {
+        "enabled": true,
+        "servers": [
+          "ntp.ubuntu.com"
+        ]
+      }
+    }
+  }
+}

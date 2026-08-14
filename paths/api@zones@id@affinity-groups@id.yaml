@@ -1,0 +1,94 @@
+get: 
+  summary: Get a Specific Cloud Affinity Group
+  description: This endpoint retrieves a specific cloud affinity group.
+  operationId: getCloudAffinityGroup
+  tags: 
+    -  Clouds
+  parameters:
+    - $ref: ../components/parameters/zoneId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content: 
+        application/json: 
+          schema:
+            type: object
+            properties:
+              affinityGroup:
+                $ref: ../components/schemas/zoneAffinityGroup.yaml
+          examples:
+            Get Affinity Group Request:
+              value:
+                $ref: ../components/examples/zoneAffinityGroupSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put: 
+  summary: Update Cloud Affinity Group
+  description: Update Cloud Affinity Group
+  operationId: updateCloudAffinityGroup
+  tags: 
+    -  Clouds
+  parameters:
+    - $ref: ../components/parameters/zoneId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          type: object
+          properties: 
+            affinityGroup:
+              $ref: ../components/schemas/zoneAffinityGroupUpdate.yaml
+        examples:
+          Update Affinity Group Request:
+            value:
+              $ref: ../components/examples/zoneAffinityGroupUpdate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf: 
+            - type: object
+              properties:
+                affinityGroup:
+                  $ref: ../components/schemas/zoneAffinityGroup.yaml
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Update Affinity Group Response:
+              value:
+                $ref: ../components/examples/zoneAffinityGroupSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Cloud Affinity Group
+  description: |
+    Will delete a cloud affinity group.
+  operationId: deleteCloudAffinityGroup
+  tags:
+    - Clouds
+  parameters:
+    - $ref: ../components/parameters/zoneId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

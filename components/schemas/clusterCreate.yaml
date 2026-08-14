@@ -2,7 +2,6 @@ type: object
 required: 
   - type
   - name
-  - group
   - cloud
   - layout
   - server
@@ -46,6 +45,12 @@ properties:
     type: object
     description: Additional configuration for specific cluster types
     properties:
+      dynamicPlacementMode:
+        type: string
+        description: Dynamic Placement
+        enum:
+          - on
+          - off
       templateParameter:
         type: object
         description: Configuration settings for the ARM Template when creating an Azure Kubernetes Service (AKS) cluster

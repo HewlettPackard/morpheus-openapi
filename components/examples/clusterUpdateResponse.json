@@ -1,0 +1,23 @@
+{
+  "success": true,
+  "update": {
+    "id": 1,
+    "name": "HVM Cluster 1.2 Upgrade",
+    "code": "hvm-1-1-to-1-2",
+    "updateDefinition": {
+      "id": 1,
+      "name": "HVM Cluster 1.2 Upgrade"
+    },
+    "user": {
+      "id": 1,
+      "username": "admin"
+    },
+    "percentComplete": 0,
+    "precheckValidUntil": null,
+    "status": "pending",
+    "statusMessage": null,
+    "lastUpdatedOn": null,
+    "startedOn": null,
+    "completedOn": null
+  }
+}

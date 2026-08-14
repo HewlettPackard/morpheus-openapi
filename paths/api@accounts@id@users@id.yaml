@@ -1,0 +1,99 @@
+get:
+  summary: Get a User For a Tenant
+  description: Retrieve a user by id within a tenant. Equivalent to `GET /api/users/{id}?accountId={accountId}`.
+  operationId: getUserTenant
+  tags:
+    - Tenants
+  parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/includeAccess.yaml
+  responses:
+    '200':
+      description: User Object
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              user:
+                $ref: ../components/schemas/user.yaml
+          examples:
+            Get User Response:
+              value:
+                $ref: ../components/examples/user.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put:
+  summary: Update a User For a Tenant
+  description: Update a user within a tenant.
+  operationId: updateUserTenant
+  tags:
+    - Tenants
+  parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - user
+          properties:
+            user:
+              $ref: ../components/schemas/userUpdate.yaml
+        examples:
+          Update User Request:
+              value:
+                $ref: ../components/examples/userUpdate.json
+  responses:
+    '200':
+      description: User Object
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                user:
+                  $ref: ../components/schemas/user.yaml
+                errors:
+                  type: object
+                  additionalProperties:
+                    type: string
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Update User Response:
+              value:
+                $ref: ../components/examples/userSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a User For a Tenant
+  description: Delete a user within a tenant.
+  operationId: deleteUserTenant
+  tags:
+    - Tenants
+  parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Success Object
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Delete User Response:
+              value:
+                $ref: ../components/examples/success.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -1,0 +1,84 @@
+type: object
+description: >-
+  A traffic segment inside a virtual switch: one traffic type plus optional VLAN
+  and IP settings. For VM traffic it also carries the OVS bridge / libvirt
+  network metadata reported back by hvmcli.
+properties:
+  id:
+    type: integer
+    format: int64
+    example: 44
+  trafficType:
+    type: string
+    enum:
+      - vm
+      - data-nfs
+      - data-iscsi
+      - live-migration
+      - sdn
+      - management
+    example: vm
+  interfaceName:
+    type:
+      - string
+      - 'null'
+    description: OS interface carrying this traffic (e.g. bond0, bond0.220).
+    example: bond0.220
+  ipAddress:
+    type:
+      - string
+      - 'null'
+    example: 10.0.20.5
+  netmask:
+    type:
+      - string
+      - 'null'
+    example: 255.255.255.0
+  gateway:
+    type:
+      - string
+      - 'null'
+    example: 10.0.20.1
+  vlanId:
+    type:
+      - integer
+      - 'null'
+    description: VLAN tag (1-4094). Null means untagged.
+    minimum: 1
+    maximum: 4094
+    example: 220
+  mtu:
+    type:
+      - integer
+      - 'null'
+    enum:
+      - 1500
+      - 9000
+      - null
+    example: 1500
+  ovsBridge:
+    type:
+      - string
+      - 'null'
+    description: OVS bridge name reported by hvmcli (VM traffic only).
+    example: vswitch01-br
+  ovsUuid:
+    type:
+      - string
+      - 'null'
+  ovsLibvirtNetwork:
+    type:
+      - string
+      - 'null'
+  status:
+    type: string
+    enum:
+      - pending
+      - in-sync
+      - drifted
+      - error
+    example: pending
+  statusMessage:
+    type:
+      - string
+      - 'null'

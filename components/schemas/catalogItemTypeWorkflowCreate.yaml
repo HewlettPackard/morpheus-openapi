@@ -1,4 +1,5 @@
 type: object
+title: Workflow Catalog Item Type
 required:
   - workflow
 properties:

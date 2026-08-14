@@ -1,0 +1,10 @@
+type: object
+properties:
+  desired: {}
+  current: {}
+  compliant: { type: boolean }
+  remediable: { type: boolean, description: "true if an SSH handler exists for this key" }
+  remediationImpact:
+    type: string
+    enum: [none, service-restart, reboot-required, manual]
+    description: "Impact level if remediated"

@@ -71,6 +71,7 @@ properties:
       - 'null'
   percent:
     type: number
+    format: double
   statusEta:
     type: integer
     format: int64

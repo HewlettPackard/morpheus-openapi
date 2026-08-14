@@ -15,78 +15,59 @@ post:
     content:
       application/json:
         schema:
-          anyOf:
-            - type: object
-              required:
-                - applianceName
-                - accountName
-                - username
-                - email
-                - password
-              properties:
-                applianceName:
-                  type: string
-                  description: >-
-                    Appliance Name. Choose a name for your Morpheus Appliance.  This
-                    is stored in the Appliance Settings.
-                applianceUrl:
-                  type: string
-                  description: >-
-                    Appliance URL. Specify the full URL for your Morpheus Appliance.
-                    This is stored in the Appliance Settings.
-                accountName:
-                  type: string
-                  description: Name of the Master Tenant account being created.
-                firstName:
-                  type: string
-                  description: First Name for the System Admin user being created.
-                lastName:
-                  type: string
-                  description: Last Name for the System Admin user being created.
-                username:
-                  type: string
-                  description: Username for the System Admin user being created.
-                email:
-                  type: string
-                  description: Email for the System Admin user being created.
-                password:
-                  type: string
-                  format: password
-                  description: Password for the System Admin user being created.
-                hubmode:
-                  description: >-
-                    Hub Mode. Determines if and how the appliance should connect
-                    with the Morpheus Hub. The default value (skip) means do not
-                    connect with the hub, and you will be installing your license
-                    manually. If you login or register with the hub then a Community
-                    Edition license will be installed automatically.
-                  type: string
-                  enum:
-                    - skip
-                    - register
-                    - login
-                  default: skip
-                licenseKey:
-                  type: string
-                  description: License Key to install on setup.
-            - oneOf:
-              - $ref: ../components/schemas/hubLoginObject.yaml
-              - $ref: ../components/schemas/hubRegisterObject.yaml
-              discriminator:
-                propertyName: hubmode
-                mapping:
-                  login: ../components/schemas/hubLoginObject.yaml
-                  register: ../components/schemas/hubRegisterObject.yaml
+          type: object
+          required:
+            - applianceName
+            - accountName
+            - username
+            - email
+            - password
+          properties:
+            applianceName:
+              type: string
+              description: >-
+                Appliance Name. Choose a name for your Morpheus Appliance.  This
+                is stored in the Appliance Settings.
+            applianceUrl:
+              type: string
+              description: >-
+                Appliance URL. Specify the full URL for your Morpheus Appliance.
+                This is stored in the Appliance Settings.
+            accountName:
+              type: string
+              description: Name of the Master Tenant account being created.
+            firstName:
+              type: string
+              description: First Name for the System Admin user being created.
+            lastName:
+              type: string
+              description: Last Name for the System Admin user being created.
+            username:
+              type: string
+              description: Username for the System Admin user being created.
+            email:
+              type: string
+              description: Email for the System Admin user being created.
+            password:
+              type: string
+              format: password
+              description: Password for the System Admin user being created.
+            licenseKey:
+              type: string
+              description: License Key to install on setup. By default a trial VME license will be installed if this is not provided.
+            logs:
+              type: boolean
+              description: Enable Logs
+            monitoring:
+              type: boolean
+              description: Enable Monitoring
+            backups:
+              type: boolean
+              description: Enable Backups
         examples:
           Setup Response:
             value:
               $ref: ../components/examples/setup.json
-          Setup Response - Hub Registration:
-            value:
-              $ref: ../components/examples/hubRegisterObject.json
-          Setup Response - Hub Login:
-            value:
-              $ref: ../components/examples/hubLoginObject.json
   responses:
     '200':
       description: >-

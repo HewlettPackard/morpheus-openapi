@@ -23,7 +23,16 @@
         "type": "instance",
         "name": "ARDMCEN1280",
         "displayName": "ARDMCEN1280"
-      }
+      },
+      "details": [
+        {
+          "category": "planMemory",
+          "type": "increase",
+          "name": "Memory",
+          "fromValue": "4294967296",
+          "toValue": "8589934592"
+        }
+      ]
     }
   }
 }

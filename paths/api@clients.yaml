@@ -1,6 +1,15 @@
 get:
-  summary: Get All Oauth Clients
-  description: This endpoint retrieves a paginated list of oauth clients.
+  summary: List OAuth clients
+  description: |
+    Returns a paginated list of OAuth clients.
+
+    List filters are applied by `ClientService.loadClientList`:
+    - `phrase` — case-insensitive partial match on `clientId`
+    - `clientId` — exact match on `clientId` (also copied into `phrase` for partial match when used as a search term)
+    - `system` — when present, filters system vs removable clients (`true`/empty string → system only)
+
+    Default page size is 25. Default sort is `clientId` ascending.
+    Response includes `clients`, `meta`, and may include `viewConfig` from the caller's data view preferences.
   operationId: listClients
   tags:
     - Clients
@@ -9,21 +18,31 @@ get:
     - $ref: ../components/parameters/offset.yaml
     - name: sort
       in: query
-      description: Sort order, the name of the property to sort by
+      description: Property name to sort by
       schema:
         type: string
         default: clientId
     - $ref: ../components/parameters/direction.yaml
     - name: phrase
       in: query
-      description: Search phrase for partial matches on clientId
+      description: Case-insensitive partial match on clientId
       schema:
         type: string
     - name: clientId
       in: query
-      description: Search phrase for partial matches on clientId
+      description: |
+        Exact match on clientId. When provided, the service also sets phrase from this value
+        for partial matching behavior used by some clients.
       schema:
         type: string
+    - name: system
+      in: query
+      description: |
+        Filter by system client flag. When the parameter is present, `true` or empty string
+        selects system clients (`removable == false`); other values select removable clients.
+      schema:
+        type: string
+        example: 'true'
   responses:
     '200':
       description: Successful Request
@@ -37,6 +56,13 @@ get:
                     type: array
                     items:
                       $ref: ../components/schemas/client.yaml
+                  viewConfig:
+                    type: object
+                    description: Optional caller data-view configuration for the clients list
+                    additionalProperties: true
+                  count:
+                    type: integer
+                    description: Optional total count when included by the list renderer
               - $ref: ../components/schemas/meta.yaml
           examples:
             Clients Response:
@@ -47,12 +73,23 @@ get:
     '5XX':
       $ref: ../components/responses/5xx.yaml
 post:
-  summary: Create an Oauth Client
-  description: Create a new Oauth Client.
+  summary: Create an OAuth client
+  description: |
+    Creates a new OAuth client.
+
+    Request body must include a `client` object. Writable fields:
+    `clientId` (required), `clientSecret`, `accessTokenValiditySeconds`,
+    `refreshTokenValiditySeconds`, `redirectUris`, `requireConsent`.
+
+    On create the server sets default `authorizedGrantTypes`, `authorities`, and `scopes`.
+    Those fields are not accepted on the create payload; they appear on the response client object
+    only where the gson template emits them (`authorizedGrantTypes` and `scopes` are returned;
+    `authorities` is not returned by the API response template).
   operationId: addClient
   tags:
     - Clients
   requestBody:
+    required: true
     content:
       application/json:
         schema:
@@ -61,38 +98,22 @@ post:
             - client
           properties:
             client:
-              type: object
-              description: Payload for creating a new oauth client
-              required:
-                - clientId
-                - accessTokenValiditySeconds
-                - refreshTokenValiditySeconds
-              properties:
-                clientId:
-                  type: string
-                  description: Client ID
-                  example: Test Client
-                clientSecret:
-                  type: string
-                  description: Client Secret
-                  example: thisIsaClientSecretKeyPhrase
-                accessTokenValiditySeconds:
-                  type:
-                    - integer
-                    - 'null'
-                  description: Length of time accessToken is valid in seconds.
-                  example: 43200
-                refreshTokenValiditySeconds:
-                  type:
-                    - integer
-                    - 'null'
-                  description: Length of time refreshToken is valid in seconds.
-                  example: 43200
+              allOf:
+                - $ref: ../components/schemas/clientUpdate.yaml
+                - type: object
+                  required:
+                    - clientId
+        examples:
+          Create Client:
+            value:
+              client:
+                clientId: Test Client
+                clientSecret: thisIsaClientSecretKeyPhrase
+                accessTokenValiditySeconds: 43200
+                refreshTokenValiditySeconds: 43200
                 redirectUris:
-                  type: array
-                  description: List of Redirect URIs for use with the OpenID Authorization Code Flow
-                  items:
-                    type: string
+                  - https://example.com/callback
+                requireConsent: false
   responses:
     '200':
       description: Client Object

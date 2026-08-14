@@ -38,16 +38,16 @@ put:
                 $ref: ../components/schemas/logSettings.yaml
   responses:
     '200':
-      description: Update Log Settings Object
+      description: Successful Response
       content:
         application/json:
           schema:
             allOf:
               - $ref: ../components/schemas/200-success.yaml
           examples:
-            Update User Response:
+            Update Log Settings Response:
               value:
-                $ref: ../components/examples/userSuccess.json
+                $ref: ../components/examples/success.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

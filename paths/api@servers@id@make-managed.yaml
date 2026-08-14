@@ -3,7 +3,7 @@ put:
   description: This will make the host a managed server, and install the agent.
   operationId: updateHostManaged
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
   tags: 
     -  Hosts
   requestBody: 

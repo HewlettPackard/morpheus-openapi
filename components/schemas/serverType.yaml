@@ -25,6 +25,8 @@ properties:
     type: boolean
   controlSuspend: 
     type: boolean
+  controlStart: 
+    type: boolean
   creatable: 
     type: boolean
   hasAgent: 

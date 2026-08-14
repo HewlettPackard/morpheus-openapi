@@ -27,32 +27,106 @@ properties:
     format: password
     description: Password to apply to the user
     example: Passw0rd!
+  passwordConfirmation:
+    type: string
+    format: password
+    description: >
+      Optional. If omitted when `password` is set, the API auto-confirms.
+      If provided (including empty string), it is validated against `password`.
   roles:
     type: array
-    description: Array of objects with id of the role(s) to assign to the user.
+    description: >
+      Roles to assign. Accepts an array of role id integers, ReferenceObjects with `id`,
+      and/or a singular `role` field (see `role` property). Flattened server-side.
     items:
-      type: object
-      properties:
-        id:
-          type: integer
+      oneOf:
+        - type: integer
           format: int64
+        - type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+  role:
+    description: Singular role alias accepted in addition to `roles` (id, object, or list)
+    oneOf:
+      - type: integer
+        format: int64
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+      - type: array
+        items:
+          oneOf:
+            - type: integer
+              format: int64
+            - type: object
+              properties:
+                id:
+                  type: integer
+                  format: int64
   receiveNotifications:
     type: boolean
     description: Receive Notifications?
     default: true
+  enabled:
+    type: boolean
+    description: Whether the user account is enabled
+    default: true
+  accountLocked:
+    type: boolean
+    description: Whether the user account is locked
+  passwordExpired:
+    type: boolean
+    description: Force password change on next login
   linuxUsername:
     type: string
     description: Linux Username, user settings for provisioning
   linuxPassword:
     type: string
+    format: password
     description: Linux Password, user settings for provisioning
+  linuxPasswordConfirmation:
+    type: string
+    format: password
+    description: Optional confirmation for linuxPassword (auto-confirmed if omitted)
   linuxKeyPairId:
-    type: integer
-    format: int64
-    description: Linux SSH Key, user settings for provisioning
+    description: Linux SSH Key id (integer), empty string, or null
+    oneOf:
+      - type: integer
+        format: int64
+      - type: string
+      - type: 'null'
   windowsUsername:
     type: string
     description: Windows Username, user settings for provisioning
   windowsPassword:
     type: string
+    format: password
     description: Windows Password, user settings for provisioning
+  windowsPasswordConfirmation:
+    type: string
+    format: password
+    description: Optional confirmation for windowsPassword (auto-confirmed if omitted)
+  defaultPersona:
+    description: Default persona as id, code string, object `{id}`/`{code}`, or null
+    oneOf:
+      - type: 'null'
+      - type: integer
+        format: int64
+      - type: string
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          code:
+            type: string
+  defaultPersonaId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Alias for default persona id

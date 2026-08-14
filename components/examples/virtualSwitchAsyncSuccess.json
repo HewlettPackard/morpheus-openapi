@@ -1,0 +1,7 @@
+{
+  "success": true,
+  "processId": 7,
+  "warnings": [
+    "No spare NIC remains on host hvm-host01"
+  ]
+}

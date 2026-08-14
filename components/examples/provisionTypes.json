@@ -47,7 +47,8 @@
       "networkTypes": [],
       "storageTypes": [],
       "rootStorageTypes": [],
-      "controllerTypes": []
+      "controllerTypes": [],
+      "storageProfiles": []
     },
     {
       "id": 38,
@@ -324,7 +325,8 @@
           "customSizeOptions": null
         }
       ],
-      "controllerTypes": []
+      "controllerTypes": [],
+      "storageProfiles": []
     }
   ],
   "meta": {

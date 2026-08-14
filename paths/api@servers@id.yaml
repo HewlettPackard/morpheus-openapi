@@ -5,7 +5,7 @@ get:
   tags:
     - Hosts
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
   responses:
     '200':
       description: Successful Request
@@ -31,7 +31,7 @@ put:
   description: Updating a Host
   operationId: updateHost
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
   tags:
     -  Hosts
   requestBody:
@@ -73,7 +73,7 @@ delete:
   tags:
     - Hosts
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
     - $ref: ../components/parameters/removeResources.yaml
     - $ref: ../components/parameters/removeInstances.yaml
     - $ref: ../components/parameters/preserveVolumes.yaml

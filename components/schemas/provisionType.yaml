@@ -131,3 +131,9 @@ properties:
       - 'null'
     items:
       $ref: controllerType.yaml
+  storageProfiles:
+    type:
+      - array
+      - 'null'
+    items:
+      $ref: storageProfile.yaml

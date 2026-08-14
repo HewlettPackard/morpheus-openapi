@@ -6,6 +6,9 @@ properties:
   allCatalogItemTypes:
     type: boolean
     description: "Apply to all catalog item types"
+  all:
+    type: boolean
+    description: Alias for `allCatalogItemTypes`
   access:
     type: string
     description: The new access level.

@@ -1,0 +1,37 @@
+get:
+  summary: Downloads a Support Bundle
+  description: |
+    Downloads a specific support bundle as a file attachment.
+
+    The bundle must be in `COMPLETED` status before it can be downloaded. The returned archive type depends on the appliance support bundle archive setting.
+  operationId: downloadSupportBundle
+  tags:
+    - Support Bundles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    "200":
+      description: Successful Request
+      content:
+        application/octet-stream:
+          schema:
+            type: string
+            format: binary
+        application/zip:
+          schema:
+            type: string
+            format: binary
+        application/gzip:
+          schema:
+            type: string
+            format: binary
+    "409":
+      description: Support bundle is not ready for download
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+    "4XX":
+      $ref: ../components/responses/4xx.yaml
+    "5XX":
+      $ref: ../components/responses/5xx.yaml

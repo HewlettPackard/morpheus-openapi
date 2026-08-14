@@ -1,0 +1,42 @@
+post:
+  summary: Execute System Storage Server Update
+  description: |
+    Execute an available update against a storage server that is a registered component of the
+    specified system, identified by the update definition id in the path. This is the entry point
+    for driving storage array updates (for example, Alletra MP firmware upgrades) through the API.
+
+    The update runs **asynchronously**: this endpoint returns `202 Accepted` with a `pending`
+    update operation, and the update then transitions through `pending → running → completed/failed`
+    via a background job. There is currently **no endpoint in this set to poll the update operation
+    status**.
+
+    Whether the update is online/non-disruptive depends on the storage provider and the specific
+    update definition (see the `zeroDowntime` and `requiresMaintenanceMode` flags on the definition);
+    Morpheus does not orchestrate host evacuation for storage updates.
+
+    The storage server must be a component of the system (else 404), and the update definition must
+    be applicable to the storage server's type (else 400). There is no request body.
+
+    Requires the `infrastructure-system` permission with full access.
+  operationId: executeSystemStorageServerUpdate
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/systemId-path.yaml
+    - $ref: ../components/parameters/serverId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '202':
+      description: Update accepted and queued
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/updateOperationAccepted.yaml
+          examples:
+            Execute System Update Accepted Response:
+              value:
+                $ref: ../components/examples/executeSystemUpdateAccepted.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

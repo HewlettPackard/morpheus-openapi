@@ -4,7 +4,7 @@ get:
     Retrieves all user groups
   operationId: listUserGroups
   tags:
-    - Users
+    - User Groups
   parameters:
     - $ref: ../components/parameters/max.yaml
     - $ref: ../components/parameters/offset.yaml
@@ -40,7 +40,7 @@ post:
     Creates a User Group.
   operationId: addUserGroup
   tags:
-    - Users
+    - User Groups
   requestBody:
     content:
       application/json:

@@ -1,0 +1,8 @@
+name: segId
+in: path
+description: Morpheus ID of the virtual switch segment being referenced
+required: true
+schema:
+  type: integer
+  format: int64
+example: 44

@@ -1,0 +1,66 @@
+type: object
+description: Host profile configuration document
+properties:
+  storage:
+    type: object
+    properties:
+      multipath:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          findMultipaths: { type: boolean }
+          userFriendlyNames: { type: boolean }
+      iscsi:
+        type: object
+        properties:
+          transport: { type: string, example: tcp }
+          chapEnabled: { type: boolean }
+  system:
+    type: object
+    properties:
+      ntp:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          servers: { type: array, items: { type: string }, example: ["ntp.ubuntu.com"] }
+      timezone: { type: string, example: "America/Denver" }
+      locale: { type: string, example: "C.UTF-8" }
+      syslog:
+        type: object
+        properties:
+          enabled: { type: boolean }
+          server: { type: string }
+          port: { type: integer }
+          protocol: { type: string, enum: [tcp, udp] }
+      logging:
+        type: object
+        properties:
+          level: { type: string, example: info }
+      cpu:
+        type: object
+        properties:
+          powerManagement: { type: string, example: performance }
+          hyperThreading: { type: boolean }
+      memory:
+        type: object
+        properties:
+          hugePages:
+            type: object
+            properties:
+              enabled: { type: boolean }
+              size: { type: string, example: "2M" }
+      security:
+        type: object
+        properties:
+          selinux: { type: string, enum: [enforcing, permissive, disabled] }
+          fips: { type: boolean }
+  baseline:
+    type: object
+    properties:
+      kernelVersion: { type: string, example: "6.8.0-117-generic" }
+      packageVersions:
+        type: object
+        properties:
+          corosync: { type: string, example: "3.1.7" }
+          libvirt: { type: string, example: "10.0.0" }
+          qemu: { type: string, example: "8.2.2" }

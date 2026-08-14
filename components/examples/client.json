@@ -2,24 +2,23 @@
     "client": {
         "id": 2,
         "clientId": "morph-cli",
+        "clientSecret": "************",
+        "clientSecretHash": "a1b2c3d4e5f67890",
         "accessTokenValiditySeconds": 31536000,
         "refreshTokenValiditySeconds": 31536000,
-        "authorities": [
-            "ROLE_CLIENT"
-        ],
         "authorizedGrantTypes": [
+            "authorization_code",
             "refresh_token",
-            "implicit",
-            "password",
-            "client_credentials",
-            "authorization_code"
+            "password"
         ],
         "scopes": [
-            "read",
-            "write"
+            "write",
+            "openid"
         ],
         "redirectUris": [
-            
-        ]
+            "https://example.com/callback"
+        ],
+        "requireConsent": false,
+        "system": false
     }
 }

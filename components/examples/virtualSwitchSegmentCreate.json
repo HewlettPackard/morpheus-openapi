@@ -1,0 +1,8 @@
+{
+  "segment": {
+    "trafficType": "live-migration",
+    "interfaceName": "bond0.230",
+    "vlanId": 230,
+    "mtu": 9000
+  }
+}

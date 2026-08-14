@@ -1,12 +1,26 @@
 get:
   summary: Get a Specific User
-  description: This endpoint will retrieve a specific user by id if the user has permission to access the user.
+  description: |
+    Retrieve a specific user by id if the caller has permission to access the user.
+    Pass `includeAccess=true` to embed the full access map on the user object.
   operationId: getUser
   tags:
     - Users
   parameters:
     - $ref: ../components/parameters/id-path.yaml
     - $ref: ../components/parameters/includeAccess.yaml
+    - name: accountId
+      in: query
+      description: Scope lookup to a tenant (alias `tenantId` also accepted).
+      schema:
+        type: integer
+        format: int64
+    - name: tenantId
+      in: query
+      description: Alias of `accountId` for tenant-scoped user lookup.
+      schema:
+        type: integer
+        format: int64
   responses:
     '200':
       description: User Object
@@ -27,12 +41,30 @@ get:
       $ref: ../components/responses/5xx.yaml
 put:
   summary: Update user
-  description: Update an existing user.
+  description: |
+    Update an existing user.
+
+    Password confirmation fields are optional for API callers when the matching password
+    is supplied and the confirmation key is omitted. Explicit confirmation values are validated as-is.
+
+    Query `accountId` / `tenantId` may scope the target user for master-tenant operators.
   operationId: updateUser
   tags:
     - Users
   parameters:
-  - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+    - name: accountId
+      in: query
+      description: Scope update to a tenant (alias `tenantId` also accepted).
+      schema:
+        type: integer
+        format: int64
+    - name: tenantId
+      in: query
+      description: Alias of `accountId` for tenant-scoped user update.
+      schema:
+        type: integer
+        format: int64
   requestBody:
     content:
       application/json:
@@ -42,59 +74,11 @@ put:
             - user
           properties:
             user:
-              type: object
-              properties:
-                firstName:
-                  type:
-                    - 'null'
-                    - string
-                  description: First Name
-                lastName:
-                  type:
-                    - 'null'
-                    - string
-                  description: Last Name
-                username:
-                  type: string
-                  description: Username (unique per tenant).
-                linuxUsername:
-                  type:
-                    - 'null'
-                    - string
-                linuxPassword:
-                  type:
-                    - 'null'
-                    - string
-                  format: password
-                linuxKeyPairId:
-                  format: int64
-                  type:
-                    - 'null'
-                    - integer
-                windowsUsername:
-                  type:
-                    - 'null'
-                    - string
-                windowsPassword:
-                  type:
-                    - 'null'
-                    - string
-                  format: password
-                email:
-                  type: string
-                  description: Email address
-                password:
-                  type: string
-                  format: password
-                  description: Password
-                roles:
-                  type: array
-                  description: List of Roles
-                  items:
-                    $ref: ../components/schemas/ReferenceObject.yaml
-                receiveNotifications:
-                  type: boolean
-                  description: Receive Notifications?
+              $ref: ../components/schemas/userUpdate.yaml
+        examples:
+          Update User Request:
+              value:
+                $ref: ../components/examples/userUpdate.json
   responses:
     '200':
       description: User Object
@@ -106,6 +90,10 @@ put:
               properties:
                 user:
                   $ref: ../components/schemas/user.yaml
+                errors:
+                  type: object
+                  additionalProperties:
+                    type: string
             - $ref: ../components/schemas/200-success.yaml
           examples:
             Update User Response:
@@ -122,7 +110,19 @@ delete:
   tags:
     - Users
   parameters:
-  - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+    - name: accountId
+      in: query
+      description: Scope delete to a tenant (alias `tenantId` also accepted).
+      schema:
+        type: integer
+        format: int64
+    - name: tenantId
+      in: query
+      description: Alias of `accountId` for tenant-scoped user delete.
+      schema:
+        type: integer
+        format: int64
   responses:
     '200':
       description: Success Object

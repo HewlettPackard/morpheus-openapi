@@ -63,4 +63,10 @@ properties:
           macAddress:
             type: string
             example: "ba:dc:0f:fe:ca:fe"
-
+          resourcePoolId:
+            type: integer
+            example: 12
+          preProvisioned:
+            type: boolean
+            description: Set to 'true' if the server is pre-provisioned (brownfield)
+            example: false

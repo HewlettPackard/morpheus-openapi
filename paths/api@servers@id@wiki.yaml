@@ -6,7 +6,7 @@ get:
   tags:
     - Wiki
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
   responses:
     '200':
       description: Successful Request
@@ -36,7 +36,7 @@ put:
   tags:
     - Wiki
   parameters:
-    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/server-id-path.yaml
   requestBody:
     content:
       application/json:

@@ -17,5 +17,5 @@ allOf:
       config:
         allOf:
           - $ref: checkMysqlConfig.yaml
-          - anyOf:
-              - $ref: checkSshConfig.yaml
+          - $ref: checkSshConfig.yaml
+

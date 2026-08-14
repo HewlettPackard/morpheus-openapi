@@ -123,16 +123,19 @@ properties:
       - 'null'
   maxStorage:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
   usedStorage:
     type:
-      - string
+      - integer
       - 'null'
+    format: int64
   diskCount:
     type:
-      - string
+      - integer
       - 'null'
+    format: int32
   dateCreated:
     type: string
     format: date-time

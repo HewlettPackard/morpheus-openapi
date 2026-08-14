@@ -1,0 +1,68 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  name:
+    type: string
+    description: Name
+  affinityType:
+    type: string
+    description: Affinity Type
+    enum:
+      - KEEP_TOGETHER
+      - KEEP_SEPARATE
+  source:
+    type: string
+    description: Source
+  refType:
+    type: string
+    description: Reference Type for the Affinity Group. Can be ComputeZone or ComputeServerGroup for cloud or cluster respectively
+  refId:
+    type: integer
+    format: int64
+    description: Reference ID for the Affinity Group. The ID of the Cloud or Clusterfor cloud or cluster respectively
+  active:
+    type: boolean
+    description: Active
+  pool:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+    description: Resource Pool ID to scope the Affinity Group to
+  servers:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string 
+    description: List of Servers in the Affinity Group
+  visibility:
+    type: string
+  tenants:
+    type: array
+    description: Array of tenant account ids that are allowed access
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+  resourcePermissions:
+    type: object
+    description: Resource Permissions for controlling Group Access
+    properties:
+      all:
+        type: boolean
+      sites:
+        type:
+          - array
+          - 'null'
+        items:
+          type: object

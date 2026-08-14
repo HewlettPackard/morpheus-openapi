@@ -5,20 +5,29 @@ put:
   tags:
     - Storage
   parameters:
-    - name: id
-      in: path
-      required: true
-      schema:
-        type: integer
-        format: int64
-      description: The ID of the server
+    - $ref: ../components/parameters/server-id-path.yaml
     - name: volumeId
       in: path
       required: true
       schema:
-        type: integer
-        format: int64
-      description: The ID of the storage volume
+        oneOf:
+          - type: integer
+            format: int64
+            title: ID
+            description: The `id` of the storage volume record.
+            example: 1
+          - type: string
+            title: UUID
+            description: The `uuid` of the storage volume record.
+            example: "170a7696-36a7-4800-91a6-1247e24b37e2"
+      description: The `id` or `uuid` to identify the storage volume record.
+    - name: force
+      in: query
+      description: Force the detachment of the volume
+      required: false
+      schema:
+        type: boolean
+        default: false
   responses:
     '200':
       description: Successful Request

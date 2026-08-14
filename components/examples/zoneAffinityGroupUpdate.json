@@ -1,0 +1,9 @@
+{
+  "affinityGroup": {
+    "servers": [
+      1,
+      2,
+      3
+    ]
+  }
+}

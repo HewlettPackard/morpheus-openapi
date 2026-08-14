@@ -1,0 +1,37 @@
+{
+  "affinityGroups": [
+    {
+      "id": 53,
+      "visibility": "private",
+      "active": false,
+      "owner": {
+        "id": 1
+      },
+      "pool": {
+        "id": 9406,
+        "name": "HVM Cluster"
+      },
+      "affinityType": "KEEP_SEPARATE",
+      "source": "user",
+      "refType": "ComputeServerGroup",
+      "refId": 1139,
+      "name": "AG Example",
+      "servers": [
+        {
+          "id": 31666,
+          "name": "Test Instance"
+        },
+        {
+          "id": 31667,
+          "name": "Test Instance 2"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "offset": 0,
+    "max": 25,
+    "size": 1,
+    "total": 1
+  }
+}

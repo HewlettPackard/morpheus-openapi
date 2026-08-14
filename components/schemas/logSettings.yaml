@@ -4,6 +4,16 @@ properties:
     type: boolean
   retentionDays:
     type: string
+  minimumLogLevel:
+    type:
+      - string
+      - 'null'
+    enum:
+      - null
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR
   syslogRules:
     type:
       - array
@@ -13,9 +23,3 @@ properties:
     example:
       - name: foo
         rule: "*.* @@localhost:4567"
-  integrations:
-    type:
-      - array
-      - 'null'
-    items:
-      type: object

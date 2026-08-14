@@ -1,0 +1,74 @@
+get:
+  summary: Get Cluster Host Profile Compliance Status
+  description: Returns the last persisted compliance result for every host in the cluster that has a profile attached. Full per-key complianceDetails with remediable and remediationImpact included. No SSH is triggered.
+  operationId: getClusterHostProfileCompliance
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Per-host compliance results
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              clusterId: { type: integer, format: int64 }
+              clusterName: { type: string }
+              profileId: { type: integer, format: int64 }
+              profileName: { type: string }
+              overallStatus:
+                type: string
+                enum: [unknown, checking, compliant, non-compliant, remediating, error]
+              hosts:
+                type: array
+                items:
+                  $ref: ../components/schemas/hostProfileServerCompliance.yaml
+          example:
+            $ref: ../components/examples/clusterHostProfileCompliance.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put:
+  summary: Trigger Compliance Check on All Cluster Hosts
+  description: Starts an async compliance check for every host in the cluster that has a profile attached. Checks are independent and fired in parallel. Returns immediately with per-host start results.
+  operationId: checkClusterHostProfileCompliance
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Compliance checks started
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    serverId: { type: integer, format: int64 }
+                    serverName: { type: string }
+                    success: { type: boolean }
+                    msg: { type: [string, 'null'] }
+          example:
+            $ref: ../components/examples/clusterHostProfileComplianceCheck.json
+    '400':
+      description: No hosts have a profile attached
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/clusterHostProfileNoHostsAttached.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

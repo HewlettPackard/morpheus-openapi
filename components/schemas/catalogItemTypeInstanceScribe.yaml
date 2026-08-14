@@ -1,4 +1,5 @@
 type: object
+title: Instance Config Object
 required:
   - group
   - cloud

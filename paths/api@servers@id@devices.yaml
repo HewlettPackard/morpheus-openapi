@@ -5,13 +5,7 @@ get:
   tags:
     - Hosts
   parameters:
-    - name: id
-      in: path
-      description: The ID of the host
-      required: true
-      schema:
-        type: integer
-      example: 5
+    - $ref: ../components/parameters/server-id-path.yaml
   responses:
     '200':
       description: Successful Request

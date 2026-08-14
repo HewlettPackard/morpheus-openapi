@@ -90,30 +90,32 @@ post:
                     type: integer
                     format: int64
                 tasks:
-                  type: object
+                  type: array
                   description: List of task objects in order
-                  properties:
-                    taskId:
-                      type: integer
-                      format: int64
-                      description: Task ID
-                    taskPhase:
-                      type: string
-                      description: Task Phase. Pass operation for `operational` workflows.
-                      default: provision
-                      enum:
-                        - start
-                        - stop
-                        - preProvision
-                        - provision
-                        - postProvision
-                        - preDeploy
-                        - deploy
-                        - reconfigure
-                        - teardown
-                        - startup
-                        - shutdown
-                        - operation
+                  items:
+                    type: object
+                    properties:
+                      taskId:
+                        type: integer
+                        format: int64
+                        description: Task ID
+                      taskPhase:
+                        type: string
+                        description: Task Phase. Pass operation for `operational` workflows.
+                        default: provision
+                        enum:
+                          - start
+                          - stop
+                          - preProvision
+                          - provision
+                          - postProvision
+                          - preDeploy
+                          - deploy
+                          - reconfigure
+                          - teardown
+                          - startup
+                          - shutdown
+                          - operation
 
 
   responses:

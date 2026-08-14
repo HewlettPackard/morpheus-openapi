@@ -182,6 +182,7 @@
       ],
       "statsRetainmentPeriod": 30,
       "latestLinuxAgentVersion": "2.9.7",
-      "latestWindowsAgentVersion": "6.0.0"
+      "latestWindowsAgentVersion": "6.0.0",
+      "vmeAppliance": false
   }
 }

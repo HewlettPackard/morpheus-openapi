@@ -1,0 +1,45 @@
+post: 
+  summary: Update Cluster Version
+  description: |
+    This endpoint updates a cluster to a newer version. This handles upgrading the cluster to the version of the layout in the specified update definition.
+  operationId: updateClusterVersion
+  tags: 
+    -  Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          type: object
+          required:
+            - updateDefinitionId
+          properties: 
+            updateDefinitionId:
+              type: integer
+              format: int64
+              description: The ID of the update definition to use for the cluster update. The endpoint /api/clusters/id/available-updates provides a list of available update definitions for a cluster.
+        examples:
+          Cluster Request:
+            value:
+              $ref: ../components/examples/clusterUpdateRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf: 
+            - type: object
+              properties:
+                update:
+                  $ref: ../components/schemas/clusterUpdateOperation.yaml
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Update Cluster Layout Response:
+              value:
+                $ref: ../components/examples/clusterUpdateResponse.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

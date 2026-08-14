@@ -3,7 +3,7 @@ get:
   description: This endpoint retrieves a list of available API clients.
   operationId: getUserSettingsApiClients
   tags:
-    - Users
+    - User Settings
   parameters:
     - name: userId
       in: query

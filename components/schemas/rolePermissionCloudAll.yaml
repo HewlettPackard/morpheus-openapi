@@ -6,6 +6,9 @@ properties:
   allClouds:
     type: boolean
     description: "Apply to all clouds"
+  all:
+    type: boolean
+    description: Alias for `allClouds`
   access:
     type: string
     description: The new access level.

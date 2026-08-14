@@ -1,0 +1,74 @@
+get:
+  summary: List Migrations
+  description: >
+    This endpoint retrieves all Migrations along with the associated servers (virtual machines) and their statuses.
+  operationId: listMigrations
+  tags:
+    - Migrations
+  parameters:
+    - $ref: ../components/parameters/phrase.yaml
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/direction.yaml
+    - $ref: ../components/parameters/name.yaml
+  responses:
+    '200':
+      description: Array of Migrations
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                migrations:
+                  items:
+                    $ref: ../components/schemas/migration.yaml
+            - $ref: ../components/schemas/meta.yaml
+          examples:
+            Migrations Response:
+              value:
+                $ref: ../components/examples/migrations.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Create a Migration
+  description: |
+    Create a new Migration. This creates a new migration plan for a list a servers (virtual machines). The plan can then be run at any time to execute the migration.
+  operationId: addMigration
+  tags:
+    - Migrations
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          type: object
+          properties: 
+            migration:
+              $ref: ../components/schemas/migrationCreate.yaml
+        examples: 
+          Network Pool Request:
+            value:
+              $ref: ../components/examples/migrationCreate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            anyOf:
+            - type: object
+              properties:
+                migration:
+                  $ref: ../components/schemas/migration.yaml
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Migration Response:
+              value:
+                $ref: ../components/examples/migrationSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

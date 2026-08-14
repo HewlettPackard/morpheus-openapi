@@ -1,0 +1,78 @@
+get: 
+  summary: Get Cloud Affinity Groups
+  description: This endpoint retrieves affinity groups of a specified cloud.
+  operationId: listCloudAffinityGroups
+  tags: 
+    -  Clouds
+  parameters:
+    - $ref: ../components/parameters/zoneId-path.yaml
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/order.yaml
+    - $ref: ../components/parameters/phrase.yaml
+    - $ref: ../components/parameters/name.yaml
+    - $ref: ../components/parameters/code.yaml
+    - $ref: ../components/parameters/hideInactive.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content: 
+        application/json: 
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  affinityGroups:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/zoneAffinityGroup.yaml
+              - $ref: ../components/schemas/meta.yaml
+          examples:
+            Affinity Groups Request:
+              value:
+                $ref: ../components/examples/zoneAffinityGroups.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Create a Cloud Affinity Group
+  description: This endpoint will create an affinity group for a specific cloud.
+  operationId: saveCloudAffinityGroup
+  tags:
+    - Clouds
+  parameters:
+    - $ref: ../components/parameters/zoneId-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            affinityGroup:
+              $ref: ../components/schemas/zoneAffinityGroupCreate.yaml
+        examples:
+          Affinity Group Request:
+            value:
+              $ref: ../components/examples/zoneAffinityGroupCreate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  affinityGroup:
+                    $ref: ../components/schemas/zoneAffinityGroup.yaml
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Create Affinity Group Response:
+              value:
+                $ref: ../components/examples/zoneAffinityGroupSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

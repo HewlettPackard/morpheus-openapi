@@ -1,11 +1,16 @@
 type: object
 required:
-  - appTemplateId
   - access
 properties:
   appTemplateId:
     type: integer
-    description: "`id` of the blueprint (appTemplate)"
+    description: "`id` of the blueprint (appTemplate). Alias of `blueprintId`."
+  blueprintId:
+    type: integer
+    description: Alias for `appTemplateId`
+  bluePrintId:
+    type: integer
+    description: Alias for `appTemplateId`
   access:
     type: string
     description: The new access level.

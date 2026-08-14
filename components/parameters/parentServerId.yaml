@@ -1,0 +1,8 @@
+name: parentServerId
+in: query
+description: The Parent Server (Hypervisor) ID for Filtering
+schema:
+  type: integer
+  format: int64
+  description: Parent Server (Hypervisor) ID
+example: 36

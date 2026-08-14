@@ -17,7 +17,8 @@
       "iloIpAddress": "192.168.1.1",
       "iloUsername": "",
       "iloPassword": "",
-      "macAddress": "ba:dc:0f:fe:ca:fe"
+      "macAddress": "ba:dc:0f:fe:ca:fe",
+      "resourcePoolId": 3
     }
   }
 }

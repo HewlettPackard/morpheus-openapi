@@ -1,0 +1,44 @@
+put: 
+  summary: Update Cluster Assigned Layout
+  description: |
+    This endpoint updates the layout assigned to a specific cluster. This can be utilized to change the layout configuration of a cluster that has been manually upgraded.
+  operationId: updateClusterAssignedLayout
+  tags: 
+    -  Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          type: object
+          required:
+            - layoutId
+          properties: 
+            layoutId:
+              type: integer
+              format: int64
+        examples:
+          Cluster Request:
+            value:
+              $ref: ../components/examples/clusterUpdateLayout.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf: 
+            - type: object
+              properties:
+                cluster:
+                  $ref: ../components/schemas/cluster.yaml
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Update Cluster Layout Response:
+              value:
+                $ref: ../components/examples/clusterCreate.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

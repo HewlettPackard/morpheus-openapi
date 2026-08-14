@@ -115,3 +115,13 @@ properties:
   statsRetainmentPeriod:
     type: integer
     format: int64
+  dashboardsToDisplay:
+    type:
+      - string
+      - 'null'
+  vmeAppliance:
+    type: boolean
+  latestWindowsAgentVersion:
+    type: string
+  latestLinuxAgentVersion:
+    type: string

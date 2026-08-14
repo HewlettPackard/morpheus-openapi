@@ -13,6 +13,8 @@ get:
     - $ref: ../components/parameters/zoneId.yaml
     - $ref: ../components/parameters/siteId.yaml
     - $ref: ../components/parameters/planId.yaml
+    - $ref: ../components/parameters/serverId.yaml
+    - $ref: ../components/parameters/parentServerId.yaml
     - $ref: ../components/parameters/instanceType.yaml
     - $ref: ../components/parameters/lastUpdated.yaml
     - $ref: ../components/parameters/createdBy.yaml
@@ -33,6 +35,8 @@ get:
     - $ref: ../components/parameters/allLabels.yaml
     - $ref: ../components/parameters/tags.yaml
     - $ref: ../components/parameters/detailsFalse.yaml
+    - $ref: ../components/parameters/includeTenants.yaml
+    - $ref: ../components/parameters/tenantId.yaml
   responses:
     '200':
       description: Successful Request

@@ -12,6 +12,7 @@
       "managed": true,
       "controlPower": true,
       "controlSuspend": false,
+      "controlStart": true,
       "creatable": false,
       "hasAgent": true,
       "vmHypervisor": false,

@@ -1,0 +1,25 @@
+type: object
+description: A storage controller configuration entry describing an existing or new disk controller on the target VM.
+properties:
+  id:
+    type: integer
+    format: int64
+    description: The id of an existing storage controller when updating; omit when creating a new controller.
+  busNumber:
+    type: string
+    description: The bus number for this controller. Zero-based; increments per additional controller.
+    example: "0"
+  typeId:
+    type: integer
+    format: int64
+    description: The id of the StorageControllerType to use. Alternatively, `typeName` can be supplied.
+  typeName:
+    type: string
+    description: The name (or code) of the StorageControllerType to use. Used when `typeId` is not provided.
+    example: SCSI
+  removable:
+    type: boolean
+    description: Whether the controller can be removed on subsequent reconfigure requests.
+  editable:
+    type: boolean
+    description: Whether the controller may be edited on subsequent reconfigure requests.

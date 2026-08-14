@@ -6,11 +6,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Bundle Spec
-        uses: docker://redocly/cli:latest
+        uses: docker://redocly/cli:2.10.0
         with:
           args: bundle --dereferenced openapi.yaml -o bundle.yaml
       - name: OpenAPI Generator Validate
-        uses: docker://openapitools/openapi-generator-cli:latest
+        uses: docker://openapitools/openapi-generator-cli:v7.12.0
         with:
           args: validate -i bundle.yaml
         env:
@@ -20,7 +20,7 @@ jobs:
           mkdir client-go
           cp .openapi-generator/.openapi-generator-ignore client-go
       - name: OpenAPI Generator Generate
-        uses: docker://openapitools/openapi-generator-cli:latest
+        uses: docker://openapitools/openapi-generator-cli:v7.12.0
         with:
           args: generate -i bundle.yaml -g go -t .openapi-generator/go/templates -o client-go
         env:

@@ -1,0 +1,9 @@
+name: force
+in: query
+description: Force stop by passing `true`. This performs a hard power off, bypassing a graceful shutdown of the guest operating system.
+required: false
+schema:
+  type: boolean
+  default: false
+example: true
+

@@ -1,6 +1,6 @@
 name: details
 in: query
-description: Include details=true to return more details about the instance, ie. containerDetails. Available in api version 5.2.8/5.3.2.
+description: Include details=true to return more details about the instance and its container(s) and server(s), ie. instancePrice, apps, powerSchedule, isScalable, instanceThreshold, containerDetails.server.
 schema:
   type: boolean
   description: Instance details

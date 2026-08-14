@@ -1,6 +1,6 @@
 name: includeTenants
 in: query
-description: Optional ability to include all subtenant billing information when calling from a master tenant user
+description: Optional ability to include all subtenant resources when calling from a master tenant user
 schema:
   type: boolean
   default: false
