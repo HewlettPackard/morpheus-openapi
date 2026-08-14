@@ -1,68 +1,68 @@
 {
-  "clients": [
-    {
-      "id": 3,
-      "clientId": "morph-api",
-      "accessTokenValiditySeconds": 31536000,
-      "refreshTokenValiditySeconds": 31536000,
-      "authorizedGrantTypes": [
-        "authorization_code",
-        "refresh_token",
-        "password"
-      ],
-      "scopes": [
-        "write",
-        "openid"
-      ],
-      "redirectUris": [],
-      "requireConsent": false,
-      "system": true
-    },
-    {
-      "id": 4,
-      "clientId": "morph-automation",
-      "accessTokenValiditySeconds": 1440,
-      "refreshTokenValiditySeconds": 1440,
-      "authorizedGrantTypes": [
-        "authorization_code",
-        "refresh_token",
-        "password"
-      ],
-      "scopes": [
-        "write",
-        "openid"
-      ],
-      "redirectUris": [],
-      "requireConsent": false,
-      "system": false
-    },
-    {
-      "id": 2,
-      "clientId": "morph-cli",
-      "clientSecret": "************",
-      "clientSecretHash": "a1b2c3d4e5f67890",
-      "accessTokenValiditySeconds": 31536000,
-      "refreshTokenValiditySeconds": 31536000,
-      "authorizedGrantTypes": [
-        "authorization_code",
-        "refresh_token",
-        "password"
-      ],
-      "scopes": [
-        "write",
-        "openid"
-      ],
-      "redirectUris": [
-        "https://example.com/callback"
-      ],
-      "requireConsent": false,
-      "system": false
+    "clients": [
+        {
+            "id": 3,
+            "clientId": "morph-api",
+            "accessTokenValiditySeconds": 31536000,
+            "refreshTokenValiditySeconds": 31536000,
+            "authorizedGrantTypes": [
+                "authorization_code",
+                "refresh_token",
+                "password"
+            ],
+            "scopes": [
+                "write",
+                "openid"
+            ],
+            "redirectUris": [],
+            "requireConsent": false,
+            "system": true
+        },
+        {
+            "id": 4,
+            "clientId": "morph-automation",
+            "accessTokenValiditySeconds": 1440,
+            "refreshTokenValiditySeconds": 1440,
+            "authorizedGrantTypes": [
+                "authorization_code",
+                "refresh_token",
+                "password"
+            ],
+            "scopes": [
+                "write",
+                "openid"
+            ],
+            "redirectUris": [],
+            "requireConsent": false,
+            "system": false
+        },
+        {
+            "id": 2,
+            "clientId": "morph-cli",
+            "clientSecret": "************",
+            "clientSecretHash": "a1b2c3d4e5f67890",
+            "accessTokenValiditySeconds": 31536000,
+            "refreshTokenValiditySeconds": 31536000,
+            "authorizedGrantTypes": [
+                "authorization_code",
+                "refresh_token",
+                "password"
+            ],
+            "scopes": [
+                "write",
+                "openid"
+            ],
+            "redirectUris": [
+                "https://example.com/callback"
+            ],
+            "requireConsent": false,
+            "system": false
+        }
+    ],
+    "meta": {
+        "offset": 0,
+        "max": 25,
+        "size": 3,
+        "total": 3
     }
-  ],
-  "meta": {
-    "offset": 0,
-    "max": 25,
-    "size": 3,
-    "total": 3
-  }
 }

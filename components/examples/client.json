@@ -1,24 +1,24 @@
 {
-  "client": {
-    "id": 2,
-    "clientId": "morph-cli",
-    "clientSecret": "************",
-    "clientSecretHash": "a1b2c3d4e5f67890",
-    "accessTokenValiditySeconds": 31536000,
-    "refreshTokenValiditySeconds": 31536000,
-    "authorizedGrantTypes": [
-      "authorization_code",
-      "refresh_token",
-      "password"
-    ],
-    "scopes": [
-      "write",
-      "openid"
-    ],
-    "redirectUris": [
-      "https://example.com/callback"
-    ],
-    "requireConsent": false,
-    "system": false
-  }
+    "client": {
+        "id": 2,
+        "clientId": "morph-cli",
+        "clientSecret": "************",
+        "clientSecretHash": "a1b2c3d4e5f67890",
+        "accessTokenValiditySeconds": 31536000,
+        "refreshTokenValiditySeconds": 31536000,
+        "authorizedGrantTypes": [
+            "authorization_code",
+            "refresh_token",
+            "password"
+        ],
+        "scopes": [
+            "write",
+            "openid"
+        ],
+        "redirectUris": [
+            "https://example.com/callback"
+        ],
+        "requireConsent": false,
+        "system": false
+    }
 }
