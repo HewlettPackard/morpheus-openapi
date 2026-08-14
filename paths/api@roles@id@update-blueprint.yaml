@@ -4,8 +4,7 @@ put:
     Customizing Blueprint Access.
 
     The API also accepts `PUT /api/roles/{id}/update-app-template` as an equivalent
-    alias for the same controller action; only this path is documented as the
-    canonical operation.
+    alias for this endpoint.
   operationId: updateRoleBlueprintAccess
   parameters:
     - $ref: ../components/parameters/id-path.yaml
