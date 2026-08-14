@@ -110,6 +110,13 @@ properties:
     description: The (optional) volumes parameter is for LV configuration, can create additional LVs at provision It should be passed as an array of
     items:
       $ref: instanceCreateVolume.yaml
+  storageControllers:
+    type: array
+    description: |
+      Optional array of storage controller configurations. When provided, additional disk controllers will be
+      created and volumes may be attached to specific controllers by index. Supported on VMware and MVM.
+    items:
+      $ref: instanceCreateStorageController.yaml
   networkInterfaces:
     type: array
     description: |

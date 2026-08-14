@@ -51,11 +51,10 @@ properties:
     type: boolean
   config:
     anyOf:
-      - type:
-          - object
-          - 'null'
-        description: Type VMware
-        additionalProperties: false
+      - type: 'null'
+        description: Type VMware (null)
+      - type: object
+        description: Type VMware (empty object)
       - type: object
         description: Type AWS
         required:
