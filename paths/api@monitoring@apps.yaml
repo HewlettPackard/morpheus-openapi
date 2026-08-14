@@ -83,10 +83,12 @@ post:
                   type: array
                   items:
                     type: integer
+                    format: int64
                 checkGroups:
                   type: array
                   items:
                     type: integer
+                    format: int64
   responses:
     '200':
       description: Check App Object

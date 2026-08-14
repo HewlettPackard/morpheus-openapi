@@ -30,18 +30,21 @@ properties:
       - 'null'
     items:
       type: integer
+      format: int64
   checkGroups:
     type:
       - array
       - 'null'
     items:
       type: integer
+      format: int64
   apps:
     type:
       - array
       - 'null'
     items:
       type: integer
+      format: int64
   contacts:
     type: array
     items:
