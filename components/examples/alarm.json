@@ -2,8 +2,17 @@
     "alarm": {
       "id": 1,
       "name": "foobar",
+      "category": null,
+      "notificationType": "alarm",
+      "startDate": "2019-11-17T05:59:20+00:00",
+      "endDate": null,
+      "status": "warning",
+      "active": true,
+      "acknowledged": false,
+      "refType": "computeZone",
+      "refId": 12,
+      "refName": "VMware Cloud",
       "dateCreated": "2019-11-17T05:59:20+00:00",
       "lastUpdated": "2019-11-17T05:59:20+00:00"
     }
   }
-  

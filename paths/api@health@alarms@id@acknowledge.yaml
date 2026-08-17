@@ -1,6 +1,9 @@
 put:
-  summary: Acknowledge a Health Alarm
-  description: Acknowledge a specific health alarm.
+  summary: Acknowledge a health alarm
+  description: |
+    Acknowledge or unacknowledge a single health alarm.
+
+    `POST` is also accepted. When `acknowledged` is omitted it defaults to `true`.
   operationId: acknowledgeHealthAlarm
   tags:
     - Health
@@ -11,17 +14,52 @@ put:
       application/json:
         schema:
           type: object
-          required:
-            - alarm
           properties:
+            acknowledged:
+              type: boolean
+              description: |
+                `true` to acknowledge, `false` to unacknowledge. Defaults to `true`
+                when omitted. May also be sent as `alarm.acknowledged`.
+              default: true
             alarm:
               type: object
-              required:
-                - acknowledged
               properties:
-                acknowledged: 
+                acknowledged:
                   type: boolean
-                  description: Pass `true` to ackowledge an alarm, or pass `false` to unacknowledge it.
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Acknowledge a health alarm
+  description: |
+    Same as `PUT /api/health/alarms/{id}/acknowledge`.
+  operationId: acknowledgeHealthAlarmPost
+  tags:
+    - Health
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            acknowledged:
+              type: boolean
+              default: true
+            alarm:
+              type: object
+              properties:
+                acknowledged:
+                  type: boolean
   responses:
     '200':
       description: Successful Request

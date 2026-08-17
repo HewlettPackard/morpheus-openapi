@@ -1,21 +1,36 @@
 get:
-  summary: Retrieves Appliance Health
-  description: This endpoint retrieves health info about the appliance such as cpu, memory and database usage. Elasticsearch statistics and queue usage are also returned.
+  summary: Get appliance health
+  description: |
+    Returns the latest cached appliance health snapshot (CPU, memory, threads,
+    database, storage, Elasticsearch, and RabbitMQ).
+
+    Cached samples older than about six minutes are ignored; if none are found
+    the window extends to about twenty minutes. When no cached sample is
+    available, the `health` object may be empty.
+
+    Pass `live=true` for an on-demand sample (same payload as `GET /api/health/live`),
+    including a full Elasticsearch index list.
   operationId: listHealth
   tags:
     - Health
+  parameters:
+    - name: live
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: false
+      description: When true, collect health on demand instead of using the cache.
   responses:
     '200':
       description: Successful Request
       content:
         application/json:
           schema:
-            allOf:
-            - type: object
-              properties:
-                health:
-                  $ref: ../components/schemas/health.yaml
-            - $ref: ../components/schemas/meta.yaml
+            type: object
+            properties:
+              health:
+                $ref: ../components/schemas/health.yaml
           examples:
             Health Response:
               value:

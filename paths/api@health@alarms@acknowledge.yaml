@@ -1,6 +1,11 @@
 put:
-  summary: Acknowledge Many Health Alarms
-  description: Acknowledge health alarms.
+  summary: Acknowledge many health alarms
+  description: |
+    Acknowledge or unacknowledge one or more health alarms.
+
+    `POST` is also accepted. When `acknowledged` is omitted it defaults to `true`.
+    `all=true` acknowledges every active unacknowledged alarm; unacknowledge-all
+    is not supported.
   operationId: acknowledgeHealthAlarms
   tags:
     - Health
@@ -9,30 +14,70 @@ put:
       application/json:
         schema:
           type: object
-          required:
-            - alarm
           properties:
+            acknowledged:
+              type: boolean
+              description: |
+                `true` to acknowledge, `false` to unacknowledge. Defaults to `true`
+                when omitted. May also be sent as `alarm.acknowledged`.
+              default: true
             alarm:
               type: object
-              required:
-                - acknowledged
               properties:
-                acknowledged: 
+                acknowledged:
                   type: boolean
-                  description: Pass `true` to ackowledge an alarm, or pass `false` to unacknowledge it.
-                ids:
-                  type: array
-                  description: Array of Alarm ID(s)to be updated.
-                  default: []
-                  items:
-                    type: integer
-                    format: int64
-                all:
+            ids:
+              type: array
+              description: Alarm IDs to update. Query aliases include `ids[]`, `id`, `alarmIds[]`.
+              items:
+                type:
+                  - integer
+                  - string
+            all:
+              type: boolean
+              description: When true, acknowledge all active unacknowledged alarms (acknowledge only).
+              default: false
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Acknowledge many health alarms
+  description: |
+    Same as `PUT /api/health/alarms/acknowledge`.
+  operationId: acknowledgeHealthAlarmsPost
+  tags:
+    - Health
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            acknowledged:
+              type: boolean
+              default: true
+            alarm:
+              type: object
+              properties:
+                acknowledged:
                   type: boolean
-                  description: | 
-                    Pass `true` to update all alarms instead of passing ids.
-                    This will update any active alarm that is not already acknowledged.
-                  default: false
+            ids:
+              type: array
+              items:
+                type:
+                  - integer
+                  - string
+            all:
+              type: boolean
+              default: false
   responses:
     '200':
       description: Successful Request

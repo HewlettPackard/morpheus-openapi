@@ -477,6 +477,10 @@ paths:
     $ref: paths/api@guidance-settings.yaml
   /api/health:
     $ref: paths/api@health.yaml
+  /api/health/live:
+    $ref: paths/api@health@live.yaml
+  /api/health/notifications:
+    $ref: paths/api@health@notifications.yaml
   /api/health/alarms:
     $ref: paths/api@health@alarms.yaml
   /api/health/alarms/acknowledge:

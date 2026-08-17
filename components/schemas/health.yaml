@@ -1268,6 +1268,9 @@ properties:
   elastic:
     type: object
     properties:
+      noticeMessage:
+        type: string
+        description: Present on single-node Elasticsearch deployments when status is warning
       success:
         type: boolean
       status:
@@ -1376,3 +1379,13 @@ properties:
               format: int64
             status:
               type: string
+  storage:
+    type: object
+    description: Appliance filesystem and volume usage
+    additionalProperties: true
+  rda:
+    type:
+      - object
+      - "null"
+    description: HPE Support / RDA health details when available
+    additionalProperties: true

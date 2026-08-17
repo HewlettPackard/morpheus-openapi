@@ -1,0 +1,31 @@
+get:
+  summary: Get open alarm counts by status
+  description: |
+    Returns counts of currently open (active, unacknowledged) health alarms
+    grouped by alarm `status`.
+  operationId: getHealthNotifications
+  tags:
+    - Health
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              stats:
+                type: object
+                additionalProperties:
+                  type: integer
+                  format: int64
+                description: Map of alarm status value to count
+                example:
+                  error: 2
+                  warning: 5
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

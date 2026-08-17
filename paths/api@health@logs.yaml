@@ -1,6 +1,12 @@
 get:
-  summary: Retrieves Appliance Health Logs
-  description: This endpoint retrieves all health logs. These are the logs of the remote appliance itself. These logs show all ui activity and are useful for troubleshooting and auditing. Stack traces are filtered for Morpheus services. Complete stack traces can be found in `/var/log/morpheus/morpheus-ui/current`.
+  summary: List appliance health logs
+  description: |
+    Returns Morpheus appliance UI logs. Useful for troubleshooting. Stack traces
+    are filtered; full traces are on the appliance under
+    `/var/log/morpheus/morpheus-ui/current`.
+
+    Defaults: `max` 25, `sort` `ts`, order `desc`.
+    `phrase` is an alias of `query`.
   operationId: listHealthLogs
   tags:
     - Health
@@ -9,9 +15,22 @@ get:
     - $ref: ../components/parameters/offset.yaml
     - $ref: ../components/parameters/sort.yaml
     - $ref: ../components/parameters/direction.yaml
+    - name: order
+      in: query
+      description: Alias for `direction`
+      schema:
+        type: string
     - $ref: ../components/parameters/phrase.yaml
-    - $ref: ../components/parameters/name.yaml
-    - $ref: ../components/parameters/acknowledged.yaml
+    - name: query
+      in: query
+      description: Alias for `phrase`
+      schema:
+        type: string
+    - name: level
+      in: query
+      description: Log level filter (for example `INFO`, `WARN`, `ERROR`)
+      schema:
+        type: string
     - $ref: ../components/parameters/startDate.yaml
     - $ref: ../components/parameters/endDate.yaml
   responses:

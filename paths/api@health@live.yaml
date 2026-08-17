@@ -1,0 +1,26 @@
+get:
+  summary: Get live appliance health
+  description: |
+    Collects appliance health on demand (not from cache). Response shape matches
+    `GET /api/health`. Elasticsearch includes the full index list, not only problem indices.
+  operationId: getLiveHealth
+  tags:
+    - Health
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              health:
+                $ref: ../components/schemas/health.yaml
+          examples:
+            Health Response:
+              value:
+                $ref: ../components/examples/health.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

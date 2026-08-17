@@ -1,6 +1,15 @@
 get:
-  summary: Export Appliance Health Logs
-  description: This endpoint downloads the morpheus appliance logs as a file attachment. By default, the most recent 10,000 log entries are returned, with the newest at the end of the file. The format for each log entry is `timestamp` `level` `message`.
+  summary: Export appliance health logs
+  description: |
+    Downloads appliance logs as a plain-text attachment
+    (`morpheus-<timestamp>.log`). Each line is
+    `[timestamp] level message`.
+
+    Defaults: `max` 10000, `sort` `ts`, order `desc`. When neither `sort` nor
+    `direction`/`order` is passed, records are reversed so the newest lines are
+    at the end of the file.
+
+    `GET /api/health/logs/download` is an alias of this endpoint.
   operationId: exportHealthLogs
   tags:
     - Health
@@ -9,22 +18,38 @@ get:
     - $ref: ../components/parameters/offset.yaml
     - $ref: ../components/parameters/sort.yaml
     - $ref: ../components/parameters/direction.yaml
+    - name: order
+      in: query
+      description: Alias for `direction`
+      schema:
+        type: string
     - $ref: ../components/parameters/phrase.yaml
-    - $ref: ../components/parameters/name.yaml
-    - $ref: ../components/parameters/acknowledged.yaml
+    - name: query
+      in: query
+      description: Alias for `phrase`
+      schema:
+        type: string
+    - name: level
+      in: query
+      schema:
+        type: string
     - $ref: ../components/parameters/startDate.yaml
     - $ref: ../components/parameters/endDate.yaml
     - name: reverse
       in: query
       description: |
-        Reverse order of records. This `true` by default when sort and direction are not passed, but `false` by default if either is passed.
-        This means that by default the newest log entries are the bottom of the file.
+        Reverse record order before writing the file. Defaults to `true` when
+        sort and direction/order are omitted; otherwise defaults to `false`.
       schema:
         type: boolean
   responses:
     '200':
       description: Successful Request
       content:
+        text/plain:
+          schema:
+            type: string
+            format: binary
         application/octet-stream:
           schema:
             type: string
@@ -33,7 +58,7 @@ get:
         Content-Disposition:
           schema:
             type: string
-            example: 'attachment;filename="morpheus-2021-11-17-03-56-03.log"'
+            example: 'attachment; filename="morpheus-2021-11-17-03-56-03.log"'
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

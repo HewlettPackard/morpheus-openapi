@@ -1,13 +1,98 @@
 type: object
-properties: 
-  id: 
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  account:
+    type:
+      - object
+      - "null"
+    properties:
+      id:
+        type: integer
+        format: int64
+  category:
+    type:
+      - string
+      - "null"
+  notificationType:
+    type:
+      - string
+      - "null"
+  name:
     type: string
-  dateCreated: 
+  startDate:
+    type:
+      - string
+      - "null"
+    format: date-time
+  endDate:
+    type:
+      - string
+      - "null"
+    format: date-time
+  status:
+    type:
+      - string
+      - "null"
+  statusMessage:
+    type:
+      - string
+      - "null"
+  causeMessage:
+    type:
+      - string
+      - "null"
+  ruleType:
+    type:
+      - string
+      - "null"
+  resolveMessage:
+    type:
+      - string
+      - "null"
+  active:
+    type: boolean
+  acknowledged:
+    type: boolean
+  acknowledgedDate:
+    type:
+      - string
+      - "null"
+    format: date-time
+  acknowledgedByUser:
+    type:
+      - string
+      - "null"
+  resourceId:
+    type:
+      - integer
+      - "null"
+    format: int64
+  resourceName:
+    type:
+      - string
+      - "null"
+  refStatus:
+    type:
+      - string
+      - "null"
+  refName:
+    type:
+      - string
+      - "null"
+  refType:
+    type:
+      - string
+      - "null"
+  refId:
+    type:
+      - integer
+      - "null"
+    format: int64
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time
