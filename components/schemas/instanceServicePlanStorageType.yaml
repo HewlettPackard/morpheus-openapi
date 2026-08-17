@@ -80,3 +80,17 @@ properties:
     type:
       - string
       - 'null'
+  nameEditable:
+    type: boolean
+  planResizable:
+    type: boolean
+  hasISO:
+    type: boolean
+  noStorage:
+    type: boolean
+  multiAttachSupported:
+    type: boolean
+  hasActiveReplica:
+    type:
+      - boolean
+      - 'null'
