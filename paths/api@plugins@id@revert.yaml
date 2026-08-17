@@ -1,0 +1,29 @@
+put:
+  summary: Reverts a Plugin
+  description: |
+    Reverts the specified plugin, typically to the prepackaged version.
+  operationId: revertPlugin
+  tags:
+    - Plugins
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                plugin:
+                  $ref: ../components/schemas/plugin.yaml
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Plugin Response:
+              value:
+                $ref: ../components/examples/pluginSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
