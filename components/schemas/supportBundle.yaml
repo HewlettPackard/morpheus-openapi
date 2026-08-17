@@ -23,6 +23,20 @@ properties:
     type:
       - string
       - "null"
+  categories:
+    type:
+      - string
+      - "null"
+  startDate:
+    type:
+      - string
+      - "null"
+    format: date-time
+  endDate:
+    type:
+      - string
+      - "null"
+    format: date-time
   startedAt:
     type:
       - string

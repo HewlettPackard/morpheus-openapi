@@ -1,7 +1,7 @@
 post:
   summary: Cancel a Support Bundle
   description: |
-    Cancel a specific support bundle. If the bundle is PENDING it transitions immediately to CANCELLED. If IN_PROGRESS it transitions to CANCELLING and generation stops at the next checkpoint. Returns an error if the bundle is already in a terminal state (COMPLETED or FAILED). Calling cancel on an already CANCELLING or CANCELLED bundle is a no-op success.
+    Cancel a specific support bundle. If the bundle is PENDING it transitions immediately to CANCELLED. If IN_PROGRESS it transitions to CANCELLING and generation stops at the next checkpoint. Returns an error if the bundle is already in a terminal state (COMPLETED, WARNING, or FAILED). Calling cancel on an already CANCELLING or CANCELLED bundle is a no-op success.
   operationId: cancelSupportBundle
   tags:
     - Support Bundles
