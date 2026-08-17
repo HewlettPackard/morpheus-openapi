@@ -1,7 +1,7 @@
 get:
   summary: Get a health alarm
   description: Returns a health alarm by ID.
-  operationId: getHealthAlarms
+  operationId: getHealthAlarm
   tags:
     - Health
   parameters:
