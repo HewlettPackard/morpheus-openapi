@@ -12,6 +12,7 @@ get:
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/name.yaml
     - $ref: ../components/parameters/code.yaml
+    - $ref: ../components/parameters/active.yaml
   responses:
     '200':
       description: Array of Environments
@@ -37,7 +38,7 @@ get:
 post:
   summary: Create a New Environment
   description: Create a new environment.
-  operationId: addEnvironments
+  operationId: addEnvironment
   tags:
     - Environments
   requestBody:
@@ -76,6 +77,10 @@ post:
                   format: int64
                   description: Sort order
                   default: 0
+                active:
+                  type: boolean
+                  description: Set to false to create the environment inactive
+                  example: true
   responses:
     '200':
       description: Environment Object
