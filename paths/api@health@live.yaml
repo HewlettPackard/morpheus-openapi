@@ -1,7 +1,9 @@
 get:
-  summary: Retrieves Appliance Health
-  description: This endpoint retrieves health info about the appliance such as cpu, memory and database usage. Elasticsearch statistics and queue usage are also returned.
-  operationId: listHealth
+  summary: Retrieves Live Appliance Health
+  description: |
+    Collects appliance health on demand (not from cache). Response shape matches
+    `GET /api/health`. Elasticsearch includes the full index list, not only problem indices.
+  operationId: getLiveHealth
   tags:
     - Health
   responses:
