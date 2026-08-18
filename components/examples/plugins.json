@@ -13,6 +13,7 @@
 			"issueTrackerUrl": null,
 			"valid": true,
 			"hasValidUpdate": false,
+			"isPrepackaged": false,
 			"status": "loaded",
 			"statusMessage": "",
 			"providers": [

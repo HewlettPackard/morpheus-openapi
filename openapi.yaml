@@ -916,10 +916,16 @@ paths:
     $ref: paths/api@ping.yaml
   /api/plugins:
     $ref: paths/api@plugins.yaml
+  /api/plugins/check-updates:
+    $ref: paths/api@plugins@check-updates.yaml
   /api/plugins/upload:
     $ref: paths/api@plugins@upload.yaml
   /api/plugins/{id}:
     $ref: paths/api@plugins@id.yaml
+  /api/plugins/{id}/revert:
+    $ref: paths/api@plugins@id@revert.yaml
+  /api/plugins/{id}/upgrade:
+    $ref: paths/api@plugins@id@upgrade.yaml
   /api/policies:
     $ref: paths/api@policies.yaml
   /api/policies/{id}:
