@@ -26,6 +26,10 @@ get:
                   type: array
                   items:
                     $ref: ../components/schemas/policy.yaml
+                policyCount:
+                  type: integer
+                  format: int64
+                  description: Total number of policies matching the request
             - $ref: ../components/schemas/meta.yaml
           examples:
             Policies Response:
@@ -39,7 +43,7 @@ post:
   summary: Creates a Policy for a Cloud
   description: |
     Creates a policy for a Cloud.
-  operationId: addPoliciesCloud
+  operationId: addPolicyCloud
   parameters:
     - $ref: ../components/parameters/cloudId-path.yaml
   tags:

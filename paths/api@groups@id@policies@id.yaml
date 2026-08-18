@@ -2,7 +2,7 @@ get:
   summary: Retrieves a Specific Policy for a Group
   description: |
     Retrieves a specific policy for a Group.
-  operationId: getPoliciesGroup
+  operationId: getPolicyGroup
   tags:
     - Policies
   parameters:
@@ -127,7 +127,7 @@ put:
   summary: Updates a Policy for a Group
   description: |
     Updates a policy for a Group.
-  operationId: updatePoliciesGroup
+  operationId: updatePolicyGroup
   tags:
     - Policies
   parameters:
@@ -263,7 +263,7 @@ delete:
   summary: Deletes a Policy for a Group
   description: |
     Deletes a specified policy for a Group.
-  operationId: removePoliciesGroup
+  operationId: removePolicyGroup
   tags:
     - Policies
   parameters:

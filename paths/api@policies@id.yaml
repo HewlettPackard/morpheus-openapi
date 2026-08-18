@@ -2,7 +2,7 @@ get:
   summary: Retrieves a Specific Policy
   description: |
     Retrieves a specific policy.
-  operationId: getPolicies
+  operationId: getPolicy
   tags:
     - Policies
   parameters:
@@ -126,7 +126,7 @@ put:
   summary: Updates a Policy
   description: |
     Updates a policy.
-  operationId: updatePolicies
+  operationId: updatePolicy
   tags:
     - Policies
   parameters:
@@ -261,7 +261,7 @@ delete:
   summary: Deletes a Policy
   description: |
     Deletes a specified policy.
-  operationId: removePolicies
+  operationId: removePolicy
   tags:
     - Policies
   parameters:
