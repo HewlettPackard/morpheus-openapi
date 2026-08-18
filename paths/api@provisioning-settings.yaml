@@ -1,7 +1,7 @@
 get:
   summary: Get Provisioning Settings
   description: This endpoint retrieves provisioning settings.
-  operationId: listProvisioningSettings
+  operationId: getProvisioningSettings
   tags:
     - Provisioning Settings
   responses:
@@ -47,7 +47,17 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            allOf:
+            - $ref: ../components/schemas/200-success.yaml
+            - type: object
+              properties:
+                msg:
+                  type: string
+                errors:
+                  type: object
+                  additionalProperties:
+                    type: string
+                  description: Field validation errors when success is false
           examples:
             Successful Response:
               value:
