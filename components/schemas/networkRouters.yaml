@@ -155,9 +155,9 @@ interfaces:
             type: string
           code:
             type: string
-    config:
-      type:
-        - object
-        - 'null'
+      config:
+        type:
+          - object
+          - 'null'
 config:
   type: object
