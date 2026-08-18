@@ -942,6 +942,8 @@ paths:
     $ref: paths/api@zones@id@policies@id.yaml
   /api/policy-types:
     $ref: paths/api@policy-types.yaml
+  /api/policy-types/{policyTypeId}:
+    $ref: paths/api@policy-types@id.yaml
   /api/power-schedules:
     $ref: paths/api@power-schedules.yaml
   /api/power-schedules/{id}:
