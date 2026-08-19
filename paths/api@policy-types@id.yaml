@@ -1,0 +1,34 @@
+get:
+  summary: Retrieves a Specific Policy Type
+  description: |
+    Retrieves a specific policy type.
+  operationId: getPolicyType
+  tags:
+    - Policies
+  parameters:
+    - name: policyTypeId
+      in: path
+      description: Morpheus ID of the policy type
+      required: true
+      schema:
+        type: integer
+        format: int64
+      example: 1
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              policyType:
+                $ref: ../components/schemas/policyType.yaml
+          examples:
+            Policy Type Response:
+              value:
+                $ref: ../components/examples/policyType.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

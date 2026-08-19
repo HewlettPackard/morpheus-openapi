@@ -1,3 +1,32 @@
+post:
+  summary: Toggle Active State of Environment
+  description: Toggle Active State of Environment. Default is to toggle the current value.
+  operationId: updateEnvironmentActivePost
+  tags:
+    - Environments
+  parameters:
+  - $ref: ../components/parameters/id-path.yaml
+  - $ref: ../components/parameters/active.yaml
+  responses:
+    '200':
+      description: Environment Object
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                environment:
+                  $ref: ../components/schemas/environment.yaml
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Update Environment Response:
+              value:
+                $ref: ../components/examples/environmentSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
 put:
   summary: Toggle Active State of Environment
   description: Toggle Active State of Environment. Default is to toggle the current value.

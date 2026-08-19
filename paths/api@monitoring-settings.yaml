@@ -44,8 +44,17 @@ put:
           schema:
             allOf:
               - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    description: Field validation errors when success is false
           examples:
-            Update User Response:
+            Successful Response:
               value:
                 $ref: ../components/examples/success.json
     '4XX':

@@ -4,6 +4,8 @@ get:
   operationId: listWhitelabelSettings
   tags:
     - Whitelabel Settings
+  parameters:
+    - $ref: ../components/parameters/accountId.yaml
   responses:
     '200':
       description: Successful Response
@@ -29,6 +31,8 @@ put:
   operationId: updateWhitelabelSettings
   tags:
     - Whitelabel Settings
+  parameters:
+    - $ref: ../components/parameters/accountId.yaml
   requestBody:
     content:
       application/json:
@@ -47,7 +51,17 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    description: Field validation errors when success is false
           examples:
             Successful Response:
               value:

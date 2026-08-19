@@ -1,0 +1,38 @@
+get:
+  summary: List Template Types
+  description: |
+    Retrieves blueprint template types available for the default template type setting.
+  operationId: listProvisioningSettingsTemplateTypes
+  tags:
+    - Provisioning Settings
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              templateTypes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                    name:
+                      type: string
+                    code:
+                      type: string
+          examples:
+            Successful Response:
+              value:
+                templateTypes:
+                  - id: 1
+                    name: Morpheus
+                    code: morpheus
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

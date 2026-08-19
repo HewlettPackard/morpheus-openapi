@@ -28,7 +28,6 @@ x-readme:
     - javascript
     - go
 paths:
-
   /api/activity:
     $ref: paths/api@activity.yaml
     
@@ -768,6 +767,8 @@ paths:
     $ref: paths/api@log-settings@syslog-rules.yaml
   /api/log-settings/syslog-rules/{id}:
     $ref: paths/api@log-settings@syslog-rules@id.yaml
+  /api/log-settings/integrations/{name}:
+    $ref: paths/api@log-settings@integrations@name.yaml
 
   /api/logs:
     $ref: paths/api@logs.yaml
@@ -940,6 +941,8 @@ paths:
     $ref: paths/api@zones@id@policies@id.yaml
   /api/policy-types:
     $ref: paths/api@policy-types.yaml
+  /api/policy-types/{policyTypeId}:
+    $ref: paths/api@policy-types@id.yaml
   /api/power-schedules:
     $ref: paths/api@power-schedules.yaml
   /api/power-schedules/{id}:
@@ -981,6 +984,8 @@ paths:
     $ref: paths/api@provisioning-licenses@id@reservations.yaml
   /api/provisioning-settings:
     $ref: paths/api@provisioning-settings.yaml
+  /api/provisioning-settings/template-types:
+    $ref: paths/api@provisioning-settings@template-types.yaml
   /api/public-archives/download/{bucket}/{filepath}:
     $ref: paths/api@public-archives@download@id@path.yaml
   /api/public-archives/link:

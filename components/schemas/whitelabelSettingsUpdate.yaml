@@ -9,6 +9,19 @@ properties:
   disableSupportMenu: 
     type: boolean
     description: Can be used to disable support menu
+  supportsThemes:
+    type: boolean
+    description: Whether theme selection is supported
+  securityBanner:
+    type:
+      - string
+      - 'null'
+    description: Security banner text
+  externalLegalText:
+    type:
+      - string
+      - 'null'
+    description: External legal text
   resetHeaderLogo: 
     type: boolean
     description: Resets header logo to default header logo
@@ -73,10 +86,6 @@ properties:
     type: array
     items: 
       type: object
-      required:
-        - url
-        - label
-        - labelCode
       properties: 
         url: 
           type: string

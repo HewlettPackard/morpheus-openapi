@@ -4,47 +4,58 @@ post:
   operationId: updateWhitelabelImages
   tags:
     - Whitelabel Settings
+  parameters:
+    - $ref: ../components/parameters/accountId.yaml
   requestBody:
     content:
-      multipart/form-data: 
-        schema: 
+      multipart/form-data:
+        schema:
           type: object
-          properties: 
-            headerLogo.file:
+          properties:
+            headerLogo:
               type: string
               format: binary
               description: Header logo image file, valid image types `png|jpg|svg`
             resetHeaderLogo:
               type: boolean
               description: Resets header logo to default
-            footerLogo.file:
+            footerLogo:
               type: string
               format: binary
               description: Footer logo image file, valid image types `png|jpg|svg`
             resetFooterLogo:
               type: boolean
               description: Resets footer logo to default
-            loginLogo.file:
+            loginLogo:
               type: string
               format: binary
               description: Login logo image file, valid image types `png|jpg|svg`
             resetLoginLogo:
               type: boolean
               description: Resets login logo to default
-            favicon.file:
+            favicon:
               type: string
               format: binary
               description: Favicon image file, valid image type ico
-            resetFaviconLogo:
+            resetFavicon:
               type: boolean
-              description: Resets favicon logo to default
+              description: Resets favicon to default
   responses:
     '200':
       description: Successful Response
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
           examples:
             Successful Response:
               value:

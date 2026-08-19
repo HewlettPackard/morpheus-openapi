@@ -6,6 +6,7 @@ get:
     - Whitelabel Settings
   parameters:
     - $ref: ../components/parameters/whitelabelImageType-path.yaml
+    - $ref: ../components/parameters/accountId.yaml
   responses:
     '200':
       description: Successful Request
@@ -38,13 +39,23 @@ delete:
     - Whitelabel Settings
   parameters:
     - $ref: ../components/parameters/whitelabelImageType-path.yaml
+    - $ref: ../components/parameters/accountId.yaml
   responses:
     '200':
       description: Successful Request
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

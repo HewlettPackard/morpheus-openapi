@@ -201,3 +201,12 @@ properties:
   exchangeUrl:
     type: string
     description: "The url used for checking if there is an update for plugins. Default https\\://share.morpheusdata.com"
+  noProxy:
+    type: string
+    description: No-proxy hosts
+  enableMurph:
+    type: boolean
+    description: Enable Murph
+  hostProfileComplianceScheduleId:
+    type: string
+    description: Host profile compliance schedule id

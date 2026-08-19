@@ -125,3 +125,133 @@ properties:
     type: string
   latestLinuxAgentVersion:
     type: string
+  cloudSyncIntervalSeconds:
+    type:
+      - string
+      - 'null'
+    description: Cloud sync interval in seconds
+  clusterSyncIntervalSeconds:
+    type:
+      - string
+      - 'null'
+    description: Cluster sync interval in seconds
+  usageRetainmentPeriod:
+    type:
+      - string
+      - 'null'
+    description: Usage retainment period in days
+  invoiceRetainmentPeriod:
+    type:
+      - string
+      - 'null'
+    description: Invoice retainment period in days
+  incidentRetainmentPeriod:
+    type:
+      - string
+      - 'null'
+    description: Incident retainment period in days
+  reportsRetainmentPeriod:
+    type:
+      - string
+      - 'null'
+    description: Reports retainment period in days
+  httpBlacklistHosts:
+    type:
+      - string
+      - 'null'
+    description: HTTP blacklist hosts
+  httpApprovelistHosts:
+    type:
+      - string
+      - 'null'
+    description: HTTP approve-list hosts
+  exchangeUrl:
+    type:
+      - string
+      - 'null'
+    description: Exchange / share URL
+  noAgent:
+    type: boolean
+    description: Disable agent
+  agentSSLVerify:
+    type: boolean
+    description: Verify agent SSL
+  disableSSHPasswordAuth:
+    type: boolean
+    description: Disable SSH password authentication
+  defaultLocale:
+    type:
+      - string
+      - 'null'
+    description: Default locale
+  defaultVdiGateway:
+    type:
+      - string
+      - 'null'
+    description: Default VDI gateway id
+  maxOptionListSize:
+    type:
+      - string
+      - 'null'
+    description: Max option list size
+  passwordMinLength:
+    type:
+      - string
+      - 'null'
+    description: Minimum password length
+  passwordMinUpperCase:
+    type:
+      - string
+      - 'null'
+    description: Minimum uppercase characters in password
+  passwordMinNumbers:
+    type:
+      - string
+      - 'null'
+    description: Minimum numeric characters in password
+  passwordMinSymbols:
+    type:
+      - string
+      - 'null'
+    description: Minimum symbol characters in password
+  userBrowserSessionTimeout:
+    type:
+      - string
+      - 'null'
+    description: Browser session timeout in minutes
+  userBrowserSessionWarning:
+    type:
+      - string
+      - 'null'
+    description: Browser session warning in minutes
+  twilioAccountSid:
+    type:
+      - string
+      - 'null'
+    description: Twilio account SID
+  twilioSmsFrom:
+    type:
+      - string
+      - 'null'
+    description: Twilio SMS from number
+  twilioAuthToken:
+    type:
+      - string
+      - 'null'
+    description: Twilio auth token (masked)
+  noProxy:
+    type:
+      - string
+      - 'null'
+    description: No-proxy hosts
+  maintenanceMode:
+    type: boolean
+    description: Whether maintenance mode is enabled
+  enableMurph:
+    type: boolean
+    description: Whether Murph is enabled
+  hostProfileComplianceScheduleId:
+    type:
+      - string
+      - 'null'
+    description: Host profile compliance schedule id

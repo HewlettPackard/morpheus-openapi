@@ -32,16 +32,18 @@ properties:
         type: boolean
         description: Enabled
       integration:
-        type: object
         description: Service Now Integration Object
-        properties:
-          id:
-            type: integer
-            format: int64
-            description: Service Now Integration ID
-          name:
-            type: string
-            description: Service Now Integration Name
+        oneOf:
+          - type: 'null'
+          - type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+                description: Service Now Integration ID
+              name:
+                type: string
+                description: Service Now Integration Name
       newIncidentAction:
         type: string
         description: New Incident Action

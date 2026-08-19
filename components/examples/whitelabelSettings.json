@@ -29,6 +29,13 @@
         "label": "Help",
         "labelCode": "help"
       }
-    ]
+    ],
+    "account": {
+      "id": 1,
+      "name": "Master Tenant"
+    },
+    "supportsThemes": false,
+    "securityBanner": null,
+    "externalLegalText": null
   }
 }

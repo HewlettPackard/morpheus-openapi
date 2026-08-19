@@ -1,6 +1,6 @@
 delete:
   summary: Delete a Specific Syslog Rule
-  description: Will delete the syslog rule matching the specified name.
+  description: Will delete the syslog rule matching the specified id.
   operationId: deleteLogSettingsSyslogRules
   tags:
     - Log Settings
@@ -12,7 +12,16 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
           examples:
             Delete Syslog Rule Response:
               value:

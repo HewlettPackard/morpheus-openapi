@@ -1,22 +1,41 @@
 post:
   summary: Toggle Maintenance Mode
-  description: This endpoint allows toggling the appliance maintenance mode.
+  description: |
+    Toggle appliance maintenance mode. Pass `enabled` as a query parameter or in the JSON body.
+    If omitted, the current value is toggled.
   operationId: setApplianceSettingsMaintenanceMode
   tags:
     - Appliance Settings
   parameters:
     - $ref: ../components/parameters/enableMaintenance.yaml
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            enabled:
+              type: boolean
+              description: true to enable maintenance mode, false to disable
   responses:
     '200':
       description: Successful Response
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            type: object
+            properties:
+              success:
+                type: boolean
+              enabled:
+                type: boolean
+                description: Maintenance mode state after the request
           examples:
             Successful Response:
               value:
-                $ref: ../components/examples/success.json
+                success: true
+                enabled: true
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
