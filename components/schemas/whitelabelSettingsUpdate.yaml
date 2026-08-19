@@ -9,6 +9,12 @@ properties:
   disableSupportMenu: 
     type: boolean
     description: Can be used to disable support menu
+  supportsThemes:
+    type: boolean
+  securityBanner:
+    type: string
+  externalLegalText:
+    type: string
   resetHeaderLogo: 
     type: boolean
     description: Resets header logo to default header logo

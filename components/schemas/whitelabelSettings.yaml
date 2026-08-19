@@ -1,11 +1,25 @@
 type: object
 properties: 
+  account:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   enabled: 
     type: boolean
   applianceName: 
     type: string
   disableSupportMenu: 
     type: boolean
+  supportsThemes:
+    type: boolean
+  securityBanner:
+    type: string
+  externalLegalText:
+    type: string
   headerLogo: 
     type: string
   footerLogo: 
