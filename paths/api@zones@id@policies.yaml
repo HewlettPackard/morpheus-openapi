@@ -43,7 +43,7 @@ post:
   summary: Creates a Policy for a Cloud
   description: |
     Creates a policy for a Cloud.
-  operationId: addPolicyCloud
+  operationId: addPoliciesCloud
   parameters:
     - $ref: ../components/parameters/cloudId-path.yaml
   tags:

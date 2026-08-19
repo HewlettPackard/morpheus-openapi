@@ -43,7 +43,7 @@ post:
   summary: Creates a Policy for a Group
   description: |
     Creates a policy for a Group.
-  operationId: addPolicyGroup
+  operationId: addPoliciesGroup
   parameters:
     - $ref: ../components/parameters/groupId-path.yaml
   tags:
