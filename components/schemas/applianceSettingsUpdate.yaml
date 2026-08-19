@@ -109,6 +109,11 @@ properties:
       - string
       - 'null'
     description: Proxy workstation
+  noProxy:
+    type:
+      - string
+      - 'null'
+    description: Comma-delimited list of hosts that bypass the proxy
   currencyProvider:
     type: string
     description: Currency provider
@@ -201,3 +206,11 @@ properties:
   exchangeUrl:
     type: string
     description: "The url used for checking if there is an update for plugins. Default https\\://share.morpheusdata.com"
+  dashboardsToDisplay:
+    type:
+      - string
+      - 'null'
+    description: Comma-delimited dashboard IDs to display
+  enableMurph:
+    type: boolean
+    description: Enable Murph AI services

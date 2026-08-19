@@ -183,6 +183,10 @@
       "statsRetainmentPeriod": 30,
       "latestLinuxAgentVersion": "2.9.7",
       "latestWindowsAgentVersion": "6.0.0",
-      "vmeAppliance": false
+      "vmeAppliance": false,
+      "noProxy": null,
+      "maintenanceMode": false,
+      "dashboardsToDisplay": null,
+      "enableMurph": false
   }
 }
