@@ -198,6 +198,21 @@
     "xaas": 5,
     "executions": 43,
     "distributedWorkers": 0,
-    "discoveredObjects": 0
-  }
+    "discoveredObjects": 0,
+    "sockets": 0,
+    "hypervisorSocketCount": 0,
+    "publicVirtualMachineCount": 0,
+    "publicVirtualMachineSocketCount": 0
+  },
+  "licenseLimits": [
+    {
+      "code": "maxManagedServers",
+      "max": 15,
+      "used": 14,
+      "percentUsed": 0.9333333333333333,
+      "warning": true,
+      "limitReached": false
+    }
+  ],
+  "limitReached": false
 }
