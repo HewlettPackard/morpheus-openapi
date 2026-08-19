@@ -1,0 +1,95 @@
+put:
+  summary: Update a Log Settings Integration
+  description: Update a log forwarding integration by name.
+  operationId: updateLogSettingsIntegration
+  tags:
+    - Log Settings
+  parameters:
+    - name: name
+      in: path
+      required: true
+      description: Integration type name
+      schema:
+        type: string
+      example: splunk
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - integration
+          properties:
+            integration:
+              type: object
+              properties:
+                enabled:
+                  type: boolean
+                host:
+                  type: string
+                port:
+                  oneOf:
+                    - type: string
+                    - type: integer
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/success.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Log Settings Integration
+  description: Delete a log forwarding integration by name.
+  operationId: deleteLogSettingsIntegration
+  tags:
+    - Log Settings
+  parameters:
+    - name: name
+      in: path
+      required: true
+      description: Integration type name
+      schema:
+        type: string
+      example: splunk
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/success.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

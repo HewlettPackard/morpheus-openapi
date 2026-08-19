@@ -770,6 +770,8 @@ paths:
     $ref: paths/api@log-settings@syslog-rules.yaml
   /api/log-settings/syslog-rules/{id}:
     $ref: paths/api@log-settings@syslog-rules@id.yaml
+  /api/log-settings/integrations/{name}:
+    $ref: paths/api@log-settings@integrations@name.yaml
 
   /api/logs:
     $ref: paths/api@logs.yaml
