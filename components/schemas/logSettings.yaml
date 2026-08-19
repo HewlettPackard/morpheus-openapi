@@ -3,7 +3,10 @@ properties:
   enabled:
     type: boolean
   retentionDays:
-    type: string
+    description: Log retention period in days
+    oneOf:
+      - type: string
+      - type: integer
   minimumLogLevel:
     type:
       - string
@@ -20,6 +23,34 @@ properties:
       - 'null'
     items:
       type: object
-    example:
-      - name: foo
-        rule: "*.* @@localhost:4567"
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Syslog rule ID
+        name:
+          type: string
+          description: Syslog rule name
+        rule:
+          type: string
+          description: Syslog rule configuration
+  integrations:
+    type: array
+    description: Log forwarding integrations (product-dependent; may be empty)
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Integration type name
+        enabled:
+          type: boolean
+        host:
+          type:
+            - string
+            - 'null'
+        port:
+          type:
+            - string
+            - 'null'
+            - integer
