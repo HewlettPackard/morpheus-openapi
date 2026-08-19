@@ -1,7 +1,7 @@
 get:
   summary: Get Provisioning Settings
   description: This endpoint retrieves provisioning settings.
-  operationId: getProvisioningSettings
+  operationId: listProvisioningSettings
   tags:
     - Provisioning Settings
   responses:

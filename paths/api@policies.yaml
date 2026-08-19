@@ -42,7 +42,7 @@ post:
   summary: Creates a Policy
   description: |
     Creates a policy.
-  operationId: addPolicy
+  operationId: addPolicies
   tags:
     - Policies
   requestBody:

@@ -2,7 +2,7 @@ get:
   summary: Retrieves a Specific Policy for a Cloud
   description: |
     Retrieves a specific policy for a Cloud.
-  operationId: getPolicyCloud
+  operationId: getPoliciesCloud
   tags:
     - Policies
   parameters:
@@ -127,7 +127,7 @@ put:
   summary: Updates a Policy for a Cloud
   description: |
     Updates a policy for a Cloud.
-  operationId: updatePolicyCloud
+  operationId: updatePoliciesCloud
   tags:
     - Policies
   parameters:
@@ -263,7 +263,7 @@ delete:
   summary: Deletes a Policy for a Cloud
   description: |
     Deletes a specified policy for a Cloud.
-  operationId: removePolicyCloud
+  operationId: removePoliciesCloud
   tags:
     - Policies
   parameters:

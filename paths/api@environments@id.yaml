@@ -1,7 +1,7 @@
 get:
   summary: Get a Specific Environment
   description: This endpoint will retrieve a specific environment by id.
-  operationId: getEnvironment
+  operationId: getEnvironments
   tags:
     - Environments
   parameters:
@@ -27,7 +27,7 @@ get:
 put:
   summary: Update Environment
   description: Update an existing environment.
-  operationId: updateEnvironment
+  operationId: updateEnvironments
   tags:
     - Environments
   parameters:
@@ -88,7 +88,7 @@ put:
 delete:
   summary: Delete a Specific Environment
   description: Delete an existing environment.
-  operationId: deleteEnvironment
+  operationId: deleteEnvironments
   tags:
     - Environments
   parameters:

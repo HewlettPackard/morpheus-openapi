@@ -38,7 +38,7 @@ get:
 post:
   summary: Create a New Environment
   description: Create a new environment.
-  operationId: addEnvironment
+  operationId: addEnvironments
   tags:
     - Environments
   requestBody:
