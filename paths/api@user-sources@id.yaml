@@ -126,6 +126,12 @@ delete:
     - Identity Sources
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: warn
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: true
   responses:
     '200':
       description: Successful Request
