@@ -169,6 +169,8 @@ paths:
     $ref: paths/api@email-templates.yaml
   /api/email-templates/{id}:
     $ref: paths/api@email-templates@id.yaml
+  /api/email-templates/types:
+    $ref: paths/api@email-templates@types.yaml
   
   /api/monitoring/alerts:
     $ref: paths/api@monitoring@alerts.yaml

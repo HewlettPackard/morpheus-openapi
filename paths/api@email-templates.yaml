@@ -47,7 +47,7 @@ post:
           type: object
           properties:
             emailTemplate:
-              $ref: ../components/schemas/emailTemplate.yaml
+              $ref: ../components/schemas/emailTemplateWrite.yaml
   responses: 
     '200':
       description: Successful Request
