@@ -38,6 +38,8 @@ paths:
     $ref: paths/api@appliance-settings@maintenance.yaml
   /api/appliance-settings/reindex:
     $ref: paths/api@appliance-settings@reindex.yaml
+  /api/appliance-settings/zone-types:
+    $ref: paths/api@appliance-settings@zone-types.yaml
   /api/approval-items/{id}:
     $ref: paths/api@approval-items@id.yaml
   /api/approval-items/{id}/{action}:

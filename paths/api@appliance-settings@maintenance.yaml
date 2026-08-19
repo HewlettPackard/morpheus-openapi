@@ -12,11 +12,18 @@ post:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            type: object
+            properties:
+              success:
+                type: boolean
+              enabled:
+                type: boolean
+                description: Whether maintenance mode is enabled after the toggle
           examples:
             Successful Response:
               value:
-                $ref: ../components/examples/success.json
+                success: true
+                enabled: true
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
