@@ -17,8 +17,8 @@ properties:
   users:
     type: array
     description: |
-      Users in the group. The Administration Users UI sends objects with `id`
-      (string option values). Bare integer, string, or `{ id }` entries are accepted.
+      Users in the group. Accepts bare user ids (string or integer) and/or `{ id }`
+      objects (string or int id).
     items:
       oneOf:
         - type: integer

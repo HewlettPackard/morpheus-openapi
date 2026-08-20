@@ -38,9 +38,6 @@ post:
   summary: Creates a User Group
   description: |
     Creates a User Group.
-
-    The Administration Users UI posts `userGroup.users` as `{ id }` objects
-    (string ids from user search). Bare ids are also accepted.
   operationId: addUserGroup
   tags:
     - User Groups
