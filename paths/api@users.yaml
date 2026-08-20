@@ -85,9 +85,6 @@ post:
   description: |
     Create a new user.
 
-    The Administration Users UI sends `user.roles` as bare string ids from role multi-select;
-    integers and `{ id }` objects are also accepted.
-
     Password confirmation fields (`passwordConfirmation`, `linuxPasswordConfirmation`,
     `windowsPasswordConfirmation`) are optional for API callers. If a password is supplied
     and the matching confirmation key is omitted entirely, the API auto-confirms it.

@@ -30,9 +30,8 @@ properties:
   roles:
     type: array
     description: >
-      Roles to assign. The Administration Users UI sends bare role id strings from
-      multi-select. Also accepts integers and `{ id }` objects (string or int id).
-      Singular `role` is also accepted.
+      Roles to assign. Accepts bare role ids (string or integer) and/or `{ id }`
+      objects (string or int id). Singular `role` is also accepted.
     items:
       oneOf:
         - type: integer

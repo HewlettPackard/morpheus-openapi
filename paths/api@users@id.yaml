@@ -44,9 +44,6 @@ put:
   description: |
     Update an existing user.
 
-    The Administration Users UI sends `user.roles` as bare string ids from role multi-select;
-    integers and `{ id }` objects are also accepted.
-
     Password confirmation fields are optional for API callers when the matching password
     is supplied and the confirmation key is omitted. Explicit confirmation values are validated as-is.
 
