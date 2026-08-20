@@ -73,7 +73,7 @@ post:
                   description: Parent Account. This specifies the parent account for the new tenant. By default this will be the current user's tenant. This is only available to master tenant users.
                   properties:
                     id:
-                      description: Parent tenant ID. UI option values are strings; integers are also accepted.
+                      description: Parent tenant ID. Accepts string or integer.
                       oneOf:
                         - type: integer
                           format: int64
@@ -84,7 +84,7 @@ post:
                   description: Tenant Base Role. This restricts the access available to this tenant's roles and users. The Options API `/api/options/roles?roleType=account&tenantId=1` can be used to see which options are available.
                   properties:
                     id:
-                      description: Base role ID. UI option values are strings; integers are also accepted.
+                      description: Base role ID. Accepts string or integer.
                       oneOf:
                         - type: integer
                           format: int64

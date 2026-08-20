@@ -55,7 +55,7 @@ properties:
         format: int64
       name:
         type: string
-        description: Role authority (same value as `authority`)
+        description: Role name
       authority:
         type: string
       description:

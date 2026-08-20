@@ -60,7 +60,7 @@ put:
                   description: Tenant Base Role. This restricts the access available to this tenant's roles and users.
                   properties:
                     id:
-                      description: Base role ID. UI option values are strings; integers are also accepted.
+                      description: Base role ID. Accepts string or integer.
                       oneOf:
                         - type: integer
                           format: int64
