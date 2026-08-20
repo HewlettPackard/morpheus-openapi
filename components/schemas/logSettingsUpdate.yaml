@@ -1,0 +1,21 @@
+type: object
+description: |
+  Writable log settings fields under the required `logSettings` object on PUT /api/log-settings.
+  Syslog rules and integrations are managed via their dedicated endpoints.
+properties:
+  enabled:
+    type: boolean
+  retentionDays:
+    type: integer
+    format: int64
+    description: Log retention period in days
+  minimumLogLevel:
+    type:
+      - string
+      - 'null'
+    enum:
+      - null
+      - DEBUG
+      - INFO
+      - WARN
+      - ERROR

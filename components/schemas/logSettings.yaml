@@ -3,10 +3,9 @@ properties:
   enabled:
     type: boolean
   retentionDays:
+    type: integer
+    format: int64
     description: Log retention period in days
-    oneOf:
-      - type: string
-      - type: integer
   minimumLogLevel:
     type:
       - string
@@ -18,9 +17,7 @@ properties:
       - WARN
       - ERROR
   syslogRules:
-    type:
-      - array
-      - 'null'
+    type: array
     items:
       type: object
       properties:
@@ -53,4 +50,3 @@ properties:
           type:
             - string
             - 'null'
-            - integer

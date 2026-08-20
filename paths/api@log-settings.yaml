@@ -33,9 +33,11 @@ put:
       application/json:
         schema:
           type: object
+          required:
+            - logSettings
           properties:
             logSettings:
-              $ref: ../components/schemas/logSettings.yaml
+              $ref: ../components/schemas/logSettingsUpdate.yaml
   responses:
     '200':
       description: Successful Response
