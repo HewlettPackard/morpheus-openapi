@@ -26,8 +26,7 @@ get:
       $ref: ../components/responses/5xx.yaml
 put:
   summary: Update User Group
-  description: |
-    Update an existing user group.
+  description: Update an existing user group.
   operationId: updateUserGroup
   tags:
     - User Groups

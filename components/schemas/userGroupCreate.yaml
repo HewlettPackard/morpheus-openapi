@@ -16,21 +16,11 @@ properties:
       - 'null'
   users:
     type: array
-    description: |
-      Users in the group. Accepts bare user ids (string or integer) and/or `{ id }`
-      objects (string or int id).
+    description: A list of IDs of users that are in the user group
     items:
-      oneOf:
-        - type: integer
-          format: int64
-        - type: string
-        - type: object
-          properties:
-            id:
-              oneOf:
-                - type: integer
-                  format: int64
-                - type: string
+      type: integer
+      format: int64
     example:
-      - id: "100"
-      - id: "101"
+      - 100
+      - 101
+      - 102
