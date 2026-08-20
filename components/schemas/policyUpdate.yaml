@@ -462,7 +462,7 @@ properties:
       - Network
       - Plan
   refId:
-    description: Scope object ID (`group`,`cloud`,`user`, etc). UI sends a string; integers are also accepted.
+    description: Scope object ID (`group`,`cloud`,`user`, etc). Accepts string or integer.
     oneOf:
       - type: integer
         format: int64
@@ -470,8 +470,7 @@ properties:
   accounts:
     type: array
     description: |
-      Tenant account IDs to scope the policy to. The UI sends string IDs;
-      integers are also accepted.
+      Tenant account IDs to scope the policy to. Accepts string or integer IDs.
     items:
       oneOf:
         - type: integer

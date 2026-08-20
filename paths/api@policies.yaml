@@ -43,9 +43,8 @@ post:
   description: |
     Creates a policy.
 
-    The Administration Policies UI posts `policy.policyType.id` (string or number).
-    `policy.policyType.code`, a bare type-code string, `refId` as string, and
-    `accounts` as string IDs are also accepted.
+    `policy.policyType` accepts `{ id }` (string or integer), `{ code }`, or a bare type-code string.
+    `refId` and `accounts` items accept string or integer.
   operationId: addPolicies
   tags:
     - Policies

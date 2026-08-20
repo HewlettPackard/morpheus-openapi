@@ -14,15 +14,14 @@ properties:
   policyType:
     type: object
     description: |
-      Policy type selector. The UI sends `{ id }`; the API also accepts `{ code }`
-      or a bare type code string.
+      Policy type. Accepts `{ id }`, `{ code }`, or a bare type code string.
     properties:
       id:
         oneOf:
           - type: integer
             format: int64
           - type: string
-        description: Policy type ID (used by the Administration Policies UI)
+        description: Policy type ID. Accepts string or integer.
       code:
         type: string
         description: The policy type code. See `Retrieves all Policy Types` endpoint for listing.
@@ -517,7 +516,7 @@ properties:
           - Plan
       - type: 'null'
   refId:
-    description: Scope object ID (`group`,`cloud`,`user`, etc). UI sends a string; integers are also accepted.
+    description: Scope object ID (`group`,`cloud`,`user`, etc). Accepts string or integer.
     oneOf:
       - type: integer
         format: int64
@@ -525,8 +524,7 @@ properties:
   accounts:
     type: array
     description: |
-      Tenant account IDs to scope the policy to. The UI sends string IDs;
-      integers are also accepted.
+      Tenant account IDs to scope the policy to. Accepts string or integer IDs.
     items:
       oneOf:
         - type: integer
