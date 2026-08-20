@@ -84,8 +84,7 @@ delete:
       in: query
       description: Key ID (only the first 8 characters are required to identify license to uninstall).
       schema:
-        type: integer
-        format: int64
+        type: string
   responses:
     '200':
       description: License uninstalled successfully.
