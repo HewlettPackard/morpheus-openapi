@@ -1,13 +1,12 @@
 put:
-  summary: Customizing Blueprint Access
+  summary: Customizing App Template Access
   description: >
-    Customizing Blueprint (App Template) Access.
-
-    Equivalent alias: `PUT /api/roles/{id}/update-app-template`.
+    Alias of `PUT /api/roles/{id}/update-blueprint`. Same request body and behavior
+    (blueprint / app template resource grants).
 
     Body accepts `appTemplateId`, `blueprintId` / `bluePrintId`, or `allAppTemplates` /
     `allBlueprints` with `access`. Use `access: default` to clear the grant.
-  operationId: updateRoleBlueprintAccess
+  operationId: updateRoleAppTemplateAccess
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   tags:
