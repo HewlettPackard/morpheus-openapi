@@ -32,11 +32,10 @@ properties:
             type: string
   retentionCount:
     description: Maximum number of successful backups to retain
-    oneOf:
-      - type: integer
-        format: int64
-      - type: string
-      - type: 'null'
+    type:
+      - integer
+      - 'null'
+    format: int64
   defaultSyntheticFullBackupsEnabled:
     type: boolean
     description: Whether synthetic full backups are enabled by default
