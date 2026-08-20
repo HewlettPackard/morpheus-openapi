@@ -10,15 +10,17 @@ get:
     - $ref: ../components/parameters/offset.yaml
     - $ref: ../components/parameters/sort.yaml
     - $ref: ../components/parameters/direction.yaml
+    - $ref: ../components/parameters/order.yaml
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/name.yaml
+    - $ref: ../components/parameters/code.yaml
     - $ref: ../components/parameters/includeInactive.yaml
     - $ref: ../components/parameters/priceType.yaml
     - $ref: ../components/parameters/platform.yaml
     - $ref: ../components/parameters/currency.yaml
-    - name: type
+    - name: priceUnit
       in: query
-      description: Filter by type code
+      description: Filter by price unit (repeatable)
       schema:
         type: string
   responses:
@@ -93,7 +95,9 @@ post:
                     * `storage` - Storage
                     * `datastore` - Datastore
                     * `platform` - Platform
-                    * `software` - Software
+                    * `software` - Software (accepted alias; stored as software_or_service)
+                    * `software_or_service` - Software or service
+                    * `cpu` - CPU
                     * `load_balancer` - Load Balancer
                     * `load_balancer_virtual_server` - Load Balancer Virtual Server
                   enum:
@@ -101,10 +105,12 @@ post:
                     - compute
                     - memory
                     - cores
+                    - cpu
                     - storage
                     - datastore
                     - platform
                     - software
+                    - software_or_service
                     - load_balancer
                     - load_balancer_virtual_server
                 priceUnit:
@@ -160,7 +166,15 @@ post:
                   example: linux
                 software:
                   type: string
-                  description: Software.  Required for software price type
+                  description: |
+                    Software or service name for software prices.
+                    Accepted as an alias for `softwareOrService`; when `priceType`
+                    is `software`, the API stores type `software_or_service`.
+                softwareOrService:
+                  type: string
+                  description: |
+                    Software or service name. Preferred request field used by the UI.
+                    Required when price type is software / software_or_service.
                 volumeType:
                   type: object
                   properties:
@@ -190,13 +204,11 @@ post:
             allOf:
             - type: object
               properties:
-                price:
-                  $ref: ../components/schemas/price.yaml
+                id:
+                  type: integer
+                  format: int64
+                  description: ID of the created price
             - $ref: ../components/schemas/200-success.yaml
-          examples:
-            Price Response:
-              value:
-                $ref: ../components/examples/priceSuccess.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

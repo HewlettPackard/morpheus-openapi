@@ -1,0 +1,37 @@
+get:
+  summary: List price currencies
+  description: |
+    Lists ISO currency codes available when creating or updating prices.
+    Used by the Administration Plans price editor.
+  operationId: listPriceCurrencies
+  tags:
+    - Prices
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              currencies:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: Currency code
+                      example: USD
+                    value:
+                      type: string
+                      description: Currency code (same as name)
+                      example: USD
+                    code:
+                      type: string
+                      description: Currency code (same as name)
+                      example: USD
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

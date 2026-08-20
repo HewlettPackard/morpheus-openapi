@@ -6,10 +6,14 @@ description: |
   * `compute` - Memory + CPU
   * `memory` - Memory
   * `cores` - Cores
+  * `cpu` - CPU
   * `storage` - Storage
   * `datastore` - Datastore
   * `platform` - Platform
-  * `software` - Software
+  * `software` - Software (response alias for software_or_service)
+  * `software_or_service` - Software or service
+  * `load_balancer` - Load Balancer
+  * `load_balancer_virtual_server` - Load Balancer Virtual Server
 schema:
   type: string
   enum:
@@ -17,7 +21,11 @@ schema:
     - compute
     - memory
     - cores
+    - cpu
     - storage
     - datastore
     - platform
     - software
+    - software_or_service
+    - load_balancer
+    - load_balancer_virtual_server
