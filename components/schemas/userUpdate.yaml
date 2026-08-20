@@ -30,46 +30,25 @@ properties:
   roles:
     type: array
     description: >
-      Roles to assign. Accepts bare role ids (string or integer) and/or `{ id }`
-      objects (string or int id). Singular `role` is also accepted.
+      Roles to assign. Accepts role id integers and/or ReferenceObjects with `id`.
+      Singular `role` is also accepted.
     items:
       oneOf:
         - type: integer
           format: int64
-        - type: string
-        - type: object
-          properties:
-            id:
-              oneOf:
-                - type: integer
-                  format: int64
-                - type: string
+        - $ref: ./ReferenceObject.yaml
   role:
     description: Singular role alias accepted in addition to `roles`
     oneOf:
       - type: integer
         format: int64
-      - type: string
-      - type: object
-        properties:
-          id:
-            oneOf:
-              - type: integer
-                format: int64
-              - type: string
+      - $ref: ./ReferenceObject.yaml
       - type: array
         items:
           oneOf:
             - type: integer
               format: int64
-            - type: string
-            - type: object
-              properties:
-                id:
-                  oneOf:
-                    - type: integer
-                      format: int64
-                    - type: string
+            - $ref: ./ReferenceObject.yaml
   receiveNotifications:
     type: boolean
     description: Receive Notifications?
