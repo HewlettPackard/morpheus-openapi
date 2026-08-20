@@ -42,6 +42,10 @@ post:
   summary: Creates a Policy
   description: |
     Creates a policy.
+
+    The Administration Policies UI posts `policy.policyType.id` (string or number).
+    `policy.policyType.code`, a bare type-code string, `refId` as string, and
+    `accounts` as string IDs are also accepted.
   operationId: addPolicies
   tags:
     - Policies

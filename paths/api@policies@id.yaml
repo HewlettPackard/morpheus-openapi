@@ -126,6 +126,9 @@ put:
   summary: Updates a Policy
   description: |
     Updates a policy.
+
+    The Administration Policies UI may send `refId` and `accounts` as strings.
+    Policy type is not changed on update.
   operationId: updatePolicies
   tags:
     - Policies

@@ -462,15 +462,21 @@ properties:
       - Network
       - Plan
   refId:
-    type: integer
-    format: int64
-    description: Scope object ID (`group`,`cloud`,`user`, etc)
+    description: Scope object ID (`group`,`cloud`,`user`, etc). UI sends a string; integers are also accepted.
+    oneOf:
+      - type: integer
+        format: int64
+      - type: string
   accounts:
     type: array
-    description: Array of tenants to scope the policy to
+    description: |
+      Tenant account IDs to scope the policy to. The UI sends string IDs;
+      integers are also accepted.
     items:
-      type: integer
-      format: int64
+      oneOf:
+        - type: integer
+          format: int64
+        - type: string
   eachUser:
     type: boolean
     description: Apply individually to each user in role.  Only when `refType` equals `Role`
