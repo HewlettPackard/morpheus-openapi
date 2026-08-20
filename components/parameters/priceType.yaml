@@ -6,7 +6,6 @@ description: |
   * `compute` - Memory + CPU
   * `memory` - Memory
   * `cores` - Cores
-  * `cpu` - CPU
   * `storage` - Storage
   * `datastore` - Datastore
   * `platform` - Platform
@@ -21,7 +20,6 @@ schema:
     - compute
     - memory
     - cores
-    - cpu
     - storage
     - datastore
     - platform

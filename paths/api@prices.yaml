@@ -97,7 +97,6 @@ post:
                     * `platform` - Platform
                     * `software` - Software (accepted alias; stored as software_or_service)
                     * `software_or_service` - Software or service
-                    * `cpu` - CPU
                     * `load_balancer` - Load Balancer
                     * `load_balancer_virtual_server` - Load Balancer Virtual Server
                   enum:
@@ -105,7 +104,6 @@ post:
                     - compute
                     - memory
                     - cores
-                    - cpu
                     - storage
                     - datastore
                     - platform
