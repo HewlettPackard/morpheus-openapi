@@ -101,12 +101,6 @@ post:
           required:
             - role
           properties:
-            baseRoleId:
-              type: integer
-              format: int64
-              description: >
-                Copy permissions from this base role. Accepted at the request root
-                or under `role.baseRoleId`. If omitted, the role is created without copied permissions.
             role:
               type: object
               description: Payload for creating a new role
@@ -140,29 +134,21 @@ post:
                   type: integer
                   format: int64
                   description: >
-                    Base Role ID under `role` (also accepted at request root). Create the new role with the same
-                    permissions and access levels as the specified base role. If omitted, the role is created
-                    without copied permissions.
+                    Base Role ID. Create the new role with the same permissions and access levels as the
+                    specified base role. If omitted, the role is created without copied permissions.
                 multitenant:
+                  type: boolean
+                  default: false
                   description: >
                     Multitenant roles are copied to all tenant accounts and kept in sync until a
                     sub-tenant user modifies their copy of the role. *Only available to master tenant,
-                    only applies to user roles*. Accepts boolean or the strings `on`/`off`/`true`/`false`.
-                  oneOf:
-                    - type: boolean
-                    - type: string
-                      enum: [on, off, 'true', 'false']
-                  default: false
+                    only applies to user roles*.
                 multitenantLocked:
+                  type: boolean
+                  default: false
                   description: >
                     Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant
-                    roles. *Only available to master tenant, only applies to user roles*. Accepts boolean
-                    or the strings `on`/`off`/`true`/`false`.
-                  oneOf:
-                    - type: boolean
-                    - type: string
-                      enum: [on, off, 'true', 'false']
-                  default: false
+                    roles. *Only available to master tenant, only applies to user roles*.
                 defaultPersona:
                   description: >
                     Default persona. Accepts persona code string, persona id, or object
