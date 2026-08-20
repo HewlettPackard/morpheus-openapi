@@ -14,11 +14,21 @@ properties:
       - 'null'
   users:
     type: array
-    description: A list of IDs of users that are in the user group
+    description: |
+      Users in the group. The Administration Users UI sends objects with `id`
+      (string option values). Bare integer, string, or `{ id }` entries are accepted.
     items:
-      type: integer
-      format: int64
+      oneOf:
+        - type: integer
+          format: int64
+        - type: string
+        - type: object
+          properties:
+            id:
+              oneOf:
+                - type: integer
+                  format: int64
+                - type: string
     example:
-      - 100
-      - 101
-      - 102
+      - id: "100"
+      - id: "101"

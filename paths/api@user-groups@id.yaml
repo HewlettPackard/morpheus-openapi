@@ -26,7 +26,11 @@ get:
       $ref: ../components/responses/5xx.yaml
 put:
   summary: Update User Group
-  description: Update an existing user group.
+  description: |
+    Update an existing user group.
+
+    The Administration Users UI may send `userGroup.users` as `{ id }` objects
+    (string ids). Bare ids are also accepted.
   operationId: updateUserGroup
   tags:
     - User Groups
