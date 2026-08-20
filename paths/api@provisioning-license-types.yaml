@@ -1,8 +1,7 @@
 get:
   summary: List provisioning license types
   description: |
-    License types for the Settings → Software Licenses editor type selector.
-    UI calls `GET /api/provisioning-license-types` only (no show).
+    Lists available provisioning license types.
   operationId: listProvisioningLicenseTypes
   tags:
     - Provisioning Licenses

@@ -17,7 +17,7 @@ properties:
   virtualImages:
     type: array
     description: |
-      Virtual image ids, or objects with `id` (UI sends `[{ "id": 1 }]`). Replaces set when provided.
+      Virtual image ids, or objects with `id`. Replaces set when provided.
     items:
       oneOf:
         - type: integer

@@ -47,7 +47,7 @@ put:
             tenantPermissions:
               type: object
               description: |
-                Tenant access. UI sends `accounts` as a comma-separated string of account ids.
+                Tenant access. `accounts` is a comma-separated string of account ids.
               properties:
                 accounts:
                   type: string
@@ -59,7 +59,7 @@ put:
               $ref: ../components/examples/provisioningLicensesUpdate.json
   responses:
     '200':
-      description: Successful Response (show template — full license object)
+      description: Successful Response
       content:
         application/json:
           schema:

@@ -1,5 +1,5 @@
 type: object
-description: License type from ProvisioningLicenseTypesController (`_licenseType.gson`).
+description: Provisioning license type.
 properties:
   id:
     type: integer

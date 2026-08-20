@@ -9,7 +9,7 @@ properties:
     description: Name
   licenseType:
     description: |
-      License type code string, or object with `code` and/or `id` (UI sends `{ "code": "win" }`).
+      License type code string, or object with `code` and/or `id`.
     oneOf:
       - type: string
         example: win
@@ -44,7 +44,7 @@ properties:
   virtualImages:
     type: array
     description: |
-      Virtual image ids, or objects with `id` (UI sends `[{ "id": 1 }]`).
+      Virtual image ids, or objects with `id`.
     items:
       oneOf:
         - type: integer
