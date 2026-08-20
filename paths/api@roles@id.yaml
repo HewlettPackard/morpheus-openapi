@@ -81,8 +81,7 @@ put:
                   description: >
                     Multitenant roles are copied to all tenant accounts and kept in sync until a
                     sub-tenant user modifies their copy of the role. *Only available to master tenant,
-                    only applies to user roles*. Accepts boolean or the strings `on`/`off`/`true`/`false`
-                    (UI sends `on`/`off`).
+                    only applies to user roles*. Accepts boolean or the strings `on`/`off`/`true`/`false`.
                   oneOf:
                     - type: boolean
                     - type: string
@@ -91,7 +90,7 @@ put:
                   description: >
                     Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant
                     roles. *Only available to master tenant, only applies to user roles*. Accepts boolean
-                    or the strings `on`/`off`/`true`/`false` (UI sends `on`/`off`).
+                    or the strings `on`/`off`/`true`/`false`.
                   oneOf:
                     - type: boolean
                     - type: string

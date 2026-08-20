@@ -5,10 +5,10 @@ put:
 
     Public routes (both map to the same action):
     - `PUT /api/roles/{id}/update-blueprint`
-    - `PUT /api/roles/{id}/update-app-template` (path used by the React admin UI)
+    - `PUT /api/roles/{id}/update-app-template`
 
-    Body accepts `appTemplateId` (UI), `blueprintId` / `bluePrintId`, or `allAppTemplates` /
-    `allBlueprints` with `access`. Empty-string `access` clears the grant (UI sends `""` for default).
+    Body accepts `appTemplateId`, `blueprintId` / `bluePrintId`, or `allAppTemplates` /
+    `allBlueprints` with `access`. Empty-string `access` clears the grant (default).
   operationId: updateRoleBlueprintAccess
   parameters:
     - $ref: ../components/parameters/id-path.yaml
