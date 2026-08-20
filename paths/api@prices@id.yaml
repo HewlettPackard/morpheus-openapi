@@ -151,7 +151,7 @@ put:
                 softwareOrService:
                   type: string
                   description: |
-                    Software or service name. Preferred request field used by the UI.
+                    Software or service name.
                     Required when price type is software / software_or_service.
                 volumeType:
                   type: object
@@ -177,8 +177,8 @@ put:
               type: boolean
               description: |
                 When true (or the string `on`) and the update succeeds, triggers
-                asynchronous reprocessing of price usage changes. Sent at the
-                request root by the UI (not inside `price`).
+                asynchronous reprocessing of price usage changes. Request-root field
+                (not inside `price`).
               example: true
   responses:
     '200':

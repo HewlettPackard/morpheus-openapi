@@ -173,7 +173,7 @@ post:
                 softwareOrService:
                   type: string
                   description: |
-                    Software or service name. Preferred request field used by the UI.
+                    Software or service name.
                     Required when price type is software / software_or_service.
                 volumeType:
                   type: object

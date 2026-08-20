@@ -2,7 +2,6 @@ get:
   summary: List price currencies
   description: |
     Lists ISO currency codes available when creating or updating prices.
-    Used by the Administration Plans price editor.
   operationId: listPriceCurrencies
   tags:
     - Prices
