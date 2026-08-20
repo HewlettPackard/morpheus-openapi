@@ -30,25 +30,47 @@ properties:
   roles:
     type: array
     description: >
-      Roles to assign. Accepts role id integers and/or ReferenceObjects with `id`.
+      Roles to assign. The Administration Users UI sends bare role id strings from
+      multi-select. Also accepts integers and `{ id }` objects (string or int id).
       Singular `role` is also accepted.
     items:
       oneOf:
         - type: integer
           format: int64
-        - $ref: ./ReferenceObject.yaml
+        - type: string
+        - type: object
+          properties:
+            id:
+              oneOf:
+                - type: integer
+                  format: int64
+                - type: string
   role:
     description: Singular role alias accepted in addition to `roles`
     oneOf:
       - type: integer
         format: int64
-      - $ref: ./ReferenceObject.yaml
+      - type: string
+      - type: object
+        properties:
+          id:
+            oneOf:
+              - type: integer
+                format: int64
+              - type: string
       - type: array
         items:
           oneOf:
             - type: integer
               format: int64
-            - $ref: ./ReferenceObject.yaml
+            - type: string
+            - type: object
+              properties:
+                id:
+                  oneOf:
+                    - type: integer
+                      format: int64
+                    - type: string
   receiveNotifications:
     type: boolean
     description: Receive Notifications?
