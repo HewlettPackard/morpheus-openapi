@@ -78,11 +78,24 @@ put:
                     - 'null'
                   description: An optional override for the default landing page after login for a user.
                 multitenant:
-                  type: boolean
-                  description: Multitenant roles are copied to all tenant accounts and kept in sync until a sub-tenant user modifies their copy of the role. *Only available to master tenant, only applies to user roles*
+                  description: >
+                    Multitenant roles are copied to all tenant accounts and kept in sync until a
+                    sub-tenant user modifies their copy of the role. *Only available to master tenant,
+                    only applies to user roles*. Accepts boolean or the strings `on`/`off`/`true`/`false`
+                    (UI sends `on`/`off`).
+                  oneOf:
+                    - type: boolean
+                    - type: string
+                      enum: [on, off, 'true', 'false']
                 multitenantLocked:
-                  type: boolean
-                  description: Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant roles. *Only available to master tenant, only applies to user roles*
+                  description: >
+                    Multitenant Locked, prevents sub-tenant users from modifying their copy of multitenant
+                    roles. *Only available to master tenant, only applies to user roles*. Accepts boolean
+                    or the strings `on`/`off`/`true`/`false` (UI sends `on`/`off`).
+                  oneOf:
+                    - type: boolean
+                    - type: string
+                      enum: [on, off, 'true', 'false']
                 defaultPersona:
                   description: >
                     Default persona. Accepts persona code string, persona id, or object
