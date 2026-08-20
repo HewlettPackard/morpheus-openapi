@@ -12,38 +12,28 @@ properties:
     description: OAuth client identifier (required on create)
     example: Test Client
   clientSecret:
-    type:
-      - string
-      - 'null'
+    type: string
     description: |
       Client secret. On update, values starting with `********` are ignored so the existing
       secret is retained.
     example: thisIsaClientSecretKeyPhrase
   accessTokenValiditySeconds:
-    type:
-      - integer
-      - string
-      - 'null'
-    description: Access token lifetime in seconds (must be a number greater than 0 when provided)
+    type: integer
+    format: int64
+    description: Access token lifetime in seconds (must be greater than 0 when provided)
     example: 43200
   refreshTokenValiditySeconds:
-    type:
-      - integer
-      - string
-      - 'null'
-    description: Refresh token lifetime in seconds (must be a number greater than 0 when provided)
+    type: integer
+    format: int64
+    description: Refresh token lifetime in seconds (must be greater than 0 when provided)
     example: 43200
   redirectUris:
-    description: |
-      Redirect URIs. Accepts a JSON array of strings or a comma-separated string.
-    oneOf:
-      - type: array
-        items:
-          type: string
-        example:
-          - https://example.com/callback
-      - type: string
-        example: https://example.com/callback, https://example.com/other
+    type: array
+    description: Redirect URIs for the authorization code flow
+    items:
+      type: string
+    example:
+      - https://example.com/callback
   requireConsent:
     type: boolean
     description: Whether the client requires user consent
