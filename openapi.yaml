@@ -974,6 +974,8 @@ paths:
     $ref: paths/api@price-sets@id@deactivate.yaml
   /api/prices:
     $ref: paths/api@prices.yaml
+  /api/prices/currencies:
+    $ref: paths/api@prices@currencies.yaml
   /api/prices/{id}:
     $ref: paths/api@prices@id.yaml
   /api/prices/{id}/deactivate:
