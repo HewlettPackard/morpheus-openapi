@@ -1,0 +1,18 @@
+{
+  "licenseTypes": [
+    {
+      "id": 1,
+      "name": "Windows",
+      "code": "win",
+      "description": "Windows OS license key",
+      "visibility": "public",
+      "account": null
+    }
+  ],
+  "meta": {
+    "size": 1,
+    "total": 1,
+    "offset": 0,
+    "max": 25
+  }
+}

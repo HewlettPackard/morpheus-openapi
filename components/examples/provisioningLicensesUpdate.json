@@ -1,6 +1,14 @@
 {
   "license": {
     "name": "QA Windows Key",
-    "copies": 5
+    "copies": 5,
+    "virtualImages": [
+      {
+        "id": 1
+      }
+    ]
+  },
+  "tenantPermissions": {
+    "accounts": "1,3"
   }
 }
