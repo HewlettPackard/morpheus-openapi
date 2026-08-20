@@ -17,11 +17,9 @@ properties:
       Policy type. Accepts `{ id }`, `{ code }`, or a bare type code string.
     properties:
       id:
-        oneOf:
-          - type: integer
-            format: int64
-          - type: string
-        description: Policy type ID. Accepts string or integer.
+        type: integer
+        format: int64
+        description: Policy type ID
       code:
         type: string
         description: The policy type code. See `Retrieves all Policy Types` endpoint for listing.
@@ -516,20 +514,15 @@ properties:
           - Plan
       - type: 'null'
   refId:
-    description: Scope object ID (`group`,`cloud`,`user`, etc). Accepts string or integer.
-    oneOf:
-      - type: integer
-        format: int64
-      - type: string
+    type: integer
+    format: int64
+    description: Scope object ID (`group`,`cloud`,`user`, etc)
   accounts:
     type: array
-    description: |
-      Tenant account IDs to scope the policy to. Accepts string or integer IDs.
+    description: Array of tenants to scope the policy to
     items:
-      oneOf:
-        - type: integer
-          format: int64
-        - type: string
+      type: integer
+      format: int64
   eachUser:
     type: boolean
     description: Apply individually to each user in role.  Only when `refType` equals `Role`

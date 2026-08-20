@@ -43,8 +43,7 @@ post:
   description: |
     Creates a policy.
 
-    `policy.policyType` accepts `{ id }` (string or integer), `{ code }`, or a bare type-code string.
-    `refId` and `accounts` items accept string or integer.
+    `policy.policyType` accepts `{ id }`, `{ code }`, or a bare type-code string.
   operationId: addPolicies
   tags:
     - Policies

@@ -127,7 +127,7 @@ put:
   description: |
     Updates a policy.
 
-    `refId` and `accounts` items accept string or integer. Policy type is not changed on update.
+    Policy type is not changed on update.
   operationId: updatePolicies
   tags:
     - Policies
