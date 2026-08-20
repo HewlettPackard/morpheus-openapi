@@ -14,12 +14,19 @@ properties:
   description: 
     type: string
     description: Description
-  virtualImages: 
+  virtualImages:
     type: array
-    description: Virtual Images - Array of Virtual Image IDs to associate with license.
-    items: 
-      type: integer
-      format: int64
+    description: |
+      Virtual image ids, or objects with `id` (UI sends `[{ "id": 1 }]`). Replaces set when provided.
+    items:
+      oneOf:
+        - type: integer
+          format: int64
+        - type: object
+          properties:
+            id:
+              type: integer
+              format: int64
   tenants: 
     type: array
     description: Tenants - Array of tenants that are allowed to use the key.

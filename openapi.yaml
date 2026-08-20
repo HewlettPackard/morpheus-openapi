@@ -983,6 +983,8 @@ paths:
     $ref: paths/api@provision-types.yaml
   /api/provision-types/{id}:
     $ref: paths/api@provision-types@id.yaml
+  /api/provisioning-license-types:
+    $ref: paths/api@provisioning-license-types.yaml
   /api/provisioning-licenses:
     $ref: paths/api@provisioning-licenses.yaml
   /api/provisioning-licenses/{id}:
