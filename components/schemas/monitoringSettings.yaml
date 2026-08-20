@@ -4,29 +4,20 @@ properties:
     type: boolean
     description: Auto Create Checks
   availabilityTimeFrame:
+    type: integer
+    format: int64
     description: Availability Time Frame. The number of days availability should be calculated for. Changes will not take effect until your checks have passed their check interval.
     example: 30
-    oneOf:
-      - type: integer
-        format: int32
-      - type: string
-      - type: 'null'
   availabilityPrecision:
+    type: integer
+    format: int64
     description: Availability Precision. The number of decimal places availability should be displayed in. Can be anywhere between 0 and 5.
     example: 3
-    oneOf:
-      - type: integer
-        format: int32
-      - type: string
-      - type: 'null'
   defaultCheckInterval:
-    description: Default Check Interval. The number of minutes to use as the default interval to use when creating new checks.
+    type: integer
+    format: int64
+    description: Default Check Interval. The number of minutes to use as the default interval when creating new checks.
     example: 5
-    oneOf:
-      - type: integer
-        format: int32
-      - type: string
-      - type: 'null'
   serviceNow:
     type: object
     description: Service Now Settings
@@ -36,19 +27,17 @@ properties:
         description: Enabled
       integration:
         description: Service Now Integration (null when none selected). Write accepts `{ id }` only.
-        oneOf:
-          - type: 'null'
-          - type: object
-            properties:
-              id:
-                description: Service Now Integration ID
-                oneOf:
-                  - type: integer
-                    format: int64
-                  - type: string
-              name:
-                type: string
-                description: Service Now Integration Name
+        type:
+          - object
+          - 'null'
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: Service Now Integration ID
+          name:
+            type: string
+            description: Service Now Integration Name
       newIncidentAction:
         type: string
         description: New Incident Action

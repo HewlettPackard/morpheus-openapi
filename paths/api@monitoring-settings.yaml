@@ -32,10 +32,12 @@ put:
     content:
       application/json:
         schema:
-            type: object
-            properties:
-              monitoringSettings:
-                $ref: ../components/schemas/monitoringSettings.yaml
+          type: object
+          required:
+            - monitoringSettings
+          properties:
+            monitoringSettings:
+              $ref: ../components/schemas/monitoringSettingsUpdate.yaml
   responses:
     '200':
       description: Update Monitoring Settings Object

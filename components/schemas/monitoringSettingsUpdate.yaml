@@ -1,0 +1,65 @@
+type: object
+description: |
+  Writable monitoring settings under the required `monitoringSettings` object on PUT /api/monitoring-settings.
+  Numeric fields are integers (days, precision 0-5, check interval in minutes).
+  ServiceNow `integration` accepts `{ id }` or null.
+properties:
+  autoManageChecks:
+    type: boolean
+  availabilityTimeFrame:
+    type: integer
+    format: int64
+    description: Availability time frame in days (must be greater than 0 when provided)
+    example: 30
+  availabilityPrecision:
+    type: integer
+    format: int64
+    description: Availability precision (0-5 when provided)
+    example: 3
+  defaultCheckInterval:
+    type: integer
+    format: int64
+    description: Default check interval in minutes (must be greater than 0 when provided; server stores milliseconds)
+    example: 5
+  serviceNow:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+      integration:
+        type:
+          - object
+          - 'null'
+        properties:
+          id:
+            type: integer
+            format: int64
+      newIncidentAction:
+        type: string
+        enum:
+          - create
+          - none
+      closeIncidentAction:
+        type: string
+        enum:
+          - close
+          - activity
+          - none
+      infoMapping:
+        type: string
+        enum:
+          - low
+          - medium
+          - high
+      warningMapping:
+        type: string
+        enum:
+          - low
+          - medium
+          - high
+      criticalMapping:
+        type: string
+        enum:
+          - low
+          - medium
+          - high
