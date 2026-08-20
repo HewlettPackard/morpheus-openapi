@@ -13,8 +13,7 @@ properties:
     description: A description for the policy
   policyType:
     type: object
-    description: |
-      Policy type. Accepts `{ id }`, `{ code }`, or a bare type code string.
+    description: Policy type. Accepts `{ id }` or `{ code }`.
     properties:
       id:
         type: integer

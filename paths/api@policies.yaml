@@ -42,8 +42,7 @@ post:
   summary: Creates a Policy
   description: |
     Creates a policy.
-
-    `policy.policyType` accepts `{ id }`, `{ code }`, or a bare type-code string.
+    `policy.policyType` accepts `{ id }` or `{ code }`.
   operationId: addPolicies
   tags:
     - Policies
