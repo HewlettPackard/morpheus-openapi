@@ -8,7 +8,7 @@ put:
     - `PUT /api/roles/{id}/update-app-template`
 
     Body accepts `appTemplateId`, `blueprintId` / `bluePrintId`, or `allAppTemplates` /
-    `allBlueprints` with `access`. Empty-string `access` clears the grant (default).
+    `allBlueprints` with `access`. Use `access: default` to clear the grant.
   operationId: updateRoleBlueprintAccess
   parameters:
     - $ref: ../components/parameters/id-path.yaml
