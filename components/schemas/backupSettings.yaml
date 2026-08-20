@@ -1,29 +1,55 @@
 type: object
-properties: 
-  backupsEnabled: 
+properties:
+  backupsEnabled:
     type: boolean
-  createBackups: 
+  createBackups:
     type: boolean
-  backupAppliance: 
+  backupAppliance:
     type: boolean
-  defaultStorageBucket: 
-    type: object
-    properties: 
-      id: 
-        type: integer
+  defaultStorageBucket:
+    description: Default backup storage bucket, or null when unset
+    oneOf:
+      - type: 'null'
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string
+  defaultSchedule:
+    description: Default backup schedule, or null when unset
+    oneOf:
+      - type: 'null'
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          code:
+            type: string
+          name:
+            type: string
+  retentionCount:
+    description: Maximum number of successful backups to retain
+    oneOf:
+      - type: integer
         format: int64
-      name: 
-        type: string
-  defaultSchedule: 
-    type: object
-    properties: 
-      id: 
-        type: integer
-        format: int64
-      code: 
-        type: string
-      name: 
-        type: string
-  retentionCount: 
-    type: integer
-    format: int64
+      - type: string
+      - type: 'null'
+  defaultSyntheticFullBackupsEnabled:
+    type: boolean
+    description: Whether synthetic full backups are enabled by default
+  defaultSyntheticFullBackupSchedule:
+    description: Default synthetic full backup schedule, or null when unset
+    oneOf:
+      - type: 'null'
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          code:
+            type: string
+          name:
+            type: string
