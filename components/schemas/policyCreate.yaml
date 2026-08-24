@@ -13,7 +13,12 @@ properties:
     description: A description for the policy
   policyType:
     type: object
+    description: Policy type. Accepts `{ id }` or `{ code }`.
     properties:
+      id:
+        type: integer
+        format: int64
+        description: Policy type ID
       code:
         type: string
         description: The policy type code. See `Retrieves all Policy Types` endpoint for listing.
