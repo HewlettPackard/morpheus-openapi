@@ -516,6 +516,10 @@ paths:
     $ref: paths/api@user-sources@id.yaml
   /api/user-sources/{id}/subdomain:
     $ref: paths/api@user-sources@id@subdomain.yaml
+  /api/user-sources/{id}/activate:
+    $ref: paths/api@user-sources@id@activate.yaml
+  /api/user-sources/{id}/deactivate:
+    $ref: paths/api@user-sources@id@deactivate.yaml
 
   /api/boot-scripts:
     $ref: paths/api@boot-scripts.yaml
