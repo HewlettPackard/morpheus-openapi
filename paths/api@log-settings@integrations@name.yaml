@@ -28,9 +28,8 @@ put:
                 host:
                   type: string
                 port:
-                  oneOf:
-                    - type: string
-                    - type: integer
+                  type: integer
+                  format: int64
   responses:
     '200':
       description: Successful Response
