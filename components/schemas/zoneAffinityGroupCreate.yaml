@@ -4,11 +4,7 @@ properties:
     type: string
     description: Name
   affinityType:
-    type: string
-    description: Affinity Type
-    enum:
-      - KEEP_TOGETHER
-      - KEEP_SEPARATE
+    $ref: affinityType.yaml
   active:
     type: boolean
     description: Active

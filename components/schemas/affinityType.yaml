@@ -1,0 +1,10 @@
+type: string
+description: >-
+  Affinity Type. KEEP_TOGETHER / KEEP_SEPARATE express a preferred (SHOULD)
+  placement, while the KEEP_TOGETHER_MUST / KEEP_SEPARATE_MUST variants express
+  a mandatory (MUST) placement constraint.
+enum:
+  - KEEP_SEPARATE
+  - KEEP_TOGETHER
+  - KEEP_SEPARATE_MUST
+  - KEEP_TOGETHER_MUST

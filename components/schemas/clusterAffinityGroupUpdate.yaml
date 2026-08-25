@@ -3,8 +3,10 @@ properties:
   name:
     type: string
     description: Name
-  # affinityType and pool are create-only. AffinityGroupService.updateAffinityGroup
-  # never assigns either, so sending them on update has no effect.
+  # pool is create-only. AffinityGroupService.updateAffinityGroup never assigns
+  # it, so sending it on update has no effect.
+  affinityType:
+    $ref: affinityType.yaml
   active:
     type: boolean
     description: Active
