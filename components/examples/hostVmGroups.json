@@ -1,0 +1,58 @@
+{
+  "hostVmGroups": [
+    {
+      "id": 118,
+      "name": "Prod Host Group",
+      "type": "HOST_GROUP",
+      "refType": "ComputeServerGroup",
+      "refId": 1139,
+      "visibility": "private",
+      "source": "user",
+      "active": true,
+      "externalId": "domain-c1042",
+      "owner": {
+        "id": 1
+      },
+      "pool": {
+        "id": 9406,
+        "name": "HVM Cluster"
+      },
+      "servers": [
+        {
+          "id": 31666,
+          "name": "esx-prod-01"
+        }
+      ]
+    },
+    {
+      "id": 119,
+      "name": "Prod VM Group",
+      "type": "VM_GROUP",
+      "refType": "ComputeServerGroup",
+      "refId": 1139,
+      "visibility": "private",
+      "source": "user",
+      "active": true,
+      "externalId": null,
+      "owner": {
+        "id": 1
+      },
+      "pool": {
+        "id": 9406,
+        "name": "HVM Cluster"
+      },
+      "servers": [
+        {
+          "id": 31670,
+          "name": "app-vm-01"
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "offset": 0,
+    "max": 25,
+    "size": 2,
+    "total": 2
+  }
+}

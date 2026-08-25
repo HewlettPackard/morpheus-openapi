@@ -1,0 +1,55 @@
+type: object
+description: >-
+  A single active violation of a required ("must") affinity rule, as reported by
+  the violations endpoint.
+properties:
+  ruleId:
+    type: integer
+    format: int64
+    description: ID of the affinity rule that is being violated
+  ruleName:
+    type: string
+    description: Name of the affinity rule at the time the violation was recorded
+  ruleDeleted:
+    type: boolean
+    description: >-
+      True when the rule has since been deleted but the violation record is
+      still present
+  keepTogether:
+    type: boolean
+    description: >-
+      True when the violated rule is KEEP_TOGETHER, false when it is
+      KEEP_SEPARATE
+  emptyHostGroup:
+    type: boolean
+    description: >-
+      True when the rule is misconfigured because its Host Group resolves to no
+      hosts, so the rule can never be satisfied
+  occurredAt:
+    type: string
+    format: date-time
+    description: When the violation was first observed
+  alarmId:
+    type: integer
+    format: int64
+    description: ID of the alarm raised for an empty Host Group, if one was raised
+  affectedVms:
+    type: array
+    description: The virtual machines currently in violation of the rule
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          description: Server ID of the affected VM
+        name:
+          type: string
+          description: Name of the affected VM
+        alarmId:
+          type: integer
+          format: int64
+          description: ID of the alarm raised for this VM, if one was raised
+        deleted:
+          type: boolean
+          description: True when the VM has since been deleted

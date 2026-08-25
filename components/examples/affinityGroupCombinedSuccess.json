@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "affinityGroup": {
+    "id": 54,
+    "name": "Keep App VMs On Prod Hosts",
+    "affinityType": "KEEP_TOGETHER",
+    "refType": "ComputeServerGroup",
+    "refId": 1139,
+    "visibility": "private",
+    "source": "user",
+    "active": true,
+    "externalId": "morpheus-rule-54",
+    "owner": {
+      "id": 1
+    },
+    "pool": {
+      "id": 9406,
+      "name": "HVM Cluster"
+    },
+    "servers": [],
+    "vmGroup": {
+      "id": 119,
+      "name": "Prod VM Group"
+    },
+    "hostGroup": {
+      "id": 118,
+      "name": "Prod Host Group"
+    }
+  }
+}

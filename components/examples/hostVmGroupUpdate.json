@@ -1,0 +1,11 @@
+{
+  "hostVmGroup": {
+    "name": "Prod Host Group (renamed)",
+    "active": true,
+    "servers": [
+      31666,
+      31667,
+      31668
+    ]
+  }
+}

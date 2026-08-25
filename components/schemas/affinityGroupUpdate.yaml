@@ -1,0 +1,9 @@
+# Scope-neutral update payload for an affinity group, used by the flat
+# top-level /api/affinity-groups/{id} endpoint. Identical to the cluster-scoped
+# update payload, so this aliases it rather than duplicating it.
+allOf:
+  - $ref: clusterAffinityGroupUpdate.yaml
+description: >-
+  Update payload for an affinity group. Send either `servers` (legacy VM-to-VM
+  rule) or both `vmGroup` and `hostGroup` (combined VM-to-Host rule) — never
+  both shapes at once.

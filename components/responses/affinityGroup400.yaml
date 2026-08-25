@@ -1,0 +1,68 @@
+description: |
+  The rule could not be saved because it failed validation.
+
+  `errors` is keyed by the request field that failed, and each value is a stable
+  i18n message code. `msg` carries the human-readable text for the same failure.
+
+  A rule must be exactly one of two shapes — a legacy VM-to-VM rule that lists
+  `servers`, or a combined VM-to-Host rule that references both a `vmGroup` and
+  a `hostGroup`. Sending both shapes, or only one half of a combined rule, is
+  rejected here. The same mutual exclusion is enforced a second time at the
+  domain layer under the code `affinityGroup.ruleShape.invalid`.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/affinityGroupError.yaml
+    examples:
+      Duplicate Name:
+        value:
+          success: false
+          msg: An affinity group named 'Keep App VMs Together' already exists in this cluster
+          errors:
+            name: affinityGroup.duplicateName
+      Conflicting Required Rule:
+        value:
+          success: false
+          msg: >-
+            This required rule conflicts with an existing required rule: the same
+            VMs cannot be both Kept Together and Kept Separate
+          errors:
+            affinityType: affinityGroup.mustConflict
+      Only One Half Of A Combined Rule:
+        value:
+          success: false
+          msg: A combined VM-to-Host rule requires both a VM Group and a Host Group
+          errors:
+            hostGroup: affinityGroup.combinedRule.bothGroupsRequired
+      VM Group Not Found:
+        value:
+          success: false
+          msg: Referenced VM Group not found
+          errors:
+            vmGroup: affinityGroup.combinedRule.vmGroupNotFound
+      Host Group Not Found:
+        value:
+          success: false
+          msg: Referenced Host Group not found
+          errors:
+            hostGroup: affinityGroup.combinedRule.hostGroupNotFound
+      Cross-Pool VM Group:
+        value:
+          success: false
+          msg: VM Group 'Prod VM Group' does not belong to the selected cluster
+          errors:
+            vmGroup: affinityGroup.combinedRule.crossClusterVmGroup
+      Cross-Pool Host Group:
+        value:
+          success: false
+          msg: >-
+            VM Group 'Prod VM Group' and Host Group 'Prod Host Group' belong to
+            different clusters
+          errors:
+            hostGroup: affinityGroup.combinedRule.crossClusterHostGroup
+      Wrong Group Type:
+        value:
+          success: false
+          msg: Referenced VM Group must have type VM Group
+          errors:
+            vmGroup: affinityGroup.combinedRule.wrongVmGroupType

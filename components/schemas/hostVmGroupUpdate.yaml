@@ -1,0 +1,49 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name
+  # type and pool are create-only. HostVmGroupService.updateHostVmGroup never
+  # reassigns either, so sending them on update has no effect.
+  active:
+    type: boolean
+    description: Active
+  servers:
+    type: array
+    items:
+      type: integer
+      format: int64
+    description: >-
+      Replacement list of Server IDs for the Group. Omit the field entirely to
+      leave existing membership untouched; send an empty array to clear it.
+  visibility:
+    $ref: visibility.yaml
+  tenants:
+    type: array
+    description: Array of tenant account ids that are allowed access
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+  resourcePermissions:
+    type: object
+    description: Resource Permissions for controlling Group Access
+    properties:
+      all:
+        type: boolean
+      sites:
+        type:
+          - array
+          - 'null'
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Group ID
+            default:
+              type: boolean
+              description: Whether this is the default group

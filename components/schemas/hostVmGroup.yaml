@@ -1,0 +1,102 @@
+type: object
+description: >-
+  A Host Group or VM Group. Host Groups and VM Groups are the two membership
+  collections referenced by a combined VM-to-Host affinity rule.
+properties:
+  id:
+    type: integer
+    format: int64
+  name:
+    type: string
+    description: Name
+  type:
+    type: string
+    description: >-
+      The kind of group. `HOST_GROUP` collects hypervisor hosts, `VM_GROUP`
+      collects virtual machines. A combined VM-to-Host affinity rule requires
+      one of each.
+    enum:
+      - SITE_GROUP
+      - HOST_GROUP
+      - VM_GROUP
+  refType:
+    type: string
+    description: >-
+      Reference Type for the Group. `ComputeZone` or `ComputeServerGroup` for
+      cloud or cluster scope respectively
+  refId:
+    type: integer
+    format: int64
+    description: Reference ID for the Group. The ID of the Cloud or Cluster
+  source:
+    type: string
+    description: Whether the group was created by a user or discovered by sync
+    enum:
+      - user
+      - sync
+  active:
+    type: boolean
+    description: Active
+  externalId:
+    type: string
+    description: Identifier of the corresponding group on the underlying platform
+  owner:
+    type: object
+    description: Owning tenant account
+    properties:
+      id:
+        type: integer
+        format: int64
+  pool:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+    description: Resource Pool the Group is scoped to
+  servers:
+    type: array
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+    description: List of Servers in the Group
+  visibility:
+    type: string
+  tenants:
+    type: array
+    description: Array of tenant account ids that are allowed access
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+  resourcePermissions:
+    type: object
+    description: Resource Permissions for controlling Group Access
+    properties:
+      all:
+        type: boolean
+      sites:
+        type:
+          - array
+          - 'null'
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Group ID
+            default:
+              type: boolean
+              description: Whether this is the default group
