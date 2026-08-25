@@ -1,0 +1,71 @@
+type: object
+description: >-
+  Option lists backing the affinity rule create/edit form, scoped by the parent
+  cluster or cloud route.
+properties:
+  supportsCombinedRules:
+    type: boolean
+    description: >-
+      Capability gate. True when the parent scope's platform supports combined
+      VM-to-Host rules (for example vSphere, which maps them to
+      `ClusterVmHostRuleInfo`). When false, only legacy VM-to-VM rules can be
+      created and `availableVmGroups` / `availableHostGroups` are not usable.
+  availableVmGroups:
+    type: array
+    description: VM Groups selectable as the VM side of a combined rule
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        poolId:
+          type: integer
+          format: int64
+          description: >-
+            Resource Pool the group belongs to. Both sides of a combined rule
+            must share the same pool.
+  availableHostGroups:
+    type: array
+    description: Host Groups selectable as the host side of a combined rule
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        poolId:
+          type: integer
+          format: int64
+          description: >-
+            Resource Pool the group belongs to. Both sides of a combined rule
+            must share the same pool.
+  availableServers:
+    type: array
+    description: Servers selectable for a legacy VM-to-VM rule
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+  availableClusters:
+    type: array
+    description: >-
+      Clusters within the cloud, for the cluster-in-cloud picker. Only populated
+      for cloud-scoped requests where `supportsCombinedRules` is true; always
+      empty for cluster-scoped requests, which have an implicit cluster.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string

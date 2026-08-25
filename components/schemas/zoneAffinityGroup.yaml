@@ -15,6 +15,9 @@ properties:
   source:
     type: string
     description: Source
+  externalId:
+    type: string
+    description: Identifier of the corresponding rule on the underlying platform
   refType:
     type: string
     description: Reference Type for the Affinity Group. Can be ComputeZone or ComputeServerGroup for cloud or cluster respectively
@@ -42,7 +45,44 @@ properties:
           format: int64
         name:
           type: string 
-    description: List of Servers in the Affinity Group
+    description: >-
+      List of Servers in the Affinity Group. Populated only for a legacy
+      VM-to-VM rule; always empty for a combined VM-to-Host rule.
+  owner:
+    type: object
+    description: Owning tenant account
+    properties:
+      id:
+        type: integer
+        format: int64
+  vmGroup:
+    type:
+      - object
+      - 'null'
+    description: >-
+      The VM Group side of a combined VM-to-Host rule. Null for a legacy
+      VM-to-VM rule. When present, `hostGroup` is also present and `servers` is
+      empty.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  hostGroup:
+    type:
+      - object
+      - 'null'
+    description: >-
+      The Host Group side of a combined VM-to-Host rule. Null for a legacy
+      VM-to-VM rule. When present, `vmGroup` is also present and `servers` is
+      empty.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   visibility:
     type: string
   tenants:

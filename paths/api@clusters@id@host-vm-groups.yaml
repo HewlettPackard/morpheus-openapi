@@ -1,7 +1,8 @@
 get: 
-  summary: Get Cluster Affinity Groups
-  description: This endpoint retrieves affinity groups of a specified cluster.
-  operationId: listClusterAffinityGroups
+  summary: Get Cluster Host / VM Groups
+  description: >-
+    This endpoint retrieves the Host Groups and VM Groups of a specified cluster.
+  operationId: listClusterHostVmGroups
   tags: 
     -  Clusters
   parameters:
@@ -12,8 +13,6 @@ get:
     - $ref: ../components/parameters/order.yaml
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/name.yaml
-    - $ref: ../components/parameters/code.yaml
-    - $ref: ../components/parameters/hideInactive.yaml
   responses:
     '200':
       description: Successful Request
@@ -23,23 +22,25 @@ get:
             allOf:
               - type: object
                 properties:
-                  affinityGroups:
+                  hostVmGroups:
                     type: array
                     items:
-                      $ref: ../components/schemas/clusterAffinityGroup.yaml
+                      $ref: ../components/schemas/hostVmGroup.yaml
               - $ref: ../components/schemas/meta.yaml
           examples:
-            List Affinity Groups Response:
+            List Host / VM Groups Response:
               value:
-                $ref: ../components/examples/clusterAffinityGroups.json
+                $ref: ../components/examples/hostVmGroups.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
 post:
-  summary: Create a Cluster Affinity Group
-  description: This endpoint will create an affinity group for a specific cluster.
-  operationId: saveClusterAffinityGroup
+  summary: Create a Cluster Host / VM Group
+  description: >-
+    This endpoint will create a Host Group or VM Group for a specific cluster.
+    All servers referenced must belong to the same cluster and resource pool.
+  operationId: saveClusterHostVmGroup
   tags:
     - Clusters
   parameters:
@@ -50,8 +51,8 @@ post:
         schema:
           type: object
           properties:
-            affinityGroup:
-              $ref: ../components/schemas/clusterAffinityGroupCreate.yaml
+            hostVmGroup:
+              $ref: ../components/schemas/hostVmGroupCreate.yaml
             tenantPermissions:
               type: object
               properties:
@@ -62,9 +63,9 @@ post:
                     type: integer
                     format: int64
         examples:
-          Create Affinity Group Request:
+          Create Host / VM Group Request:
             value:
-              $ref: ../components/examples/clusterAffinityGroupCreate.json
+              $ref: ../components/examples/hostVmGroupCreate.json
   responses:
     '200':
       description: Successful Request
@@ -74,15 +75,15 @@ post:
             allOf:
               - type: object
                 properties:
-                  affinityGroup:
-                    $ref: ../components/schemas/clusterAffinityGroup.yaml
+                  hostVmGroup:
+                    $ref: ../components/schemas/hostVmGroup.yaml
               - $ref: ../components/schemas/200-success.yaml
           examples:
-            Create Affinity Group Response:
+            Create Host / VM Group Response:
               value:
-                $ref: ../components/examples/clusterAffinityGroupSuccess.json
+                $ref: ../components/examples/hostVmGroupSuccess.json
     '400':
-      $ref: ../components/responses/affinityGroup400.yaml
+      $ref: ../components/responses/hostVmGroup400.yaml
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

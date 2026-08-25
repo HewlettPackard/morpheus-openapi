@@ -1,7 +1,7 @@
 get: 
-  summary: Get a Specific Cluster Affinity Group
-  description: This endpoint retrieves a specific cluster affinity group.
-  operationId: getClusterAffinityGroup
+  summary: Get a Specific Cluster Host / VM Group
+  description: This endpoint retrieves a specific cluster Host Group or VM Group.
+  operationId: getClusterHostVmGroup
   tags: 
     -  Clusters
   parameters:
@@ -15,20 +15,22 @@ get:
           schema:
             type: object
             properties:
-              affinityGroup:
-                $ref: ../components/schemas/clusterAffinityGroup.yaml
+              hostVmGroup:
+                $ref: ../components/schemas/hostVmGroup.yaml
           examples:
-            Get Affinity Group Response:
+            Get Host / VM Group Response:
               value:
-                $ref: ../components/examples/clusterAffinityGroupSuccess.json
+                $ref: ../components/examples/hostVmGroupSuccess.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
 put: 
-  summary: Update Cluster Affinity Group
-  description: Update Cluster Affinity Group
-  operationId: updateClusterAffinityGroup
+  summary: Update Cluster Host / VM Group
+  description: >-
+    Update a cluster Host Group or VM Group. Omit `servers` to leave existing
+    membership untouched.
+  operationId: updateClusterHostVmGroup
   tags: 
     -  Clusters
   parameters:
@@ -40,8 +42,8 @@ put:
         schema: 
           type: object
           properties: 
-            affinityGroup:
-              $ref: ../components/schemas/clusterAffinityGroupUpdate.yaml
+            hostVmGroup:
+              $ref: ../components/schemas/hostVmGroupUpdate.yaml
             tenantPermissions:
               type: object
               properties:
@@ -52,9 +54,9 @@ put:
                     type: integer
                     format: int64
         examples:
-          Update Affinity Group Request:
+          Update Host / VM Group Request:
             value:
-              $ref: ../components/examples/clusterAffinityGroupUpdate.json
+              $ref: ../components/examples/hostVmGroupUpdate.json
   responses:
     '200':
       description: Successful Request
@@ -64,24 +66,28 @@ put:
             allOf: 
             - type: object
               properties:
-                affinityGroup:
-                  $ref: ../components/schemas/clusterAffinityGroup.yaml
+                hostVmGroup:
+                  $ref: ../components/schemas/hostVmGroup.yaml
             - $ref: ../components/schemas/200-success.yaml
           examples:
-            Update Affinity Group Response:
+            Update Host / VM Group Response:
               value:
-                $ref: ../components/examples/clusterAffinityGroupSuccess.json
+                $ref: ../components/examples/hostVmGroupSuccess.json
     '400':
-      $ref: ../components/responses/affinityGroup400.yaml
+      $ref: ../components/responses/hostVmGroup400.yaml
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
 delete:
-  summary: Delete a Cluster Affinity Group
+  summary: Delete a Cluster Host / VM Group
   description: |
-    Will delete a cluster affinity group.
-  operationId: deleteClusterAffinityGroup
+    Will delete a cluster Host Group or VM Group.
+
+    The request fails with a 400 if the group is still referenced by one or more
+    combined VM-to-Host affinity rules. Delete or edit those rules first, then
+    retry.
+  operationId: deleteClusterHostVmGroup
   tags:
     - Clusters
   parameters:
@@ -99,6 +105,8 @@ delete:
             Response:
               value:
                 $ref: ../components/examples/success.json
+    '400':
+      $ref: ../components/responses/hostVmGroup400.yaml
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

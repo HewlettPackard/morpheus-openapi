@@ -8,6 +8,7 @@
         "autoCapacity": false,
         "migrationTarget": false,
         "hasAffinityGroups": false,
+        "hasHostVmGroups": false,
         "hasDatastores": false,
         "hasNetworks": true,
         "hasResourcePools": false,

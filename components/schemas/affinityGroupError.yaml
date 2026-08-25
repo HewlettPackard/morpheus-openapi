@@ -1,0 +1,54 @@
+type: object
+description: >-
+  Error response for affinity group create and update requests.
+
+  Same shape as the standard error object, but with the validation codes that
+  can appear in `errors` enumerated per field. Each key is the request field
+  that failed and each value is a stable i18n message code; `msg` carries the
+  human-readable text for the same failure.
+properties:
+  success:
+    type: boolean
+    description: Success indicator, false when a validation error occurred
+    default: true
+  msg:
+    type:
+      - string
+      - 'null'
+    description: Human-readable description of the validation failure
+  errors:
+    type:
+      - object
+      - 'null'
+    description: >-
+      Validation errors keyed by the request field that failed. Values are i18n
+      message codes, stable across locales, suitable for programmatic handling.
+    properties:
+      name:
+        type: string
+        description: The rule name collides with another rule in the same cluster or cloud.
+        enum:
+          - affinityGroup.duplicateName
+      affinityType:
+        type: string
+        description: >-
+          The requested required rule contradicts an existing required rule —
+          the same VMs cannot be both Kept Together and Kept Separate.
+        enum:
+          - affinityGroup.mustConflict
+      vmGroup:
+        type: string
+        description: The VM Group side of a combined VM-to-Host rule is invalid.
+        enum:
+          - affinityGroup.combinedRule.bothGroupsRequired
+          - affinityGroup.combinedRule.vmGroupNotFound
+          - affinityGroup.combinedRule.crossClusterVmGroup
+          - affinityGroup.combinedRule.wrongVmGroupType
+      hostGroup:
+        type: string
+        description: The Host Group side of a combined VM-to-Host rule is invalid.
+        enum:
+          - affinityGroup.combinedRule.bothGroupsRequired
+          - affinityGroup.combinedRule.hostGroupNotFound
+          - affinityGroup.combinedRule.crossClusterHostGroup
+          - affinityGroup.combinedRule.wrongHostGroupType

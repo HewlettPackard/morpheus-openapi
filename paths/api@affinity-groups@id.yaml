@@ -1,22 +1,24 @@
-get: 
-  summary: Get a Specific Cluster Affinity Group
-  description: This endpoint retrieves a specific cluster affinity group.
-  operationId: getClusterAffinityGroup
-  tags: 
-    -  Clusters
+get:
+  summary: Get a Specific Affinity Group
+  description: >-
+    Retrieve a specific affinity group by its ID, without needing to know
+    whether it is scoped to a cluster or a cloud. The returned `refType` and
+    `refId` identify the owning scope.
+  operationId: getAffinityGroup
+  tags:
+    - Affinity Groups
   parameters:
-    - $ref: ../components/parameters/clusterId-path.yaml
     - $ref: ../components/parameters/id-path.yaml
   responses:
     '200':
       description: Successful Request
-      content: 
-        application/json: 
+      content:
+        application/json:
           schema:
             type: object
             properties:
               affinityGroup:
-                $ref: ../components/schemas/clusterAffinityGroup.yaml
+                $ref: ../components/schemas/affinityGroup.yaml
           examples:
             Get Affinity Group Response:
               value:
@@ -25,23 +27,28 @@ get:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
-put: 
-  summary: Update Cluster Affinity Group
-  description: Update Cluster Affinity Group
-  operationId: updateClusterAffinityGroup
-  tags: 
-    -  Clusters
+put:
+  summary: Update an Affinity Group
+  description: >-
+    Update a specific affinity group by its ID, regardless of whether it is
+    scoped to a cluster or a cloud.
+
+    A rule is either a legacy VM-to-VM rule (`servers` populated) or a combined
+    VM-to-Host rule (`vmGroup` and `hostGroup` populated). Sending both shapes,
+    or only one half of a combined rule, is rejected with a 400.
+  operationId: updateAffinityGroup
+  tags:
+    - Affinity Groups
   parameters:
-    - $ref: ../components/parameters/clusterId-path.yaml
     - $ref: ../components/parameters/id-path.yaml
-  requestBody: 
-    content: 
-      application/json: 
-        schema: 
+  requestBody:
+    content:
+      application/json:
+        schema:
           type: object
-          properties: 
+          properties:
             affinityGroup:
-              $ref: ../components/schemas/clusterAffinityGroupUpdate.yaml
+              $ref: ../components/schemas/affinityGroupUpdate.yaml
             tenantPermissions:
               type: object
               properties:
@@ -52,25 +59,25 @@ put:
                     type: integer
                     format: int64
         examples:
-          Update Affinity Group Request:
+          Update Combined VM-to-Host Rule Request:
             value:
-              $ref: ../components/examples/clusterAffinityGroupUpdate.json
+              $ref: ../components/examples/affinityGroupCombinedUpdate.json
   responses:
     '200':
       description: Successful Request
       content:
         application/json:
           schema:
-            allOf: 
-            - type: object
-              properties:
-                affinityGroup:
-                  $ref: ../components/schemas/clusterAffinityGroup.yaml
-            - $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - type: object
+                properties:
+                  affinityGroup:
+                    $ref: ../components/schemas/affinityGroup.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Update Affinity Group Response:
               value:
-                $ref: ../components/examples/clusterAffinityGroupSuccess.json
+                $ref: ../components/examples/affinityGroupCombinedSuccess.json
     '400':
       $ref: ../components/responses/affinityGroup400.yaml
     '4XX':
@@ -78,14 +85,14 @@ put:
     '5XX':
       $ref: ../components/responses/5xx.yaml
 delete:
-  summary: Delete a Cluster Affinity Group
-  description: |
-    Will delete a cluster affinity group.
-  operationId: deleteClusterAffinityGroup
+  summary: Delete an Affinity Group
+  description: >-
+    Delete a specific affinity group by its ID, regardless of whether it is
+    scoped to a cluster or a cloud.
+  operationId: deleteAffinityGroup
   tags:
-    - Clusters
+    - Affinity Groups
   parameters:
-    - $ref: ../components/parameters/clusterId-path.yaml
     - $ref: ../components/parameters/id-path.yaml
   responses:
     '200':

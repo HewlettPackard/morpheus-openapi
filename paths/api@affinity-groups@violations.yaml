@@ -1,0 +1,48 @@
+get:
+  summary: Get Active Affinity Rule Violations
+  description: >-
+    Retrieve the currently active violations of required ("must") affinity rules
+    for a single cluster or cloud.
+
+    Exactly one of `clusterId` or `cloudId` must be supplied; omitting both
+    returns a 400.
+  operationId: listAffinityGroupViolations
+  tags:
+    - Affinity Groups
+  parameters:
+    - name: clusterId
+      in: query
+      description: >-
+        ID of the cluster to report violations for. Mutually exclusive with
+        `cloudId`.
+      schema:
+        type: integer
+        format: int64
+    - name: cloudId
+      in: query
+      description: >-
+        ID of the cloud to report violations for. Mutually exclusive with
+        `clusterId`.
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              violations:
+                type: array
+                items:
+                  $ref: ../components/schemas/affinityGroupViolation.yaml
+          examples:
+            List Violations Response:
+              value:
+                $ref: ../components/examples/affinityGroupViolations.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

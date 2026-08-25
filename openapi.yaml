@@ -31,6 +31,13 @@ paths:
 
   /api/activity:
     $ref: paths/api@activity.yaml
+
+  /api/affinity-groups/{id}:
+    $ref: paths/api@affinity-groups@id.yaml
+  /api/affinity-groups/violations:
+    $ref: paths/api@affinity-groups@violations.yaml
+  /api/host-vm-groups/{id}:
+    $ref: paths/api@host-vm-groups@id.yaml
     
   /api/appliance-settings:
     $ref: paths/api@appliance-settings.yaml
@@ -219,6 +226,14 @@ paths:
     $ref: paths/api@zones@id@affinity-groups.yaml
   /api/zones/{zoneId}/affinity-groups/{id}:
     $ref: paths/api@zones@id@affinity-groups@id.yaml
+  /api/zones/{zoneId}/affinity-groups/form-options:
+    $ref: paths/api@zones@id@affinity-groups@form-options.yaml
+  /api/zones/{zoneId}/host-vm-groups:
+    $ref: paths/api@zones@id@host-vm-groups.yaml
+  /api/zones/{zoneId}/host-vm-groups/{id}:
+    $ref: paths/api@zones@id@host-vm-groups@id.yaml
+  /api/zones/{zoneId}/host-vm-groups/form-options:
+    $ref: paths/api@zones@id@host-vm-groups@form-options.yaml
   /api/zones/{zoneId}/data-stores:
     $ref: paths/api@zones@zoneId@data-stores.yaml
   /api/zones/{zoneId}/data-stores/{id}:
@@ -258,6 +273,14 @@ paths:
     $ref: paths/api@clusters@id@affinity-groups.yaml
   /api/clusters/{clusterId}/affinity-groups/{id}:
     $ref: paths/api@clusters@id@affinity-groups@id.yaml
+  /api/clusters/{clusterId}/affinity-groups/form-options:
+    $ref: paths/api@clusters@id@affinity-groups@form-options.yaml
+  /api/clusters/{clusterId}/host-vm-groups:
+    $ref: paths/api@clusters@id@host-vm-groups.yaml
+  /api/clusters/{clusterId}/host-vm-groups/{id}:
+    $ref: paths/api@clusters@id@host-vm-groups@id.yaml
+  /api/clusters/{clusterId}/host-vm-groups/form-options:
+    $ref: paths/api@clusters@id@host-vm-groups@form-options.yaml
   /api/clusters/{clusterId}/api-config:
     $ref: paths/api@clusters@id@api-config.yaml
   /api/clusters/{clusterId}/configure-autoscaler:
@@ -1444,6 +1467,12 @@ tags:
     description: All Endpoints Under the Administration Tab
   - name: Activity
     description: Manage Appliance Activity Logs
+  - name: Affinity Groups
+    description: >-
+      Provides API interfaces for managing affinity rules and their Host and VM
+      Groups by ID, across both cluster and cloud scope. An affinity rule is
+      either a legacy VM-to-VM rule that lists servers directly, or a combined
+      VM-to-Host rule that references a VM Group and a Host Group.
   - name: Alerts
     description: Manage Alerts
   - name: Appliance Settings
