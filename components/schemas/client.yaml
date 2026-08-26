@@ -1,10 +1,9 @@
 type: object
-description: OAuth client as returned by ClientsController gson (`_client.gson`).
+description: OAuth client.
 properties:
   id:
-    type:
-      - integer
-      - string
+    type: integer
+    format: int64
     description: Client database id
     example: 2
   clientId:
@@ -12,17 +11,12 @@ properties:
     description: OAuth client identifier
     example: morph-cli
   clientSecret:
-    type:
-      - string
-      - 'null'
+    type: string
     description: |
       Masked client secret when a secret is set. Omitted when no secret is configured.
-      Masking uses the standard secret mask (not the raw secret value).
     example: '************'
   clientSecretHash:
-    type:
-      - string
-      - 'null'
+    type: string
     description: |
       Hash of the client secret when a secret is set. Omitted when no secret is configured.
     example: a1b2c3d4e5f6
@@ -30,12 +24,14 @@ properties:
     type:
       - integer
       - 'null'
+    format: int64
     description: Access token lifetime in seconds
     example: 43200
   refreshTokenValiditySeconds:
     type:
       - integer
       - 'null'
+    format: int64
     description: Refresh token lifetime in seconds
     example: 43200
   authorizedGrantTypes:
@@ -74,5 +70,5 @@ properties:
     type: boolean
     description: |
       True when the client is a system client (`removable != true`).
-      System clients cannot be deleted and have restricted editable fields in the UI.
+      System clients cannot be deleted and have restricted editable fields.
     example: false
