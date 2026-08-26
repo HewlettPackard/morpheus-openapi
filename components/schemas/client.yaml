@@ -1,5 +1,5 @@
 type: object
-description: OAuth client as returned by ClientsController gson (`_client.gson`).
+description: OAuth client.
 properties:
   id:
     type: integer
