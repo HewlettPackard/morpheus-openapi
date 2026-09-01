@@ -1,6 +1,10 @@
 title: HVM Instance Configuration
 type: object
 properties:
+  imageId:
+    type: integer
+    format: int64
+    description: The id of the virtual image to provision the instance from. Takes precedence over the image configured on the instance type layout.
   noAgent:
     type:
       - boolean
