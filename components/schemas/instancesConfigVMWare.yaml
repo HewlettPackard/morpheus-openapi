@@ -40,6 +40,10 @@ properties:
       - 'null'
     description: Create user
     default: false
+  imageId:
+    type: integer
+    format: int64
+    description: The id of the virtual image to provision the instance from. Takes precedence over the image configured on the instance type layout, and over `template`.
   template:
     description: Image ID. This is the ID of a Virtual Image.
     type: integer
