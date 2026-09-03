@@ -81,10 +81,6 @@ post:
     `clientId` (required), `clientSecret`, `accessTokenValiditySeconds`,
     `refreshTokenValiditySeconds`, `redirectUris`, `requireConsent`.
 
-    On create the server sets default `authorizedGrantTypes`, `authorities`, and `scopes`.
-    Those fields are not accepted on the create payload; they appear on the response client object
-    only where the gson template emits them (`authorizedGrantTypes` and `scopes` are returned;
-    `authorities` is not returned by the API response template).
   operationId: addClient
   tags:
     - Clients
