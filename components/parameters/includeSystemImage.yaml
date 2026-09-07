@@ -1,0 +1,13 @@
+name: includeSystemImage
+in: query
+description: >-
+  Include system images alongside non-system images. System images are
+  excluded unless this is `true`.
+
+
+  Takes precedence over `filterType`: if this parameter is supplied,
+  `filterType` is ignored. `systemImage` in turn takes precedence over this
+  parameter when both are supplied.
+schema:
+  type: boolean
+example: true

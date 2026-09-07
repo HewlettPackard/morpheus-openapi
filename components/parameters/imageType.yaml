@@ -1,6 +1,20 @@
 name: imageType
 in: query
-description: Filter by image type code, "vmware", "ami", etc
+description: >-
+  Filter by image type code. Repeatable — supply the parameter more than once
+  to match any of several types, for example
+  `?imageType=qcow2&imageType=raw`.
+
+
+  Some values are aliases matching several underlying types rather than an
+  exact code: `vmware` matches `vmware`, `ovf` and `vmdk`; `virtualbox`
+  matches `vdi` and `virtualbox`. Any other value, such as `qcow2`, `raw` or
+  `iso`, is matched exactly.
 schema:
-  type: string
-example: "vmware"
+  type: array
+  items:
+    type: string
+explode: true
+example:
+  - qcow2
+  - raw

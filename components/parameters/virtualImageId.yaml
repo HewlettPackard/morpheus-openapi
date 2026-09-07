@@ -1,0 +1,14 @@
+name: id
+in: query
+description: >-
+  Filter by virtual image ID. Repeatable — supply the parameter more than once
+  to fetch several images in one request, for example `?id=170332&id=127280`.
+schema:
+  type: array
+  items:
+    type: integer
+    format: int64
+explode: true
+example:
+  - 170332
+  - 127280
