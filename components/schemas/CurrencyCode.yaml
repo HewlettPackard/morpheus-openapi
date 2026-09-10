@@ -1,14 +1,19 @@
 type: string
 description: Currency Code (ISO 4217)
 enum:
+  - AED
+  - ARS
   - AUD
+  - AZN
   - BGN
   - BRL
+  - BWP
   - CAD
   - CHF
   - CLF
   - CLP
   - CNY
+  - COP
   - CZK
   - DKK
   - EUR
@@ -19,20 +24,26 @@ enum:
   - IDR
   - ILS
   - INR
+  - JOD
   - JPY
   - KRW
+  - MNT
+  - MUR
   - MXN
   - MYR
+  - NGN
   - NOK
   - NZD
   - PHP
   - PLN
   - RON
   - RUB
+  - SAR
   - SEK
   - SGD
   - THB
   - TRY
   - USD
+  - VND
   - ZAR
 default: USD

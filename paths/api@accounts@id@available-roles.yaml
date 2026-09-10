@@ -1,0 +1,27 @@
+get:
+  summary: List available base roles for a tenant
+  description: >-
+    Get the list of account roles that can be assigned as the base role for a
+    tenant, scoped to the tenant identified by the path id. This mirrors the
+    validation the tenant create endpoint performs against the parent tenant's
+    available roles.
+  operationId: listTenantAvailableRoles
+  tags:
+    - Tenants
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Array of roles
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/tenantsAvailableRoles.yaml
+          examples:
+            Tenants Available Roles Response:
+              value:
+                $ref: ../components/examples/tenantsAvailableRoles.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

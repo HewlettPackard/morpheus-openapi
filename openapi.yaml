@@ -1225,6 +1225,8 @@ paths:
     $ref: paths/api@accounts.yaml
   /api/accounts/available-roles:
     $ref: paths/api@accounts@available-roles.yaml
+  /api/accounts/{id}/available-roles:
+    $ref: paths/api@accounts@id@available-roles.yaml
   /api/accounts/{id}:
     $ref: paths/api@accounts@id.yaml
   /api/accounts/{accountId}/groups:
