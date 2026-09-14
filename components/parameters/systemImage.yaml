@@ -5,8 +5,11 @@ description: >-
   images, `false` only non-system images.
 
 
-  Takes precedence over `filterType`: if this parameter is supplied,
-  `filterType` is ignored entirely.
+  Optional. When omitted, this filter is not applied and the images considered
+  are decided by `includeSystemImage` if supplied, otherwise by `filterType`.
+  When supplied, whether `true` or `false`, it takes precedence over both
+  `includeSystemImage` and `filterType`, which are then ignored.
+required: false
 schema:
   type: boolean
 example: false
