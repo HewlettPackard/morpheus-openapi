@@ -10,10 +10,15 @@ description: >-
   exact code: `vmware` matches `vmware`, `ovf` and `vmdk`; `virtualbox`
   matches `vdi` and `virtualbox`. Any other value, such as `qcow2`, `raw` or
   `iso`, is matched exactly.
+
+
+  Optional. When omitted, images of every type are returned.
+required: false
 schema:
   type: array
   items:
     type: string
+style: form
 explode: true
 example:
   - qcow2
