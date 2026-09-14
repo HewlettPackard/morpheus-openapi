@@ -1,0 +1,15 @@
+name: systemImage
+in: query
+description: >-
+  Filter on whether an image is a system image. `true` returns only system
+  images, `false` only non-system images.
+
+
+  Optional. When omitted, this filter is not applied and the images considered
+  are decided by `includeSystemImage` if supplied, otherwise by `filterType`.
+  When supplied, whether `true` or `false`, it takes precedence over both
+  `includeSystemImage` and `filterType`, which are then ignored.
+required: false
+schema:
+  type: boolean
+example: false

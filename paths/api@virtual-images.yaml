@@ -12,6 +12,12 @@ get:
     - $ref: ../components/parameters/lastUpdated.yaml
     - $ref: ../components/parameters/filterType.yaml
     - $ref: ../components/parameters/imageType.yaml
+    - $ref: ../components/parameters/virtualImageId.yaml
+    - $ref: ../components/parameters/virtualImageDescription.yaml
+    - $ref: ../components/parameters/systemImage.yaml
+    - $ref: ../components/parameters/includeSystemImage.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/direction.yaml
     - $ref: ../components/parameters/tags.yaml
     - $ref: ../components/parameters/labels.yaml
     - $ref: ../components/parameters/allLabels.yaml

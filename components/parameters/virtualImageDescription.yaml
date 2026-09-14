@@ -1,0 +1,21 @@
+name: description
+in: query
+description: >-
+  Filter by description. Repeatable — supply the parameter more than once to
+  match any of several descriptions.
+
+
+  Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard, for
+  example `?description=ubuntu%`. This is not a regular expression.
+
+
+  Optional. When omitted, no description filter is applied.
+required: false
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: true
+example:
+  - ubuntu%
