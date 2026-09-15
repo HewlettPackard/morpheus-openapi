@@ -14,10 +14,24 @@ properties:
     type: boolean
   reuseSequence:
     type: boolean
+  showConsoleKeyboardSettings:
+    type: boolean
+    description: >-
+      Whether console keyboard layout settings are shown for applicable clouds
+      and remote protocols. Note that the corresponding property on update is
+      named `consoleKeyboardSettings`.
   cloudInitUsername:
     type: string
   cloudInitPassword:
     type: string
+  cloudInitPasswordHash:
+    type:
+      - string
+      - 'null'
+    description: >-
+      SHA-256 hash of the cloud-init password, or null if no password is set.
+      `cloudInitPassword` itself is returned masked, so this hash is the only
+      way to detect whether a locally held password matches the stored one.
   cloudInitKeyPair:
     type: object
     properties:
@@ -30,10 +44,24 @@ properties:
     type:
       - string
       - 'null'
+  windowsPasswordHash:
+    type:
+      - string
+      - 'null'
+    description: >-
+      SHA-256 hash of the Windows administrator password, or null if no
+      password is set. `windowsPassword` itself is returned masked.
   pxeRootPassword:
     type:
       - string
       - 'null'
+  pxeRootPasswordHash:
+    type:
+      - string
+      - 'null'
+    description: >-
+      SHA-256 hash of the PXE boot root password, or null if no password is
+      set. `pxeRootPassword` itself is returned masked.
   defaultTemplateType:
     type: object
     properties:
