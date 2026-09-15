@@ -207,6 +207,22 @@ properties:
     type: boolean
   isMultiAttach:
     type: boolean
+  multiAttachSourceVolume:
+    type:
+      - object
+      - 'null'
+    description: The shared source volume this volume attaches to. Set on per-server child volumes; `null` on a source volume or a volume that is not multi-attach.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  persistentReservations:
+    type:
+      - boolean
+      - 'null'
+    description: Whether SCSI-3 persistent reservations are enabled for this volume. Per-server, not inherited from the shared source volume. Requires a controller type with `supportsPersistentReservations`.
   storageProfile:
     type:
       - string

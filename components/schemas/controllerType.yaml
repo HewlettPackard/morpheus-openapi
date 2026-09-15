@@ -17,3 +17,14 @@ properties:
   maxDevices: 
     type: integer
     format: int64
+  reservedUnitNumber:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Unit number reserved by the controller itself and therefore not assignable to a disk. `null` when no unit is reserved.
+  supportsPersistentReservations:
+    type:
+      - boolean
+      - 'null'
+    description: Whether this controller type supports SCSI-3 persistent reservations, required for shared multi-attach volumes.

@@ -18,6 +18,11 @@ properties:
     type: boolean
   customSize:
     type: boolean
+  multiAttachSupported:
+    type:
+      - boolean
+      - 'null'
+    description: Whether volumes of this type can be attached to more than one server at a time.
   customSizeOptions:
     type:
       - string
