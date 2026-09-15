@@ -7,14 +7,18 @@
     "hideDatastoreStats": true,
     "crossTenantNamingPolicies": false,
     "reuseSequence": true,
+    "showConsoleKeyboardSettings": true,
     "cloudInitUsername": "root",
     "cloudInitPassword": "****",
+    "cloudInitPasswordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
     "cloudInitKeyPair": {
       "id": 3,
       "name": "stubby.toes"
     },
     "windowsPassword": null,
+    "windowsPasswordHash": null,
     "pxeRootPassword": null,
+    "pxeRootPasswordHash": null,
     "defaultTemplateType": {
       "id": 1,
       "name": "morpheus",

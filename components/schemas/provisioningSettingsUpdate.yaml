@@ -21,6 +21,13 @@ properties:
   reuseSequence: 
     type: boolean
     description: Use this to enable / disable reusing naming sequence numbers
+  consoleKeyboardSettings:
+    type: boolean
+    description: >-
+      Use this to enable / disable showing console keyboard layout settings for
+      applicable clouds and remote protocols. Note that this property is named
+      `showConsoleKeyboardSettings` in the response returned when retrieving
+      provisioning settings.
   cloudInitUsername: 
     type: string
     description: Cloud-init username
