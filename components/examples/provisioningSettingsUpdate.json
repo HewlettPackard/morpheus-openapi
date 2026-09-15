@@ -7,6 +7,7 @@
     "hideDatastoreStats": true,
     "crossTenantNamingPolicies": true,
     "reuseSequence": true,
+    "consoleKeyboardSettings": true,
     "cloudInitUsername": "stubbytoes",
     "cloudInitPassword": "supersecret",
     "deployStorageProvider": {
