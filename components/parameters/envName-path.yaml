@@ -1,0 +1,7 @@
+name: name
+in: path
+description: The name of the environment variable
+required: true
+schema:
+  type: string
+example: DATABASE_NAME

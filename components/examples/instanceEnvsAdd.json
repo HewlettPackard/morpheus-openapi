@@ -1,0 +1,12 @@
+{
+    "envs": [
+      {
+        "name": "DATABASE_NAME",
+        "value": "spud_marketing"
+      },
+      {
+        "name": "LOG_LEVEL",
+        "value": "debug"
+      }
+    ]
+}
