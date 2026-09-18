@@ -552,6 +552,8 @@ paths:
     $ref: paths/api@instances@id@eject.yaml
   /api/instances/{id}/envs:
     $ref: paths/api@instances@id@envs.yaml
+  /api/instances/{id}/envs/{name}:
+    $ref: paths/api@instances@id@envs@name.yaml
   /api/instances/{id}/extend-expiration:
     $ref: paths/api@instances@id@extend-expiration.yaml
   /api/instances/{id}/extend-shutdown:

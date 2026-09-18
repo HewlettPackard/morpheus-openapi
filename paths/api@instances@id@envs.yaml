@@ -21,3 +21,40 @@ get:
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
+post:
+  summary: Add or Update Env Variables
+  description: |
+    Adds environment variables to the instance, or updates existing ones.
+    Variables are matched by name: a variable whose name already exists on the
+    instance has its value replaced, and a variable whose name does not exist
+    is added. Variables not included in the request are left unchanged. To
+    remove a variable use the DELETE operation on `/api/instances/{id}/envs/{name}`.
+  operationId: addEnvVariables
+  tags:
+    - Instances
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/instanceEnvsAdd.yaml
+        examples:
+          Add Env Variables:
+            value:
+              $ref: ../components/examples/instanceEnvsAdd.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/instanceEnvs.yaml
+          examples:
+            Instance Env Response:
+              value:
+                $ref: ../components/examples/instanceEnvs.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
