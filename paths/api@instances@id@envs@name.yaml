@@ -1,0 +1,24 @@
+delete:
+  summary: Delete Env Variable
+  description: Removes the named user-defined environment variable from the instance.
+  operationId: deleteEnvVariable
+  tags:
+    - Instances
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/envName-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/instanceEnvs.yaml
+          examples:
+            Instance Env Response:
+              value:
+                $ref: ../components/examples/instanceEnvs.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

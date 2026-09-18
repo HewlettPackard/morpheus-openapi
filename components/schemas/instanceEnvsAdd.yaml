@@ -1,0 +1,29 @@
+type: object
+description: |
+  Environment variables to add to, or update on, the instance. Variables are
+  matched by `name`: a name that already exists on the instance has its value
+  replaced, and a name that does not exist is added. Variables not listed are
+  left unchanged.
+properties:
+  envs:
+    type: array
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The environment variable name.
+        value:
+          type: string
+          description: The environment variable value.
+        export:
+          type: boolean
+          description: Whether the variable is exported to the instance environment. Defaults to true.
+        masked:
+          type: boolean
+          description: Whether the value is masked in the UI and API. Defaults to false.
+      required:
+        - name
+        - value
+required:
+  - envs
