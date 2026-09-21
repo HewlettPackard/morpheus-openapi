@@ -27,11 +27,23 @@ properties:
     format: int64
     description: Can be used to select pre-existing LV choices from Morpheus.
   storageType:
-    type:
-      - integer
-      - 'null'
-    format: int64
-    description: Identifier for LV type
+    oneOf:
+      - type:
+          - integer
+          - 'null'
+        format: int64
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+            description: The id of the LV type. Not guaranteed to be stable across appliances; prefer `code` when known.
+          code:
+            type: string
+            description: The code of the LV type, eg. `"standard"` or `"io1"`. Takes precedence over `id` when both are provided.
+    description: |-
+      Identifier for LV type. Can be a plain numeric id (legacy form), or an object with `id` and/or `code`,
+      eg. `{"code": "standard"}`. When both `id` and `code` are supplied, `code` takes precedence.
   datastoreId:
     anyOf:
       - type:
