@@ -1,0 +1,7 @@
+name: clusterId
+in: path
+description: The numeric ID or the UUID of the cluster.
+required: true
+schema:
+  type: string
+example: '5'
