@@ -1,5 +1,8 @@
 type: object
 properties:
+  name:
+    type: string
+    description: Name. Applied when the network type's `nameEditable` flag is set; otherwise ignored.
   displayName:
     type: string
     description: Display Name
@@ -15,31 +18,80 @@ properties:
       - string
       - 'null'
     description: Description
+  ipv4Enabled:
+    type: boolean
+  ipv6Enabled:
+    type: boolean
   cidr:
     type: string
-    description: CIDR Network
+    description: CIDR Network. Applied when the network type's `cidrEditable` flag is set; otherwise ignored.
   gateway:
     type: string
-    description: Network Gateway
+    description: Network Gateway. Applied when the network type's `gatewayEditable` flag is set; otherwise ignored.
   dnsPrimary:
     type: string
-    description: Primary DNS Server
+    description: Primary DNS Server. Applied when the network type's `dnsEditable` flag is set; otherwise ignored.
   dnsSecondary:
     type: string
-    description: Secondary DNS Server
+    description: Secondary DNS Server. Applied when the network type's `dnsEditable` flag is set; otherwise ignored.
+  gatewayIPv6:
+    type:
+      - string
+      - 'null'
+    description: IPv6 Network Gateway
+  netmaskIPv6:
+    type:
+      - string
+      - 'null'
+  dnsPrimaryIPv6:
+    type:
+      - string
+      - 'null'
+    description: Primary IPv6 DNS Server
+  dnsSecondaryIPv6:
+    type:
+      - string
+      - 'null'
+    description: Secondary IPv6 DNS Server
+  cidrIPv6:
+    type: string
+    description: IPv6 Network CIDR
   vlanId:
     type: integer
     format: int64
+    description: VLAN ID. Applied when the network type's `vlanIdEditable` flag is set; otherwise ignored.
   switchId:
     type: string
     description: Network switch identifier
     example: "Compute"
+  networkServer:
+    type: object
+    description: Network server (integration) the network belongs to; see the create request. Not returned by the API.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Network Server ID
+  parentNetwork:
+    type: object
+    description: Parent network of a custom child network (type `childNetwork`). Not returned by the API.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Parent Network ID
   pool:
     type:
       - integer
       - 'null'
     format: int64
     description: Network Pool ID
+  poolIPv6:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: IPv6 Network Pool ID
   zonePool:
     type: object
     properties:
@@ -58,7 +110,10 @@ properties:
     description: Activate (true) or disable (false) the network
   dhcpServer:
     type: boolean
-    description: DHCP Server enabled network
+    description: DHCP Server enabled network. Applied when the network type's `dhcpServerEditable` flag is set; otherwise ignored.
+  dhcpServerIPv6:
+    type: boolean
+    description: IPv6 DHCP Server enabled network
   networkDomain:
     type: object
     properties:
