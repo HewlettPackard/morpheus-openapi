@@ -288,6 +288,12 @@ properties:
       - integer
       - 'null'
     format: int64
+  ioThreadCount:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: The number of libvirt iothreads declared by this VM's domain (`<iothreads>`). `null` means Morpheus has not yet observed the hypervisor's iothread topology for this VM; `0` means the domain explicitly declares no iothreads. The two are distinct — `null` is not reported as `0`. MVM/KVM only.
   maxMemory:
     type: integer
     format: int64
@@ -385,6 +391,12 @@ properties:
         reservedUnitNumber:
           type: integer
           format: int64
+        ioThreadId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+          description: The libvirt iothread pinned to this controller's `virtio-scsi` driver. `null` means Morpheus has not yet observed the hypervisor's iothread topology for this VM, which is not the same as the controller having no iothread. MVM/KVM only.
   interfaces:
     type: array
     items:
