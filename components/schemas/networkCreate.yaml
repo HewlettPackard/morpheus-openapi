@@ -93,6 +93,41 @@ properties:
     type: string
     description: Network switch identifier
     example: "Compute"
+  networkServer:
+    type: object
+    description: |
+      Network server (integration) the network belongs to. Required by network types a network
+      plugin manages (`hasNetworkServer` on the network type), such as the HVM port group types,
+      whose network server is the cluster's hidden "HVM Network Server"; list them with
+      `GET /api/networks/servers?showHidden=true`. Not returned by the API.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Network Server ID
+  scopeId:
+    type: string
+    description: |
+      Transport zone of an NSX-T segment (type `nsxtLogicalSwitch`) on NSX-T 2.x. Not editable
+      after create and not returned by the API.
+  vxlanId:
+    type: integer
+    format: int64
+    description: |
+      VXLAN ID of an OVS overlay network (type `ovsOverlay`). Not editable after create and not
+      returned by the API.
+  parentNetwork:
+    type: object
+    description: Parent network of a custom child network (type `childNetwork`). Not returned by the API.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Parent Network ID
+  availabilityZone:
+    type: string
+    description: Availability zone of an Amazon subnet (type `amazonSubnet`), e.g. `us-west-1a`. Set on create only.
+    example: us-west-1a
   pool:
     type:
       - integer
