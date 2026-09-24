@@ -1,11 +1,11 @@
 get:
   summary: Get a Specific Cluster
-  description: This endpoint retrieves a specific cluster.
+  description: This endpoint retrieves a specific cluster. The path segment accepts either the numeric cluster ID or the cluster UUID string.
   operationId: getCluster
   tags:
     - Clusters
   parameters:
-    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/clusterIdOrUuid-path.yaml
     - in: query
       name: stats
       description: This can be used to include the cluster `stats` object in the response by passing `true`. This object includes usage information that varies by cluster type. For example for HVM it may include `cephStats` and `pacemakerStats`.

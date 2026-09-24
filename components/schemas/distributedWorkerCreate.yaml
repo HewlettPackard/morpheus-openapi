@@ -1,0 +1,17 @@
+type: object
+properties:
+  name:
+    type: string
+    description: A unique name for the distributed worker.
+  description:
+    type: string
+  enabled:
+    type: boolean
+    description: Defaults to true.
+  proxyHostList:
+    type: string
+    description: Comma or space separated list of proxy hosts.
+  applianceUrl:
+    type: string
+required:
+  - name

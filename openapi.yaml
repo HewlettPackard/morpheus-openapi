@@ -473,6 +473,10 @@ paths:
     $ref: paths/api@deploys@id.yaml
   /api/deploys/{id}/deploy:
     $ref: paths/api@deploys@id@deploy.yaml
+  /api/distributed-workers:
+    $ref: paths/api@distributed-workers.yaml
+  /api/distributed-workers/{id}:
+    $ref: paths/api@distributed-workers@id.yaml
   /api/environments:
     $ref: paths/api@environments.yaml
   /api/environments/{id}:
