@@ -355,10 +355,3 @@ properties:
               type: object
   config:
     type: object
-    description: |
-      Provision-type-specific cluster configuration. For HVM clusters on a
-      layout with clusterVersion 2.0 or greater, the HVM network fields are
-      populated.
-    anyOf:
-      - $ref: clusterConfigHVM.yaml
-      - type: object
