@@ -31,3 +31,30 @@ properties:
     type: string
   createUser:
     type: boolean
+  virtSwitchName:
+    description: Name of the HVM virtual switch. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
+  dns1:
+    description: Primary DNS server for the HVM cluster. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
+  dns2:
+    description: Secondary DNS server for the HVM cluster. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
+  dns3:
+    description: Tertiary DNS server for the HVM cluster. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
+  searchDomain:
+    description: DNS search domain for the HVM cluster. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
+  ntp1:
+    description: Primary NTP server for the HVM cluster. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
+  ntp2:
+    description: Secondary NTP server for the HVM cluster. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
+  proxy:
+    description: Proxy server for the HVM cluster. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
+  noProxy:
+    description: Comma-separated list of hosts that bypass the proxy. Requires a cluster layout with clusterVersion 2.0 or greater.
+    type: string
