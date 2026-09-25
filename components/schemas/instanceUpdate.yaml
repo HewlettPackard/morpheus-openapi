@@ -8,8 +8,10 @@ properties:
         description: Unique name scoped to your account for the instance.
         example: myinstance
       description:
-        type: string
-        description: Optional description field.
+        type:
+          - string
+          - 'null'
+        description: Optional description field; null clears it.
         example: my updated instance
       instanceContext:
         type: string

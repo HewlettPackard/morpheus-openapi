@@ -50,11 +50,15 @@ put:
                     type: string
                     description: VDI Gateway name
                   description:
-                    type: string
-                    description: Description
+                    type:
+                      - string
+                      - 'null'
+                    description: Description; null clears it
                   gatewayUrl:
-                    type: string
-                    description: Gateway URL
+                    type:
+                      - string
+                      - 'null'
+                    description: Gateway URL; null clears it
                     example: "https://fqdn.com"
   responses:
     '200':
