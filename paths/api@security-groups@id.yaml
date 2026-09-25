@@ -49,8 +49,10 @@ put:
                   type: string
                   description: Name for your security group
                 description:
-                  type: string
-                  description: Optional description field
+                  type:
+                    - string
+                    - 'null'
+                  description: Optional description field; null clears it
                 active:
                   type: boolean
                   description: Set to `false` to disable a security group.

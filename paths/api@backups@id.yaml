@@ -65,8 +65,10 @@ put:
                   type: string
                   description: Cron expression for custom schedule (overrides job schedule).
                 targetPath:
-                  type: string
-                  description: The file or directory path on the target host. Applies to server/host backups (fileBackup, directoryBackup).
+                  type:
+                    - string
+                    - 'null'
+                  description: The file or directory path on the target host. Applies to server/host backups (fileBackup, directoryBackup). Null clears it.
                 targetHost:
                   type: string
                   description: Target host address. Applies to server/host and database backups.
@@ -74,8 +76,10 @@ put:
                   type: integer
                   description: Target port. Applies to server/host and database backups.
                 targetUsername:
-                  type: string
-                  description: Target username for connecting to the backup target.
+                  type:
+                    - string
+                    - 'null'
+                  description: Target username for connecting to the backup target.; null clears it
                 targetPassword:
                   type: string
                   description: Target password for connecting to the backup target.

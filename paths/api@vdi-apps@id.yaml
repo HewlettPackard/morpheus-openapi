@@ -51,8 +51,10 @@ put:
                     type: string
                     description: VDI App name
                   description:
-                    type: string
-                    description: Description
+                    type:
+                      - string
+                      - 'null'
+                    description: Description; null clears it
                   iconPath:
                     type: string
                     format: binary

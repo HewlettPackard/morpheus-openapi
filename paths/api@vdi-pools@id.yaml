@@ -50,8 +50,10 @@ put:
                   type: string
                   description: Virtual Desktop name
                 description:
-                  type: string
-                  description: Virtual Desktop description
+                  type:
+                    - string
+                    - 'null'
+                  description: Virtual Desktop description; null clears it
                 owner:
                   type: integer
                   format: int64
