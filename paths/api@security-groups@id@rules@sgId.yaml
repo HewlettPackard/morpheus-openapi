@@ -50,9 +50,11 @@ put:
                 - ruleType
                 - protocol
               properties:
-                name: 
-                  type: string
-                  description: A name for the rule
+                name:
+                  type:
+                    - string
+                    - 'null'
+                  description: A name for the rule; null clears it
                 direction:
                   type: string
                   description: Either `ingress` or `egress`

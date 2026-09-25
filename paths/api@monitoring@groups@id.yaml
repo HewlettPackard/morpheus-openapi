@@ -53,8 +53,10 @@ put:
                   description: Unique name scoped to your account for the check group
                   example: My Check Group
                 description:
-                  type: string
-                  description: Optional description field
+                  type:
+                    - string
+                    - 'null'
+                  description: Optional description field; null clears it
                   example: My cool description
                 minHappy:
                   type: integer

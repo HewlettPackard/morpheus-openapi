@@ -3,5 +3,6 @@ in: path
 description: Morpheus ID of the security group rule being referenced
 required: true
 schema:
-  type: number
+  type: integer
+  format: int64
 example: 2352
