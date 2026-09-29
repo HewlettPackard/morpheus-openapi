@@ -58,9 +58,11 @@ put:
                   format: int64
                   description: Execute Schedule ID to use for the backup job
                 retentionCount:
-                  type: integer
+                  type:
+                    - integer
+                    - 'null'
                   format: int64
-                  description: Retention Count
+                  description: Retention Count; null clears it
   responses:
     '200':
       description: Successful Request

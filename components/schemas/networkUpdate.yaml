@@ -57,9 +57,11 @@ properties:
     type: string
     description: IPv6 Network CIDR
   vlanId:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    description: VLAN ID. Applied when the network type's `vlanIdEditable` flag is set; otherwise ignored.
+    description: VLAN ID; null removes it. Applied when the network type's `vlanIdEditable` flag is set; otherwise ignored.
   switchId:
     type: string
     description: Network switch identifier
@@ -93,12 +95,17 @@ properties:
     format: int64
     description: IPv6 Network Pool ID
   zonePool:
-    type: object
+    type:
+      - object
+      - 'null'
+    description: Zone pool (resource pool) the network is assigned to; null, or a null id, removes the assignment
     properties:
       id:
-        type: integer
+        type:
+          - integer
+          - 'null'
         format: int64
-        description: Morpheus zone pool ID of the GCP Project for the network
+        description: Morpheus zone pool ID of the GCP Project for the network; null removes the assignment
   allowStaticOverride:
     type: boolean
     description: Allow IP Override
@@ -115,22 +122,32 @@ properties:
     type: boolean
     description: IPv6 DHCP Server enabled network
   networkDomain:
-    type: object
+    type:
+      - object
+      - 'null'
+    description: Network domain; null, or a null id, removes it
     properties:
       id:
-        type: integer
+        type:
+          - integer
+          - 'null'
         format: int64
-        description: Network Domain ID
+        description: Network Domain ID; null removes the domain
   searchDomains:
     type: string
     description: Search Domains
   networkProxy:
-    type: object
+    type:
+      - object
+      - 'null'
+    description: Network proxy; null, or a null id, removes it
     properties:
       id:
-        type: integer
+        type:
+          - integer
+          - 'null'
         format: int64
-        description: Network Proxy ID
+        description: Network Proxy ID; null removes the proxy
   applianceUrlProxyBypass:
     type: boolean
     description: Bypass Proxy for Appliance URL

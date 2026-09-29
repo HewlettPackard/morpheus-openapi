@@ -34,11 +34,15 @@ subnet:
       type: boolean
       description: Allow IP Override
     pool:
-      type: object
-      description: Network Pool
+      type:
+        - object
+        - 'null'
+      description: Network Pool; on update, null or a null id removes the pool
       properties:
         id:
-          type: integer
+          type:
+            - integer
+            - 'null'
           format: int64
     tenants:
       type: array
