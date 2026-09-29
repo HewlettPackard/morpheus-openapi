@@ -1,9 +1,11 @@
 name: 
   type: string
   description: A unique name scoped to your account for the key
-description: 
-  type: string
-  description: A description of the certificate
+description:
+  type:
+    - string
+    - 'null'
+  description: A description of the certificate; null clears it
 certFile: 
   type: string
   description: The contents of the certificate file

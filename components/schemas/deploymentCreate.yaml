@@ -3,6 +3,8 @@ properties:
   name: 
     type: string
     description: Name, a unique identifier for the deployment
-  description: 
-    type: string
-    description: Description
+  description:
+    type:
+      - string
+      - 'null'
+    description: Description; null clears it

@@ -4,8 +4,10 @@ properties:
     type: string
     description: Name
   description:
-    type: string
-    description: Description
+    type:
+      - string
+      - 'null'
+    description: Description; null clears it
   enabled:
     type: boolean
     description: Activate (true) or disable (false)

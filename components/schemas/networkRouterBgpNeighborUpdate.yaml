@@ -5,14 +5,20 @@ properties:
     type: string
     description: IP address of the BGP neighbor
   description:
-    type: string
-    description: Description of the BGP neighbor
+    type:
+      - string
+      - 'null'
+    description: Description of the BGP neighbor; null clears it
   forwardingAddress:
-    type: string
-    description: Forwarding address (NSX-V distributed router)
+    type:
+      - string
+      - 'null'
+    description: Forwarding address (NSX-V distributed router); null clears it
   protocolAddress:
-    type: string
-    description: Protocol address (NSX-V distributed router)
+    type:
+      - string
+      - 'null'
+    description: Protocol address (NSX-V distributed router); null clears it
   remoteAs:
     type: string
     description: Remote AS number
@@ -35,11 +41,15 @@ properties:
     type: string
     description: Address family for route filtering (e.g. IPV4, IPV6)
   routeFilteringIn:
-    type: string
-    description: Inbound route filter name
+    type:
+      - string
+      - 'null'
+    description: Inbound route filter name; null clears it
   routeFilteringOut:
-    type: string
-    description: Outbound route filter name
+    type:
+      - string
+      - 'null'
+    description: Outbound route filter name; null clears it
   bfdEnabled:
     type:
       - boolean

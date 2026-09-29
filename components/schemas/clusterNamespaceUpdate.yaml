@@ -3,9 +3,11 @@ properties:
   name: 
     type: string
     description: Namespace name
-  description: 
-    type: string
-    description: Namespace description
+  description:
+    type:
+      - string
+      - 'null'
+    description: Namespace description; null clears it
   active: 
     type: boolean
     description: Namespace active

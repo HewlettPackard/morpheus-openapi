@@ -11,10 +11,12 @@ properties:
     format: int64
     description: Copies - The number of times the key can be used.
     default: 1
-  description: 
-    type: string
-    description: Description
-  virtualImages:
+  description:
+    type:
+      - string
+      - 'null'
+    description: Description; null clears it
+  virtualImages: 
     type: array
     description: |
       Virtual image ids, or objects with `id`. Replaces set when provided.

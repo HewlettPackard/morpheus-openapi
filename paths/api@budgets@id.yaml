@@ -52,7 +52,10 @@ put:
                 name:
                   type: string
                 description:
-                  type: string
+                  type:
+                    - string
+                    - 'null'
+                  description: null clears it
                 scope:
                   type: string
                   default: account
