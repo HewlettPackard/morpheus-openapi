@@ -12,8 +12,10 @@ properties:
     items:
       type: string
   category:
-    type: string
-    description: Script category
+    type:
+      - string
+      - 'null'
+    description: Script category; null clears it
   scriptVersion:
     type: string
     description: Version of the script
@@ -43,8 +45,10 @@ properties:
     type: string
     description: Script content, that is, the code itself.
   runAsUser:
-    type: string
-    description: Run as a specific user.
+    type:
+      - string
+      - 'null'
+    description: Run as a specific user; null clears it
   sudoUser:
     type: boolean
     description: Sudo, whether or not to run with sudo.

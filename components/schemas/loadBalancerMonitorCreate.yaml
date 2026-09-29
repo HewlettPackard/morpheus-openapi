@@ -2,8 +2,10 @@ name:
   type: string
   description: Name
 description:
-  type: string
-  description: Description
+  type:
+    - string
+    - 'null'
+  description: Description; null clears it
 monitorType:
   type: string
 monitorInterval:

@@ -83,8 +83,10 @@ put:
                   description: A name for the power schedule
                   example: Sample Threshold
                 description:
-                  type: string
-                  description: A description for the power schedule
+                  type:
+                    - string
+                    - 'null'
+                  description: A description for the power schedule; null clears it
                 scheduleType:
                   type: string
                   description: Type of schedule `power` on or `power off`

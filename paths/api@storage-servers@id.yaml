@@ -52,8 +52,10 @@ put:
                   type: string
                   description: The `Storage Type` Code or ID
                 description:
-                  type: string
-                  description: description
+                  type:
+                    - string
+                    - 'null'
+                  description: description; null clears it
                 enabled:
                   type: boolean
                   description: The enabled flag
@@ -69,14 +71,20 @@ put:
                     - public
                   default: private
                 serviceHost:
-                  type: string
-                  description: Storage server host
+                  type:
+                    - string
+                    - 'null'
+                  description: Storage server host; null clears it
                 serviceUrl:
-                  type: string
-                  description: Storage server URL
+                  type:
+                    - string
+                    - 'null'
+                  description: Storage server URL; null clears it
                 serviceUsername:
-                  type: string
-                  description: Service username for authentication
+                  type:
+                    - string
+                    - 'null'
+                  description: Service username for authentication; null clears it
                 servicePassword:
                   type: string
                   description: Service password for authentication

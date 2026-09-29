@@ -52,8 +52,10 @@ put:
                   type: string
                   description: Service plan code, must be unique
                 description:
-                  type: string
-                  description: Service plan description
+                  type:
+                    - string
+                    - 'null'
+                  description: Service plan description; null clears it
                 editable:
                   type: boolean
                   description: Can be used to enable / disable the editability of the service plan.
