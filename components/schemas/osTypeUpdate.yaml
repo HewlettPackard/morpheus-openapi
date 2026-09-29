@@ -56,9 +56,11 @@ properties:
     description: |
       The bitCount/architecture of the osType.
   cloudInitVersion:
-    type: string
+    type:
+      - string
+      - 'null'
     description: |
-      The version of CloudInit being used.
+      The version of CloudInit being used; null clears it.
   installAgent:
     type:
       - boolean

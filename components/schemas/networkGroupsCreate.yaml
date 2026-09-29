@@ -2,8 +2,11 @@ type: object
 properties: 
   name: 
     type: string
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
+    description: null clears it
   visibility:
     type: string
     description: Visibility level (public or private)

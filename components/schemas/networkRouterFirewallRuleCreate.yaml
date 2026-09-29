@@ -30,14 +30,20 @@ properties:
     type: string
     description: Network protocol the rule matches (for example tcp, udp, icmp, any).
   portRange:
-    type: string
-    description: Port or port range the rule matches (for example 443 or 8080-8090).
+    type:
+      - string
+      - 'null'
+    description: Port or port range the rule matches (for example 443 or 8080-8090). Null clears it.
   application:
-    type: string
-    description: Application the rule matches, when supported by the network router type.
+    type:
+      - string
+      - 'null'
+    description: Application the rule matches, when supported by the network router type. Null clears it.
   description:
-    type: string
-    description: Description of the firewall rule.
+    type:
+      - string
+      - 'null'
+    description: Description of the firewall rule. Null clears it.
   config:
     type: object
     description: Network-router-type-specific rule configuration.

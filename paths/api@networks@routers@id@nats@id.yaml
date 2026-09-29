@@ -49,20 +49,28 @@ put:
                   type: string
                   description: Sets name of NAT
                 description:
-                  type: string
-                  description: Description of the NAT rule.
+                  type:
+                    - string
+                    - 'null'
+                  description: Description of the NAT rule. Null clears it.
                 enabled:
                   type: boolean
                   description: Whether the NAT rule is enabled.
                 sourceNetwork:
-                  type: string
-                  description: Source network for the NAT rule.
+                  type:
+                    - string
+                    - 'null'
+                  description: Source network for the NAT rule. Null clears it.
                 destinationNetwork:
-                  type: string
-                  description: Destination network for the NAT rule.
+                  type:
+                    - string
+                    - 'null'
+                  description: Destination network for the NAT rule. Null clears it.
                 translatedNetwork:
-                  type: string
-                  description: Translated network for the NAT rule.
+                  type:
+                    - string
+                    - 'null'
+                  description: Translated network for the NAT rule. Null clears it.
                 sourcePorts:
                   type: string
                   description: Source ports for the NAT rule.
@@ -70,8 +78,10 @@ put:
                   type: string
                   description: Destination ports for the NAT rule.
                 translatedPorts:
-                  type: string
-                  description: Translated ports for the NAT rule.
+                  type:
+                    - string
+                    - 'null'
+                  description: Translated ports for the NAT rule. Null clears it.
                 priority:
                   type: integer
                   format: int64

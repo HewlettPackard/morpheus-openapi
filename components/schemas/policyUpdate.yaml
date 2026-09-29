@@ -5,8 +5,10 @@ properties:
     description: A name for the policy
     example: Sample Policy
   description:
-    type: string
-    description: A description for the policy
+    type:
+      - string
+      - 'null'
+    description: A description for the policy; null clears it
   config:
     description: A map of config values. The expected values vary by policy type. See `Retrieves all Policy Types` endpoint for `fieldName`(s) of required options.
     anyOf:

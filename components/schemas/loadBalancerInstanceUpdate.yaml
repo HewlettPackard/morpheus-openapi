@@ -3,9 +3,11 @@ properties:
   vipName: 
     type: string
     description: VIP Name
-  description: 
-    type: string
-    description: Description
+  description:
+    type:
+      - string
+      - 'null'
+    description: Description; null clears it
   vipAddress: 
     type: string
     description: VIP Address
@@ -18,9 +20,11 @@ properties:
     description: |-
       VIP Protocol.
       For NSX-T load balancers, this is the virtual server type. Valid values are `http`, `tcp`, `udp`.
-  vipHostname: 
-    type: string
-    description: VIP Hostname
+  vipHostname:
+    type:
+      - string
+      - 'null'
+    description: VIP Hostname; null clears it
   vipPool:
     type:
       - integer
@@ -33,14 +37,18 @@ properties:
     type: integer
     format: int64
     description: Backend server pool ID. Can also be specified in `config.pool` for NSX-T load balancers.
-  sslCert: 
-    type: integer
+  sslCert:
+    type:
+      - integer
+      - 'null'
     format: int64
-    description: SSL Client Certificate ID. Use `0` for none.
-  sslServerCert: 
-    type: integer
+    description: SSL Client Certificate ID. Use `0` for none. Null clears it.
+  sslServerCert:
+    type:
+      - integer
+      - 'null'
     format: int64
-    description: SSL Server Certificate ID. Use `0` for none.
+    description: SSL Server Certificate ID. Use `0` for none. Null clears it.
   config:
     anyOf:
       - $ref: loadBalancerInstanceGenericConfig.yaml

@@ -67,8 +67,10 @@ put:
                   type: string
                   description: Optional description field if you want to put more info there
                 code:
-                  type: string
-                  description: Optional code for use with policies
+                  type:
+                    - string
+                    - 'null'
+                  description: Optional code for use with policies; null clears it
                   example: mycloud
                 labels: 
                   type: array
@@ -76,8 +78,10 @@ put:
                   items:
                     type: string
                 location:
-                  type: string
-                  description: Optional location for your cloud
+                  type:
+                    - string
+                    - 'null'
+                  description: Optional location for your cloud; null clears it
                   example: US East
                 visibility:
                   type: string

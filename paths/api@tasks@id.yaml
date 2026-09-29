@@ -102,8 +102,10 @@ put:
                   description: A unique name for the task
                   example: Sample Task
                 code:
-                  type: string
-                  description: A unique code for the task
+                  type:
+                    - string
+                    - 'null'
+                  description: A unique code for the task; null clears it
                   example: aTaskCode
                 visibility:
                   type: string
@@ -185,13 +187,17 @@ put:
                   description: If the task should be retried or not.
                   default: false
                 retryCount:
-                  type: integer
+                  type:
+                    - integer
+                    - 'null'
                   format: int64
-                  description: The number of times to retry.
+                  description: The number of times to retry; null clears it
                 retryDelaySeconds:
-                  type: integer
+                  type:
+                    - integer
+                    - 'null'
                   format: int64
-                  description: The delay, between retries.
+                  description: The delay, between retries; null clears it
                 file:
                   type: object
                   description: |
