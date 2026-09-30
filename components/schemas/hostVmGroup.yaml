@@ -38,7 +38,9 @@ properties:
     type: boolean
     description: Active
   externalId:
-    type: string
+    type:
+      - string
+      - 'null'
     description: Identifier of the corresponding group on the underlying platform
   owner:
     type: object

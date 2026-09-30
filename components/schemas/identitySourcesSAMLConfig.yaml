@@ -92,7 +92,9 @@ properties:
       type: object
       properties:
         sourceRoleName:
-          type: string
+          type:
+            - string
+            - 'null'
         sourceRoleFqn:
           type:
             - string

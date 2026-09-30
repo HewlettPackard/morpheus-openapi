@@ -30,7 +30,9 @@ properties:
     format: date-time
     description: When the violation was first observed
   alarmId:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
     description: ID of the alarm raised for an empty Host Group, if one was raised
   affectedVms:
