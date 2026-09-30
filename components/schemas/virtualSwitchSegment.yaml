@@ -43,8 +43,8 @@ properties:
     type:
       - integer
       - 'null'
-    description: VLAN tag (1-4094). Null means untagged.
-    minimum: 1
+    description: VLAN tag (2-4094). Null means untagged.
+    minimum: 2
     maximum: 4094
     example: 220
   mtu:
@@ -82,3 +82,10 @@ properties:
     type:
       - string
       - 'null'
+  hostIps:
+    type: array
+    description: >-
+      Per-host IP address assignments for this segment. Present only when
+      per-host IPs have been stored for the segment.
+    items:
+      $ref: ./virtualSwitchSegmentHostIp.yaml

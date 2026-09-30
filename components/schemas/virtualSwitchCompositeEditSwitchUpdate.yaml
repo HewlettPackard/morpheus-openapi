@@ -1,18 +1,8 @@
 type: object
 description: >-
-  Request body for updating a virtual switch. `baseType` is immutable; supplying
-  a different value is rejected.
+  Switch-level changes applied by a composite edit. Only the fields supplied
+  are changed.
 properties:
-  name:
-    type: string
-    description: >-
-      Switch name. Limited to 16 characters, matching the switch domain
-      constraint and the service name-length limit.
-    maxLength: 16
-    example: vswitch01
-  description:
-    type: string
-    example: Updated description
   bondMode:
     type: string
     description: >-

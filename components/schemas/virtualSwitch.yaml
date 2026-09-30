@@ -10,9 +10,9 @@ properties:
   name:
     type: string
     description: >-
-      Switch name. Limited to 12 characters so the derived `<name>-br` bridge
-      stays within the 15-character Linux interface name limit.
-    maxLength: 12
+      Switch name. Limited to 16 characters, matching the switch domain
+      constraint and the service name-length limit.
+    maxLength: 16
     example: vswitch01
   code:
     type:
@@ -75,3 +75,30 @@ properties:
     type: integer
     description: Number of traffic segments defined on the switch.
     example: 3
+  segments:
+    type: array
+    description: >-
+      Traffic-type summary of the segments defined on the switch. The list
+      view returns only each segment's traffic type; the detail view returns
+      the full segment objects.
+    items:
+      type: object
+      properties:
+        trafficType:
+          type: string
+          enum:
+            - vm
+            - data-nfs
+            - data-iscsi
+            - live-migration
+            - sdn
+            - management
+          example: vm
+  uplinkNics:
+    type: array
+    description: Distinct physical NIC names consumed across all host uplinks.
+    items:
+      type: string
+    example:
+      - eno1
+      - eno2
