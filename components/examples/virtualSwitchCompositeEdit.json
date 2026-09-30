@@ -1,0 +1,29 @@
+{
+  "switchUpdate": {
+    "bondMode": "802.3ad",
+    "mtu": 9000,
+    "uplinks": [
+      { "serverId": 42, "nic1": "eno1", "nic2": "eno2" }
+    ]
+  },
+  "newSegments": [
+    {
+      "trafficType": "data-nfs",
+      "vlanId": 240,
+      "netmask": "255.255.255.0",
+      "gateway": "10.0.40.1",
+      "hostIps": [
+        { "serverId": 42, "ip": "10.0.40.5" }
+      ]
+    }
+  ],
+  "editedSegments": [
+    {
+      "segId": 44,
+      "vlanId": 221,
+      "hostIps": [
+        { "serverId": 42, "ip": "10.0.20.6" }
+      ]
+    }
+  ]
+}
