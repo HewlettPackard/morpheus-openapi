@@ -80,24 +80,6 @@ properties:
         format: int64
       name:
         type: string
-  showConsoleKeyboardSettings:
-    type: boolean
-    description: Whether console keyboard settings are shown
-  cloudInitPasswordHash:
-    type:
-      - string
-      - 'null'
-    description: Hash of the cloud-init password
-  windowsPasswordHash:
-    type:
-      - string
-      - 'null'
-    description: Hash of the Windows administrator password
-  pxeRootPasswordHash:
-    type:
-      - string
-      - 'null'
-    description: Hash of the PXE root password
   enableCatalog:
     type: boolean
     description: Whether catalog provisioning is enabled

@@ -61,9 +61,6 @@ properties:
         type: integer
         format: int64
         description: Default blueprint type ID
-  consoleKeyboardSettings:
-    type: boolean
-    description: Enable or disable console keyboard settings (stored setting name)
   enableCatalog:
     type: boolean
     description: Enable or disable catalog provisioning
