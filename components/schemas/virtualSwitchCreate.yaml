@@ -6,9 +6,9 @@ properties:
   name:
     type: string
     description: >-
-      Switch name. Limited to 12 characters so the derived `<name>-br` bridge
-      stays within the 15-character Linux interface name limit.
-    maxLength: 12
+      Switch name. Limited to 16 characters, matching the switch domain
+      constraint and the service name-length limit.
+    maxLength: 16
     example: vswitch01
   code:
     type: string
@@ -27,10 +27,13 @@ properties:
     example: general
   bondMode:
     type: string
-    description: NIC bonding mode. Omit for single-NIC (no bond) mode.
+    description: >-
+      NIC bonding mode. Omit for single-NIC (no bond) mode. The literal
+      `none` may also be supplied to explicitly clear the bond mode.
     enum:
       - active-backup
       - 802.3ad
+      - none
     example: active-backup
   mtu:
     type: integer

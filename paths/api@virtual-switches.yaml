@@ -1,6 +1,10 @@
 get:
   summary: List Virtual Switches
-  description: Retrieves the HVM virtual switches defined on a cluster.
+  description: >-
+    Retrieves the HVM virtual switches defined on a cluster.
+
+
+    Requires Morpheus 9.1.0.
   operationId: listVirtualSwitches
   tags:
     - Virtual Switches
@@ -38,7 +42,14 @@ post:
   description: >-
     Creates a virtual switch on a cluster. This is an asynchronous operation: the
     request validates and persists the desired state, seeds pending per-host
-    uplinks, starts a background Process, and returns its `processId`.
+    uplinks, starts a background Process, and returns its `processId`. Poll
+    `GET /api/processes/{processId}` to track host orchestration. On validation
+    failure a 400 is returned with `{success: false, errors: {field: message}}`.
+    A 404 is returned when the cluster is not on a virtual-switch-capable (2.0+)
+    layout.
+
+
+    Requires Morpheus 9.1.0.
   operationId: addVirtualSwitch
   tags:
     - Virtual Switches
