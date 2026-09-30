@@ -64,21 +64,31 @@ post:
                     - 'null'
                   description: Description
                   example: Testing Tenant Creation
+                active:
+                  type: boolean
+                  description: Whether the tenant is active
+                  example: true
                 parentAccount:
                   type: object
                   description: Parent Account. This specifies the parent account for the new tenant. By default this will be the current user's tenant. This is only available to master tenant users.
                   properties:
                     id:
-                      type: integer
-                      format: int64
+                      description: Parent tenant ID. Accepts string or integer.
+                      oneOf:
+                        - type: integer
+                          format: int64
+                        - type: string
                       example: 1
                 role:
                   type: object
                   description: Tenant Base Role. This restricts the access available to this tenant's roles and users. The Options API `/api/options/roles?roleType=account&tenantId=1` can be used to see which options are available.
                   properties:
                     id:
-                      type: integer
-                      format: int64
+                      description: Base role ID. Accepts string or integer.
+                      oneOf:
+                        - type: integer
+                          format: int64
+                        - type: string
                       example: 3
                 subdomain:
                   type:
@@ -87,30 +97,22 @@ post:
                   description: The subdomain. This will be part of the login URL and username for sub tenant users.
                   example: tt
                 currency:
-                  type: string
-                  description: Currency ISO 4217 code for the tenant (e.g. USD, EUR, GBP). Must be a currency enabled on the target appliance; see the `currencies` option source (GET /api/options/currencies) for the live set. See CurrencyCode for the canonical ISO 4217 list.
-                  default: USD
-                  example: USD
-                active:
-                  type: boolean
-                  description: Whether the tenant is enabled. Disabled tenants cannot be logged into.
-                  default: true
-                  example: true
+                  $ref: ../components/schemas/CurrencyCode.yaml
                 accountNumber:
                   type:
                     - string
                     - 'null'
-                  description: An optional field that can be used for billing and accounting.
+                  description: Account number
                 accountName:
                   type:
                     - string
                     - 'null'
-                  description: An optional field that can be used for billing and accounting.
+                  description: Account name
                 customerNumber:
                   type:
                     - string
                     - 'null'
-                  description: An optional field that can be used for billing and accounting.
+                  description: Customer number
   responses:
     '200':
       description: Tenant Object

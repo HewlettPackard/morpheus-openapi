@@ -1,0 +1,90 @@
+get: 
+  summary: Get Cluster Host / VM Groups
+  description: >-
+    This endpoint retrieves the Host Groups and VM Groups of a specified cluster.
+  operationId: listClusterHostVmGroups
+  tags: 
+    -  Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/order.yaml
+    - $ref: ../components/parameters/phrase.yaml
+    - $ref: ../components/parameters/name.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content: 
+        application/json: 
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  hostVmGroups:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/hostVmGroup.yaml
+              - $ref: ../components/schemas/meta.yaml
+          examples:
+            List Host / VM Groups Response:
+              value:
+                $ref: ../components/examples/hostVmGroups.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Create a Cluster Host / VM Group
+  description: >-
+    This endpoint will create a Host Group or VM Group for a specific cluster.
+    All servers referenced must belong to the same cluster and resource pool.
+  operationId: saveClusterHostVmGroup
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            hostVmGroup:
+              $ref: ../components/schemas/hostVmGroupCreate.yaml
+            tenantPermissions:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: Array of tenant account IDs
+                  items:
+                    type: integer
+                    format: int64
+        examples:
+          Create Host / VM Group Request:
+            value:
+              $ref: ../components/examples/hostVmGroupCreate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  hostVmGroup:
+                    $ref: ../components/schemas/hostVmGroup.yaml
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Create Host / VM Group Response:
+              value:
+                $ref: ../components/examples/hostVmGroupSuccess.json
+    '400':
+      $ref: ../components/responses/hostVmGroup400.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

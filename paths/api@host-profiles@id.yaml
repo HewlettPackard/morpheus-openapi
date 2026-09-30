@@ -1,0 +1,139 @@
+get:
+  summary: Get a Host Profile
+  description: Returns a single host profile by ID including full config and version history.
+  operationId: getHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Host Profile detail
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              hostProfile:
+                $ref: ../components/schemas/hostProfileDetail.yaml
+          example:
+            $ref: ../components/examples/hostProfile.json
+    '400':
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/hostProfileIdRequired.json
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/hostProfileNotFound.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put:
+  summary: Update a Host Profile (full replace)
+  description: Full replacement of the profile config. Saves an immutable version snapshot of the previous config before applying changes.
+  operationId: updateHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name: { type: string }
+            description: { type: [string, 'null'] }
+            config:
+              $ref: ../components/schemas/hostProfileConfig.yaml
+  responses:
+    '200':
+      description: Updated host profile (summary — no config or versions)
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/hostProfile.yaml
+          example:
+            $ref: ../components/examples/hostProfileUpdate.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+patch:
+  summary: Patch a Host Profile (partial update)
+  description: Partial update using JSON Merge Patch (RFC 7396). Only supplied fields are updated. The `config` field is deep-merged — only supplied sub-keys change; omitted keys are preserved. Setting a key to `null` explicitly removes it. Saves a version snapshot before the merge.
+  operationId: patchHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name: { type: string }
+            description: { type: [string, 'null'] }
+            config:
+              $ref: ../components/schemas/hostProfileConfig.yaml
+        example:
+          $ref: ../components/examples/hostProfilePatchRequest.json
+  responses:
+    '200':
+      description: Updated host profile with full detail
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              hostProfile:
+                $ref: ../components/schemas/hostProfileDetail.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Host Profile
+  description: Detaches the profile from all servers and clusters, removes all HostProfileCompliance records and HostProfileVersion history, then deletes the Profile row.
+  operationId: deleteHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          example:
+            $ref: ../components/examples/success.json
+    '404':
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/hostProfileNotFound.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

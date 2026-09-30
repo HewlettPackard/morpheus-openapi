@@ -51,6 +51,9 @@ post:
           AlletraMP Datastore Request:
             value:
               $ref: ../components/examples/storageDatastoreCreateAlletraMP.json
+          Datastore Group Request:
+            value:
+              $ref: ../components/examples/storageDatastoreCreateDatastoreGroup.json
   responses:
     '200':
       description: Successful Request

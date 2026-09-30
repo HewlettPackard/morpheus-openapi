@@ -1,7 +1,7 @@
 get:
   summary: List All Users
   description: |
-    This endpoint retrieves all users in the current user's tenant account. Master tenant users with permission to manage subtenants can use `global=true` to find users across all tenants.
+    This endpoint retrieves all users in the current user's tenant account. Master tenant users with permission to manage subtenants can use `global=true` (or `includeTenants=true`) to find users across tenants.
   operationId: listUsers
   tags:
     - Users
@@ -16,15 +16,47 @@ get:
     - $ref: ../components/parameters/direction.yaml
     - name: phrase
       in: query
-      description: Search phrase for partial matches on username or email
+      description: >
+        Search phrase for partial matches on username, email, first name, or last name.
+        Multi-word phrases also attempt first name + last name matching.
       schema:
         type: string
     - $ref: ../components/parameters/username.yaml
     - $ref: ../components/parameters/email.yaml
     - $ref: ../components/parameters/roleId.yaml
-    - $ref: ../components/parameters/lastUpdated.yaml
+    - $ref: ../components/parameters/role.yaml
+    - name: authority
+      in: query
+      description: Filter by role authority (alias of `role`; supports multiple values)
+      schema:
+        type: string
     - $ref: ../components/parameters/accountId.yaml
+    - name: tenantId
+      in: query
+      description: Filter by Tenant ID (alias of `accountId`). Master-tenant users with tenant access only.
+      schema:
+        type: integer
+        format: int64
     - $ref: ../components/parameters/global.yaml
+    - name: includeTenants
+      in: query
+      description: Alias of `global`. Include users across tenants when permitted.
+      schema:
+        type: boolean
+        default: false
+    - name: lastLoginDate
+      in: query
+      description: Filter users with last login on or after this date
+      schema:
+        type: string
+        format: date-time
+    - name: dateCreated
+      in: query
+      description: Date filter accepted by the API (applied as a lower bound on last login date)
+      schema:
+        type: string
+        format: date-time
+    - $ref: ../components/parameters/lastUpdated.yaml
   responses:
     '200':
       description: Array of Users
@@ -50,7 +82,16 @@ get:
       $ref: ../components/responses/5xx.yaml
 post:
   summary: Create a New User
-  description: Create a new user.
+  description: |
+    Create a new user.
+
+    Password confirmation fields (`passwordConfirmation`, `linuxPasswordConfirmation`,
+    `windowsPasswordConfirmation`) are optional for API callers. If a password is supplied
+    and the matching confirmation key is omitted entirely, the API auto-confirms it.
+    An explicitly provided confirmation value (including empty string) is validated as-is.
+
+    Tenant may be selected with query `accountId` or `tenantId` (master-tenant users with
+    `admin-accounts` only). Nested route `POST /api/accounts/{accountId}/users` is equivalent.
   operationId: addUser
   tags:
     - Users
@@ -58,6 +99,12 @@ post:
     - name: accountId
       in: query
       description: Tenant ID, create user in a sub tenant account instead of your own.
+      schema:
+        type: integer
+        format: int64
+    - name: tenantId
+      in: query
+      description: Alias of `accountId` for target tenant when creating a user.
       schema:
         type: integer
         format: int64
@@ -86,6 +133,10 @@ post:
               properties:
                 user:
                   $ref: ../components/schemas/user.yaml
+                errors:
+                  type: object
+                  additionalProperties:
+                    type: string
             - $ref: ../components/schemas/200-success.yaml
           examples:
             Create User Response:

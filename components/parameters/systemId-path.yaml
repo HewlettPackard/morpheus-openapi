@@ -1,0 +1,8 @@
+name: systemId
+in: path
+description: The ID of the System
+required: true
+schema:
+  type: integer
+  format: int64
+example: 1

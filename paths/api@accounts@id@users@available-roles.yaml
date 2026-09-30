@@ -1,0 +1,23 @@
+get:
+  summary: List available roles for users in a tenant
+  description: Roles available when creating a user in the given tenant.
+  operationId: listTenantUsersAvailableRoles
+  tags:
+    - Tenants
+  parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
+  responses:
+    '200':
+      description: Array of roles
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/usersAvailableRoles.yaml
+          examples:
+            Users Available Roles Response:
+              value:
+                $ref: ../components/examples/usersAvailableRoles.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

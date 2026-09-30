@@ -3,7 +3,7 @@ get:
   description: |
     Downloads a specific support bundle as a file attachment.
 
-    The bundle must be in `COMPLETED` status before it can be downloaded. The returned archive type depends on the appliance support bundle archive setting.
+    The bundle must be in `COMPLETED` or `WARNING` status before it can be downloaded. The returned archive type depends on the appliance support bundle archive setting.
   operationId: downloadSupportBundle
   tags:
     - Support Bundles

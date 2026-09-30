@@ -1,0 +1,15 @@
+{
+  "virtualSwitch": {
+    "name": "vswitch01",
+    "description": "Updated description",
+    "bondMode": "802.3ad",
+    "mtu": 9000,
+    "uplinks": [
+      {
+        "serverId": 42,
+        "nic1": "eno1",
+        "nic2": "eno3"
+      }
+    ]
+  }
+}

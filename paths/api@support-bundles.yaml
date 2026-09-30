@@ -11,6 +11,19 @@ get:
     - $ref: ../components/parameters/sort.yaml
     - $ref: ../components/parameters/direction.yaml
     - $ref: ../components/parameters/phrase.yaml
+    - name: status
+      in: query
+      description: Filter by support bundle generation status
+      schema:
+        type: string
+        enum:
+          - PENDING
+          - IN_PROGRESS
+          - CANCELLING
+          - CANCELLED
+          - COMPLETED
+          - WARNING
+          - FAILED
   responses:
     "200":
       description: Successful Request
@@ -32,7 +45,7 @@ get:
 post:
   summary: Generates a Support Bundle
   description: |
-    Generates a new support bundle. The bundle is created asynchronously — poll `GET /api/support-bundles/{id}` until `status` is `COMPLETED` or `FAILED`.
+    Generates a new support bundle. The bundle is created asynchronously — poll `GET /api/support-bundles/{id}` until `status` is terminal (`COMPLETED`, `WARNING`, `FAILED`, or `CANCELLED`).
 
     The request accepts an optional flat `contents` array describing which support bundle content entries to include. Each entry must provide either a content type `code` or `typeId`, and may optionally provide a `resourceId` for resource-backed content types.
 
@@ -56,6 +69,9 @@ post:
           required:
             - startDate
           properties:
+            name:
+              type: string
+              description: Optional unique name for the support bundle. When omitted, a name is generated automatically.
             storageProviderId:
               type: integer
               format: int64

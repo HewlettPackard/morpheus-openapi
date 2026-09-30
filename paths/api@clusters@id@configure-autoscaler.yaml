@@ -1,0 +1,35 @@
+post:
+  summary: Configure Cluster Autoscaler
+  description: |
+    Configure autoscaler settings for a cluster.
+
+    This endpoint supports enabling or disabling autoscaler and updating the single autoscaler group associated with the cluster.
+  operationId: configureClusterAutoscaler
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/clusterConfigureAutoscaler.yaml
+        examples:
+          Cluster Autoscaler Request:
+            value:
+              $ref: ../components/examples/clusterConfigureAutoscaler.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -1,0 +1,10 @@
+# Scope-neutral view of an affinity group, used by the flat top-level
+# /api/affinity-groups/{id} endpoints. The payload is identical for
+# cluster-scoped and cloud-scoped rules — refType/refId identify the scope — so
+# this aliases the cluster schema rather than duplicating it.
+allOf:
+  - $ref: clusterAffinityGroup.yaml
+description: >-
+  An affinity group. `refType` is `ComputeServerGroup` for a cluster-scoped rule
+  or `ComputeZone` for a cloud-scoped rule, and `refId` is the ID of that
+  cluster or cloud.

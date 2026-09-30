@@ -1,11 +1,13 @@
 type: object
 required:
-  - allVdiPools
   - access
 properties:
-  allTasks:
+  allVdiPools:
     type: boolean
-    description: "Apply to all VDI Pools"
+    description: Apply to all VDI pools. Alias of `all`.
+  all:
+    type: boolean
+    description: Alias for `allVdiPools`
   access:
     type: string
     description: The new access level.

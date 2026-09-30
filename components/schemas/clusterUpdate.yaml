@@ -58,3 +58,9 @@ properties:
         enum:
           - on
           - off
+      migrationConcurrencyLimit:
+        type: string
+        description: Sets the maximum number of VMs to migrate in parallel per host during maintenance mode.
+      migrationConcurrencyAutoMode:
+        type: string
+        description: When enabled, Morpheus automatically sizes maintenance mode migration concurrency based on available bandwidth and VM count, using Migration Concurrency (if set) as an upper bound. When disabled, Migration Concurrency runs as a fixed number of parallel migrations at all times.

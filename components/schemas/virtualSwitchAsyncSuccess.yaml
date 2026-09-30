@@ -1,0 +1,21 @@
+type: object
+description: >-
+  Async mutation envelope. Virtual switch mutations validate and persist desired
+  state, then start a background Process. The returned `processId` can be polled
+  to track host orchestration.
+properties:
+  success:
+    type: boolean
+    example: true
+  processId:
+    type: integer
+    format: int64
+    description: The ID of the Process started to realize the change on cluster hosts.
+    example: 7
+  warnings:
+    type: array
+    description: Non-blocking warnings surfaced alongside a successful request.
+    items:
+      type: string
+    example:
+      - No spare NIC remains on host hvm-host01

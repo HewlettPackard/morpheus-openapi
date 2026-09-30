@@ -6,6 +6,9 @@ properties:
   allTaskSets:
     type: boolean
     description: "Apply to all workflows (taskSets)"
+  all:
+    type: boolean
+    description: Alias for `allTaskSets`
   access:
     type: string
     description: The new access level.

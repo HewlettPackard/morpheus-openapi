@@ -1,0 +1,44 @@
+get:
+  summary: Get Host Profile for a Server
+  description: Returns the host profile attached to the specified server, including full config, version history, and compliance summary.
+  operationId: getServerHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Attached host profile or null if none attached
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              serverId: { type: integer, format: int64 }
+              serverName: { type: string }
+              hostProfile:
+                oneOf:
+                  - allOf:
+                      - $ref: ../components/schemas/hostProfileDetail.yaml
+                      - type: object
+                        properties:
+                          complianceStatus:
+                            type: string
+                            enum: [unknown, checking, compliant, non-compliant, remediating, error]
+                          compliant: { type: [boolean, 'null'] }
+                          lastChecked: { type: [string, 'null'], format: date-time }
+                          remediatedDate: { type: [string, 'null'], format: date-time }
+                  - type: 'null'
+              msg: { type: [string, 'null'] }
+          examples:
+            Profile attached:
+              value:
+                $ref: ../components/examples/serverHostProfile.json
+            No profile attached:
+              value:
+                $ref: ../components/examples/hostProfileNoAttachment.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

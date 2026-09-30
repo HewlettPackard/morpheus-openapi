@@ -1,0 +1,88 @@
+get:
+  summary: Get a Specific Virtual Switch
+  description: Retrieves a specific virtual switch, including its segments and per-host uplinks.
+  operationId: getVirtualSwitch
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              virtualSwitch:
+                $ref: ../components/schemas/virtualSwitchDetail.yaml
+          examples:
+            Virtual Switch Response:
+              value:
+                $ref: ../components/examples/virtualSwitch.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put:
+  summary: Update a Virtual Switch
+  description: >-
+    Updates a virtual switch. `baseType` is immutable and any attempt to change
+    it is rejected. This is an asynchronous operation that returns a `processId`.
+  operationId: updateVirtualSwitch
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            virtualSwitch:
+              $ref: ../components/schemas/virtualSwitchUpdate.yaml
+        examples:
+          Virtual Switch Request:
+            value:
+              $ref: ../components/examples/virtualSwitchUpdate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/virtualSwitchAsyncSuccess.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/virtualSwitchAsyncSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Virtual Switch
+  description: >-
+    Deletes a virtual switch and its segments and uplinks. This is an
+    asynchronous operation that returns a `processId`.
+  operationId: deleteVirtualSwitch
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/virtualSwitchAsyncSuccess.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/virtualSwitchAsyncSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

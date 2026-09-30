@@ -1,0 +1,33 @@
+type: object
+description: Candidate physical NICs for a single host in the cluster.
+properties:
+  serverId:
+    type: integer
+    format: int64
+    example: 42
+  serverName:
+    type: string
+    example: hvm-host01
+  nics:
+    type: array
+    items:
+      type: object
+      description: A physical NIC on the host.
+      properties:
+        name:
+          type: string
+          example: eno1
+        macAddress:
+          type:
+            - string
+            - 'null'
+          example: aa:bb:cc:dd:ee:ff
+        active:
+          type:
+            - boolean
+            - 'null'
+          example: true
+        consumed:
+          type: boolean
+          description: Whether this NIC is already consumed by an existing switch uplink.
+          example: false

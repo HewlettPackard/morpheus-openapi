@@ -1,7 +1,9 @@
 {
   "license": {
     "name": "Test Windows",
-    "licenseType": "win",
+    "licenseType": {
+      "code": "win"
+    },
     "licenseKey": "12345-678-ABCDEFG-HIJKL",
     "orgName": "Acme Motors",
     "fullName": "Bugs Bunny",
@@ -9,9 +11,18 @@
     "copies": 5,
     "description": "A windows key for testing",
     "virtualImages": [
-      1,
-      2,
-      3
+      {
+        "id": 1
+      },
+      {
+        "id": 2
+      },
+      {
+        "id": 3
+      }
     ]
+  },
+  "tenantPermissions": {
+    "accounts": "1,3"
   }
 }

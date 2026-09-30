@@ -13,7 +13,11 @@ put:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            $ref: ../components/schemas/200-success-expanded.yaml
+          examples:
+            Deactivate Price Set Response:
+              value:
+                success: true
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

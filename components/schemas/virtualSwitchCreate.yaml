@@ -1,0 +1,49 @@
+type: object
+description: Request body for creating a virtual switch.
+required:
+  - name
+properties:
+  name:
+    type: string
+    description: >-
+      Switch name. Limited to 12 characters so the derived `<name>-br` bridge
+      stays within the 15-character Linux interface name limit.
+    maxLength: 12
+    example: vswitch01
+  code:
+    type: string
+    example: kvm.virtualswitch.custom
+  description:
+    type: string
+    example: General VM traffic switch
+  baseType:
+    type: string
+    description: The switch base type. Immutable after creation. Defaults to `general`.
+    enum:
+      - general
+      - iscsi
+      - sdn
+    default: general
+    example: general
+  bondMode:
+    type: string
+    description: NIC bonding mode. Omit for single-NIC (no bond) mode.
+    enum:
+      - active-backup
+      - 802.3ad
+    example: active-backup
+  mtu:
+    type: integer
+    enum:
+      - 1500
+      - 9000
+    default: 1500
+    example: 1500
+  segments:
+    type: array
+    items:
+      $ref: ./virtualSwitchSegmentCreate.yaml
+  uplinks:
+    type: array
+    items:
+      $ref: ./virtualSwitchUplinkAssignment.yaml

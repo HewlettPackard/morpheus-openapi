@@ -1,0 +1,34 @@
+get:
+  summary: Get Cluster Affinity Group Form Options
+  description: >-
+    Retrieve the option lists used to build an affinity rule for a cluster —
+    selectable VM Groups, Host Groups and Servers — along with the
+    `supportsCombinedRules` capability gate for the cluster's platform.
+  operationId: getClusterAffinityGroupFormOptions
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - name: poolId
+      in: query
+      description: >-
+        Optional Resource Pool ID used to narrow `availableServers` to a single
+        cluster's pool.
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/affinityGroupFormOptions.yaml
+          examples:
+            Affinity Group Form Options Response:
+              value:
+                $ref: ../components/examples/affinityGroupFormOptions.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

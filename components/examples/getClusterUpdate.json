@@ -1,0 +1,22 @@
+{
+  "update": {
+    "id": 1,
+    "name": "HVM Cluster 1.2 Upgrade",
+    "code": "hvm-1-1-to-1-2",
+    "updateDefinition": {
+      "id": 1,
+      "name": "HVM Cluster 1.2 Upgrade"
+    },
+    "user": {
+      "id": 1,
+      "username": "admin"
+    },
+    "percentComplete": 0,
+    "precheckValidUntil": null,
+    "status": "failed",
+    "statusMessage": "The following host(s) are not ready for update:\n  hvm-1: status is 'warning' (expected 'provisioned')\n  hvm-3: status is 'offline' (expected 'provisioned')",
+    "lastUpdatedOn": null,
+    "startedOn": "2026-06-06T16:17:08Z",
+    "completedOn": "2026-06-06T16:17:08Z"
+  }
+}

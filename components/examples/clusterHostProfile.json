@@ -1,0 +1,28 @@
+{
+  "success": true,
+  "clusterId": 1,
+  "clusterName": "Cluster1",
+  "hostProfile": {
+    "id": 11,
+    "name": "node1 - Profile 2026-06-23 09:09",
+    "description": "Captured from node1",
+    "enabled": true,
+    "overallStatus": "non-compliant",
+    "hosts": [
+      {
+        "serverId": 1,
+        "serverName": "node1",
+        "status": "non-compliant",
+        "compliant": false,
+        "lastChecked": "2026-06-23T09:10:08Z"
+      },
+      {
+        "serverId": 2,
+        "serverName": "node2",
+        "status": "compliant",
+        "compliant": true,
+        "lastChecked": "2026-06-23T09:10:08Z"
+      }
+    ]
+  }
+}

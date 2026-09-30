@@ -1,0 +1,12 @@
+{
+  "availableServers": [
+    {
+      "id": 31666,
+      "name": "esx-prod-01"
+    },
+    {
+      "id": 31667,
+      "name": "esx-prod-02"
+    }
+  ]
+}

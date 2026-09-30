@@ -205,13 +205,17 @@ properties:
         type: integer
         format: int64
       usedMemory:
-        type: integer
+        type:
+          - integer
+          - 'null'
         format: int64
       maxStorage:
         type: integer
         format: int64
       usedStorage:
-        type: integer
+        type:
+          - integer
+          - 'null'
         format: int64
       reservedStorage:
         type: integer
@@ -265,6 +269,17 @@ properties:
     type:
       - string
       - 'null'
+  guestAgentStatus:
+    type:
+      - string
+      - 'null'
+    enum:
+      - connected
+      - disconnected
+      - configured
+      - unconfigured
+      - unknown
+      - error
   maxCores:
     type: integer
     format: int64
@@ -564,6 +579,16 @@ properties:
       nestedVirtualization:
         type:
           - string
+          - 'null'
+      disableQgaChannel:
+        type: boolean
+      bootToBios:
+        type:
+          - boolean
+          - 'null'
+      bootToBiosMenuTimeout:
+        type:
+          - integer
           - 'null'
       vmwareFolderId:
         type: string

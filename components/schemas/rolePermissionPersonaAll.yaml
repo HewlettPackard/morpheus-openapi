@@ -1,11 +1,13 @@
 type: object
 required:
-  - allPersonas
   - access
 properties:
   allPersonas:
     type: boolean
-    description: "Apply to all personas"
+    description: Apply to all personas. Alias of `all`.
+  all:
+    type: boolean
+    description: Alias for `allPersonas`
   access:
     type: string
     description: The new access level.

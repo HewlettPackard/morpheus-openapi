@@ -1,0 +1,20 @@
+put:
+  summary: Activates an Identity Source
+  description: |
+    Activates a specified identity source.
+  operationId: activateIdentitySource
+  tags:
+    - Identity Sources
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

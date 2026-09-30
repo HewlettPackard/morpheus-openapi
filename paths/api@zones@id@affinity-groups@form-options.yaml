@@ -1,0 +1,38 @@
+get:
+  summary: Get Cloud Affinity Group Form Options
+  description: >-
+    Retrieve the option lists used to build an affinity rule for a cloud —
+    selectable VM Groups, Host Groups and Servers — along with the
+    `supportsCombinedRules` capability gate for the cloud's platform.
+
+    For a cloud whose platform supports combined VM-to-Host rules, this also
+    returns `availableClusters`, which backs the cluster-in-cloud picker: a
+    cloud-scoped rule must be narrowed to one cluster within the cloud.
+  operationId: getCloudAffinityGroupFormOptions
+  tags:
+    - Clouds
+  parameters:
+    - $ref: ../components/parameters/zoneId-path.yaml
+    - name: poolId
+      in: query
+      description: >-
+        Optional Resource Pool ID used to narrow `availableServers` to a single
+        cluster's pool.
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/affinityGroupFormOptions.yaml
+          examples:
+            Affinity Group Form Options Response:
+              value:
+                $ref: ../components/examples/affinityGroupFormOptions.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

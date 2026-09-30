@@ -10,12 +10,10 @@ get:
       content:
         application/json:
           schema:
-            allOf:
-            - type: object
-              properties:
-                health:
-                  $ref: ../components/schemas/health.yaml
-            - $ref: ../components/schemas/meta.yaml
+            type: object
+            properties:
+              health:
+                $ref: ../components/schemas/health.yaml
           examples:
             Health Response:
               value:

@@ -1,14 +1,32 @@
 get:
   summary: Get a Specific User Permissions
-  description: This will list all the permissions for a specific user.
+  description: |
+    List all access grants for a specific user (features, clouds/zones, groups/sites,
+    instance types, app templates, catalog item types, personas, VDI pools, report types,
+    tasks, and task sets / workflows).
+
+    This is the preferred permissions endpoint (`access` action). The older
+    `GET /api/users/{id}/feature-permissions` endpoint is deprecated.
   operationId: getUserPermissions
   tags:
     - Users
   parameters:
-  - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+    - name: accountId
+      in: query
+      description: Tenant ID for tenant-scoped lookup.
+      schema:
+        type: integer
+        format: int64
+    - name: tenantId
+      in: query
+      description: Alias of `accountId`.
+      schema:
+        type: integer
+        format: int64
   responses:
     '200':
-      description: User Object
+      description: User access object
       content:
         application/json:
           schema:
@@ -17,7 +35,7 @@ get:
               access:
                 $ref: ../components/schemas/userPermissions.yaml
           examples:
-            Get User Response:
+            Get User Permissions Response:
               value:
                 $ref: ../components/examples/userPermissions.json
     '4XX':

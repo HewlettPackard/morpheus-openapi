@@ -1,0 +1,43 @@
+get:
+  summary: List personas available for roles
+  description: Personas the current account can view, for role defaultPersona assignment.
+  operationId: listRolePersonas
+  tags:
+    - Roles
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              personas:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                    name:
+                      type: string
+                    code:
+                      type: string
+          examples:
+            Personas Response:
+              value:
+                success: true
+                personas:
+                  - id: 1
+                    name: Standard
+                    code: standard
+                  - id: 2
+                    name: Service Catalog
+                    code: serviceCatalog
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

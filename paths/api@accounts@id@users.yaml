@@ -1,3 +1,53 @@
+get:
+  summary: List Users For a Tenant
+  description: |
+    List users in a specific tenant. Equivalent to `GET /api/users?accountId={accountId}`
+    (or `tenantId`). Requires access to the target tenant.
+  operationId: listUsersTenant
+  tags:
+    - Tenants
+  parameters:
+    - $ref: ../components/parameters/accountId-path.yaml
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - name: sort
+      in: query
+      description: Property to sort by. Default is `username` ascending.
+      schema:
+        type: string
+    - $ref: ../components/parameters/direction.yaml
+    - name: phrase
+      in: query
+      description: Search phrase for username, email, first name, or last name
+      schema:
+        type: string
+    - $ref: ../components/parameters/username.yaml
+    - $ref: ../components/parameters/email.yaml
+    - $ref: ../components/parameters/roleId.yaml
+    - $ref: ../components/parameters/role.yaml
+  responses:
+    '200':
+      description: Array of Users
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                users:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/user.yaml
+            - $ref: ../components/schemas/meta.yaml
+            - $ref: ../components/schemas/global.yaml
+          examples:
+            Users Response:
+              value:
+                $ref: ../components/examples/users.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
 post:
   summary: Create a User For a Tenant
   description: Create a User For a Tenant.
@@ -31,6 +81,10 @@ post:
               properties:
                 user:
                   $ref: ../components/schemas/user.yaml
+                errors:
+                  type: object
+                  additionalProperties:
+                    type: string
             - $ref: ../components/schemas/200-success.yaml
           examples:
             Create User Response:

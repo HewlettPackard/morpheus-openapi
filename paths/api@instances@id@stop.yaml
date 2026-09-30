@@ -1,6 +1,6 @@
 put:
   summary: Stop an instance
-  description: This will stop the service for all containers within an instance. To stop the underlying server(s) as well you must include the query parameter `server=true`.
+  description: This will stop the service for all containers within an instance. To stop the underlying server(s) as well you must include the query parameter `server=true`. To force a hard power off, include the query parameter `force=true`.
   operationId: stopInstance
   tags:
     - Instances
@@ -20,6 +20,7 @@ put:
       schema:
         type: boolean
         default: false
+    - $ref: ../components/parameters/force-stop.yaml
   responses:
     '200':
       description: Successful Request

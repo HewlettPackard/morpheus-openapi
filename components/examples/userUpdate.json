@@ -1,0 +1,14 @@
+{
+  "user": {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "user@example.com",
+    "receiveNotifications": true,
+    "enabled": true,
+    "roles": [
+      {
+        "id": 1
+      }
+    ]
+  }
+}

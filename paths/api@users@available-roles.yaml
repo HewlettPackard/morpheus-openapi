@@ -1,6 +1,10 @@
 get:
   summary: List available roles for a user
-  description: Get a list of roles that can be assigned to a user.
+  description: |
+    Get roles that can be assigned when creating a user (no path id) or roles available
+    to an existing user (`GET /api/users/{id}/available-roles`).
+
+    Target tenant may be selected with query `accountId` or `tenantId`.
   operationId: listUsersAvailableRoles
   tags:
     - Users
@@ -8,6 +12,12 @@ get:
     - name: accountId
       in: query
       description: Tenant ID, find roles available to users of a sub tenant account.
+      schema:
+        type: integer
+        format: int64
+    - name: tenantId
+      in: query
+      description: Alias of `accountId` for target tenant.
       schema:
         type: integer
         format: int64

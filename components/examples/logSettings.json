@@ -1,7 +1,8 @@
 {
     "logSettings": {
         "enabled": true,
-        "retentionDays": "7",
+        "retentionDays": 7,
+        "minimumLogLevel": null,
         "syslogRules": [],
         "integrations": []
     }

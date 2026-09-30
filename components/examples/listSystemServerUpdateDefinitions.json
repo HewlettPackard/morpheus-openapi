@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "updateDefinitions": [
+    {
+      "id": 12,
+      "name": "Alletra MP 10.6 Firmware",
+      "code": "alletra-mp-10-5-to-10-6",
+      "updateVersion": "10.6",
+      "severity": "important",
+      "type": "bugfix",
+      "description": "# Alletra MP 10.6 Firmware\n\nFirmware update from 10.5 to 10.6 for the Alletra MP storage array. This is an online, non-disruptive rolling upgrade of the array controllers; no host downtime is expected.",
+      "zeroDowntime": true,
+      "requiresReboot": false,
+      "requiresRestart": false,
+      "requiresMaintenanceMode": false,
+      "supportsRollback": true,
+      "updateReleaseDate": "2026-05-01T00:00:00Z"
+    }
+  ]
+}

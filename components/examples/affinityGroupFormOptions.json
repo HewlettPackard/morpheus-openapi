@@ -1,0 +1,29 @@
+{
+  "supportsCombinedRules": true,
+  "availableVmGroups": [
+    {
+      "id": 119,
+      "name": "Prod VM Group",
+      "poolId": 9406
+    }
+  ],
+  "availableHostGroups": [
+    {
+      "id": 118,
+      "name": "Prod Host Group",
+      "poolId": 9406
+    }
+  ],
+  "availableServers": [
+    {
+      "id": 31670,
+      "name": "app-vm-01"
+    }
+  ],
+  "availableClusters": [
+    {
+      "id": 9406,
+      "name": "HVM Cluster"
+    }
+  ]
+}

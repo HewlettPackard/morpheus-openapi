@@ -1,0 +1,28 @@
+{
+  "virtualSwitch": {
+    "name": "vswitch01",
+    "description": "General VM traffic switch",
+    "baseType": "general",
+    "bondMode": "active-backup",
+    "mtu": 1500,
+    "segments": [
+      {
+        "trafficType": "vm",
+        "vlanId": 220
+      },
+      {
+        "trafficType": "management",
+        "ipAddress": "10.0.10.5",
+        "netmask": "255.255.255.0",
+        "gateway": "10.0.10.1"
+      }
+    ],
+    "uplinks": [
+      {
+        "serverId": 42,
+        "nic1": "eno1",
+        "nic2": "eno2"
+      }
+    ]
+  }
+}

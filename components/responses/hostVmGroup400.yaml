@@ -1,0 +1,27 @@
+description: |
+  The Host Group or VM Group could not be saved or deleted.
+
+  Unlike affinity rule validation, these failures are reported with a
+  human-readable `msg` only and no `errors` map.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/Error.yaml
+    examples:
+      Servers Span Multiple Clusters:
+        value:
+          success: false
+          msg: >-
+            Selected servers span multiple clusters. A Host / VM Group must
+            belong to a single cluster — select servers from one cluster only.
+      Servers Not In Chosen Cluster:
+        value:
+          success: false
+          msg: Selected servers do not belong to the chosen cluster.
+      Still Referenced By Affinity Rules:
+        value:
+          success: false
+          msg: >-
+            Cannot delete 'Prod Host Group' — it is referenced by 2 affinity
+            rules: [Keep App VMs On Prod Hosts, Separate DB VMs]. Delete or edit
+            those rules first, then retry.

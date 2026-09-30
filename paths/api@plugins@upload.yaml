@@ -17,6 +17,10 @@ post:
               type: string
               format: binary
               description: Plugin .jar file contents
+            plugin:
+              type: string
+              format: binary
+              description: Alias for `file`
   responses:
     '200':
       description: Successful Request

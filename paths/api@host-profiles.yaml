@@ -1,0 +1,76 @@
+get:
+  summary: List Host Profiles
+  description: Returns a paginated list of all host profiles for the account with aggregated compliance status.
+  operationId: listHostProfiles
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/phrase.yaml
+  responses:
+    '200':
+      description: Host Profiles list
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              hostProfiles:
+                type: array
+                items:
+                  $ref: ../components/schemas/hostProfile.yaml
+              meta:
+                type: object
+                properties:
+                  total: { type: integer }
+                  size: { type: integer }
+                  max: { type: integer }
+                  offset: { type: integer }
+          example:
+            $ref: ../components/examples/hostProfiles.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Create a Host Profile
+  description: Creates a new host profile from a JSON body.
+  operationId: createHostProfile
+  tags:
+    - Host Profiles
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+              description: Profile name
+            description:
+              type:
+                - string
+                - 'null'
+            config:
+              $ref: ../components/schemas/hostProfileConfig.yaml
+        example:
+          $ref: ../components/examples/hostProfileCreateRequest.json
+  responses:
+    '200':
+      description: Newly created host profile (summary — no config or versions)
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/hostProfile.yaml
+          example:
+            $ref: ../components/examples/hostProfileCreate.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
