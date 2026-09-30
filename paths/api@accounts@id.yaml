@@ -72,9 +72,6 @@ put:
                   description: The subdomain. This will be part of the login URL and username for sub tenant users.
                 currency:
                   $ref: ../components/schemas/CurrencyCode.yaml
-                active:
-                  type: boolean
-                  description: Whether the tenant is enabled. Disabled tenants cannot be logged into.
                 accountNumber:
                   type:
                     - string

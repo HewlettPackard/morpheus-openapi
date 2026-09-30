@@ -98,11 +98,6 @@ post:
                   example: tt
                 currency:
                   $ref: ../components/schemas/CurrencyCode.yaml
-                active:
-                  type: boolean
-                  description: Whether the tenant is enabled. Disabled tenants cannot be logged into.
-                  default: true
-                  example: true
                 accountNumber:
                   type:
                     - string
