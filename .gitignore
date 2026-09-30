@@ -2,3 +2,6 @@
 bundled.yaml
 generated/
 .idea/
+
+redoc.html
+bundled.yaml

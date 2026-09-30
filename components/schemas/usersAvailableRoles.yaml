@@ -8,6 +8,9 @@ properties:
         id:
           type: integer
           format: int64
+        name:
+          type: string
+          description: Role display name (same as authority)
         authority:
           type: string
         description:
@@ -17,7 +20,9 @@ properties:
         roleType:
           type: string
         owner:
-          type: object
+          type:
+            - object
+            - 'null'
           properties:
             id:
               type: integer

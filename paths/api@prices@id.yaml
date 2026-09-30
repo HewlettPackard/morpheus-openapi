@@ -29,6 +29,10 @@ put:
   summary: Updates a Price
   description: |
     Updates a price.
+
+    `code` and `account` on the request are ignored; the existing price values are kept.
+    Software prices may send `software` or `softwareOrService`. Request `priceType`
+    value `software` is stored as `software_or_service`.
   operationId: updatePrices
   tags:
     - Prices
@@ -69,7 +73,8 @@ put:
                     * `storage` - Storage
                     * `datastore` - Datastore
                     * `platform` - Platform
-                    * `software` - Software
+                    * `software` - Software (accepted alias; stored as software_or_service)
+                    * `software_or_service` - Software or service
                     * `load_balancer` - Load Balancer
                     * `load_balancer_virtual_server` - Load Balancer Virtual Server
                   enum:
@@ -81,6 +86,7 @@ put:
                     - datastore
                     - platform
                     - software
+                    - software_or_service
                     - load_balancer
                     - load_balancer_virtual_server
                 priceUnit:
@@ -136,7 +142,15 @@ put:
                   example: linux
                 software:
                   type: string
-                  description: Software.  Required for software price type
+                  description: |
+                    Software or service name for software prices.
+                    Accepted as an alias for `softwareOrService`; when `priceType`
+                    is `software`, the API stores type `software_or_service`.
+                softwareOrService:
+                  type: string
+                  description: |
+                    Software or service name.
+                    Required when price type is software / software_or_service.
                 volumeType:
                   type: object
                   properties:
@@ -157,22 +171,20 @@ put:
                 crossCloudApply:
                   type: boolean
                   description: Apply price across clouds, optional true/false flag for datastore price type
+            restartUsage:
+              type: boolean
+              description: |
+                When true (or the string `on`) and the update succeeds, triggers
+                asynchronous reprocessing of price usage changes. Request-root field
+                (not inside `price`).
+              example: true
   responses:
     '200':
       description: Successful Request
       content:
         application/json:
           schema:
-            allOf:
-            - type: object
-              properties:
-                price:
-                  $ref: ../components/schemas/price.yaml
-            - $ref: ../components/schemas/200-success.yaml
-          examples:
-            Price Response:
-              value:
-                $ref: ../components/examples/priceSuccess.json
+            $ref: ../components/schemas/200-success.yaml
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

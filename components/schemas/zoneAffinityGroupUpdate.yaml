@@ -3,8 +3,10 @@ properties:
   name:
     type: string
     description: Name
-  # affinityType and pool are create-only. AffinityGroupService.updateAffinityGroup
-  # never assigns either, so sending them on update has no effect.
+  # pool is create-only. AffinityGroupService.updateAffinityGroup never assigns
+  # it, so sending it on update has no effect.
+  affinityType:
+    $ref: affinityType.yaml
   active:
     type: boolean
     description: Active
@@ -13,7 +15,33 @@ properties:
     items:
       type: integer
       format: int64
-    description: List of Server IDs to include in the Affinity Group
+    description: >-
+      List of Server IDs to include in the Affinity Group. Use this for a legacy
+      VM-to-VM rule. Mutually exclusive with `vmGroup`/`hostGroup` — send either
+      `servers`, or both `vmGroup` and `hostGroup`, never both shapes at once.
+  vmGroup:
+    type:
+      - object
+      - 'null'
+    description: >-
+      The VM Group side of a combined VM-to-Host rule. Must be sent together
+      with `hostGroup`, and `servers` must be empty. Send `null` for both group
+      fields to clear a combined rule.
+    properties:
+      id:
+        type: integer
+        format: int64
+  hostGroup:
+    type:
+      - object
+      - 'null'
+    description: >-
+      The Host Group side of a combined VM-to-Host rule. Must be sent together
+      with `vmGroup`, and `servers` must be empty.
+    properties:
+      id:
+        type: integer
+        format: int64
   visibility:
     $ref: visibility.yaml
   tenants:

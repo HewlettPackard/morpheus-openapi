@@ -27,6 +27,10 @@ properties:
         type: integer
         format: int64
         description: Total Workloads
+      managedServers:
+        type: integer
+        format: int64
+        description: Total Managed Servers
       discoveredServers:
         type: integer
         format: int64
@@ -43,6 +47,22 @@ properties:
         type: integer
         format: int64
         description: Total HPE VM Sockets
+      sockets:
+        type: integer
+        format: int64
+        description: Total Sockets
+      hypervisorSocketCount:
+        type: integer
+        format: int64
+        description: Hypervisor Socket Count
+      publicVirtualMachineCount:
+        type: integer
+        format: int64
+        description: Public Virtual Machine Count
+      publicVirtualMachineSocketCount:
+        type: integer
+        format: int64
+        description: Public Virtual Machine Socket Count
       iac:
         type: integer
         format: int64
@@ -63,3 +83,31 @@ properties:
         type: integer
         format: int64
         description: Total Discovered Objects
+  licenseLimits:
+    type: array
+    description: Per-metric limits with current usage
+    items:
+      type: object
+      properties:
+        code:
+          type: string
+        max:
+          type:
+            - integer
+            - number
+            - 'null'
+        used:
+          type:
+            - integer
+            - number
+        percentUsed:
+          type: number
+        warning:
+          type: boolean
+        limitReached:
+          type: boolean
+        unit:
+          type: string
+  limitReached:
+    type: boolean
+    description: True when any license limit has been reached

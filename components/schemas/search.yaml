@@ -30,7 +30,9 @@ properties:
             - number
             - 'null'
   query:
-    type: string
+    type:
+      - string
+      - 'null'
   took:
     type: integer
     format: int64

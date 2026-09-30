@@ -1,0 +1,68 @@
+type: object
+required:
+  - name
+  - type
+properties:
+  name:
+    type: string
+    description: Name
+  type:
+    type: string
+    description: >-
+      The kind of group to create. Use `VM_GROUP` for the VM side and
+      `HOST_GROUP` for the host side of a combined VM-to-Host affinity rule.
+    enum:
+      - SITE_GROUP
+      - HOST_GROUP
+      - VM_GROUP
+  active:
+    type: boolean
+    description: Active
+  pool:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+    description: >-
+      Resource Pool ID to scope the Group to. When the parent scope is a cloud
+      this selects the cluster within that cloud.
+  servers:
+    type: array
+    items:
+      type: integer
+      format: int64
+    description: >-
+      List of Server IDs to include in the Group. All servers must belong to the
+      same cluster and resource pool.
+  visibility:
+    $ref: visibility.yaml
+  tenants:
+    type: array
+    description: Array of tenant account ids that are allowed access
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+  resourcePermissions:
+    type: object
+    description: Resource Permissions for controlling Group Access
+    properties:
+      all:
+        type: boolean
+      sites:
+        type:
+          - array
+          - 'null'
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Group ID
+            default:
+              type: boolean
+              description: Whether this is the default group

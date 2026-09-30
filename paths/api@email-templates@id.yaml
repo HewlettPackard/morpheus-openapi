@@ -42,8 +42,8 @@ put:
           allOf:
           - type: object
             properties:
-              policy:
-                $ref: ../components/schemas/emailTemplate.yaml
+              emailTemplate:
+                $ref: ../components/schemas/emailTemplateWrite.yaml
   responses:
     '200':
       description: Successful Request

@@ -31,8 +31,11 @@ properties:
         type: boolean
       parentRoleId:
         type:
+          - integer
           - string
           - 'null'
+        description: Parent role id (numeric). String form is also accepted for compatibility.
+        format: int64
       diverged:
         type: boolean
       tenantCopies:
@@ -277,3 +280,15 @@ properties:
           type: string
         access:
           type: string
+  tenantCopiesMeta:
+    type: object
+    description: Paging metadata for `role.tenantCopies` on multitenant master roles
+    properties:
+      offset:
+        type: integer
+      max:
+        type: integer
+      size:
+        type: integer
+      total:
+        type: integer

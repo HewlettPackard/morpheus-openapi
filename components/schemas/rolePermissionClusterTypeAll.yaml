@@ -6,6 +6,9 @@ properties:
   allClusterTypes:
     type: boolean
     description: "Apply to all cluster types"
+  all:
+    type: boolean
+    description: Alias for `allClusterTypes`
   access:
     type: string
     description: The new access level.

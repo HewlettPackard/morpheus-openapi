@@ -10,8 +10,11 @@ properties:
     type: integer
     format: int64
   usedMemory: 
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
+    
   reservedMemory: 
     type: integer
     format: int64

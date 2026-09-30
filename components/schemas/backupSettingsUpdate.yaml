@@ -3,10 +3,12 @@ properties:
   backupsEnabled: 
     type: boolean
     description: Use this to enable / disable scheduled backups
-  retentionCount: 
-    type: integer
-    format: int64
+  retentionCount:
     description: Maximum number of successful backups to retain
+    type:
+      - integer
+      - 'null'
+    format: int64
   createBackups: 
     type: boolean
     description: Use this to enable / disable create backups

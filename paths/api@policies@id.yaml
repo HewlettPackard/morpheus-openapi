@@ -126,6 +126,7 @@ put:
   summary: Updates a Policy
   description: |
     Updates a policy.
+    Policy type is not changed on update.
   operationId: updatePolicies
   tags:
     - Policies

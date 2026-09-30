@@ -1,0 +1,25 @@
+get:
+  summary: Get Cloud Host / VM Group Form Options
+  description: >-
+    Retrieve the option lists used to build a Host Group or VM Group for a
+    cluster.
+  operationId: getCloudHostVmGroupFormOptions
+  tags:
+    - Clouds
+  parameters:
+    - $ref: ../components/parameters/zoneId-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/hostVmGroupFormOptions.yaml
+          examples:
+            Host / VM Group Form Options Response:
+              value:
+                $ref: ../components/examples/hostVmGroupFormOptions.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

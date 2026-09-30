@@ -1,0 +1,47 @@
+type: object
+description: >-
+  Per-host realization of a virtual switch, mapping the cluster-scoped switch
+  intent onto one or two physical NICs of a specific host, with that host's
+  sync status.
+properties:
+  id:
+    type: integer
+    format: int64
+    example: 88
+  serverId:
+    type: integer
+    format: int64
+    description: The ID of the host (compute server) this uplink applies to.
+    example: 42
+  serverName:
+    type:
+      - string
+      - 'null'
+    example: hvm-host01
+  nic1:
+    type: string
+    description: Required primary physical NIC.
+    example: eno1
+  nic2:
+    type:
+      - string
+      - 'null'
+    description: Optional secondary NIC. Null indicates single-NIC mode.
+    example: eno2
+  syncStatus:
+    type: string
+    enum:
+      - pending
+      - in-sync
+      - drifted
+      - error
+    example: pending
+  syncMessage:
+    type:
+      - string
+      - 'null'
+  lastSyncDate:
+    type:
+      - string
+      - 'null'
+    format: date-time

@@ -1,0 +1,19 @@
+{
+  "virtualSwitches": [
+    {
+      "id": 12,
+      "name": "vswitch01",
+      "code": "kvm.virtualswitch.12",
+      "description": "General VM traffic switch",
+      "baseType": "general",
+      "bondMode": "active-backup",
+      "mtu": 1500,
+      "status": "available",
+      "statusMessage": null,
+      "active": true,
+      "clusterId": 135,
+      "nicCount": 2,
+      "networkCount": 3
+    }
+  ]
+}

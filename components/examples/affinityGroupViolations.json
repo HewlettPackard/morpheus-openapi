@@ -1,0 +1,31 @@
+{
+  "violations": [
+    {
+      "ruleId": 54,
+      "ruleName": "Keep App VMs On Prod Hosts",
+      "ruleDeleted": false,
+      "keepTogether": true,
+      "emptyHostGroup": false,
+      "occurredAt": "2026-08-18T03:14:43Z",
+      "alarmId": null,
+      "affectedVms": [
+        {
+          "id": 31670,
+          "name": "app-vm-01",
+          "alarmId": 8821,
+          "deleted": false
+        }
+      ]
+    },
+    {
+      "ruleId": 55,
+      "ruleName": "Separate DB VMs",
+      "ruleDeleted": false,
+      "keepTogether": false,
+      "emptyHostGroup": true,
+      "occurredAt": "2026-08-18T04:02:11Z",
+      "alarmId": 8830,
+      "affectedVms": []
+    }
+  ]
+}

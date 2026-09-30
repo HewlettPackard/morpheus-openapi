@@ -29,8 +29,6 @@ properties:
     type: string
   certificateProvider:
     type: string
-  backupMode:
-    type: string
   replicationMode:
     type: string
   dnsIntegrationId:

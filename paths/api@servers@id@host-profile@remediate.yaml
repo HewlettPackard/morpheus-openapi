@@ -1,0 +1,29 @@
+put:
+  summary: Trigger Host Profile Remediation
+  description: Kicks off async remediation of all drifted, remediable keys on the host. After applying changes a post-remediation compliance check runs automatically. Immediately sets the compliance record status to `remediating`.
+  operationId: remediateServerHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Remediation started
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          example:
+            $ref: ../components/examples/success.json
+    '400':
+      description: No host profile attached
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/serverHostProfileNoAttachmentError.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

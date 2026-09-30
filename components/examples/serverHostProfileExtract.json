@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "serverId": 1,
+  "serverName": "node1",
+  "hostProfile": {
+    "id": 11,
+    "name": "node1 - Profile 2026-07-01 09:09",
+    "description": "Captured from node1",
+    "enabled": true,
+    "config": {
+      "storage": {
+        "multipath": {
+          "enabled": true,
+          "findMultipaths": false,
+          "userFriendlyNames": false
+        },
+        "iscsi": {
+          "transport": "tcp",
+          "chapEnabled": false
+        }
+      },
+      "system": {
+        "timezone": "America/Denver"
+      }
+    }
+  }
+}

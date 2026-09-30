@@ -72,6 +72,8 @@ post:
             Create Affinity Group Response:
               value:
                 $ref: ../components/examples/zoneAffinityGroupSuccess.json
+    '400':
+      $ref: ../components/responses/affinityGroup400.yaml
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

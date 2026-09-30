@@ -1,11 +1,14 @@
 type: object
 required:
-  - personaCode
   - access
 properties:
   personaCode:
     type: string
     description: "code of the Persona, eg. `standard` or `serviceCatalog`"
+  personaId:
+    type: integer
+    format: int64
+    description: "`id` of the Persona (alternative to `personaCode`)"
   access:
     type: string
     description: The new access level.

@@ -1,0 +1,16 @@
+type: object
+description: >-
+  Option lists backing the Host / VM Group create/edit form, scoped by the
+  parent cluster or cloud route.
+properties:
+  availableServers:
+    type: array
+    description: Servers selectable for membership in the group
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string

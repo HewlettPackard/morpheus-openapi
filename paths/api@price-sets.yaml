@@ -9,15 +9,39 @@ get:
     - $ref: ../components/parameters/max.yaml
     - $ref: ../components/parameters/offset.yaml
     - $ref: ../components/parameters/sort.yaml
-    - $ref: ../components/parameters/direction.yaml
+    - $ref: ../components/parameters/order.yaml
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/name.yaml
+    - $ref: ../components/parameters/code.yaml
     - $ref: ../components/parameters/includeInactive.yaml
     - name: type
       in: query
-      description: Filter by type code
+      description: Filter by price set type. May be specified multiple times.
       schema:
         type: string
+        enum:
+          - fixed
+          - compute_plus_storage
+          - component
+          - load_balancer
+          - snapshot
+          - virtual_image
+          - software_or_service
+    - name: priceUnit
+      in: query
+      description: Filter by price unit. May be specified multiple times.
+      schema:
+        type: string
+        enum:
+          - minute
+          - hour
+          - day
+          - month
+          - year
+          - two year
+          - three year
+          - four year
+          - five year
   responses:
     '200':
       description: Successful Request
@@ -35,7 +59,7 @@ get:
           examples:
             Price Sets Response:
               value:
-                $ref: ../components/examples/priceSet.json 
+                $ref: ../components/examples/priceSets.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
@@ -63,7 +87,7 @@ post:
                 - priceUnit
                 - type
               properties:
-                name: 
+                name:
                   type: string
                   description: Price set name
                   example: testName
@@ -77,6 +101,7 @@ post:
                   example: region.code.1
                 zone:
                   type: object
+                  description: Optional cloud scope
                   properties:
                     id:
                       type: integer
@@ -85,6 +110,7 @@ post:
                       example: 12
                 zonePool:
                   type: object
+                  description: Optional resource pool scope
                   properties:
                     id:
                       type: integer
@@ -117,9 +143,14 @@ post:
                     - software_or_service
                 prices:
                   type: array
+                  description: Prices to include in the price set
                   items:
-                    type: integer
-                    format: int64
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                        description: Price ID
   responses:
     '200':
       description: Successful Request
@@ -129,9 +160,11 @@ post:
             allOf:
             - type: object
               properties:
-                budget:
-                  $ref: ../components/schemas/priceSet.yaml
-            - $ref: ../components/schemas/200-success.yaml
+                id:
+                  type: integer
+                  format: int64
+                  description: ID of the created price set
+            - $ref: ../components/schemas/200-success-expanded.yaml
           examples:
             Price Sets Response:
               value:

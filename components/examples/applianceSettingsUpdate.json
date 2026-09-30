@@ -39,6 +39,9 @@
     ],
     "defaultRoleId": 2,
     "defaultUserRoleId": 4,
-    "statsRetainmentPeriod": 30
+    "statsRetainmentPeriod": 30,
+    "noProxy": "localhost,127.0.0.1",
+    "dashboardsToDisplay": "home,cloud-list",
+    "enableMurph": false
   }
 }

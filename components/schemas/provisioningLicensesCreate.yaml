@@ -7,10 +7,20 @@ properties:
   name: 
     type: string
     description: Name
-  licenseType: 
-    type: string
-    description: License Type - The license type code.
-    example: win
+  licenseType:
+    description: |
+      License type code string, or object with `code` and/or `id`.
+    oneOf:
+      - type: string
+        example: win
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          code:
+            type: string
+            example: win
   licenseKey: 
     type: string
     description: License Key - The license key, to be kept a secret.
@@ -31,12 +41,19 @@ properties:
   description: 
     type: string
     description: Description
-  virtualImages: 
+  virtualImages:
     type: array
-    description: Virtual Images - Array of Virtual Image IDs to associate with license.
-    items: 
-      type: integer
-      format: int64
+    description: |
+      Virtual image ids, or objects with `id`.
+    items:
+      oneOf:
+        - type: integer
+          format: int64
+        - type: object
+          properties:
+            id:
+              type: integer
+              format: int64
   tenants: 
     type: array
     description: Tenants - Array of tenants that are allowed to use the key.

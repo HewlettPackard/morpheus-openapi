@@ -1,0 +1,19 @@
+{
+  "segments": [
+    {
+      "id": 44,
+      "trafficType": "vm",
+      "interfaceName": "bond0.220",
+      "ipAddress": null,
+      "netmask": null,
+      "gateway": null,
+      "vlanId": 220,
+      "mtu": 1500,
+      "ovsBridge": "vswitch01-br",
+      "ovsUuid": "6f1a2b3c-4d5e-6789-abcd-ef0123456789",
+      "ovsLibvirtNetwork": "vswitch01-vm",
+      "status": "in-sync",
+      "statusMessage": null
+    }
+  ]
+}

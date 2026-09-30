@@ -1,0 +1,8 @@
+{
+  "id": 11,
+  "name": "Updated Profile Name",
+  "description": "Updated description",
+  "enabled": true,
+  "serverCount": 2,
+  "complianceStatus": "non-compliant"
+}

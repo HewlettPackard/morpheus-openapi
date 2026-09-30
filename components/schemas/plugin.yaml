@@ -33,6 +33,8 @@ properties:
     type: boolean
   hasValidUpdate:
     type: boolean
+  isPrepackaged:
+    type: boolean
   status:
     type: string
   statusMessage:

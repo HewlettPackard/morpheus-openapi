@@ -3,12 +3,12 @@
     "emailTemplate": {
         "id": 45,
         "name": "Confirm Email on Register Template",
-        "account": {
+        "owner": {
             "id": 1,
             "name": "Morpheus QA"
         },
         "code": "confirmEmail",
         "template": "this is a test",
-        "enabled": true
+        "accounts": []
     }
 }

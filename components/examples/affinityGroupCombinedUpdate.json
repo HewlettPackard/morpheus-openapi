@@ -1,0 +1,13 @@
+{
+  "affinityGroup": {
+    "name": "Keep App VMs On Prod Hosts",
+    "active": true,
+    "servers": [],
+    "vmGroup": {
+      "id": 119
+    },
+    "hostGroup": {
+      "id": 118
+    }
+  }
+}

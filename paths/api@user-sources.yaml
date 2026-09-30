@@ -66,8 +66,8 @@ post:
             allOf:
             - type: object
               properties:
-                task:
-                  oneOf:
+                userSource:
+                  anyOf:
                   - $ref: ../components/schemas/identitySourcesLDAPConfig.yaml
                   - $ref: ../components/schemas/identitySourcesJumpCloudConfig.yaml
                   - $ref: ../components/schemas/identitySourcesADConfig.yaml

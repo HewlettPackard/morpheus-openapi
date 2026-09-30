@@ -1,0 +1,40 @@
+get:
+  summary: List Appliance Zone Types
+  description: List cloud types available to the appliance and whether each is enabled.
+  operationId: listApplianceSettingsZoneTypes
+  tags:
+    - Appliance Settings
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              zoneTypes:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                    name:
+                      type: string
+                    enabled:
+                      type: boolean
+          examples:
+            Successful Response:
+              value:
+                zoneTypes:
+                  - id: 22
+                    name: Alibaba Cloud
+                    enabled: true
+                  - id: 3
+                    name: Amazon
+                    enabled: false
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

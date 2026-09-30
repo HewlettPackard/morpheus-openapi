@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "updateDefinitions": [
+    {
+      "id": 1,
+      "name": "HVM Cluster 1.2 Upgrade",
+      "code": "hvm-1-1-to-1-2",
+      "updateVersion": "1.2",
+      "severity": "normal",
+      "type": "security",
+      "description": "# HVM Cluster 1.2 Upgrade\n\nThis upgrade transitions your cluster from **MVM 1.1** to **HVM Cluster 1.2** with Ubuntu 24.04 LTS support.\n\n## What This Upgrade Does\n\n### Operating System Upgrade\n- **Verifies** all hosts are running Ubuntu 24.04 LTS\n- **Performs in-place upgrade** from Ubuntu 22.04 to 24.04 if needed\n- Ensures kernel compatibility and system packages are current\n\n### Branding & Configuration Updates\n- Updates cluster branding from **MVM** to **HVM Clusters**\n- Migrates to HVM 1.2 cluster layout configuration\n- Updates cluster management interfaces and labels\n\n### Security & Runtime Configuration\n- **AppArmor profiles** updated for Ubuntu 24.04 compatibility\n- **QEMU run users** configured with proper permissions\n- System security policies aligned with HVM 1.2 standards\n\n## Maintenance Requirements\n\n⚠️ **This upgrade requires maintenance mode on all hosts**\n\n- Each host will be placed into maintenance mode during the upgrade\n- Hosts will be upgraded in a **rolling rotation** to maintain cluster availability\n- Workloads will be migrated off hosts during their maintenance window\n- Estimated downtime per host: 15-30 minutes\n\n## Before You Begin\n\n- [ ] Ensure all cluster hosts are healthy and operational\n- [ ] Verify sufficient storage and memory capacity for workload migration\n- [ ] Confirm backup procedures are current\n- [ ] Review maintenance window scheduling with your team\n- [ ] Ensure network connectivity is stable across all hosts\n\n## Upgrade Process\n\n1. **Pre-flight checks** validate cluster health\n2. **First host** enters maintenance mode and upgrades\n3. **Workload migration** to remaining hosts\n4. **OS and configuration updates** applied\n5. **Validation** of host functionality\n6. **Process repeats** for each remaining host\n7. **Post-upgrade verification** of cluster health\n\n---\n\n**Note:** This is a major version upgrade. Please ensure you have reviewed the HVM Cluster 1.2 release notes and validated your environment meets all prerequisites.\n",
+      "zeroDowntime": false,
+      "requiresReboot": false,
+      "requiresRestart": true,
+      "requiresMaintenanceMode": true,
+      "supportsRollback": false,
+      "updateReleaseDate": null
+    }
+  ]
+}

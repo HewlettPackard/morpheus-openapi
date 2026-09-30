@@ -70,9 +70,13 @@ properties:
       type: object
       properties:
         sourceRoleName:
-          type: string
+          type:
+            - string
+            - 'null'
         sourceRoleFqn:
-          type: string
+          type:
+            - string
+            - 'null'
         mappedRole:
           type: object
           properties:

@@ -1,0 +1,12 @@
+allOf:
+  - $ref: ./virtualSwitch.yaml
+  - type: object
+    properties:
+      segments:
+        type: array
+        items:
+          $ref: ./virtualSwitchSegment.yaml
+      uplinks:
+        type: array
+        items:
+          $ref: ./virtualSwitchUplink.yaml
