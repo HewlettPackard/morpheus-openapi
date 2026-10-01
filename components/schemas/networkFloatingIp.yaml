@@ -43,8 +43,14 @@ ipAddress:
   description: IP Address
 ipRange:
   type:
-    - string
+    - object
     - 'null'
+  description: The range of the floating IP pool the address was allocated from.
+  properties:
+    startAddress:
+      type: string
+    endAddress:
+      type: string
 ptrId:
   type:
     - string
@@ -58,6 +64,9 @@ networkDomain:
       type: integer
       format: int64
       description: Network Domain ID
+    name:
+      type: string
+      description: Network Domain Name
 createdBy:
   type:
     - object
