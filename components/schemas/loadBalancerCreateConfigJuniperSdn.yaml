@@ -1,0 +1,36 @@
+title: Juniper SDN Load Balancer Config
+type: object
+description: Configuration object for the `juniper-sdn-lb` load balancer type.
+required:
+  - juniperResourcePool
+  - virtualNetwork
+  - virtualIp
+properties:
+  juniperResourcePool:
+    type: integer
+    format: int64
+    description: ID of the HVM cluster resource pool the load balancer is scoped to.
+  virtualNetwork:
+    type: integer
+    format: int64
+    description: ID of the SDN virtual network the virtual IP is on.
+  virtualIp:
+    type: string
+    description: Virtual IP address.
+  sourcePort:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Port the virtual IP listens on.
+  destPort:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Port the traffic is forwarded to.
+  protocol:
+    type:
+      - string
+      - 'null'
+    description: Protocol of the port mapping (see the `portMappingProtocols` option source).

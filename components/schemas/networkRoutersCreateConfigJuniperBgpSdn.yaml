@@ -1,0 +1,61 @@
+title: Juniper BGP SDN Router Config
+type: object
+description: |
+  Configuration object for `juniperBGPSdnRouter` network routers (a BGP peering with the SDN
+  controller). The plugin stores the fields under dotted configuration keys.
+required:
+  - juniper.sdn.vendor
+  - juniper.sdn.asnnumber
+  - juniper.sdn.address.1
+  - bgpAddressFamilies
+properties:
+  juniper.sdn.vendor:
+    type: string
+    description: Router vendor.
+  juniper.sdn.asnnumber:
+    type: integer
+    format: int64
+    description: Autonomous system number.
+    default: 65000
+  juniper.sdn.address.1:
+    type: string
+    description: First BGP peer address.
+  juniper.sdn.address.2:
+    type:
+      - string
+      - 'null'
+    description: Second BGP peer address.
+  juniper.sdn.address.3:
+    type:
+      - string
+      - 'null'
+    description: Third BGP peer address.
+  juniper.sdn.address.4:
+    type:
+      - string
+      - 'null'
+    description: Fourth BGP peer address.
+  bgpAddressFamilies:
+    type: array
+    description: Address families to exchange (see the `juniperBgpAddressFamilies` option source).
+    items:
+      type: string
+  juniper.sdn.bgp.port:
+    type: integer
+    format: int64
+    description: BGP port.
+    default: 179
+  juniper.sdn.bgp.holdTime:
+    type: integer
+    format: int64
+    description: BGP hold time in seconds.
+    default: 90
+  juniper.sdn.bgp.adminDown:
+    type: string
+    description: Administratively down (`on`/`off`).
+    default: "off"
+  juniper.sdn.bgp.md5Key:
+    type:
+      - string
+      - 'null'
+    description: MD5 authentication key.
