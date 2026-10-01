@@ -1,0 +1,22 @@
+title: Juniper SDN Router Config
+type: object
+description: Configuration object for `juniperSdnRouter` network routers (a logical router joining SDN virtual networks).
+properties:
+  juniperResourcePool:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: ID of the HVM cluster resource pool the router is scoped to.
+  juniperVirtualNetworks:
+    type: array
+    description: IDs of the SDN virtual networks the router joins.
+    items:
+      type: integer
+      format: int64
+  juniperFloatingIpPools:
+    type: array
+    description: IDs of the floating IP pools the router serves.
+    items:
+      type: integer
+      format: int64

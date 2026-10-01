@@ -37,6 +37,7 @@ properties:
     anyOf:
       - $ref: loadBalancerCreateConfigHaproxy.yaml
       - $ref: loadBalancerCreateConfigNSXT.yaml
+      - $ref: loadBalancerCreateConfigJuniperSdn.yaml
       - type: object
   visibility:
     type: string

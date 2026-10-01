@@ -1,0 +1,46 @@
+post:
+  summary: Allocate a Floating IP
+  description: |
+    Allocate a floating IP from the associated network service and floating ip pool.
+  operationId: allocateNetworkFloatingIp
+  tags:
+    - Networks
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          properties:
+            networkServerId: 
+                type: integer
+                format: int64
+                description: Id of the network server
+            floatingIpPoolId: 
+              type: integer
+              format: int64
+              description: Id of the network floating ip pool
+        examples:
+          Floating Ip Allocate:
+            value:
+              $ref: ../components/examples/networkFloatingIpAllocate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  networkFloatingIp:
+                    type: object
+                    properties:
+                      $ref: ../components/schemas/networkFloatingIp.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/networkFloatingIpAllocateSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
