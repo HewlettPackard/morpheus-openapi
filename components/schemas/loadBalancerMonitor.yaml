@@ -140,6 +140,27 @@ config:
         - string
         - 'null'
       description: Free-form monitor configuration content.
+    httpMethod:
+      type:
+        - string
+        - 'null'
+      description: HTTP method of an HTTP health check, for load balancer types that define one.
+    httpUri:
+      type:
+        - string
+        - 'null'
+      description: URI requested by an HTTP health check.
+    httpPort:
+      type:
+        - integer
+        - 'null'
+      format: int64
+      description: Port an HTTP health check connects to.
+    httpReturnCode:
+      type:
+        - string
+        - 'null'
+      description: HTTP status code an HTTP health check expects.
 createdBy:
   type:
     - object

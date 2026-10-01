@@ -877,6 +877,8 @@ paths:
     $ref: paths/api@networks@floating-ips.yaml
   /api/networks/floating-ips/{id}:
     $ref: paths/api@networks@floating-ips@id.yaml
+  /api/networks/floating-ips/allocate:
+    $ref: paths/api@networks@floating-ips@allocate.yaml
   /api/networks/floating-ips/{id}/release:
     $ref: paths/api@networks@floating-ips@id@release.yaml
   /api/networks/domains:
