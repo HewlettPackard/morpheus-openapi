@@ -4,6 +4,9 @@ get:
     Retrieves the candidate physical NICs per host in a cluster, used when
     assigning uplinks to a virtual switch. NICs already consumed by an existing
     switch uplink are flagged with `consumed: true`.
+
+
+    Requires Morpheus 9.1.0.
   operationId: listClusterAvailableNics
   tags:
     - Virtual Switches
