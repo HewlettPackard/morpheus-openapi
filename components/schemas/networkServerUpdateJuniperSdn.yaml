@@ -1,0 +1,33 @@
+title: HPE Morpheus SDN Network Server Update
+type: object
+description: Update of an HPE Morpheus SDN network server. The controller address cannot be changed.
+properties:
+  name:
+    type: string
+    description: Name
+  visibility:
+    type: string
+    description: "Visibility - Set to public to allow all tenants"
+    enum:
+      - public
+      - private
+  config:
+    type:
+      - object
+      - 'null'
+    properties:
+      showIntrospect:
+        type: boolean
+        description: Show the controller's introspect pages in the Morpheus UI.
+      enableSubTenants:
+        type: boolean
+        description: Allow sub-tenants to use the SDN controller.
+  tenants:
+    type: array
+    description: Array of tenant account ids that are allowed access
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
