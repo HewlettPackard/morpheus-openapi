@@ -46,6 +46,7 @@ put:
               description: Payload for updating a Network Server
               oneOf:
                 - $ref: ../components/schemas/networkServerUpdateNSX.yaml
+                - $ref: ../components/schemas/networkServerUpdateJuniperSdn.yaml
   responses:
     '200':
       description: Successful Request

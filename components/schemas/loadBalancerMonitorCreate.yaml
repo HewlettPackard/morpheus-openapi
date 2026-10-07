@@ -91,3 +91,27 @@ config:
         - string
         - 'null'
       description: Free-form monitor configuration content.
+    httpMethod:
+      type:
+        - string
+        - 'null'
+      description: HTTP method of an HTTP health check, for load balancer types that define one (such as the HPE Morpheus SDN load balancer).
+      example: GET
+    httpUri:
+      type:
+        - string
+        - 'null'
+      description: URI requested by an HTTP health check.
+      example: /health
+    httpPort:
+      type:
+        - integer
+        - 'null'
+      format: int64
+      description: Port an HTTP health check connects to.
+    httpReturnCode:
+      type:
+        - string
+        - 'null'
+      description: HTTP status code an HTTP health check expects.
+      example: "200"
