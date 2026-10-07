@@ -3,62 +3,84 @@ properties:
   id:
     type: integer
     format: int64
+    description: The ID of the plugin.
   name:
     type: string
+    description: The display name reported by the plugin.
   code:
     type: string
+    description: The unique code reported by the plugin, for example `morpheus-infoblox-plugin`. Uploading a jar whose code matches an installed plugin updates that plugin.
   description:
     type: string
+    description: The description reported by the plugin.
   version:
     type: string
+    description: The version of the installed plugin jar.
   enabled:
     type: boolean
+    description: Whether the plugin is enabled.
   author:
     type:
       - string
       - 'null'
+    description: The author reported by the plugin.
   websiteUrl:
     type:
       - string
       - 'null'
+    description: The plugin's website URL.
   sourceCodeLocationUrl:
     type:
       - string
       - 'null'
+    description: The URL of the plugin's source code.
   issueTrackerUrl:
     type:
       - string
       - 'null'
+    description: The URL of the plugin's issue tracker.
   valid:
     type: boolean
+    description: Whether the plugin descriptor was valid and the plugin class could be loaded.
   hasValidUpdate:
     type: boolean
+    description: Whether a newer compatible version was found on the plugin exchange by the last update check.
   isPrepackaged:
     type: boolean
+    description: Indicates whether the plugin is prepackaged and bundled with the appliance.
   status:
     type: string
+    description: The lifecycle status of the plugin, one of `installing`, `updating`, `loaded` or `error`.
   statusMessage:
     type:
       - string
       - 'null'
+    description: Details of the last load failure when the status is `error`.
   providers:
     type: array
+    description: The providers (integrations, task types, option sources, tabs and so on) registered by the plugin.
     items:
       type: object
       properties:
         name:
           type: string
+          description: The display name of the provider.
         type:
           type: string
+          description: The provider type, for example `Cloud`, `IPAM` or `Task`.
   config:
     type: object
+    description: The plugin's configuration values, keyed by its option type field names.
   optionTypes:
     type: array
+    description: The option types describing the plugin's configurable settings.
     items:
       $ref: optionType.yaml
   dateCreated:
     type: string
     format: date-time
+    description: The date and time the plugin was installed.
   lastUpdated:
     type: string
     format: date-time
+    description: The date and time the plugin was last updated.
