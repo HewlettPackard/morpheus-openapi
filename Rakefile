@@ -29,7 +29,7 @@ namespace "docker" do
   #desc "Executes `redocly/cli lint` using docker"
   task :redocly_lint => [:is_installed] do
   	cd PROJECT_ROOT, verbose: false do
-		  sh("docker run --rm -v $PWD:/spec redocly/cli lint openapi.yaml --skip-rule no-invalid-media-type-examples")
+		  sh("docker run --rm -v $PWD:/spec redocly/cli:2.10.0 lint openapi.yaml --skip-rule no-invalid-media-type-examples")
     end
   end
 
@@ -43,7 +43,7 @@ namespace "docker" do
   #desc "Executes `redocly/cli bundle` using docker"
   task :build => [:is_installed] do
     cd PROJECT_ROOT, verbose: false do
-      sh("docker run --rm -v $PWD:/spec redocly/cli bundle --dereferenced openapi.yaml > bundled.yaml")
+      sh("docker run --rm -v $PWD:/spec redocly/cli:2.10.0 bundle --dereferenced openapi.yaml > bundled.yaml")
     end
   end
 
