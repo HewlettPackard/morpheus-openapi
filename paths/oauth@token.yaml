@@ -106,7 +106,10 @@ post:
           example:
             error: invalid_grant
     '401':
-      description: The refresh token has expired. Authenticate again with a password or authorization code grant to obtain a new token.
+      description: >-
+        The client could not be authenticated (`invalid_client`, for example an unknown `client_id`),
+        or the refresh token has expired (`invalid_grant`). For an expired refresh token, authenticate
+        again with a password or authorization code grant to obtain a new token.
       content:
         application/json:
           schema:
