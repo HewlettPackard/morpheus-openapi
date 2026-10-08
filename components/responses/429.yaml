@@ -1,4 +1,12 @@
 description: Too Many Requests.
+headers:
+  Retry-After:
+    description: >-
+      Number of seconds to wait before retrying, for example when all database connections are in
+      use.
+    schema:
+      type: integer
+    example: 5
 content:
   application/json:
     schema:

@@ -52,9 +52,10 @@ post:
   summary: Start a System Drift Check
   description: |
     Start an asynchronous drift check for a system. Returns 202 with the new report and process ID.
-    If a drift check is already running, `driftReport` and `processId` are null and `msg` explains why.
-    Returns 409 when the check conflicts with the system state. Requires **full** permission on
-    `infrastructure-system`.
+    If a drift check is already running, no new check starts: the response is still 202, carries the
+    in-flight report and its process ID, and `msg` is `Drift check already in progress`. If the
+    in-flight report cannot be found yet, `driftReport` and `processId` are null. Requires **full**
+    permission on `infrastructure-system`.
   operationId: startSystemDriftCheck
   tags:
     - Systems

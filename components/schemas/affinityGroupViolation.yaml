@@ -35,9 +35,13 @@ properties:
     format: date-time
     description: When the violation was first observed
   alarmId:
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
-    description: ID of the alarm raised for an empty Host Group, if one was raised
+    description: >-
+      ID of the alarm raised for an empty Host Group. Null when the rule is not
+      misconfigured
   affectedVms:
     type: array
     description: The virtual machines currently in violation of the rule
@@ -52,9 +56,13 @@ properties:
           type: string
           description: Name of the affected VM
         alarmId:
-          type: integer
+          type:
+            - integer
+            - 'null'
           format: int64
-          description: ID of the alarm raised for this VM, if one was raised
+          description: >-
+            ID of the alarm raised for this VM. Null for a VM listed only because
+            its rule has an empty Host Group
         deleted:
           type: boolean
           description: True when the VM has since been deleted
