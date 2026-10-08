@@ -1,8 +1,11 @@
 type: object
 description: >-
-  An edit to an existing segment within a composite edit. The target segment is
-  located by `segId` when supplied, otherwise by `trafficType` (and `vlanId` for
-  multi-VLAN traffic types).
+  An edit to an existing segment within a composite edit. `trafficType` is
+  required: an entry without it is skipped before the segment is resolved, even
+  when `segId` is given. The target segment is located by `segId` when supplied,
+  otherwise by `trafficType` (and `vlanId` for multi-VLAN traffic types).
+required:
+  - trafficType
 properties:
   segId:
     type: integer
@@ -11,7 +14,9 @@ properties:
     example: 44
   trafficType:
     type: string
-    description: Traffic type used to locate the segment when segId is omitted.
+    description: >-
+      The segment's traffic type. Required; also used to locate the segment when
+      segId is omitted.
     enum:
       - vm
       - data-nfs
