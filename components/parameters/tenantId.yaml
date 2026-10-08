@@ -2,5 +2,6 @@ name: tenantId
 in: query
 description: Filter by Tenant ID. Only available to the master account.
 schema:
-  type: number
+  type: integer
+  format: int64
 example: 3
