@@ -79,12 +79,5 @@
             }
         ],
         "resourcePermission": null
-    },
-    "nodes": {
-        "containers": [],
-        "instances": [],
-        "apps": []
-    },
-    "instanceStats": {},
-    "instanceClusters": []
+    }
 }

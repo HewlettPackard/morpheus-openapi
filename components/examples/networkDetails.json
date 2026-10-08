@@ -1,0 +1,122 @@
+{
+  "network": {
+    "id": 1,
+    "name": "my-network",
+    "displayName": "network display name",
+    "labels": [],
+    "group": {
+      "id": 1,
+      "name": "Group"
+    },
+    "zone": {
+      "id": 31,
+      "name": "qa-azure"
+    },
+    "type": {
+      "id": 8,
+      "name": "Network",
+      "code": "azureNetwork"
+    },
+    "owner": {
+      "id": 1,
+      "name": "root"
+    },
+    "code": null,
+    "category": "azure.network.31",
+    "interfaceName": null,
+    "bridgeName": null,
+    "bridgeInterface": null,
+    "description": null,
+    "externalId": "/subscriptions/88213e1e-d4c5-467f-b029-f34622281a98/resourceGroups/ARMUbuntu16/providers/Microsoft.Network/virtualNetworks/my-network",
+    "internalId": null,
+    "uniqueId": null,
+    "externalType": "Network",
+    "refUrl": null,
+    "refType": "ComputeZone",
+    "refId": 31,
+    "vlanId": null,
+    "vswitchName": null,
+    "dhcpServer": true,
+    "dhcpIp": null,
+    "gateway": null,
+    "netmask": null,
+    "broadcast": null,
+    "subnetAddress": null,
+    "dnsPrimary": null,
+    "dnsSecondary": null,
+    "cidr": "192.168.0.0/16",
+    "tftpServer": null,
+    "bootFile": null,
+    "switchId": null,
+    "fabricId": null,
+    "networkRole": null,
+    "status": "available",
+    "availabilityZone": null,
+    "pool": null,
+    "networkProxy": null,
+    "networkDomain": null,
+    "searchDomains": null,
+    "prefixLength": null,
+    "visibility": "private",
+    "enableAdmin": false,
+    "active": true,
+    "defaultNetwork": false,
+    "assignPublicIp": false,
+    "noProxy": null,
+    "applianceUrlProxyBypass": true,
+    "zonePool": {
+      "id": 118,
+      "name": "ARMUbuntu16"
+    },
+    "allowStaticOverride": false,
+    "config": {
+      "vlanIDs": null,
+      "connectedGateway": "/infra/tier-1s/51b5f3c3-cc7e-4cef-89b5-dd576e8df454",
+      "subnetIpManagementType": "dhcpLocal",
+      "subnetIpServerId": "/infra/dhcp-server-configs/f1137d64-8402-41a2-abd8-7347743e5f4f",
+      "dhcpRange": "192.168.123.10-192.168.123.100",
+      "subnetDhcpServerAddress": "192.168.123.1/24",
+      "subnetDhcpLeaseTime": "86400"
+    },
+    "tenants": [
+      {
+        "id": 1,
+        "name": "root"
+      }
+    ]
+  },
+  "nodes": {
+    "instances": [
+      {
+        "id": 1337,
+        "name": "ld-shared-db",
+        "status": "running"
+      }
+    ],
+    "containers": [
+      {
+        "id": 94664,
+        "name": "ld-shared-db_94664",
+        "instanceId": 1337,
+        "serverId": 25324,
+        "internalIp": "10.100.0.25",
+        "externalIp": null
+      }
+    ],
+    "apps": []
+  },
+  "instanceStats": {
+    "1337": {
+      "usedStorage": 3043467264,
+      "maxStorage": 21039874048,
+      "usedMemory": 433472000,
+      "maxMemory": 1965856000,
+      "usedCpu": 0.7,
+      "cpuUsage": 0.7,
+      "cpuUsagePeak": 0.7,
+      "cpuUsageAvg": 0.7,
+      "cpuReady": 0.0
+    }
+  },
+  "instanceClusters": []
+}

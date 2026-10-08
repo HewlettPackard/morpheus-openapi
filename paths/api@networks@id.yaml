@@ -7,6 +7,7 @@ get:
     - Networks
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/networkDetails.yaml
   responses:
     '200':
       description: Successful Request
@@ -17,10 +18,100 @@ get:
             properties:
               network:
                 $ref: ../components/schemas/network.yaml
+              nodes:
+                type: object
+                description: Resources attached to the network. Only returned when details=true.
+                properties:
+                  instances:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                        name:
+                          type: string
+                        status:
+                          type: string
+                  containers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                        name:
+                          type: string
+                        instanceId:
+                          type: integer
+                          format: int64
+                        serverId:
+                          type: integer
+                          format: int64
+                        internalIp:
+                          type: [string, 'null']
+                        externalIp:
+                          type: [string, 'null']
+                  apps:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                        name:
+                          type: string
+              instanceStats:
+                type: object
+                description: Aggregated usage stats keyed by instance ID. Only returned when details=true.
+                additionalProperties:
+                  type: object
+                  properties:
+                    usedStorage:
+                      type: integer
+                      format: int64
+                    maxStorage:
+                      type: integer
+                      format: int64
+                    usedMemory:
+                      type: integer
+                      format: int64
+                    maxMemory:
+                      type: integer
+                      format: int64
+                    usedCpu:
+                      type: number
+                    cpuUsage:
+                      type: number
+                    cpuUsagePeak:
+                      type: number
+                    cpuUsageAvg:
+                      type: number
+                    cpuReady:
+                      type: number
+              instanceClusters:
+                type: array
+                description: Monitoring check groups for the attached instances. Only returned when details=true.
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                    name:
+                      type: string
+                    lastCheckStatus:
+                      type: string
           examples:
             Networks Response:
               value:
                 $ref: ../components/examples/network.json 
+            Network Details Response:
+              value:
+                $ref: ../components/examples/networkDetails.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
