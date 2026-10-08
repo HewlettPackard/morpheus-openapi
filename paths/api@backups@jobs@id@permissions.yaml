@@ -4,6 +4,7 @@ put:
     Update the visibility and tenant sharing of a backup job. At least one of `visibility` or
     `tenantPermissions` must be provided. Sending `tenantPermissions.accounts` as an empty array
     removes all tenant sharing.
+
     Requires **full** permission on `backups`.
   operationId: updateBackupJobPermissions
   tags:
@@ -34,12 +35,14 @@ put:
                       items:
                         type: integer
                         format: int64
-        example:
-          permissions:
-            visibility: public
-            tenantPermissions:
-              accounts:
-                - 2
+        examples:
+          Update Backup Job Permissions Request:
+            value:
+              permissions:
+                visibility: public
+                tenantPermissions:
+                  accounts:
+                    - 2
   responses:
     '200':
       description: Successful Request
@@ -53,9 +56,10 @@ put:
                   id:
                     type: integer
                     format: int64
-          example:
-            success: true
-            id: 5
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/successId.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

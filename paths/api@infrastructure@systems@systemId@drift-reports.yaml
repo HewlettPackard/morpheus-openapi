@@ -1,7 +1,9 @@
 get:
   summary: List System Drift Reports
   description: |
-    List drift reports for a system. Requires **read** or **full** permission on `infrastructure-system`.
+    List drift reports for a system, newest first by default.
+
+    Requires **read** or **full** permission on `infrastructure-system`.
   operationId: listSystemDriftReports
   tags:
     - Systems
@@ -9,8 +11,14 @@ get:
     - $ref: ../components/parameters/systemId-path.yaml
     - $ref: ../components/parameters/max.yaml
     - $ref: ../components/parameters/offset.yaml
+    - name: phrase
+      in: query
+      description: Search phrase for partial matches on status message or drift summary
+      schema:
+        type: string
     - name: sort
       in: query
+      description: Sort order, the name of the property to sort by. Any other value returns 400.
       schema:
         type: string
         default: dateCreated
@@ -23,6 +31,7 @@ get:
           - dateCreated
     - name: order
       in: query
+      description: Sort direction, use 'asc' for oldest first
       schema:
         type: string
         default: desc
@@ -44,6 +53,10 @@ get:
                     items:
                       $ref: ../components/schemas/systemDriftReport.yaml
               - $ref: ../components/schemas/meta.yaml
+          examples:
+            Drift Reports Response:
+              value:
+                $ref: ../components/examples/systemDriftReports.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
@@ -51,11 +64,14 @@ get:
 post:
   summary: Start a System Drift Check
   description: |
-    Start an asynchronous drift check for a system. Returns 202 with the new report and process ID.
-    If a drift check is already running, no new check starts: the response is still 202, carries the
-    in-flight report and its process ID, and `msg` is `Drift check already in progress`. If the
-    in-flight report cannot be found yet, `driftReport` and `processId` are null. Requires **full**
-    permission on `infrastructure-system`.
+    Start a drift check for a system. The check runs in the background; the response contains
+    the new drift report and its process ID. Poll the report until its status is `completed` or `failed`.
+
+    If a drift check is already running for the system, no new check is started. The response
+    contains the running report and `msg` is `Drift check already in progress`. If the running
+    report cannot be found yet, `driftReport` and `processId` are null.
+
+    Requires **full** permission on `infrastructure-system`.
   operationId: startSystemDriftCheck
   tags:
     - Systems
@@ -76,35 +92,32 @@ post:
                 - UPDATE
             driftRules:
               type: array
-              description: Rule names to run.
+              description: Rule names to run
               items:
                 type: string
             excludeDriftRules:
               type: array
-              description: Rule names to skip.
+              description: Rule names to skip
               items:
                 type: string
+        examples:
+          Drift Check Request:
+            value:
+              checkLevel: ALL
   responses:
     '202':
       description: Drift check accepted
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              success:
-                type: boolean
-              driftReport:
-                oneOf:
-                  - $ref: ../components/schemas/systemDriftReport.yaml
-                  - type: 'null'
-              processId:
-                type:
-                  - integer
-                  - 'null'
-                format: int64
-              msg:
-                type: string
+            $ref: ../components/schemas/systemDriftCheckAccepted.yaml
+          examples:
+            Drift Check Accepted Response:
+              value:
+                $ref: ../components/examples/systemDriftCheckAccepted.json
+            Drift Check Already Running Response:
+              value:
+                $ref: ../components/examples/systemDriftCheckInProgress.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

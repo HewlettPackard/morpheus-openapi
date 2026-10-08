@@ -1,5 +1,5 @@
 post:
-  summary: Lookup a Token
+  summary: Look Up a Token
   description: |
     Look up one of your own tokens by its access token value. The value is sent in the request
     body rather than a query parameter so it does not appear in access logs.
@@ -25,7 +25,7 @@ post:
           properties:
             token:
               type: string
-              description: The access token value to look up.
+              description: The access token value to look up
   responses:
     '200':
       description: Successful Request
@@ -38,6 +38,10 @@ post:
                   token:
                     $ref: ../components/schemas/token.yaml
               - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Token Response:
+              value:
+                $ref: ../components/examples/tokenSuccess.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

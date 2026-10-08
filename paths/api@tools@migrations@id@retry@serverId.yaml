@@ -3,7 +3,9 @@ put:
   description: |
     Retry the failed step of a VM migration for one source server in a migration plan.
     Returns 400 when the migration has no failed, retryable step and 404 when the plan or source
-    server is not found. Requires **full** permission on `services-migrations`.
+    server is not found.
+
+    Requires **full** permission on `services-migrations`.
   operationId: retryMigration
   tags:
     - Migrations
@@ -12,14 +14,34 @@ put:
     - $ref: ../components/parameters/serverId-path.yaml
   responses:
     '200':
-      $ref: ../components/responses/migrationRetry.yaml
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type:
+                      - string
+                      - 'null'
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/migrationRetrySuccess.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
       $ref: ../components/responses/5xx.yaml
 post:
   summary: Retry a Failed VM Migration
-  description: Same as the PUT operation.
+  description: |
+    Retry the failed step of a VM migration for one source server in a migration plan.
+    Returns 400 when the migration has no failed, retryable step and 404 when the plan or source
+    server is not found.
+
+    Requires **full** permission on `services-migrations`.
   operationId: retryMigrationPost
   tags:
     - Migrations
@@ -28,7 +50,22 @@ post:
     - $ref: ../components/parameters/serverId-path.yaml
   responses:
     '200':
-      $ref: ../components/responses/migrationRetry.yaml
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type:
+                      - string
+                      - 'null'
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/migrationRetrySuccess.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

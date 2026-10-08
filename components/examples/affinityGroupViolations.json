@@ -6,6 +6,7 @@
       "ruleDeleted": false,
       "keepTogether": true,
       "emptyHostGroup": false,
+      "reason": "The affected VMs are not placed together as required by this rule.",
       "occurredAt": "2026-08-18T03:14:43Z",
       "alarmId": null,
       "affectedVms": [
@@ -23,6 +24,7 @@
       "ruleDeleted": false,
       "keepTogether": false,
       "emptyHostGroup": true,
+      "reason": "The Host Group is empty. No host satisfies this required rule.",
       "occurredAt": "2026-08-18T04:02:11Z",
       "alarmId": 8830,
       "affectedVms": []
