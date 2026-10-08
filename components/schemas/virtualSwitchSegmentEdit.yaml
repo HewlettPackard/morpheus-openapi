@@ -1,0 +1,33 @@
+type: object
+description: >-
+  Mutable fields for an existing virtual switch segment. Only the fields
+  supplied are changed; the traffic type of a segment cannot be changed.
+properties:
+  vlanId:
+    type:
+      - integer
+      - 'null'
+    description: VLAN tag (2-4094). Null clears the tag (untagged).
+    minimum: 2
+    maximum: 4094
+    example: 221
+  ipAddress:
+    type:
+      - string
+      - 'null'
+    example: 10.0.20.5
+  netmask:
+    type:
+      - string
+      - 'null'
+    example: 255.255.255.0
+  gateway:
+    type:
+      - string
+      - 'null'
+    example: 10.0.20.1
+  hostIps:
+    type: array
+    description: Per-host IP address assignments for this segment.
+    items:
+      $ref: ./virtualSwitchSegmentHostIp.yaml

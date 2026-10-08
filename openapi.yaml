@@ -1402,6 +1402,10 @@ paths:
     $ref: paths/api@virtual-switches.yaml
   /api/virtual-switches/{id}:
     $ref: paths/api@virtual-switches@id.yaml
+  /api/virtual-switches/{id}/rename:
+    $ref: paths/api@virtual-switches@id@rename.yaml
+  /api/virtual-switches/{id}/edit:
+    $ref: paths/api@virtual-switches@id@edit.yaml
   /api/virtual-switches/{id}/segments:
     $ref: paths/api@virtual-switches@id@segments.yaml
   /api/virtual-switches/{id}/segments/{segId}:

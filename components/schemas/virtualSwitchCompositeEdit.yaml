@@ -1,0 +1,18 @@
+type: object
+description: >-
+  Composite edit request. Applies switch-level changes, adds new segments, and
+  edits existing segments in a single asynchronous operation, avoiding the
+  sync-guard conflicts that sequential calls would cause.
+properties:
+  switchUpdate:
+    $ref: ./virtualSwitchCompositeEditSwitchUpdate.yaml
+  newSegments:
+    type: array
+    description: Segments to add to the switch.
+    items:
+      $ref: ./virtualSwitchSegmentCreate.yaml
+  editedSegments:
+    type: array
+    description: Existing segments to edit.
+    items:
+      $ref: ./virtualSwitchSegmentEditRequest.yaml
