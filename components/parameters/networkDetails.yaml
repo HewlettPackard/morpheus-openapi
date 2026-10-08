@@ -1,0 +1,8 @@
+name: details
+in: query
+description: Include details=true to also return the instances, containers and apps attached to the network (nodes), per-instance usage stats (instanceStats) and monitoring check groups for those instances (instanceClusters).
+schema:
+  type: boolean
+  description: Network details
+  default: false
+example: true
