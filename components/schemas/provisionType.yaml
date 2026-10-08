@@ -95,6 +95,11 @@ properties:
     type:
       - boolean
       - 'null'
+  supportsPersistentReservations:
+    type:
+      - boolean
+      - 'null'
+    description: Whether this provision type supports SCSI-3 persistent reservations on storage volumes.
   optionTypes:
     type:
       - array

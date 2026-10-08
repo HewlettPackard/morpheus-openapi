@@ -1,0 +1,42 @@
+get:
+  summary: List System Cluster Available Updates
+  description: |
+    List the update definitions available for a cluster that is a registered component of the
+    specified system. The cluster must be a component of the system; if it is not, the request
+    returns 404.
+
+    This is a read-only operation. The `updateDefinitions` array may be empty when no updates have
+    been synced for the cluster's type — an empty list is a normal result, not an error.
+
+    See also the non-system-scoped `GET /api/clusters/{id}/available-updates` (Clusters tag), which
+    lists the same update definitions for a cluster without requiring system membership. This
+    system-scoped variant additionally requires the cluster to be a registered component of the
+    named system.
+  operationId: listSystemClusterUpdates
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/systemId-path.yaml
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  updateDefinitions:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/updateDefinition.yaml
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            List System Server Available Updates Response:
+              value:
+                $ref: ../components/examples/listSystemServerUpdateDefinitions.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

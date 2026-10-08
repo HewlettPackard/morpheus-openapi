@@ -99,14 +99,17 @@ put:
                   type: array
                   items:
                     type: integer
+                    format: int64
                 groups:
                   type: array
                   items:
                     type: integer
+                    format: int64
                 apps:
                   type: array
                   items:
                     type: integer
+                    format: int64
                 contacts: 
                   type: array
                   items: 

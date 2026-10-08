@@ -6,6 +6,9 @@ properties:
   allTasks:
     type: boolean
     description: "Apply to all tasks"
+  all:
+    type: boolean
+    description: Alias for `allTasks`
   access:
     type: string
     description: The new access level.

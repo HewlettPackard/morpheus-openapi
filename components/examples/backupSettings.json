@@ -12,6 +12,8 @@
       "code": "dailyAtMidnight",
       "name": "Daily at Midnight"
     },
-    "retentionCount": 12
+    "retentionCount": 12,
+    "defaultSyntheticFullBackupsEnabled": false,
+    "defaultSyntheticFullBackupSchedule": null
   }
 }

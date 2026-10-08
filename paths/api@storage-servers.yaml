@@ -79,6 +79,35 @@ post:
                     - private
                     - public
                   default: private
+                serviceHost:
+                  type: string
+                  description: Storage server host
+                serviceUrl:
+                  type: string
+                  description: Storage server URL
+                serviceUsername:
+                  type: string
+                  description: Service username for authentication
+                servicePassword:
+                  type: string
+                  description: Service password for authentication
+                  format: password
+                servicePort:
+                  type: integer
+                  description: Service port
+                  format: int32
+                  default: 22
+                credential:
+                  type: object
+                  description: Credential configuration. Use `type` of `local` for local credentials or `type` of the credential store integration code.
+                  properties:
+                    type:
+                      type: string
+                      description: Credential type code or `local`
+                    id:
+                      type: integer
+                      format: int64
+                      description: Credential ID (for non-local types)
                 tenants:
                   type: array
                   description: Array of tenant account ids that are allowed access

@@ -2,7 +2,7 @@
   "networkRouterNAT": {
     "name": "Name of NAT",
     "description": "Description of NAT",
-    "enabled": "on",
+    "enabled": true,
     "config": {
       "action": "SNAT",
       "service": "/infra/services/TELNET",

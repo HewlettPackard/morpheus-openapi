@@ -14,7 +14,7 @@ get:
           schema:
             type: object
             properties:
-              osType:
+              osTypeImage:
                 $ref: ../components/schemas/osTypeImage.yaml
           examples:
             OsTypes Response:

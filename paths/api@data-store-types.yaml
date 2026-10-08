@@ -1,0 +1,25 @@
+get:
+  summary: Get All Datastore Types
+  description: >
+    Fetch a list of available datastore types, including the configuration
+    option types for each. This endpoint returns all datastore types with no
+    pagination.
+  operationId: listDatastoreTypes
+  tags:
+    - Datastores
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              datastoreTypes:
+                type: array
+                items:
+                  $ref: ../components/schemas/datastoreTypes.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -1,0 +1,80 @@
+get:
+  summary: List Virtual Switches
+  description: Retrieves the HVM virtual switches defined on a cluster.
+  operationId: listVirtualSwitches
+  tags:
+    - Virtual Switches
+  parameters:
+    - name: clusterId
+      in: query
+      description: The ID of the cluster (server group) to list virtual switches for.
+      required: true
+      schema:
+        type: integer
+        format: int64
+      example: 135
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              virtualSwitches:
+                type: array
+                items:
+                  $ref: ../components/schemas/virtualSwitch.yaml
+          examples:
+            Virtual Switches Response:
+              value:
+                $ref: ../components/examples/virtualSwitches.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Create a Virtual Switch
+  description: >-
+    Creates a virtual switch on a cluster. This is an asynchronous operation: the
+    request validates and persists the desired state, seeds pending per-host
+    uplinks, starts a background Process, and returns its `processId`.
+  operationId: addVirtualSwitch
+  tags:
+    - Virtual Switches
+  parameters:
+    - name: clusterId
+      in: query
+      description: The ID of the cluster (server group) to create the virtual switch on.
+      required: true
+      schema:
+        type: integer
+        format: int64
+      example: 135
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            virtualSwitch:
+              $ref: ../components/schemas/virtualSwitchCreate.yaml
+        examples:
+          Virtual Switch Request:
+            value:
+              $ref: ../components/examples/virtualSwitchCreate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/virtualSwitchAsyncSuccess.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/virtualSwitchAsyncSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

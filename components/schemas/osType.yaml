@@ -3,6 +3,8 @@ properties:
   id:
     type: integer
     format: int64
+  code:
+    type: string
   name:
     type: string
     description: |
@@ -17,6 +19,18 @@ properties:
     type: string
     description: |
       The platform of the osType. 
+  owner:                                
+    oneOf:                       
+      - type: string                     
+      - type: object
+        properties:
+          id:
+            type: integer
+            format: int64
+          name:
+            type: string                   
+    description: |                 
+      The owner  of the osType.
   category:
     type:
       - string

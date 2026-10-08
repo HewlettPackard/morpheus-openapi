@@ -48,6 +48,12 @@ put:
             rootVolume:
               type: boolean
               description: Attach as root volume
+            persistentReservations:
+              type: boolean
+              description: >-
+                Enable SCSI-3 persistent reservations on the resulting per-server volume.
+                Requires the target controller type to report `supportsPersistentReservations`.
+              default: false
           required:
             - mountPoint
         examples:

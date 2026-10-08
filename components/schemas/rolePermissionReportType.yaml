@@ -1,11 +1,16 @@
 type: object
 required:
-  - reportTypeId
   - access
 properties:
   reportTypeId:
     type: integer
     description: "`id` of the report type"
+  name:
+    type: string
+    description: Report type name (alternative to id). Alias of `reportTypeName`.
+  reportTypeName:
+    type: string
+    description: Alias for `name`
   access:
     type: string
     description: The new access level.

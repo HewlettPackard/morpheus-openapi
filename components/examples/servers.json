@@ -213,7 +213,11 @@
       "guestConsoleUsername": null,
       "guestConsolePassword": null,
       "guestConsolePasswordHash": null,
-      "guestConsolePort": null
+      "guestConsolePort": null,
+      "config": {
+        "bootToBios": true,
+        "bootToBiosMenuTimeout": 0
+      }
     }
   ],
   "stats": {

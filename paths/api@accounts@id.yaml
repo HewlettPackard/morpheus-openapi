@@ -41,6 +41,7 @@ put:
             - account
           properties:
             account:
+              type: object
               description: Payload for updating an existing tenant
               properties:
                 name:
@@ -51,13 +52,19 @@ put:
                     - string
                     - 'null'
                   description: Description
+                active:
+                  type: boolean
+                  description: Whether the tenant is active
                 role:
                   type: object
                   description: Tenant Base Role. This restricts the access available to this tenant's roles and users.
                   properties:
                     id:
-                      type: integer
-                      format: int64
+                      description: Base role ID. Accepts string or integer.
+                      oneOf:
+                        - type: integer
+                          format: int64
+                        - type: string
                 subdomain:
                   type:
                     - string
@@ -65,18 +72,33 @@ put:
                   description: The subdomain. This will be part of the login URL and username for sub tenant users.
                 currency:
                   $ref: ../components/schemas/CurrencyCode.yaml
+                accountNumber:
+                  type:
+                    - string
+                    - 'null'
+                  description: Account number
+                accountName:
+                  type:
+                    - string
+                    - 'null'
+                  description: Account name
+                customerNumber:
+                  type:
+                    - string
+                    - 'null'
+                  description: Customer number
   responses:
     '200':
       description: Tenant Object
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              account:
-                allOf:
-                  - $ref: ../components/schemas/tenant.yaml
-                  - $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - type: object
+                properties:
+                  account:
+                    $ref: ../components/schemas/tenant.yaml
+              - $ref: ../components/schemas/200-success.yaml
           examples:
             Tenant Response:
               value:

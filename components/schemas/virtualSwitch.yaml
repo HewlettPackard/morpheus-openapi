@@ -1,0 +1,77 @@
+type: object
+description: >-
+  A cluster-scoped HVM virtual switch describing the desired host networking
+  intent. Morpheus stores the desired state; hvmcli realizes it on each host.
+properties:
+  id:
+    type: integer
+    format: int64
+    example: 12
+  name:
+    type: string
+    description: >-
+      Switch name. Limited to 12 characters so the derived `<name>-br` bridge
+      stays within the 15-character Linux interface name limit.
+    maxLength: 12
+    example: vswitch01
+  code:
+    type:
+      - string
+      - 'null'
+    example: kvm.virtualswitch.12
+  description:
+    type:
+      - string
+      - 'null'
+    example: General VM traffic switch
+  baseType:
+    type: string
+    description: The switch base type. Immutable after creation.
+    enum:
+      - general
+      - iscsi
+      - sdn
+    example: general
+  bondMode:
+    type:
+      - string
+      - 'null'
+    description: NIC bonding mode. Null indicates single-NIC (no bond) mode.
+    enum:
+      - active-backup
+      - 802.3ad
+      - null
+    example: active-backup
+  mtu:
+    type: integer
+    enum:
+      - 1500
+      - 9000
+    example: 1500
+  status:
+    type: string
+    enum:
+      - available
+      - syncing
+      - error
+    example: available
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  active:
+    type: boolean
+    example: true
+  clusterId:
+    type: integer
+    format: int64
+    description: The ID of the cluster (server group) that owns this switch.
+    example: 135
+  nicCount:
+    type: integer
+    description: Number of distinct physical NICs consumed across all host uplinks.
+    example: 2
+  networkCount:
+    type: integer
+    description: Number of traffic segments defined on the switch.
+    example: 3

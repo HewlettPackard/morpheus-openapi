@@ -1,0 +1,15 @@
+{
+  "success": true,
+  "serverId": 1,
+  "serverName": "node1",
+  "hostProfile": {
+    "id": 11,
+    "name": "node1 - Profile 2026-06-23 09:09",
+    "description": "Captured from node1",
+    "enabled": true,
+    "complianceStatus": "non-compliant",
+    "compliant": false,
+    "lastChecked": "2026-06-23T09:10:08Z",
+    "remediatedDate": null
+  }
+}

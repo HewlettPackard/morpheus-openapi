@@ -1,0 +1,115 @@
+get:
+  summary: Get a Specific Host / VM Group
+  description: >-
+    Retrieve a specific Host Group or VM Group by its ID, without needing to
+    know whether it is scoped to a cluster or a cloud. The returned `refType`
+    and `refId` identify the owning scope.
+  operationId: getHostVmGroup
+  tags:
+    - Affinity Groups
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              hostVmGroup:
+                $ref: ../components/schemas/hostVmGroup.yaml
+          examples:
+            Get Host / VM Group Response:
+              value:
+                $ref: ../components/examples/hostVmGroupSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put:
+  summary: Update a Host / VM Group
+  description: >-
+    Update a specific Host Group or VM Group by its ID, regardless of whether it
+    is scoped to a cluster or a cloud. Omit `servers` to leave existing
+    membership untouched.
+  operationId: updateHostVmGroup
+  tags:
+    - Affinity Groups
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            hostVmGroup:
+              $ref: ../components/schemas/hostVmGroupUpdate.yaml
+            tenantPermissions:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: Array of tenant account IDs
+                  items:
+                    type: integer
+                    format: int64
+        examples:
+          Update Host / VM Group Request:
+            value:
+              $ref: ../components/examples/hostVmGroupUpdate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  hostVmGroup:
+                    $ref: ../components/schemas/hostVmGroup.yaml
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Update Host / VM Group Response:
+              value:
+                $ref: ../components/examples/hostVmGroupSuccess.json
+    '400':
+      $ref: ../components/responses/hostVmGroup400.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Host / VM Group
+  description: |
+    Delete a specific Host Group or VM Group by its ID, regardless of whether it
+    is scoped to a cluster or a cloud.
+
+    The request fails with a 400 if the group is still referenced by one or more
+    combined VM-to-Host affinity rules. Delete or edit those rules first, then
+    retry.
+  operationId: deleteHostVmGroup
+  tags:
+    - Affinity Groups
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json
+    '400':
+      $ref: ../components/responses/hostVmGroup400.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

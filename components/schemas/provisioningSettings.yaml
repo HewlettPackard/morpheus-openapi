@@ -52,3 +52,45 @@ properties:
         format: int64
       name:
         type: string
+  showConsoleKeyboardSettings:
+    type: boolean
+    description: Whether console keyboard settings are shown
+  cloudInitPasswordHash:
+    type:
+      - string
+      - 'null'
+    description: Hash of the cloud-init password
+  windowsPasswordHash:
+    type:
+      - string
+      - 'null'
+    description: Hash of the Windows administrator password
+  pxeRootPasswordHash:
+    type:
+      - string
+      - 'null'
+    description: Hash of the PXE root password
+  enableCatalog:
+    type: boolean
+    description: Whether catalog provisioning is enabled
+  enableApps:
+    type: boolean
+    description: Whether apps provisioning is enabled
+  enableInstances:
+    type: boolean
+    description: Whether instances provisioning is enabled
+  provisioningOrder:
+    type:
+      - string
+      - 'null'
+    description: Provisioning navigation order (dash-separated)
+  terraformMode:
+    type:
+      - string
+      - 'null'
+    description: Terraform execution mode
+  terraformVersion:
+    type:
+      - string
+      - 'null'
+    description: Terraform version

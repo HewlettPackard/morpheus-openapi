@@ -1,0 +1,29 @@
+type: object
+description: >-
+  Request body for updating a virtual switch. `baseType` is immutable; supplying
+  a different value is rejected.
+properties:
+  name:
+    type: string
+    maxLength: 12
+    example: vswitch01
+  description:
+    type: string
+    example: Updated description
+  bondMode:
+    type: string
+    enum:
+      - active-backup
+      - 802.3ad
+    example: 802.3ad
+  mtu:
+    type: integer
+    enum:
+      - 1500
+      - 9000
+    example: 9000
+  uplinks:
+    type: array
+    description: Optional revised per-host NIC assignments.
+    items:
+      $ref: ./virtualSwitchUplinkAssignment.yaml

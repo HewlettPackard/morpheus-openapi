@@ -1,0 +1,113 @@
+get: 
+  summary: Get a Specific Cluster Host / VM Group
+  description: This endpoint retrieves a specific cluster Host Group or VM Group.
+  operationId: getClusterHostVmGroup
+  tags: 
+    -  Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content: 
+        application/json: 
+          schema:
+            type: object
+            properties:
+              hostVmGroup:
+                $ref: ../components/schemas/hostVmGroup.yaml
+          examples:
+            Get Host / VM Group Response:
+              value:
+                $ref: ../components/examples/hostVmGroupSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put: 
+  summary: Update Cluster Host / VM Group
+  description: >-
+    Update a cluster Host Group or VM Group. Omit `servers` to leave existing
+    membership untouched.
+  operationId: updateClusterHostVmGroup
+  tags: 
+    -  Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody: 
+    content: 
+      application/json: 
+        schema: 
+          type: object
+          properties: 
+            hostVmGroup:
+              $ref: ../components/schemas/hostVmGroupUpdate.yaml
+            tenantPermissions:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: Array of tenant account IDs
+                  items:
+                    type: integer
+                    format: int64
+        examples:
+          Update Host / VM Group Request:
+            value:
+              $ref: ../components/examples/hostVmGroupUpdate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf: 
+            - type: object
+              properties:
+                hostVmGroup:
+                  $ref: ../components/schemas/hostVmGroup.yaml
+            - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Update Host / VM Group Response:
+              value:
+                $ref: ../components/examples/hostVmGroupSuccess.json
+    '400':
+      $ref: ../components/responses/hostVmGroup400.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Cluster Host / VM Group
+  description: |
+    Will delete a cluster Host Group or VM Group.
+
+    The request fails with a 400 if the group is still referenced by one or more
+    combined VM-to-Host affinity rules. Delete or edit those rules first, then
+    retry.
+  operationId: deleteClusterHostVmGroup
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json
+    '400':
+      $ref: ../components/responses/hostVmGroup400.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

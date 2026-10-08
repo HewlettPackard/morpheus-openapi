@@ -1,0 +1,28 @@
+get:
+  summary: Get Cluster Update Execution
+  description: Get Cluster Update Execution
+  operationId: getClusterUpdateExecution
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                update:
+                  $ref: ../components/schemas/clusterUpdateOperation.yaml
+          examples:
+            Clusters Response:
+              value:
+                $ref: ../components/examples/getClusterUpdate.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

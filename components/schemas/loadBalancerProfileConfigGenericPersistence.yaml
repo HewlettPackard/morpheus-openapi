@@ -1,0 +1,25 @@
+title: Generic Persistence Load Balancer Profile Config
+type: object
+description: Configuration object for the NSX-T generic persistence profile (serviceType LBGenericPersistenceProfile).
+properties:
+  profileType:
+    type: string
+    description: Profile category. Automatically set from serviceType (persistence-profile).
+  sharePersistence:
+    type: boolean
+    description: Whether persistence is shared across virtual servers that use this profile.
+  haPersistenceMirroring:
+    type: boolean
+    description: Whether persistence entries are synchronized to the standby node for high availability.
+  persistenceEntryTimeout:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    default: 300
+    description: Persistence entry timeout in seconds. Defaults to 300.
+  tags:
+    type: array
+    description: NSX-T tags applied to the profile.
+    items:
+      $ref: loadBalancerProfileConfigTag.yaml

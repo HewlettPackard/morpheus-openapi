@@ -1,0 +1,7 @@
+allOf:
+  - $ref: ./distributedWorker.yaml
+  - type: object
+    properties:
+      apiKey:
+        type: string
+        description: Worker auth/proxy key. Returned only when the worker is created; cannot be retrieved later.

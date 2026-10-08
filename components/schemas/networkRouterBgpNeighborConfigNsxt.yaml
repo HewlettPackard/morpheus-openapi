@@ -1,0 +1,9 @@
+title: NSX-T BGP Neighbor Config
+description: Configuration for NSX-T Tier-0/Tier-1 router BGP neighbors
+type: object
+properties:
+  sourceAddresses:
+    type: array
+    description: Source IP addresses for the BGP session
+    items:
+      type: string

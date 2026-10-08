@@ -17,6 +17,7 @@ get:
             type: object
             properties:
               ruleGroup:
+                type: object
                 properties:
                   $ref: ../components/schemas/networkRouterFirewallRuleGroup.yaml
           examples:

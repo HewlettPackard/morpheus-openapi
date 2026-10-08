@@ -1,0 +1,15 @@
+{
+  "hostVmGroup": {
+    "name": "Prod Host Group",
+    "type": "HOST_GROUP",
+    "active": true,
+    "visibility": "private",
+    "pool": {
+      "id": 9406
+    },
+    "servers": [
+      31666,
+      31667
+    ]
+  }
+}

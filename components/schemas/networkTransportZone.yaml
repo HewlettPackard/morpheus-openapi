@@ -21,6 +21,8 @@ displayName:
   type: string
 name:
   type: string
+description:
+  type: string
 status:
   type: string
 enabled:

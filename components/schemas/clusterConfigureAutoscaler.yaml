@@ -1,0 +1,34 @@
+type: object
+required:
+  - cluster
+properties:
+  cluster:
+    type: object
+    description: Cluster autoscaler configuration payload.
+    properties:
+      autoScalerEnabled:
+        type: boolean
+        description: Enable or disable autoscaler for the cluster.
+      autoScalerGroups:
+        type: array
+        description: Autoscaler groups to configure. Only one autoscaler group can be configured at a time.
+        minItems: 1
+        maxItems: 1
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+              description: Existing autoscaler group ID. Provide this to update the current autoscaler group.
+            name:
+              type: string
+              description: Autoscaler group name.
+            minNodes:
+              type: integer
+              format: int64
+              description: Minimum worker node count for the autoscaler group.
+            maxNodes:
+              type: integer
+              format: int64
+              description: Maximum worker node count for the autoscaler group.

@@ -48,13 +48,43 @@ put:
                 name: 
                   type: string
                   description: A name for the backup
-                jobId: 
-                  type: integer
-                  format: int64
-                  description: The Backup Job ID to assign the backup to. This determines when the backup is run.
                 enabled:
                   type: boolean
                   description: Can be used to enable or disable the backup
+                storageProviderId:
+                  type:
+                    - integer
+                    - 'null'
+                  format: int64
+                  description: The ID of the storage bucket. Set to null to clear.
+                backupJobId:
+                  type: integer
+                  format: int64
+                  description: The Backup Job ID to assign the backup to. This determines when the backup is run.
+                cronExpression:
+                  type: string
+                  description: Cron expression for custom schedule (overrides job schedule).
+                targetPath:
+                  type: string
+                  description: The file or directory path on the target host. Applies to server/host backups (fileBackup, directoryBackup).
+                targetHost:
+                  type: string
+                  description: Target host address. Applies to server/host and database backups.
+                targetPort:
+                  type: integer
+                  description: Target port. Applies to server/host and database backups.
+                targetUsername:
+                  type: string
+                  description: Target username for connecting to the backup target.
+                targetPassword:
+                  type: string
+                  description: Target password for connecting to the backup target.
+                targetAll:
+                  type: boolean
+                  description: Whether to backup all databases. Applies to database backup types.
+                targetName:
+                  type: string
+                  description: Target database name. Applies when targetAll is false.
   responses:
     '200':
       description: Successful Request

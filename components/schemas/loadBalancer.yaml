@@ -43,6 +43,14 @@ properties:
     type:
       - string
       - 'null'
+  password:
+    type:
+      - string
+      - 'null'
+  passwordHash:
+    type:
+      - string
+      - 'null'
   ip:
     type: string
   internalIp:
@@ -50,6 +58,10 @@ properties:
       - string
       - 'null'
   externalIp:
+    type:
+      - string
+      - 'null'
+  externalId:
     type:
       - string
       - 'null'
@@ -69,6 +81,26 @@ properties:
     type:
       - string
       - 'null'
+  enabled:
+    type: boolean
+  allowVipEntry:
+    type: boolean
+  vipPools:
+    type: array
+    items:
+      type: object
+  virtualServiceName:
+    type:
+      - string
+      - 'null'
+  poolName:
+    type:
+      - string
+      - 'null'
+  serverName:
+    type:
+      - string
+      - 'null'
   config:
     type: object
   dateCreated:
@@ -83,3 +115,5 @@ properties:
     $ref: tenants.yaml
   resourcePermission:
     $ref: resourcePermissions.yaml
+  instancePrice:
+    type: object

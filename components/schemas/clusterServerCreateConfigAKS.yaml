@@ -1,6 +1,7 @@
 description: Configuration for Azure Kubernetes Service cluster servers
 type: object
 properties:
+  $ref: clusterServerCreateConfigCommon.yaml
   nodeCount:
     type: integer
     format: int64

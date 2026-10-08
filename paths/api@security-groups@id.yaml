@@ -54,6 +54,13 @@ put:
                 active:
                   type: boolean
                   description: Set to `false` to disable a security group.
+                visibility:
+                  type: string
+                  description: Visibility for the security group.
+                  enum:
+                    - private
+                    - public
+                  default: private
                 tenantPermissions:
                   type: object
                   properties:

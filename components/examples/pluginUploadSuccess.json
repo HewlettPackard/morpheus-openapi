@@ -13,6 +13,7 @@
 		"issueTrackerUrl": "https://github.com/cpdtaylor/morpheus-hashicorp-vault-plugin/issues",
 		"valid": true,
 		"hasValidUpdate": false,
+		"isPrepackaged": false,
 		"status": "installing",
 		"statusMessage": "",
 		"providers": [

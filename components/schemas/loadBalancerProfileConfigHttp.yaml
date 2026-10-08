@@ -1,0 +1,64 @@
+title: HTTP Load Balancer Profile Config
+type: object
+description: Configuration object for the NSX-T HTTP application profile (serviceType LBHttpProfile).
+properties:
+  profileType:
+    type: string
+    description: Profile category. Automatically set from serviceType (application-profile).
+  httpIdleTimeout:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    default: 15
+    description: Idle timeout in seconds before an inactive connection is closed. Defaults to 15. Range 1-5400.
+  requestHeaderSize:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    default: 1024
+    description: Maximum request header size in bytes. Defaults to 1024. Range 1-65536.
+  responseHeaderSize:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    default: 4096
+    description: Maximum response header size in bytes. Defaults to 4096. Range 1-65536.
+  httpsRedirect:
+    type: string
+    description: HTTP to HTTPS redirection. Stored as "on" or "off".
+    enum:
+      - 'on'
+      - 'off'
+  redirectAddress:
+    type: string
+    description: Redirect address. Required when httpsRedirect is "off".
+  xForwardedFor:
+    type: string
+    description: X-Forwarded-For header handling.
+    enum:
+      - INSERT
+      - REPLACE
+  requestBodySize:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Maximum request body size in bytes. Range 1-2147483647.
+  responseTimeout:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    default: 60
+    description: Response timeout in seconds. Defaults to 60.
+  ntlmAuthentication:
+    type: boolean
+    description: Whether NTLM authentication is enabled.
+  tags:
+    type: array
+    description: NSX-T tags applied to the profile.
+    items:
+      $ref: loadBalancerProfileConfigTag.yaml

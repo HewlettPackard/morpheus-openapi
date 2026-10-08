@@ -5,8 +5,7 @@ properties:
     properties:
       name:
         type: string
-        description: Optional name for the snapshot being created.
-        default: '{serverName}.{timestamp}'
+        description: Optional name for the snapshot being created. If omitted, the server generates one from the server name and a timestamp.
       description:
         type: string
         description: Optional description for the snapshot

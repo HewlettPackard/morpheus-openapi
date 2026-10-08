@@ -1,0 +1,23 @@
+get:
+  summary: Retrieves a Specific Backup Type
+  description: |
+    Retrieves a specific backup type by ID or code.
+  operationId: getBackupType
+  tags:
+    - Backups
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              backupType:
+                $ref: ../components/schemas/backupTypeDetail.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

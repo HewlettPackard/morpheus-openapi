@@ -1,0 +1,51 @@
+type: object
+title: Alletra MP BMaaS Volume Configuration
+description: >
+  Configuration for creating an HPE Alletra Storage MP block storage volume on a Bare Metal
+  (BMaaS) storage server. Property names are the Alletra MP plugin's native config keys.
+properties:
+  hpe_storage_datastore:
+    type: integer
+    format: int64
+    description: ID of the Alletra MP BMaaS data store (pool) in which to create the volume.
+  hpe_storage_volume_shared:
+    type: string
+    description: >
+      Whether the volume is shared (multi-attach). When 'off' the volume may be exported to a
+      single compute server; when 'on' it may be exported to one or more instances.
+    enum:
+      - "on"
+      - "off"
+  hpe_storage_compute_server:
+    type: string
+    description: >
+      Compute server to export a non-shared volume to, in the form "[id: <computeServerId>]".
+      Mutually exclusive with hpe_storage_instances.
+  hpe_storage_instances:
+    type: array
+    items:
+      type: string
+    description: >
+      Instances to export a shared volume to, each in the form "[id: <instanceId>]".
+      Mutually exclusive with hpe_storage_compute_server.
+  hpe_storage_remotecopytarget_id:
+    type: string
+    description: >
+      Remote copy (replication) target ID. Required for replicated LUN volume types
+      (Peer Persistence: Active or Classic).
+  hpe_storage_existing_volume_set:
+    type: string
+    description: Whether to add the volume to an existing, exported volume set rather than creating a new one.
+    enum:
+      - "on"
+      - "off"
+  hpe_storage_volumeset_id:
+    type: string
+    description: ID of an existing volume set to add the volume to (when using an existing volume set).
+  hpe_storage_volume_set_name:
+    type: string
+    description: >
+      Base name for a new volume set (a unique suffix is always appended). Used when not using an
+      existing volume set.
+required:
+  - hpe_storage_datastore

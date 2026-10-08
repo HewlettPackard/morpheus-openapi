@@ -1,0 +1,57 @@
+title: Cookie Persistence Load Balancer Profile Config
+type: object
+description: Configuration object for the NSX-T cookie persistence profile (serviceType LBCookiePersistenceProfile).
+properties:
+  profileType:
+    type: string
+    description: Profile category. Automatically set from serviceType (persistence-profile).
+  sharePersistence:
+    type: boolean
+    description: Whether persistence is shared across virtual servers that use this profile.
+  cookieName:
+    type: string
+    description: Cookie name.
+  cookieFallback:
+    type: boolean
+    default: true
+    description: Whether to fall back to another pool member when the cookie-pointed member is down. Defaults to true.
+  cookieGarbling:
+    type: boolean
+    default: true
+    description: Whether the cookie value is encrypted (garbled). Defaults to true.
+  cookieMode:
+    type: string
+    description: Cookie persistence mode.
+    enum:
+      - INSERT
+      - PREFIX
+      - REWRITE
+  cookieDomain:
+    type: string
+    description: Cookie domain. Applies only when cookieMode is INSERT.
+  cookiePath:
+    type: string
+    description: Cookie path. Applies only when cookieMode is INSERT.
+  cookieType:
+    type: string
+    description: Cookie time type. Required when cookieMode is INSERT.
+    enum:
+      - LBSessionCookieTime
+      - LBPersistenceCookieTime
+  maxIdleTime:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Maximum idle time in milliseconds the cookie persists. Applies only when cookieMode is INSERT.
+  maxCookieAge:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Maximum age in milliseconds the cookie persists. Applies only when cookieMode is INSERT.
+  tags:
+    type: array
+    description: NSX-T tags applied to the profile.
+    items:
+      $ref: loadBalancerProfileConfigTag.yaml

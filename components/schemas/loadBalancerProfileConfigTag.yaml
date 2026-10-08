@@ -1,0 +1,10 @@
+title: Load Balancer Profile Tag
+type: object
+description: NSX-T tag applied to the load balancer profile.
+properties:
+  name:
+    type: string
+    description: Tag name.
+  value:
+    type: string
+    description: Tag scope/value.

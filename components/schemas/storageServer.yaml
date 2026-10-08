@@ -17,8 +17,16 @@ properties:
         type: string
   chassis:
     type:
-      - string
+      - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+      code:
+        type: string
+      name:
+        type: string
   visibility:
     type: string
   description:
@@ -79,12 +87,14 @@ properties:
       - 'null'
   apiPort:
     type:
-      - string
+      - integer
       - 'null'
+    format: int32
   adminPort:
     type:
-      - string
+      - integer
       - 'null'
+    format: int32
   config:
     type: object
   refType:
@@ -109,7 +119,9 @@ properties:
       - string
       - 'null'
   status:
-    type: string
+    type:
+      - string
+      - 'null'
   statusMessage:
     type:
       - string
@@ -148,18 +160,42 @@ properties:
     type: array
     items:
       type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
   hostGroups:
     type: array
     items:
       type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
   hosts:
     type: array
     items:
       type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
   tenants:
     type: array
     items:
       type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
   owner:
     type: object
     properties:
@@ -170,3 +206,12 @@ properties:
         type: string
   credential:
     type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+      type:
+        type: string
+        description: Credential type code or `local`

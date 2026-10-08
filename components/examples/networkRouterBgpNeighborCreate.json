@@ -1,11 +1,6 @@
 {
   "networkRouterBgpNeighbor": {
     "ipAddress": "172.16.2.23",
-    "config": {
-        "sourceAddresses": [
-            "10.22.12.2"
-        ]
-    },
     "remoteAs": "21346",
     "keepAlive": 60,
     "holdDown": 180,
@@ -17,6 +12,11 @@
     "bfdMultiple": 3,
     "allowAsIn": "off",
     "hopLimit": 1,
-    "restartMode": "HELPER_ONLY"
+    "restartMode": "HELPER_ONLY",
+    "config": {
+      "sourceAddresses": [
+        "10.22.12.2"
+      ]
+    }
   }
 }

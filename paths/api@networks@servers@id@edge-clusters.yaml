@@ -22,6 +22,7 @@ get:
             - type: object
               properties:
                 networkEdgeClusters:
+                  type: array
                   items:
                     type: object
                     properties:

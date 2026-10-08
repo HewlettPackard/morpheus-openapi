@@ -1,0 +1,5 @@
+type: object
+properties:
+  id: { type: integer, format: int64 }
+  versionNumber: { type: integer, example: 3 }
+  dateCreated: { type: string, format: date-time }

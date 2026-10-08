@@ -1,0 +1,69 @@
+title: NSX-T Load Balancer Pool Config Object
+type: object
+description: Configuration object for NSX-T load balancer pool type.
+properties:
+  activeMonitorPaths:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: |-
+      The ID of the active health monitor (NetworkLoadBalancerMonitor).
+      The Options API `/api/options/nsxt/nsxtLBPoolActiveMonitor?loadBalancerId={id}` can be used to see which options are available.
+  passiveMonitorPath:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: |-
+      The ID of the passive health monitor (NetworkLoadBalancerMonitor).
+      The Options API `/api/options/nsxt/nsxtLBPoolPassiveMonitor?loadBalancerId={id}` can be used to see which options are available.
+  snatTranslationType:
+    type: string
+    description: SNAT translation type. Determines how source NAT is applied to pool traffic.
+    enum:
+      - LBSnatDisabled
+      - LBSnatAutoMap
+      - LBSnatIpPool
+  snatIpAddresses:
+    type: array
+    description: List of SNAT IP addresses. Required when snatTranslationType is LBSnatIpPool.
+    items:
+      type: string
+  tcpMultiplexing:
+    type: boolean
+    description: Whether TCP multiplexing is enabled for the pool.
+  tcpMultiplexingNumber:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Maximum number of TCP multiplexing connections. Defaults to 6.
+  memberGroup:
+    type:
+      - object
+      - 'null'
+    description: NSX-T member group configuration. When set, pool membership is determined by group membership instead of explicit nodes.
+    properties:
+      path:
+        type: string
+        description: NSX-T member group path.
+      ipRevisionFilter:
+        type: string
+        description: IP revision filter for the member group.
+        enum:
+          - IPV4
+          - IPV6
+          - IPV4_IPV6
+      maxIpListSize:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: Maximum IP list size for the member group.
+      port:
+        type:
+          - integer
+          - 'null'
+        format: int64
+        description: Port number for the member group.

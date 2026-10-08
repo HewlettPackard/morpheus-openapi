@@ -3,5 +3,6 @@ in: path
 description: Router ID
 required: true
 schema:
-  type: number
+  type: integer
+  format: int64
 example: 4

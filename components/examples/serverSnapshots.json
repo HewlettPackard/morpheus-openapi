@@ -9,6 +9,7 @@
             "state": null,
             "snapshotType": "vm",
             "snapshotCreated": "2022-07-20T18:35:58Z",
+            "maxStorage": 10737418240,
             "zone": {
                 "id": 15,
                 "name": "vcenter1 - homelab"
@@ -26,7 +27,8 @@
                     "volume": {
                         "id": 1
                     },
-                    "diskIndex": 0
+                    "diskIndex": 0,
+                    "fileSize": 5368709120
                 }
             ],
             "currentlyActive": true,

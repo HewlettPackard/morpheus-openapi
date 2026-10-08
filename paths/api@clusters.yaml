@@ -15,6 +15,7 @@ get:
     - $ref: ../components/parameters/typeId.yaml
     - $ref: ../components/parameters/labels.yaml
     - $ref: ../components/parameters/allLabels.yaml
+    - $ref: ../components/parameters/clustersUuid.yaml
   responses:
     '200':
       description: Successful Request

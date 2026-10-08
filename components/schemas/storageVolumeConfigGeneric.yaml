@@ -1,0 +1,3 @@
+title: Generic Storage Volume Configuration
+description: Generic configuration options for the storage volume, varies based on the storage volume type.
+type: object

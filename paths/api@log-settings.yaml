@@ -1,5 +1,5 @@
 get:
-  summary: List All Log Settings
+  summary: Get Log Settings
   description: This endpoint retrieves log settings.
   operationId: listLogSettings
   tags:
@@ -32,22 +32,33 @@ put:
     content:
       application/json:
         schema:
-            type: object
-            properties:
-              logSettings:
-                $ref: ../components/schemas/logSettings.yaml
+          type: object
+          required:
+            - logSettings
+          properties:
+            logSettings:
+              $ref: ../components/schemas/logSettingsUpdate.yaml
   responses:
     '200':
-      description: Update Log Settings Object
+      description: Successful Response
       content:
         application/json:
           schema:
             allOf:
               - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                  errors:
+                    type: object
+                    additionalProperties:
+                      type: string
+                    description: Field validation errors when success is false
           examples:
-            Update User Response:
+            Update Log Settings Response:
               value:
-                $ref: ../components/examples/userSuccess.json
+                $ref: ../components/examples/success.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

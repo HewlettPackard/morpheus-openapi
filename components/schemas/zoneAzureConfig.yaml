@@ -29,8 +29,6 @@ properties:
     type: string
   certificateProvider:
     type: string
-  backupMode:
-    type: string
   replicationMode:
     type: string
   dnsIntegrationId:
@@ -48,6 +46,8 @@ properties:
   serviceRegistryId:
     type: string
   cloudType:
+    type: string
+  storageAccount:
     type: string
   rpcMode:
     type: string

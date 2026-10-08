@@ -1,0 +1,40 @@
+put:
+  summary: Trigger Remediation on All Cluster Hosts
+  description: Starts async remediation for every host in the cluster that has a profile attached. Returns immediately with per-host start results.
+  operationId: remediateClusterHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Remediation started
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    serverId: { type: integer, format: int64 }
+                    serverName: { type: string }
+                    success: { type: boolean }
+                    msg: { type: [string, 'null'] }
+          example:
+            $ref: ../components/examples/clusterHostProfileRemediate.json
+    '400':
+      description: No hosts have a profile attached
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/clusterHostProfileNoHostsAttached.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

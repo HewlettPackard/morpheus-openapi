@@ -1,11 +1,16 @@
 type: object
 required:
-  - catalogItemTypeId
   - access
 properties:
   catalogItemTypeId:
     type: integer
     description: "`id` of the catalog item type"
+  name:
+    type: string
+    description: Catalog item type name (alternative to id). Alias of `catalogItemTypeName`.
+  catalogItemTypeName:
+    type: string
+    description: Alias for `name`
   access:
     type: string
     description: The new access level.

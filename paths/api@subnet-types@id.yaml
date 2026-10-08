@@ -1,0 +1,27 @@
+get:
+  summary: Get a Specific Subnet Type
+  description: |
+    This endpoint retrieves a specific network subnet type and its configuration options.
+  operationId: getSubnetType
+  tags:
+    - Networks
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              subnetType:
+                $ref: ../components/schemas/subnet-type.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/subnet-types.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

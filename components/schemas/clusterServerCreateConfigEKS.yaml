@@ -1,6 +1,7 @@
 description: Configuration for Amazon Elastic Kubernetes Service cluster servers
 type: object
 properties:
+  $ref: clusterServerCreateConfigCommon.yaml
   controller:
     type: object
     properties:

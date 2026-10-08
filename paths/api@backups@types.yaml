@@ -1,0 +1,48 @@
+get:
+  summary: Retrieves all Backup Types
+  description: |
+    Retrieves a list of all backup types. Backup types define the kind of backup
+    that can be performed (e.g., snapshot, file backup, database backup).
+  operationId: listBackupTypes
+  tags:
+    - Backups
+  parameters:
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/direction.yaml
+    - $ref: ../components/parameters/phrase.yaml
+    - $ref: ../components/parameters/name.yaml
+    - in: query
+      name: code
+      description: Filter by backup type code
+      schema:
+        type: string
+    - in: query
+      name: providerCode
+      description: Filter by provider code (e.g., `commvault`, `veeam`)
+      schema:
+        type: string
+    - in: query
+      name: active
+      description: Filter by active status. Defaults to true if not specified.
+      schema:
+        type: boolean
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                backupTypes:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/backupTypeDetail.yaml
+            - $ref: ../components/schemas/meta.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

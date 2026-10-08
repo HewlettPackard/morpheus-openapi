@@ -1,0 +1,9 @@
+{
+  "distributedWorker": {
+    "name": "test-dw-1",
+    "description": "Distributed worker for regional proxy traffic",
+    "enabled": true,
+    "proxyHostList": "host-a, host-b",
+    "applianceUrl": "https://appliance.morpheusdata.com"
+  }
+}

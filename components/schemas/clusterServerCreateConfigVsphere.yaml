@@ -1,6 +1,7 @@
 description: Configuration for VMware cluster servers
 type: object
 properties:
+  $ref: clusterServerCreateConfigCommon.yaml
   nodeCount:
     type: integer
     format: int64

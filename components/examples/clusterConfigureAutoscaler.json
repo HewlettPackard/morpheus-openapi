@@ -1,0 +1,12 @@
+{
+  "cluster": {
+    "autoScalerEnabled": true,
+    "autoScalerGroups": [
+      {
+        "name": "my-cluster-node-group",
+        "minNodes": 4,
+        "maxNodes": 8
+      }
+    ]
+  }
+}

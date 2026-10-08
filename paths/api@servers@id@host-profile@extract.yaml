@@ -1,0 +1,56 @@
+put:
+  summary: Extract Host Profile from Server
+  description: SSH-captures the host's current OS-level configuration synchronously, saves it as a new Profile, and returns the full profile including the captured config. If `name` is omitted, defaults to `"<serverName> - Profile <yyyy-MM-dd HH:mm>"`.
+  operationId: extractServerHostProfile
+  tags:
+    - Host Profiles
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - name: name
+      in: query
+      description: Optional profile name override
+      required: false
+      schema:
+        type: string
+    - name: description
+      in: query
+      description: Optional profile description
+      required: false
+      schema:
+        type: string
+  requestBody:
+    required: false
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name: { type: string, description: "Optional profile name override" }
+            description: { type: string, description: "Optional profile description" }
+  responses:
+    '200':
+      description: Newly extracted host profile with full config
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success: { type: boolean }
+              serverId: { type: integer, format: int64 }
+              serverName: { type: string }
+              hostProfile:
+                $ref: ../components/schemas/hostProfileDetail.yaml
+          example:
+            $ref: ../components/examples/serverHostProfileExtract.json
+    '400':
+      description: Provider does not support host profiles
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          example:
+            $ref: ../components/examples/hostProfileUnsupportedProvider.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

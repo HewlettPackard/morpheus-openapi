@@ -5,7 +5,7 @@ info:
     Morpheus is a powerful cloud management tool that provides provisioning, monitoring, logging, backups, and application deployment strategies.
 
     This document describes the Morpheus API protocol and the available endpoints. Sections are organized in the same manner as they appear in the Morpheus UI.
-  version: 9.0.0
+  version: 9.1.0
   termsOfService: https://morpheusdata.com/terms-and-conditions/
   contact:
     email: dev@morpheusdata.com
@@ -31,6 +31,13 @@ paths:
 
   /api/activity:
     $ref: paths/api@activity.yaml
+
+  /api/affinity-groups/{id}:
+    $ref: paths/api@affinity-groups@id.yaml
+  /api/affinity-groups/violations:
+    $ref: paths/api@affinity-groups@violations.yaml
+  /api/host-vm-groups/{id}:
+    $ref: paths/api@host-vm-groups@id.yaml
     
   /api/appliance-settings:
     $ref: paths/api@appliance-settings.yaml
@@ -38,6 +45,8 @@ paths:
     $ref: paths/api@appliance-settings@maintenance.yaml
   /api/appliance-settings/reindex:
     $ref: paths/api@appliance-settings@reindex.yaml
+  /api/appliance-settings/zone-types:
+    $ref: paths/api@appliance-settings@zone-types.yaml
   /api/approval-items/{id}:
     $ref: paths/api@approval-items@id.yaml
   /api/approval-items/{id}/{action}:
@@ -99,6 +108,8 @@ paths:
     $ref: paths/api@backup-settings.yaml
   /api/backups:
     $ref: paths/api@backups.yaml
+  /api/backups/create:
+    $ref: paths/api@backups@create.yaml
   /api/backups/{id}:
     $ref: paths/api@backups@id.yaml
   /api/backups/{id}/execute:
@@ -117,6 +128,10 @@ paths:
     $ref: paths/api@backups@restores.yaml
   /api/backups/restores/{id}:
     $ref: paths/api@backups@restores@id.yaml
+  /api/backups/types:
+    $ref: paths/api@backups@types.yaml
+  /api/backups/types/{id}:
+    $ref: paths/api@backups@types@id.yaml
   /api/billing/account:
     $ref: paths/api@billing@account.yaml
   /api/billing/account/{id}:
@@ -163,6 +178,8 @@ paths:
     $ref: paths/api@email-templates.yaml
   /api/email-templates/{id}:
     $ref: paths/api@email-templates@id.yaml
+  /api/email-templates/types:
+    $ref: paths/api@email-templates@types.yaml
   
   /api/monitoring/alerts:
     $ref: paths/api@monitoring@alerts.yaml
@@ -209,6 +226,14 @@ paths:
     $ref: paths/api@zones@id@affinity-groups.yaml
   /api/zones/{zoneId}/affinity-groups/{id}:
     $ref: paths/api@zones@id@affinity-groups@id.yaml
+  /api/zones/{zoneId}/affinity-groups/form-options:
+    $ref: paths/api@zones@id@affinity-groups@form-options.yaml
+  /api/zones/{zoneId}/host-vm-groups:
+    $ref: paths/api@zones@id@host-vm-groups.yaml
+  /api/zones/{zoneId}/host-vm-groups/{id}:
+    $ref: paths/api@zones@id@host-vm-groups@id.yaml
+  /api/zones/{zoneId}/host-vm-groups/form-options:
+    $ref: paths/api@zones@id@host-vm-groups@form-options.yaml
   /api/zones/{zoneId}/data-stores:
     $ref: paths/api@zones@zoneId@data-stores.yaml
   /api/zones/{zoneId}/data-stores/{id}:
@@ -248,10 +273,22 @@ paths:
     $ref: paths/api@clusters@id@affinity-groups.yaml
   /api/clusters/{clusterId}/affinity-groups/{id}:
     $ref: paths/api@clusters@id@affinity-groups@id.yaml
+  /api/clusters/{clusterId}/affinity-groups/form-options:
+    $ref: paths/api@clusters@id@affinity-groups@form-options.yaml
+  /api/clusters/{clusterId}/host-vm-groups:
+    $ref: paths/api@clusters@id@host-vm-groups.yaml
+  /api/clusters/{clusterId}/host-vm-groups/{id}:
+    $ref: paths/api@clusters@id@host-vm-groups@id.yaml
+  /api/clusters/{clusterId}/host-vm-groups/form-options:
+    $ref: paths/api@clusters@id@host-vm-groups@form-options.yaml
   /api/clusters/{clusterId}/api-config:
     $ref: paths/api@clusters@id@api-config.yaml
+  /api/clusters/{clusterId}/configure-autoscaler:
+    $ref: paths/api@clusters@id@configure-autoscaler.yaml
   /api/clusters/{clusterId}/apply-template:
     $ref: paths/api@clusters@id@apply-template.yaml
+  /api/clusters/{clusterId}/available-nics:
+    $ref: paths/api@clusters@id@available-nics.yaml
   /api/clusters/{clusterId}/containers:
     $ref: paths/api@clusters@id@containers.yaml
   /api/clusters/{clusterId}/containers/{id}:
@@ -274,12 +311,30 @@ paths:
     $ref: paths/api@clusters@id@history@id.yaml
   /api/clusters/{clusterId}/history/events/{id}:
     $ref: paths/api@clusters@id@history@events@id.yaml
+  /api/clusters/{clusterId}/host-profile:
+    $ref: paths/api@clusters@id@host-profile.yaml
+  /api/clusters/{clusterId}/host-profile/attach:
+    $ref: paths/api@clusters@id@host-profile@attach.yaml
+  /api/clusters/{clusterId}/host-profile/compliance:
+    $ref: paths/api@clusters@id@host-profile@compliance.yaml
+  /api/clusters/{clusterId}/host-profile/remediate:
+    $ref: paths/api@clusters@id@host-profile@remediate.yaml
+  /api/clusters/{clusterId}/host-profile/detach:
+    $ref: paths/api@clusters@id@host-profile@detach.yaml
   /api/clusters/{clusterId}/jobs:
     $ref: paths/api@clusters@id@jobs.yaml
   /api/clusters/{clusterId}/jobs/{id}:
     $ref: paths/api@clusters@id@jobs@id.yaml
   /api/clusters/{clusterId}/layout:
     $ref: paths/api@clusters@id@layout.yaml
+  /api/clusters/{clusterId}/available-updates:
+    $ref: paths/api@clusters@id@available-updates.yaml
+  /api/clusters/{clusterId}/execute-update:
+    $ref: paths/api@clusters@id@execute-update.yaml
+  /api/clusters/{clusterId}/updates:
+    $ref: paths/api@clusters@id@updates.yaml
+  /api/clusters/{clusterId}/updates/{id}:
+    $ref: paths/api@clusters@id@updates@updateId.yaml
   /api/clusters/{clusterId}/masters:
     $ref: paths/api@clusters@id@masters.yaml
   /api/clusters/{clusterId}/namespaces:
@@ -396,6 +451,8 @@ paths:
     $ref: paths/api@cypher.yaml
   /api/cypher/{cypherPath}:
     $ref: paths/api@cypher@id.yaml
+  /api/data-store-types:
+    $ref: paths/api@data-store-types.yaml
   /api/data-stores:
     $ref: paths/api@datastores.yaml
   /api/data-stores/{id}:
@@ -416,6 +473,10 @@ paths:
     $ref: paths/api@deploys@id.yaml
   /api/deploys/{id}/deploy:
     $ref: paths/api@deploys@id@deploy.yaml
+  /api/distributed-workers:
+    $ref: paths/api@distributed-workers.yaml
+  /api/distributed-workers/{id}:
+    $ref: paths/api@distributed-workers@id.yaml
   /api/environments:
     $ref: paths/api@environments.yaml
   /api/environments/{id}:
@@ -447,6 +508,8 @@ paths:
     $ref: paths/api@guidance-settings.yaml
   /api/health:
     $ref: paths/api@health.yaml
+  /api/health/live:
+    $ref: paths/api@health@live.yaml
   /api/health/alarms:
     $ref: paths/api@health@alarms.yaml
   /api/health/alarms/acknowledge:
@@ -480,11 +543,19 @@ paths:
     $ref: paths/api@user-sources@id.yaml
   /api/user-sources/{id}/subdomain:
     $ref: paths/api@user-sources@id@subdomain.yaml
+  /api/user-sources/{id}/activate:
+    $ref: paths/api@user-sources@id@activate.yaml
+  /api/user-sources/{id}/deactivate:
+    $ref: paths/api@user-sources@id@deactivate.yaml
 
   /api/boot-scripts:
     $ref: paths/api@boot-scripts.yaml
   /api/boot-scripts/{id}:
     $ref: paths/api@boot-scripts@id.yaml
+  /api/host-profiles:
+    $ref: paths/api@host-profiles.yaml
+  /api/host-profiles/{id}:
+    $ref: paths/api@host-profiles@id.yaml
   /api/image-builds:
     $ref: paths/api@image-builds.yaml
   /api/image-builds/{id}:
@@ -734,6 +805,8 @@ paths:
     $ref: paths/api@log-settings@syslog-rules.yaml
   /api/log-settings/syslog-rules/{id}:
     $ref: paths/api@log-settings@syslog-rules@id.yaml
+  /api/log-settings/integrations/{name}:
+    $ref: paths/api@log-settings@integrations@name.yaml
 
   /api/logs:
     $ref: paths/api@logs.yaml
@@ -882,10 +955,16 @@ paths:
     $ref: paths/api@ping.yaml
   /api/plugins:
     $ref: paths/api@plugins.yaml
+  /api/plugins/check-updates:
+    $ref: paths/api@plugins@check-updates.yaml
   /api/plugins/upload:
     $ref: paths/api@plugins@upload.yaml
   /api/plugins/{id}:
     $ref: paths/api@plugins@id.yaml
+  /api/plugins/{id}/revert:
+    $ref: paths/api@plugins@id@revert.yaml
+  /api/plugins/{id}/upgrade:
+    $ref: paths/api@plugins@id@upgrade.yaml
   /api/policies:
     $ref: paths/api@policies.yaml
   /api/policies/{id}:
@@ -900,6 +979,8 @@ paths:
     $ref: paths/api@zones@id@policies@id.yaml
   /api/policy-types:
     $ref: paths/api@policy-types.yaml
+  /api/policy-types/{policyTypeId}:
+    $ref: paths/api@policy-types@id.yaml
   /api/power-schedules:
     $ref: paths/api@power-schedules.yaml
   /api/power-schedules/{id}:
@@ -924,6 +1005,8 @@ paths:
     $ref: paths/api@price-sets@id@deactivate.yaml
   /api/prices:
     $ref: paths/api@prices.yaml
+  /api/prices/currencies:
+    $ref: paths/api@prices@currencies.yaml
   /api/prices/{id}:
     $ref: paths/api@prices@id.yaml
   /api/prices/{id}/deactivate:
@@ -933,6 +1016,8 @@ paths:
     $ref: paths/api@provision-types.yaml
   /api/provision-types/{id}:
     $ref: paths/api@provision-types@id.yaml
+  /api/provisioning-license-types:
+    $ref: paths/api@provisioning-license-types.yaml
   /api/provisioning-licenses:
     $ref: paths/api@provisioning-licenses.yaml
   /api/provisioning-licenses/{id}:
@@ -941,6 +1026,8 @@ paths:
     $ref: paths/api@provisioning-licenses@id@reservations.yaml
   /api/provisioning-settings:
     $ref: paths/api@provisioning-settings.yaml
+  /api/provisioning-settings/template-types:
+    $ref: paths/api@provisioning-settings@template-types.yaml
   /api/public-archives/download/{bucket}/{filepath}:
     $ref: paths/api@public-archives@download@id@path.yaml
   /api/public-archives/link:
@@ -959,10 +1046,16 @@ paths:
     $ref: paths/api@resource-pools@groups@id.yaml
   /api/roles:
     $ref: paths/api@roles.yaml
+  /api/roles/personas:
+    $ref: paths/api@roles@personas.yaml
+  /api/roles/validate:
+    $ref: paths/api@roles@validate.yaml
   /api/roles/{id}:
     $ref: paths/api@roles@id.yaml
   /api/roles/{id}/update-blueprint:
     $ref: paths/api@roles@id@update-blueprint.yaml
+  /api/roles/{id}/update-app-template:
+    $ref: paths/api@roles@id@update-app-template.yaml
   /api/roles/{id}/update-catalog-item-type:
     $ref: paths/api@roles@id@update-catalog-item-type.yaml
   /api/roles/{id}/update-cloud:
@@ -1023,6 +1116,14 @@ paths:
     $ref: paths/api@servers@id.yaml
   /api/servers/{id}/assign-account:
     $ref: paths/api@servers@id@assign-account.yaml
+  /api/servers/{id}/host-profile:
+    $ref: paths/api@servers@id@host-profile.yaml
+  /api/servers/{id}/host-profile/extract:
+    $ref: paths/api@servers@id@host-profile@extract.yaml
+  /api/servers/{id}/host-profile/compliance:
+    $ref: paths/api@servers@id@host-profile@compliance.yaml
+  /api/servers/{id}/host-profile/remediate:
+    $ref: paths/api@servers@id@host-profile@remediate.yaml
   /api/servers/{id}/install-agent:
     $ref: paths/api@servers@id@install-agent.yaml
   /api/servers/{id}/make-managed:
@@ -1033,6 +1134,8 @@ paths:
     $ref: paths/api@servers@id@snapshot.yaml
   /api/servers/{id}/snapshots:
     $ref: paths/api@servers@id@snapshots.yaml
+  /api/servers/{id}/linked-clone/{snapshotId}:
+    $ref: paths/api@servers@id@linked-clone@id.yaml
   /api/servers/{id}/start:
     $ref: paths/api@servers@id@start.yaml
   /api/servers/{id}/stop:
@@ -1136,10 +1239,22 @@ paths:
     $ref: paths/api@accounts@id@groups@id@update-zones.yaml
   /api/accounts/{accountId}/users:
     $ref: paths/api@accounts@id@users.yaml
+  /api/accounts/{accountId}/users/{id}:
+    $ref: paths/api@accounts@id@users@id.yaml
+  /api/accounts/{accountId}/users/available-roles:
+    $ref: paths/api@accounts@id@users@available-roles.yaml
+  /api/accounts/{accountId}/users/{id}/available-roles:
+    $ref: paths/api@accounts@id@users@id@available-roles.yaml
+  /api/accounts/{accountId}/users/{id}/permissions:
+    $ref: paths/api@accounts@id@users@id@permissions.yaml
+  /api/accounts/{accountId}/users/{id}/feature-permissions:
+    $ref: paths/api@accounts@id@users@id@feature-permissions.yaml
   /api/accounts/{accountId}/user-sources:
     $ref: paths/api@accounts@id@user-sources.yaml
   /api/subnet-types:
     $ref: paths/api@subnet-types.yaml
+  /api/subnet-types/{id}:
+    $ref: paths/api@subnet-types@id.yaml
   /api/subnets:
     $ref: paths/api@subnets.yaml
   /api/subnets/{id}:
@@ -1162,6 +1277,22 @@ paths:
     $ref: paths/api@infrastructure@systems@id@validate.yaml
   /api/infrastructure/systems/{id}/initialize:
     $ref: paths/api@infrastructure@systems@id@initialize.yaml
+  /api/infrastructure/systems/{systemId}/servers/{serverId}/update-definitions:
+    $ref: paths/api@infrastructure@systems@systemId@servers@serverId@update-definitions.yaml
+  /api/infrastructure/systems/{systemId}/servers/{serverId}/update-definitions/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@servers@serverId@update-definitions@updateDefinitionId.yaml
+  /api/infrastructure/systems/{systemId}/storage-servers/{serverId}/update-definitions:
+    $ref: paths/api@infrastructure@systems@systemId@storage-servers@serverId@update-definitions.yaml
+  /api/infrastructure/systems/{systemId}/storage-servers/{serverId}/update-definitions/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@storage-servers@serverId@update-definitions@updateDefinitionId.yaml
+  /api/infrastructure/systems/{systemId}/network-servers/{serverId}/update-definitions:
+    $ref: paths/api@infrastructure@systems@systemId@network-servers@serverId@update-definitions.yaml
+  /api/infrastructure/systems/{systemId}/network-servers/{serverId}/update-definitions/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@network-servers@serverId@update-definitions@updateDefinitionId.yaml
+  /api/infrastructure/systems/{systemId}/clusters/{clusterId}/update-definitions:
+    $ref: paths/api@infrastructure@systems@systemId@clusters@clusterId@update-definitions.yaml
+  /api/infrastructure/systems/{systemId}/clusters/{clusterId}/update-definitions/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@clusters@clusterId@update-definitions@updateDefinitionId.yaml
   /api/infrastructure/system-types:
     $ref: paths/api@infrastructure@system-types.yaml
   /api/infrastructure/system-types/{typeId}/layouts:
@@ -1221,6 +1352,10 @@ paths:
     $ref: paths/api@users@id.yaml
   /api/users/{id}/permissions:
     $ref: paths/api@users@id@permissions.yaml
+  /api/users/{id}/feature-permissions:
+    $ref: paths/api@users@id@feature-permissions.yaml
+  /api/users/{id}/available-roles:
+    $ref: paths/api@users@id@available-roles.yaml
   /api/vdi-apps:
     $ref: paths/api@vdi-apps.yaml
   /api/vdi-apps/{id}:
@@ -1261,6 +1396,16 @@ paths:
     $ref: paths/api@virtual-images@id@upload.yaml
   /api/virtual-images/{virtualImageId}/download:
     $ref: paths/api@virtual-images@id@download.yaml
+  /api/virtual-switches:
+    $ref: paths/api@virtual-switches.yaml
+  /api/virtual-switches/{id}:
+    $ref: paths/api@virtual-switches@id.yaml
+  /api/virtual-switches/{id}/segments:
+    $ref: paths/api@virtual-switches@id@segments.yaml
+  /api/virtual-switches/{id}/segments/{segId}:
+    $ref: paths/api@virtual-switches@id@segments@segId.yaml
+  /api/virtual-switches/{id}/uplinks:
+    $ref: paths/api@virtual-switches@id@uplinks.yaml
   /api/whitelabel-settings:
     $ref: paths/api@whitelabel-settings.yaml
   /api/whitelabel-settings/images:
@@ -1326,6 +1471,12 @@ tags:
     description: All Endpoints Under the Administration Tab
   - name: Activity
     description: Manage Appliance Activity Logs
+  - name: Affinity Groups
+    description: >-
+      Provides API interfaces for managing affinity rules and their Host and VM
+      Groups by ID, across both cluster and cloud scope. An affinity rule is
+      either a legacy VM-to-VM rule that lists servers directly, or a combined
+      VM-to-Host rule that references a VM Group and a Host Group.
   - name: Alerts
     description: Manage Alerts
   - name: Appliance Settings
@@ -1407,6 +1558,8 @@ tags:
     description: View History
   - name: Hosts
     description: Manage Hosts
+  - name: Host Profiles
+    description: Manage KVM/MVM Host Profiles — capture, compliance, and remediation
   - name: Identity Sources
     description: Manage Identity Sources
   - name: Image Builds
@@ -1530,6 +1683,8 @@ tags:
     description: Manage VDI Pools & Desktops
   - name: Virtual Images
     description: Manage Virtual Images
+  - name: Virtual Switches
+    description: Manage cluster-scoped HVM Virtual Switches
   - name: Whitelabel Settings
     description: Manage Whitelabel Settings
   - name: Wiki

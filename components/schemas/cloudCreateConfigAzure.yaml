@@ -12,6 +12,15 @@ properties:
       - string
       - 'null'
     description: The external id of the cloud
+  cloudType:
+    type: string
+    description: The Azure cloud type (global, usgov, german, china).
+    enum:
+      - global
+      - usgov
+      - german
+      - china
+    default: global
   inventoryLevel:
     type: string
     enum:
@@ -19,6 +28,12 @@ properties:
       - basic
       - full
     description: Whether to import existing virtual machines.
+  importExisting:
+    type: string
+    description: Whether to import existing resources from the cloud (on, off).
+    enum:
+      - "on"
+      - "off"
   consoleKeymap:
     type: string
     description: The keyboard layout to use for the console
@@ -42,6 +57,9 @@ properties:
     type: string
     description: Azure resource group
     example: /subscriptions/8d6b0be1b6a8/resourceGroups/TestRG
+  storageAccount:
+    type: string
+    description: The Azure storage account to use.
   rpcMode:
     oneOf: 
       - type: string

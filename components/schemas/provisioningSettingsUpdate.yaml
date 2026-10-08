@@ -54,3 +54,24 @@ properties:
         type: integer
         format: int64
         description: Default blueprint type ID
+  consoleKeyboardSettings:
+    type: boolean
+    description: Enable or disable console keyboard settings (stored setting name)
+  enableCatalog:
+    type: boolean
+    description: Enable or disable catalog provisioning
+  enableApps:
+    type: boolean
+    description: Enable or disable apps provisioning
+  enableInstances:
+    type: boolean
+    description: Enable or disable instances provisioning
+  provisioningOrder:
+    type: string
+    description: Provisioning navigation order (dash-separated values)
+  terraformMode:
+    type: string
+    description: Terraform execution mode
+  terraformVersion:
+    type: string
+    description: Terraform version

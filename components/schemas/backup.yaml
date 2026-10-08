@@ -10,10 +10,16 @@ properties:
   locationType:
     type: string
     description: Source Type (instance, server, storage)
+  location:
+    type:
+      - string
+      - 'null'
+    description: Location label, typically the storage provider name
   instance:
     type:
       - object
       - 'null'
+    description: Present when locationType is `instance`
     properties:
       id:
         type: integer
@@ -27,8 +33,69 @@ properties:
       - integer
       - 'null'
     format: int64
+    description: Present when locationType is `instance`
+  server:
+    type:
+      - object
+      - 'null'
+    description: Present when locationType is `server`
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Server ID
+      name:
+        type: string
+        description: Server Name
+  volumePath:
+    type:
+      - string
+      - 'null'
+    description: Volume path. Present when backupType is `lvmSnapshot`.
+  targetPath:
+    type:
+      - string
+      - 'null'
+    description: The file or directory path on the target host. Present when backupType is `fileBackup`, `directoryBackup`, or `tarDirectoryBackup`.
+  targetHost:
+    type:
+      - string
+      - 'null'
+    description: Target host. Present when backupType is a database type (MySQL, SqlServer, Postgres, MongoDB) or lvmSnapshot.
+  targetPort:
+    type:
+      - integer
+      - 'null'
+    description: Target port. Present when backupType is a database type (MySQL, SqlServer, Postgres, MongoDB).
+  targetAll:
+    type:
+      - boolean
+      - 'null'
+    description: Whether to backup all databases. Present when backupType is a database type.
+  targetName:
+    type:
+      - string
+      - 'null'
+    description: Target database name. Present when backupType is a database type and `targetAll` is false.
+  targetUsername:
+    type:
+      - string
+      - 'null'
+    description: Target username. Present when backupType is a database type.
+  targetPassword:
+    type:
+      - string
+      - 'null'
+    description: Target password (masked). Present when backupType is a database type.
+  targetPasswordHash:
+    type:
+      - string
+      - 'null'
+    description: Target password hash. Present when backupType is a database type.
   job:
-    type: object
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
@@ -58,7 +125,9 @@ properties:
       - 'null'
     format: int64
   backupType:
-    type: object
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
@@ -70,6 +139,21 @@ properties:
       name:
         type: string
         description: Backup Type Name
+  backupProvider:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Backup Provider ID
+      code:
+        type: string
+        description: Backup Provider Code
+      name:
+        type: string
+        description: Backup Provider Name
   storageProvider:
     type:
       - object
@@ -82,7 +166,7 @@ properties:
       name:
         type: string
         description: Storage Provider Name
-  backupProvider:
+  backupRepository:
     type:
       - object
       - 'null'
@@ -90,22 +174,10 @@ properties:
       id:
         type: integer
         format: int64
-        description: Backup Provider ID
+        description: Backup Repository ID
       name:
         type: string
-        description: Backup Provider Name
-  backupRespository:
-    type:
-      - object
-      - 'null'
-    properties:
-      id:
-        type: integer
-        format: int64
-        description: Backup Respository ID
-      name:
-        type: string
-        description: Backup Respository Name
+        description: Backup Repository Name
   cronExpression:
     type:
       - string
@@ -131,7 +203,7 @@ properties:
         type: integer
         format: int64
         description: Last Result ID
-      name:
+      status:
         type: string
         description: Last Result Status
       dateCreated:

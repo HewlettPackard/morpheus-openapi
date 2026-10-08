@@ -54,8 +54,6 @@ post:
               required:
                 - name
                 - providerType
-                - bucketName
-                - config
               properties:
                 name: 
                   type: string

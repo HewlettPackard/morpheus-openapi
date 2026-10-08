@@ -1,0 +1,12 @@
+type: object
+title: Alletra MP BMAAS Datastore Configuration
+description: HPE Alletra Storage MP Bare Metal (BMaaS) datastore configuration
+properties:
+  protocolType:
+    type: string
+    description: Storage protocol to use, can be 'iSCSI' or 'FC'
+    enum:
+      - iSCSI
+      - FC
+required:
+  - protocolType

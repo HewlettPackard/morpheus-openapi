@@ -21,7 +21,7 @@ get:
             allOf:
             - type: object
               properties:
-                alarm:
+                alarms:
                   type: array
                   items:
                     $ref: ../components/schemas/alarm.yaml

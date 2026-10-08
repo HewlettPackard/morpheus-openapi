@@ -131,14 +131,28 @@ properties:
     type: string
   storageGroup:
     type:
-      - string
+      - object
       - 'null'
+    description: The storage group the volume belongs to.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   namespace:
     type:
       - string
       - 'null'
   storageServer:
     type: object
+    description: The storage server the volume is provisioned on.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   source:
     type: string
   uniqueId:
@@ -160,6 +174,10 @@ properties:
       - string
       - 'null'
   fiberWwn:
+    type:
+      - string
+      - 'null'
+  wwn:
     type:
       - string
       - 'null'
@@ -189,6 +207,22 @@ properties:
     type: boolean
   isMultiAttach:
     type: boolean
+  multiAttachSourceVolume:
+    type:
+      - object
+      - 'null'
+    description: The shared source volume this volume attaches to. Set on per-server child volumes; `null` on a source volume or a volume that is not multi-attach.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  persistentReservations:
+    type:
+      - boolean
+      - 'null'
+    description: Whether SCSI-3 persistent reservations are enabled for this volume. Per-server, not inherited from the shared source volume. Requires a controller type with `supportsPersistentReservations`.
   storageProfile:
     type:
       - string

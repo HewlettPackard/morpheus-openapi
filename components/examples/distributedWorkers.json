@@ -1,0 +1,22 @@
+{
+  "distributedWorkers": [
+    {
+      "id": 1,
+      "name": "test-dw-1",
+      "description": "Distributed worker for regional proxy traffic",
+      "enabled": true,
+      "active": true,
+      "proxyPort": 40000,
+      "proxyHostList": "host-a, host-b",
+      "applianceUrl": "https://appliance.morpheusdata.com",
+      "dateCreated": "2026-09-22T15:00:00Z",
+      "lastUpdated": "2026-09-22T15:00:00Z"
+    }
+  ],
+  "meta": {
+    "offset": 0,
+    "max": 25,
+    "size": 1,
+    "total": 1
+  }
+}

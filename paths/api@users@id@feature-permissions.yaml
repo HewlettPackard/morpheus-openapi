@@ -1,0 +1,67 @@
+get:
+  summary: Get a Specific User Feature Permissions (deprecated)
+  description: |
+    **Deprecated.** Prefer `GET /api/users/{id}/permissions` for the full access map.
+
+    Returns feature permissions for a user as both a map (`featurePermissions`) and
+    an array (`permissions` with name, code, access). The array form is preferred.
+  deprecated: true
+  operationId: getUserFeaturePermissions
+  tags:
+    - Users
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - name: accountId
+      in: query
+      description: Tenant ID for tenant-scoped lookup.
+      schema:
+        type: integer
+        format: int64
+    - name: tenantId
+      in: query
+      description: Alias of `accountId`.
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: Feature permissions map and list
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              featurePermissions:
+                type: object
+                additionalProperties:
+                  type: string
+                description: Deprecated map of permission code to access level
+              permissions:
+                type: array
+                description: Preferred list of feature permissions
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    code:
+                      type: string
+                    access:
+                      type: string
+          examples:
+            Feature Permissions Response:
+              value:
+                featurePermissions:
+                  admin-users: full
+                  admin-roles: read
+                permissions:
+                  - name: Admin Users
+                    code: admin-users
+                    access: full
+                  - name: Admin Roles
+                    code: admin-roles
+                    access: read
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

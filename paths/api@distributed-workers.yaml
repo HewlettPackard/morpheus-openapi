@@ -1,0 +1,71 @@
+get:
+  summary: Distributed Workers
+  description: Retrieves all distributed workers associated with the account.
+  operationId: listDistributedWorkers
+  tags:
+    - Integrations
+  parameters:
+    - $ref: ../components/parameters/name.yaml
+    - $ref: ../components/parameters/phrase.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  distributedWorkers:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/distributedWorker.yaml
+              - $ref: ../components/schemas/meta.yaml
+          examples:
+            Distributed Workers Response:
+              value:
+                $ref: ../components/examples/distributedWorkers.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Create a Distributed Worker
+  description: |
+    Create a Distributed Worker. The generated `apiKey` is returned **only** in
+    this response and cannot be retrieved later — save it when the worker is created.
+  operationId: addDistributedWorker
+  tags:
+    - Integrations
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            distributedWorker:
+              $ref: ../components/schemas/distributedWorkerCreate.yaml
+        examples:
+          Distributed Worker Request:
+            value:
+              $ref: ../components/examples/distributedWorkerRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  distributedWorker:
+                    $ref: ../components/schemas/distributedWorkerDetail.yaml
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Distributed Worker Response:
+              value:
+                $ref: ../components/examples/distributedWorker.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

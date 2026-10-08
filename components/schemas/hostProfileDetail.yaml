@@ -1,0 +1,10 @@
+allOf:
+  - $ref: ./hostProfile.yaml
+  - type: object
+    properties:
+      config:
+        $ref: ./hostProfileConfig.yaml
+      versions:
+        type: array
+        items:
+          $ref: ./hostProfileVersion.yaml

@@ -1,7 +1,19 @@
 {
   "subnet": {
+    "name": "Updated Subnet Name",
+    "active": true,
+    "dhcpServer": false,
+    "visibility": "public",
     "config": {
-      "subnetName": "Our Subnet"
+      "subnetName": "Updated Subnet Name"
     }
+  },
+  "resourcePermissions": {
+    "all": true,
+    "sites": [
+      {
+        "id": 1
+      }
+    ]
   }
 }

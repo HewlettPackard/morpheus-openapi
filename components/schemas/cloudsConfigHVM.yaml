@@ -21,10 +21,6 @@ properties:
       - string
       - 'null'
 
-  backupMode:
-    type:
-      - string
-      - 'null'
   certificateProvider:
     type:
       - string

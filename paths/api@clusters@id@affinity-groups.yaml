@@ -52,6 +52,15 @@ post:
           properties:
             affinityGroup:
               $ref: ../components/schemas/clusterAffinityGroupCreate.yaml
+            tenantPermissions:
+              type: object
+              properties:
+                accounts:
+                  type: array
+                  description: Array of tenant account IDs
+                  items:
+                    type: integer
+                    format: int64
         examples:
           Create Affinity Group Request:
             value:
@@ -72,6 +81,8 @@ post:
             Create Affinity Group Response:
               value:
                 $ref: ../components/examples/clusterAffinityGroupSuccess.json
+    '400':
+      $ref: ../components/responses/affinityGroup400.yaml
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

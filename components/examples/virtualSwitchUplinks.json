@@ -1,0 +1,24 @@
+{
+  "uplinks": [
+    {
+      "id": 88,
+      "serverId": 42,
+      "serverName": "hvm-host01",
+      "nic1": "eno1",
+      "nic2": "eno2",
+      "syncStatus": "in-sync",
+      "syncMessage": null,
+      "lastSyncDate": "2026-06-30T18:22:04Z"
+    },
+    {
+      "id": 89,
+      "serverId": 43,
+      "serverName": "hvm-host02",
+      "nic1": "eno1",
+      "nic2": null,
+      "syncStatus": "pending",
+      "syncMessage": null,
+      "lastSyncDate": null
+    }
+  ]
+}

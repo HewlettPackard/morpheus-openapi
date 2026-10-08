@@ -1,0 +1,89 @@
+get:
+  summary: Get a Specific Distributed Worker
+  description: This endpoint retrieves a specific distributed worker.
+  operationId: getDistributedWorker
+  tags:
+    - Integrations
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              distributedWorker:
+                $ref: ../components/schemas/distributedWorker.yaml
+          examples:
+            Distributed Worker Response:
+              value:
+                $ref: ../components/examples/distributedWorker.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+put:
+  summary: Update a Distributed Worker
+  description: Update a Distributed Worker
+  operationId: updateDistributedWorker
+  tags:
+    - Integrations
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            distributedWorker:
+              $ref: ../components/schemas/distributedWorkerCreate.yaml
+        examples:
+          Distributed Worker Request:
+            value:
+              $ref: ../components/examples/distributedWorkerRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  distributedWorker:
+                    $ref: ../components/schemas/distributedWorker.yaml
+              - $ref: ../components/schemas/200-success.yaml
+          examples:
+            Distributed Worker Response:
+              value:
+                $ref: ../components/examples/distributedWorker.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a Distributed Worker
+  description: Will delete a distributed worker from the system and make it no longer usable.
+  operationId: deleteDistributedWorker
+  tags:
+    - Integrations
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/success.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

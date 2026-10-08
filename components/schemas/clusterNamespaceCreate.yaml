@@ -12,35 +12,50 @@ properties:
     type: boolean
     description: Namespace active
     default: false
-  resourcePermissions: 
+  visibility:
+    type: string
+    description: Visibility level (public or private)
+  permissions:
     type: object
-    description: Map for namespace group and service plan permissions.
-    properties: 
-      all: 
-        type: boolean
-        description: Pass true to allow access to all groups
-      sites: 
-        type: array
-        description: Array of groups that are allowed access
-        items: 
-          type: object
-          properties: 
-            id: 
+    properties:
+      tenantPermissions:
+        type: object
+        properties:
+          accounts:
+            type: array
+            description: Array of tenant account IDs
+            items:
               type: integer
               format: int64
-            default: 
-              type: boolean
-      allPlans: 
-        type: boolean
-        description: Pass true to allow access to all plans
-      plans: 
-        type: array
-        description: Array of plans that are allowed access
-        items: 
-          type: object
-          properties: 
-            id: 
-              type: integer
-              format: int64
-            default: 
-              type: boolean
+      resourcePermissions: 
+        type: object
+        description: Map for namespace group and service plan permissions.
+        properties: 
+          all: 
+            type: boolean
+            description: Pass true to allow access to all groups
+          sites: 
+            type: array
+            description: Array of groups that are allowed access
+            items: 
+              type: object
+              properties: 
+                id: 
+                  type: integer
+                  format: int64
+                default: 
+                  type: boolean
+          allPlans: 
+            type: boolean
+            description: Pass true to allow access to all plans
+          plans: 
+            type: array
+            description: Array of plans that are allowed access
+            items: 
+              type: object
+              properties: 
+                id: 
+                  type: integer
+                  format: int64
+                default: 
+                  type: boolean

@@ -44,8 +44,7 @@ put:
           type: object
           properties: 
             networkRouterBgpNeighbor:
-              type: object
-              description: For a full list of available BGP Neighbor options, see bgpOptionTypes in the specific Network Router Type
+              $ref: ../components/schemas/networkRouterBgpNeighborUpdate.yaml
         examples: 
           Network Router BGP Neighbor Request:
             value:

@@ -2,7 +2,10 @@
   "containerScript": {
     "id": 10,
     "code": "cassandra-2.1-vm-start",
-    "account": null,
+    "account": {
+      "id": 1,
+      "name": "Morpheus QA"
+    },
     "name": "cassandra start",
     "category": null,
     "sortOrder": 1,

@@ -13,6 +13,14 @@ properties:
   hostId:
     type: string
     description: Specific host to deploy to if so desired.
+  affinityGroup:
+    type: integer
+    format: int64
+    description: >-
+      ID of an affinity group to place this instance into. The placement rule is
+      applied to the cluster before the virtual machine is powered on, so the
+      instance is placed according to the rule from the outset. Applies at
+      provision time only.
   smbiosAssetTag:
     type: string
     description: Sets the asset tag on the SMBIOS for use by the guest operating system. If left blank, the virtual machine name will be used.

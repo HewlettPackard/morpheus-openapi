@@ -196,13 +196,16 @@ put:
             allOf:
             - type: object
               properties:
-                servicePlan:
-                  $ref: ../components/schemas/servicePlan.yaml
-            - $ref: ../components/schemas/200-success.yaml
+                id:
+                  type: integer
+                  format: int64
+                  description: ID of the updated service plan
+            - $ref: ../components/schemas/200-success-expanded.yaml
           examples:
             Service Plan Response:
               value:
-                $ref: ../components/examples/servicePlanSuccess.json
+                success: true
+                id: 1
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
@@ -210,7 +213,7 @@ put:
 delete:
   summary: Deletes a Service Plan
   description: |
-    Deletes a specified service plan.
+    Soft-deletes a service plan (marks inactive/deleted).
   operationId: removeServicePlans
   tags:
     - Service Plans
@@ -222,7 +225,11 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            $ref: ../components/schemas/200-success-expanded.yaml
+          examples:
+            Delete Service Plan Response:
+              value:
+                success: true
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

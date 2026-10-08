@@ -1,11 +1,12 @@
 put:
   summary: Stop a Host
-  description: This will stop a host.
+  description: This will stop a host. To force a hard power off, include the query parameter `force=true`.
   operationId: stopHost
   tags:
     - Hosts
   parameters:
     - $ref: ../components/parameters/server-id-path.yaml
+    - $ref: ../components/parameters/force-stop.yaml
   responses:
     '200':
       description: Successful Request

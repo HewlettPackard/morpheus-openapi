@@ -1,0 +1,61 @@
+{
+  "virtualSwitch": {
+    "id": 12,
+    "name": "vswitch01",
+    "code": "kvm.virtualswitch.12",
+    "description": "General VM traffic switch",
+    "baseType": "general",
+    "bondMode": "active-backup",
+    "mtu": 1500,
+    "status": "available",
+    "statusMessage": null,
+    "active": true,
+    "clusterId": 135,
+    "nicCount": 2,
+    "networkCount": 2,
+    "segments": [
+      {
+        "id": 44,
+        "trafficType": "vm",
+        "interfaceName": "bond0.220",
+        "ipAddress": null,
+        "netmask": null,
+        "gateway": null,
+        "vlanId": 220,
+        "mtu": 1500,
+        "ovsBridge": "vswitch01-br",
+        "ovsUuid": "6f1a2b3c-4d5e-6789-abcd-ef0123456789",
+        "ovsLibvirtNetwork": "vswitch01-vm",
+        "status": "in-sync",
+        "statusMessage": null
+      },
+      {
+        "id": 45,
+        "trafficType": "management",
+        "interfaceName": "bond0",
+        "ipAddress": "10.0.10.5",
+        "netmask": "255.255.255.0",
+        "gateway": "10.0.10.1",
+        "vlanId": null,
+        "mtu": 1500,
+        "ovsBridge": null,
+        "ovsUuid": null,
+        "ovsLibvirtNetwork": null,
+        "status": "pending",
+        "statusMessage": null
+      }
+    ],
+    "uplinks": [
+      {
+        "id": 88,
+        "serverId": 42,
+        "serverName": "hvm-host01",
+        "nic1": "eno1",
+        "nic2": "eno2",
+        "syncStatus": "in-sync",
+        "syncMessage": null,
+        "lastSyncDate": "2026-06-30T18:22:04Z"
+      }
+    ]
+  }
+}

@@ -7,6 +7,10 @@
     "serviceToken": "12345xyz",
     "refresh": true,
     "managed": true,
-    "cpuPlacementMode": "spread"
+    "cpuPlacementMode": "spread",
+    "config": {
+      "migrationConcurrencyAutoMode": "true",
+      "migrationConcurrencyLimit": "2"
+    }
   }
 }

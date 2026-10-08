@@ -1,6 +1,6 @@
 id:
   type: integer
-  format: int32
+  format: int64
 direction:
   type: string
 sourceType:
@@ -9,11 +9,15 @@ destinationType:
   type: string
 name:
   type: string
+description:
+  type:
+    - string
+    - 'null'
 policy:
   type: string
 priority:
   type: integer
-  format: int32
+  format: int64
 enabled:
   type: boolean
 ruleGroup:
@@ -21,7 +25,7 @@ ruleGroup:
   properties:
     id:
       type: integer
-      format: int32
+      format: int64
     name:
       type: string
 groupName:

@@ -20,6 +20,89 @@ properties:
       - 'null'
   dockerPrivilegedMode:
     type: boolean
+  cloudSyncIntervalSeconds:
+    type:
+      - string
+      - 'null'
+  clusterSyncIntervalSeconds:
+    type:
+      - string
+      - 'null'
+  usageRetainmentPeriod:
+    type:
+      - string
+      - 'null'
+  invoiceRetainmentPeriod:
+    type:
+      - string
+      - 'null'
+  incidentRetainmentPeriod:
+    type:
+      - string
+      - 'null'
+  statsRetainmentPeriod:
+    type:
+      - string
+      - integer
+      - 'null'
+  reportsRetainmentPeriod:
+    type:
+      - string
+      - 'null'
+  httpBlacklistHosts:
+    type:
+      - string
+      - 'null'
+  httpApprovelistHosts:
+    type:
+      - string
+      - 'null'
+  exchangeUrl:
+    type:
+      - string
+      - 'null'
+  noAgent:
+    type: boolean
+  agentSSLVerify:
+    type: boolean
+  disableSSHPasswordAuth:
+    type: boolean
+  defaultLocale:
+    type:
+      - string
+      - 'null'
+  defaultVdiGateway:
+    type:
+      - string
+      - 'null'
+  maxOptionListSize:
+    type:
+      - string
+      - 'null'
+  passwordMinLength:
+    type:
+      - string
+      - 'null'
+  passwordMinUpperCase:
+    type:
+      - string
+      - 'null'
+  passwordMinNumbers:
+    type:
+      - string
+      - 'null'
+  passwordMinSymbols:
+    type:
+      - string
+      - 'null'
+  userBrowserSessionTimeout:
+    type:
+      - string
+      - 'null'
+  userBrowserSessionWarning:
+    type:
+      - string
+      - 'null'
   expirePwdDays:
     type:
       - string
@@ -64,6 +147,18 @@ properties:
     type:
       - string
       - 'null'
+  twilioAccountSid:
+    type:
+      - string
+      - 'null'
+  twilioSmsFrom:
+    type:
+      - string
+      - 'null'
+  twilioAuthToken:
+    type:
+      - string
+      - 'null'
   proxyHost:
     type:
       - string
@@ -92,6 +187,10 @@ properties:
     type:
       - string
       - 'null'
+  noProxy:
+    type:
+      - string
+      - 'null'
   currencyProvider:
     type:
       - string
@@ -100,6 +199,8 @@ properties:
     type:
       - string
       - 'null'
+  maintenanceMode:
+    type: boolean
   enabledZoneTypes:
     type:
       - array
@@ -112,13 +213,12 @@ properties:
           format: int64
         name:
           type: string
-  statsRetainmentPeriod:
-    type: integer
-    format: int64
   dashboardsToDisplay:
     type:
       - string
       - 'null'
+  enableMurph:
+    type: boolean
   vmeAppliance:
     type: boolean
   latestWindowsAgentVersion:

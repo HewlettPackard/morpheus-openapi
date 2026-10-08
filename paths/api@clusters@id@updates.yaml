@@ -1,0 +1,30 @@
+get:
+  summary: List Cluster Update Executions
+  description: List Cluster Update Executions
+  operationId: listClusterUpdateExecutions
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+            - type: object
+              properties:
+                updates:
+                  type: array
+                  items:
+                    $ref: ../components/schemas/clusterUpdateOperation.yaml
+            - $ref: ../components/schemas/meta.yaml
+          examples:
+            Clusters Response:
+              value:
+                $ref: ../components/examples/listClusterUpdates.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

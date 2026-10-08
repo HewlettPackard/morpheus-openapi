@@ -1,6 +1,30 @@
 {
   "success": true,
   "license": {
-    "id": 1
+    "id": 2,
+    "name": "2012 R2 Standard",
+    "description": "2012 R2 Standard",
+    "licenseType": {
+      "id": 1,
+      "code": "win",
+      "name": "Windows"
+    },
+    "licenseKey": "*************************AB3E",
+    "orgName": "Acme Motors",
+    "fullName": "Bugs Bunny",
+    "licenseVersion": "2012 R2 Standard",
+    "copies": 1,
+    "reservationCount": 0,
+    "tenants": [],
+    "virtualImages": [
+      {
+        "id": 2021,
+        "name": "Windows-Server-R2-AL"
+      }
+    ],
+    "account": {
+      "id": 1,
+      "name": "Acme"
+    }
   }
 }

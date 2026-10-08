@@ -1,0 +1,29 @@
+title: Fast TCP Load Balancer Profile Config
+type: object
+description: Configuration object for the NSX-T Fast TCP application profile (serviceType LBFastTcpProfile).
+properties:
+  profileType:
+    type: string
+    description: Profile category. Automatically set from serviceType (application-profile).
+  fastTcpIdleTimeout:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    default: 1800
+    description: Idle timeout in seconds before an inactive connection is closed. Defaults to 1800.
+  haFlowMirroring:
+    type: boolean
+    description: Whether all flows to the active member are mirrored to the standby member.
+  connectionCloseTimeout:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    default: 8
+    description: Timeout in seconds before a closed connection is removed. Defaults to 8. Range 1-60.
+  tags:
+    type: array
+    description: NSX-T tags applied to the profile.
+    items:
+      $ref: loadBalancerProfileConfigTag.yaml

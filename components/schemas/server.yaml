@@ -269,6 +269,17 @@ properties:
     type:
       - string
       - 'null'
+  guestAgentStatus:
+    type:
+      - string
+      - 'null'
+    enum:
+      - connected
+      - disconnected
+      - configured
+      - unconfigured
+      - unknown
+      - error
   maxCores:
     type: integer
     format: int64
@@ -277,6 +288,12 @@ properties:
       - integer
       - 'null'
     format: int64
+  ioThreadCount:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: The number of libvirt iothreads declared by this VM's domain (`<iothreads>`). `null` means Morpheus has not yet observed the hypervisor's iothread topology for this VM; `0` means the domain explicitly declares no iothreads. The two are distinct — `null` is not reported as `0`. MVM/KVM only.
   maxMemory:
     type: integer
     format: int64
@@ -374,6 +391,12 @@ properties:
         reservedUnitNumber:
           type: integer
           format: int64
+        ioThreadId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+          description: The libvirt iothread pinned to this controller's `virtio-scsi` driver. `null` means Morpheus has not yet observed the hypervisor's iothread topology for this VM, which is not the same as the controller having no iothread. MVM/KVM only.
   interfaces:
     type: array
     items:
@@ -448,12 +471,24 @@ properties:
               type: string
         subnet:
           type:
-            - string
+            - object
             - 'null'
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
         networkGroup:
           type:
-            - string
+            - object
             - 'null'
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: string
         networkPosition:
           type:
             - string
@@ -503,7 +538,7 @@ properties:
       - array
       - 'null'
     items:
-      type: object
+      type: string
   tags:
     type:
       - array
@@ -556,6 +591,16 @@ properties:
       nestedVirtualization:
         type:
           - string
+          - 'null'
+      disableQgaChannel:
+        type: boolean
+      bootToBios:
+        type:
+          - boolean
+          - 'null'
+      bootToBiosMenuTimeout:
+        type:
+          - integer
           - 'null'
       vmwareFolderId:
         type: string
