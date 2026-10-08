@@ -25,6 +25,11 @@ properties:
     description: >-
       True when the rule is misconfigured because its Host Group resolves to no
       hosts, so the rule can never be satisfied
+  reason:
+    type: string
+    description: >-
+      Localized explanation of why the rule is violated, including the names of
+      any VMs pinned to a host that prevents the rule from being satisfied
   occurredAt:
     type: string
     format: date-time

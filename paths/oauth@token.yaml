@@ -97,7 +97,31 @@ post:
             Access Token Response:
               value:
                 $ref: ../components/examples/accessToken.json
+    '400':
+      description: The grant request was rejected, for example an unknown or revoked refresh token, bad user credentials, or a scope the client is not allowed.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OAuthError.yaml
+          example:
+            error: invalid_grant
+    '401':
+      description: The refresh token has expired. Authenticate again with a password or authorization code grant to obtain a new token.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OAuthError.yaml
+          example:
+            error: invalid_grant
     '4XX':
       $ref: ../components/responses/4xx.yaml
+    '500':
+      description: Unexpected server error while processing the grant
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OAuthError.yaml
+          example:
+            error: server_error
     '5XX':
       $ref: ../components/responses/5xx.yaml

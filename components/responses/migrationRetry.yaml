@@ -1,0 +1,15 @@
+description: Successful Request
+content:
+  application/json:
+    schema:
+      type: object
+      properties:
+        success:
+          type: boolean
+        msg:
+          type:
+            - string
+            - 'null'
+    example:
+      success: true
+      msg: null

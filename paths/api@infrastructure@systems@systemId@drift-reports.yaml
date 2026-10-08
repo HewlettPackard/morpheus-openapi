@@ -1,0 +1,110 @@
+get:
+  summary: List System Drift Reports
+  description: |
+    List drift reports for a system. Requires **read** or **full** permission on `infrastructure-system`.
+  operationId: listSystemDriftReports
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/systemId-path.yaml
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - name: sort
+      in: query
+      schema:
+        type: string
+        default: dateCreated
+        enum:
+          - id
+          - status
+          - driftSummary
+          - startedOn
+          - completedOn
+          - dateCreated
+    - name: order
+      in: query
+      schema:
+        type: string
+        default: desc
+        enum:
+          - asc
+          - desc
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  driftReports:
+                    type: array
+                    items:
+                      $ref: ../components/schemas/systemDriftReport.yaml
+              - $ref: ../components/schemas/meta.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Start a System Drift Check
+  description: |
+    Start an asynchronous drift check for a system. Returns 202 with the new report and process ID.
+    If a drift check is already running, `driftReport` and `processId` are null and `msg` explains why.
+    Returns 409 when the check conflicts with the system state. Requires **full** permission on
+    `infrastructure-system`.
+  operationId: startSystemDriftCheck
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/systemId-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            checkLevel:
+              type: string
+              default: ALL
+              enum:
+                - ALL
+                - TARGETED
+                - UPDATE
+            driftRules:
+              type: array
+              description: Rule names to run.
+              items:
+                type: string
+            excludeDriftRules:
+              type: array
+              description: Rule names to skip.
+              items:
+                type: string
+  responses:
+    '202':
+      description: Drift check accepted
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              driftReport:
+                oneOf:
+                  - $ref: ../components/schemas/systemDriftReport.yaml
+                  - type: 'null'
+              processId:
+                type:
+                  - integer
+                  - 'null'
+                format: int64
+              msg:
+                type: string
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

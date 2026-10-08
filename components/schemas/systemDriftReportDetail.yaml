@@ -1,0 +1,40 @@
+allOf:
+  - $ref: systemDriftReport.yaml
+  - type: object
+    properties:
+      ruleResults:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type:
+                - string
+                - 'null'
+            ruleName:
+              type:
+                - string
+                - 'null'
+            ruleDescription:
+              type:
+                - string
+                - 'null'
+            ruleType:
+              type:
+                - string
+                - 'null'
+            status:
+              type:
+                - string
+                - 'null'
+            resultDescription:
+              type:
+                - string
+                - 'null'
+            affectedObjects:
+              type: array
+              items: {}
+            recommendation:
+              type:
+                - string
+                - 'null'

@@ -27,6 +27,15 @@ get:
               success:
                 type: boolean
                 example: true
+              processId:
+                type:
+                  - integer
+                  - 'null'
+                format: int64
+                description: ID of the validation process, when one was started
+              validationPending:
+                type: boolean
+                description: True when validation is still running asynchronously. Poll the process or the system status for the result.
               msg:
                 type: string
                 example: System validated successfully

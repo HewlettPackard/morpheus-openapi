@@ -1,0 +1,47 @@
+get:
+  summary: Get a System Drift Report
+  description: Get a drift report including per-rule results. Requires **read** or **full** permission on `infrastructure-system`.
+  operationId: getSystemDriftReport
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/systemId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  driftReport:
+                    $ref: ../components/schemas/systemDriftReportDetail.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+delete:
+  summary: Delete a System Drift Report
+  description: |
+    Delete a drift report. Returns 409 when the drift check is still pending or running.
+    Requires **full** permission on `infrastructure-system`.
+  operationId: deleteSystemDriftReport
+  tags:
+    - Systems
+  parameters:
+    - $ref: ../components/parameters/systemId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

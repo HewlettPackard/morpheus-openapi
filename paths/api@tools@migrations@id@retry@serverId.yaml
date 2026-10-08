@@ -1,0 +1,35 @@
+put:
+  summary: Retry a Failed VM Migration
+  description: |
+    Retry the failed step of a VM migration for one source server in a migration plan.
+    Returns 400 when the migration has no failed, retryable step and 404 when the plan or source
+    server is not found. Requires **full** permission on `services-migrations`.
+  operationId: retryMigration
+  tags:
+    - Migrations
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/serverId-path.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/migrationRetry.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
+post:
+  summary: Retry a Failed VM Migration
+  description: Same as the PUT operation.
+  operationId: retryMigrationPost
+  tags:
+    - Migrations
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/serverId-path.yaml
+  responses:
+    '200':
+      $ref: ../components/responses/migrationRetry.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

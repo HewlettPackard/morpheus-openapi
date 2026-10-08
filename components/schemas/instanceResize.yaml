@@ -16,6 +16,14 @@ properties:
             type: integer
             format: int64
             example: 75
+      config:
+        type: object
+        additionalProperties: true
+        description: Reconfigure option values for the provision type. Must be an object; any other type returns 400. Merged with the top-level `config`, which takes precedence.
+  config:
+    type: object
+    additionalProperties: true
+    description: Reconfigure option values. Must be an object; any other type returns 400. Takes precedence over `instance.config`.
   servicePlanOptions:
     $ref: servicePlanOptions.yaml
   volumes:
