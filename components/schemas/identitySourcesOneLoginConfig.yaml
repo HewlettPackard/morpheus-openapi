@@ -63,8 +63,10 @@ properties:
     items: 
       type: object
       properties: 
-        sourceRoleName: 
-          type: string
+        sourceRoleName:
+          type:
+            - string
+            - 'null'
         sourceRoleFqn: 
           type: string
         mappedRole: 
