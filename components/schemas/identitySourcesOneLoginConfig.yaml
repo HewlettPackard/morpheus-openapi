@@ -5,8 +5,10 @@ properties:
     format: int64
   name: 
     type: string
-  description: 
-    type: string
+  description:
+    type:
+      - string
+      - 'null'
   code: 
     type: string
   type: 
@@ -31,8 +33,10 @@ properties:
         format: int64
       name: 
         type: string
-  defaultAccountRole: 
-    type: object
+  defaultAccountRole:
+    type:
+      - object
+      - 'null'
     properties: 
       id: 
         type: integer
@@ -63,10 +67,14 @@ properties:
     items: 
       type: object
       properties: 
-        sourceRoleName: 
-          type: string
-        sourceRoleFqn: 
-          type: string
+        sourceRoleName:
+          type:
+            - string
+            - 'null'
+        sourceRoleFqn:
+          type:
+            - string
+            - 'null'
         mappedRole: 
           type: object
           properties: 
