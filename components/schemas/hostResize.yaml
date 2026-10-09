@@ -8,6 +8,14 @@ server:
           type: integer
           format: int64
           description: The ID of the new plan (optional). See Available Service Plans
+    config:
+      type: object
+      additionalProperties: true
+      description: Reconfigure option values for the provision type. Must be an object or null; any other type returns 400. Merged with the top-level `config`, which takes precedence.
+config:
+  type: object
+  additionalProperties: true
+  description: Reconfigure option values. Must be an object or null; any other type returns 400. Takes precedence over `server.config`.
 servicePlanOptions:
   $ref: servicePlanOptions.yaml
 volumes:

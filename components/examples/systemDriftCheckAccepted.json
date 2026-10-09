@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "driftReport": {
+    "id": 13,
+    "status": "pending",
+    "driftSummary": null,
+    "checkLevel": "ALL",
+    "statusMessage": null,
+    "processId": 4411,
+    "totalRules": null,
+    "passedRules": null,
+    "failedRules": null,
+    "warningRules": null,
+    "skippedRules": null,
+    "startedOn": "2026-10-08T21:10:02Z",
+    "completedOn": null,
+    "dateCreated": "2026-10-08T21:10:02Z"
+  },
+  "processId": 4411
+}

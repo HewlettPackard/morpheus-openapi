@@ -1,0 +1,26 @@
+{
+  "success": true,
+  "driftReports": [
+    {
+      "id": 12,
+      "status": "completed",
+      "driftSummary": "DRIFT_DETECTED",
+      "checkLevel": "ALL",
+      "statusMessage": null,
+      "processId": 4410,
+      "totalRules": 2,
+      "passedRules": 1,
+      "failedRules": 1,
+      "warningRules": 0,
+      "skippedRules": 0,
+      "startedOn": "2026-10-08T20:59:24Z",
+      "completedOn": "2026-10-08T20:59:31Z",
+      "dateCreated": "2026-10-08T20:59:24Z"
+    }
+  ],
+  "meta": {
+    "total": 1,
+    "max": 25,
+    "offset": 0
+  }
+}
