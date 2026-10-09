@@ -34,10 +34,7 @@
         "status": "FAILED",
         "resultDescription": "1 server is below the baseline firmware version",
         "affectedObjects": [
-          {
-            "type": "server",
-            "id": 31
-          }
+          "server-31"
         ],
         "recommendation": "Apply the firmware update for the affected server"
       }

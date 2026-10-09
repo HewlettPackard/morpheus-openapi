@@ -1,7 +1,8 @@
 get:
   summary: List System Drift Reports
   description: |
-    List drift reports for a system, newest first by default.
+    List drift reports for a system, newest first by default. Returns 400 when `sort` or `order`
+    is not one of the listed values, `max` is not between 1 and 250, or `offset` is negative.
 
     Requires **read** or **full** permission on `infrastructure-system`.
   operationId: listSystemDriftReports
@@ -18,7 +19,7 @@ get:
         type: string
     - name: sort
       in: query
-      description: Sort order, the name of the property to sort by. Any other value returns 400.
+      description: Sort order, the name of the property to sort by
       schema:
         type: string
         default: dateCreated
@@ -71,6 +72,9 @@ post:
     contains the running report and `msg` is `Drift check already in progress`. If the running
     report cannot be found yet, `driftReport` and `processId` are null.
 
+    Returns 400 when the body is not a JSON object, `checkLevel` is not a listed value
+    (case-insensitive), or `driftRules` / `excludeDriftRules` is not an array of strings.
+
     Requires **full** permission on `infrastructure-system`.
   operationId: startSystemDriftCheck
   tags:
@@ -92,12 +96,12 @@ post:
                 - UPDATE
             driftRules:
               type: array
-              description: Rule names to run
+              description: Rule identifiers to run, as defined by the system provider
               items:
                 type: string
             excludeDriftRules:
               type: array
-              description: Rule names to skip
+              description: Rule identifiers to skip, as defined by the system provider
               items:
                 type: string
         examples:

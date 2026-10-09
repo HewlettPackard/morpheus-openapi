@@ -1,9 +1,12 @@
 post:
   summary: Look Up a Token
   description: |
-    Look up one of your own tokens by its access token value. The value is sent in the request
-    body rather than a query parameter so it does not appear in access logs.
-    Returns 404 when no matching token is found for the user.
+    Look up a token by its access token value, for yourself or for the user given by `userId`.
+    The value is sent in the request body rather than a query parameter so it does not appear in
+    access logs.
+
+    Returns 400 when `token` is missing or blank, 403 when `userId` is a user you may not manage,
+    and 404 when no matching token is found for the user.
   operationId: lookupToken
   tags:
     - Tokens

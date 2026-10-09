@@ -33,7 +33,8 @@ get:
 delete:
   summary: Delete a System Drift Report
   description: |
-    Delete a drift report. Returns 409 when the drift check is still pending or running.
+    Delete a drift report. Returns 409 when the drift check is still pending or running, unless it
+    was started more than 30 minutes ago and is treated as abandoned.
 
     Requires **full** permission on `infrastructure-system`.
   operationId: deleteSystemDriftReport

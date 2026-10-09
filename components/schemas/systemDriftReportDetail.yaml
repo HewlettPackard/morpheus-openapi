@@ -27,13 +27,20 @@ allOf:
               type:
                 - string
                 - 'null'
+              enum:
+                - PASSED
+                - FAILED
+                - SKIPPED
+                - WARNING
+                - null
             resultDescription:
               type:
                 - string
                 - 'null'
             affectedObjects:
               type: array
-              items: {}
+              items:
+                type: string
             recommendation:
               type:
                 - string

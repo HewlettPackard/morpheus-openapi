@@ -2,7 +2,7 @@
   "violations": [
     {
       "ruleId": 54,
-      "ruleName": "Keep App VMs On Prod Hosts",
+      "ruleName": "Keep App VMs Together",
       "ruleDeleted": false,
       "keepTogether": true,
       "emptyHostGroup": false,

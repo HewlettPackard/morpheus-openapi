@@ -1,9 +1,12 @@
 put:
   summary: Update Backup Job Permissions
   description: |
-    Update the visibility and tenant sharing of a backup job. At least one of `visibility` or
-    `tenantPermissions` must be provided. Sending `tenantPermissions.accounts` as an empty array
-    removes all tenant sharing.
+    Update the visibility and tenant sharing of a backup job. At least one of
+    `permissions.visibility` or `permissions.tenantPermissions.accounts` must be provided. Sending
+    `accounts` as an empty array removes all tenant sharing.
+
+    Returns 400 for an unknown `visibility` or a tenant ID that is not a positive integer, and 404
+    when the backup job does not belong to your tenant.
 
     Requires **full** permission on `backups`.
   operationId: updateBackupJobPermissions
@@ -17,6 +20,8 @@ put:
       application/json:
         schema:
           type: object
+          required:
+            - permissions
           properties:
             permissions:
               type: object

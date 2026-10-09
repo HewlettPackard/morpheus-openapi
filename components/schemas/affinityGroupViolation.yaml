@@ -28,8 +28,9 @@ properties:
   reason:
     type: string
     description: >-
-      Localized explanation of why the rule is violated, including the names of
-      any VMs pinned to a host that prevents the rule from being satisfied
+      Localized explanation of why the rule is violated. For a required rule that
+      combines a VM group and a Host Group, it names any affected VMs with a pinned
+      placement strategy, which blocks automatic eviction
   occurredAt:
     type: string
     format: date-time

@@ -11,6 +11,7 @@ get:
     with a descriptive message on failure (HTTP 400). If the provider has not finished
     validating in time, or a validation is already running for the system, the response has
     `validationPending: true` and no verdict yet; poll the process identified by `processId`.
+    `validationPending` is only present on a 200 response.
 
     Requires **read** or **full** permission on `infrastructure-system`.
   operationId: validateSystem

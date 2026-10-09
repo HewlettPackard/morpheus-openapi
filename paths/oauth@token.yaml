@@ -98,13 +98,19 @@ post:
               value:
                 $ref: ../components/examples/accessToken.json
     '400':
-      description: The grant request was rejected, for example an unknown or revoked refresh token, bad user credentials, or a scope the client is not allowed.
+      description: >-
+        The grant request was rejected: `invalid_grant` (bad user credentials, or an unknown or
+        revoked refresh token), `unauthorized_client` (the client may not use this grant type),
+        `invalid_scope`, or `invalid_request`.
       content:
         application/json:
           schema:
             $ref: ../components/schemas/OAuthError.yaml
-          example:
-            error: invalid_grant
+          examples:
+            Invalid Credentials:
+              value:
+                error: invalid_grant
+                error_description: Invalid user credentials
     '401':
       description: >-
         The client could not be authenticated (`invalid_client`, for example an unknown `client_id`),
@@ -114,8 +120,13 @@ post:
         application/json:
           schema:
             $ref: ../components/schemas/OAuthError.yaml
-          example:
-            error: invalid_grant
+          examples:
+            Unknown Client:
+              value:
+                error: invalid_client
+            Expired Refresh Token:
+              value:
+                error: invalid_grant
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '500':
@@ -124,7 +135,9 @@ post:
         application/json:
           schema:
             $ref: ../components/schemas/OAuthError.yaml
-          example:
-            error: server_error
+          examples:
+            Server Error:
+              value:
+                error: server_error
     '5XX':
       $ref: ../components/responses/5xx.yaml
