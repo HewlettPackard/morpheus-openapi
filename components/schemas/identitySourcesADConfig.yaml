@@ -34,7 +34,9 @@ properties:
       name:
         type: string
   defaultAccountRole:
-    type: object
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
@@ -74,7 +76,9 @@ properties:
             - string
             - 'null'
         sourceRoleFqn:
-          type: string
+          type:
+            - string
+            - 'null'
         mappedRole:
           type: object
           properties:
