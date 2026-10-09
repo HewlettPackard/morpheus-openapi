@@ -30,9 +30,7 @@ properties:
       - 'null'
     format: int64
   maxGpus:
-    type:
-      - integer
-      - 'null'
+    type: integer
     format: int64
   maxCores:
     type:
@@ -54,21 +52,13 @@ properties:
   customCores:
     type: boolean
   customMaxStorage:
-    type:
-      - boolean
-      - 'null'
+    type: boolean
   customMaxDataStorage:
-    type:
-      - boolean
-      - 'null'
+    type: boolean
   customMaxMemory:
-    type:
-      - boolean
-      - 'null'
+    type: boolean
   addVolumes:
-    type:
-      - boolean
-      - 'null'
+    type: boolean
   memoryOptionSource:
     type:
       - string
