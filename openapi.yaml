@@ -649,10 +649,10 @@ paths:
     $ref: paths/api@instances@id@resize.yaml
   /api/instances/{id}/resize-prompt:
     $ref: paths/api@instances@id@resize-prompt.yaml
-  /api/instances/{id}/resize-warning:
-    $ref: paths/api@instances@id@resize-warning.yaml
-  /api/instances/{id}/resize-drift-warning:
-    $ref: paths/api@instances@id@resize-drift-warning.yaml
+  /api/instances/{id}/check-resize:
+    $ref: paths/api@instances@id@check-resize.yaml
+  /api/instances/{id}/check-resize-drift:
+    $ref: paths/api@instances@id@check-resize-drift.yaml
   /api/instances/{id}/add-node-prompt:
     $ref: paths/api@instances@id@add-node-prompt.yaml
   /api/instances/{id}/add-node:
