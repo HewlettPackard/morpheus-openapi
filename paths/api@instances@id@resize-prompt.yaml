@@ -8,6 +8,16 @@ get:
 
     `instanceState` is always included, so a client can detect a drifted multi-node
     instance here and switch to the per-node `servers` payload when submitting the resize.
+
+    This is not a substitute for `GET /api/instances/{id}` and returns none of the instance
+    itself — no plan, volumes, or interfaces. It answers "what may this caller change, and
+    what controls should render," which the instance resource does not describe. A client
+    building a reconfigure form generally needs both. Note also that the option types come
+    from the container's own type, not the instance's plan or layout, so they cannot be
+    derived from the instance payload.
+
+    Requires the `provisioning-reconfigure` permission with full access to the instance.
+    A caller who can read the instance but lacks reconfigure rights receives a 404 here.
   operationId: getInstanceResizePrompt
   tags:
     - Instances
