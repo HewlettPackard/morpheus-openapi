@@ -94,12 +94,13 @@ properties:
         max:
           type:
             - integer
-            - number
             - 'null'
+          format: int64
+          description: Limit; null when unlimited
         used:
-          type:
-            - integer
-            - number
+          type: integer
+          format: int64
+          description: Current usage
         percentUsed:
           type: number
         warning:
