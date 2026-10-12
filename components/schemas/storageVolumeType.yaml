@@ -39,6 +39,11 @@ properties:
     type:
       - array
       - 'null'
+    description: |-
+      Custom per-volume configuration fields offered by this volume type. These are combined with the
+      `storageVolumeOptionTypes` of the provision type to form the full set of config fields for a single
+      storage volume, and their values are supplied per volume via the `config` object on instance create
+      and resize payloads.
     items:
       type: object
       properties:
@@ -121,6 +126,37 @@ properties:
           type: boolean
         editable:
           type: boolean
+        secretField:
+          type: boolean
+          description: |-
+            Whether this field holds a secret. Values for secret fields are redacted in API responses that
+            echo back stored configuration, so a read-modify-write of the returned value will not round-trip
+            the real secret — re-send the actual value to change it, or omit the key to leave it unchanged.
+        ignoreField:
+          type:
+            - boolean
+            - 'null'
+          description: When true, this option type is excluded from the fields collected for a storage volume.
+        fieldSetContext:
+          type:
+            - string
+            - 'null'
+          description: Context the value is written into when it differs from `fieldContext`. Only `config` is honoured for storage volume option types.
+        fieldGetContext:
+          type:
+            - string
+            - 'null'
+          description: Context the value is read from when it differs from `fieldContext`. Only `config` is honoured for storage volume option types.
+        fieldSetName:
+          type:
+            - string
+            - 'null'
+          description: Config path the value is written to when it differs from `fieldName`. Supports dot notation for nested config.
+        fieldGetName:
+          type:
+            - string
+            - 'null'
+          description: Config path the value is read from when it differs from `fieldName`. Supports dot notation for nested config.
         creatable:
           type: boolean
         config:
