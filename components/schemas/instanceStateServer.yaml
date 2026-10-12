@@ -1,0 +1,156 @@
+type: object
+description: |
+  The recorded configuration of a single node (container plus its backing compute server)
+  within an instance, together with whether that node has drifted from the instance's
+  common configuration.
+properties:
+  containerId:
+    type: integer
+    format: int64
+    example: 42
+    description: Id of the container. This is the value to send back as `servers[].containerId` on resize.
+  serverId:
+    type: integer
+    format: int64
+    example: 57
+    description: Id of the compute server backing the container.
+  serverName:
+    type: string
+    example: test1
+  powerState:
+    type: string
+    example: 'on'
+    description: Current power state of the backing server.
+  drifted:
+    type: boolean
+    description: |
+      Whether this specific node differs from the majority configuration on any tracked
+      axis. The instance-level `driftReasons` says which axes drifted overall; this flag
+      says which nodes are responsible.
+  plan:
+    type: object
+    nullable: true
+    description: The service plan currently assigned to this node.
+    properties:
+      id:
+        type: integer
+        format: int64
+      code:
+        type: string
+      name:
+        type: string
+      maxMemory:
+        type: integer
+        format: int64
+      maxCores:
+        type: integer
+        format: int64
+      coresPerSocket:
+        type: integer
+        format: int64
+      isCustom:
+        type: boolean
+  volumes:
+    type: array
+    description: Current volumes on this node.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        definitionId:
+          type: string
+          nullable: true
+          description: |
+            Identifies a shared volume. Volumes carrying the same `definitionId` across
+            nodes are the same logical volume, and edits to one are cascaded to all of
+            them on resize.
+        displayOrder:
+          type: integer
+        maxStorage:
+          type: integer
+          format: int64
+        rootVolume:
+          type: boolean
+        removable:
+          type: boolean
+        isShared:
+          type: boolean
+        datastoreId:
+          type: integer
+          format: int64
+          nullable: true
+        storageTypeId:
+          type: integer
+          format: int64
+          nullable: true
+        config:
+          type: object
+          nullable: true
+          additionalProperties: true
+          description: |
+            Current values for the volume's custom option types, in the same shape accepted
+            by `volumes[].config` on resize. Values for option types marked `secretField`
+            are redacted. Absent when the volume's option types could not be resolved — see
+            `optionError`.
+        optionError:
+          type: string
+          nullable: true
+          description: |
+            Set when the option types for this volume could not be resolved, for example
+            when the provision type and the storage volume type contribute conflicting
+            definitions. When present, `config` is empty and the volume's custom options
+            cannot be edited until the conflict is resolved.
+        persistentReservations:
+          type: boolean
+          nullable: true
+        controllerMountPoint:
+          type: string
+          nullable: true
+        volumeSetName:
+          type: string
+          nullable: true
+  controllers:
+    type: array
+    description: Current storage controllers on this node.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        typeId:
+          type: integer
+          format: int64
+        typeName:
+          type: string
+        busNumber:
+          type: integer
+          nullable: true
+        displayOrder:
+          type: integer
+  interfaces:
+    type: array
+    description: Current network interfaces on this node.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        networkId:
+          type: integer
+          format: int64
+          nullable: true
+        ipMode:
+          type: string
+          nullable: true
+        typeId:
+          type: integer
+          format: int64
+          nullable: true
+        connected:
+          type: boolean

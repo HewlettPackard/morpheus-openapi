@@ -647,6 +647,16 @@ paths:
     $ref: paths/api@instances@id@refresh.yaml
   /api/instances/{id}/resize:
     $ref: paths/api@instances@id@resize.yaml
+  /api/instances/{id}/resize-prompt:
+    $ref: paths/api@instances@id@resize-prompt.yaml
+  /api/instances/{id}/resize-warning:
+    $ref: paths/api@instances@id@resize-warning.yaml
+  /api/instances/{id}/resize-drift-warning:
+    $ref: paths/api@instances@id@resize-drift-warning.yaml
+  /api/instances/{id}/add-node-prompt:
+    $ref: paths/api@instances@id@add-node-prompt.yaml
+  /api/instances/{id}/add-node:
+    $ref: paths/api@instances@id@add-node.yaml
   /api/instances/{id}/restart:
     $ref: paths/api@instances@id@restart.yaml
   /api/instances/{id}/revert-snapshot/{snapshotId}:
