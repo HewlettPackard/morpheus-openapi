@@ -35,4 +35,9 @@ properties:
     type:
       - string
       - 'null'
+  shell.sudo:
+    type:
+      - string
+      - 'null'
+    description: Run the script with sudo. The API stores the flag as the string 'on' when set.
 title: Shell Task Config
