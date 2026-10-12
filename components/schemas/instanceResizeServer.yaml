@@ -1,0 +1,63 @@
+type: object
+description: |
+  A per-node resize payload targeting one container (and its backing server) within a
+  multi-node instance. Each entry carries the same fields as a flat resize request, so
+  nodes that have drifted apart can be given different plans, volumes, controllers and
+  network interfaces in a single call.
+required:
+  - containerId
+properties:
+  containerId:
+    type: integer
+    format: int64
+    example: 42
+    description: |
+      The id of the container within this instance that the entry applies to. Required.
+      A container that does not belong to the instance being resized fails the whole
+      request with `Container {id} not found in instance`.
+  serverId:
+    type: integer
+    format: int64
+    example: 57
+    description: |
+      Optional id of the compute server backing `containerId`. When supplied it is
+      cross-checked against the container's actual server and a mismatch fails the whole
+      request, which guards against a stale client applying one node's edits to another.
+  servicePlanId:
+    type: integer
+    format: int64
+    example: 75
+    description: |
+      Service plan to apply to this node. `servicePlan` is accepted as an alias. When
+      omitted the instance's current plan is used and the node's existing volume
+      configuration is preserved. Changing the plan requires the
+      `provisioning-reconfigure-change-plan` permission.
+  servicePlanOptions:
+    $ref: servicePlanOptions.yaml
+  volumes:
+    type: array
+    description: |
+      Desired volume state for this node, in the same format as the top-level `volumes`
+      array. Omit the key to leave the node's volumes untouched.
+
+      Edits to a shared volume (one carrying a `definitionId`) are cascaded to every other
+      node that holds the same `definitionId`, so a shared volume cannot be left in an
+      inconsistent state across nodes. When more than one entry edits the same
+      `definitionId`, the last entry in the array wins.
+    items:
+      $ref: instanceCreateVolume.yaml
+  storageControllers:
+    type: array
+    description: |
+      Desired storage controller state for this node, in the same format as the top-level
+      `storageControllers` array. Only processed when `volumes` is also present on the
+      same entry.
+    items:
+      $ref: instanceCreateStorageController.yaml
+  networkInterfaces:
+    type: array
+    description: |
+      Desired network interface state for this node, in the same format as the top-level
+      `networkInterfaces` array. Omit the key to leave the node's interfaces untouched.
+    items:
+      $ref: instanceCreateNetwork.yaml

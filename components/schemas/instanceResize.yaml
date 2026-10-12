@@ -52,3 +52,24 @@ properties:
     description: Key for network configuration. Include id to update an existing interface. The existing interfaces and their id can be retrieved with the hosts API.
     items:
       $ref: instanceCreateNetwork.yaml
+  servers:
+    type: array
+    description: |
+      Optional per-node resize payloads for a multi-node instance whose nodes have drifted
+      apart. Use this instead of the flat `volumes` / `storageControllers` /
+      `networkInterfaces` / plan fields when the nodes no longer share an identical
+      configuration and need to be reconfigured individually.
+
+      The per-node path is taken only when this array contains **more than one** entry. A
+      request with zero or one entry is processed through the flat path, where the
+      top-level fields apply uniformly to every node.
+
+      All entries are validated before any are applied. Permission, plan-resolution,
+      validation and drift checks run for every node first, and the first failure aborts
+      the entire request without resizing any node — so the call is never partially
+      validated. Once validation passes, each node's resize is dispatched independently.
+
+      A node whose configuration is still detected as drifted after the submitted edits are
+      applied fails the request with `gomorpheus.error.instance.driftedResizeNotAllowed`.
+    items:
+      $ref: instanceResizeServer.yaml
