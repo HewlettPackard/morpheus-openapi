@@ -1,0 +1,59 @@
+post:
+  summary: Add a Node to an Instance
+  description: |
+    Adds a node to an instance, using an existing node as the provisioning template.
+
+    For a drifted multi-node instance there is no single configuration to copy, so the
+    caller picks the node to clone with `templateContainerId`. Call the add node prompt
+    endpoint first to get the candidate nodes and whether a choice is required. For a
+    consistent instance `templateContainerId` can be omitted and the standard scale path is
+    used.
+  operationId: addInstanceNode
+  tags:
+    - Instances
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            templateContainerId:
+              type: integer
+              format: int64
+              example: 42
+              description: |
+                The `containerId` of the existing node whose configuration the new node
+                should be built from. Required for a drifted instance; optional for a
+                consistent one.
+            saveAsTemplate:
+              type: boolean
+              default: false
+              description: |
+                When true, the chosen node's configuration is persisted as the instance's
+                node template so subsequent nodes are provisioned from it without needing
+                `templateContainerId` again.
+  responses:
+    '200':
+      description: Add node started
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+    '400':
+      description: Add Node failed
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
+    '404':
+      description: Instance not found or insufficient access
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

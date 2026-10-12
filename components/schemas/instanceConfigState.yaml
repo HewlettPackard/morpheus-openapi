@@ -1,0 +1,36 @@
+type: object
+description: |
+  The per-node configuration state of a multi-node instance, used to decide whether a
+  reconfigure can apply one configuration to every node or must target nodes individually.
+properties:
+  consistent:
+    type: boolean
+    description: |
+      True when every node shares the same configuration on all tracked axes. A single-node
+      instance is always consistent. When false, the instance has drifted and a reconfigure
+      should be submitted using the `servers` array on the resize endpoint.
+  driftReasons:
+    type: array
+    description: |
+      Which axes the nodes disagree on. Empty when `consistent` is true. Shared volumes and
+      volume display order are excluded from the volume comparison, so reordering disks or
+      changing a shared volume does not by itself count as drift.
+    items:
+      type: string
+      enum:
+        - plan
+        - volumes
+        - controllers
+        - interfaces
+        - error
+      description: |
+        * `plan` — nodes are on different service plans.
+        * `volumes` — non-shared volumes differ in name, size, storage type, datastore or custom `config`.
+        * `controllers` — storage controller layout differs.
+        * `interfaces` — network interface configuration differs.
+        * `error` — the state could not be computed; `servers` is empty.
+  servers:
+    type: array
+    description: One entry per node, always present so a client can iterate nodes regardless of `consistent`.
+    items:
+      $ref: instanceStateServer.yaml

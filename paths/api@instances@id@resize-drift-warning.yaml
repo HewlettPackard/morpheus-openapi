@@ -1,0 +1,66 @@
+put:
+  summary: Check an Instance for Configuration Drift Before Resizing
+  description: |
+    Pre-submit drift check for a proposed resize. Accepts the same request body as the
+    resize endpoint and reports whether any backing server has drifted from its recorded
+    configuration, which blocks the reconfigure.
+
+    The full per-node state is always returned in `instanceState`, whether or not drift was
+    detected, so a client can fetch the drift model and the drift verdict in one call.
+  operationId: checkInstanceResizeDrift
+  tags:
+    - Instances
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/instanceResize.yaml
+  responses:
+    '200':
+      description: Check completed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              drifted:
+                type: boolean
+                description: |
+                  True when a backing server no longer matches its recorded configuration.
+                  A drifted server cannot be reconfigured until the drift is resolved.
+              msg:
+                type: object
+                nullable: true
+                description: Only present when `drifted` is true.
+                properties:
+                  driftedErrMsg:
+                    type: string
+                    description: Localized explanation that a drifted instance cannot be resized.
+              errors:
+                type: object
+                nullable: true
+                additionalProperties: true
+              driftResp:
+                type: object
+                nullable: true
+                additionalProperties: true
+                description: |
+                  Raw drift detail supplied by the provision type's plugin. The shape varies
+                  by provision type and should be treated as opaque. Only present when
+                  `drifted` is true.
+              instanceState:
+                $ref: ../components/schemas/instanceConfigState.yaml
+    '404':
+      description: Instance not found or insufficient access
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

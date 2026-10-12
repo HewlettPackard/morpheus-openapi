@@ -1,0 +1,90 @@
+put:
+  summary: Check an Instance Resize Before Submitting
+  description: |
+    Pre-submit check for a proposed resize. Accepts the same request body as the resize
+    endpoint and reports whether the change can be applied without a reboot, whether it is
+    allowed at all, and any per-field validation errors — without changing anything.
+
+    Policy checks are skipped here, so a payload that passes this check can still be
+    rejected by the resize endpoint on policy grounds.
+
+    When the body carries a `servers` array with more than one entry, each node is checked
+    against its own plan and the per-node results are returned in `serverWarnings`, letting
+    a client say exactly which nodes require a restart instead of warning about the whole
+    instance. Unknown `containerId` values are skipped here rather than rejected; the resize
+    endpoint fails hard on them.
+  operationId: checkInstanceResizeWarning
+  tags:
+    - Instances
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/instanceResize.yaml
+  responses:
+    '200':
+      description: Check completed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              hotResize:
+                type: boolean
+                description: |
+                  Whether the change can be applied while the instance is running. False when
+                  any node would require a restart.
+              allowed:
+                type: boolean
+                description: Whether the change is permitted at all.
+              msg:
+                type: string
+                nullable: true
+                description: Localized summary message, populated from the first node that failed.
+              errors:
+                type: object
+                nullable: true
+                additionalProperties: true
+              validationErrors:
+                type: object
+                nullable: true
+                additionalProperties: true
+                description: |
+                  Localized per-field validation errors. On the flat path the keys are plain
+                  field names. On the per-node path the keys are `server_{containerId}_{field}`,
+                  so errors from different nodes do not overwrite each other.
+              serverWarnings:
+                type: array
+                description: Per-node results. Only returned on the per-node path.
+                items:
+                  type: object
+                  properties:
+                    containerId:
+                      type: integer
+                      format: int64
+                    hotResize:
+                      type: boolean
+                      description: Whether this specific node can be resized without a restart.
+                    msg:
+                      type: string
+                      nullable: true
+    '400':
+      description: The proposed resize failed validation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
+    '404':
+      description: Instance not found or insufficient access
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

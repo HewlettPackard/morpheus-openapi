@@ -1,0 +1,126 @@
+get:
+  summary: Get Instance Resize Prompt Data
+  description: |
+    Returns everything needed to render a reconfigure (resize) form for an instance: the
+    caller's effective reconfigure permissions, the provision type's reconfigure option
+    types and their current values, the current storage controller layout, and the
+    per-node configuration state.
+
+    `instanceState` is always included, so a client can detect a drifted multi-node
+    instance here and switch to the per-node `servers` payload when submitting the resize.
+  operationId: getInstanceResizePrompt
+  tags:
+    - Instances
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Response
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              permissions:
+                type: object
+                description: |
+                  The caller's effective reconfigure permissions for this instance. A client
+                  should use these to disable controls up front; the resize endpoint enforces
+                  the same checks and responds `403` when one is violated.
+                properties:
+                  changePlan:
+                    type: boolean
+                  modifyNetwork:
+                    type: boolean
+                  addNetwork:
+                    type: boolean
+                  removeNetwork:
+                    type: boolean
+                  modifyDisk:
+                    type: boolean
+                  addDisk:
+                    type: boolean
+                  removeDisk:
+                    type: boolean
+                  diskType:
+                    type: boolean
+              canChangeServicePlanOnReconfigure:
+                type: boolean
+                description: Whether the provision type permits changing the service plan during reconfigure.
+              canReconfigureNetwork:
+                type: boolean
+                description: Whether the provision type supports network reconfiguration.
+              resizeCopiesVolumes:
+                type: boolean
+                description: |
+                  Whether this provision type copies volumes to new backing disks on resize.
+                  When true the `deleteOriginalVolumes` option on resize is meaningful.
+              reconfigureOptionTypes:
+                type: array
+                description: Option types to present on the reconfigure form, sorted by `displayOrder`.
+                items:
+                  $ref: ../components/schemas/optionType.yaml
+              optionValues:
+                type: object
+                additionalProperties: true
+                description: |
+                  Current values for `reconfigureOptionTypes`, taken from the first node's
+                  config map plus its firmware settings (`uefi`, `secureBoot`, `tpm`,
+                  `biosHostMode`, `machineType`). Falls back to the instance config map when
+                  the instance has no backing server.
+              storageControllerConfig:
+                type: object
+                properties:
+                  enabled:
+                    type: boolean
+                    description: |
+                      True only when the cloud has disk type selection enabled and the
+                      provision type supports storage controllers. When false, controllers
+                      should be presented read-only.
+                  provisionTypeId:
+                    type: integer
+                    format: int64
+                    nullable: true
+                  layoutId:
+                    type: integer
+                    format: int64
+                    nullable: true
+              storageControllers:
+                type: array
+                description: The first node's current storage controllers, sorted by `displayOrder`.
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      format: int64
+                    typeId:
+                      type: integer
+                      format: int64
+                    typeName:
+                      type: string
+                    typeCategory:
+                      type: string
+                    busNumber:
+                      type: integer
+                      nullable: true
+                    displayOrder:
+                      type: integer
+                    removable:
+                      type: boolean
+                    editable:
+                      type: boolean
+              instanceState:
+                $ref: ../components/schemas/instanceConfigState.yaml
+    '404':
+      description: Instance not found or insufficient access
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
