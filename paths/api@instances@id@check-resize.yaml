@@ -13,7 +13,7 @@ put:
     a client say exactly which nodes require a restart instead of warning about the whole
     instance. Unknown `containerId` values are skipped here rather than rejected; the resize
     endpoint fails hard on them.
-  operationId: checkInstanceResizeWarning
+  operationId: checkInstanceResize
   tags:
     - Instances
   parameters:
