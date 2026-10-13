@@ -35,4 +35,9 @@ properties:
       - string
       - 'null'
     format: password
+  winrm.elevated:
+    type:
+      - string
+      - 'null'
+    description: Run the script in an elevated shell. The API stores the flag as the string 'on' when set.
 title: PowerShell Task Config

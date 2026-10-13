@@ -43,3 +43,18 @@ properties:
   guestPassword:
     type: string
     description: Guest Password
+  visibility:
+    type: string
+    description: Visibility, private or public. Only honoured for the master tenant; a domain owned by a sub-tenant is always private.
+    default: private
+    enum:
+      - private
+      - public
+  account:
+    type: object
+    description: Owning tenant. Only honoured for the master tenant; defaults to the caller's tenant.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Tenant ID
