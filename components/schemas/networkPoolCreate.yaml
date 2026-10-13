@@ -10,10 +10,17 @@ properties:
         description: Pool Type. i.e. 'morpheus', 'phpipam', etc.
   ipRanges:
     type: array
-    description: Array of IP range objects. Type 'morpheus' expects startAddress and endAddress. Type 'morpheusipv6' expects a cidrIPv6.
+    description: |
+      Array of IP range objects. Type 'morpheus' expects startAddress and endAddress. Type 'morpheusipv6' expects a cidrIPv6.
+      On update the list is reconciled by id: a range sent with its id is edited in place, a range without an id is created,
+      and a range of the pool that is absent from the list is deleted (refused if it has reservations).
     items:
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
+          description: ID of an existing range of this pool. Omit for a new range. Only meaningful on update.
         startAddress:
           type: string
           description: Starting IP Address
