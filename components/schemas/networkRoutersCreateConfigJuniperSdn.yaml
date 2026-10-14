@@ -10,10 +10,11 @@ properties:
     description: ID of the HVM cluster resource pool the router is scoped to.
   juniperVirtualNetworks:
     type: array
-    description: IDs of the SDN virtual networks the router joins.
+    description: >-
+      The SDN virtual networks the router joins, each given by the network's uniqueId (the
+      controller's UUID for it), as listed by the juniperVirtualNetworks option source.
     items:
-      type: integer
-      format: int64
+      type: string
   juniperFloatingIpPools:
     type: array
     description: IDs of the floating IP pools the router serves.
