@@ -11,9 +11,10 @@ properties:
     format: int64
     description: ID of the HVM cluster resource pool the load balancer is scoped to.
   virtualNetwork:
-    type: integer
-    format: int64
-    description: ID of the SDN virtual network the virtual IP is on.
+    type: string
+    description: >-
+      The SDN virtual network the virtual IP is on, given by the network's uniqueId (the controller's
+      UUID for it), as listed by the juniperVirtualNetworks option source.
   virtualIp:
     type: string
     description: Virtual IP address.
