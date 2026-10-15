@@ -76,3 +76,13 @@ properties:
     default: 0
     minimum: 0
     maximum: 30
+  userData:
+    description: |-
+      Cloud-init user data for the virtual machine, as cloud-config YAML or a plain script. Applied
+      once, when the virtual machine is first provisioned (or cloned); changing it on an existing
+      instance has no effect until the instance is reprovisioned or cloned. The `bootcmd` and `runcmd`
+      lists run before the entries Morpheus generates; other keys are merged over the user data from
+      the cloud, OS type, image, layout and type set, with list values replaced rather than appended.
+    type:
+      - string
+      - 'null'
