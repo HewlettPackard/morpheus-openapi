@@ -46,8 +46,15 @@ properties:
       - 'null'
   parentSnapshot:
     type:
-      - string
+      - object
       - 'null'
+    description: Parent snapshot reference. Null when the snapshot has no parent.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   snapshotFiles:
     type: array
     items:
