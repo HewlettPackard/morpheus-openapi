@@ -38,6 +38,8 @@ post:
     ### Refresh Token
 
     The refresh token grant type allows users to extend their session without re-entering password credentials. It requires a valid refresh token that was previously issued by the API.
+
+    When no client secret is supplied (neither a `client_secret` parameter nor an `Authorization` header), `client_id` is required. If it is missing or blank, the request is rejected with a `401` response and an `invalid_client` error.
     
     ##### Refresh Token Example
     
@@ -97,6 +99,16 @@ post:
             Access Token Response:
               value:
                 $ref: ../components/examples/accessToken.json
+    '401':
+      description: Client authentication failed
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/OAuthError.yaml
+          examples:
+            Invalid Client:
+              value:
+                $ref: ../components/examples/oauthInvalidClient.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
