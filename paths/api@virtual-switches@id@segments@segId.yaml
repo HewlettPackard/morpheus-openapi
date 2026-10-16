@@ -1,8 +1,55 @@
+put:
+  summary: Update a Virtual Switch Segment
+  description: >-
+    Updates the mutable fields of a traffic segment (VLAN, IP settings, per-host
+    IPs). The request body may be wrapped in a `segment` object or supplied at
+    the top level. This is an asynchronous operation that returns a `processId`;
+    poll `GET /api/processes/{processId}` to track host orchestration.
+
+
+    Requires Morpheus 9.1.0.
+  operationId: updateVirtualSwitchSegment
+  tags:
+    - Virtual Switches
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/segId-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            segment:
+              $ref: ../components/schemas/virtualSwitchSegmentEdit.yaml
+        examples:
+          Segment Edit Request:
+            value:
+              $ref: ../components/examples/virtualSwitchSegmentEdit.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/virtualSwitchAsyncSuccess.yaml
+          examples:
+            Response:
+              value:
+                $ref: ../components/examples/virtualSwitchAsyncSuccess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
 delete:
   summary: Delete a Virtual Switch Segment
   description: >-
     Removes a traffic segment from a virtual switch. This is an asynchronous
-    operation that returns a `processId`.
+    operation that returns a `processId`; poll
+    `GET /api/processes/{processId}` to track host orchestration.
+
+
+    Requires Morpheus 9.1.0.
   operationId: deleteVirtualSwitchSegment
   tags:
     - Virtual Switches
