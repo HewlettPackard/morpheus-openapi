@@ -36,7 +36,7 @@ namespace "docker" do
   #desc "Executes `stoplight/spectral lint` using docker"
   task :spectral_lint => [:is_installed, :build] do
     cd PROJECT_ROOT, verbose: false do
-      sh("docker run --rm -v $PWD:/tmp -it stoplight/spectral lint -v -F error \"/tmp/bundled.yaml\" --ruleset \"/tmp/.spectral.json\"")
+      sh("docker run --rm -v $PWD:/tmp -it stoplight/spectral:6.17.0 lint -v -F error \"/tmp/bundled.yaml\" --ruleset \"/tmp/.spectral.json\"")
     end
   end
 
