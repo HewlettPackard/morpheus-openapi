@@ -32,6 +32,7 @@ get:
             - type: object
               properties:
                 networkPoolIps:
+                  type: array
                   items:
                     type: object
                     properties:
@@ -79,6 +80,12 @@ post:
           properties:
             networkPoolIp:
               $ref: ../components/schemas/networkPoolIpCreate.yaml
+            createDns:
+              type: boolean
+              description: >-
+                Create DNS A and PTR records for the address in the domain given by
+                networkPoolIp.domain. A domain must be selected when this is set.
+              default: false
         examples:
           Network Pool Request:
             value:
@@ -89,16 +96,18 @@ post:
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              networkPool:
-                type: object
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
                 properties:
-                  $ref: ../components/schemas/networkPoolIp.yaml
+                  networkPoolIp:
+                    type: object
+                    properties:
+                      $ref: ../components/schemas/networkPoolIp.yaml
           examples:
             Successful Response:
               value:
-                $ref: ../components/examples/networkPoolIps.json
+                $ref: ../components/examples/networkPoolIpSuccess.json
     '400':
       $ref: ../components/responses/400.yaml
     '401':

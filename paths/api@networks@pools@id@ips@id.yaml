@@ -14,19 +14,78 @@ get:
       content:
         application/json:
           schema:
-            allOf:
-            - type: object
-              properties:
-                networkPoolIps:
-                  items:
-                    type: object
-                    properties:
-                      $ref: ../components/schemas/networkPoolIp.yaml
-            - $ref: ../components/schemas/meta.yaml
+            type: object
+            properties:
+              networkPoolIp:
+                type: object
+                properties:
+                  $ref: ../components/schemas/networkPoolIp.yaml
           examples:
             Networks Response:
               value:
                 $ref: ../components/examples/networkPoolIp.json
+    '400':
+      $ref: ../components/responses/400.yaml
+    '401':
+      $ref: ../components/responses/401.yaml
+    '403':
+      $ref: ../components/responses/403.yaml
+    '404':
+      $ref: ../components/responses/404.yaml
+    '405':
+      $ref: ../components/responses/405.yaml
+    '406':
+      $ref: ../components/responses/406.yaml
+    '410':
+      $ref: ../components/responses/410.yaml
+    '429':
+      $ref: ../components/responses/429.yaml
+    '500':
+      $ref: ../components/responses/500.yaml
+    '503':
+      $ref: ../components/responses/503.yaml
+
+put:
+  summary: Update a Network Pool IP Address
+  description: |
+    Update the hostname or the associated resource of an IP address reserved in a specific Network Pool.
+    The address itself cannot be changed.
+  operationId: updateNetworkPoolIp
+  tags:
+    - Networks
+  parameters:
+    - $ref: ../components/parameters/networkPoolId.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            networkPoolIp:
+              $ref: ../components/schemas/networkPoolIpUpdate.yaml
+        examples:
+          Network Pool IP Update:
+            value:
+              $ref: ../components/examples/networkPoolIpUpdate.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  networkPoolIp:
+                    type: object
+                    properties:
+                      $ref: ../components/schemas/networkPoolIp.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/networkPoolIpSuccess.json
     '400':
       $ref: ../components/responses/400.yaml
     '401':

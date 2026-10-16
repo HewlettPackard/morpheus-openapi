@@ -1,0 +1,7 @@
+{
+  "networkPoolIp": {
+    "hostname": "instance-001",
+    "refType": "ComputeServer",
+    "refId": 42
+  }
+}

@@ -1,11 +1,18 @@
 type: object
+required:
+  - hostname
 properties:
   ipAddress:
     type: string
-    description: IP Address
+    description: >-
+      IP Address to reserve. Omit to have the pool allocate its next free address; when given it
+      must lie within the pool's IP ranges.
   hostname:
     type: string
-    description: Hostname
+    description: Hostname. Required.
+  description:
+    type: string
+    description: Description
   refType:
     type: string
     description: Type of associated resource such as a host/server
@@ -15,3 +22,11 @@ properties:
     format: int64
     description: ID of associated resource such as a host/server
     example: 42
+  domain:
+    type: object
+    description: The network domain in which to create DNS records when createDns is set.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Network Domain ID
