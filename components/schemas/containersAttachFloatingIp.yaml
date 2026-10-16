@@ -15,3 +15,17 @@ config:
         Bandwidth (Mbit/s)
         Only the following cloud types support this parameter: Huawei, OpenTelekom
       example: 1024
+    floatingIp:
+      type: string
+      description: |
+        The Floating IP identifier in the format: "ip-ID" or "pool-ID", read by plugin-provided
+        network services (for example HPE Morpheus SDN). Clouds whose network service reads
+        `osExternalNetworkId` ignore it, so both may be sent with the same value.
+      example: ip-42
+    networkInterfaceId:
+      type: integer
+      format: int64
+      description: |
+        The ID of the server network interface to bind the Floating IP to. Supported by
+        plugin-provided network services; when omitted the service chooses the interface.
+      example: 435
