@@ -187,6 +187,7 @@
       "noProxy": null,
       "maintenanceMode": false,
       "dashboardsToDisplay": null,
-      "enableMurph": false
+      "enableMurph": false,
+      "supportBundleArchiveType": "zip"
   }
 }
