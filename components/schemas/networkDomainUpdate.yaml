@@ -1,0 +1,57 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Name
+  description:
+    type: string
+    description: Description
+  displayName:
+    type: string
+    description: Overrides displayed name in domain selection components. Useful if using many OU Paths.
+  publicZone:
+    type: boolean
+    description: Public Zone
+  taskSetId:
+    type: integer
+    format: int64
+    description: |
+      Workflow ID. Workflows can be applied to an instance when associated with a domain. Useful for custom domain related scripting. (Important if wanting to ensure the computer is removed from the domain using teardown phased workflows.)
+  active:
+    type: boolean
+    description: Active
+  domainController:
+    type: boolean
+    description: Join Domain Controller
+  domainUsername:
+    type: string
+    description: Domain Username
+  domainPassword:
+    type: string
+    description: Domain Password
+  dcServer:
+    type: string
+    description: DC Server. If specified, must be the server name and not an IP Address
+  ouPath:
+    type: string
+    description: OU Path. (i.e. 'OU=staging,DC=ad,DC=yourdomain,DC=com')
+  guestUsername:
+    type: string
+    description: Guest Username. If set, will change the instances RPC Service User after joining a Domain.
+  guestPassword:
+    type: string
+    description: Guest Password
+  visibility:
+    type: string
+    description: Visibility, private or public. Only honoured for the master tenant; a domain owned by a sub-tenant is always private.
+    enum:
+      - private
+      - public
+  account:
+    type: object
+    description: Owning tenant. Only honoured for the master tenant; defaults to the caller's tenant.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: Tenant ID
