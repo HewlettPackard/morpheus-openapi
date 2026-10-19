@@ -1,6 +1,6 @@
 get:
   summary: Get Appliance Settings
-  description: This endpoint retrieves appliance settings.
+  description: This endpoint retrieves appliance settings, including the effective support bundle archive type. Requires read or full access to the Appliance Settings (admin-appliance) permission.
   operationId: listApplianceSettings
   tags:
     - Appliance Settings
@@ -25,7 +25,7 @@ get:
 
 put:
   summary: Update Appliance Settings
-  description: Update Appliance Settings
+  description: Update appliance settings, including the appliance-wide support bundle archive type. Requires full access to the Appliance Settings (admin-appliance) permission.
   operationId: updateApplianceSettings
   tags:
     - Appliance Settings
