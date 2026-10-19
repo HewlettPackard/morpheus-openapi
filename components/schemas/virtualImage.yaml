@@ -12,16 +12,22 @@ properties:
       - 'null'
     description: A description for the virtual image
   labels:
-    type: array
+    type:
+      - array
+      - 'null'
     description: Array of label strings, can be used for filtering.
     items:
       type: string
   ownerId:
     description: Owner of the image
-    type: integer
+    type:
+      - integer
+      - 'null'
     format: int64
   tenant:
-    type: object
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
@@ -78,13 +84,21 @@ properties:
           - string
           - 'null'
       vendor:
-        type: string
+        type:
+          - string
+          - 'null'
       category:
-        type: string
+        type:
+          - string
+          - 'null'
       osFamily:
-        type: string
+        type:
+          - string
+          - 'null'
       osVersion:
-        type: string
+        type:
+          - string
+          - 'null'
       bitCount:
         type: integer
         format: int64
@@ -111,8 +125,9 @@ properties:
   minDiskGB:
     description: Minimum required disk size in gigabytes
     type:
-      - string
+      - number
       - 'null'
+    format: double
   rawSize:
     description: Size of image in bytes
     type:
@@ -284,7 +299,9 @@ properties:
           type: integer
           format: int64
         cloud:
-          type: object
+          type:
+            - object
+            - 'null'
         code:
           type: string
         internalId:
