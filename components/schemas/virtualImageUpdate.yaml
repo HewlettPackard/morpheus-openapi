@@ -25,7 +25,6 @@ properties:
   isCloudInit:
     type: boolean
     description: Cloud Init Enabled?
-    default: false
   userData:
     type:
       - string
@@ -40,7 +39,6 @@ properties:
   installAgent:
     type: boolean
     description: Install Agent?
-    default: false
   sshUsername:
     type:
       - string
@@ -65,7 +63,6 @@ properties:
   visibility:
     type: string
     description: private or public
-    default: private
   accounts:
     type: array
     items:
@@ -74,27 +71,21 @@ properties:
   isAutoJoinDomain:
     type: boolean
     description: Auto Join Domain?
-    default: false
   virtioSupported:
     type: boolean
     description: VirtIO Drivers Loaded?
-    default: true
   vmToolsInstalled:
     type: boolean
     description: VM Tools Installed?
-    default: true
   isForceCustomization:
     type: boolean
     description: Force Guest Customization?
-    default: false
   trialVersion:
     type: boolean
     description: Trial Version
-    default: false
   isSysprep:
     type: boolean
     description: Sysprep Enabled?
-    default: false
   config:
     description: Map of configuration properties, varies by image type.
     oneOf:
