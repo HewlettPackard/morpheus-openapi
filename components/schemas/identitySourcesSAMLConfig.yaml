@@ -6,7 +6,9 @@ properties:
   name:
     type: string
   description:
-    type: string
+    type:
+      - string
+      - 'null'
   code:
     type: string
   type:
@@ -32,7 +34,9 @@ properties:
       name:
         type: string
   defaultAccountRole:
-    type: object
+    type:
+      - object
+      - 'null'
     properties:
       id:
         type: integer
@@ -92,7 +96,9 @@ properties:
       type: object
       properties:
         sourceRoleName:
-          type: string
+          type:
+            - string
+            - 'null'
         sourceRoleFqn:
           type:
             - string
