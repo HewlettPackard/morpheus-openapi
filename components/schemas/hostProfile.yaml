@@ -1,6 +1,7 @@
 type: object
 properties:
   id: { type: integer, format: int64 }
+  code: { type: [string, 'null'], description: "Read-only unique code identifying the profile; 'host-profile.hvm.default' marks the immutable seeded default (rejects update/delete/attach)" }
   name: { type: string }
   description: { type: [string, 'null'] }
   enabled: { type: boolean }
