@@ -1,0 +1,17 @@
+type: object
+description: Response to starting a system drift check.
+properties:
+  success:
+    type: boolean
+  driftReport:
+    oneOf:
+      - $ref: systemDriftReport.yaml
+      - type: 'null'
+  processId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  msg:
+    type: string
+    description: Present when a drift check was already running

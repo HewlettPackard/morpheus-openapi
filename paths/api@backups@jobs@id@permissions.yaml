@@ -1,0 +1,71 @@
+put:
+  summary: Update Backup Job Permissions
+  description: |
+    Update the visibility and tenant sharing of a backup job. At least one of
+    `permissions.visibility` or `permissions.tenantPermissions.accounts` must be provided. Sending
+    `accounts` as an empty array removes all tenant sharing.
+
+    Returns 400 for an unknown `visibility` or a tenant ID that is not a positive integer, and 404
+    when the backup job does not belong to your tenant.
+
+    Requires **full** permission on `backups`.
+  operationId: updateBackupJobPermissions
+  tags:
+    - Backups
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - permissions
+          properties:
+            permissions:
+              type: object
+              properties:
+                visibility:
+                  type: string
+                  enum:
+                    - public
+                    - private
+                tenantPermissions:
+                  type: object
+                  properties:
+                    accounts:
+                      type: array
+                      description: Tenant IDs the backup job is shared with. Replaces the existing list.
+                      items:
+                        type: integer
+                        format: int64
+        examples:
+          Update Backup Job Permissions Request:
+            value:
+              permissions:
+                visibility: public
+                tenantPermissions:
+                  accounts:
+                    - 2
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  id:
+                    type: integer
+                    format: int64
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/successId.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

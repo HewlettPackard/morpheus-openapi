@@ -1,4 +1,12 @@
 description: Error Codes
+headers:
+  Retry-After:
+    description: >-
+      Sent with 429 responses. Number of seconds to wait before retrying, for example when all
+      database connections are in use or instance provisioning is at capacity.
+    schema:
+      type: integer
+    example: 5
 content:
   application/json:
     schema:
@@ -28,3 +36,6 @@ content:
       '429':
         value:
           $ref: ../examples/429.json
+      429 Database Busy:
+        value:
+          $ref: ../examples/429PoolExhausted.json
