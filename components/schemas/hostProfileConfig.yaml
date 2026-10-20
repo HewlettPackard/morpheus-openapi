@@ -13,7 +13,7 @@ properties:
       iscsi:
         type: object
         properties:
-          transport: { type: string, example: tcp }
+          transport: { type: string, enum: [tcp, iser], example: tcp }
           chapEnabled: { type: boolean }
   system:
     type: object
@@ -35,11 +35,11 @@ properties:
       logging:
         type: object
         properties:
-          level: { type: string, example: info }
+          level: { type: string, enum: [debug, info, notice, warning, warn, err, error, crit, alert, emerg], example: info }
       cpu:
         type: object
         properties:
-          powerManagement: { type: string, example: performance }
+          powerManagement: { type: string, enum: [performance, powersave, schedutil, userspace, ondemand, conservative], example: performance }
           hyperThreading: { type: boolean }
       memory:
         type: object
@@ -48,7 +48,7 @@ properties:
             type: object
             properties:
               enabled: { type: boolean }
-              size: { type: string, example: "2M" }
+              size: { type: string, enum: ['2M', '1G'], example: "2M" }
       security:
         type: object
         properties:
