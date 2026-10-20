@@ -58,6 +58,7 @@ properties:
     type: object
     properties:
       kernelVersion: { type: string, example: "6.8.0-117-generic" }
+      additionalPackages: { type: string, description: "Additional packages to install, one per line in package=version format.", example: "openvswitch=2.17.0" }
       packageVersions:
         type: object
         properties:
