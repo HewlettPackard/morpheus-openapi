@@ -35,7 +35,7 @@ properties:
       logging:
         type: object
         properties:
-          level: { type: string, enum: [debug, info, notice, warning, warn, err, error, crit, alert, emerg], example: info }
+          level: { type: string, enum: [debug, info, warn, error], example: info }
       cpu:
         type: object
         properties:
