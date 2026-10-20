@@ -8,8 +8,8 @@ properties:
         type: object
         properties:
           enabled: { type: boolean }
-          findMultipaths: { type: boolean }
-          userFriendlyNames: { type: boolean }
+          findMultipaths: { type: boolean, description: "Enables automatic multipath detection in /etc/multipath.conf." }
+          userFriendlyNames: { type: boolean, description: "Uses /dev/mapper/mpathX aliases instead of raw WWIDs." }
       iscsi:
         type: object
         properties:
@@ -22,7 +22,7 @@ properties:
         type: object
         properties:
           enabled: { type: boolean }
-          servers: { type: array, items: { type: string }, example: ["ntp.ubuntu.com"] }
+          servers: { type: array, items: { type: string }, description: "Set of NTP servers for host time synchronization.", example: ["ntp.ubuntu.com"] }
       timezone: { type: string, example: "America/Denver" }
       locale: { type: string, example: "C.UTF-8" }
       syslog:
@@ -39,8 +39,8 @@ properties:
       cpu:
         type: object
         properties:
-          powerManagement: { type: string, enum: [performance, powersave, schedutil, userspace, ondemand, conservative], example: performance }
-          hyperThreading: { type: boolean }
+          powerManagement: { type: string, enum: [performance, powersave, schedutil, userspace, ondemand, conservative], description: "CPU frequency scaling governor. Use performance for hypervisors to prevent VM CPU throttling.", example: performance }
+          hyperThreading: { type: boolean, description: "Enable simultaneous multi-threading (SMT/HT) on host CPUs." }
       memory:
         type: object
         properties:
@@ -48,14 +48,15 @@ properties:
             type: object
             properties:
               enabled: { type: boolean }
-              size: { type: string, enum: ['2M', '1G'], example: "2M" }
+              size: { type: string, enum: ['2M', '1G'], description: "Huge page size: 2M (standard) or 1G (large). Requires host reboot to change.", example: "2M" }
       security:
         type: object
         properties:
-          selinux: { type: string, enum: [enforcing, permissive, disabled] }
-          fips: { type: boolean }
+          selinux: { type: string, enum: [enforcing, permissive, disabled], description: "SELinux enforcement mode. Ubuntu uses AppArmor instead; set to disabled for Ubuntu-based HVM nodes." }
+          fips: { type: boolean, description: "Enables FIPS 140-2 cryptographic compliance. Requires reboot and is not reversible without reinstall." }
   baseline:
     type: object
+    description: "Specify package versions to enforce on all hosts in the assigned cluster. Values are pre-filled by Capture from Host."
     properties:
       kernelVersion: { type: string, example: "6.8.0-117-generic" }
       additionalPackages: { type: string, description: "Additional packages to install, one per line in package=version format.", example: "openvswitch=2.17.0" }
