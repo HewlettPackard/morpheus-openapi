@@ -214,3 +214,9 @@ properties:
   enableMurph:
     type: boolean
     description: Enable Murph AI services
+  supportBundleArchiveType:
+    type: string
+    enum:
+      - zip
+      - tar.gz
+    description: Appliance-wide archive format for newly generated downloadable support bundles. Defaults to zip when no setting exists; omitting this property leaves the current selection unchanged. Existing bundles and HPE delivery are unchanged. The download Accept header does not select the format.

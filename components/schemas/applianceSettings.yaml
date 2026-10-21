@@ -219,6 +219,13 @@ properties:
       - 'null'
   enableMurph:
     type: boolean
+  supportBundleArchiveType:
+    type: string
+    enum:
+      - zip
+      - tar.gz
+    default: zip
+    description: Appliance-wide archive format for newly generated downloadable support bundles. Existing bundles and HPE delivery are unchanged. The download Accept header does not select the format.
   vmeAppliance:
     type: boolean
   latestWindowsAgentVersion:

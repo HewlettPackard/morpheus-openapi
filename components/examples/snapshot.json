@@ -14,7 +14,10 @@
       "name": "vcenter1 - homelab"
     },
     "datastore": null,
-    "parentSnapshot": null,
+    "parentSnapshot": {
+      "id": 4,
+      "name": "groovydev-2022-07-19T18:35:39.626Z"
+    },
     "snapshotFiles": [
       {
         "id": 1,

@@ -1,0 +1,4 @@
+{
+  "success": false,
+  "msg": "The server is temporarily unable to reach the database because all connections are in use. This is a transient condition, please retry."
+}

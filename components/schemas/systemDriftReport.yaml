@@ -1,0 +1,70 @@
+type: object
+description: Summary of a drift check run against a system.
+properties:
+  id:
+    type: integer
+    format: int64
+  status:
+    type: string
+    enum:
+      - pending
+      - running
+      - completed
+      - failed
+  driftSummary:
+    type:
+      - string
+      - 'null'
+    enum:
+      - NO_DRIFT
+      - DRIFT_DETECTED
+      - ERROR
+      - null
+  checkLevel:
+    type: string
+    enum:
+      - ALL
+      - TARGETED
+      - UPDATE
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  processId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  totalRules:
+    type:
+      - integer
+      - 'null'
+  passedRules:
+    type:
+      - integer
+      - 'null'
+  failedRules:
+    type:
+      - integer
+      - 'null'
+  warningRules:
+    type:
+      - integer
+      - 'null'
+  skippedRules:
+    type:
+      - integer
+      - 'null'
+  startedOn:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  completedOn:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  dateCreated:
+    type: string
+    format: date-time

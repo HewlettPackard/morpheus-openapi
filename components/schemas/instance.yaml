@@ -274,12 +274,16 @@ properties:
           type: integer
           format: int64
       createBackup:
-        type: boolean
+        type:
+          - boolean
+          - 'null'
       backup:
         type: object
         properties:
           createBackup:
-            type: boolean
+            type:
+              - boolean
+              - 'null'
           jobAction:
             type: string
           jobRetentionCount:
