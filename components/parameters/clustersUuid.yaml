@@ -2,4 +2,8 @@ name: uuid
 in: query
 description: Filter by cluster UUID. Repeat the parameter to filter by multiple UUIDs (`?uuid=A&uuid=B`); UUIDs that don't match are ignored.
 schema:
-  type: string
+  type: array
+  items:
+    type: string
+style: form
+explode: true
