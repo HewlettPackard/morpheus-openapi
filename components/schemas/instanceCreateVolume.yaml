@@ -54,6 +54,32 @@ properties:
           - 'null'
         format: int64
     description: The ID of the specific datastore. Auto selection can be specified as auto or autoCluster (for clusters).
+  multiAttachAction:
+    type: string
+    enum:
+      - standard
+      - create
+      - attach
+    default: standard
+    example: create
+    description: |-
+      How the volume is shared, for storage types that support multi-attach (`multiAttachSupported`). Used by HPE bare metal (BMaaS) and MVM.
+      * `standard` - a normal volume for this instance. Same as omitting the field.
+      * `create` - create a new shareable volume. When the instance has more than one node or copy, the first creates the volume and the others attach to it.
+      * `attach` - attach the existing shared volume given in `multiAttachSourceVolume`. `size`, `storageType` and `datastoreId` are not validated for this volume.
+  multiAttachSourceVolume:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    example: 31
+    description: The id of the existing shared volume to attach. Required when `multiAttachAction` is `attach`, ignored otherwise.
+  persistentReservations:
+    type: boolean
+    default: false
+    description: >-
+      Enable SCSI-3 persistent reservations on this volume. Requires a block-backed volume on a controller type
+      with `supportsPersistentReservations`. Supported on MVM.
   controllerMountPoint:
     type: string
     description: |-
