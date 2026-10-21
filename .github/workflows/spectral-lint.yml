@@ -21,6 +21,6 @@ jobs:
         with:
           args: bundle --dereferenced openapi.yaml -o bundled.yaml
       - name: Spectral Lint
-        uses: docker://stoplight/spectral:latest
+        uses: docker://stoplight/spectral:6.17.0
         with:
           args: lint -v -F error "bundled.yaml" --ruleset ".spectral.json"

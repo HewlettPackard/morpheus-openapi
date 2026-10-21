@@ -120,6 +120,8 @@ paths:
     $ref: paths/api@backups@jobs@id.yaml
   /api/backups/jobs/{id}/execute:
     $ref: paths/api@backups@jobs@id@execute.yaml
+  /api/backups/jobs/{id}/permissions:
+    $ref: paths/api@backups@jobs@id@permissions.yaml
   /api/backups/results:
     $ref: paths/api@backups@results.yaml
   /api/backups/results/{id}:
@@ -819,6 +821,8 @@ paths:
     $ref: paths/api@migrations@id.yaml
   /api/migrations/{id}/run:
     $ref: paths/api@migrations@id@run.yaml
+  /api/tools/migrations/{id}/retry/{serverId}:
+    $ref: paths/api@tools@migrations@id@retry@serverId.yaml
   /api/network-types:
     $ref: paths/api@network-types.yaml
   /api/network-types/{id}:
@@ -1277,6 +1281,10 @@ paths:
     $ref: paths/api@infrastructure@systems@id@validate.yaml
   /api/infrastructure/systems/{id}/initialize:
     $ref: paths/api@infrastructure@systems@id@initialize.yaml
+  /api/infrastructure/systems/{systemId}/drift-reports:
+    $ref: paths/api@infrastructure@systems@systemId@drift-reports.yaml
+  /api/infrastructure/systems/{systemId}/drift-reports/{id}:
+    $ref: paths/api@infrastructure@systems@systemId@drift-reports@id.yaml
   /api/infrastructure/systems/{systemId}/servers/{serverId}/update-definitions:
     $ref: paths/api@infrastructure@systems@systemId@servers@serverId@update-definitions.yaml
   /api/infrastructure/systems/{systemId}/servers/{serverId}/update-definitions/{id}:
@@ -1327,6 +1335,8 @@ paths:
     $ref: paths/api@tokens.yaml
   /api/tokens/{id}:
     $ref: paths/api@tokens@id.yaml
+  /api/tokens/lookup:
+    $ref: paths/api@tokens@lookup.yaml
   /api/usage:
     $ref: paths/api@usage.yaml
   

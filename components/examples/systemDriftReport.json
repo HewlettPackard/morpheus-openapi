@@ -1,0 +1,43 @@
+{
+  "success": true,
+  "driftReport": {
+    "id": 12,
+    "status": "completed",
+    "driftSummary": "DRIFT_DETECTED",
+    "checkLevel": "ALL",
+    "statusMessage": null,
+    "processId": 4410,
+    "totalRules": 2,
+    "passedRules": 1,
+    "failedRules": 1,
+    "warningRules": 0,
+    "skippedRules": 0,
+    "startedOn": "2026-10-08T20:59:24Z",
+    "completedOn": "2026-10-08T20:59:31Z",
+    "dateCreated": "2026-10-08T20:59:24Z",
+    "ruleResults": [
+      {
+        "id": "ntp-config",
+        "ruleName": "NTP Configuration",
+        "ruleDescription": "Hosts use the configured NTP servers",
+        "ruleType": "config",
+        "status": "PASSED",
+        "resultDescription": "All hosts match",
+        "affectedObjects": [],
+        "recommendation": null
+      },
+      {
+        "id": "firmware-version",
+        "ruleName": "Firmware Version",
+        "ruleDescription": "Server firmware matches the system baseline",
+        "ruleType": "config",
+        "status": "FAILED",
+        "resultDescription": "1 server is below the baseline firmware version",
+        "affectedObjects": [
+          "server-31"
+        ],
+        "recommendation": "Apply the firmware update for the affected server"
+      }
+    ]
+  }
+}
