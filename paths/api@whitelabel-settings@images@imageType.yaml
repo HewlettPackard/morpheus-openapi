@@ -27,9 +27,9 @@ get:
             type: string
             format: binary
     '4XX':
-      $ref: ../components/responses/4xx.yaml
+      $ref: ../components/responses/4xx-file-download.yaml
     '5XX':
-      $ref: ../components/responses/5xx.yaml
+      $ref: ../components/responses/5xx-file-download.yaml
 delete:
   summary: Reset Image
   description: Resets the specified image to the Morpheus default.
