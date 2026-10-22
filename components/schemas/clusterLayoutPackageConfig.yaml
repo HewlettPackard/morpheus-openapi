@@ -1,0 +1,8 @@
+type: object
+properties:
+  format:
+    type: string
+    description: Format of the package configuration content, eg. yaml
+  rawContent:
+    type: string
+    description: Raw configuration content for the package

@@ -1,0 +1,29 @@
+get:
+  summary: Get a Cluster's Packages (Kubernetes)
+  description: |
+    List cluster packages. Installed packages are marked by "installed=true" and optional packages are marked by "required=false". Packages with user customisable config are marked by "configurable=true".
+  operationId: listClusterInstalledPackages
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              packages:
+                type: array
+                items:
+                  $ref: ../components/schemas/clusterInstalledPackage.yaml
+          examples:
+            Cluster Packages Response:
+              value:
+                $ref: ../components/examples/clusterInstalledPackages.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

@@ -1,0 +1,38 @@
+post:
+  summary: Apply package to Cluster (Kubernetes)
+  description: |
+    Installs the given package along with changes to the package config.
+  operationId: applyClusterPackage
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            package:
+              $ref: ../components/schemas/clusterPackageSelection.yaml
+        examples:
+          Apply Package Request:
+            value:
+              $ref: ../components/examples/clusterApplyPackageRequest.json
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - $ref: ../components/schemas/processId.yaml
+          examples:
+            Apply Package Response:
+              value:
+                $ref: ../components/examples/successProcess.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

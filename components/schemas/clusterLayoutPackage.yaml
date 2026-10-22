@@ -1,0 +1,34 @@
+type: object
+properties:
+  id:
+    type: integer
+    format: int64
+  code:
+    type: string
+  name:
+    type: string
+  description:
+    type:
+      - string
+      - 'null'
+  packageType:
+    type: string
+  packageVersion:
+    type: string
+  type:
+    type: string
+  enabled:
+    type: boolean
+  account:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  required:
+    type: boolean
+    description: True when the package is mandatory and always installed when a cluster is provisioned
+  repeatInstall:
+    type: boolean
+  configurable:
+    type: boolean
+    description: True when the package has a user customisable config

@@ -1,0 +1,7 @@
+allOf:
+  - $ref: clusterLayoutPackageConfig.yaml
+  - type: object
+    properties:
+      overridden:
+        type: boolean
+        description: Set to true to indicate the supplied rawContent overrides the package default configuration
