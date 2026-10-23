@@ -1,0 +1,8 @@
+name: layoutId
+in: path
+description: The ID of the cluster layout
+required: true
+schema:
+  type: integer
+  format: int64
+example: 219

@@ -1,0 +1,27 @@
+get:
+  summary: Get Cluster Layout Package Config (Kubernetes)
+  description: Returns the default package configuration. Applies to packages with customisable config.
+  operationId: getClusterLayoutPackageConfig
+  tags:
+    - Cluster Layouts
+  parameters:
+    - $ref: ../components/parameters/layoutId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              config:
+                $ref: ../components/schemas/clusterLayoutPackageConfig.yaml
+          examples:
+            Cluster Layout Package Config Response:
+              value:
+                $ref: ../components/examples/clusterLayoutPackageConfig.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

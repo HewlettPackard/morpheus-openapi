@@ -1,0 +1,7 @@
+allOf:
+  - $ref: clusterLayoutPackage.yaml
+  - type: object
+    properties:
+      installed:
+        type: boolean
+        description: True when the package is currently installed on the cluster

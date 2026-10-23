@@ -1,0 +1,6 @@
+{
+    "config": {
+        "format": "yaml",
+        "rawContent": "cluster:\n  podCidr: 172.20.0.0/16\n  serviceCidr: 172.30.0.0/16\ncalico:\n  blockSize: 28\n"
+    }
+}

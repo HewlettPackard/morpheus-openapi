@@ -1,0 +1,27 @@
+get:
+  summary: Get a Cluster Package's Config (Kubernetes)
+  description: Returns the current configuration for the package that a user can inspect, customise, and apply/install again.
+  operationId: getClusterPackageConfig
+  tags:
+    - Clusters
+  parameters:
+    - $ref: ../components/parameters/clusterId-path.yaml
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              config:
+                $ref: ../components/schemas/clusterPackageConfigCurrent.yaml
+          examples:
+            Cluster Package Config Response:
+              value:
+                $ref: ../components/examples/clusterPackageConfigCurrent.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

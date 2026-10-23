@@ -1,0 +1,28 @@
+get:
+  summary: List Cluster Layout Packages (Kubernetes)
+  description: |
+    List cluster layout packages. Optional packages are marked by "required=false". Packages with user customisable config are marked by "configurable=true".
+  tags:
+    - Cluster Layouts
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              packages:
+                type: array
+                items:
+                  $ref: ../components/schemas/clusterLayoutPackage.yaml
+          examples:
+            Cluster Layout Packages Response:
+              value:
+                $ref: ../components/examples/clusterLayoutPackages.json
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

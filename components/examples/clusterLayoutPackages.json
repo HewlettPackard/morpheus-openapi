@@ -1,0 +1,32 @@
+{
+    "packages": [
+        {
+            "id": 49,
+            "code": "kubernetes-calico-3-31-1-package",
+            "name": "calico 3.31.1 package",
+            "description": "",
+            "packageType": "calico",
+            "packageVersion": "3.31.1",
+            "type": "network",
+            "enabled": true,
+            "account": 1,
+            "required": true,
+            "repeatInstall": true,
+            "configurable": true
+        },
+        {
+            "id": 52,
+            "code": "kubernetes-prometheus-0-17-package",
+            "name": "prometheus 0.17 package",
+            "description": "",
+            "packageType": "prometheus",
+            "packageVersion": "0.17",
+            "type": "monitoring",
+            "enabled": true,
+            "account": 1,
+            "required": false,
+            "repeatInstall": true,
+            "configurable": false
+        }
+    ]
+}

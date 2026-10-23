@@ -1,0 +1,15 @@
+allOf:
+  - $ref: clusterLayoutPackageConfig.yaml
+  - type: object
+    properties:
+      dateCreated:
+        type: string
+        format: date-time
+        description: Date the package config was created
+      lastModified:
+        type: string
+        format: date-time
+        description: Date the package config was last modified
+      overridden:
+        type: boolean
+        description: True when the package config has been customised from its default

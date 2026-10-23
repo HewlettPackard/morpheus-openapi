@@ -95,3 +95,9 @@ properties:
     type: integer
     format: int64
     description: Optional Workflow Id desired to be run
+  packages:
+    type: array
+    description: >-
+      Optional list of layout packages to install when provisioning the cluster.
+    items:
+      $ref: clusterPackageSelection.yaml

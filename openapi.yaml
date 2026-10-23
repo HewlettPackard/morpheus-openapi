@@ -261,6 +261,10 @@ paths:
     $ref: paths/api@library@cluster-layouts@id.yaml
   /api/library/cluster-layouts/{id}/clone:
     $ref: paths/api@library@cluster-layouts@id@clone.yaml
+  /api/library/cluster-layouts/{id}/packages:
+    $ref: paths/api@library@cluster-layouts@id@packages.yaml
+  /api/library/cluster-layouts/{layoutId}/packages/{id}/config:
+    $ref: paths/api@library@cluster-layouts@id@packages@id@config.yaml
   /api/library/cluster-packages:
     $ref: paths/api@library@cluster-packages.yaml
   /api/library/cluster-packages/{id}:
@@ -289,6 +293,12 @@ paths:
     $ref: paths/api@clusters@id@configure-autoscaler.yaml
   /api/clusters/{clusterId}/apply-template:
     $ref: paths/api@clusters@id@apply-template.yaml
+  /api/clusters/{clusterId}/apply-package:
+    $ref: paths/api@clusters@id@apply-package.yaml
+  /api/clusters/{clusterId}/packages:
+    $ref: paths/api@clusters@id@packages.yaml
+  /api/clusters/{clusterId}/packages/{id}/config:
+    $ref: paths/api@clusters@id@packages@id@config.yaml
   /api/clusters/{clusterId}/available-nics:
     $ref: paths/api@clusters@id@available-nics.yaml
   /api/clusters/{clusterId}/containers:
