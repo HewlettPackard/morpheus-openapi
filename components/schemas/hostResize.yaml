@@ -35,9 +35,16 @@ storageControllers:
     processed when `volumes` is present in the payload. Supported on VMware and MVM.
   items:
     $ref: instanceCreateStorageController.yaml
+storageController:
+  type: array
+  description: Singular alias for `storageControllers`. Takes precedence when both are supplied.
+  items:
+    $ref: instanceCreateStorageController.yaml
 deleteOriginalVolumes:
   type: boolean
-  description: Delete the original volumes after resizing. (Amazon only)
+  description: >-
+    Delete the original volumes after resizing when the provision type copies volumes to new backing
+    disks (`resizeCopiesVolumes`, e.g. Amazon and Alibaba).
   default: false
 networkInterfaces:
   type: array

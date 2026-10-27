@@ -28,8 +28,9 @@ properties:
       axis. The instance-level `driftReasons` says which axes drifted overall; this flag
       says which nodes are responsible.
   plan:
-    type: object
-    nullable: true
+    type:
+      - object
+      - 'null'
     description: The service plan currently assigned to this node.
     properties:
       id:
@@ -52,7 +53,9 @@ properties:
         type: boolean
   volumes:
     type: array
-    description: Current volumes on this node.
+    description: >-
+      Current non-native volumes on this node (volumes whose storage type has `nativeVolume`
+      enabled are excluded).
     items:
       type: object
       properties:
@@ -62,12 +65,12 @@ properties:
         name:
           type: string
         definitionId:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: |
-            Identifies a shared volume. Volumes carrying the same `definitionId` across
-            nodes are the same logical volume, and edits to one are cascaded to all of
-            them on resize.
+            Correlation identifier linking volumes created from the same definition across
+            nodes in a multi-node instance.
         displayOrder:
           type: integer
         maxStorage:
@@ -77,42 +80,68 @@ properties:
           type: boolean
         removable:
           type: boolean
+        resizeable:
+          type: boolean
+          description: Whether this volume's size can be changed during reconfigure.
         isShared:
           type: boolean
+          description: True when `sharedVolumeId` is attached to more than one server in the instance.
+        sharedVolumeId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+          description: |
+            ID of the underlying shared volume (`multiAttachSourceVolume.id` when attached to
+            a shared source volume, or the volume's own `id`), used to correlate shared
+            volumes across nodes.
         datastoreId:
-          type: integer
+          type:
+            - integer
+            - 'null'
           format: int64
-          nullable: true
         storageTypeId:
-          type: integer
+          type:
+            - integer
+            - 'null'
           format: int64
-          nullable: true
         config:
-          type: object
-          nullable: true
+          type:
+            - object
+            - 'null'
           additionalProperties: true
           description: |
             Current values for the volume's custom option types, in the same shape accepted
             by `volumes[].config` on resize. Values for option types marked `secretField`
-            are redacted. Absent when the volume's option types could not be resolved — see
+            are redacted. Empty when the volume's option types could not be resolved — see
             `optionError`.
         optionError:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
           description: |
             Set when the option types for this volume could not be resolved, for example
             when the provision type and the storage volume type contribute conflicting
             definitions. When present, `config` is empty and the volume's custom options
             cannot be edited until the conflict is resolved.
         persistentReservations:
-          type: boolean
-          nullable: true
+          type:
+            - boolean
+            - 'null'
         controllerMountPoint:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
+        virtualImageId:
+          type:
+            - integer
+            - 'null'
+          format: int64
+          description: ID of the virtual image (ISO) currently mounted on a CD-ROM volume.
         volumeSetName:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
   controllers:
     type: array
     description: Current storage controllers on this node.
@@ -127,9 +156,25 @@ properties:
           format: int64
         typeName:
           type: string
+        category:
+          type:
+            - string
+            - 'null'
+          description: Controller category (e.g. `scsi`, `ide`, `sata`, `usb`).
+        maxDevices:
+          type:
+            - integer
+            - 'null'
+          description: Maximum number of devices this controller can attach.
+        reservedUnitNumber:
+          type:
+            - integer
+            - 'null'
+          description: Unit number reserved by the controller itself and unavailable for volume mounts.
         busNumber:
-          type: integer
-          nullable: true
+          type:
+            - string
+            - 'null'
         displayOrder:
           type: integer
   interfaces:
@@ -142,15 +187,28 @@ properties:
           type: integer
           format: int64
         networkId:
-          type: integer
+          type:
+            - integer
+            - 'null'
           format: int64
-          nullable: true
         ipMode:
-          type: string
-          nullable: true
+          type:
+            - string
+            - 'null'
         typeId:
-          type: integer
+          type:
+            - integer
+            - 'null'
           format: int64
-          nullable: true
         connected:
           type: boolean
+  config:
+    type:
+      - object
+      - 'null'
+    additionalProperties: true
+    description: |
+      Current values for the node's `reconfigureOptionTypes` plus firmware and machine
+      settings (`uefi`, `secureBoot`, `tpm`, `biosHostMode`, `machineType`), with
+      secret-bearing fields withheld. Included on reconfigure endpoints (`resize-prompt`
+      and `check-resize-drift`); omitted on `add-node-prompt`.

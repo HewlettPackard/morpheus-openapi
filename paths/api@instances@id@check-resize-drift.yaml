@@ -33,25 +33,43 @@ put:
                   True when a backing server no longer matches its recorded configuration.
                   A drifted server cannot be reconfigured until the drift is resolved.
               msg:
-                type: object
-                nullable: true
+                type:
+                  - object
+                  - 'null'
                 description: Only present when `drifted` is true.
                 properties:
                   driftedErrMsg:
                     type: string
                     description: Localized explanation that a drifted instance cannot be resized.
               errors:
-                type: object
-                nullable: true
+                type:
+                  - object
+                  - 'null'
                 additionalProperties: true
               driftResp:
-                type: object
-                nullable: true
+                type:
+                  - object
+                  - 'null'
                 additionalProperties: true
                 description: |
-                  Raw drift detail supplied by the provision type's plugin. The shape varies
-                  by provision type and should be treated as opaque. Only present when
-                  `drifted` is true.
+                  Provider drift detail returned when `drifted` is true. Its `servers` list is
+                  projected to basic server identities (`id`, `name`, `displayName`) rather than
+                  full server configuration.
+                properties:
+                  servers:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                        name:
+                          type: string
+                        displayName:
+                          type:
+                            - string
+                            - 'null'
               instanceState:
                 $ref: ../components/schemas/instanceConfigState.yaml
     '404':

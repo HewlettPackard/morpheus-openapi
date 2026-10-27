@@ -163,6 +163,10 @@ properties:
     type:
       - boolean
       - 'null'
+  showOnApproval:
+    type:
+      - boolean
+      - 'null'
   showOnCreate:
     type:
       - boolean
