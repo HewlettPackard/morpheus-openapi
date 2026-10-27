@@ -1,6 +1,7 @@
 type: object
 required:
   - instance
+  - zoneId
   - config
 properties:
   instance:
@@ -93,7 +94,7 @@ properties:
   zoneId:
     type: integer
     format: int64
-    description: The Cloud ID to provision the instance onto.
+    description: The Cloud ID to provision the instance onto. Required; the request is rejected with a 400 when it is omitted.
     example: 6
   evars:
     type: array
