@@ -8,11 +8,12 @@ put:
     Policy checks are skipped here, so a payload that passes this check can still be
     rejected by the resize endpoint on policy grounds.
 
-    When the body carries a `servers` array with more than one entry, each node is checked
-    against its own plan and the per-node results are returned in `serverWarnings`, letting
-    a client say exactly which nodes require a restart instead of warning about the whole
-    instance. Unknown `containerId` values are skipped here rather than rejected; the resize
-    endpoint fails hard on them.
+    When the body carries a `servers` array, target validation and shared-volume consistency
+    checks run first (invalid `containerId` values, `serverId` mismatches, or conflicting
+    shared-volume edits return `400`). Unchanged entries are filtered out and each changed
+    node is checked against its own plan and per-node options. Per-node results are returned
+    in `serverWarnings`, letting a client show exactly which nodes require a restart instead
+    of warning about the whole instance.
   operationId: checkInstanceResize
   tags:
     - Instances
@@ -42,16 +43,19 @@ put:
                 type: boolean
                 description: Whether the change is permitted at all.
               msg:
-                type: string
-                nullable: true
+                type:
+                  - string
+                  - 'null'
                 description: Localized summary message, populated from the first node that failed.
               errors:
-                type: object
-                nullable: true
+                type:
+                  - object
+                  - 'null'
                 additionalProperties: true
               validationErrors:
-                type: object
-                nullable: true
+                type:
+                  - object
+                  - 'null'
                 additionalProperties: true
                 description: |
                   Localized per-field validation errors. On the flat path the keys are plain
@@ -59,7 +63,7 @@ put:
                   so errors from different nodes do not overwrite each other.
               serverWarnings:
                 type: array
-                description: Per-node results. Only returned on the per-node path.
+                description: Per-node results. Only returned on the per-node (`servers`) path.
                 items:
                   type: object
                   properties:
@@ -70,8 +74,9 @@ put:
                       type: boolean
                       description: Whether this specific node can be resized without a restart.
                     msg:
-                      type: string
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
     '400':
       description: The proposed resize failed validation
       content:

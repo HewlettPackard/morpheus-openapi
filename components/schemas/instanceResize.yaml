@@ -24,6 +24,13 @@ properties:
     type: object
     additionalProperties: true
     description: Reconfigure option values. Must be an object or null; any other type returns 400. Takes precedence over `instance.config`.
+  servicePlanId:
+    type: integer
+    format: int64
+    example: 75
+    description: >-
+      Service plan ID to apply to the instance when `instance.plan.id` is not supplied. `servicePlan` is
+      accepted as an alias. When omitted, the instance's current service plan is preserved.
   servicePlanOptions:
     $ref: servicePlanOptions.yaml
   volumes:
@@ -43,9 +50,16 @@ properties:
       processed when `volumes` is present in the payload. Supported on VMware and MVM.
     items:
       $ref: instanceCreateStorageController.yaml
+  storageController:
+    type: array
+    description: Singular alias for `storageControllers`. Takes precedence when both are supplied.
+    items:
+      $ref: instanceCreateStorageController.yaml
   deleteOriginalVolumes:
     type: boolean
-    description: Delete the original volumes after resizing. (Amazon only)
+    description: >-
+      Delete the original volumes after resizing when the provision type copies volumes to new backing
+      disks (`resizeCopiesVolumes`, e.g. Amazon and Alibaba).
     default: false
   networkInterfaces:
     type: array
@@ -60,16 +74,24 @@ properties:
       `networkInterfaces` / plan fields when the nodes no longer share an identical
       configuration and need to be reconfigured individually.
 
-      The per-node path is taken only when this array contains **more than one** entry. A
-      request with zero or one entry is processed through the flat path, where the
-      top-level fields apply uniformly to every node.
+      The per-node path is taken whenever the `servers` key is present in the request body,
+      even when only a single edited node is included. It must be a non-empty array of
+      objects with unique positive `containerId` values belonging to the instance (not
+      supported on Azure Scale Set instances). Entries whose configuration matches the
+      node's current recorded state are filtered out automatically; if no node has
+      effective changes, the endpoint returns `200` immediately without dispatching a
+      resize.
 
-      All entries are validated before any are applied. Permission, plan-resolution,
-      validation and drift checks run for every node first, and the first failure aborts
-      the entire request without resizing any node — so the call is never partially
-      validated. Once validation passes, each node's resize is dispatched independently.
+      All changed entries are validated before any are applied. Permission, plan-resolution,
+      resource validation, shared-volume consistency, and drift checks run for every node
+      first, and the first failure aborts the entire request without resizing any node.
+      Once validation passes, each changed node's resize is dispatched with its own
+      per-node options.
 
-      A node whose configuration is still detected as drifted after the submitted edits are
-      applied fails the request with `gomorpheus.error.instance.driftedResizeNotAllowed`.
+      Edits or deletions of a shared volume (`isShared: true` / matching `sharedVolumeId`)
+      must agree across every attached server in the instance; a mismatch fails the request
+      with `Shared disk edits or deletions must agree across all attached servers`. A node
+      whose configuration is still detected as drifted from its provider state fails with
+      `gomorpheus.error.instance.driftedResizeNotAllowed`.
     items:
       $ref: instanceResizeServer.yaml

@@ -1,17 +1,26 @@
 get:
   summary: Get Instance Add Node Prompt Data
   description: |
-    Returns the per-node configuration state used to drive the Add Node flow.
+    Returns the scale action metadata, available target clouds, and per-node configuration
+    state used to drive the Add Node flow.
 
     When `consistent` is true, every node is identical and a new node can be added without
-    further input. When it is false the nodes have drifted apart, so there is no single
-    configuration to copy and the caller must choose which existing node to use as the
+    choosing a template node. When it is false the nodes have drifted apart, so there is no
+    single configuration to copy and the caller must choose which existing node to use as the
     template by passing its `containerId` as `templateContainerId` to the add node endpoint.
   operationId: getInstanceAddNodePrompt
   tags:
     - Instances
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: actionId
+      in: query
+      required: false
+      description: |
+        Optional ID of the `scaleInstance` action to inspect. When omitted, defaults to the
+        first available user-triggered `scaleInstance` action for the instance's current status.
+      schema:
+        type: string
   responses:
     '200':
       description: Successful Response
@@ -23,7 +32,46 @@ get:
                 properties:
                   success:
                     type: boolean
+                  action:
+                    type: object
+                    description: Metadata for the resolved `scaleInstance` action.
+                    properties:
+                      id:
+                        type: integer
+                        format: int64
+                      countEnabled:
+                        type: boolean
+                        description: Whether the caller may specify a `count` greater than `minCount`.
+                      minCount:
+                        type: integer
+                        description: Minimum number of nodes added per invocation (at least 1).
+                  zones:
+                    type: array
+                    description: |
+                      Available target clouds when the scale action allows cloud selection
+                      (`provisionSelectType == 'zone'` and the instance is not tied to a server
+                      group); empty array otherwise.
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                          format: int64
+                        name:
+                          type: string
+                  defaultZoneId:
+                    type:
+                      - integer
+                      - 'null'
+                    format: int64
+                    description: Default target cloud ID when `zones` is non-empty; null otherwise.
               - $ref: ../components/schemas/instanceConfigState.yaml
+    '400':
+      description: Add Node is not available for this instance or no clouds are available
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
     '404':
       description: Instance not found or insufficient access
       content:

@@ -13,8 +13,8 @@ properties:
     example: 42
     description: |
       The id of the container within this instance that the entry applies to. Required.
-      A container that does not belong to the instance being resized fails the whole
-      request with `Container {id} not found in instance`.
+      Must be a unique positive integer belonging to the instance being resized; otherwise
+      the whole request fails with `Container {id} does not belong to this instance`.
   serverId:
     type: integer
     format: int64
@@ -29,29 +29,32 @@ properties:
     example: 75
     description: |
       Service plan to apply to this node. `servicePlan` is accepted as an alias. When
-      omitted the instance's current plan is used and the node's existing volume
-      configuration is preserved. Changing the plan requires the
-      `provisioning-reconfigure-change-plan` permission.
+      omitted the node's current service plan is used. Changing the plan or custom plan
+      options requires the `provisioning-reconfigure-change-plan` permission.
   servicePlanOptions:
     $ref: servicePlanOptions.yaml
   volumes:
     type: array
     description: |
       Desired volume state for this node, in the same format as the top-level `volumes`
-      array. Omit the key to leave the node's volumes untouched.
+      array. Omit the key to preserve the node's current volumes.
 
-      Edits to a shared volume (one carrying a `definitionId`) are cascaded to every other
-      node that holds the same `definitionId`, so a shared volume cannot be left in an
-      inconsistent state across nodes. When more than one entry edits the same
-      `definitionId`, the last entry in the array wins.
+      When a shared volume (matching `sharedVolumeId`) is modified or deleted on one node,
+      every other server attached to that shared volume must agree on the same `size`,
+      `storageType`, `datastoreId`, `maxIOPS`, `config`, or deletion, or the request fails
+      with `Shared disk edits or deletions must agree across all attached servers`.
     items:
       $ref: instanceCreateVolume.yaml
   storageControllers:
     type: array
     description: |
       Desired storage controller state for this node, in the same format as the top-level
-      `storageControllers` array. Only processed when `volumes` is also present on the
-      same entry.
+      `storageControllers` array.
+    items:
+      $ref: instanceCreateStorageController.yaml
+  storageController:
+    type: array
+    description: Singular alias for `storageControllers`. Takes precedence when both are supplied.
     items:
       $ref: instanceCreateStorageController.yaml
   networkInterfaces:
@@ -61,3 +64,16 @@ properties:
       `networkInterfaces` array. Omit the key to leave the node's interfaces untouched.
     items:
       $ref: instanceCreateNetwork.yaml
+  config:
+    type:
+      - object
+      - 'null'
+    additionalProperties: true
+    description: |
+      Reconfigure option values for this node, merged on top of the node's current
+      configuration. Must be an object when supplied.
+  deleteOriginalVolumes:
+    type: boolean
+    description: >-
+      Delete the original volumes on this node after resizing when the provision type
+      copies volumes (`resizeCopiesVolumes`).

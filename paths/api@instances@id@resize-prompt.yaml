@@ -77,9 +77,9 @@ get:
                 additionalProperties: true
                 description: |
                   Current values for `reconfigureOptionTypes`, taken from the first node's
-                  config map plus its firmware settings (`uefi`, `secureBoot`, `tpm`,
-                  `biosHostMode`, `machineType`). Falls back to the instance config map when
-                  the instance has no backing server.
+                  config map plus its firmware and machine settings (`uefi`, `secureBoot`,
+                  `tpm`, `biosHostMode`, `machineType`), with secret-bearing fields withheld.
+                  Falls back to the instance config map when the instance has no backing server.
               storageControllerConfig:
                 type: object
                 properties:
@@ -90,13 +90,15 @@ get:
                       provision type supports storage controllers. When false, controllers
                       should be presented read-only.
                   provisionTypeId:
-                    type: integer
+                    type:
+                      - integer
+                      - 'null'
                     format: int64
-                    nullable: true
                   layoutId:
-                    type: integer
+                    type:
+                      - integer
+                      - 'null'
                     format: int64
-                    nullable: true
               storageControllers:
                 type: array
                 description: The first node's current storage controllers, sorted by `displayOrder`.
@@ -112,10 +114,28 @@ get:
                     typeName:
                       type: string
                     typeCategory:
-                      type: string
+                      type:
+                        - string
+                        - 'null'
+                    category:
+                      type:
+                        - string
+                        - 'null'
+                      description: Controller category (e.g. `scsi`, `ide`, `sata`, `usb`).
+                    maxDevices:
+                      type:
+                        - integer
+                        - 'null'
+                      description: Maximum number of devices this controller can attach.
+                    reservedUnitNumber:
+                      type:
+                        - integer
+                        - 'null'
+                      description: Unit number reserved by the controller itself and unavailable for volume mounts.
                     busNumber:
-                      type: integer
-                      nullable: true
+                      type:
+                        - string
+                        - 'null'
                     displayOrder:
                       type: integer
                     removable:

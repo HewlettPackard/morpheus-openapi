@@ -19,6 +19,14 @@ post:
         schema:
           type: object
           properties:
+            actionId:
+              anyOf:
+                - type: integer
+                  format: int64
+                - type: string
+              description: |
+                Optional ID of the `scaleInstance` action to execute. When omitted, defaults to
+                the first available `scaleInstance` action compatible with the template node.
             templateContainerId:
               type: integer
               format: int64
@@ -26,7 +34,7 @@ post:
               description: |
                 The `containerId` of the existing node whose configuration the new node
                 should be built from. Required for a drifted instance; optional for a
-                consistent one.
+                consistent one (defaults to the first container).
             saveAsTemplate:
               type: boolean
               default: false
@@ -34,6 +42,20 @@ post:
                 When true, the chosen node's configuration is persisted as the instance's
                 node template so subsequent nodes are provisioned from it without needing
                 `templateContainerId` again.
+            count:
+              type: integer
+              minimum: 1
+              default: 1
+              description: |
+                Number of nodes to add. Defaults to the scale action's `minCount` (at least 1).
+                Must be `>= minCount`, and must equal `minCount` when `action.countEnabled` is false.
+            zoneId:
+              type: integer
+              format: int64
+              description: |
+                Target cloud (zone) ID for the new node(s). When the scale action allows cloud
+                selection, must be one of the `zones` returned by `add-node-prompt` (defaults to
+                `defaultZoneId`). Otherwise must match the template node's or instance's cloud.
   responses:
     '200':
       description: Add node started
