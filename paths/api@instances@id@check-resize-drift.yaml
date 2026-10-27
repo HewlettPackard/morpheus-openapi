@@ -17,6 +17,13 @@ put:
       application/json:
         schema:
           $ref: ../components/schemas/instanceResize.yaml
+        examples:
+          Instance Resize:
+            value:
+              $ref: ../components/examples/instanceResize.json
+          Drifted Multi-Node Instance Resize:
+            value:
+              $ref: ../components/examples/instanceResizeDrifted.json
   responses:
     '200':
       description: Check completed
@@ -72,6 +79,10 @@ put:
                             - 'null'
               instanceState:
                 $ref: ../components/schemas/instanceConfigState.yaml
+          examples:
+            Drifted Multi-Node Drift Check Response:
+              value:
+                $ref: ../components/examples/instanceCheckResizeDriftResponse.json
     '404':
       description: Instance not found or insufficient access
       content:

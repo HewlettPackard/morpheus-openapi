@@ -1,0 +1,320 @@
+{
+  "success": true,
+  "permissions": {
+    "changePlan": true,
+    "modifyNetwork": true,
+    "addNetwork": true,
+    "removeNetwork": true,
+    "modifyDisk": true,
+    "addDisk": true,
+    "removeDisk": true,
+    "diskType": true
+  },
+  "canChangeServicePlanOnReconfigure": true,
+  "canReconfigureNetwork": true,
+  "resizeCopiesVolumes": false,
+  "reconfigureOptionTypes": [
+    {
+      "id": 2104,
+      "code": "provisionType.kvm.nestedVirtualization",
+      "name": "Nested Virtualization",
+      "enabled": true,
+      "editable": true,
+      "description": null,
+      "type": "checkbox",
+      "config": {},
+      "displayOrder": 10,
+      "optionSource": null,
+      "optionSourceType": null,
+      "defaultValue": "off",
+      "placeHolder": null,
+      "helpBlock": "",
+      "required": false,
+      "fieldLabel": "Nested Virtualization",
+      "fieldGroup": "Advanced Options",
+      "fieldName": "nestedVirtualization",
+      "fieldContext": "config",
+      "fieldCode": "gomorpheus.optiontype.NestedVirtualization",
+      "fieldClass": null,
+      "fieldAddOn": null,
+      "dependsOnCode": null,
+      "visibleOnCode": null,
+      "requireOnCode": null,
+      "isHidden": false,
+      "noBlank": false,
+      "contextualDefault": false,
+      "secretField": false,
+      "ignoreField": false,
+      "verifyPattern": null,
+      "fieldSetContext": null,
+      "fieldGetContext": null,
+      "showOnApproval": false
+    }
+  ],
+  "optionValues": {
+    "uefi": true,
+    "secureBoot": false,
+    "tpm": false,
+    "biosHostMode": false,
+    "machineType": "q35",
+    "nestedVirtualization": "on"
+  },
+  "storageControllerConfig": {
+    "enabled": true,
+    "provisionTypeId": 18,
+    "layoutId": 102
+  },
+  "storageControllers": [
+    {
+      "id": 301,
+      "typeId": 4,
+      "typeName": "SCSI VirtIO",
+      "typeCategory": "scsi",
+      "category": "scsi",
+      "maxDevices": 16,
+      "reservedUnitNumber": null,
+      "busNumber": "0",
+      "displayOrder": 0,
+      "removable": false,
+      "editable": false
+    },
+    {
+      "id": 302,
+      "typeId": 6,
+      "typeName": "IDE",
+      "typeCategory": "ide",
+      "category": "ide",
+      "maxDevices": 4,
+      "reservedUnitNumber": null,
+      "busNumber": "0",
+      "displayOrder": 1,
+      "removable": false,
+      "editable": false
+    }
+  ],
+  "instanceState": {
+    "consistent": false,
+    "driftReasons": [
+      "plan",
+      "volumes",
+      "interfaces"
+    ],
+    "servers": [
+      {
+        "containerId": 42,
+        "serverId": 57,
+        "serverName": "app-node-1",
+        "powerState": "on",
+        "drifted": false,
+        "plan": {
+          "id": 75,
+          "code": "kvm-4core-8gb",
+          "name": "4 Core, 8GB Memory",
+          "maxMemory": 8589934592,
+          "maxCores": 4,
+          "coresPerSocket": 2,
+          "isCustom": false
+        },
+        "volumes": [
+          {
+            "id": 101,
+            "name": "root",
+            "definitionId": null,
+            "displayOrder": 0,
+            "maxStorage": 42949672960,
+            "rootVolume": true,
+            "removable": false,
+            "resizeable": true,
+            "isShared": false,
+            "sharedVolumeId": 101,
+            "datastoreId": 12,
+            "storageTypeId": 1,
+            "config": {},
+            "optionError": null,
+            "persistentReservations": null,
+            "controllerMountPoint": "301:0:4:0",
+            "virtualImageId": null,
+            "volumeSetName": null
+          },
+          {
+            "id": 102,
+            "name": "shared-data",
+            "definitionId": "8f29e041-7e3f-4b92-8e1a-1290a8c74b11",
+            "displayOrder": 1,
+            "maxStorage": 85899345920,
+            "rootVolume": false,
+            "removable": true,
+            "resizeable": true,
+            "isShared": true,
+            "sharedVolumeId": 102,
+            "datastoreId": 12,
+            "storageTypeId": 1,
+            "config": {
+              "thinProvision": true
+            },
+            "optionError": null,
+            "persistentReservations": true,
+            "controllerMountPoint": "301:0:4:1",
+            "virtualImageId": null,
+            "volumeSetName": null
+          },
+          {
+            "id": 103,
+            "name": "cdrom",
+            "definitionId": null,
+            "displayOrder": 2,
+            "maxStorage": 0,
+            "rootVolume": false,
+            "removable": true,
+            "resizeable": false,
+            "isShared": false,
+            "sharedVolumeId": 103,
+            "datastoreId": null,
+            "storageTypeId": 9,
+            "config": {},
+            "optionError": null,
+            "persistentReservations": null,
+            "controllerMountPoint": "302:0:6:0",
+            "virtualImageId": 412,
+            "volumeSetName": null
+          }
+        ],
+        "controllers": [
+          {
+            "id": 301,
+            "typeId": 4,
+            "typeName": "SCSI VirtIO",
+            "category": "scsi",
+            "maxDevices": 16,
+            "reservedUnitNumber": null,
+            "busNumber": "0",
+            "displayOrder": 0
+          },
+          {
+            "id": 302,
+            "typeId": 6,
+            "typeName": "IDE",
+            "category": "ide",
+            "maxDevices": 4,
+            "reservedUnitNumber": null,
+            "busNumber": "0",
+            "displayOrder": 1
+          }
+        ],
+        "interfaces": [
+          {
+            "id": 534,
+            "networkId": 20,
+            "ipMode": "dhcp",
+            "typeId": 4,
+            "connected": true
+          }
+        ],
+        "config": {
+          "uefi": true,
+          "secureBoot": false,
+          "tpm": false,
+          "biosHostMode": false,
+          "machineType": "q35",
+          "nestedVirtualization": "on"
+        }
+      },
+      {
+        "containerId": 43,
+        "serverId": 58,
+        "serverName": "app-node-2",
+        "powerState": "on",
+        "drifted": true,
+        "plan": {
+          "id": 76,
+          "code": "kvm-8core-16gb",
+          "name": "8 Core, 16GB Memory",
+          "maxMemory": 17179869184,
+          "maxCores": 8,
+          "coresPerSocket": 2,
+          "isCustom": false
+        },
+        "volumes": [
+          {
+            "id": 104,
+            "name": "root",
+            "definitionId": null,
+            "displayOrder": 0,
+            "maxStorage": 64424509440,
+            "rootVolume": true,
+            "removable": false,
+            "resizeable": true,
+            "isShared": false,
+            "sharedVolumeId": 104,
+            "datastoreId": 12,
+            "storageTypeId": 1,
+            "config": {},
+            "optionError": null,
+            "persistentReservations": null,
+            "controllerMountPoint": "311:0:4:0",
+            "virtualImageId": null,
+            "volumeSetName": null
+          },
+          {
+            "id": 105,
+            "name": "shared-data",
+            "definitionId": "8f29e041-7e3f-4b92-8e1a-1290a8c74b11",
+            "displayOrder": 1,
+            "maxStorage": 85899345920,
+            "rootVolume": false,
+            "removable": true,
+            "resizeable": false,
+            "isShared": true,
+            "sharedVolumeId": 102,
+            "datastoreId": 12,
+            "storageTypeId": 1,
+            "config": {
+              "thinProvision": true
+            },
+            "optionError": null,
+            "persistentReservations": true,
+            "controllerMountPoint": "311:0:4:1",
+            "virtualImageId": null,
+            "volumeSetName": null
+          }
+        ],
+        "controllers": [
+          {
+            "id": 311,
+            "typeId": 4,
+            "typeName": "SCSI VirtIO",
+            "category": "scsi",
+            "maxDevices": 16,
+            "reservedUnitNumber": null,
+            "busNumber": "0",
+            "displayOrder": 0
+          }
+        ],
+        "interfaces": [
+          {
+            "id": 535,
+            "networkId": 20,
+            "ipMode": "dhcp",
+            "typeId": 4,
+            "connected": true
+          },
+          {
+            "id": 536,
+            "networkId": 21,
+            "ipMode": "static",
+            "typeId": 4,
+            "connected": false
+          }
+        ],
+        "config": {
+          "uefi": true,
+          "secureBoot": false,
+          "tpm": false,
+          "biosHostMode": false,
+          "machineType": "q35",
+          "nestedVirtualization": "off"
+        }
+      }
+    ]
+  }
+}

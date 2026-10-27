@@ -144,6 +144,10 @@ get:
                       type: boolean
               instanceState:
                 $ref: ../components/schemas/instanceConfigState.yaml
+          examples:
+            Drifted Multi-Node Instance Resize Prompt:
+              value:
+                $ref: ../components/examples/instanceResizePromptDrifted.json
     '404':
       description: Instance not found or insufficient access
       content:

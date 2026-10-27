@@ -66,6 +66,10 @@ get:
                     format: int64
                     description: Default target cloud ID when `zones` is non-empty; null otherwise.
               - $ref: ../components/schemas/instanceConfigState.yaml
+          examples:
+            Drifted Multi-Node Add Node Prompt:
+              value:
+                $ref: ../components/examples/instanceAddNodePromptDrifted.json
     '400':
       description: Add Node is not available for this instance or no clouds are available
       content:
