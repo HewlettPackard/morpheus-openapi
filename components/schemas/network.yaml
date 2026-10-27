@@ -307,6 +307,12 @@ properties:
     type: boolean
   config:
     type: object
+    description: >-
+      The network type's configuration, as stored: every key the type's option
+      types read (for example hvmVlanTrunks, resourceGroupId, mtu) and the
+      keys the server adds itself, with secrets masked. The keys below are the
+      ones every network type may carry; the rest vary by type.
+    additionalProperties: true
     properties:
       vlanIDs:
         type:
@@ -317,13 +323,17 @@ properties:
       subnetIpManagementType:
         type: string
       subnetIpServerId:
-        type: string
+        type:
+          - string
+          - integer
       dhcpRange:
         type: string
       subnetDhcpServerAddress:
         type: string
       subnetDhcpLeaseTime:
-        type: string
+        type:
+          - string
+          - integer
   tenants:
     type: array
     items:

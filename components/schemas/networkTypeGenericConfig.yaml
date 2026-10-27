@@ -1,2 +1,3 @@
 type: object
 description: Required config options will be in the network type detail API.
+additionalProperties: true
