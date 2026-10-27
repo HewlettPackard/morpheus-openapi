@@ -1,0 +1,20 @@
+{
+  "success": true,
+  "hotResize": false,
+  "allowed": true,
+  "msg": "This resize requires a restart on one or more nodes.",
+  "errors": null,
+  "validationErrors": null,
+  "serverWarnings": [
+    {
+      "containerId": 42,
+      "hotResize": true,
+      "msg": null
+    },
+    {
+      "containerId": 43,
+      "hotResize": false,
+      "msg": "Changing cores per socket requires a VM restart."
+    }
+  ]
+}

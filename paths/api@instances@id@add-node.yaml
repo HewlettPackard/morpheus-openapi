@@ -56,6 +56,10 @@ post:
                 Target cloud (zone) ID for the new node(s). When the scale action allows cloud
                 selection, must be one of the `zones` returned by `add-node-prompt` (defaults to
                 `defaultZoneId`). Otherwise must match the template node's or instance's cloud.
+        examples:
+          Drifted Multi-Node Add Node Request:
+            value:
+              $ref: ../components/examples/instanceAddNodeDriftedRequest.json
   responses:
     '200':
       description: Add node started
@@ -63,6 +67,10 @@ post:
         application/json:
           schema:
             $ref: ../components/schemas/200-success.yaml
+          examples:
+            Successful Response:
+              value:
+                $ref: ../components/examples/success.json
     '400':
       description: Add Node failed
       content:

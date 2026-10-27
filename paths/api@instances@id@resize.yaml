@@ -20,6 +20,9 @@ put:
           Instance Resize:
             value:
               $ref: ../components/examples/instanceResize.json
+          Drifted Multi-Node Instance Resize:
+            value:
+              $ref: ../components/examples/instanceResizeDrifted.json
   responses:
     '200':
       description: Successful Response
