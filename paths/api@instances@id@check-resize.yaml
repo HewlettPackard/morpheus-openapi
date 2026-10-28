@@ -1,0 +1,106 @@
+put:
+  summary: Check an Instance Resize Before Submitting
+  description: |
+    Pre-submit check for a proposed resize. Accepts the same request body as the resize
+    endpoint and reports whether the change can be applied without a reboot, whether it is
+    allowed at all, and any per-field validation errors — without changing anything.
+
+    Policy checks are skipped here, so a payload that passes this check can still be
+    rejected by the resize endpoint on policy grounds.
+
+    When the body carries a `servers` array, target validation and shared-volume consistency
+    checks run first (invalid `containerId` values, `serverId` mismatches, or conflicting
+    shared-volume edits return `400`). Unchanged entries are filtered out and each changed
+    node is checked against its own plan and per-node options. Per-node results are returned
+    in `serverWarnings`, letting a client show exactly which nodes require a restart instead
+    of warning about the whole instance.
+  operationId: checkInstanceResize
+  tags:
+    - Instances
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/instanceResize.yaml
+        examples:
+          Instance Resize:
+            value:
+              $ref: ../components/examples/instanceResize.json
+          Drifted Multi-Node Instance Resize:
+            value:
+              $ref: ../components/examples/instanceResizeDrifted.json
+  responses:
+    '200':
+      description: Check completed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              hotResize:
+                type: boolean
+                description: |
+                  Whether the change can be applied while the instance is running. False when
+                  any node would require a restart.
+              allowed:
+                type: boolean
+                description: Whether the change is permitted at all.
+              msg:
+                type:
+                  - string
+                  - 'null'
+                description: Localized summary message, populated from the first node that failed.
+              errors:
+                type:
+                  - object
+                  - 'null'
+                additionalProperties: true
+              validationErrors:
+                type:
+                  - object
+                  - 'null'
+                additionalProperties: true
+                description: |
+                  Localized per-field validation errors. On the flat path the keys are plain
+                  field names. On the per-node path the keys are `server_{containerId}_{field}`,
+                  so errors from different nodes do not overwrite each other.
+              serverWarnings:
+                type: array
+                description: Per-node results. Only returned on the per-node (`servers`) path.
+                items:
+                  type: object
+                  properties:
+                    containerId:
+                      type: integer
+                      format: int64
+                    hotResize:
+                      type: boolean
+                      description: Whether this specific node can be resized without a restart.
+                    msg:
+                      type:
+                        - string
+                        - 'null'
+          examples:
+            Drifted Multi-Node Resize Check Response:
+              value:
+                $ref: ../components/examples/instanceCheckResizeDriftedResponse.json
+    '400':
+      description: The proposed resize failed validation
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
+    '404':
+      description: Instance not found or insufficient access
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/successError.yaml
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
