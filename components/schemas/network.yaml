@@ -321,19 +321,25 @@ properties:
       connectedGateway:
         type: string
       subnetIpManagementType:
-        type: string
-      subnetIpServerId:
         type:
           - string
-          - integer
+          - 'null'
+        description: >-
+          How addresses on an NSX-T segment's subnet are managed (`dhcpLocal`,
+          `dhcpRelay`, `gatewayDhcp`); null on a segment without DHCP.
+      subnetIpServerId:
+        type: string
+        description: >-
+          The DHCP server or relay profile of an NSX-T segment, as a policy
+          path (for example `/infra/dhcp-server-configs/<id>`), despite the
+          name.
       dhcpRange:
         type: string
       subnetDhcpServerAddress:
         type: string
       subnetDhcpLeaseTime:
-        type:
-          - string
-          - integer
+        type: string
+        description: DHCP lease time in seconds.
   tenants:
     type: array
     items:
