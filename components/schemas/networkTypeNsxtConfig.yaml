@@ -1,0 +1,65 @@
+type: object
+title: NSX-T Segment Config
+description: >-
+  Configuration of an NSX-T segment (network type `nsxtLogicalSwitch`). Every
+  key is optional. The DHCP keys take effect when `dhcpServer` (IPv4) or
+  `dhcpServerIPv6` (IPv6) is enabled on the network and
+  `subnetIpManagementType` is not `dhcpRelay`.
+properties:
+  connectedGateway:
+    type: string
+    description: >-
+      Policy path of the Tier-0 or Tier-1 gateway the segment connects to, for
+      example `/infra/tier-1s/<id>`. When set, `cidr` is required.
+  vlanIDs:
+    type:
+      - string
+      - 'null'
+    description: VLAN ids of a VLAN-backed segment, comma-separated.
+  subnetIpManagementType:
+    type:
+      - string
+      - 'null'
+    description: >-
+      How addresses on the subnet are managed: `dhcpLocal`, `dhcpRelay` or
+      `gatewayDhcp` (NSX-T 3.0 and later; `gatewayDhcp` requires
+      `connectedGateway`).
+  subnetIpServerId:
+    type: string
+    description: >-
+      The DHCP server (`dhcpLocal`) or relay (`dhcpRelay`) profile, as a policy
+      path -- for example `/infra/dhcp-server-configs/<id>` -- despite the name.
+  subnetDhcpServerAddress:
+    type: string
+    description: >-
+      DHCP server address in CIDR notation. Required for `dhcpLocal` when DHCP
+      is enabled.
+  dhcpRange:
+    type: string
+    description: DHCP address ranges, comma-separated.
+  subnetDhcpLeaseTime:
+    type: string
+    description: DHCP lease time in seconds; 86400 when omitted.
+  subnetDhcpServerAddressIPv6:
+    type: string
+    description: >-
+      IPv6 DHCP server address in CIDR notation. Required for `dhcpLocal` when
+      IPv6 DHCP is enabled.
+  dhcpRangeIPv6:
+    type: string
+    description: IPv6 DHCP address ranges, comma-separated.
+  dhcpExcludedRangesIPv6:
+    type: string
+    description: IPv6 address ranges excluded from DHCP, comma-separated.
+  subnetDhcpLeaseTimeIPv6:
+    type: string
+    description: IPv6 DHCP lease time in seconds; 86400 when omitted.
+  dhcpPreferredTimeIPv6:
+    type: string
+    description: IPv6 DHCP preferred time in seconds.
+  dhcpDomainNamesIPv6:
+    type: string
+    description: Domain names handed out by IPv6 DHCP, comma-separated.
+  dhcpSntpServersIPv6:
+    type: string
+    description: SNTP servers handed out by IPv6 DHCP, comma-separated.
