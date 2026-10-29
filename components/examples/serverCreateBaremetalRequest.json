@@ -12,13 +12,15 @@
     "name": "example",
     "description": "",
     "visibility": "private",
-    "labels": [],
-    "config": {
-      "iloIpAddress": "192.168.1.1",
-      "iloUsername": "",
-      "iloPassword": "",
-      "macAddress": "ba:dc:0f:fe:ca:fe",
-      "resourcePoolId": 3
-    }
+    "labels": []
+  },
+  "config": {
+    "iloIpAddress": "192.168.1.1",
+    "macAddress": "ba:dc:0f:fe:ca:fe",
+    "resourcePoolId": 3,
+    "preProvisioned": false
+  },
+  "credential": {
+    "id": 7
   }
 }

@@ -1,5 +1,5 @@
 type: object
-properties: 
+properties:
   server:
     type: object
     properties:
@@ -47,26 +47,30 @@ properties:
           - private
           - public
         example: private
-      config:
-        type: object
-        properties:
-          iloIpAddress:
-            type: string
-            format: ipv4
-            example: 192.168.1.1
-          iloUsername:
-            type: string
-            example: ""
-          iloPassword:
-            type: string
-            example: ""
-          macAddress:
-            type: string
-            example: "ba:dc:0f:fe:ca:fe"
-          resourcePoolId:
-            type: integer
-            example: 12
-          preProvisioned:
-            type: boolean
-            description: Set to 'true' if the server is pre-provisioned (brownfield)
-            example: false
+  config:
+    type: object
+    properties:
+      iloIpAddress:
+        type: string
+        format: ipv4
+        example: 192.168.1.1
+      macAddress:
+        type: string
+        example: "ba:dc:0f:fe:ca:fe"
+      resourcePoolId:
+        type: integer
+        example: 12
+      preProvisioned:
+        type: boolean
+        description: Set to 'true' if the server is pre-provisioned (brownfield)
+        example: false
+  credential:
+    type: object
+    description: >-
+      Reference to an existing stored credential (Cypher/Trust-managed) that supplies the
+      host's iLO username and password.
+      id:
+        type: integer
+        format: int64
+        description: The id of an existing credential (for example, an "HPE iLO Device Credential").
+        example: 7
