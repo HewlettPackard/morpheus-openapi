@@ -351,8 +351,9 @@ properties:
           type: string
         maxIOPS:
           type:
-            - string
+            - integer
             - 'null'
+          format: int64
         maxStorage:
           type: integer
           format: int64
@@ -382,6 +383,30 @@ properties:
             - 'null'
         createForMultiAttach:
           type: boolean
+        volumeCategory:
+          type:
+            - string
+            - 'null'
+          description: Category of the volume's storage type, eg. `disk` or `cd`.
+        isMultiAttach:
+          type:
+            - boolean
+            - 'null'
+          description: Whether this volume is a shared (multi-attach) source volume.
+        multiAttachAction:
+          type:
+            - string
+            - 'null'
+          enum:
+            - attach
+            - null
+          description: '`attach` for a shared source volume, so the entry can be sent back in a resize request. Otherwise `null`.'
+        multiAttachSourceVolume:
+          type:
+            - integer
+            - 'null'
+          format: int64
+          description: The volume's own id when it is a shared source volume. Otherwise `null`.
         storageProfile:
           type:
             - string
