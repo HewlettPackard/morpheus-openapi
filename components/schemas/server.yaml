@@ -31,6 +31,29 @@ properties:
         format: int64
       name:
         type: string
+  placementStrategy:
+    type:
+      - string
+      - 'null'
+    description: >
+      Host placement strategy for the virtual machine. `auto` lets Morpheus
+      choose the host, `failover` keeps the VM on its current host but allows
+      automatic failover, and `pinned` pins the VM to a specific preferred host.
+    enum:
+      - auto
+      - failover
+      - pinned
+  preferredParentServer:
+    type:
+      - object
+      - 'null'
+    description: The preferred target host the virtual machine is placed on.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   accountId:
     type: integer
     format: int64
