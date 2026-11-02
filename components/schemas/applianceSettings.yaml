@@ -225,3 +225,7 @@ properties:
     type: string
   latestLinuxAgentVersion:
     type: string
+  hostProfileComplianceScheduleId:
+    type:
+      - string
+      - 'null'
