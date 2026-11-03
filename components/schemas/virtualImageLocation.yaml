@@ -31,6 +31,16 @@ properties:
     type:
       - string
       - 'null'
+  datastore:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   imageName:
     type: string
   imageRegion:
