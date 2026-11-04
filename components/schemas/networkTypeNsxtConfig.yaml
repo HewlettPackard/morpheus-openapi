@@ -10,7 +10,9 @@ properties:
     type: string
     description: >-
       Policy path of the Tier-0 or Tier-1 gateway the segment connects to, for
-      example `/infra/tier-1s/<id>`. When set, `cidr` is required.
+      example `/infra/tier-1s/<id>`. When set, the network's own `cidr` (the
+      top-level request field, not a config key) is required; with IPv6 and
+      IPv6 DHCP enabled, its `cidrIPv6` as well.
   vlanIDs:
     type:
       - string
