@@ -35,11 +35,11 @@ properties:
       logging:
         type: object
         properties:
-          level: { type: string, enum: [debug, info, warn, error], example: info }
+          level: { type: string, example: info }
       cpu:
         type: object
         properties:
-          powerManagement: { type: string, enum: [performance, powersave, schedutil, userspace, ondemand, conservative], description: "CPU frequency scaling governor. Use performance for hypervisors to prevent VM CPU throttling.", example: performance }
+          powerManagement: { type: string, description: "CPU frequency scaling governor. Use performance for hypervisors to prevent VM CPU throttling.", example: performance }
           hyperThreading: { type: boolean, description: "Enable simultaneous multi-threading (SMT/HT) on host CPUs." }
       memory:
         type: object
@@ -48,7 +48,7 @@ properties:
             type: object
             properties:
               enabled: { type: boolean }
-              size: { type: string, enum: ['2M', '1G'], description: "Huge page size: 2M (standard) or 1G (large). Requires host reboot to change.", example: "2M" }
+              size: { type: string, description: "Huge page size: 2M (standard) or 1G (large). Requires host reboot to change.", example: "2M" }
       security:
         type: object
         properties:
