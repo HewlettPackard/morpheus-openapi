@@ -165,7 +165,11 @@ properties:
       - public
   config:
     type: object
-    description: Configuration object. Settings vary by type.
+    description: >-
+      Configuration object. Settings vary by type: the keys are the network
+      type's config-context option types (see the network type detail API).
+      Merged into the network's existing configuration key by key.
+    additionalProperties: true
   tenants:
     type: array
     description: Array of tenant account ids that are allowed access

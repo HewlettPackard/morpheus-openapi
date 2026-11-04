@@ -196,11 +196,16 @@ properties:
       - public
   config:
     type: object
-    description: Configuration object. Settings vary by type.
+    description: >-
+      Configuration object. Settings vary by type: the keys are the network
+      type's config-context option types (see the network type detail API).
+      Typed variants exist for the Azure, AWS, GCP and NSX-T segment types;
+      any other type takes the generic map.
     anyOf:
       - $ref: networkTypeAzureConfig.yaml
       - $ref: networkTypeAwsConfig.yaml
       - $ref: networkTypeGcpConfig.yaml
+      - $ref: networkTypeNsxtConfig.yaml
       - $ref: networkTypeGenericConfig.yaml
   tenants:
     type: array
