@@ -35,6 +35,6 @@ get:
             type: string
             example: 'attachment;filename="morpheus-2021-11-17-03-56-03.log"'
     '4XX':
-      $ref: ../components/responses/4xx.yaml
+      $ref: ../components/responses/4xx-file-download.yaml
     '5XX':
-      $ref: ../components/responses/5xx.yaml
+      $ref: ../components/responses/5xx-file-download.yaml
