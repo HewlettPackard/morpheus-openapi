@@ -29,8 +29,12 @@ properties:
   subnetIpServerId:
     type: string
     description: >-
-      The DHCP server (`dhcpLocal`) or relay (`dhcpRelay`) profile, as a policy
-      path -- for example `/infra/dhcp-server-configs/<id>` -- despite the name.
+      The DHCP server (`dhcpLocal`) or relay (`dhcpRelay`) profile, identified
+      by its NSX-T policy path -- the profile's `path`, for example
+      `/infra/dhcp-server-configs/<id>` or `/infra/dhcp-relay-configs/<id>` --
+      not its NSX-T `id`, despite this key's name. Sent to NSX-T as given, as
+      the segment's `dhcp_config_path`; nothing converts an id into a path.
+      The network DHCP server listing returns it as `providerId`.
   subnetDhcpServerAddress:
     type: string
     description: >-
