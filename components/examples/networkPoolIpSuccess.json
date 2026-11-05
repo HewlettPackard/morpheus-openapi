@@ -1,0 +1,34 @@
+{
+  "success": true,
+  "networkPoolIp": {
+    "id": 1,
+    "networkPoolId": 1,
+    "ipType": "assigned",
+    "ipAddress": "10.30.26.1",
+    "gatewayAddress": null,
+    "subnetMask": null,
+    "dnsServer": null,
+    "interfaceName": "eth0",
+    "description": null,
+    "active": true,
+    "staticIp": false,
+    "fqdn": "testhost",
+    "domainName": null,
+    "hostname": "testhost",
+    "internalId": null,
+    "externalId": null,
+    "ptrId": null,
+    "dateCreated": "2023-03-29T14:36:31Z",
+    "lastUpdated": "2023-03-29T14:36:31Z",
+    "startDate": "2023-03-29T14:36:31Z",
+    "endDate": null,
+    "refType": null,
+    "refId": null,
+    "subRefId": null,
+    "networkDomain": null,
+    "createdBy": {
+      "id": 1,
+      "username": "aharker"
+    }
+  }
+}

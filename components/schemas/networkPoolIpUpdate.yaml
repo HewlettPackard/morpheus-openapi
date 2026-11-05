@@ -1,0 +1,17 @@
+type: object
+description: Only hostname, refType and refId can be changed on an existing pool IP.
+properties:
+  hostname:
+    type: string
+    description: Hostname
+  refType:
+    type: string
+    description: Type of associated resource such as a host/server
+    example: ComputeServer
+  refId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: ID of associated resource such as a host/server
+    example: 42
