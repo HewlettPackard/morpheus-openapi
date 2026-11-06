@@ -330,9 +330,13 @@ properties:
       subnetIpServerId:
         type: string
         description: >-
-          The DHCP server or relay profile of an NSX-T segment, as a policy
-          path (for example `/infra/dhcp-server-configs/<id>`), despite the
-          name.
+          The DHCP server or relay profile of an NSX-T segment, identified by
+          its NSX-T policy path -- the profile's `path`, for example
+          `/infra/dhcp-server-configs/<id>` or `/infra/dhcp-relay-configs/<id>`
+          -- not its NSX-T `id`, despite this key's name. Stored and sent as
+          given: it is the segment's `dhcp_config_path`, and nothing converts
+          an id into a path. The network DHCP server listing returns it as
+          `providerId`.
       dhcpRange:
         type: string
       subnetDhcpServerAddress:
