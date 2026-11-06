@@ -204,7 +204,10 @@ properties:
     type:
       - string
       - 'null'
-    description: Network switch identifier
+    description: >-
+      Switch the network is bound to, as the network type defines it. For an HVM standard network
+      (`ovsPortGroup`) on a Morpheus 9.1 cluster with per-cluster virtual switches this is the id of
+      the virtual switch, as a string; on earlier releases it is the OVS bridge name.
   fabricId:
     type:
       - string

@@ -64,7 +64,10 @@ properties:
     description: VLAN ID; null removes it. Applied when the network type's `vlanIdEditable` flag is set; otherwise ignored.
   switchId:
     type: string
-    description: Network switch identifier
+    description: >-
+      Switch the network is bound to, as the network type defines it. For an HVM standard network
+      (`ovsPortGroup`) on a Morpheus 9.1 cluster with per-cluster virtual switches this is the id of
+      the virtual switch, as a string; on earlier releases it is the OVS bridge name.
     example: "Compute"
   networkServer:
     type: object
