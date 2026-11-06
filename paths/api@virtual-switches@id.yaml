@@ -1,6 +1,11 @@
 get:
   summary: Get a Specific Virtual Switch
-  description: Retrieves a specific virtual switch, including its segments and per-host uplinks.
+  description: >-
+    Retrieves a specific virtual switch, including its segments and per-host
+    uplinks.
+
+
+    Requires Morpheus 9.1.0.
   operationId: getVirtualSwitch
   tags:
     - Virtual Switches
@@ -28,7 +33,13 @@ put:
   summary: Update a Virtual Switch
   description: >-
     Updates a virtual switch. `baseType` is immutable and any attempt to change
-    it is rejected. This is an asynchronous operation that returns a `processId`.
+    it is rejected. This is an asynchronous operation that returns a `processId`;
+    poll `GET /api/processes/{processId}` to track host orchestration. On
+    validation failure a 400 is returned with
+    `{success: false, errors: {field: message}}`.
+
+
+    Requires Morpheus 9.1.0.
   operationId: updateVirtualSwitch
   tags:
     - Virtual Switches
@@ -65,12 +76,23 @@ delete:
   summary: Delete a Virtual Switch
   description: >-
     Deletes a virtual switch and its segments and uplinks. This is an
-    asynchronous operation that returns a `processId`.
+    asynchronous operation that returns a `processId`; poll
+    `GET /api/processes/{processId}` to track host orchestration.
+
+
+    Requires Morpheus 9.1.0.
   operationId: deleteVirtualSwitch
   tags:
     - Virtual Switches
   parameters:
     - $ref: ../components/parameters/id-path.yaml
+    - name: force
+      in: query
+      description: Force deletion even when a sync is in flight.
+      required: false
+      schema:
+        type: boolean
+      example: false
   responses:
     '200':
       description: Successful Request

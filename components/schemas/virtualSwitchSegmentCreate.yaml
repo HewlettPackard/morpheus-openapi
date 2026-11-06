@@ -28,8 +28,8 @@ properties:
     example: 10.0.20.1
   vlanId:
     type: integer
-    description: VLAN tag (1-4094). Omit for untagged.
-    minimum: 1
+    description: VLAN tag (2-4094). Omit for untagged.
+    minimum: 2
     maximum: 4094
     example: 220
   mtu:
@@ -38,3 +38,8 @@ properties:
       - 1500
       - 9000
     example: 1500
+  hostIps:
+    type: array
+    description: Optional per-host IP address assignments for this segment.
+    items:
+      $ref: ./virtualSwitchSegmentHostIp.yaml

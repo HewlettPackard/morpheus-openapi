@@ -13,7 +13,13 @@
       "active": true,
       "clusterId": 135,
       "nicCount": 2,
-      "networkCount": 3
+      "networkCount": 3,
+      "segments": [
+        { "trafficType": "vm" },
+        { "trafficType": "management" },
+        { "trafficType": "data-nfs" }
+      ],
+      "uplinkNics": ["eno1", "eno2"]
     }
   ]
 }
