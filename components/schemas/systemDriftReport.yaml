@@ -1,17 +1,26 @@
 type: object
-description: Summary of a drift check run against a system.
+description: |
+  Summary of a drift check run against a system; ruleResults is included only by the detail
+  endpoint. Rule counts start as null and remain null after a terminal outcome without a usable
+  DriftState. A usable result with an empty rule list has zero counts. The four status buckets
+  can sum to less than totalRules because rules with absent or unrecognized statuses are counted
+  only in totalRules.
 properties:
   id:
     type: integer
     format: int64
   status:
     type: string
+    description: Execution status, independent of API request success and whether rules detected drift
     enum:
       - pending
       - running
       - completed
       - failed
   driftSummary:
+    description: |
+      Provider summary; initially null and can remain null if a returned DriftState has no summary.
+      Failed execution or a successful provider response without a usable DriftState yields ERROR.
     type:
       - string
       - 'null'
@@ -27,40 +36,55 @@ properties:
       - TARGETED
       - UPDATE
   statusMessage:
+    description: Failure detail or informational note
+    maxLength: 2000
     type:
       - string
       - 'null'
   processId:
+    description: Supplementary process tracking ID; can be null before process creation or if it failed
     type:
       - integer
       - 'null'
     format: int64
   totalRules:
+    description: Total returned rules, including those with absent or unrecognized statuses
+    minimum: 0
     type:
       - integer
       - 'null'
   passedRules:
+    description: Number of rules with status PASSED
+    minimum: 0
     type:
       - integer
       - 'null'
   failedRules:
+    description: Number of rules with status FAILED; does not by itself mean execution failed
+    minimum: 0
     type:
       - integer
       - 'null'
   warningRules:
+    description: Number of rules with status WARNING
+    minimum: 0
     type:
       - integer
       - 'null'
   skippedRules:
+    description: Number of rules with status SKIPPED
+    minimum: 0
     type:
       - integer
       - 'null'
   startedOn:
+    description: When the pending report was created, before provider execution starts
     type:
       - string
       - 'null'
     format: date-time
   completedOn:
+    description: When the report reached a terminal state; null otherwise
     type:
       - string
       - 'null'

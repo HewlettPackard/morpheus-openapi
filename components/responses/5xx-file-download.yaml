@@ -1,0 +1,2 @@
+# See 4xx-file-download.yaml (MORPH-13295).
+description: Error Codes. Errors return a JSON body with `msg`.
