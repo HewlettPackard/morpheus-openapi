@@ -52,6 +52,7 @@ post:
               description: Payload for creating a new Network Server
               anyOf:
                 - $ref: ../components/schemas/networkServerCreateNSX.yaml
+                - $ref: ../components/schemas/networkServerCreateJuniperSdn.yaml
         examples:
           Network Server Request - NSX:
             value: 
