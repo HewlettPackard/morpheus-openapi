@@ -4,6 +4,10 @@
     "type": {
       "code": "morpheus"
     },
+    "subnetAddress": "192.2.2.0",
+    "netmask": "255.255.255.0",
+    "gateway": "192.2.2.1",
+    "dnsDomain": "example.com",
     "ipRanges": [
       {
         "startAddress": "192.2.2.100",

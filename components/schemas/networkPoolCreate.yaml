@@ -1,4 +1,9 @@
 type: object
+description: >-
+  The pool attributes a create or update request may carry. The keys below are
+  bound for every pool type the API can create; settings particular to a type
+  go in config. The server also accepts keys of the pool object that are not
+  listed here.
 properties:
   name:
     type: string
@@ -30,6 +35,34 @@ properties:
         cidrIPv6:
           type: string
           description: IPv6 Network CIDR
+  dnsDomain:
+    type:
+      - string
+      - 'null'
+    description: DNS domain. Null clears it on update.
+  gateway:
+    type:
+      - string
+      - 'null'
+    description: Gateway IP address. Null clears it on update.
+  netmask:
+    type:
+      - string
+      - 'null'
+    description: Netmask. Null clears it on update.
+  subnetAddress:
+    type:
+      - string
+      - 'null'
+    description: Subnet IP address. Null clears it on update.
+  dhcpServer:
+    type: boolean
+    description: Whether DHCP server is enabled. A pool is created with false when omitted.
+  poolEnabled:
+    type: boolean
+    description: >-
+      Whether the pool is enabled. Create ignores false: a pool is always
+      created enabled. Disable it with an update, which honours false.
   config:
     type: object
     description: Configuration object with parameters that vary by pool type.
