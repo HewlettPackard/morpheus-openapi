@@ -76,9 +76,11 @@ put:
                   format: int64
                   description: Max cores
                 maxDisks:
-                  type: integer
+                  type:
+                    - integer
+                    - 'null'
                   format: int64
-                  description: Max disks allowed
+                  description: Max disks allowed; null clears the limit
                 provisionType:
                   type: object
                   required:
