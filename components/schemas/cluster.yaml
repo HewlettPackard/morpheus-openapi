@@ -355,3 +355,9 @@ properties:
               type: object
   config:
     type: object
+    description: >-
+      The cluster's configuration, as stored: the keys the cluster's layout
+      and cloud type read (for example cpuArch, cpuModel, dynamicPlacementMode
+      and powerPolicy on an HVM cluster) and the keys the server adds itself.
+      The keys vary by layout, so none is listed.
+    additionalProperties: true
