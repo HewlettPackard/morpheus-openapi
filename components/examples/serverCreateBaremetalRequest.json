@@ -15,10 +15,12 @@
     "labels": [],
     "config": {
       "iloIpAddress": "192.168.1.1",
-      "iloUsername": "",
-      "iloPassword": "",
       "macAddress": "ba:dc:0f:fe:ca:fe",
-      "resourcePoolId": 3
+      "resourcePoolId": 3,
+      "preProvisioned": false
     }
+  },
+  "credential": {
+    "id": 7
   }
 }

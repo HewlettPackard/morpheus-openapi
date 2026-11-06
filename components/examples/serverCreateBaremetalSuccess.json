@@ -93,14 +93,11 @@
       "macAddress": "ba:dc:0f:fe:ca:fe",
       "iloIpAddress": "192.168.1.1",
       "createUser": "on",
-      "iloUsername": "",
-      "iloPassword": null,
       "maxMemory": 536870912,
       "maxStorage": 1073741824,
       "maxCpu": 1,
       "maxCores": 1,
-      "coresPerSocket": 1,
-      "iloPasswordHash": null
+      "coresPerSocket": 1
     },
     "guestConsolePreferred": false,
     "guestConsoleType": null,
