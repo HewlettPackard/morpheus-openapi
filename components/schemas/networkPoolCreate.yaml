@@ -54,8 +54,8 @@ properties:
   poolEnabled:
     type: boolean
     description: >-
-      Whether the pool is enabled. A pool is created enabled when omitted or
-      set to false; disable it with an update.
+      Whether the pool is enabled. Create ignores false: a pool is always
+      created enabled. Disable it with an update, which honours false.
   config:
     type: object
     description: Configuration object with parameters that vary by pool type.
