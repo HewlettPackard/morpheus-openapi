@@ -557,14 +557,60 @@ properties:
       type: integer
       format: int64
   config:
-    description: >
-      Type-specific configuration object. The documented variants are the HPE
-      iLO bare-metal keys and the Omega stub keys; other creatable types return
-      their option-type values via the generic variant.
-    anyOf:
-      - $ref: serverBaremetalCreateConfigBmaas.yaml
-      - $ref: serverBaremetalCreateConfigOmegaBmaas.yaml
-      - $ref: serverBaremetalCreateConfigGeneric.yaml
+    type: object
+    properties:
+      poolProviderType:
+        type:
+          - string
+          - 'null'
+      isVpcSelectable:
+        type: boolean
+      smbiosAssetTag:
+        type:
+          - string
+          - 'null'
+      isEC2:
+        type: boolean
+      resourcePoolId:
+        oneOf:
+          - type: integer
+            format: int64
+          - type: string
+      hostId:
+        type:
+          - integer
+          - 'null'
+        format: int64
+      createUser:
+        oneOf:
+          - type: boolean
+          - type: string
+            enum:
+              - "on"
+              - "off"
+      nestedVirtualization:
+        type:
+          - string
+          - 'null'
+      disableQgaChannel:
+        type: boolean
+      bootToBios:
+        type:
+          - boolean
+          - 'null'
+      bootToBiosMenuTimeout:
+        type:
+          - integer
+          - 'null'
+      vmwareFolderId:
+        type: string
+      noAgent:
+        type: boolean
+      powerScheduleType:
+        type:
+          - integer
+          - 'null'
+        format: int64
   instance: 
     type:
       - object
