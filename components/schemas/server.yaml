@@ -88,8 +88,6 @@ properties:
         type: string
       managed:
         type: boolean
-      bareMetalHost:
-        type: boolean
       externalDelete:
         type: boolean
   visibility:
