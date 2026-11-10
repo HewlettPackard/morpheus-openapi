@@ -13,6 +13,7 @@
       "externalDiskId": "snap-0ad5833d9dcc3ce1f",
       "remotePath": null,
       "imagePath": null,
+      "datastore": null,
       "imageName": "CentOS-8.2-x86_64-Minimal-8GiB-HVM-20200616_131752-84a857fb-30b1-429f-8e92-3065cf289a61-ami-07f119b85966cd8a5.4",
       "imageRegion": "us-west-1",
       "imageFolder": null,
