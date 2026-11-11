@@ -33,6 +33,17 @@ properties:
       - boolean
       - 'null'
     description: Set to true if the server is already provisioned (brownfield).
+  userData:
+    type:
+      - string
+      - 'null'
+    description: Cloud-init user data for the host.
+  provisionKey:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: The ID of the SSH key pair to assign to the host.
 required:
   - iloIpAddress
   - resourcePoolId
