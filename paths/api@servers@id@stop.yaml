@@ -1,6 +1,6 @@
 put:
   summary: Stop a Host
-  description: This will stop a host. To force a hard power off, include the query parameter `force=true`.
+  description: This will stop a host. Omitting `force` is the same as `force=true` (hard power off). A graceful shutdown requires `force=false`.
   operationId: stopHost
   tags:
     - Hosts
