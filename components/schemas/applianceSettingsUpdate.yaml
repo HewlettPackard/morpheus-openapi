@@ -214,3 +214,6 @@ properties:
   enableMurph:
     type: boolean
     description: Enable Murph AI services
+  hostProfileComplianceScheduleId:
+    type: string
+    description: ID of the execute schedule used for host profile compliance scans. If unset or blank, the appliance falls back to the built-in "daily at midnight" schedule.
