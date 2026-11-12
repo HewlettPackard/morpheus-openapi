@@ -6,6 +6,10 @@ get:
   tags:
     - Networks
   parameters:
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+    - $ref: ../components/parameters/sort.yaml
+    - $ref: ../components/parameters/direction.yaml
     - $ref: ../components/parameters/phrase.yaml
     - name: ipAddress
       in: query
