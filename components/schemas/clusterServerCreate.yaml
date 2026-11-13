@@ -23,13 +23,29 @@ properties:
       - $ref: clusterServerCreateConfigGeneric.yaml
   serverType:
     type: object
-    description: Server type to create.  See `/api/server-types` for available server types for the cloud.
+    description: Server type to create, by `id` or `code`.  See `/api/server-types` for available server types for the cloud.
     properties:
       id:
         type: integer
+      code:
+        type: string
+        description: The server type's code (for example `hvmKubeWorker` or `mvm`); an alternative to `id`.
   name:
     type: string
     description: Name to be used for host(s) created in the cluster
+  description:
+    type:
+      - string
+      - 'null'
+    description: Optional description for the host being added to the cluster.
+  cloud:
+    type: object
+    description: Cloud to place the host in. Defaults to the cluster's cloud when omitted.
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: The id of the cloud.
   plan:
     type: object
     properties:
@@ -203,6 +219,11 @@ properties:
     type: integer
     format: int64
     description: The port which the worker's SSH server is listening on.
+  sshHost:
+    type:
+      - string
+      - 'null'
+    description: IP address or hostname of an existing host to add to the cluster (used with sshUsername and sshPassword/sshKeyPair, e.g. for HPE VM clusters).
   sshUsername:
     type: string
     description: SSH Username
@@ -211,6 +232,7 @@ properties:
     type:
       - string
       - 'null'
+    writeOnly: true
     description: SSH Password
     example: mypassword
   sshKeyPair:

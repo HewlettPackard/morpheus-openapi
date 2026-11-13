@@ -1,3 +1,4 @@
+title: HKS HVM Cluster Host Config Object
 description: Configuration for HKS cluster provisioning on a HVM cluster.
 type: object
 properties:
