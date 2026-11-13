@@ -55,14 +55,11 @@ properties:
         format: int64
     description: The ID of the specific datastore. Auto selection can be specified as auto or autoCluster (for clusters).
   multiAttachAction:
-    type:
-      - string
-      - 'null'
+    type: string
     enum:
       - standard
       - create
       - attach
-      - null
     default: standard
     example: create
     description: |-
@@ -84,14 +81,11 @@ properties:
       Enable SCSI-3 persistent reservations on this volume. Requires a shared block-backed volume on a
       provision type and controller type with `supportsPersistentReservations`.
   volumeSetAction:
-    type:
-      - string
-      - 'null'
+    type: string
     enum:
       - none
       - create
       - add
-      - null
     description: |-
       Volume set action for newly provisioned volumes on storage types with `supportsVolumeSet: true`.
       Ignored when attaching an existing shared volume (`multiAttachAction: "attach"`).
