@@ -283,7 +283,15 @@ properties:
           jobAction:
             type: string
           jobRetentionCount:
-            type: string
+            description: >-
+              Number of backups the instance's backup job retains. Either a
+              string or an integer: the appliance stores the value a client
+              sends — the UI and the examples send a string — but writes an
+              integer itself when it fills the backup settings from the
+              tenant's defaults at provision time.
+            type:
+              - string
+              - integer
           providerBackupType:
             type:
               - integer
