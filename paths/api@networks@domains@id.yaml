@@ -42,7 +42,7 @@ put:
           type: object
           properties: 
             networkDomain:
-              $ref: ../components/schemas/networkDomainCreate.yaml
+              $ref: ../components/schemas/networkDomainUpdate.yaml
         examples: 
           Successful Request:
             value: 
