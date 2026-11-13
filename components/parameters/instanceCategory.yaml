@@ -1,0 +1,19 @@
+name: instanceCategory
+in: query
+description: >-
+  Filter by the category of the instance type, for example `os` or `web`.
+  Repeatable — supply the parameter more than once to match any of several
+  categories. Matching is exact. To filter by the instance type itself use
+  `instanceType`.
+
+
+  Optional. When omitted, no category filter is applied.
+required: false
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: true
+example:
+  - os

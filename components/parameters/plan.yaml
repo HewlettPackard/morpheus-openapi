@@ -1,0 +1,22 @@
+name: plan
+in: query
+description: >-
+  Filter by service plan name. Repeatable — supply the parameter more than once
+  to match any of several plans.
+
+
+  Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard, for
+  example `?plan=2 CPU%`. This is not a regular expression. To filter by plan
+  ID or code use `planId` or `planCode`.
+
+
+  Optional. When omitted, no plan filter is applied.
+required: false
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: true
+example:
+  - 2 CPU%

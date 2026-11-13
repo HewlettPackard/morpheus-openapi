@@ -1,0 +1,27 @@
+name: externalName
+in: query
+description: >-
+  Filter by the instance's underlying `name` — the value the API returns as
+  `name` — ignoring any display name. Repeatable — supply the parameter more
+  than once to match any of several names.
+
+
+  Use this rather than `name` when instances carry display names: `name`
+  matches `displayName` where one is set and only falls back to `name` where
+  there is none, whereas this parameter always matches `name`.
+
+
+  Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard, for
+  example `?externalName=web-%`. This is not a regular expression.
+
+
+  Optional. When omitted, no filter is applied.
+required: false
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: true
+example:
+  - web-%

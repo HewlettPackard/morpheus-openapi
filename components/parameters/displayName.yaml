@@ -1,0 +1,21 @@
+name: displayName
+in: query
+description: >-
+  Filter by display name. Repeatable — supply the parameter more than once to
+  match any of several display names.
+
+
+  Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard, for
+  example `?displayName=web-%`. This is not a regular expression.
+
+
+  Optional. When omitted, no display name filter is applied.
+required: false
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: true
+example:
+  - web-%

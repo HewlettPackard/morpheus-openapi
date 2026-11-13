@@ -1,0 +1,12 @@
+name: instanceLevel
+in: query
+description: >-
+  Filter by instance level, for example `user` (the level of provisioned
+  instances), `system` or `vdi`. Matching is exact.
+
+
+  System instances are excluded unless `includeSystem=true` is also passed, so
+  `instanceLevel=system` on its own returns nothing.
+schema:
+  type: string
+example: user

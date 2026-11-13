@@ -1,0 +1,19 @@
+name: containerId
+in: query
+description: >-
+  Filter by container ID: returns the instances that own any of the given
+  containers. Repeatable — supply the parameter more than once to match
+  several containers.
+
+
+  Optional. When omitted, instances are not restricted by container.
+required: false
+schema:
+  type: array
+  items:
+    type: integer
+    format: int64
+style: form
+explode: true
+example:
+  - 135

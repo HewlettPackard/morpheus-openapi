@@ -1,0 +1,10 @@
+name: includeSystem
+in: query
+description: >-
+  If true, system-level instances (`instanceLevel` of `system`), which are
+  excluded by default, are included in the results. Only honoured for the
+  master tenant; other tenants never see system instances.
+schema:
+  type: boolean
+  default: false
+example: true
