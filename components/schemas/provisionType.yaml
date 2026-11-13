@@ -65,8 +65,23 @@ properties:
       - 'null'
   resizeCopiesVolumes:
     type: boolean
+  canChangeDatastoreOnResize:
+    type:
+      - boolean
+      - 'null'
+    description: Whether an existing volume's datastore can be changed during instance or server reconfigure.
+  canChangeDiskController:
+    type:
+      - boolean
+      - 'null'
+    description: Whether an existing volume's storage controller mount point can be changed during instance or server reconfigure.
   supportsAutoDatastore:
     type: boolean
+  hasStorageControllers:
+    type:
+      - boolean
+      - 'null'
+    description: Whether this provision type supports storage controllers.
   hasZonePools:
     type: boolean
   hasSecurityGroups:
@@ -95,6 +110,11 @@ properties:
     type:
       - boolean
       - 'null'
+  supportsNetworkConnected:
+    type:
+      - boolean
+      - 'null'
+    description: Whether network interfaces on this provision type support the `connected` state flag.
   supportsPersistentReservations:
     type:
       - boolean
@@ -104,6 +124,21 @@ properties:
     type:
       - array
       - 'null'
+    items:
+      $ref: optionType.yaml
+  storageVolumeOptionTypes:
+    type:
+      - array
+      - 'null'
+    description: |-
+      Custom per-volume configuration fields offered by this provision type. These are combined with the
+      `provisionOptionTypes` of the selected `storageTypes` entry to form the full set of config fields for a
+      single storage volume, and their values are supplied per volume via the `config` object on instance
+      create and resize payloads.
+
+      Definitions are de-duplicated by option type identity. A provision type and a storage volume type must
+      not contribute two different definitions that share a `code` or whose `fieldName`/`fieldSetName`/
+      `fieldGetName` config paths overlap — such a collision is reported rather than silently resolved.
     items:
       $ref: optionType.yaml
   customOptionTypes:

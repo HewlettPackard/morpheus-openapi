@@ -1,0 +1,148 @@
+{
+  "success": true,
+  "action": {
+    "id": 9,
+    "countEnabled": true,
+    "minCount": 1
+  },
+  "zones": [
+    {
+      "id": 5,
+      "name": "HVM Cluster Cloud"
+    }
+  ],
+  "defaultZoneId": 5,
+  "consistent": false,
+  "driftReasons": [
+    "plan",
+    "volumes",
+    "interfaces"
+  ],
+  "servers": [
+    {
+      "containerId": 42,
+      "serverId": 57,
+      "serverName": "app-node-1",
+      "powerState": "on",
+      "drifted": false,
+      "plan": {
+        "id": 75,
+        "code": "kvm-4core-8gb",
+        "name": "4 Core, 8GB Memory",
+        "maxMemory": 8589934592,
+        "maxCores": 4,
+        "coresPerSocket": 2,
+        "isCustom": false
+      },
+      "volumes": [
+        {
+          "id": 101,
+          "name": "root",
+          "definitionId": null,
+          "displayOrder": 0,
+          "maxStorage": 42949672960,
+          "rootVolume": true,
+          "removable": false,
+          "resizeable": true,
+          "isShared": false,
+          "sharedVolumeId": 101,
+          "datastoreId": 12,
+          "storageTypeId": 1,
+          "config": {},
+          "optionError": null,
+          "persistentReservations": null,
+          "controllerMountPoint": "301:0:4:0",
+          "virtualImageId": null,
+          "volumeSetName": null
+        }
+      ],
+      "controllers": [
+        {
+          "id": 301,
+          "typeId": 4,
+          "typeName": "SCSI VirtIO",
+          "category": "scsi",
+          "maxDevices": 16,
+          "reservedUnitNumber": null,
+          "busNumber": "0",
+          "displayOrder": 0
+        }
+      ],
+      "interfaces": [
+        {
+          "id": 534,
+          "networkId": 20,
+          "ipMode": "dhcp",
+          "typeId": 4,
+          "connected": true
+        }
+      ]
+    },
+    {
+      "containerId": 43,
+      "serverId": 58,
+      "serverName": "app-node-2",
+      "powerState": "on",
+      "drifted": true,
+      "plan": {
+        "id": 76,
+        "code": "kvm-8core-16gb",
+        "name": "8 Core, 16GB Memory",
+        "maxMemory": 17179869184,
+        "maxCores": 8,
+        "coresPerSocket": 2,
+        "isCustom": false
+      },
+      "volumes": [
+        {
+          "id": 104,
+          "name": "root",
+          "definitionId": null,
+          "displayOrder": 0,
+          "maxStorage": 64424509440,
+          "rootVolume": true,
+          "removable": false,
+          "resizeable": true,
+          "isShared": false,
+          "sharedVolumeId": 104,
+          "datastoreId": 12,
+          "storageTypeId": 1,
+          "config": {},
+          "optionError": null,
+          "persistentReservations": null,
+          "controllerMountPoint": "311:0:4:0",
+          "virtualImageId": null,
+          "volumeSetName": null
+        }
+      ],
+      "controllers": [
+        {
+          "id": 311,
+          "typeId": 4,
+          "typeName": "SCSI VirtIO",
+          "category": "scsi",
+          "maxDevices": 16,
+          "reservedUnitNumber": null,
+          "busNumber": "0",
+          "displayOrder": 0
+        }
+      ],
+      "interfaces": [
+        {
+          "id": 535,
+          "networkId": 20,
+          "ipMode": "dhcp",
+          "typeId": 4,
+          "connected": true
+        },
+        {
+          "id": 536,
+          "networkId": 21,
+          "ipMode": "static",
+          "typeId": 4,
+          "connected": false
+        }
+      ]
+    }
+  ]
+}

@@ -20,3 +20,24 @@ properties:
     type:
       - string
       - 'null'
+  multiAttachSupported:
+    type:
+      - boolean
+      - 'null'
+    description: Whether volumes of this type can be attached to more than one server at a time.
+  optionTypes:
+    type:
+      - array
+      - 'null'
+    description: Configuration fields offered by this volume type for standalone storage server volumes.
+    items:
+      $ref: optionType.yaml
+  provisionOptionTypes:
+    type:
+      - array
+      - 'null'
+    description: |-
+      Custom per-volume configuration fields offered by this volume type during instance and server
+      provisioning and reconfigure, combined with the provision type's `storageVolumeOptionTypes`.
+    items:
+      $ref: optionType.yaml

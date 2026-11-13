@@ -40,6 +40,12 @@ properties:
     type: integer
     format: int64
     description: The interface id. Applicable when resizing and you want to identify an interface to update that already exists.
+  connected:
+    type: boolean
+    default: true
+    description: >-
+      Whether the network interface is connected. Supported on provision types with
+      `supportsNetworkConnected` enabled. Defaults to `true` when omitted.
   networkInterfaces:
     type: array
     title: Instances Child Virtual Network Interfaces
@@ -88,3 +94,7 @@ properties:
           type: integer
           format: int64
           description: The interface id. Applicable when resizing and you want to identify an interface to update that already exists.
+        connected:
+          type: boolean
+          default: true
+          description: Whether the child network interface is connected. Defaults to `true` when omitted.

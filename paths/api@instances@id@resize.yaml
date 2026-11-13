@@ -1,6 +1,10 @@
 put:
   summary: Resize an Instance
-  description: It is possible to resize containers within an instance by increasing their memory plan or storage limit. This is done by assigning a new service plan to the container. This endpoint also allows for NIC reconfiguration by passing a new array of networkInterfaces
+  description: |
+    It is possible to resize containers within an instance by increasing their memory plan or storage limit. This is done by assigning a new service plan to the container. This endpoint also allows for NIC reconfiguration by passing a new array of networkInterfaces.
+
+    For a multi-node instance whose nodes have drifted apart, pass a `servers` array to
+    reconfigure each node individually instead of applying one configuration to all of them.
   operationId: resizeInstance
   tags: 
     -  Instances
@@ -16,6 +20,9 @@ put:
           Instance Resize:
             value:
               $ref: ../components/examples/instanceResize.json
+          Drifted Multi-Node Instance Resize:
+            value:
+              $ref: ../components/examples/instanceResizeDrifted.json
   responses:
     '200':
       description: Successful Response

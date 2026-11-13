@@ -1,0 +1,140 @@
+{
+  "servers": [
+    {
+      "containerId": 42,
+      "serverId": 57,
+      "servicePlanId": 75,
+      "servicePlanOptions": {
+        "maxCores": 4,
+        "coresPerSocket": 2,
+        "maxMemory": 8589934592
+      },
+      "volumes": [
+        {
+          "id": 101,
+          "rootVolume": true,
+          "name": "root",
+          "size": 40,
+          "storageType": 1,
+          "datastoreId": 12,
+          "controllerMountPoint": "301:0:4:0"
+        },
+        {
+          "id": 102,
+          "rootVolume": false,
+          "name": "shared-data",
+          "size": 100,
+          "storageType": 1,
+          "datastoreId": 12,
+          "definitionId": "8f29e041-7e3f-4b92-8e1a-1290a8c74b11",
+          "persistentReservations": true,
+          "controllerMountPoint": "301:0:4:1",
+          "config": {
+            "thinProvision": true
+          }
+        },
+        {
+          "id": 103,
+          "rootVolume": false,
+          "name": "cdrom",
+          "size": 0,
+          "storageType": 9,
+          "virtualImageId": "",
+          "controllerMountPoint": "302:0:6:0"
+        }
+      ],
+      "storageController": [
+        {
+          "id": 301,
+          "typeId": 4,
+          "busNumber": "0"
+        },
+        {
+          "id": 302,
+          "typeId": 6,
+          "busNumber": "0"
+        }
+      ],
+      "networkInterfaces": [
+        {
+          "id": 534,
+          "network": {
+            "id": "network-20"
+          },
+          "networkInterfaceTypeId": 4,
+          "ipMode": "dhcp",
+          "connected": true
+        }
+      ],
+      "config": {
+        "nestedVirtualization": "on"
+      }
+    },
+    {
+      "containerId": 43,
+      "serverId": 58,
+      "servicePlanId": 76,
+      "servicePlanOptions": {
+        "maxCores": 8,
+        "coresPerSocket": 2,
+        "maxMemory": 17179869184
+      },
+      "volumes": [
+        {
+          "id": 104,
+          "rootVolume": true,
+          "name": "root",
+          "size": 60,
+          "storageType": 1,
+          "datastoreId": 12,
+          "controllerMountPoint": "311:0:4:0"
+        },
+        {
+          "id": 105,
+          "rootVolume": false,
+          "name": "shared-data",
+          "size": 100,
+          "storageType": 1,
+          "datastoreId": 12,
+          "definitionId": "8f29e041-7e3f-4b92-8e1a-1290a8c74b11",
+          "persistentReservations": true,
+          "controllerMountPoint": "311:0:4:1",
+          "config": {
+            "thinProvision": true
+          }
+        }
+      ],
+      "storageController": [
+        {
+          "id": 311,
+          "typeId": 4,
+          "busNumber": "0"
+        }
+      ],
+      "networkInterfaces": [
+        {
+          "id": 535,
+          "network": {
+            "id": "network-20"
+          },
+          "networkInterfaceTypeId": 4,
+          "ipMode": "dhcp",
+          "connected": true
+        },
+        {
+          "id": 536,
+          "network": {
+            "id": "network-21"
+          },
+          "networkInterfaceTypeId": 4,
+          "ipMode": "static",
+          "ipAddress": "10.0.21.15",
+          "connected": false
+        }
+      ],
+      "config": {
+        "nestedVirtualization": "off"
+      }
+    }
+  ]
+}
