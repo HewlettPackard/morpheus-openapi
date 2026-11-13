@@ -182,7 +182,13 @@ properties:
     properties:
       ts:
         type: string
-        format: date-time
+        description: >-
+          When the statistics were sampled. An ISO 8601 timestamp whose UTC offset
+          is written either as `Z` or as `+0000`, depending on what reported the
+          statistics, so it is not always a valid RFC 3339 date-time.
+        examples:
+          - '2026-11-02T15:39:25Z'
+          - '2026-11-02T15:39:25+0000'
       freeSwap:
         type: integer
         format: int64
