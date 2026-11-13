@@ -1,6 +1,10 @@
 get:
   summary: List Virtual Switch Uplinks
-  description: Retrieves the per-host NIC uplink mappings for a virtual switch.
+  description: >-
+    Retrieves the per-host NIC uplink mappings for a virtual switch.
+
+
+    Requires Morpheus 9.1.0.
   operationId: listVirtualSwitchUplinks
   tags:
     - Virtual Switches

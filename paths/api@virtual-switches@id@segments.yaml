@@ -1,6 +1,10 @@
 get:
   summary: List Virtual Switch Segments
-  description: Retrieves the traffic segments defined on a virtual switch.
+  description: >-
+    Retrieves the traffic segments defined on a virtual switch.
+
+
+    Requires Morpheus 9.1.0.
   operationId: listVirtualSwitchSegments
   tags:
     - Virtual Switches
@@ -30,7 +34,11 @@ post:
   summary: Add a Virtual Switch Segment
   description: >-
     Adds a traffic segment to a virtual switch. This is an asynchronous
-    operation that returns a `processId`.
+    operation that returns a `processId`; poll
+    `GET /api/processes/{processId}` to track host orchestration.
+
+
+    Requires Morpheus 9.1.0.
   operationId: addVirtualSwitchSegment
   tags:
     - Virtual Switches
