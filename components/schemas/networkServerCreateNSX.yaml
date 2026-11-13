@@ -34,6 +34,37 @@ properties:
       - string
       - 'null'
     description: Password
+  serviceHost:
+    type:
+      - string
+      - 'null'
+    description: Controller host, for types that take it separately from the URL.
+  servicePort:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Controller port, for types that take it separately from the URL.
+  serviceMode:
+    type:
+      - string
+      - 'null'
+    description: Service mode, for types that have one.
+  serviceToken:
+    type:
+      - string
+      - 'null'
+    description: API token, for types that authenticate with one.
+  networkFilter:
+    type:
+      - string
+      - 'null'
+    description: Filter limiting the networks synced from the controller.
+  tenantMatch:
+    type:
+      - string
+      - 'null'
+    description: Tenant match expression, for types that scope networks to tenants.
   config:
     type:
       - object
@@ -44,6 +75,8 @@ properties:
           - string
           - 'null'
         description: NSX Project (NSX 4.1+)
+    additionalProperties: true
+    description: Type-specific settings, keyed by the type's option type field names.
   visibility:
     type: string
     description: "Visibility - Set to public to allow all tenants"

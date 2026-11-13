@@ -20,6 +20,64 @@ properties:
       - string
       - 'null'
     description: Password
+  serviceHost:
+    type:
+      - string
+      - 'null'
+    description: Controller host, for types that take it separately from the URL.
+  servicePort:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Controller port, for types that take it separately from the URL.
+  serviceMode:
+    type:
+      - string
+      - 'null'
+    description: Service mode, for types that have one.
+  serviceToken:
+    type:
+      - string
+      - 'null'
+    description: API token, for types that authenticate with one.
+  networkFilter:
+    type:
+      - string
+      - 'null'
+    description: Filter limiting the networks synced from the controller.
+  tenantMatch:
+    type:
+      - string
+      - 'null'
+    description: Tenant match expression, for types that scope networks to tenants.
+  zoneId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: ID of the Cloud the network server integration is attached to.
+  config:
+    type:
+      - object
+      - 'null'
+    properties:
+      project:
+        type:
+          - string
+          - 'null'
+        description: NSX Project (NSX 4.1+)
+    additionalProperties: true
+    description: Type-specific settings, keyed by the type's option type field names.
+  credential:
+    type: object
+    description: "Map containing Credential ID or the default `{\"type\": \"local\"}` which means use the values set in the local serviceUsername and servicePassword instead of associating a credential."
+    properties:
+      type:
+        type: string
+      id:
+        type: integer
+        format: int64
   visibility:
     type: string
     description: "Visibility - Set to public to allow all tenants"

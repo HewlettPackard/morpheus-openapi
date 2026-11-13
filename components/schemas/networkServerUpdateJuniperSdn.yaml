@@ -11,6 +11,12 @@ properties:
     enum:
       - public
       - private
+  zoneId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: ID of the Cloud the SDN network server is attached to.
   config:
     type:
       - object
