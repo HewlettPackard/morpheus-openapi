@@ -283,7 +283,15 @@ properties:
           jobAction:
             type: string
           jobRetentionCount:
-            type: string
+            description: >-
+              Number of backups the instance's backup job retains. The
+              appliance writes an integer when it fills the backup settings
+              from the tenant's defaults at provision time. The block is
+              stored as the creating client sent it, so an instance created
+              by a client that sent the count as a numeric string returns it
+              as that string.
+            type: integer
+            example: 3
           providerBackupType:
             type:
               - integer

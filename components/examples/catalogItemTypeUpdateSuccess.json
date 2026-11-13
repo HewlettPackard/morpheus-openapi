@@ -20,7 +20,7 @@
         "jobSchedule": 2,
         "createBackup": true,
         "jobAction": "new",
-        "jobRetentionCount": "3",
+        "jobRetentionCount": 3,
         "target": 37006
       },
       "volumesDisplay": [

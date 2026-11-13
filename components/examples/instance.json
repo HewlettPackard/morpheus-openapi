@@ -75,7 +75,7 @@
                 "jobSchedule": 2,
                 "createBackup": true,
                 "jobAction": "new",
-                "jobRetentionCount": "1",
+                "jobRetentionCount": 1,
                 "providerBackupType": 11,
                 "target": 7
             },

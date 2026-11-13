@@ -304,7 +304,13 @@ properties:
           jobAction:
             type: string
           jobRetentionCount:
-            type: string
+            description: >-
+              Number of backups the backup job retains, an integer. The block
+              is stored as the client sent it, so a pool created by a client
+              that sent the count as a numeric string returns it as that
+              string.
+            type: integer
+            example: 7
           providerBackupType:
             type:
               - integer

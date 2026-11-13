@@ -143,7 +143,7 @@
                             "veeamManagedServer": "",
                             "createBackup": true,
                             "jobAction": "new",
-                            "jobRetentionCount": "1",
+                            "jobRetentionCount": 1,
                             "providerBackupType": 3,
                             "enabled": true,
                             "showScheduledBackupWarning": false
