@@ -1,0 +1,43 @@
+type: object
+description: >-
+  An enabled Kubernetes package belonging to the selected HKS layout. Identify it
+  by id or code; if both are supplied, they must refer to the same package.
+  Listing an optional package selects it for installation during provisioning.
+  Required packages are installed even when omitted.
+anyOf:
+  - required:
+      - id
+  - required:
+      - code
+properties:
+  id:
+    description: Package ID from the cluster layout packages endpoint, not a spec template ID
+    oneOf:
+      - type: integer
+        format: int64
+      - type: string
+        pattern: '^[0-9]+$'
+  code:
+    type: string
+    description: Package code from the cluster layout packages endpoint
+  config:
+    type: object
+    description: >-
+      Optional override for a configurable package. Omit this object to use
+      defaults, including for packages that are not configurable.
+    required:
+      - rawContent
+    properties:
+      rawContent:
+        type: string
+        minLength: 1
+        pattern: '\S'
+        description: >-
+          Nonblank YAML validated against the package's default configuration.
+          The supplied text, including comments and line endings, is preserved.
+examples:
+  - id: 2
+  - code: optional-package
+  - id: 2
+    config:
+      rawContent: "replicas: 3\n"

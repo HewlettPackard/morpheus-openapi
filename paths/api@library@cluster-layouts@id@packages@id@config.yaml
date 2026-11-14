@@ -1,6 +1,13 @@
 get:
   summary: Get Cluster Layout Package Config (Kubernetes)
-  description: Returns the default package configuration. Applies to packages with customisable config.
+  description: |
+    Returns the default package configuration. Applies to configurable enabled
+    Kubernetes packages in the layout, whether required or optional.
+
+    Requires read, user, or full access to Library > Cluster Layouts
+    (`admin-containers`) or Infrastructure > Clusters (`infrastructure-cluster`).
+    The enabled layout must be global or owned by the current account, and its
+    cluster type must be visible to the user; otherwise HTTP 404 is returned.
   operationId: getClusterLayoutPackageConfig
   tags:
     - Cluster Layouts

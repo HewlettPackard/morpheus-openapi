@@ -26,7 +26,10 @@ properties:
     format: int64
   required:
     type: boolean
-    description: True when the package is mandatory and always installed when a cluster is provisioned
+    description: >-
+      True when this package ID belongs to the layout's required packages and
+      is installed during provisioning. Optional packages remain false even
+      when they share a packageType with a required package.
   repeatInstall:
     type: boolean
   configurable:
