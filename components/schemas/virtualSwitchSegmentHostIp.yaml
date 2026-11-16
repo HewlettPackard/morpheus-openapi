@@ -1,0 +1,12 @@
+type: object
+description: A per-host IP address assignment for a virtual switch segment.
+properties:
+  serverId:
+    type: integer
+    format: int64
+    description: The ID of the host (compute server) this IP is assigned to.
+    example: 42
+  ip:
+    type: string
+    description: The IP address assigned to the segment on this host.
+    example: 10.0.20.6

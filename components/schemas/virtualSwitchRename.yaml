@@ -1,0 +1,12 @@
+type: object
+description: Request body for renaming a virtual switch.
+required:
+  - name
+properties:
+  name:
+    type: string
+    description: >-
+      New switch name. Limited to 16 characters, matching the switch domain
+      constraint and the service name-length limit.
+    maxLength: 16
+    example: vswitch02

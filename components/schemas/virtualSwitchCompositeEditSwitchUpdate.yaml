@@ -1,0 +1,26 @@
+type: object
+description: >-
+  Switch-level changes applied by a composite edit. Only the fields supplied
+  are changed.
+properties:
+  bondMode:
+    type: string
+    description: >-
+      NIC bonding mode. The literal `none` may also be supplied to explicitly
+      clear the bond mode.
+    enum:
+      - active-backup
+      - 802.3ad
+      - none
+    example: 802.3ad
+  mtu:
+    type: integer
+    enum:
+      - 1500
+      - 9000
+    example: 9000
+  uplinks:
+    type: array
+    description: Optional revised per-host NIC assignments.
+    items:
+      $ref: ./virtualSwitchUplinkAssignment.yaml

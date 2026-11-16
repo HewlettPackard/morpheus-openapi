@@ -1,0 +1,12 @@
+{
+  "segment": {
+    "vlanId": 221,
+    "ipAddress": "10.0.20.5",
+    "netmask": "255.255.255.0",
+    "gateway": "10.0.20.1",
+    "hostIps": [
+      { "serverId": 42, "ip": "10.0.20.6" },
+      { "serverId": 43, "ip": "10.0.20.7" }
+    ]
+  }
+}

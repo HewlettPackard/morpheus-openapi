@@ -14,6 +14,25 @@
       "ovsLibvirtNetwork": "vswitch01-vm",
       "status": "in-sync",
       "statusMessage": null
+    },
+    {
+      "id": 45,
+      "trafficType": "data-nfs",
+      "interfaceName": "bond0.230",
+      "ipAddress": "10.0.30.5",
+      "netmask": "255.255.255.0",
+      "gateway": "10.0.30.1",
+      "vlanId": 230,
+      "mtu": 9000,
+      "ovsBridge": null,
+      "ovsUuid": null,
+      "ovsLibvirtNetwork": null,
+      "status": "in-sync",
+      "statusMessage": null,
+      "hostIps": [
+        { "serverId": 42, "ip": "10.0.30.6" },
+        { "serverId": 43, "ip": "10.0.30.7" }
+      ]
     }
   ]
 }

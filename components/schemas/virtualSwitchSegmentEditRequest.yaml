@@ -1,0 +1,55 @@
+type: object
+description: >-
+  An edit to an existing segment within a composite edit. `trafficType` is
+  required: an entry without it is skipped before the segment is resolved, even
+  when `segId` is given. The target segment is located by `segId` when supplied,
+  otherwise by `trafficType` (and `vlanId` for multi-VLAN traffic types).
+required:
+  - trafficType
+properties:
+  segId:
+    type: integer
+    format: int64
+    description: The ID of the segment to edit. Preferred over trafficType.
+    example: 44
+  trafficType:
+    type: string
+    description: >-
+      The segment's traffic type. Required; also used to locate the segment when
+      segId is omitted.
+    enum:
+      - vm
+      - data-nfs
+      - data-iscsi
+      - live-migration
+      - sdn
+      - management
+    example: data-nfs
+  vlanId:
+    type:
+      - integer
+      - 'null'
+    description: VLAN tag (2-4094). Null clears the tag (untagged).
+    minimum: 2
+    maximum: 4094
+    example: 221
+  ipAddress:
+    type:
+      - string
+      - 'null'
+    example: 10.0.20.5
+  netmask:
+    type:
+      - string
+      - 'null'
+    example: 255.255.255.0
+  gateway:
+    type:
+      - string
+      - 'null'
+    example: 10.0.20.1
+  hostIps:
+    type: array
+    description: Per-host IP address assignments for this segment.
+    items:
+      $ref: ./virtualSwitchSegmentHostIp.yaml

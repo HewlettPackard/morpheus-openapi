@@ -5,16 +5,23 @@ description: >-
 properties:
   name:
     type: string
-    maxLength: 12
+    description: >-
+      Switch name. Limited to 16 characters, matching the switch domain
+      constraint and the service name-length limit.
+    maxLength: 16
     example: vswitch01
   description:
     type: string
     example: Updated description
   bondMode:
     type: string
+    description: >-
+      NIC bonding mode. The literal `none` may also be supplied to explicitly
+      clear the bond mode.
     enum:
       - active-backup
       - 802.3ad
+      - none
     example: 802.3ad
   mtu:
     type: integer
