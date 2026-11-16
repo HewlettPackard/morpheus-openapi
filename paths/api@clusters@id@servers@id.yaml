@@ -39,7 +39,7 @@ delete:
             Approval required:
               value:
                 success: true
-                msg: Approval required before the request can be processed
+                msg: Request for Delete Worker Created
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
