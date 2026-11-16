@@ -20,11 +20,26 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            type: object
+            properties:
+              success:
+                type: boolean
+              msg:
+                type:
+                  - string
+                  - 'null'
+                description: >-
+                  Set when the removal was not carried out directly: for example when an
+                  approval policy on the cluster has queued the request for approval, in which
+                  case the worker remains a member until it is approved.
           examples:
             Response:
               value:
-                $ref: ../components/examples/success.json 
+                $ref: ../components/examples/success.json
+            Approval required:
+              value:
+                success: true
+                msg: Approval required before the request can be processed
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
