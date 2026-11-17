@@ -198,7 +198,7 @@
                     "backupRepository": 1,
                     "createBackup": true,
                     "jobAction": "new",
-                    "jobRetentionCount": "1",
+                    "jobRetentionCount": 1,
                     "providerBackupType": "null",
                     "enabled": true,
                     "showScheduledBackupWarning": false
@@ -983,7 +983,7 @@
                     "backupRepository": 1,
                     "createBackup": true,
                     "jobAction": "new",
-                    "jobRetentionCount": "1",
+                    "jobRetentionCount": 1,
                     "providerBackupType": "null",
                     "enabled": true,
                     "showScheduledBackupWarning": false
@@ -1260,7 +1260,7 @@
                     "backupRepository": 1,
                     "createBackup": true,
                     "jobAction": "new",
-                    "jobRetentionCount": "1",
+                    "jobRetentionCount": 1,
                     "providerBackupType": "null",
                     "enabled": true,
                     "showScheduledBackupWarning": false
@@ -1527,7 +1527,7 @@
                     "backupRepository": 1,
                     "createBackup": true,
                     "jobAction": "new",
-                    "jobRetentionCount": "1",
+                    "jobRetentionCount": 1,
                     "providerBackupType": -1,
                     "enabled": true,
                     "showScheduledBackupWarning": false

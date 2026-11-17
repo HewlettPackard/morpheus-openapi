@@ -159,7 +159,7 @@
                 "backup": {
                     "createBackup": false,
                     "jobAction": "new",
-                    "jobRetentionCount": "7",
+                    "jobRetentionCount": 7,
                     "providerBackupType": -1
                 },
                 "loadBalancer": [],
@@ -327,7 +327,7 @@
                 "backup": {
                     "createBackup": false,
                     "jobAction": "new",
-                    "jobRetentionCount": "7",
+                    "jobRetentionCount": 7,
                     "providerBackupType": -1
                 },
                 "loadBalancer": [],
@@ -565,7 +565,7 @@
                 "backup": {
                     "createBackup": false,
                     "jobAction": "new",
-                    "jobRetentionCount": "7",
+                    "jobRetentionCount": 7,
                     "providerBackupType": -1
                 },
                 "loadBalancer": [],
