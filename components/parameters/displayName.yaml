@@ -6,7 +6,7 @@ description: >-
 
 
   Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard, for
-  example `?displayName=web-%`. This is not a regular expression.
+  example `?displayName=web-%25` (the value `web-%`, URL-encoded). This is not a regular expression.
 
 
   Optional. When omitted, no display name filter is applied.

@@ -12,7 +12,7 @@ description: >-
 
 
   Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard, for
-  example `?externalName=web-%`. This is not a regular expression.
+  example `?externalName=web-%25` (the value `web-%`, URL-encoded). This is not a regular expression.
 
 
   Optional. When omitted, no filter is applied.

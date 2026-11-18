@@ -6,7 +6,7 @@ description: >-
 
 
   Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard, for
-  example `?description=%production%`. This is not a regular expression.
+  example `?description=%25production%25` (the value `%production%`, URL-encoded). This is not a regular expression.
 
 
   Optional. When omitted, no description filter is applied.

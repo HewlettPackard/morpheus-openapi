@@ -6,7 +6,7 @@ description: >-
 
 
   Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard, for
-  example `?plan=2 CPU%`. This is not a regular expression. To filter by plan
+  example `?plan=2%20CPU%25` (the value `2 CPU%`, URL-encoded). This is not a regular expression. To filter by plan
   ID or code use `planId` or `planCode`.
 
 
