@@ -16,7 +16,6 @@ get:
   operationId: getSnapshotInstance
   tags:
     - Instances
-    - Datastores
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   responses:
@@ -58,7 +57,6 @@ delete:
   operationId: deleteSnapshotInstance
   tags:
     - Instances
-    - Datastores
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   responses:
