@@ -43,6 +43,7 @@ properties:
     type: string
   year:
     type: string
+    description: The budget year, or `custom` for a budget spanning the explicit `startDate`–`endDate` period.
   resourceType:
     type: string
   timezone:
@@ -57,17 +58,20 @@ properties:
     type: string
   costs:
     type: array
+    description: The budget amount for each interval, in the account's currency (see `currency`); one per month, quarter or year of the period according to `interval`.
     items:
-      type: integer
-      format: int64
+      type: number
+      format: double
   isFiscal:
     type: boolean
   averageCost:
-    type: integer
-    format: int64
+    type: number
+    format: double
+    description: The mean of `costs`, in the account's currency.
   totalCost:
-    type: integer
-    format: int64
+    type: number
+    format: double
+    description: The sum of `costs`, in the account's currency.
   currency:
     type: string
   rollover:
@@ -130,8 +134,9 @@ properties:
             chartName:
               type: string
             budget:
-              type: integer
-              format: int64
+              type: number
+              format: double
+              description: The budgeted amount for the interval, in the budget's currency.
             cost:
               type: number
             startDate:
