@@ -1,0 +1,83 @@
+put:
+  summary: Snapshot a Datastore
+  description: |
+    Creates a datastore-wide snapshot asynchronously. A successful response means
+    the request was queued, not that the snapshot has finished creating.
+    Track the returned process ID with `GET /api/processes/{id}`. On completion,
+    the process has `resultType: Snapshot` and `resultId` identifies the new snapshot.
+    If creation fails after the request is accepted, the process reports the failure.
+    Use `GET /api/data-stores/{id}/snapshots` to retrieve the datastore's snapshots.
+
+    Requires full access to both Infrastructure: Storage (`infrastructure-storage`)
+    and Infrastructure: Clusters (`infrastructure-cluster`). The datastore must be
+    owned by the current account and its provider must support datastore snapshots.
+    Cluster-scoped datastores also require access to the owning cluster.
+    VM-only options such as `memorySnapshot` and `forExport` are not supported.
+    This endpoint is also available under `/api/v1`.
+  operationId: snapshotDatastore
+  tags:
+    - Datastores
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            snapshot:
+              type: object
+              properties:
+                name:
+                  type: string
+                  maxLength: 255
+                  description: Optional snapshot name. Surrounding whitespace is trimmed. If omitted or blank, a provider-supplied name or a generated name is used.
+                description:
+                  type:
+                    - string
+                    - 'null'
+                  maxLength: 1000
+                  description: Optional description for the snapshot.
+        examples:
+          Snapshot Request:
+            value:
+              snapshot:
+                name: before-maintenance
+                description: Datastore snapshot before maintenance
+  responses:
+    '200':
+      description: Snapshot creation queued
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              processIds:
+                type: array
+                description: Process ID to track with GET /api/processes/{id}. One process is created for the datastore.
+                items:
+                  type: integer
+                  format: int64
+          examples:
+            Response:
+              value:
+                success: true
+                processIds: [123]
+    '400':
+      description: Invalid snapshot options, provider does not support datastore snapshots, or the request could not be queued
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          examples:
+            Invalid Name:
+              value:
+                success: false
+                msg: Snapshot name must be 255 characters or fewer
+                errors: {}
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

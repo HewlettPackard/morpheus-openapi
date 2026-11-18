@@ -1,9 +1,22 @@
 get:
   summary: Get a Specific Snapshot
-  description: This endpoint retrieves a specific snapshot.
+  description: |
+    Retrieves a snapshot from the shared snapshot model, including instance, server,
+    volume, and datastore snapshots. Storage volume group snapshots use a separate API.
+
+    Non-datastore snapshots require read or full access to Snapshots (`snapshots`).
+    Datastore snapshots instead require read or full access to both Infrastructure:
+    Storage (`infrastructure-storage`) and Infrastructure: Clusters (`infrastructure-cluster`),
+    ownership by the current account, and access to the owning cluster when cluster-scoped.
+    The datastore provider must support datastore snapshots.
+    Datastore snapshots use the same representation as the datastore snapshot list,
+    including `snapshotScope: DATASTORE` and a `currentlyActive` flag derived from the
+    datastore's current snapshot reference. Deleted datastore snapshots are not returned.
+    This endpoint is also available under `/api/v1`.
   operationId: getSnapshotInstance
   tags:
     - Instances
+    - Datastores
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   responses:
@@ -15,7 +28,9 @@ get:
             type: object
             properties:
               snapshot:
-                $ref: ../components/schemas/snapshot.yaml
+                anyOf:
+                  - $ref: ../components/schemas/snapshot.yaml
+                  - $ref: ../components/schemas/datastoreSnapshot.yaml
           examples:
             Response:
               value:
@@ -25,11 +40,25 @@ get:
     '5XX':
       $ref: ../components/responses/5xx.yaml
 delete:
-  summary: Delete Snapshot of Instance
-  description: Delete snapshot of instance.
+  summary: Delete a Snapshot
+  description: |
+    Deletes an instance, server, or datastore snapshot. Standalone volume snapshots and
+    storage volume group snapshots must use their dedicated deletion endpoints.
+
+    Instance and server snapshots require full access to Snapshots (`snapshots`).
+    Datastore snapshots instead require full access to both Infrastructure: Storage
+    (`infrastructure-storage`) and Infrastructure: Clusters (`infrastructure-cluster`),
+    ownership by the current account, and access to the owning cluster when cluster-scoped.
+    The datastore provider must support datastore snapshots.
+    Datastore deletion uses the same provider operation and checks as
+    `DELETE /api/data-stores/{id}/snapshots/{snapshotId}` and completes before responding.
+    Only complete datastore snapshots can be deleted. The datastore's current snapshot
+    reference is cleared after successful deletion if it points to this snapshot.
+    This endpoint is also available under `/api/v1`.
   operationId: deleteSnapshotInstance
   tags:
     - Instances
+    - Datastores
   parameters:
     - $ref: ../components/parameters/id-path.yaml
   responses:

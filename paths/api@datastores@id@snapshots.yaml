@@ -1,0 +1,54 @@
+get:
+  summary: Get List of Snapshots for a Datastore
+  description: |
+    Lists all datastore-wide snapshots in descending ID order, without pagination,
+    matching the instance snapshot list endpoint.
+    Only non-deleted snapshots with `snapshotScope: DATASTORE` are returned;
+    this does not list individual VM or volume snapshots.
+    Each snapshot includes `currentlyActive` to identify the datastore's current snapshot.
+    Use a returned snapshot ID with the existing shared `GET /api/snapshots/{id}`
+    and `DELETE /api/snapshots/{id}` endpoints to retrieve or delete an individual
+    snapshot. The datastore-scoped DELETE endpoint is also supported.
+
+    Requires read or full access to both Infrastructure: Storage (`infrastructure-storage`)
+    and Infrastructure: Clusters (`infrastructure-cluster`). The datastore must be
+    owned by the current account and its provider must support datastore snapshots.
+    Cluster-scoped datastores also require access to the owning cluster.
+    This endpoint is also available under `/api/v1`.
+  operationId: listDatastoreSnapshots
+  tags:
+    - Datastores
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              snapshots:
+                type: array
+                items:
+                  $ref: ../components/schemas/datastoreSnapshot.yaml
+          examples:
+            Response:
+              value:
+                snapshots:
+                  - id: 42
+                    name: before-maintenance
+                    description: Datastore snapshot before maintenance
+                    externalId: array-snapshot-42
+                    snapshotScope: DATASTORE
+                    status: complete
+                    currentlyActive: true
+                    dateCreated: '2026-11-17T20:00:00Z'
+                    snapshotCreated: '2026-11-17T20:00:00Z'
+                    datastore:
+                      id: 7
+                    volume: null
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml
