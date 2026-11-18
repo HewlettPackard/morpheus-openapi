@@ -463,8 +463,6 @@ paths:
     $ref: paths/api@datastores@id@snapshot.yaml
   /api/data-stores/{id}/snapshots:
     $ref: paths/api@datastores@id@snapshots.yaml
-  /api/data-stores/{id}/snapshots/{snapshotId}:
-    $ref: paths/api@datastores@id@snapshots@snapshotId.yaml
   /api/data-stores/{id}/revert-snapshot/{snapshotId}:
     $ref: paths/api@datastores@id@revert-snapshot@snapshotId.yaml
   /api/deployments:

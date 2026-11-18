@@ -49,8 +49,7 @@ delete:
     (`infrastructure-storage`) and Infrastructure: Clusters (`infrastructure-cluster`),
     ownership by the current account, and access to the owning cluster when cluster-scoped.
     The datastore provider must support datastore snapshots.
-    Datastore deletion uses the same provider operation and checks as
-    `DELETE /api/data-stores/{id}/snapshots/{snapshotId}` and completes before responding.
+    Datastore deletion invokes the datastore provider and completes before responding.
     Only complete datastore snapshots can be deleted. The datastore's current snapshot
     reference is cleared after successful deletion if it points to this snapshot.
     This endpoint is also available under `/api/v1`.

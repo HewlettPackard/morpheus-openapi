@@ -8,7 +8,7 @@ get:
     Each snapshot includes `currentlyActive` to identify the datastore's current snapshot.
     Use a returned snapshot ID with the existing shared `GET /api/snapshots/{id}`
     and `DELETE /api/snapshots/{id}` endpoints to retrieve or delete an individual
-    snapshot. The datastore-scoped DELETE endpoint is also supported.
+    snapshot.
 
     Requires read or full access to both Infrastructure: Storage (`infrastructure-storage`)
     and Infrastructure: Clusters (`infrastructure-cluster`). The datastore must be
