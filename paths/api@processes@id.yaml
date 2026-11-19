@@ -2,6 +2,13 @@ get:
   summary: Retrieves a Specific Process
   description: |
     Retrieves a specific process.
+
+    Datastore snapshot creation and revert return process IDs that can be tracked here.
+    For these processes, read or full access to both `infrastructure-storage` and
+    `infrastructure-cluster` is required, the datastore must be owned by the current
+    account, and the user must have access to its owning cluster when cluster-scoped.
+    A completed snapshot process has `resultType: Snapshot` and `resultId` identifies
+    the created or restored snapshot. A failed process reports the operation's failure.
   operationId: getHistory
   tags:
     - History

@@ -1,0 +1,75 @@
+put:
+  summary: Revert Datastore to Snapshot
+  description: |
+    Queues a datastore revert through its snapshot provider. A successful response
+    means the request was queued, not that the datastore has finished reverting.
+    Track the returned process ID with `GET /api/processes/{id}`. On completion,
+    the process has `resultType: Snapshot` and `resultId` identifies the restored snapshot.
+    If the provider rejects the revert or an error occurs after acceptance, the
+    process reports the failure.
+
+    The snapshot must have status `complete` when requested. While the provider
+    operation runs, its status is `restoring`; it returns to `complete` after success
+    or failure. Use the process status to determine whether the revert succeeded.
+    The datastore's `currentSnapshot` reference is updated only after the provider
+    reports success and is preserved if the provider fails.
+
+    This endpoint does not quiesce datastore consumers. The provider must coordinate
+    any required consumer-safety steps before reporting success and may reject
+    restores that are unsupported or unsafe.
+
+    Requires full access to both Infrastructure: Storage (`infrastructure-storage`)
+    and Infrastructure: Clusters (`infrastructure-cluster`). The datastore must be
+    owned by the current account and its provider must support datastore snapshots.
+    Cluster-scoped datastores also require access to the owning cluster.
+    The snapshot must belong to the datastore and have `snapshotScope: DATASTORE`.
+    This endpoint is also available under `/api/v1`.
+  operationId: revertDatastoreSnapshot
+  tags:
+    - Datastores
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - name: snapshotId
+      in: path
+      description: ID of the datastore snapshot.
+      required: true
+      schema:
+        type: integer
+        format: int64
+  responses:
+    '200':
+      description: Datastore snapshot revert queued
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              processIds:
+                type: array
+                description: Process ID to track with GET /api/processes/{id}.
+                items:
+                  type: integer
+                  format: int64
+          examples:
+            Response:
+              value:
+                success: true
+                processIds: [123]
+    '400':
+      description: Snapshot is not complete, the provider does not support datastore snapshots, or the revert could not be queued
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Error.yaml
+          examples:
+            Snapshot Busy:
+              value:
+                success: false
+                msg: "Snapshot 'before-maintenance' is currently 'creating'; cannot revert until the current operation completes"
+                errors: {}
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

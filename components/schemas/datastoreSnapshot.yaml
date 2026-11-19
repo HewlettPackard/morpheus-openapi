@@ -1,0 +1,55 @@
+type: object
+description: A datastore-wide snapshot. Its payload differs from the instance snapshot representation.
+properties:
+  id:
+    type: integer
+    format: int64
+  name:
+    type:
+      - string
+      - 'null'
+  description:
+    type:
+      - string
+      - 'null'
+  externalId:
+    type:
+      - string
+      - 'null'
+    description: Snapshot identifier reported by the datastore provider.
+  snapshotScope:
+    type: string
+    enum:
+      - DATASTORE
+  status:
+    type:
+      - string
+      - 'null'
+  currentlyActive:
+    type: boolean
+    description: Whether this snapshot is the datastore's current snapshot.
+  dateCreated:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  snapshotCreated:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  datastore:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+  volume:
+    type:
+      - object
+      - 'null'
+    description: Backing storage volume reference, when available.
+    properties:
+      id:
+        type: integer
+        format: int64
