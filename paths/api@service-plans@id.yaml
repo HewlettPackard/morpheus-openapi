@@ -56,10 +56,21 @@ put:
                     - string
                     - 'null'
                   description: Service plan description; null clears it
-                editable:
-                  type: boolean
-                  description: Can be used to enable / disable the editability of the service plan.
-                  default: true
+                regionCode:
+                  type:
+                    - string
+                    - 'null'
+                  description: >-
+                    The region code of the clouds the plan is offered in, for cloud types whose plans are
+                    regional (Amazon, Azure, Alibaba, ...); null clears it, offering the plan in every region.
+                visibility:
+                  type: string
+                  enum:
+                    - public
+                    - private
+                  description: >-
+                    Who can see the plan: `public`, every tenant; `private`, the owning tenant and the tenants in
+                    `permissions.tenantPermissions.accounts`.
                 maxStorage:
                   type: integer
                   format: int64
@@ -93,6 +104,10 @@ put:
                 coresPerSocket:
                   type: integer
                   format: int64
+                maxGpus:
+                  type: integer
+                  format: int64
+                  description: Max number of GPUs
                 customCpu:
                   type: boolean
                   description: Can be used to enable / disable customizable cpu
@@ -125,6 +140,41 @@ put:
                         type: integer
                         format: int64
                         description: Price Set ID
+                permissions:
+                  type: object
+                  properties:
+                    tenantPermissions:
+                      type: object
+                      properties:
+                        accounts:
+                          type: array
+                          description: >-
+                            The tenants that can see the plan when `visibility` is `private`; replaces the
+                            current list. The response lists the owning tenant as well.
+                          items:
+                            type: integer
+                            format: int64
+                            description: ID of the tenant
+                    resourcePermissions:
+                      type: object
+                      description: >-
+                        The groups (sites) the plan is offered in for provisioning and reconfiguring. Send it
+                        whenever `tenantPermissions` is sent: the tenant update removes the owning tenant's
+                        permission record, which is recreated from this object.
+                      properties:
+                        all:
+                          type: boolean
+                          description: Offer the plan in every group. Omitted, false (`allSites` is not read).
+                        sites:
+                          type: array
+                          description: The groups the plan is offered in when `all` is false.
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                format: int64
+                                description: Group ID
                 config: 
                   type: object
                   properties: 
