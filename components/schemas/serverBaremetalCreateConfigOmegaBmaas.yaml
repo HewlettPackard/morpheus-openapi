@@ -1,0 +1,49 @@
+title: Omega Bmaas Host Config Object
+type: object
+description: >
+  Configuration for an Omega stub bare-metal host
+  (`omega.baremetal.stub-server` type). Used for testing the bare-metal host
+  flow against the Omega stub provider.
+properties:
+  consoleHost:
+    type:
+      - string
+      - 'null'
+    description: Host or address of the server's console.
+  consoleUsername:
+    type:
+      - string
+      - 'null'
+    description: Username for the server's console.
+  consolePassword:
+    type:
+      - string
+      - 'null'
+    description: Password for the server's console.
+  numNics:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: Number of network interfaces to create on the host.
+  resourcePoolId:
+    type: string
+    description: Identifier of the resource pool this host belongs to.
+  preProvisioned:
+    type:
+      - boolean
+      - 'null'
+    description: Set to true if the server is already provisioned (brownfield).
+  userData:
+    type:
+      - string
+      - 'null'
+    description: Cloud-init user data for the host.
+  provisionKey:
+    type:
+      - integer
+      - 'null'
+    format: int64
+    description: The ID of the SSH key pair to assign to the host.
+required:
+  - resourcePoolId

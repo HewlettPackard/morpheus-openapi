@@ -1,0 +1,62 @@
+title: Host Config Generic
+type: object
+description: >
+  Free-form configuration object whose parameters vary by the chosen compute
+  server type. Supply the option-type values for the selected type (for
+  example a Kubernetes worker, an ESXi/Fusion/Hyper-V metal host, or a KVM
+  hypervisor). The iLO bare-metal keys (`iloIpAddress`, `iloUsername`,
+  `iloPassword`, `iloMacAddress`, `resourcePoolId`, `preProvisioned`) and the
+  Omega stub keys (`consoleHost`, `consoleUsername`, `consolePassword`,
+  `numNics`, `resourcePoolId`, `preProvisioned`) are two documented examples.
+additionalProperties: true
+properties:
+  resourcePoolId:
+    oneOf:
+      - type: integer
+        format: int64
+      - type: string
+  hostId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  powerScheduleType:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  noAgent:
+    type: boolean
+  nestedVirtualization:
+    type:
+      - string
+      - 'null'
+  userData:
+    type:
+      - string
+      - 'null'
+    description: User data (cloud-init yaml or custom scripts).
+  poolProviderType:
+    type:
+      - string
+      - 'null'
+  isVpcSelectable:
+    type: boolean
+  smbiosAssetTag:
+    type:
+      - string
+      - 'null'
+  isEC2:
+    type: boolean
+  disableQgaChannel:
+    type: boolean
+  bootToBios:
+    type:
+      - boolean
+      - 'null'
+  bootToBiosMenuTimeout:
+    type:
+      - integer
+      - 'null'
+  vmwareFolderId:
+    type: string

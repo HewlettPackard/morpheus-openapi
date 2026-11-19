@@ -265,6 +265,16 @@ properties:
       - 'null'
   powerState:
     type: string
+  maintenanceMode:
+    type:
+      - boolean
+      - 'null'
+  managed:
+    type: boolean
+  displayName:
+    type:
+      - string
+      - 'null'
   agentInstalled:
     type: boolean
   lastAgentUpdate:
@@ -552,7 +562,16 @@ properties:
       format: int64
   config:
     type: object
+    description: >-
+      The server's stored configuration map, as it was sent at provisioning (secret-like
+      keys removed). Which keys are present depends on the server type; the ones below are
+      common.
     properties:
+      userData:
+        type:
+          - string
+          - 'null'
+        description: The cloud-init user data the host was provisioned with, when one was given.
       poolProviderType:
         type:
           - string

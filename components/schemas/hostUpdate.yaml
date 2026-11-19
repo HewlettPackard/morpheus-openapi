@@ -12,6 +12,12 @@ properties:
     type: boolean
     description: Flag to determine if a host can be selected for provisioning
     default: true
+  visibility:
+    type: string
+    description: The visibility of the server (`private` or `public`).
+    enum:
+      - private
+      - public
   manageInternalFirewall:
     type: boolean
     description: Flag to enable/disable managment of internal firewall
