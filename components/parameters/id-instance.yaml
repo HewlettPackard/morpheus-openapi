@@ -1,0 +1,20 @@
+name: id
+in: query
+description: >-
+  Filter by instance ID. Repeatable — supply the parameter more than once to
+  fetch several instances in one request, for example `?id=94&id=95`.
+
+
+  Optional. When omitted, instances are not restricted by ID and all instances
+  matching the other filters are returned.
+required: false
+schema:
+  type: array
+  items:
+    type: integer
+    format: int64
+style: form
+explode: true
+example:
+  - 94
+  - 95

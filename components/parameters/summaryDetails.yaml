@@ -1,0 +1,11 @@
+name: summaryDetails
+in: query
+description: >-
+  Include a summary of each instance's containers as `containerDetails`
+  (the default). Pass `summaryDetails=false` to omit `containerDetails` for a
+  lighter response when listing many instances. Has no effect when
+  `details=true`, which returns the full container details instead.
+schema:
+  type: boolean
+  default: true
+example: false

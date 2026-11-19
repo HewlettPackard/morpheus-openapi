@@ -1,0 +1,17 @@
+name: uuid
+in: query
+description: >-
+  Filter by instance UUID. Repeatable — supply the parameter more than once to
+  fetch several instances in one request. Matching is exact.
+
+
+  Optional. When omitted, instances are not restricted by UUID.
+required: false
+schema:
+  type: array
+  items:
+    type: string
+style: form
+explode: true
+example:
+  - 1c7b9c3e-0f7a-4c5c-9a3e-2b1d0f6e8a11

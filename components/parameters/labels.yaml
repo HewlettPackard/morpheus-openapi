@@ -1,5 +1,22 @@
 name: labels
 in: query
-description: Filter by label(s), matches records that contain any of the specified labels
+description: >-
+  Filter by label. Repeatable — supply the parameter more than once to match
+  records carrying any of the labels, for example `?labels=web&labels=db`.
+
+
+  Matching is a case-insensitive SQL `like`, so `%` acts as a wildcard. To
+  require every label rather than any, use `allLabels`.
+
+
+  Optional. When omitted, no label filter is applied.
+required: false
 schema:
-  type: string
+  type: array
+  items:
+    type: string
+style: form
+explode: true
+example:
+  - web
+  - db
