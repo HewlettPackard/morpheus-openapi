@@ -1,3 +1,4 @@
+title: HVM Cluster Host Config Object
 description: Configuration for HVM cluster servers
 type: object
 properties:

@@ -1,6 +1,12 @@
 delete: 
   summary: Delete a Worker
-  description: This endpoint deletes a specified worker from a specified cluster.
+  description: |
+    This endpoint deletes a specified worker from a specified cluster, draining the node first.
+
+    Only Kubernetes clusters remove a member this way. For other cluster types (for example HVM or
+    Docker) the request is refused with `400` and a `msg` stating that the cluster type
+    `does not support direct removal`; remove the host as a server instead (`DELETE /api/servers/{id}`).
+    A failed node is not drained: the request succeeds without removing it.
   operationId: deleteClusterWorker
   tags: 
     -  Clusters
@@ -14,11 +20,26 @@ delete:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            type: object
+            properties:
+              success:
+                type: boolean
+              msg:
+                type:
+                  - string
+                  - 'null'
+                description: >-
+                  Set when the removal was not carried out directly: for example when an
+                  approval policy on the cluster has queued the request for approval, in which
+                  case the worker remains a member until it is approved.
           examples:
             Response:
               value:
-                $ref: ../components/examples/success.json 
+                $ref: ../components/examples/success.json
+            Approval required:
+              value:
+                success: true
+                msg: Request for Delete Worker Created
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

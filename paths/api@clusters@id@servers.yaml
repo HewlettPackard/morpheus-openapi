@@ -29,6 +29,11 @@ post:
                 properties:
                   servers:
                     type: array
+                    description: |-
+                      Always empty. The host is created asynchronously after this call returns;
+                      it appears in the cluster's `servers` (`GET /api/clusters/{clusterId}`) and
+                      in `GET /api/servers` shortly afterwards, named after the cluster and its
+                      layout (for example `<cluster>-worker-4`) unless `name` was given.
                     items:
                       type: object
               - $ref: ../components/schemas/200-success.yaml
