@@ -1,0 +1,31 @@
+type: object
+description: >-
+  Returned with HTTP 400 when a move request is refused. A destination that is missing or invalid is refused with a
+  `msg` only. A server that fails validation or dispatch adds an `errors` array with one entry per failed server. A
+  validation failure queues nothing. When some moves were already queued before another failed to dispatch, `queued`
+  and `failed` list the servers by name so the caller does not retry the ones that are already in flight.
+properties:
+  success:
+    type: boolean
+    example: false
+  msg:
+    type: string
+    description: The failure message. For per-server failures, the `errors` entries joined with `; `.
+  errors:
+    type: array
+    description: One message per server that failed, each prefixed with the server name.
+    items:
+      type: string
+  queued:
+    type: array
+    description: Names of the servers that were queued before the failure. Present only on a partial failure.
+    items:
+      type: string
+  failed:
+    type: array
+    description: Names of the servers that failed to dispatch. Present only on a partial failure.
+    items:
+      type: string
+required:
+  - success
+  - msg

@@ -677,6 +677,8 @@ paths:
     $ref: paths/api@instances@id@validate-apply.yaml
   /api/instances/{id}/workflow:
     $ref: paths/api@instances@id@workflow.yaml
+  /api/instances/bulk-move:
+    $ref: paths/api@instances@bulk-move.yaml
   /api/instances/remove-from-control:
     $ref: paths/api@instances@remove-from-control.yaml
   /api/instances/service-plans:
@@ -729,6 +731,24 @@ paths:
     $ref: paths/api@key-pairs@generate.yaml
   /api/key-pairs/{id}:
     $ref: paths/api@key-pairs@id.yaml
+  /api/key-providers:
+    $ref: paths/api@key-providers.yaml
+  /api/key-providers/{id}:
+    $ref: paths/api@key-providers@id.yaml
+  /api/key-providers/{id}/dependents:
+    $ref: paths/api@key-providers@id@dependents.yaml
+  /api/key-providers/{id}/export:
+    $ref: paths/api@key-providers@id@export.yaml
+  /api/key-providers/{id}/promote:
+    $ref: paths/api@key-providers@id@promote.yaml
+  /api/key-providers/{id}/rotate:
+    $ref: paths/api@key-providers@id@rotate.yaml
+  /api/key-providers/{id}/versions/{keyVersion}:
+    $ref: paths/api@key-providers@id@versions@id.yaml
+  /api/key-providers/{id}/versions/discard-pending:
+    $ref: paths/api@key-providers@id@versions@discard-pending.yaml
+  /api/key-providers/import:
+    $ref: paths/api@key-providers@import.yaml
 
   /api/library/container-scripts:
     $ref: paths/api@library@container-scripts.yaml
@@ -1168,6 +1188,8 @@ paths:
     $ref: paths/api@servers@id@leave-maintenance.yaml
   /api/servers/{id}/placement:
     $ref: paths/api@servers@id@placement.yaml
+  /api/servers/bulk-move:
+    $ref: paths/api@servers@bulk-move.yaml
   /api/servers/change-cloud:
     $ref: paths/api@servers@change-cloud.yaml
   /api/servers/{id}/devices:

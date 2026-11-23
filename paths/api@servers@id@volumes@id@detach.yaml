@@ -1,6 +1,9 @@
 put:
   summary: Detach storage volume
-  description: This will detach a storage volume from the server. Available for HVM only.
+  description: |
+    This will detach a storage volume from the server. The detach is queued and runs in the background. Available for HVM only.
+
+    An encrypted volume keeps its key. Only the copy of the key registered on the server's host is removed, and only when no other VM on that host uses it; removing it is best effort and does not fail the detach.
   operationId: detachServerVolume
   tags:
     - Storage

@@ -1,0 +1,47 @@
+type: object
+description: >-
+  The resources that depend on a key provider. Totals are authoritative and unfiltered; the listed items are
+  limited to what the requesting account is allowed to see, and `hidden` counts the dependents that were left out.
+properties:
+  volumes:
+    type: object
+    description: Storage volumes encrypted under the provider, attached or detached.
+    properties:
+      total:
+        type: integer
+        format: int64
+        description: Total number of dependent volumes, including any hidden from the caller.
+      items:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: integer
+              format: int64
+            name:
+              type: [string, 'null']
+            status:
+              type: [string, 'null']
+              description: Volume status, for example `provisioned` or `unattached`.
+            account:
+              type: [object, 'null']
+              description: The tenant that owns the volume.
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                name:
+                  type: string
+            server:
+              type: [object, 'null']
+              description: The VM the volume is attached to. Null when the volume is detached.
+              properties:
+                id:
+                  type: integer
+                  format: int64
+                name:
+                  type: string
+  hidden:
+    type: integer
+    description: Number of dependents the caller is not permitted to see.

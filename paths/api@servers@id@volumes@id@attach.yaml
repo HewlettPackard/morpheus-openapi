@@ -1,6 +1,9 @@
 put:
   summary: Attach existing storage volume
-  description: This will attach an existing storage volume, optionally specifying the mount point (controller and unit number). Available for HVM only.
+  description: |
+    This will attach an existing storage volume, optionally specifying the mount point (controller and unit number). When no mount point is passed, the volume is attached to the server's default storage controller. The attach is queued and runs in the background. Available for HVM only.
+
+    An encrypted volume stays encrypted and keeps its key. As part of the attach, the key stored with the volume is registered on the server's host, so the attach fails if that host does not hold the key provider's key. No new key is generated.
   operationId: attachServerVolume
   tags:
     - Storage
@@ -54,8 +57,6 @@ put:
                 Enable SCSI-3 persistent reservations on the resulting per-server volume.
                 Requires the target controller type to report `supportsPersistentReservations`.
               default: false
-          required:
-            - mountPoint
         examples:
           Mount Point:
             value:

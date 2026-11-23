@@ -1,0 +1,62 @@
+type: object
+properties:
+  ids:
+    type: array
+    description: >-
+      IDs of the servers (or instances) to move. Every one is validated before any is queued, so a single invalid
+      move queues none of them.
+    items:
+      type: integer
+      format: int64
+    minItems: 1
+  migrationMode:
+    type: string
+    description: >-
+      What to migrate. Only MVM/HVM guests support an explicit mode; a hypervisor or a mixed selection is refused.
+      `compute` moves the VM to another host and cannot be combined with `datastoreMap`. `storage` moves the VM's
+      disks to other datastores on its current host, so it cannot be combined with `targetClusterId`,
+      `targetHostId` or `networkMap`. `combined` moves compute and storage together. An unknown value is refused
+      with `Select a valid migration mode.` When omitted, the move is validated and run as a standard move to
+      `targetClusterId`.
+    enum: [compute, storage, combined]
+  targetClusterId:
+    type: integer
+    format: int64
+    description: >-
+      ID of the cluster to move to. This may be the current cluster to move to another host. Required unless
+      `migrationMode` is `storage`, which keeps the VM on its current host and cluster and refuses this field.
+  targetHostId:
+    type: integer
+    format: int64
+    description: >-
+      Optional host to move to. It must belong to the target cluster, otherwise the request is refused with
+      `Target host is not in the selected cluster`.
+  datastoreMap:
+    type: object
+    description: >-
+      Maps source datastore IDs to the datastore IDs to move the VM's volumes to, keyed by source datastore ID. When
+      `migrationMode` is set, each target datastore must be accessible to and writable by the caller. A volume of an
+      encrypted VM can only go to a datastore that supports encrypted volumes. Not allowed with `migrationMode`
+      `compute`.
+    additionalProperties:
+      type: integer
+      format: int64
+    example:
+      '12': 34
+  networkMap:
+    type: object
+    description: Maps source network IDs to the network IDs to connect the VM's interfaces to, keyed by source network ID.
+    additionalProperties:
+      type: integer
+      format: int64
+    example:
+      '3': 9
+  migrationTimeout:
+    type: integer
+    description: Timeout, in seconds, for the live migration of each VM. Defaults to 6000.
+    default: 6000
+  enableCpuThrottling:
+    type: boolean
+    description: Throttle the VM's CPU so that a live migration can converge.
+required:
+  - ids

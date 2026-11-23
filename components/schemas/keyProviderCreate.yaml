@@ -1,0 +1,29 @@
+type: object
+properties:
+  name:
+    type: string
+    maxLength: 255
+  description:
+    type: [string, 'null']
+    maxLength: 4000
+  type:
+    type: string
+    description: Key provider type code. Defaults to internal.
+    default: internal
+  refType:
+    type: string
+    description: Defaults to ComputeServerGroup.
+    default: ComputeServerGroup
+  refId:
+    type: [integer, 'null']
+    format: int64
+    description: Numeric ID of the target scope, such as a cluster.
+  visibility:
+    type: string
+    enum: [private, public]
+    default: private
+  tpmRequired:
+    type: boolean
+    default: false
+required:
+  - name

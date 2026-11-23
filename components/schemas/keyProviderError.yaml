@@ -1,0 +1,74 @@
+type: object
+description: >-
+  Error response returned by the key provider endpoints. `reason` is a stable, machine-readable code that
+  identifies the failure and is safe to branch on; `msg` is a localized, human-readable description.
+
+  Each reason maps to one HTTP status. 400 reasons are request validation failures, 403 reasons
+  (`provider_not_owner`, `manage_not_authorized`) mean the caller's tenant may not change the provider, 404 means
+  the provider (or key version) does not exist or is not visible to the caller, 409 reasons are conflicts with
+  in-flight work or existing dependents, 413 means an import file is too large, 422 reasons are lifecycle rules
+  (the request is well formed but not allowed in the provider's current state), 429 means a key derivation slot
+  is busy, and 500 reasons are server-side failures. Authentication and permission failures raised by the
+  platform before the request reaches the key provider endpoints use the standard error body without a `reason`.
+properties:
+  success:
+    type: boolean
+    description: Always false for an error.
+    example: false
+  msg:
+    type: string
+    description: Human-readable description of the failure.
+  errors:
+    type: object
+    description: >-
+      Validation errors keyed by the request field that failed. Empty when the failure is not tied to a single
+      field.
+    additionalProperties:
+      type: string
+  reason:
+    type: string
+    description: Machine-readable failure code.
+    enum:
+      - validation_failed
+      - provider_id_not_allowed
+      - provider_id_immutable
+      - type_invalid
+      - type_immutable
+      - scope_invalid
+      - scope_immutable
+      - field_immutable
+      - status_invalid
+      - tenant_invalid
+      - passphrase_invalid
+      - provider_not_owner
+      - manage_not_authorized
+      - not_found
+      - version_not_found
+      - provider_has_dependents
+      - provider_deleting
+      - provider_busy
+      - provider_conflict
+      - version_in_use
+      - export_too_large
+      - status_transition_invalid
+      - export_id_required
+      - export_id_stale
+      - export_incomplete
+      - export_unreadable
+      - export_unsupported
+      - provider_active_for_scope
+      - scope_has_active_provider
+      - version_pending
+      - no_pending_version
+      - version_not_retired
+      - kdf_busy
+      - kdk_store_unavailable
+      - audit_unavailable
+      - export_failed
+      - distribution_busy
+      - internal_error
+required:
+  - success
+  - msg
+  - errors
+  - reason
