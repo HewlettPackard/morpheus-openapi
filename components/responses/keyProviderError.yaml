@@ -1,0 +1,40 @@
+description: >-
+  The request failed. The body carries a machine-readable `reason` that identifies the failure; see the
+  `reason` enum for the full list and the HTTP status each maps to.
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/keyProviderError.yaml
+    examples:
+      Provider Not Found:
+        value:
+          success: false
+          msg: Key Provider not found with id 42
+          errors: {}
+          reason: not_found
+      Not The Owner:
+        value:
+          success: false
+          msg: Only the owning account can change this key provider
+          errors: {}
+          reason: provider_not_owner
+      Status Transition Not Allowed:
+        value:
+          success: false
+          msg: 'Only a disabled key provider can be promoted (status: active)'
+          errors: {}
+          reason: status_transition_invalid
+      Another Provider Is Active For The Scope:
+        value:
+          success: false
+          msg: "Key provider 'Cluster Encryption Keys' is already active for this scope — disable it first"
+          errors: {}
+          reason: scope_has_active_provider
+      Pending Version Blocks Rotation:
+        value:
+          success: false
+          msg: >-
+            Key version 2 is pending export confirmation; confirm its export or discard it before generating
+            another version
+          errors: {}
+          reason: version_pending

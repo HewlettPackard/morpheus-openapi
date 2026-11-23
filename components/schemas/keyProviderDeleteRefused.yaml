@@ -1,0 +1,13 @@
+description: >-
+  Returned with HTTP 409 when a key provider cannot be deleted because encrypted volumes still depend on it. The
+  standard key provider error fields are returned along with the dependents that block the delete.
+allOf:
+  - $ref: keyProviderError.yaml
+  - type: object
+    properties:
+      reason:
+        type: string
+        enum:
+          - provider_has_dependents
+      dependents:
+        $ref: keyProviderDependents.yaml

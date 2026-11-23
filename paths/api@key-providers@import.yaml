@@ -1,0 +1,64 @@
+post:
+  summary: Import a Key Provider
+  description: >
+    Creates a key provider from an export file produced by Export a Key Provider. The imported provider keeps the
+    `providerId` and all key versions stored in the file, so volumes that were encrypted under the original provider
+    can be unlocked by it. A provider whose `providerId` already exists is refused with `provider_conflict`.
+
+    This endpoint expects multipart form data as the request format, not JSON. The file is limited to 1 MiB. The
+    passphrase must be sent as a form field; a request that passes it in the query string is rejected.
+
+    By default the imported provider is private and keeps the name stored in the file. Pass `refType` and `refId` to
+    scope it to a cluster. The imported provider is then made the active provider for that scope, and the import is
+    refused with `provider_active_for_scope` when another provider is already active there. Requires the master tenant
+    and full access to the Infrastructure: Key Providers permission.
+  operationId: importKeyProvider
+  tags:
+    - Infrastructure
+  requestBody:
+    required: true
+    content:
+      multipart/form-data:
+        schema:
+          type: object
+          required: [file, passphrase]
+          properties:
+            file:
+              type: string
+              format: binary
+              description: The `.mkpx` export file, at most 1 MiB.
+            passphrase:
+              type: string
+              format: password
+              description: The passphrase the export file was created with.
+            name:
+              type: string
+              maxLength: 255
+              description: Name for the imported provider. Defaults to the name stored in the export file.
+            visibility:
+              type: string
+              enum: [private, public]
+              default: private
+              description: Visibility of the imported provider.
+            refType:
+              type: string
+              description: Scope type for the imported provider, such as `ComputeServerGroup`.
+              example: ComputeServerGroup
+            refId:
+              type: integer
+              format: int64
+              description: Numeric ID of the scope, such as a cluster ID.
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              keyProvider:
+                $ref: ../components/schemas/keyProvider.yaml
+    '4XX':
+      $ref: ../components/responses/keyProviderError.yaml
+    '5XX':
+      $ref: ../components/responses/keyProviderError.yaml

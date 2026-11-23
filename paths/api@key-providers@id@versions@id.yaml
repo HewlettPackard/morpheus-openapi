@@ -1,0 +1,34 @@
+delete:
+  summary: Delete a Key Provider Version
+  description: >
+    Deletes a retired key version and destroys its key material. Only `retired` versions can be deleted: the active
+    version and a pending version are refused with `version_not_retired`, and a version that is still used by
+    encrypted volumes is refused with `version_in_use`. Requires the master tenant and full access to the
+    Infrastructure: Key Providers permission.
+  operationId: deleteKeyProviderVersion
+  tags:
+    - Infrastructure
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - name: keyVersion
+      in: path
+      required: true
+      description: The numeric key version to delete, as listed in the provider's `keyVersions`.
+      schema:
+        type: integer
+        minimum: 1
+        example: 1
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              keyProvider:
+                $ref: ../components/schemas/keyProvider.yaml
+    '4XX':
+      $ref: ../components/responses/keyProviderError.yaml
+    '5XX':
+      $ref: ../components/responses/keyProviderError.yaml

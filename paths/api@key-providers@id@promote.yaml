@@ -1,0 +1,25 @@
+put:
+  summary: Promote a Key Provider
+  description: >
+    Makes a disabled key provider the active provider for its scope. The scope's current active provider is disabled
+    in the same operation, so there is no window without an active provider. Only a `disabled` provider can be
+    promoted. Requires the master tenant and full access to the Infrastructure: Key Providers permission.
+  operationId: promoteKeyProvider
+  tags:
+    - Infrastructure
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              keyProvider:
+                $ref: ../components/schemas/keyProvider.yaml
+    '4XX':
+      $ref: ../components/responses/keyProviderError.yaml
+    '5XX':
+      $ref: ../components/responses/keyProviderError.yaml

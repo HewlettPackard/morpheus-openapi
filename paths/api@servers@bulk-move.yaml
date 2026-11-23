@@ -1,0 +1,104 @@
+put:
+  summary: Move Servers
+  description: >
+    Moves (migrates) one or more servers to another cluster or to another host. The moves are queued and run in the
+    background, so a successful response means they were accepted, not that they have finished. Every server is
+    validated before any is queued: if one fails validation, none are queued, and the response is HTTP 400 listing
+    the failures.
+
+
+    The servers to move are passed as `ids`, and the destination as `targetClusterId` with an optional
+    `targetHostId`. Use `datastoreMap` and `networkMap` to remap storage and networks, which a move to a different
+    cluster needs.
+
+
+    Set `migrationMode` to choose what moves: `compute` moves the VM to another host, `storage` moves its disks to
+    other datastores on its current host (send `datastoreMap`, and no `targetClusterId`, `targetHostId` or
+    `networkMap`), and `combined` moves both. Explicit modes apply to MVM/HVM guests only. `targetClusterId` is
+    required for every mode except `storage`.
+
+
+    A server with encrypted volumes keeps them encrypted: a move never encrypts or decrypts a volume. Moving such a
+    server to a different cluster needs an active key provider scoped to the target cluster that the caller is
+    allowed to select, the provider's key must be present on the target host, and the volumes must go to
+    datastores that support encrypted volumes. The move is refused otherwise.
+  operationId: bulkMoveServers
+  tags:
+    - Hosts
+  parameters:
+    - name: force
+      in: query
+      description: >-
+        Override validation blocks that can be accepted, such as moving the storage of a VM that has snapshots, which
+        the move deletes. It is read from the query string only, not from the request body.
+      required: false
+      schema:
+        type: boolean
+        default: false
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/bulkMoveRequest.yaml
+        examples:
+          Move To Another Cluster:
+            value:
+              ids: [110, 111]
+              targetClusterId: 2
+              datastoreMap:
+                '12': 34
+              networkMap:
+                '3': 9
+          Move To Another Host:
+            value:
+              ids: [110]
+              targetClusterId: 2
+              targetHostId: 7
+          Move Storage Only:
+            value:
+              ids: [110]
+              migrationMode: storage
+              datastoreMap:
+                '12': 34
+  responses:
+    '200':
+      description: The moves were queued.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/200-success.yaml
+          examples:
+            Queued:
+              value:
+                success: true
+                msg: 2 server(s) queued for move
+    '400':
+      description: The request was refused. Nothing was queued unless `queued` is present.
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/bulkMoveError.yaml
+          examples:
+            Invalid Destination:
+              value:
+                success: false
+                msg: Target cluster is invalid
+            Storage Move Given A Destination:
+              value:
+                success: false
+                msg: Storage-only migration must retain each VM's current host, cluster, cloud and networks.
+            Compute Move Given A Datastore Map:
+              value:
+                success: false
+                msg: Compute-only migration cannot include datastore mappings.
+            Server Failed Validation:
+              value:
+                success: false
+                msg: "VM1: No active key provider is available for destination cluster 'vme-2'"
+                errors:
+                  - "VM1: No active key provider is available for destination cluster 'vme-2'"
+    '4XX':
+      $ref: ../components/responses/4xx.yaml
+    '5XX':
+      $ref: ../components/responses/5xx.yaml

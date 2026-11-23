@@ -1,0 +1,104 @@
+type: object
+description: >-
+  A key provider. Only the owning (master) tenant sees every field. A tenant that was granted access to a public
+  provider sees only `id`, `name`, `description`, `type` (without `id`), `status` and `visibility`; the fields marked
+  owner-only below are omitted. Key material is never returned.
+properties:
+  id:
+    type: integer
+    format: int64
+  providerId:
+    type: string
+    format: uuid
+    description: Owner-only. Immutable provider identity used by key records and exports.
+  name:
+    type: string
+  description:
+    type: [string, 'null']
+  type:
+    type: [object, 'null']
+    description: Provider type. `id` is returned to the owner only.
+    properties:
+      id:
+        type: integer
+        format: int64
+      code:
+        type: string
+      name:
+        type: string
+  status:
+    type: string
+    description: >-
+      Lifecycle state. A new provider is `pending`, becomes `exported` once its export is issued, and `active` once
+      that export is confirmed. Only an `active` provider can encrypt new volumes. `disabled` providers can be
+      re-enabled; `deleting` providers can no longer be changed.
+    enum: [pending, exported, active, disabled, deleting]
+  visibility:
+    type: string
+    enum: [private, public]
+  refType:
+    type: [string, 'null']
+    description: Owner-only. The type of the scope the provider belongs to, such as `ComputeServerGroup`.
+  refId:
+    type: [integer, 'null']
+    format: int64
+    description: Owner-only. The ID of the scope the provider belongs to, such as a cluster ID.
+  tpmRequired:
+    type: boolean
+    description: Owner-only.
+  pendingVersion:
+    type: [integer, 'null']
+    description: Owner-only. The newest key version, which is not yet confirmed while it is higher than `activeVersion`.
+  activeVersion:
+    type: [integer, 'null']
+    description: Owner-only. The key version in use.
+  exportedDate:
+    type: [string, 'null']
+    format: date-time
+    description: Owner-only.
+  keyVersions:
+    type: array
+    description: Owner-only. Key versions oldest first. Key material is never included.
+    items:
+      type: object
+      properties:
+        keyVersion:
+          type: integer
+        status:
+          type: string
+          enum: [pending, active, retired, deleted]
+        dateCreated:
+          type: [string, 'null']
+          format: date-time
+  hostCount:
+    type: integer
+    description: Owner-only. Number of hosts that hold the provider's key material.
+  vmCount:
+    type: integer
+    description: Owner-only. Number of VMs that have a volume encrypted under the provider.
+  locations:
+    type: array
+    description: >-
+      Owner-only host presence metadata, returned when a single provider is retrieved or changed and not in list
+      responses. KDK material is never returned.
+    items:
+      type: object
+      properties:
+        refType:
+          type: string
+          example: ComputeServer
+        refId:
+          type: integer
+          format: int64
+          description: Host database ID.
+        keyVersion:
+          type: integer
+        status:
+          type: string
+          description: >-
+            `abandoned` means the host no longer exists, so removal of the key material from it can never be
+            acknowledged.
+          enum: [pending, present, purged, failed, abandoned]
+        lastVerified:
+          type: [string, 'null']
+          format: date-time

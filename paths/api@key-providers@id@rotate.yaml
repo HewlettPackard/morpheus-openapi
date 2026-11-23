@@ -1,0 +1,27 @@
+put:
+  summary: Rotate a Key Provider
+  description: >
+    Generates a new key (KDK) version for the provider. The new version is `pending` until its export is confirmed,
+    and a provider can have only one pending version at a time: rotating while one is pending fails with
+    `version_pending`. Confirm the new version by exporting it and then activating with the returned export ID (see
+    Export a Key Provider and Update a Key Provider), or discard it. Requires the master tenant and full access to
+    the Infrastructure: Key Providers permission.
+  operationId: rotateKeyProvider
+  tags:
+    - Infrastructure
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              keyProvider:
+                $ref: ../components/schemas/keyProvider.yaml
+    '4XX':
+      $ref: ../components/responses/keyProviderError.yaml
+    '5XX':
+      $ref: ../components/responses/keyProviderError.yaml

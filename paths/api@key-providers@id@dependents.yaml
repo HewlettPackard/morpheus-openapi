@@ -1,0 +1,58 @@
+get:
+  summary: List Key Provider Dependents
+  description: >
+    Lists the resources that depend on a key provider: the storage volumes encrypted under it, attached or detached.
+    A provider cannot be deleted while it has dependents. Totals are authoritative; the items are limited to what the
+    caller may see, and `hidden` counts the rest. Only the owning (master) tenant can use this endpoint.
+  operationId: listKeyProviderDependents
+  tags:
+    - Infrastructure
+  parameters:
+    - $ref: ../components/parameters/id-path.yaml
+    - $ref: ../components/parameters/max.yaml
+    - $ref: ../components/parameters/offset.yaml
+  responses:
+    '200':
+      description: Successful Request
+      content:
+        application/json:
+          schema:
+            allOf:
+              - type: object
+                properties:
+                  dependents:
+                    $ref: ../components/schemas/keyProviderDependents.yaml
+              - $ref: ../components/schemas/meta.yaml
+          examples:
+            Dependents:
+              value:
+                dependents:
+                  volumes:
+                    total: 2
+                    items:
+                      - id: 262
+                        name: data-disk
+                        status: provisioned
+                        account:
+                          id: 1
+                          name: Master
+                        server:
+                          id: 110
+                          name: VM1
+                      - id: 263
+                        name: archive-disk
+                        status: unattached
+                        account:
+                          id: 1
+                          name: Master
+                        server: null
+                  hidden: 0
+                meta:
+                  size: 2
+                  total: 2
+                  max: 25
+                  offset: 0
+    '4XX':
+      $ref: ../components/responses/keyProviderError.yaml
+    '5XX':
+      $ref: ../components/responses/keyProviderError.yaml
