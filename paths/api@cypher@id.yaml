@@ -103,9 +103,13 @@ post:
               - type: object
                 properties:
                   data:
-                    type: string
+                    oneOf:
+                      - type: object
+                      - type: string
+                    description: The data written to the key, echoed back — the object itself for an object-mode write (type=object), otherwise the string
                   type:
                     type: string
+                    description: Type of data that was written to the key
                   lease_duration:
                     type:
                       - integer
