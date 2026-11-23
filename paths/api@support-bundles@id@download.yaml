@@ -26,12 +26,8 @@ get:
             type: string
             format: binary
     "409":
-      description: Support bundle is not ready for download
-      content:
-        application/json:
-          schema:
-            $ref: ../components/schemas/Error.yaml
+      description: Support bundle is not ready for download. The body is JSON (`success`, `msg`).
     "4XX":
-      $ref: ../components/responses/4xx.yaml
+      $ref: ../components/responses/4xx-file-download.yaml
     "5XX":
-      $ref: ../components/responses/5xx.yaml
+      $ref: ../components/responses/5xx-file-download.yaml

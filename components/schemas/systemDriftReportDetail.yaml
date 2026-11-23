@@ -4,6 +4,9 @@ allOf:
     properties:
       ruleResults:
         type: array
+        description: |
+          Per-rule results, including partial results from failed checks when available.
+          Empty when no rule payload is available, including terminal reports without rules.
         items:
           type: object
           properties:

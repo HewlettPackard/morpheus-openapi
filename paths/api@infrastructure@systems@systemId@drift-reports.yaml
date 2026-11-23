@@ -1,8 +1,17 @@
 get:
   summary: List System Drift Reports
   description: |
-    List drift reports for a system, newest first by default. Returns 400 when `sort` or `order`
-    is not one of the listed values, `max` is not between 1 and 250, or `offset` is negative.
+    List drift report summaries for a system, newest first by default. `ruleResults` is never
+    included; use the detail endpoint for rule payloads. Reports are scoped to the system and
+    calling account. `meta.total` counts all matching reports, including any `phrase` filter,
+    not just the current page. Reports are retained until explicitly deleted; deleting a system
+    also deletes its reports.
+
+    Returns 400 when `sort` or `order` is not one of the listed values, paging values are not
+    integers, `max` is not between 1 and 250, or `offset` is negative. An unknown system or one
+    belonging to another account returns 404.
+
+    Both `/api` and `/api/v1` expose this endpoint.
 
     Requires **read** or **full** permission on `infrastructure-system`.
   operationId: listSystemDriftReports
@@ -10,11 +19,26 @@ get:
     - Systems
   parameters:
     - $ref: ../components/parameters/systemId-path.yaml
-    - $ref: ../components/parameters/max.yaml
-    - $ref: ../components/parameters/offset.yaml
+    - name: max
+      in: query
+      description: Maximum number of reports to return
+      schema:
+        type: integer
+        format: int64
+        minimum: 1
+        maximum: 250
+        default: 25
+    - name: offset
+      in: query
+      description: Number of matching reports to skip
+      schema:
+        type: integer
+        format: int64
+        minimum: 0
+        default: 0
     - name: phrase
       in: query
-      description: Search phrase for partial matches on status message or drift summary
+      description: Case-insensitive literal substring match on statusMessage or driftSummary
       schema:
         type: string
     - name: sort
@@ -58,6 +82,20 @@ get:
             Drift Reports Response:
               value:
                 $ref: ../components/examples/systemDriftReports.json
+    '400':
+      description: Invalid history query parameters
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              msg:
+                type: string
+          example:
+            success: false
+            msg: Invalid drift report query parameters
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
@@ -65,15 +103,45 @@ get:
 post:
   summary: Start a System Drift Check
   description: |
-    Start a drift check for a system. The check runs in the background; the response contains
-    the new drift report and its process ID. Poll the report until its status is `completed` or `failed`.
+    Start an asynchronous drift check for a system. For a newly dispatched check, 202 returns a
+    persisted report and process ID without waiting for the provider's final result. Dispatch
+    and lock acquisition can take time; the worker may already have started or finished when
+    the response arrives. The response is a snapshot, not an execution verdict. Poll the detail
+    endpoint until `status` is `completed` or `failed`, then inspect `driftSummary`, `statusMessage`,
+    and `ruleResults`. Counts and the summary start as null; counts can remain null after a
+    terminal outcome without a usable result.
 
-    If a drift check is already running for the system, no new check is started. The response
-    contains the running report and `msg` is `Drift check already in progress`. If the running
-    report cannot be found yet, `driftReport` and `processId` are null.
+    When an existing check is detected and its pending or running report is found, 202 returns
+    that report with `msg: "Drift check already in progress"` instead of dispatching a new check.
+    If the lock remains held but no report is visible after polling, `driftReport` and `processId`
+    are null. A visible report can also have a null process ID before process creation.
+
+    A per-system distributed lock coordinates dispatch, but concurrent POSTs are not an
+    idempotency guarantee: lock acquisition can wait, and racing requests can dispatch a
+    subsequent check after the first releases the lock. The lock expires after 30 minutes
+    without cancelling provider execution, so long-running checks can overlap. Do not retry
+    accepted starts blindly; poll the accepted report ID.
+
+    The worker calls the system provider's `executeDriftChecker`, passing options through
+    `SystemRequest.configOptions.driftCheck`. The provider must return its final result from
+    that call; there is no later callback. A failed provider response or a `DriftState` status
+    of `FAILED`, `PENDING`, or `IN_PROGRESS` produces a failed report and an errored process.
+    Partial rule results from a usable `DriftState` are preserved. Failures after acceptance
+    are recorded in the report, not returned as a later HTTP error. A successful provider
+    response without a usable `DriftState` produces `status: completed`, `driftSummary: ERROR`,
+    null counts, and `statusMessage: "Drift check completed without returning a result payload"`.
+
+    `/api/processes/{processId}` provides supplementary tracking with separate permissions and
+    access checks. Process-bookkeeping failures do not invalidate a completed report.
 
     Returns 400 when the body is not a JSON object, `checkLevel` is not a listed value
-    (case-insensitive), or `driftRules` / `excludeDriftRules` is not an array of strings.
+    (case-insensitive), or a non-null `driftRules` / `excludeDriftRules` is not an array of strings.
+    Validation failures create no report. If the configured provider cannot be found in the
+    runtime plugin registry, returns 500, deletes the temporary pending report, and creates no
+    process. Other startup failures return 500 and can leave a failed report. An unknown system
+    or one belonging to another account returns 404.
+
+    Both `/api` and `/api/v1` expose this endpoint.
 
     Requires **full** permission on `infrastructure-system`.
   operationId: startSystemDriftCheck
@@ -82,6 +150,7 @@ post:
   parameters:
     - $ref: ../components/parameters/systemId-path.yaml
   requestBody:
+    description: All fields are optional; an omitted body or empty object requests an ALL check.
     content:
       application/json:
         schema:
@@ -89,19 +158,29 @@ post:
           properties:
             checkLevel:
               type: string
+              description: Case-insensitive check level; defaults to ALL
               default: ALL
               enum:
                 - ALL
                 - TARGETED
                 - UPDATE
             driftRules:
-              type: array
-              description: Rule identifiers to run, as defined by the system provider
+              type:
+                - array
+                - 'null'
+              description: |
+                Provider-defined rule identifiers to run. Omitted or null means an empty array.
+                TARGETED does not require a nonempty array at the API layer; provider requirements
+                are separate from request validation.
+              default: []
               items:
                 type: string
             excludeDriftRules:
-              type: array
-              description: Rule identifiers to skip, as defined by the system provider
+              type:
+                - array
+                - 'null'
+              description: Provider-defined rule identifiers to skip; omitted or null means an empty array
+              default: []
               items:
                 type: string
         examples:
@@ -110,7 +189,7 @@ post:
               checkLevel: ALL
   responses:
     '202':
-      description: Drift check accepted
+      description: Accepted snapshot of a newly dispatched or detected in-flight check, not a final outcome
       content:
         application/json:
           schema:
@@ -122,6 +201,55 @@ post:
             Drift Check Already Running Response:
               value:
                 $ref: ../components/examples/systemDriftCheckInProgress.json
+            Drift Check In Progress Without Visible Report:
+              value:
+                success: true
+                driftReport: null
+                processId: null
+                msg: Drift check already in progress
+    '400':
+      description: Request validation failed; no report is created
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              errors:
+                type: object
+                additionalProperties:
+                  type: string
+              msg:
+                type: string
+          example:
+            success: false
+            errors:
+              checkLevel: 'Invalid checkLevel: BOGUS'
+            msg: 'Invalid checkLevel: BOGUS'
+    '500':
+      description: |
+        The configured provider was not found in the runtime plugin registry, or startup failed.
+        A missing provider deletes the temporary pending report and creates no process.
+        Other startup failures can leave a failed report behind.
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              msg:
+                type: string
+          examples:
+            Missing System Provider:
+              value:
+                success: false
+                msg: No system provider found with code acmeSystemProvider
+            Process Creation Failed:
+              value:
+                success: false
+                msg: Unable to start drift check process
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':

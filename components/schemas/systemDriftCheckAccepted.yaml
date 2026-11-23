@@ -1,5 +1,8 @@
 type: object
-description: Response to starting a system drift check.
+description: |
+  Accepted snapshot, not an execution verdict. A newly dispatched check returns a persisted
+  report and process ID. A detected in-flight check may return a null report and process ID,
+  or a visible report whose process ID is not yet populated.
 properties:
   success:
     type: boolean
@@ -14,4 +17,4 @@ properties:
     format: int64
   msg:
     type: string
-    description: Present when a drift check was already running
+    description: Present when an existing check was detected; concurrent POSTs are not guaranteed to coalesce

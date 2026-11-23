@@ -1,7 +1,21 @@
 get:
   summary: Get a System Drift Report
   description: |
-    Get a drift report, including the result of each rule.
+    Get a drift report summary plus `ruleResults`. The array is empty when no rule payload is
+    available, including pending/running reports and terminal reports without returned rules.
+    Failed reports can retain partial rule results from a usable provider result.
+
+    `success` describes the API request, not the check: fetching a failed report returns 200 with
+    `success: true` and `driftReport.status: failed`. A completed report can contain FAILED rules;
+    detected drift is not an execution failure. A successful provider response without a usable
+    result produces a completed report with `driftSummary: ERROR`, null counts, and
+    `statusMessage: "Drift check completed without returning a result payload"`.
+
+    Reports are scoped to the system and calling account. An unknown system or report, or one
+    belonging to another account or system, returns 404 rather than exposing the report.
+    Invalid stored report JSON returns 500.
+
+    Both `/api` and `/api/v1` expose this endpoint.
 
     Requires **read** or **full** permission on `infrastructure-system`.
   operationId: getSystemDriftReport
@@ -26,6 +40,20 @@ get:
             Drift Report Response:
               value:
                 $ref: ../components/examples/systemDriftReport.json
+    '500':
+      description: Stored report JSON could not be parsed
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              msg:
+                type: string
+          example:
+            success: false
+            msg: Unable to read drift report
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
@@ -33,8 +61,18 @@ get:
 delete:
   summary: Delete a System Drift Report
   description: |
-    Delete a drift report. Returns 409 when the drift check is still pending or running, unless it
-    was started more than 30 minutes ago and is treated as abandoned.
+    Delete a terminal or abandoned drift report. A pending or running report returns 409 unless
+    its `startedOn` is more than 30 minutes old. If `startedOn` is absent, `dateCreated` is used;
+    if both are absent, the report is not treated as abandoned.
+
+    Abandonment is a cleanup heuristic, not proof that the provider stopped. A provider can
+    outlive the 30-minute lock expiry. Deleting its report does not cancel execution; a later
+    terminal update logs the missing report rather than recreating it.
+
+    Reports are scoped to the system and calling account. An unknown system or report, or one
+    belonging to another account or system, returns 404. Deleting a system also deletes its reports.
+
+    Both `/api` and `/api/v1` expose this endpoint.
 
     Requires **full** permission on `infrastructure-system`.
   operationId: deleteSystemDriftReport
@@ -54,6 +92,20 @@ delete:
             Successful Response:
               value:
                 $ref: ../components/examples/success.json
+    '409':
+      description: The report is pending or running and has not passed the abandonment threshold
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              msg:
+                type: string
+          example:
+            success: false
+            msg: Cannot delete a drift check that is still running
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
