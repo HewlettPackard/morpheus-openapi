@@ -87,6 +87,15 @@ properties:
         description: The Layout ID for the host type(s) that will be provisioned for the cluster
   server: 
     $ref: clusterServerCreate.yaml
+  lbInstances:
+    type: array
+    description: >-
+      Load balancer virtual servers to create for the cluster once it is provisioned, as the
+      Morpheus UI and CLI send them. An HKS layout that takes a Kubernetes API load balancer (the
+      Hybrid HA layouts) takes one entry, for port 6443. Only entries with `enabled` true are
+      applied.
+    items:
+      $ref: clusterLoadBalancerInstance.yaml
   autoRecoverPowerState:
     type: boolean
     description: Automatically Power on VMs
