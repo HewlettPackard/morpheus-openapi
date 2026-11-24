@@ -4,6 +4,9 @@ post:
     Creates a short-lived lease token for agent websocket access.
 
     The returned `url` and `headers.X-LEASE-TOKEN` are used together to establish the websocket connection.
+    The host in `url` is the server's console host, or its SSH host when no console host is set.
+
+    Returns `404` when the server is not found. Returns `400` when the server has neither a console host nor an SSH host set (no lease is created), or when the agent fails to create the lease.
 
     ### Sample Usage
     ```bash
@@ -115,7 +118,7 @@ post:
                 succes: false
                 message: "Invalid serverId: 999999"
     '400':
-      description: Failed to create lease token
+      description: Server has no console or SSH host set, or failed to create lease token
       content:
         application/json:
           schema:
@@ -133,5 +136,8 @@ post:
               value:
                 success: false
                 message: lease creation failed
+            Missing Host:
+              value:
+                $ref: ../components/examples/leaseTokenMissingHost.json
     '5XX':
       $ref: ../components/responses/5xx.yaml

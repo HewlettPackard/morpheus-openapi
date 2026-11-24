@@ -1,0 +1,4 @@
+{
+  "success": false,
+  "message": "Server 97 has no consoleHost or sshHost set; cannot build lease URL"
+}
