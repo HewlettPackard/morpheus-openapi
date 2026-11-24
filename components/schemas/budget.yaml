@@ -139,6 +139,8 @@ properties:
               description: The budgeted amount for the interval, in the budget's currency.
             cost:
               type: number
+              format: double
+              description: The amount spent in the interval, in the budget's currency.
             startDate:
               type: string
               format: date-time
