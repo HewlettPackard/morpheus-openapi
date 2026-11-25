@@ -12,3 +12,14 @@ properties:
     description: List of backup objects
     items: 
       type: object
+      properties:
+        targetUsername:
+          type:
+            - string
+            - 'null'
+          description: Username used to connect to the backup target.
+        targetPassword:
+          type:
+            - string
+            - 'null'
+          description: Masked as `************` when a target password is set, otherwise `null`.

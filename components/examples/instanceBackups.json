@@ -14,6 +14,7 @@
       },
       "targetPath": "/morpheus/container_789962",
       "targetUsername": null,
+      "targetPassword": null,
       "targetName": null,
       "targetAll": true,
       "sshHost": null,
