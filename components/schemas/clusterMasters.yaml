@@ -229,20 +229,37 @@ properties:
           - string
           - 'null'
       vendor:
-        type: string
+        type:
+          - string
+          - 'null'
       category:
-        type: string
+        type:
+          - string
+          - 'null'
       osFamily:
         type:
           - string
           - 'null'
       osVersion:
-        type: string
+        type:
+          - string
+          - 'null'
       bitCount:
         type: integer
         format: int64
       platform:
         type: string
+      owner:
+        description: The owner of the OS type, or the string `System` for a built-in one.
+        oneOf:
+          - type: string
+          - type: object
+            properties:
+              id:
+                type: integer
+                format: int64
+              name:
+                type: string
   volumes:
     type: array
     items:

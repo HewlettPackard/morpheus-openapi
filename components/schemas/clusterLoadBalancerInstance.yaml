@@ -1,8 +1,11 @@
 type: object
 description: >-
-  A load balancer virtual server to create for the cluster once it is provisioned. These are the
-  entries the Morpheus UI and CLI send with a cluster that takes a load balancer, such as the
-  Kubernetes API load balancer of an HKS Hybrid HA layout (port 6443, protocol tcp).
+  A load balancer virtual server to create for the cluster once it is provisioned, as the
+  Morpheus UI and CLI send it with a cluster that takes a load balancer, such as the Kubernetes
+  API load balancer of an HKS Hybrid HA layout (`vipPort` 6443, protocol tcp). Morpheus stores
+  the entries on the cluster and applies the enabled ones after provisioning; the virtual
+  server's own fields (`vipSticky`, `vipBalance`, `sslRedirectMode`, `vipPortRange`, `poolId`,
+  `monitorId`, ...) are accepted as for any virtual server.
 properties:
   enabled:
     type: boolean
@@ -13,34 +16,45 @@ properties:
     description: >-
       The load balancer to create the virtual server on. The built-in ids `-4` (kube-vip), `-3`
       (Azure) and `-2` (Amazon ELB) have Morpheus create a load balancer of that type with the
-      cluster.
-  loadBalancer:
-    type: object
-    description: The load balancer, by id. `loadBalancerId` takes precedence when both are given.
-    properties:
-      id:
-        type: integer
-        format: int64
+      cluster. When it is absent, `id` is used instead.
+  id:
+    type: integer
+    format: int64
+    description: The load balancer, by id, when `loadBalancerId` is absent.
+  name:
+    type: string
+    description: >-
+      The name of a load balancer Morpheus creates for the cluster (the built-in ids); defaults to
+      the cluster's name with a type suffix. Also the default for `vipName`.
   instanceId:
     type: integer
     format: int64
     description: An existing virtual server to update. Omit it, or send `-1`, to create one.
+  vipPort:
+    type: integer
+    description: The virtual server's port. Without it the virtual server has no port.
   port:
     type: integer
-    description: The virtual server's port. `vipPort` is accepted as well.
+    description: >-
+      The node or service port the entry is keyed on. It is the default for `backendPort`; it is
+      not the virtual server's port, which is `vipPort`.
   backendPort:
     type: integer
     description: The port on the cluster's nodes. Defaults to `port`.
   vipProtocol:
     type: string
-    description: The virtual server's protocol.
-    enum:
-      - tcp
-      - http
-      - https
+    description: >-
+      The virtual server's protocol: `tcp`, `http` or `https` for the built-in and HAProxy types;
+      other load balancer types accept their own values. When it is absent the virtual server has
+      no protocol and is handled as `http` for SSL. `protocol` is accepted as well.
+  protocol:
+    type: string
+    description: The virtual server's protocol, when `vipProtocol` is absent.
   vipAddress:
     type: string
-    description: The virtual IP address. Omit it to lease one from `vipPool`.
+    description: >-
+      The virtual IP address. When `vipPool` is set, an address leased from the pool is used
+      instead.
   vipPool:
     type: integer
     format: int64
@@ -53,10 +67,16 @@ properties:
     description: Whether the virtual server is reachable externally. The strings `on` and `off` are accepted as well.
   vipName:
     type: string
-    description: The virtual server's name. Defaults to the cluster's name.
+    description: The virtual server's name. Defaults to `name`, then to the cluster's name.
   vipHostname:
     type: string
     description: The virtual server's hostname.
+  vipScheme:
+    type: string
+    description: The scheme recorded on a load balancer Morpheus creates for the cluster (the built-in ids).
+  serviceAccess:
+    type: string
+    description: The virtual server's service access setting.
   sslCert:
     type: integer
     format: int64

@@ -194,8 +194,8 @@ properties:
   sshHost:
     type: string
     description: >-
-      One existing host to add, by IP address or name, when a single node is added to a cluster
-      on a Manual layout. `sshHosts` lists several; a cluster's masters and workers are
+      One existing host to add, by IP address, when a single node is added to a cluster on a
+      Manual layout. `sshHosts` lists several; a cluster's masters and workers are
       `sshMasterHosts` and `sshWorkerHosts`.
     example: "127.0.0.4"
   sshMasterHosts:
