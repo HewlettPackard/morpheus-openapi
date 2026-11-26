@@ -148,6 +148,10 @@ put:
                         description: Price Set ID
                 permissions:
                   type: object
+                  description: >-
+                    Applied, with `visibility`, only when the caller owns the plan, or is the master tenant and
+                    the plan has no owner, or the plan is public; otherwise the update succeeds and leaves the
+                    permissions and visibility unchanged.
                   properties:
                     tenantPermissions:
                       type: object
@@ -178,7 +182,9 @@ put:
                             `sites`. The older `allSites` key is read only when true; use `all`.
                         sites:
                           type: array
-                          description: The groups the plan is offered in when `all` is false.
+                          description: >-
+                            The groups the plan is offered in when `all` is false; replaces the current list.
+                            Omitted when `resourcePermissions` is sent, the list is emptied.
                           items:
                             type: object
                             properties:

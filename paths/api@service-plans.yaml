@@ -75,6 +75,9 @@ post:
                   description: >-
                     The region code of the clouds the plan is offered in, for cloud types whose plans are
                     regional (Amazon, Azure, Alibaba, ...). A plan without one is offered in every region.
+                active:
+                  type: boolean
+                  description: Whether the plan is offered; true by default.
                 editable:
                   type: boolean
                   description: >-
