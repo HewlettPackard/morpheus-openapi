@@ -106,7 +106,11 @@ post:
                     oneOf:
                       - type: object
                       - type: string
-                    description: The data written to the key, echoed back — the object itself for an object-mode write (type=object), otherwise the string
+                      - type: 'null'
+                    description: >-
+                      The stored value, read back: an object when the stored value is a JSON object (whichever
+                      mode wrote it), otherwise the string; null when a value that looks like an object cannot
+                      be parsed as one.
                   type:
                     type: string
                     description: Type of data that was written to the key
@@ -122,6 +126,9 @@ post:
             Cypher Response:
               value:
                 $ref: ../components/examples/cypherCreate.json
+            Cypher Object Response:
+              value:
+                $ref: ../components/examples/cypherCreateObject.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
