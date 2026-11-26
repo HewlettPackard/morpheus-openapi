@@ -89,8 +89,8 @@ post:
                     - private
                   description: >-
                     Who can see the plan: `public`, every tenant; `private`, the owning tenant and the tenants in
-                    `permissions.tenantPermissions.accounts`. Defaults to `public` for the master tenant; a
-                    sub-tenant's plans are always `private`.
+                    `permissions.tenantPermissions.accounts`. Defaults to `public` for the master tenant; forced
+                    to `private` on create for a sub-tenant (an update binds it as sent, see the update body).
                 maxStorage:
                   type: integer
                   format: int64
@@ -176,7 +176,7 @@ post:
                           type: array
                           description: >-
                             The tenants that can see the plan when `visibility` is `private`. The response lists
-                            the owning tenant as well.
+                            the tenants, the owning tenant included, to master-tenant callers only.
                           items:
                             type: integer 
                             format: int64
@@ -184,16 +184,15 @@ post:
                     resourcePermissions:
                       type: object
                       description: >-
-                        The groups (sites) the plan is offered in for provisioning and reconfiguring. Omitted on
-                        create, the plan is offered in every group. Send it whenever `tenantPermissions` is sent:
-                        the tenant update removes the owning tenant's permission record, which is recreated from
-                        this object.
+                        The groups (sites) the plan is offered in for provisioning and reconfiguring. The
+                        caller's permission record is created from this object on create; omitted, the plan is
+                        offered in every group.
                       properties:
                         all:
                           type: boolean
                           description: >-
-                            Offer the plan in every group. Omitted on create, true; on update, false (`allSites`
-                            is not read).
+                            Offer the plan in every group. Omitted on create, true. The older `allSites` key is
+                            read only when true; use `all`.
                         sites:
                           type: array
                           description: The groups the plan is offered in when `all` is false.

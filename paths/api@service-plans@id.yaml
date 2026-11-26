@@ -70,7 +70,13 @@ put:
                     - private
                   description: >-
                     Who can see the plan: `public`, every tenant; `private`, the owning tenant and the tenants in
-                    `permissions.tenantPermissions.accounts`.
+                    `permissions.tenantPermissions.accounts`. Bound as sent on an editable plan; on a plan that
+                    is not editable it changes only for the master tenant, on its own or an ownerless plan.
+                active:
+                  type: boolean
+                  description: >-
+                    Whether the plan is offered. Bound on every update, and the one property an update binds on
+                    a plan that is not editable; the activate and deactivate operations set it as well.
                 maxStorage:
                   type: integer
                   format: int64
@@ -150,7 +156,8 @@ put:
                           type: array
                           description: >-
                             The tenants that can see the plan when `visibility` is `private`; replaces the
-                            current list. The response lists the owning tenant as well.
+                            current list. The response lists the tenants, the owning tenant included, to
+                            master-tenant callers only.
                           items:
                             type: integer
                             format: int64
@@ -159,12 +166,16 @@ put:
                       type: object
                       description: >-
                         The groups (sites) the plan is offered in for provisioning and reconfiguring. Send it
-                        whenever `tenantPermissions` is sent: the tenant update removes the owning tenant's
-                        permission record, which is recreated from this object.
+                        whenever `tenantPermissions` is sent: the tenant update removes every permission record
+                        whose tenant is not in the list, the caller's own included, and this object recreates
+                        the caller's record (the owner's, when the owner is updating).
                       properties:
                         all:
                           type: boolean
-                          description: Offer the plan in every group. Omitted, false (`allSites` is not read).
+                          description: >-
+                            Offer the plan in every group. Omitted, the current value is kept (true for a newly
+                            created permission record); send `all: false` explicitly to restrict the plan to
+                            `sites`. The older `allSites` key is read only when true; use `all`.
                         sites:
                           type: array
                           description: The groups the plan is offered in when `all` is false.
