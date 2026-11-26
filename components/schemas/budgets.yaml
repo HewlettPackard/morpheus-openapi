@@ -17,6 +17,17 @@ properties:
         format: int64
       name:
         type: string
+  forecastType:
+    type:
+      - object
+      - 'null'
+    description: Forecast Model type
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   enabled:
     type: boolean
   refScope:
@@ -32,6 +43,7 @@ properties:
     type: string
   year:
     type: string
+    description: The budget year, or `custom` for a budget spanning the explicit `startDate`–`endDate` period.
   resourceType:
     type: string
   timezone:
@@ -46,7 +58,7 @@ properties:
     type: string
   costs:
     type: array
-    description: The budget amount for each interval, in the account's currency (see `currency`); one per month, quarter or year of the period according to `interval`.
+    description: The budget amount for each interval, in `currency`; one per month, quarter or year of the period according to `interval`.
     items:
       type: number
       format: double
@@ -55,13 +67,19 @@ properties:
   averageCost:
     type: number
     format: double
-    description: The mean of `costs`, in the account's currency.
+    description: >-
+      `totalCost` divided by the number of intervals, in `currency`; 0 when there is no total.
   totalCost:
-    type: number
+    type:
+      - number
+      - 'null'
     format: double
-    description: The sum of `costs`, in the account's currency.
+    description: The sum of `costs`, in `currency`; null for a budget with no amounts.
   currency:
     type: string
+    description: >-
+      The currency of the budget's amounts: the account's currency, reported when the budget's
+      statistics are loaded (a single budget, or a listing with `stats=true`); `USD` otherwise.
   rollover:
     type: boolean
   warningLimit:
@@ -99,3 +117,55 @@ properties:
   lastUpdated:
     type: string
     format: date-time
+  stats:
+    type: object
+    properties:
+      currency:
+        type: string
+      conversionRate:
+        type: number
+        format: double
+        description: The rate the costs were converted to `currency` at; 1 when no conversion was needed.
+      intervals:
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: integer
+              format: int64
+            month:
+              type: string
+            shortName:
+              type: string
+            chartName:
+              type: string
+            budget:
+              type: number
+              format: double
+              description: The budgeted amount for the interval, in the budget's currency.
+            cost:
+              type: number
+              format: double
+              description: The amount spent in the interval, in the budget's currency.
+            startDate:
+              type: string
+              format: date-time
+            endDate:
+              type: string
+              format: date-time
+      current:
+        type: object
+        properties:
+          estimatedCost:
+            type:
+              - number
+              - 'null'
+            format: double
+            description: The estimated spend of the current interval, in `currency`, rounded to two decimals; null when there is no invoice data.
+          lastCost:
+            type:
+              - number
+              - 'null'
+            format: double
+            description: The spend of the previous interval, in `currency`, rounded to two decimals; null when there is no invoice data.
