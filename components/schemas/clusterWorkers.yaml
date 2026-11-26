@@ -214,8 +214,35 @@ properties:
         type: string
   serverOs:
     type:
-      - string
+      - object
       - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+      code:
+        type: string
+      name:
+        type: string
+      description:
+        type:
+          - string
+          - 'null'
+      vendor:
+        type: string
+      category:
+        type: string
+      osFamily:
+        type:
+          - string
+          - 'null'
+      osVersion:
+        type: string
+      bitCount:
+        type: integer
+        format: int64
+      platform:
+        type: string
   volumes:
     type: array
     items:

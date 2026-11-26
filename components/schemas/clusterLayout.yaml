@@ -38,6 +38,9 @@ properties:
     type: boolean
   enabled:
     type: boolean
+  offlineSupported:
+    type: boolean
+    description: Whether the layout supports an offline (image server) installation; a cluster created with `config.imageServer` enabled requires it.
   description:
     type: string
   groupType:
