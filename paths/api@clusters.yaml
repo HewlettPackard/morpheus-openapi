@@ -40,7 +40,20 @@ get:
       $ref: ../components/responses/5xx.yaml
 post: 
   summary: Create a Cluster
-  description: This endpoint will create a cluster.
+  description: |
+    This endpoint will create a cluster.
+
+    For HKS layouts, `cluster.packages` can select optional packages and supply
+    YAML overrides for configurable required or optional packages. Use package
+    IDs or codes returned by the cluster layout packages endpoint. A selection
+    without `config` uses the package defaults.
+
+    Invalid package selections or configuration return HTTP 400 before creation,
+    with validation errors under `errors.packages` or `errors["packages[index]"]`.
+    Packages must be enabled Kubernetes packages belonging to the layout.
+    Nonempty package selections require an HKS layout. Conflicting duplicate
+    selections, mismatched IDs and codes, and blank or invalid YAML are rejected.
+    Package selections and overrides are persisted before provisioning is queued.
   operationId: addCluster
   tags: 
     -  Clusters

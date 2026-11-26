@@ -355,3 +355,16 @@ properties:
               type: object
   config:
     type: object
+    properties:
+      selectedOptionalPackageIds:
+        type: array
+        readOnly: true
+        description: >-
+          Optional package IDs explicitly selected during HKS cluster creation.
+          Present when creation supplied packages, including an empty selection.
+          Does not include required packages or an implicitly enabled autoscaler
+          unless the autoscaler was explicitly selected. This is provisioning
+          intent, not installation status.
+        items:
+          type: integer
+          format: int64

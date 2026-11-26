@@ -2,6 +2,14 @@ get:
   summary: List Cluster Layout Packages (Kubernetes)
   description: |
     List cluster layout packages. Optional packages are marked by "required=false". Packages with user customisable config are marked by "configurable=true".
+    Only enabled Kubernetes packages are returned. Optional packages can be
+    selected during cluster creation or installed afterwards.
+    Required membership is determined by package ID, not packageType.
+
+    Requires read, user, or full access to Library > Cluster Layouts
+    (`admin-containers`) or Infrastructure > Clusters (`infrastructure-cluster`).
+    The enabled layout must be global or owned by the current account, and its
+    cluster type must be visible to the user; otherwise HTTP 404 is returned.
   tags:
     - Cluster Layouts
   parameters:

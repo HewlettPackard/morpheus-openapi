@@ -96,8 +96,17 @@ properties:
     format: int64
     description: Optional Workflow Id desired to be run
   packages:
-    type: array
     description: >-
-      Optional list of layout packages to install when provisioning the cluster.
-    items:
-      $ref: clusterPackageSelection.yaml
+      Package selections and configuration overrides for HKS cluster creation.
+      An array is recommended; a single package object is also accepted.
+      Omit this property, pass null, or pass an empty array to retain default
+      installation behavior. Required packages are always installed; optional
+      packages are installed when selected, and autoscaler packages are also
+      included when autoscaling is enabled. Identical duplicate selections are
+      deduplicated; conflicting duplicates are rejected.
+    oneOf:
+      - type: array
+        items:
+          $ref: clusterCreatePackageSelection.yaml
+      - $ref: clusterCreatePackageSelection.yaml
+      - type: 'null'
