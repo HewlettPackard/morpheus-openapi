@@ -84,12 +84,16 @@ properties:
     type: boolean
   warningLimit:
     type:
-      - string
+      - number
       - 'null'
+    format: double
+    description: The percentage of the budget at which to warn.
   overLimit:
     type:
-      - string
+      - number
       - 'null'
+    format: double
+    description: The percentage of the budget by which spend may exceed it.
   externalId:
     type:
       - string
@@ -136,6 +140,17 @@ properties:
               format: int64
             month:
               type: string
+              description: The month, for a monthly budget.
+            quarter:
+              type: string
+              description: The quarter (`q1`…`q4`), for a quarterly budget.
+            quarterName:
+              type: string
+            year:
+              type: string
+              description: The year (`Y1`, `Y2`…), for a yearly budget.
+            shortYear:
+              type: string
             shortName:
               type: string
             chartName:
@@ -148,6 +163,12 @@ properties:
               type: number
               format: double
               description: The amount spent in the interval, in the budget's currency.
+            forecast:
+              type: number
+              format: double
+              description: >-
+                The forecast spend of an interval without actual spend yet (the actual spend where there is
+                some); present when the budget has a forecast model.
             startDate:
               type: string
               format: date-time

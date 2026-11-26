@@ -67,7 +67,7 @@ put:
                     - user
                 period:
                   type: string
-                  default: year
+                  default: month
                 year:
                   oneOf:
                     - type: integer

@@ -12,6 +12,12 @@ get:
     - $ref: ../components/parameters/direction.yaml
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/name.yaml
+    - name: stats
+      in: query
+      required: false
+      description: Load each budget's `stats` (and so its `currency`); slower, off by default.
+      schema:
+        type: boolean
   responses:
     '200':
       description: Successful Request
@@ -69,7 +75,7 @@ post:
                     - user
                 period:
                   type: string
-                  default: year
+                  default: month
                 year:
                   oneOf:
                     - type: integer

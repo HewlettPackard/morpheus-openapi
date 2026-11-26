@@ -137,6 +137,7 @@ post:
                   example: USD
                 cost:
                   type: number
+                  format: double
                   description: Cost
                   example: 10.5
                 markupType:
@@ -148,14 +149,17 @@ post:
                     - custom
                 markup:
                   type: number
+                  format: double
                   description: Amount for `fixed` price adjustment type
                   example: 2.5
                 markupPercent:
                   type: number
+                  format: double
                   description: Percent for `percent` price adjustment type
                   example: 13.5
                 customPrice:
                   type: number
+                  format: double
                   description: Custom price for `custom` price adjustment type
                   example: 12.25
                 platform:
