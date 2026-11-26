@@ -226,11 +226,6 @@ properties:
     type: integer
     format: int64
     description: The port which the worker's SSH server is listening on.
-  sshHost:
-    type:
-      - string
-      - 'null'
-    description: IP address or hostname of an existing host to add to the cluster (used with sshUsername and sshPassword/sshKeyPair, e.g. for HPE VM clusters).
   sshUsername:
     type: string
     description: SSH Username

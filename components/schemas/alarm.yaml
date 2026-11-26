@@ -1,13 +1,111 @@
 type: object
-properties: 
-  id: 
+description: >-
+  An alarm raised against an appliance resource, as `GET /api/health/alarms` lists them. The
+  fields beyond `id` and `name` are what the API renders for each alarm.
+properties:
+  id:
     type: integer
     format: int64
-  name: 
+  name:
     type: string
-  dateCreated: 
+    description: The alarm's message.
+  account:
+    type:
+      - object
+      - 'null'
+    properties:
+      id:
+        type: integer
+        format: int64
+  category:
+    type:
+      - string
+      - 'null'
+    description: The alarm's category; a plugin's alarms carry the plugin's own category, for example `sdn.alarm.<networkServerId>`.
+  notificationType:
+    type:
+      - string
+      - 'null'
+  startDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+    description: When the alarm was raised.
+  endDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+    description: When the alarm was cleared, when it has been.
+  status:
+    type:
+      - string
+      - 'null'
+  statusMessage:
+    type:
+      - string
+      - 'null'
+  causeMessage:
+    type:
+      - string
+      - 'null'
+  ruleType:
+    type:
+      - string
+      - 'null'
+  resolveMessage:
+    type:
+      - string
+      - 'null'
+  active:
+    type:
+      - boolean
+      - 'null'
+  acknowledged:
+    type:
+      - boolean
+      - 'null'
+  acknowledgedDate:
+    type:
+      - string
+      - 'null'
+    format: date-time
+  acknowledgedByUser:
+    type:
+      - string
+      - 'null'
+    description: The display name of the user who acknowledged the alarm.
+  resourceId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  resourceName:
+    type:
+      - string
+      - 'null'
+  refStatus:
+    type:
+      - string
+      - 'null'
+  refName:
+    type:
+      - string
+      - 'null'
+  refType:
+    type:
+      - string
+      - 'null'
+    description: The type of the object the alarm refers to, for example `ComputeZone` or `ComputeServer`.
+  refId:
+    type:
+      - integer
+      - 'null'
+    format: int64
+  dateCreated:
     type: string
     format: date-time
-  lastUpdated: 
+  lastUpdated:
     type: string
     format: date-time

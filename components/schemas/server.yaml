@@ -363,6 +363,22 @@ properties:
         type: string
       name:
         type: string
+  serverGroup:
+    type: object
+    description: >-
+      The cluster the host belongs to, when it belongs to one (an HVM hypervisor, a Kubernetes
+      node). Absent for a host that is not a cluster member.
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  serverGroupMemberStatus:
+    type:
+      - string
+      - 'null'
+    description: The host's status as a member of its cluster, as the cluster reports it (for example `ok` or `maintenance`); null when it is not a member.
   serverOs:
     type:
       - object

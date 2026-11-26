@@ -48,7 +48,10 @@ put:
               $ref: ../components/examples/hostUpdateRequest.json
   responses:
     '200':
-      description: Successful Response
+      description: >-
+        Successful Response. An update the API refuses — invalid labels, an invalid overcommit
+        percentage, an invalid credential — is also returned with this status, as `success: false`
+        with `msg` and `errors` and without `server`.
       content:
         application/json:
           schema:
@@ -58,6 +61,16 @@ put:
                 $ref: ../components/schemas/server.yaml
               stats:
                 type: object
+              success:
+                type: boolean
+                description: Present, and `false`, when the update was refused; absent when it was applied.
+              msg:
+                type: string
+                description: Why the update was refused.
+              errors:
+                type: object
+                description: The refused fields, by name.
+                additionalProperties: true
           examples:
             Hosts Response:
               value:
