@@ -113,7 +113,12 @@ post:
                       be parsed as one.
                   type:
                     type: string
-                    description: Type of data that was written to the key
+                    enum:
+                      - object
+                      - string
+                    description: >-
+                      The type of `data` as returned: `object` when it is an object, otherwise `string` (also
+                      when `data` is null).
                   lease_duration:
                     type:
                       - integer
