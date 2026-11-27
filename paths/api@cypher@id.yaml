@@ -103,9 +103,22 @@ post:
               - type: object
                 properties:
                   data:
-                    type: string
+                    oneOf:
+                      - type: object
+                      - type: string
+                      - type: 'null'
+                    description: >-
+                      The stored value, read back: an object when the stored value is a JSON object (whichever
+                      mode wrote it), otherwise the string; null when a value that looks like an object cannot
+                      be parsed as one.
                   type:
                     type: string
+                    enum:
+                      - object
+                      - string
+                    description: >-
+                      The type of `data` as returned: `object` when it is an object, otherwise `string` (also
+                      when `data` is null).
                   lease_duration:
                     type:
                       - integer
@@ -118,6 +131,9 @@ post:
             Cypher Response:
               value:
                 $ref: ../components/examples/cypherCreate.json
+            Cypher Object Response:
+              value:
+                $ref: ../components/examples/cypherCreateObject.json
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
