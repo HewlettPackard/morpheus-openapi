@@ -55,6 +55,9 @@ post:
           Cluster Request:
             value:
               $ref: ../components/examples/clusterRequest.json
+          Manual layout with an API load balancer:
+            value:
+              $ref: ../components/examples/clusterRequestManualLoadBalancer.json
   responses:
     '200':
       description: Successful Request

@@ -191,6 +191,13 @@ properties:
         name:
           type: string
           description: Host Name
+  sshHost:
+    type: string
+    description: >-
+      One existing host to add, by IP address, when a single node is added to a cluster on a
+      Manual layout. `sshHosts` lists several; a cluster's masters and workers are
+      `sshMasterHosts` and `sshWorkerHosts`.
+    example: "127.0.0.4"
   sshMasterHosts:
     type: string
     description: A string consisting of comma-separated master host IP addresses.
@@ -226,4 +233,15 @@ properties:
   dataDevice:
     type: string
   lvmEnabled:
+    type: string
+    description: >-
+      Whether to put the node's data volume on LVM. The API reads the string `on`; a boolean is
+      not read. LVM is also enabled when the server is given more than one volume.
+    enum:
+      - 'on'
+      - 'off'
+  softwareRaid:
     type: boolean
+    description: >-
+      Whether to configure software RAID on the node. Used by HKS clusters on Manual layouts. The
+      strings `on` and `off` are accepted as well.

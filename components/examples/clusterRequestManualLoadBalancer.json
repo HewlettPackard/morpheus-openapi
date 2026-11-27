@@ -1,0 +1,47 @@
+{
+    "cluster": {
+        "type": "kubernetes-cluster",
+        "group": {
+            "id": 1
+        },
+        "name": "hks-manual",
+        "cloud": {
+            "id": 15
+        },
+        "layout": {
+            "id": 512
+        },
+        "server": {
+            "name": "hks-manual",
+            "plan": {
+                "id": 4,
+                "code": "manual"
+            },
+            "sshUsername": "ubuntu",
+            "sshKeyPair": {
+                "id": 3
+            },
+            "sshMasterHosts": "10.0.0.11,10.0.0.12,10.0.0.13",
+            "sshWorkerHosts": "10.0.0.21,10.0.0.22",
+            "config": {
+                "podCidr": "172.20.0.0/16",
+                "serviceCidr": "172.30.0.0/16",
+                "imageServer": "off"
+            }
+        },
+        "lbInstances": [
+            {
+                "enabled": true,
+                "loadBalancerId": -4,
+                "instanceId": -1,
+                "vipPort": 6443,
+                "port": 6443,
+                "backendPort": 6443,
+                "vipProtocol": "tcp",
+                "vipAddress": "10.0.0.100",
+                "vipShared": false,
+                "externalAddress": false
+            }
+        ]
+    }
+}

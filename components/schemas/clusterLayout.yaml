@@ -38,6 +38,12 @@ properties:
     type: boolean
   enabled:
     type: boolean
+  offlineSupported:
+    type: boolean
+    description: >-
+      Whether the layout supports an offline (image server) installation. Morpheus checks it when a
+      Kubernetes cluster is created on a layout whose provision type adds volumes: `config.imageServer`
+      is rejected if the layout does not support it. Manual layouts are not checked.
   description:
     type: string
   groupType:
