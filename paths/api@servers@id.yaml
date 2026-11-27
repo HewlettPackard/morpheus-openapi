@@ -50,8 +50,8 @@ put:
     '200':
       description: >-
         Successful Response. An update the API refuses — invalid labels, an invalid overcommit
-        percentage, an invalid credential — is also returned with this status, as `success: false`
-        with `msg` and `errors` and without `server`.
+        percentage, an invalid credential — is a `400` with `success: false`, `msg` and the refused
+        fields in `errors`.
       content:
         application/json:
           schema:
@@ -61,16 +61,6 @@ put:
                 $ref: ../components/schemas/server.yaml
               stats:
                 type: object
-              success:
-                type: boolean
-                description: Present, and `false`, when the update was refused; absent when it was applied.
-              msg:
-                type: string
-                description: Why the update was refused.
-              errors:
-                type: object
-                description: The refused fields, by name.
-                additionalProperties: true
           examples:
             Hosts Response:
               value:
@@ -95,11 +85,20 @@ delete:
     - $ref: ../components/parameters/force.yaml
   responses:
     '200':
-      description: Successful Request
+      description: >-
+        Successful Request. When a delete-approval policy applies, the removal is accepted and held
+        rather than performed: `success` is `true`, `msg` is `Pending Delete Approval`, and the host
+        stays until the request is approved in Morpheus.
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/200-success.yaml
+            allOf:
+              - $ref: ../components/schemas/200-success.yaml
+              - type: object
+                properties:
+                  msg:
+                    type: string
+                    description: Set when the removal awaits approval.
     '4XX':
       $ref: ../components/responses/4xx.yaml
     '5XX':
