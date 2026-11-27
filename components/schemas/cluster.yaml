@@ -281,8 +281,10 @@ properties:
         type: integer
         format: int64
       usedCpu:
-        type: integer
-        format: int64
+        type: number
+        description: >-
+          The average CPU usage of the cluster's workers, in percent; the
+          same figure as cpuUsageAvg (0.0 when idle).
       cpuUsage:
         type: number
       cpuUsagePeak:
