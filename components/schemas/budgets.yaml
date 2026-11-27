@@ -17,6 +17,17 @@ properties:
         format: int64
       name:
         type: string
+  forecastType:
+    type:
+      - object
+      - 'null'
+    description: Forecast Model type
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
   enabled:
     type: boolean
   refScope:
@@ -32,6 +43,7 @@ properties:
     type: string
   year:
     type: string
+    description: The budget year, or `custom` for a budget spanning the explicit `startDate`–`endDate` period.
   resourceType:
     type: string
   timezone:
@@ -46,29 +58,42 @@ properties:
     type: string
   costs:
     type: array
+    description: The budget amount for each interval, in `currency`; one per month, quarter or year of the period according to `interval`.
     items:
-      type: integer
-      format: int64
+      type: number
+      format: double
   isFiscal:
     type: boolean
   averageCost:
-    type: integer
-    format: int64
+    type: number
+    format: double
+    description: >-
+      `totalCost` divided by the number of intervals, in `currency`; 0 when there is no total.
   totalCost:
-    type: integer
-    format: int64
+    type:
+      - number
+      - 'null'
+    format: double
+    description: The sum of `costs`, in `currency`; null for a budget with no amounts.
   currency:
     type: string
+    description: >-
+      The currency of the budget's amounts: the account's currency, reported when the budget's
+      statistics are loaded (a single budget, or a listing with `stats=true`); `USD` otherwise.
   rollover:
     type: boolean
   warningLimit:
     type:
-      - string
+      - number
       - 'null'
+    format: double
+    description: The percentage of the budget at which to warn.
   overLimit:
     type:
-      - string
+      - number
       - 'null'
+    format: double
+    description: The percentage of the budget by which spend may exceed it.
   externalId:
     type:
       - string
@@ -96,3 +121,72 @@ properties:
   lastUpdated:
     type: string
     format: date-time
+  stats:
+    type: object
+    properties:
+      currency:
+        type: string
+      conversionRate:
+        type: number
+        format: double
+        description: The rate the costs were converted to `currency` at; 1 when no conversion was needed.
+      intervals:
+        type: array
+        items:
+          type: object
+          properties:
+            index:
+              type: integer
+              format: int64
+            month:
+              type: string
+              description: The month, for a monthly budget.
+            quarter:
+              type: string
+              description: The quarter (`q1`…`q4`), for a quarterly budget.
+            quarterName:
+              type: string
+            year:
+              type: string
+              description: The year (`Y1`, `Y2`…), for a yearly budget.
+            shortYear:
+              type: string
+            shortName:
+              type: string
+            chartName:
+              type: string
+            budget:
+              type: number
+              format: double
+              description: The budgeted amount for the interval, in the budget's currency.
+            cost:
+              type: number
+              format: double
+              description: The amount spent in the interval, in the budget's currency.
+            forecast:
+              type: number
+              format: double
+              description: >-
+                The forecast spend of an interval without actual spend yet (the actual spend where there is
+                some); present when the budget has a forecast model.
+            startDate:
+              type: string
+              format: date-time
+            endDate:
+              type: string
+              format: date-time
+      current:
+        type: object
+        properties:
+          estimatedCost:
+            type:
+              - number
+              - 'null'
+            format: double
+            description: The estimated spend of the current interval, in `currency`, rounded to two decimals; null when there is no invoice data.
+          lastCost:
+            type:
+              - number
+              - 'null'
+            format: double
+            description: The spend of the previous interval, in `currency`, rounded to two decimals; null when there is no invoice data.

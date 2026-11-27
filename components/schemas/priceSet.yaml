@@ -77,10 +77,12 @@ properties:
           type:
             - number
             - 'null'
+          format: double
         customPrice:
           type:
             - number
             - 'null'
+          format: double
         markupType:
           type:
             - string
@@ -89,14 +91,17 @@ properties:
           type:
             - number
             - 'null'
+          format: double
         markupPercent:
           type:
             - number
             - 'null'
+          format: double
         cost:
           type:
             - number
             - 'null'
+          format: double
         currency:
           type:
             - string

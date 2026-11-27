@@ -12,6 +12,12 @@ get:
     - $ref: ../components/parameters/direction.yaml
     - $ref: ../components/parameters/phrase.yaml
     - $ref: ../components/parameters/name.yaml
+    - name: stats
+      in: query
+      required: false
+      description: Load each budget's `stats` (and so its `currency`); slower, off by default.
+      schema:
+        type: boolean
   responses:
     '200':
       description: Successful Request
@@ -63,16 +69,22 @@ post:
                   default: account
                   enum:
                     - account
+                    - tenant
                     - group
                     - cloud
                     - user
                 period:
                   type: string
-                  default: year
+                  default: month
                 year:
-                  type: integer
-                  format: int64
+                  oneOf:
+                    - type: integer
+                      format: int64
+                    - type: string
+                      enum:
+                        - custom
                   example: 2020
+                  description: The budget year, or the string `custom` for a budget spanning an explicit `startDate`–`endDate` period of exactly 1, 2 or 3 whole years.
                 startDate:
                   type: string
                   format: date-time
@@ -108,9 +120,15 @@ post:
                     The Tenant ID to scope to, for use with ``scope``=user
                 costs:
                   type: array
+                  description: >-
+                    The budget amount for each interval of the period, in the account's currency (decimals
+                    allowed), in order — 1 per year, 4 per year for `interval` quarter, 12 per year for month;
+                    a one-element array sets the single amount of a yearly budget. The API also accepts a map
+                    keyed by interval (`year`, `q1`…`q4`, `january`…`december`) or, for a yearly budget, a bare
+                    number.
                   items:
-                    type: integer
-                    format: int64
+                    type: number
+                    format: double
                   example:
                     - 100
                     - 100
