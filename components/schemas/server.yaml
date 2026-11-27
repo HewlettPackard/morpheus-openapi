@@ -378,7 +378,18 @@ properties:
     type:
       - string
       - 'null'
-    description: The host's status as a member of its cluster, as the cluster reports it (for example `ok` or `maintenance`); null when it is not a member.
+    enum:
+      - online
+      - offline
+      - pending
+      - standby
+      - maintenance
+      - unclean
+      - fenced
+      - null
+    description: >-
+      The host's status as a member of its cluster, when the cluster reports one; null when the
+      host is not a member or no membership status is reported.
   serverOs:
     type:
       - object

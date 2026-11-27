@@ -8,8 +8,21 @@ get:
     - $ref: ../components/parameters/clusterId-path.yaml
     - $ref: ../components/parameters/max.yaml
     - $ref: ../components/parameters/offset.yaml
-    - $ref: ../components/parameters/sort.yaml
-    - $ref: ../components/parameters/direction.yaml
+    - name: sort
+      in: query
+      description: The process property to sort by. Entries have no `name`; the default is the start date.
+      schema:
+        type: string
+        default: startDate
+    - name: direction
+      in: query
+      description: Sort direction. The default lists the newest entries first.
+      schema:
+        type: string
+        default: desc
+        enum:
+          - asc
+          - desc
     - $ref: ../components/parameters/phrase.yaml
   responses:
     '200':

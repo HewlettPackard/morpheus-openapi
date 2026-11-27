@@ -75,7 +75,9 @@ properties:
     type:
       - string
       - 'null'
-    description: The display name of the user who acknowledged the alarm.
+    description: >-
+      Who acknowledged the alarm: the id of the Morpheus user, as a string, for an alarm acknowledged in
+      Morpheus; the source system's value for a synced alarm.
   resourceId:
     type:
       - integer

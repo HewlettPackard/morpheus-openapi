@@ -23,13 +23,18 @@ properties:
       - $ref: clusterServerCreateConfigGeneric.yaml
   serverType:
     type: object
-    description: Server type to create, by `id` or `code`.  See `/api/server-types` for available server types for the cloud.
+    description: >-
+      Server type to create, by `id`. See `/api/server-types` for available server types for the
+      cloud. `POST /api/clusters/{clusterId}/servers` also accepts a `code`; cluster creation
+      resolves only the cluster-level server type and requires `id` here.
     properties:
       id:
         type: integer
       code:
         type: string
-        description: The server type's code (for example `hvmKubeWorker` or `mvm`); an alternative to `id`.
+        description: >-
+          The server type's code (for example `hvmKubeWorker` or `mvm`); an alternative to `id` when
+          adding a host with `POST /api/clusters/{clusterId}/servers` only.
   name:
     type: string
     description: Name to be used for host(s) created in the cluster
@@ -37,10 +42,14 @@ properties:
     type:
       - string
       - 'null'
-    description: Optional description for the host being added to the cluster.
+    description: >-
+      Optional description for the host being added with `POST /api/clusters/{clusterId}/servers`;
+      on cluster creation the server takes the cluster's description.
   cloud:
     type: object
-    description: Cloud to place the host in. Defaults to the cluster's cloud when omitted.
+    description: >-
+      Cloud to place the host in, read by `POST /api/clusters/{clusterId}/servers` and defaulting to
+      the cluster's cloud; on cluster creation the cluster-level `cloud` applies.
     properties:
       id:
         type: integer
