@@ -72,14 +72,28 @@ post:
                   description: Service plan description
                 regionCode:
                   type: string
-                  description: Service plan region code
+                  description: >-
+                    The region code of the clouds the plan is offered in, for cloud types whose plans are
+                    regional (Amazon, Azure, Alibaba, ...). A plan without one is offered in every region.
+                active:
+                  type: boolean
+                  description: Whether the plan is offered; true by default.
                 editable:
                   type: boolean
-                  description: Can be used to enable / disable the editability of the service plan.
+                  description: >-
+                    Whether the plan can be edited after it is created. Set on create only: an update ignores
+                    `editable`, and an update of a plan that is not editable changes only `active`, `config`,
+                    `priceSets`, `permissions` and `visibility`; the plan's other properties keep their values.
                   default: true
                 visibility:
                   type: string
-                  description: Can be used to enable / disable the visibility of the service plan, defaults to "public" unless the account is not a masterAccount in which the default is "private"
+                  enum:
+                    - public
+                    - private
+                  description: >-
+                    Who can see the plan: `public`, every tenant; `private`, the owning tenant and the tenants in
+                    `permissions.tenantPermissions.accounts`. Defaults to `public` for the master tenant; forced
+                    to `private` on create for a sub-tenant (an update binds it as sent, see the update body).
                 maxStorage:
                   type: integer
                   format: int64
@@ -163,27 +177,33 @@ post:
                       properties:
                         accounts:
                           type: array
-                          description: List of tenant ID's with permission to view servicePlan when visibility is private.
+                          description: >-
+                            The tenants that can see the plan when `visibility` is `private`. The response lists
+                            the tenants, the owning tenant included, to master-tenant callers only.
                           items:
                             type: integer 
                             format: int64
                             description: ID of the tenant
                     resourcePermissions:
-                      type: object 
-                      description: Group (site) related access to view servicePlan when visibility is private.
+                      type: object
+                      description: >-
+                        The groups (sites) the plan is offered in for provisioning and reconfiguring. The
+                        caller's permission record is created from this object on create; omitted, the plan is
+                        offered in every group.
                       properties:
-                        allSites:
-                          type: boolean 
-                          description: Gives all groups (sites) permission to Provision and Reconfigure with servicePlan.
-                          default: false
+                        all:
+                          type: boolean
+                          description: >-
+                            Offer the plan in every group. Omitted on create, true. The older `allSites` key is
+                            read only when true; use `all`.
                         sites:
                           type: array
-                          description: Group (site) permissions that determines what Groups the Service Plan will be available in for Provisioning and Reconfigure.
+                          description: The groups the plan is offered in when `all` is false.
                           items:
                             type: object
                             properties:
                               id:
-                                type: integer 
+                                type: integer
                                 format: int64
                                 description: Group ID
                 config: 

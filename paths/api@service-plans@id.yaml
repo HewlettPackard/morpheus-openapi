@@ -56,10 +56,27 @@ put:
                     - string
                     - 'null'
                   description: Service plan description; null clears it
-                editable:
+                regionCode:
+                  type:
+                    - string
+                    - 'null'
+                  description: >-
+                    The region code of the clouds the plan is offered in, for cloud types whose plans are
+                    regional (Amazon, Azure, Alibaba, ...); null clears it, offering the plan in every region.
+                visibility:
+                  type: string
+                  enum:
+                    - public
+                    - private
+                  description: >-
+                    Who can see the plan: `public`, every tenant; `private`, the owning tenant and the tenants in
+                    `permissions.tenantPermissions.accounts`. Bound as sent on an editable plan; on a plan that
+                    is not editable it changes only for the master tenant, on its own or an ownerless plan.
+                active:
                   type: boolean
-                  description: Can be used to enable / disable the editability of the service plan.
-                  default: true
+                  description: >-
+                    Whether the plan is offered. Bound on every update, and the one property an update binds on
+                    a plan that is not editable; the activate and deactivate operations set it as well.
                 maxStorage:
                   type: integer
                   format: int64
@@ -93,6 +110,10 @@ put:
                 coresPerSocket:
                   type: integer
                   format: int64
+                maxGpus:
+                  type: integer
+                  format: int64
+                  description: Max number of GPUs
                 customCpu:
                   type: boolean
                   description: Can be used to enable / disable customizable cpu
@@ -125,6 +146,52 @@ put:
                         type: integer
                         format: int64
                         description: Price Set ID
+                permissions:
+                  type: object
+                  description: >-
+                    Applied, with `visibility`, only when the caller owns the plan, or is the master tenant and
+                    the plan has no owner, or the plan is public; otherwise the update succeeds and leaves the
+                    permissions and visibility unchanged.
+                  properties:
+                    tenantPermissions:
+                      type: object
+                      properties:
+                        accounts:
+                          type: array
+                          description: >-
+                            The tenants that can see the plan when `visibility` is `private`; replaces the
+                            current list. The response lists the tenants, the owning tenant included, to
+                            master-tenant callers only.
+                          items:
+                            type: integer
+                            format: int64
+                            description: ID of the tenant
+                    resourcePermissions:
+                      type: object
+                      description: >-
+                        The groups (sites) the plan is offered in for provisioning and reconfiguring. Send it
+                        whenever `tenantPermissions` is sent: the tenant update removes every permission record
+                        whose tenant is not in the list, the caller's own included, and this object recreates
+                        the caller's record (the owner's, when the owner is updating).
+                      properties:
+                        all:
+                          type: boolean
+                          description: >-
+                            Offer the plan in every group. Omitted, the current value is kept (true for a newly
+                            created permission record); send `all: false` explicitly to restrict the plan to
+                            `sites`. The older `allSites` key is read only when true; use `all`.
+                        sites:
+                          type: array
+                          description: >-
+                            The groups the plan is offered in when `all` is false; replaces the current list.
+                            Omitted when `resourcePermissions` is sent, the list is emptied.
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                                format: int64
+                                description: Group ID
                 config: 
                   type: object
                   properties: 
